@@ -1,6 +1,7 @@
 use itertools::Itertools;
 use tree_sitter::Node;
 use super::artel_nodes::*;
+use std::string::String;
 
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
 /// In the future it shoudl return it's own *ArtelProgram* which then should be stringified
@@ -26,6 +27,10 @@ pub fn walk_statements(source: &str, node: &Node, _dbg_ident: usize) -> String {
         if child.kind() == "if_statement" {
             output.push_str(&parse_if_statement(source, child));
             todo!();
+        }
+        if child.kind() == "unary_expression" {
+            output.push_str(&parse_unary_expression(source, child));
+            output.push_str("\n");
         }
     }
     output
@@ -56,7 +61,15 @@ fn parse_binary_expression(source: &str, node: Node) -> String {
 }
 
 fn parse_unary_expression(source: &str, node: Node) -> String {
-    todo!("ну надо сделать, палучаицца");
+    let mut cursor = node.walk();
+
+    let operator = node.children_by_field_name("operator", &mut cursor).next().unwrap();
+    let argument = node.children_by_field_name("argument", &mut cursor).next().unwrap();
+
+    format!("{operator_str}{expr}",
+        operator_str = operator.utf8_text(&source.as_bytes()).unwrap(),
+        expr = parse_expression(source, argument)
+    )
 }
 
 fn parse_lexical_declaration(source: &str, node: Node) -> String {
