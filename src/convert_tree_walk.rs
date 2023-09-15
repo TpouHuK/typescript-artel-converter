@@ -36,6 +36,10 @@ fn parse_expression(source: &str, node: Node, _dbg_ident: usize) -> String {
     }
 }
 
+fn parse_binary_expression(source: &str, node: Node, _dbg_ident: usize) -> String {
+    todo!()
+}
+
 fn parse_lexical_declaration(source: &str, node: Node, _dbg_ident: usize) -> String {
     let mut cursor = node.walk();
 

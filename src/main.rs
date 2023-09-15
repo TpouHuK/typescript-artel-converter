@@ -3,6 +3,7 @@ mod convert_tree_walk;
 mod dbg_tree_walk;
 
 use tree_sitter::Parser;
+use std::env;
 
 use convert_tree_walk::*;
 use dbg_tree_walk::walk_tree_recursively_dbg;
@@ -33,6 +34,10 @@ fn convert_ts(code: &str) -> () {
 }
 
 fn main() {
-    let code = read_example("hello_world.ts");
+    let mut file_name = env::args().nth(1).unwrap();
+    if !file_name.ends_with(".ts") {
+        file_name.push_str(".ts");
+    }
+    let code = read_example(&file_name);
     convert_ts(&code);
 }
