@@ -30,7 +30,7 @@ pub fn walk_statements(source: &str, node: &Node, _dbg_ident: usize) -> String {
         }
         if child.kind() == "unary_expression" {
             output.push_str(&parse_unary_expression(source, child));
-            output.push_str("\n");
+            output.push_str("\n")
         }
     }
     output
@@ -55,9 +55,19 @@ fn parse_binary_expression(source: &str, node: Node) -> String {
     let mut cursor = node.walk();
     let left_node = node.children_by_field_name("left", &mut cursor).next().unwrap();
     let sign = node.children_by_field_name("operator", &mut cursor).next().unwrap();
-    let right_node = node.children_by_field_name("left", &mut cursor).next().unwrap();
+    let right_node = node.children_by_field_name("right", &mut cursor).next().unwrap();
 
-    todo!("ну надо сделать, палучаицца");
+
+    // (may be troubles with sign)
+
+
+
+    format!("{left}{sign}{right}",
+            left = parse_expression(source, left_node),
+            sign = sign.utf8_text(&source.as_bytes()).unwrap(),
+            right = parse_expression(source, right_node)
+    )
+
 }
 
 fn parse_unary_expression(source: &str, node: Node) -> String {
