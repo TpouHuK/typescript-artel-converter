@@ -23,8 +23,16 @@ pub fn walk_statements(source: &str, node: &Node, _dbg_ident: usize) -> String {
             output.push_str(&parse_expression(source, child.child(0).unwrap()));
             output.push_str("\n");
         }
+        if child.kind() == "if_statement" {
+            output.push_str(&parse_if_statement(source, child));
+            todo!();
+        }
     }
     output
+}
+
+fn parse_if_statement(source: &str, child: Node) -> String {
+    todo!()
 }
 
 fn parse_expression(source: &str, node: Node) -> String {
@@ -57,7 +65,7 @@ fn parse_lexical_declaration(source: &str, node: Node) -> String {
     let decl_type = {
         let const_or_let_str = node
             .children_by_field_name("kind", &mut cursor)
-            .next()
+            .nth(0)
             .expect("variable declaration statement was not found")
             .kind();
         AlLexicalDeclType::new(const_or_let_str)
