@@ -15,32 +15,43 @@ pub fn walk_statements(source: &str, node: &Node, _dbg_ident: usize) -> String {
     let mut output = String::new();
     for child in node.named_children(&mut cursor) {
         if child.kind() == "lexical_declaration" {
-            output.push_str(&parse_lexical_declaration(source, child, _dbg_ident+1));
+            output.push_str(&parse_lexical_declaration(source, child));
             output.push_str("\n");
         }
         if child.kind() == "expression_statement" {
             // In the expression statement theres actual expression
-            output.push_str(&parse_expression(source, child.child(0).unwrap(), _dbg_ident+1));
+            output.push_str(&parse_expression(source, child.child(0).unwrap()));
             output.push_str("\n");
         }
     }
     output
 }
 
-fn parse_expression(source: &str, node: Node, _dbg_ident: usize) -> String {
+fn parse_expression(source: &str, node: Node) -> String {
     match node.kind() {
         "number" => node.utf8_text(&source.as_bytes()).unwrap().to_owned(),
         "string" => node.utf8_text(&source.as_bytes()).unwrap().to_owned(),
         "call_expression" => node.utf8_text(&source.as_bytes()).unwrap().to_owned(),
+        "binary_expression" => parse_binary_expression(source, node),
+        "unary_expression" => parse_unary_expression(source, node),
         _ => todo!("ну надо сделать ещё палучаицца"),
     }
 }
 
-fn parse_binary_expression(source: &str, node: Node, _dbg_ident: usize) -> String {
-    todo!()
+fn parse_binary_expression(source: &str, node: Node) -> String {
+    let mut cursor = node.walk();
+    let left_node = node.children_by_field_name("left", &mut cursor).next().unwrap();
+    let sign = node.children_by_field_name("operator", &mut cursor).next().unwrap();
+    let right_node = node.children_by_field_name("left", &mut cursor).next().unwrap();
+
+    todo!("ну надо сделать, палучаицца");
 }
 
-fn parse_lexical_declaration(source: &str, node: Node, _dbg_ident: usize) -> String {
+fn parse_unary_expression(source: &str, node: Node) -> String {
+    todo!("ну надо сделать, палучаицца");
+}
+
+fn parse_lexical_declaration(source: &str, node: Node) -> String {
     let mut cursor = node.walk();
 
     let decl_type = {
@@ -81,7 +92,7 @@ fn parse_lexical_declaration(source: &str, node: Node, _dbg_ident: usize) -> Str
                     .children_by_field_name("value", &mut cursor)
                     .next()
                 {
-                    Some(node) => Some(parse_expression(source, node, _dbg_ident+1)),
+                    Some(node) => Some(parse_expression(source, node)),
                     None => None,
                 }
             };
