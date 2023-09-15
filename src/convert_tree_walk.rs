@@ -5,20 +5,38 @@ use super::artel_nodes::*;
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
 /// In the future it shoudl return it's own *ArtelProgram* which then should be stringified
 /// String for now...
-pub fn walk_tree(source: &str, node: &Node, dbg_ident: usize) -> String {
+pub fn walk_tree(source: &str, node: &Node) -> String {
+    walk_statements(source, node, 0)
+}
+
+pub fn walk_statements(source: &str, node: &Node, _dbg_ident: usize) -> String {
     let mut cursor = node.walk();
 
     let mut output = String::new();
     for child in node.named_children(&mut cursor) {
         if child.kind() == "lexical_declaration" {
-            output.push_str(&parse_lexical_declaration(source, child, dbg_ident));
+            output.push_str(&parse_lexical_declaration(source, child, _dbg_ident+1));
+            output.push_str("\n");
+        }
+        if child.kind() == "expression_statement" {
+            // In the expression statement theres actual expression
+            output.push_str(&parse_expression(source, child.child(0).unwrap(), _dbg_ident+1));
             output.push_str("\n");
         }
     }
     output
 }
 
-pub fn parse_lexical_declaration(source: &str, node: Node, _dbg_ident: usize) -> String {
+fn parse_expression(source: &str, node: Node, _dbg_ident: usize) -> String {
+    match node.kind() {
+        "number" => node.utf8_text(&source.as_bytes()).unwrap().to_owned(),
+        "string" => node.utf8_text(&source.as_bytes()).unwrap().to_owned(),
+        "call_expression" => node.utf8_text(&source.as_bytes()).unwrap().to_owned(),
+        _ => todo!("ну надо сделать ещё палучаицца"),
+    }
+}
+
+fn parse_lexical_declaration(source: &str, node: Node, _dbg_ident: usize) -> String {
     let mut cursor = node.walk();
 
     let decl_type = {
@@ -47,9 +65,7 @@ pub fn parse_lexical_declaration(source: &str, node: Node, _dbg_ident: usize) ->
                     .children_by_field_name("type", &mut cursor)
                     .next()
                     .expect("variable type");
-                let var_type_name = var_type
-                    .children(&mut cursor)
-                    .nth(1)
+                let var_type_name = var_type.child(1)
                     .expect("variable type")
                     .utf8_text(&source.as_bytes())
                     .unwrap();
@@ -61,7 +77,7 @@ pub fn parse_lexical_declaration(source: &str, node: Node, _dbg_ident: usize) ->
                     .children_by_field_name("value", &mut cursor)
                     .next()
                 {
-                    Some(node) => Some(node.utf8_text(&source.as_bytes()).unwrap()),
+                    Some(node) => Some(parse_expression(source, node, _dbg_ident+1)),
                     None => None,
                 }
             };

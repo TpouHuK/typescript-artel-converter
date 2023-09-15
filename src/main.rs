@@ -23,7 +23,7 @@ fn convert_ts(code: &str) -> () {
     dbg!(root.to_sexp());
     walk_tree_recursively_dbg(&code, &root, 0);
 
-    let res = walk_tree(&code, &root, 0);
+    let res = walk_tree(&code, &root);
 
     println!("{code}");
     println!("---");
@@ -33,6 +33,6 @@ fn convert_ts(code: &str) -> () {
 }
 
 fn main() {
-    let code = read_example("multiple_declarations.ts");
+    let code = read_example("hello_world.ts");
     convert_ts(&code);
 }

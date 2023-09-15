@@ -36,3 +36,11 @@ pub struct AlFunctionCall {
     callee: String,         // TODO, can also be expession
     arguments: Vec<String>, // todo: Vec of expression
 }
+
+pub enum AlExpression {
+    Number(AlNumber),
+}
+
+pub struct AlNumber {
+    num: String,
+}
