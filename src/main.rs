@@ -34,7 +34,7 @@ fn convert_ts(code: &str) -> () {
 }
 
 fn main() {
-    let mut file_name = env::args().nth(1).unwrap();
+    let mut file_name = env::args().nth(1).expect("Filename as the first argument");
     if !file_name.ends_with(".ts") {
         file_name.push_str(".ts");
     }

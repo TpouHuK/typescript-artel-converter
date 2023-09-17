@@ -7,10 +7,10 @@ use std::string::String;
 /// In the future it shoudl return it's own *ArtelProgram* which then should be stringified
 /// String for now...
 pub fn walk_tree(source: &str, node: &Node) -> String {
-    walk_statements(source, node, 0)
+    walk_statements(source, node)
 }
 
-pub fn walk_statements(source: &str, node: &Node, _dbg_ident: usize) -> String {
+pub fn walk_statements(source: &str, node: &Node) -> String {
     let mut cursor = node.walk();
 
     let mut output = String::new();
