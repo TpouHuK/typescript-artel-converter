@@ -1,7 +1,7 @@
-use itertools::Itertools;
-use tree_sitter::Node;
 use super::artel_nodes::*;
+use itertools::Itertools;
 use std::string::String;
+use tree_sitter::Node;
 
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
 /// In the future it shoudl return it's own *ArtelProgram* which then should be stringified
@@ -53,30 +53,42 @@ fn parse_expression(source: &str, node: Node) -> String {
 
 fn parse_binary_expression(source: &str, node: Node) -> String {
     let mut cursor = node.walk();
-    let left_node = node.children_by_field_name("left", &mut cursor).next().unwrap();
-    let sign = node.children_by_field_name("operator", &mut cursor).next().unwrap();
-    let right_node = node.children_by_field_name("right", &mut cursor).next().unwrap();
-
+    let left_node = node
+        .children_by_field_name("left", &mut cursor)
+        .next()
+        .unwrap();
+    let sign = node
+        .children_by_field_name("operator", &mut cursor)
+        .next()
+        .unwrap();
+    let right_node = node
+        .children_by_field_name("right", &mut cursor)
+        .next()
+        .unwrap();
 
     // (may be troubles with sign)
-
-
-
-    format!("{left}{sign}{right}",
-            left = parse_expression(source, left_node),
-            sign = sign.utf8_text(&source.as_bytes()).unwrap(),
-            right = parse_expression(source, right_node)
+    format!(
+        "{left} {sign} {right}",
+        left = parse_expression(source, left_node),
+        sign = sign.utf8_text(&source.as_bytes()).unwrap(),
+        right = parse_expression(source, right_node)
     )
-
 }
 
 fn parse_unary_expression(source: &str, node: Node) -> String {
     let mut cursor = node.walk();
 
-    let operator = node.children_by_field_name("operator", &mut cursor).next().unwrap();
-    let argument = node.children_by_field_name("argument", &mut cursor).next().unwrap();
+    let operator = node
+        .children_by_field_name("operator", &mut cursor)
+        .next()
+        .unwrap();
+    let argument = node
+        .children_by_field_name("argument", &mut cursor)
+        .next()
+        .unwrap();
 
-    format!("{operator_str}{expr}",
+    format!(
+        "{operator_str}{expr}",
         operator_str = operator.utf8_text(&source.as_bytes()).unwrap(),
         expr = parse_expression(source, argument)
     )
@@ -111,7 +123,8 @@ fn parse_lexical_declaration(source: &str, node: Node) -> String {
                     .children_by_field_name("type", &mut cursor)
                     .next()
                     .expect("variable type");
-                let var_type_name = var_type.child(1)
+                let var_type_name = var_type
+                    .child(1)
                     .expect("variable type")
                     .utf8_text(&source.as_bytes())
                     .unwrap();

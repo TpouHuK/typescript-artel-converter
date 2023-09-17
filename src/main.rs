@@ -2,8 +2,8 @@ mod artel_nodes;
 mod convert_tree_walk;
 mod dbg_tree_walk;
 
-use tree_sitter::Parser;
 use std::env;
+use tree_sitter::Parser;
 
 use convert_tree_walk::*;
 use dbg_tree_walk::walk_tree_recursively_dbg;
