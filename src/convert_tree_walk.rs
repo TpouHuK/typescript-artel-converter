@@ -3,6 +3,7 @@ use itertools::Itertools;
 use std::string::String;
 use tree_sitter::Node;
 
+
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
 /// In the future it shoudl return it's own *ArtelProgram* which then should be stringified
 /// String for now...
@@ -413,7 +414,7 @@ fn parse_lexical_declaration(source: &str, node: &Node) -> String {
             .child_by_field_name("kind")
             .expect("variable declaration statement was not found")
             .kind();
-        AlLexicalDeclType::new(const_or_let_str)
+        ArtelLexicalDeclarationType::new(const_or_let_str)
     };
 
     let mut al_declarations = Vec::<String>::new();
