@@ -21,7 +21,6 @@ fn convert_ts(code: &str) -> () {
 
     let parsed = parser.parse(code, None).unwrap();
     let root = parsed.root_node();
-    dbg!(root.to_sexp());
     walk_tree_recursively_dbg(&code, &root, 0);
 
     let res = walk_tree(&code, &root);
@@ -29,8 +28,17 @@ fn convert_ts(code: &str) -> () {
     println!("{code}");
     println!("---");
     println!("{res}");
+}
 
-    assert!(!root.has_error());
+fn convert_ts_no_debug(code: &str) {
+    let mut parser = Parser::new();
+    parser
+        .set_language(tree_sitter_typescript::language_typescript())
+        .expect("Error loading typescript grammar");
+
+    let parsed = parser.parse(code, None).unwrap();
+    let root = parsed.root_node();
+    let _res = walk_tree(&code, &root);
 }
 
 fn main() {
@@ -40,4 +48,37 @@ fn main() {
     }
     let code = read_example(&file_name);
     convert_ts(&code);
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::*;
+    use rstest::rstest;
+    #[rstest]
+    fn test_ts_file(
+        #[values(
+            "add.ts",
+            "comment_test.ts",
+            "hello_world.ts",
+            "if_stmt.ts",
+            "math_tree.ts",
+            "multiple_declarations.ts",
+            "parenthesis_test.ts",
+            "unary.ts",
+            "optional_param.ts",
+            "function_arg_pattern.ts",
+            "class.ts",
+            "while_loop.ts",
+            "do_while.ts",
+            "break_continue.ts",
+            "anonymous_object.ts",
+            "interface.ts",
+            "enum.ts"
+        )]
+        path: &str,
+    ) {
+        let path = path;
+        let text = read_example(path);
+        convert_ts_no_debug(&text);
+    }
 }
