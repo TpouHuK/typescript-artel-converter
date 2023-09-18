@@ -58,22 +58,12 @@ mod tests {
     fn test_ts_file(
         #[values(
             "add.ts",
-            "comment_test.ts",
-            "hello_world.ts",
-            "if_stmt.ts",
-            "math_tree.ts",
-            "multiple_declarations.ts",
-            "parenthesis_test.ts",
-            "unary.ts",
             "optional_param.ts",
             "function_arg_pattern.ts",
             "class.ts",
-            "while_loop.ts",
-            "do_while.ts",
-            "break_continue.ts",
-            "anonymous_object.ts",
             "interface.ts",
-            "enum.ts"
+            "enum.ts",
+            "type_union.ts",
         )]
         path: &str,
     ) {

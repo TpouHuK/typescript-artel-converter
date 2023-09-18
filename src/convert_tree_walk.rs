@@ -47,7 +47,6 @@ fn parse_type_alias_declaration(source: &str, node: &Node) -> String {
         .utf8_text(source.as_bytes())
         .unwrap();
 
-
     todo!()
 }
 
