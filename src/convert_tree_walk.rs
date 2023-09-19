@@ -21,7 +21,10 @@ pub fn parse_statement(source: &str, node: &Node) -> String {
         "expression_statement" => parse_expression(source, &node.named_child(0).unwrap()),
         "if_statement" => parse_if_statement(source, node),
         "statement_block" => parse_statement_block(source, node),
-        "function_declaration" => parse_function_declaration(source, node),
+        "function_declaration" => {
+            parse_function_declaration(source, node);
+            "todo".to_owned()
+        }
         "return_statement" => parse_return_statement(source, node),
         "class_declaration" => parse_class_declaration(source, node),
         "comment" => node.utf8_text(&source.as_bytes()).unwrap().to_owned(),
@@ -32,6 +35,14 @@ pub fn parse_statement(source: &str, node: &Node) -> String {
         "enum_declaration" => parse_enum_declaration(source, node),
         "type_alias_declaration" => {
             parse_type_alias_declaration(source, node);
+            "todo".to_owned()
+        }
+        "export_statement" => {
+            let declaration = node.child_by_field_name("declaration").unwrap();
+            parse_statement(source, &declaration)
+        }
+        "interface_declaration" => {
+
             "todo".to_owned()
         }
         _ => {
@@ -62,96 +73,29 @@ fn parse_type_alias_declaration(source: &str, node: &Node) -> ArtelTypeAliasDecl
         let Some(parameters_node) = node.child_by_field_name("type_parameters") else {
             break 'type_params Vec::new();
         };
-
-        let mut vec = Vec::new();
-        let mut cursor = parameters_node.walk();
-        for type_param in parameters_node.named_children(&mut cursor) {
-            let type_param_name = type_param.child_by_field_name("name").unwrap();
-            let type_param_name_str = type_param_name.utf8_text(source.as_bytes()).unwrap();
-            let ident = ArtelIdentifier::new(type_param_name_str);
-            assert_eq!(
-                type_param.child_by_field_name("contraint"),
-                None,
-                "constraints in type parameters are not supported"
-            );
-            vec.push(ArtelTypeParameter::new(ident, None));
-        }
-        vec
+        parse_type_parameters(source, &parameters_node)
     };
 
-    let alias = ArtelTypeReference::new(type_identifier, type_parameters);
+    let alias = type_identifier;
     let value = node.child_by_field_name("value").unwrap();
-    let mut cursor = value.walk();
+    let value = parse_type(source, &value);
 
-    //let type_union_vec = Vec::new();
-    let mut vec = Vec::new();
-    fn parse_value(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) {
-        match node.kind() {
-            "type_identifier" => {
-                let name = node.utf8_text(source.as_bytes()).unwrap();
-                let r#type = ArtelPrimaryType::TypeReference(ArtelTypeReference::new(
-                    ArtelIdentifier::new(name),
-                    Vec::new(),
-                ));
-                vec.push(r#type);
-            }
-            "predefined_type" => {
-                let predefined_type_str = node.utf8_text(source.as_bytes()).unwrap();
-                let r#type = ArtelPrimaryType::PredefinedType(predefined_type_str.into());
-                vec.push(r#type);
-            }
-            "union_type" => {
-                let mut cursor = node.walk();
-                for child in node.named_children(&mut cursor) {
-                    parse_value(source, &child, vec);
-                }
-            }
-            "literal_type" => {
-                let node = node.named_child(0).unwrap();
-                let r#type = match node.kind() {
-                    "string" => {
-                        let string_fragment = node
-                            .named_child(0)
-                            .unwrap()
-                            .utf8_text(source.as_bytes())
-                            .unwrap();
-                        ArtelLiteralType::String(string_fragment.to_owned())
-                    }
-                    "number" => {
-                        let number = node.utf8_text(source.as_bytes()).unwrap();
-                        ArtelLiteralType::Number(number.to_owned())
-                    }
-                    "null" => ArtelLiteralType::Null,
-                    "true" => ArtelLiteralType::Boolean(true),
-                    "false" => ArtelLiteralType::Boolean(false),
-                    "undefined" => ArtelLiteralType::Undefined,
-                    _ => {
-                        unreachable!()
-                    }
-                };
-                vec.push(ArtelPrimaryType::LiteralType(r#type));
-            }
-            "generic_type" => {
-                let name = node.utf8_text(source.as_bytes()).unwrap().to_owned();
-            }
-            _ => {
-                unimplemented!("{} is not implemented", node.kind())
-            }
-        };
-    }
-    parse_value(source, &value, &mut vec);
-
-    assert!(!vec.is_empty());
-    let value = if vec.len() == 1 {
-        ArtelType::PrimaryType(vec.pop().unwrap())
-    } else {
-        ArtelType::Union(vec)
-    };
-
-    dbg!(ArtelTypeAliasDeclaration::new(alias, value))
+    dbg!(ArtelTypeAliasDeclaration::new(
+        alias,
+        type_parameters,
+        value
+    ))
 }
 
 fn parse_type(source: &str, node: &Node) -> ArtelType {
+    let _temp;
+    let node = if node.kind() == "type_annotation" {
+        _temp = node.named_child(0).unwrap();
+        &_temp
+    } else {
+        node
+    };
+
     let mut vec = Vec::new();
     parse_type_inner(source, node, &mut vec);
 
@@ -161,6 +105,32 @@ fn parse_type(source: &str, node: &Node) -> ArtelType {
     } else {
         ArtelType::Union(vec)
     }
+}
+
+fn parse_type_parameters(source: &str, parameters_node: &Node) -> Vec<ArtelTypeParameter> {
+    let mut vec = Vec::new();
+    let mut cursor = parameters_node.walk();
+    for type_param in parameters_node.named_children(&mut cursor) {
+        let type_param_name = type_param.child_by_field_name("name").unwrap();
+        let type_param_name_str = type_param_name.utf8_text(source.as_bytes()).unwrap();
+        let param_identfier = ArtelIdentifier::new(type_param_name_str);
+
+        let constraint = 'constraint: {
+            let Some(constraint) = type_param.child_by_field_name("constraint") else { break 'constraint None };
+            Some(parse_type(source, &constraint.named_child(0).unwrap()))
+        };
+        let default = 'default: {
+            let Some(constraint) = type_param.child_by_field_name("value") else { break 'default None };
+            Some(parse_type(source, &constraint.named_child(0).unwrap()))
+        };
+
+        vec.push(ArtelTypeParameter::new(
+            param_identfier,
+            constraint,
+            default,
+        ));
+    }
+    vec
 }
 
 fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) {
@@ -213,12 +183,16 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
             let name = node.utf8_text(source.as_bytes()).unwrap().to_owned();
             let generic_params = node.child_by_field_name("type_arguments").unwrap();
             let mut cursor = generic_params.walk();
-            let mut vec = Vec::new();
+            let mut vec2 = Vec::new();
             for generic_param in generic_params.named_children(&mut cursor) {
-                vec.push(parse_type(source, &generic_param));
+                vec2.push(parse_type(source, &generic_param));
             }
-            //let type = vec.push(value)
+            vec.push(ArtelPrimaryType::TypeReference(ArtelTypeReference::new(
+                ArtelIdentifier::new(name),
+                vec2,
+            )));
         }
+        "index_type_query" => vec.push(ArtelPrimaryType::UnsupportedAny),
         _ => {
             unimplemented!("{} is not implemented", node.kind())
         }
@@ -413,50 +387,83 @@ fn parse_return_statement(source: &str, node: &Node) -> String {
     format!("возврат {expression_str}")
 }
 
-fn parse_function_declaration(source: &str, node: &Node) -> String {
-    let name_str = node
-        .child_by_field_name("name")
-        .expect("No function name")
-        .utf8_text(&source.as_bytes())
-        .unwrap();
-    let parameters = node.child_by_field_name("parameters").unwrap();
+fn parse_function_declaration(source: &str, node: &Node) -> ArtelFunctionDeclaration {
+    let name_ident = {
+        let name_str = node
+            .child_by_field_name("name")
+            .expect("No function name")
+            .utf8_text(&source.as_bytes())
+            .unwrap();
+        ArtelIdentifier::new(name_str)
+    };
 
+    let type_parameters = 'type_parameters: {
+        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+        parse_type_parameters(source, &parameters_node)
+    };
+
+    let parameters = node.child_by_field_name("parameters").unwrap();
     let mut cursor = parameters.walk();
 
-    let mut arguments = Vec::new();
+    let mut arguments = Vec::<ArtelFunctionArgument>::new();
+
     for param in parameters.named_children(&mut cursor) {
+        let arg_name = {
+            let arg_name_str = param
+                .child_by_field_name("pattern")
+                .unwrap()
+                .utf8_text(&source.as_bytes())
+                .unwrap();
+            ArtelIdentifier::new(arg_name_str)
+        };
+
+        let mut arg_type = param.child_by_field_name("type").map_or(
+            ArtelType::PrimaryType(ArtelPrimaryType::UnsupportedAny),
+            |arg_type| parse_type(source, &arg_type),
+        );
+
         if param.kind() == "optional_parameter" {
-            unimplemented!("optional_parameter");
+            arg_type = match arg_type {
+                ArtelType::PrimaryType(prim_type) => ArtelType::Union(vec![
+                    prim_type,
+                    ArtelPrimaryType::LiteralType(ArtelLiteralType::Undefined),
+                ]),
+                ArtelType::Union(mut vec) => {
+                    vec.push(ArtelPrimaryType::LiteralType(ArtelLiteralType::Undefined));
+                    ArtelType::Union(vec)
+                }
+            };
         }
-        let arg_name = param
-            .child_by_field_name("pattern")
-            .unwrap()
-            .utf8_text(&source.as_bytes())
-            .unwrap();
-        let arg_type = param
-            .child_by_field_name("type")
-            .unwrap()
-            .named_child(0)
-            .unwrap()
-            .utf8_text(&source.as_bytes())
-            .unwrap();
 
-        let value = param.child_by_field_name("value");
-        let value_str = value.map(|v| parse_expression(&source, &v));
+        let default_value = 'default_value: {
+            let Some(value) = param.child_by_field_name("value") else { break 'default_value None };
+            let value_str = value.utf8_text(source.as_bytes()).unwrap().to_owned();
+            Some(ArtelExpression(value_str)) // TODO, expression parsing
+        };
 
-        arguments.push(if let Some(value_str) = value_str {
-            format!("{arg_name}: {arg_type} = {value_str}")
-        } else {
-            format!("{arg_name}: {arg_type}")
-        });
+        arguments.push(ArtelFunctionArgument::new(
+            arg_name,
+            arg_type,
+            default_value,
+        ));
     }
 
-    let body = node.child_by_field_name("body").unwrap();
-    assert_eq!(body.kind(), "statement_block");
-    let body_str = parse_statement_block(source, &body);
+    let return_type = 'return_type: {
+        let Some(return_type) = node.child_by_field_name("return_type") else { break 'return_type None };
+        Some(parse_type(source, &return_type))
+    };
 
-    let arguments_str = arguments.join(", ");
-    format!("операция {name_str}({arguments_str})\n{body_str}")
+    // let body = node.child_by_field_name("body").unwrap();
+    // assert_eq!(body.kind(), "statement_block");
+    // let body_str = parse_statement_block(source, &body);
+    // no body for now
+
+    dbg!(ArtelFunctionDeclaration::new(
+        name_ident,
+        type_parameters,
+        arguments,
+        return_type
+    ))
 }
 
 fn parse_statement_block(source: &str, child: &Node) -> String {

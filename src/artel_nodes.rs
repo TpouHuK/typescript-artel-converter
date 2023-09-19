@@ -1,6 +1,13 @@
 #[derive(Debug)]
-pub enum ArtelProgram {
-    LexicalDeclaration(AlLexicalDeclaration),
+pub struct ArtelProgram(ArtelStatement);
+
+type ArtelStatements = Vec<ArtelStatement>;
+
+#[derive(Debug)]
+pub enum ArtelStatement {
+    LexicalDeclaration(ArtelLexicalDeclaration),
+    FunctionDeclaration(ArtelFunctionDeclaration),
+    ExportStatement(Box<ArtelStatement>),
 }
 
 #[derive(Debug)]
@@ -26,6 +33,7 @@ pub enum ArtelType {
 
 #[derive(Debug)]
 pub enum ArtelPrimaryType {
+    UnsupportedAny,
     LiteralType(ArtelLiteralType),
     PredefinedType(ArtelPredefinedType),
     TypeReference(ArtelTypeReference),
@@ -34,6 +42,9 @@ pub enum ArtelPrimaryType {
     TupleType(Vec<ArtelType>),
     //TypeQuery, IDK, todo?
 }
+
+/// Stuff in the `<`` >` brackets, when not specified, like <T, A>
+type ArtelGenericParams = Vec<ArtelTypeParameter>;
 
 #[derive(Debug)]
 pub enum ArtelLiteralType {
@@ -51,6 +62,7 @@ pub enum ArtelPredefinedType {
     Boolean,
     String,
     Void,
+    Object,
 }
 
 impl<T> From<T> for ArtelPredefinedType
@@ -64,6 +76,7 @@ where
             "boolean" => ArtelPredefinedType::Boolean,
             "string" => ArtelPredefinedType::String,
             "void" => ArtelPredefinedType::Void,
+            "object" => ArtelPredefinedType::Object,
             _ => unreachable!(),
         }
     }
@@ -88,25 +101,40 @@ impl ArtelTypeReference {
 pub struct ArtelTypeParameter {
     indentifier: ArtelIdentifier,
     constraint: Option<ArtelType>,
+    default: Option<ArtelType>,
+}
+
+impl ArtelTypeParameter {
+    pub fn new(
+        indentifier: ArtelIdentifier,
+        constraint: Option<ArtelType>,
+        default: Option<ArtelType>,
+    ) -> Self {
+        Self {
+            indentifier,
+            constraint,
+            default,
+        }
+    }
 }
 
 #[derive(Debug)]
 pub struct ArtelTypeAliasDeclaration {
-    alias: ArtelTypeReference,
+    alias: ArtelIdentifier,
+    generic_params: ArtelGenericParams,
     value: ArtelType,
 }
 
 impl ArtelTypeAliasDeclaration {
-    pub fn new(alias: ArtelTypeReference, value: ArtelType) -> Self {
-        Self { alias, value }
-    }
-}
-
-impl ArtelTypeParameter {
-    pub fn new(indentifier: ArtelIdentifier, constraint: Option<ArtelType>) -> Self {
+    pub fn new(
+        alias: ArtelIdentifier,
+        generic_params: ArtelGenericParams,
+        value: ArtelType,
+    ) -> Self {
         Self {
-            indentifier,
-            constraint,
+            alias,
+            generic_params,
+            value,
         }
     }
 }
@@ -135,7 +163,52 @@ impl ArtelLexicalDeclarationType {
 }
 
 #[derive(Debug)]
-pub struct AlLexicalDeclaration {
+pub struct ArtelFunctionArgument {
+    name: ArtelIdentifier,
+    r#type: ArtelType,
+    default_value: Option<ArtelExpression>,
+}
+
+impl ArtelFunctionArgument {
+    pub fn new(
+        name: ArtelIdentifier,
+        r#type: ArtelType,
+        default_value: Option<ArtelExpression>,
+    ) -> Self {
+        Self {
+            name,
+            r#type,
+            default_value,
+        }
+    }
+}
+
+#[derive(Debug)]
+pub struct ArtelFunctionDeclaration {
+    name: ArtelIdentifier,
+    generic_params: ArtelGenericParams,
+    arguments: Vec<ArtelFunctionArgument>,
+    return_type: Option<ArtelType>,
+}
+
+impl ArtelFunctionDeclaration {
+    pub fn new(
+        name: ArtelIdentifier,
+        generic_params: ArtelGenericParams,
+        arguments: Vec<ArtelFunctionArgument>,
+        return_type: Option<ArtelType>,
+    ) -> Self {
+        Self {
+            name,
+            generic_params,
+            arguments,
+            return_type,
+        }
+    }
+}
+
+#[derive(Debug)]
+pub struct ArtelLexicalDeclaration {
     decl_type: ArtelLexicalDeclarationType,
     ident: String,
     var_type: ArtelType, // TODO: var_type
@@ -149,9 +222,7 @@ pub struct AlFunctionCall {
 }
 
 #[derive(Debug)]
-pub enum AlExpression {
-    Number(AlNumber),
-}
+pub struct ArtelExpression(pub String);
 
 #[derive(Debug)]
 pub struct AlNumber {

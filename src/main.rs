@@ -66,7 +66,11 @@ mod tests {
             "type_union.ts",
             "type_builtin.ts",
             "type_alias.ts",
-            "type_undefined.ts"
+            "type_undefined.ts",
+            "type_generic.ts",
+            "type_default_generic.ts",
+            "keyof.ts",
+            "export.ts,"
         )]
         path: &str,
     ) {
