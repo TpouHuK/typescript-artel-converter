@@ -7,6 +7,7 @@ edition = "2021"
 
 [dependencies]
 itertools = "0.11.0"
+newtype_derive = "0.1.6"
 rstest = "0.18.2"
 tree-sitter = "0.20.10"
 tree-sitter-typescript = "0.20.2"

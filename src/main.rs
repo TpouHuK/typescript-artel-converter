@@ -64,6 +64,9 @@ mod tests {
             "interface.ts",
             "enum.ts",
             "type_union.ts",
+            "type_builtin.ts",
+            "type_alias.ts",
+            "type_undefined.ts"
         )]
         path: &str,
     ) {

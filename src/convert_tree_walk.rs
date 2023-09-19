@@ -1,8 +1,6 @@
 use super::artel_nodes::*;
-use itertools::Itertools;
 use std::string::String;
 use tree_sitter::Node;
-
 
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
 /// In the future it shoudl return it's own *ArtelProgram* which then should be stringified
@@ -18,7 +16,7 @@ pub fn walk_tree(source: &str, node: &Node) -> String {
 }
 
 pub fn parse_statement(source: &str, node: &Node) -> String {
-    let mut output = match node.kind() {
+    let output = match node.kind() {
         "lexical_declaration" => parse_lexical_declaration(source, node),
         "expression_statement" => parse_expression(source, &node.named_child(0).unwrap()),
         "if_statement" => parse_if_statement(source, node),
@@ -32,7 +30,10 @@ pub fn parse_statement(source: &str, node: &Node) -> String {
         "break_statement" => String::from("прервать цикл"),
         "continue_statement" => String::from("продолжить цикл"),
         "enum_declaration" => parse_enum_declaration(source, node),
-        "type_alias_declaration" => parse_type_alias_declaration(source, node),
+        "type_alias_declaration" => {
+            parse_type_alias_declaration(source, node);
+            "todo".to_owned()
+        }
         _ => {
             unimplemented!("{} is unimplemented", node.kind())
         }
@@ -41,14 +42,187 @@ pub fn parse_statement(source: &str, node: &Node) -> String {
     output
 }
 
-fn parse_type_alias_declaration(source: &str, node: &Node) -> String {
-    let name_str = node
-        .child_by_field_name("type_identifier")
-        .unwrap()
-        .utf8_text(source.as_bytes())
-        .unwrap();
+fn parse_type_alias_declaration(source: &str, node: &Node) -> ArtelTypeAliasDeclaration {
+    //  type `name_str``<type_args>` = `value`
+    //  for ex:
+    //      type NetworkState<T> = NetworkLoadingState | NetworkFailedState | NetworkSuccessState
+    //      `name_str` = NetworkState
+    //      `type_args` = <T>
+    //      `value` = NetworkLoadingState | NetworkFailedState | NetworkSuccessState
+    let type_identifier = {
+        let name_str = node
+            .child_by_field_name("name")
+            .unwrap()
+            .utf8_text(source.as_bytes())
+            .unwrap();
+        ArtelIdentifier::new(name_str)
+    };
 
-    todo!()
+    let type_parameters = 'type_params: {
+        let Some(parameters_node) = node.child_by_field_name("type_parameters") else {
+            break 'type_params Vec::new();
+        };
+
+        let mut vec = Vec::new();
+        let mut cursor = parameters_node.walk();
+        for type_param in parameters_node.named_children(&mut cursor) {
+            let type_param_name = type_param.child_by_field_name("name").unwrap();
+            let type_param_name_str = type_param_name.utf8_text(source.as_bytes()).unwrap();
+            let ident = ArtelIdentifier::new(type_param_name_str);
+            assert_eq!(
+                type_param.child_by_field_name("contraint"),
+                None,
+                "constraints in type parameters are not supported"
+            );
+            vec.push(ArtelTypeParameter::new(ident, None));
+        }
+        vec
+    };
+
+    let alias = ArtelTypeReference::new(type_identifier, type_parameters);
+    let value = node.child_by_field_name("value").unwrap();
+    let mut cursor = value.walk();
+
+    //let type_union_vec = Vec::new();
+    let mut vec = Vec::new();
+    fn parse_value(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) {
+        match node.kind() {
+            "type_identifier" => {
+                let name = node.utf8_text(source.as_bytes()).unwrap();
+                let r#type = ArtelPrimaryType::TypeReference(ArtelTypeReference::new(
+                    ArtelIdentifier::new(name),
+                    Vec::new(),
+                ));
+                vec.push(r#type);
+            }
+            "predefined_type" => {
+                let predefined_type_str = node.utf8_text(source.as_bytes()).unwrap();
+                let r#type = ArtelPrimaryType::PredefinedType(predefined_type_str.into());
+                vec.push(r#type);
+            }
+            "union_type" => {
+                let mut cursor = node.walk();
+                for child in node.named_children(&mut cursor) {
+                    parse_value(source, &child, vec);
+                }
+            }
+            "literal_type" => {
+                let node = node.named_child(0).unwrap();
+                let r#type = match node.kind() {
+                    "string" => {
+                        let string_fragment = node
+                            .named_child(0)
+                            .unwrap()
+                            .utf8_text(source.as_bytes())
+                            .unwrap();
+                        ArtelLiteralType::String(string_fragment.to_owned())
+                    }
+                    "number" => {
+                        let number = node.utf8_text(source.as_bytes()).unwrap();
+                        ArtelLiteralType::Number(number.to_owned())
+                    }
+                    "null" => ArtelLiteralType::Null,
+                    "true" => ArtelLiteralType::Boolean(true),
+                    "false" => ArtelLiteralType::Boolean(false),
+                    "undefined" => ArtelLiteralType::Undefined,
+                    _ => {
+                        unreachable!()
+                    }
+                };
+                vec.push(ArtelPrimaryType::LiteralType(r#type));
+            }
+            "generic_type" => {
+                let name = node.utf8_text(source.as_bytes()).unwrap().to_owned();
+            }
+            _ => {
+                unimplemented!("{} is not implemented", node.kind())
+            }
+        };
+    }
+    parse_value(source, &value, &mut vec);
+
+    assert!(!vec.is_empty());
+    let value = if vec.len() == 1 {
+        ArtelType::PrimaryType(vec.pop().unwrap())
+    } else {
+        ArtelType::Union(vec)
+    };
+
+    dbg!(ArtelTypeAliasDeclaration::new(alias, value))
+}
+
+fn parse_type(source: &str, node: &Node) -> ArtelType {
+    let mut vec = Vec::new();
+    parse_type_inner(source, node, &mut vec);
+
+    assert!(!vec.is_empty());
+    if vec.len() == 1 {
+        ArtelType::PrimaryType(vec.pop().unwrap())
+    } else {
+        ArtelType::Union(vec)
+    }
+}
+
+fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) {
+    match node.kind() {
+        "type_identifier" => {
+            let name = node.utf8_text(source.as_bytes()).unwrap();
+            let r#type = ArtelPrimaryType::TypeReference(ArtelTypeReference::new(
+                ArtelIdentifier::new(name),
+                Vec::new(),
+            ));
+            vec.push(r#type);
+        }
+        "predefined_type" => {
+            let predefined_type_str = node.utf8_text(source.as_bytes()).unwrap();
+            let r#type = ArtelPrimaryType::PredefinedType(predefined_type_str.into());
+            vec.push(r#type);
+        }
+        "union_type" => {
+            let mut cursor = node.walk();
+            for child in node.named_children(&mut cursor) {
+                parse_type_inner(source, &child, vec);
+            }
+        }
+        "literal_type" => {
+            let node = node.named_child(0).unwrap();
+            let r#type = match node.kind() {
+                "string" => {
+                    let string_fragment = node
+                        .named_child(0)
+                        .unwrap()
+                        .utf8_text(source.as_bytes())
+                        .unwrap();
+                    ArtelLiteralType::String(string_fragment.to_owned())
+                }
+                "number" => {
+                    let number = node.utf8_text(source.as_bytes()).unwrap();
+                    ArtelLiteralType::Number(number.to_owned())
+                }
+                "null" => ArtelLiteralType::Null,
+                "true" => ArtelLiteralType::Boolean(true),
+                "false" => ArtelLiteralType::Boolean(false),
+                "undefined" => ArtelLiteralType::Undefined,
+                _ => {
+                    unreachable!()
+                }
+            };
+            vec.push(ArtelPrimaryType::LiteralType(r#type));
+        }
+        "generic_type" => {
+            let name = node.utf8_text(source.as_bytes()).unwrap().to_owned();
+            let generic_params = node.child_by_field_name("type_arguments").unwrap();
+            let mut cursor = generic_params.walk();
+            let mut vec = Vec::new();
+            for generic_param in generic_params.named_children(&mut cursor) {
+                vec.push(parse_type(source, &generic_param));
+            }
+            //let type = vec.push(value)
+        }
+        _ => {
+            unimplemented!("{} is not implemented", node.kind())
+        }
+    };
 }
 
 fn parse_enum_declaration(source: &str, node: &Node) -> String {
