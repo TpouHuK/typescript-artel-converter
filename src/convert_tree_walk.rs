@@ -24,35 +24,43 @@ pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
         //"expression_statement" => { parse_expression(source, &node.named_child(0).unwrap())},
         //"if_statement" => parse_if_statement(source, node),
         //"statement_block" => parse_statement_block(source, node),
-        "function_declaration" => {
-            Some(ArtelStatement::FunctionDeclaration(parse_function_declaration(source, node)))
-        }
+        "function_declaration" => Some(ArtelStatement::FunctionDeclaration(
+            parse_function_declaration(source, node),
+        )),
         //"return_statement" => parse_return_statement(source, node),
         "class_declaration" => {
-            Some(ArtelStatement::ClassDeclaration(parse_class_declaration(source, node, /*is abstract*/ false)))
+            Some(ArtelStatement::ClassDeclaration(parse_class_declaration(
+                source, node, /*is abstract*/ false,
+            )))
         }
         "abstract_class_declaration" => {
-            Some(ArtelStatement::ClassDeclaration(parse_class_declaration(source, node, /*is abstract*/ true)))
+            Some(ArtelStatement::ClassDeclaration(parse_class_declaration(
+                source, node, /*is abstract*/ true,
+            )))
         }
-        "comment" => Some(ArtelStatement::Commment(node.utf8_text(&source.as_bytes()).unwrap().to_owned())),
+        "comment" => Some(ArtelStatement::Comment(
+            node.utf8_text(&source.as_bytes()).unwrap().to_owned(),
+        )),
         //"while_statement" => parse_while_statement(source, node),
         //"do_statement" => parse_do_statement(source, node),
         //"break_statement" => String::from("прервать цикл"),
         //"continue_statement" => String::from("продолжить цикл"),
-        "enum_declaration" => Some(ArtelStatement::EnumDeclaration(parse_enum_declaration(source, node))),
-        "type_alias_declaration" => {
-            Some(ArtelStatement::TypeAliasDeclaration(parse_type_alias_declaration(source, node)))
-        }
+        "enum_declaration" => Some(ArtelStatement::EnumDeclaration(parse_enum_declaration(
+            source, node,
+        ))),
+        "type_alias_declaration" => Some(ArtelStatement::TypeAliasDeclaration(
+            parse_type_alias_declaration(source, node),
+        )),
         "export_statement" => {
             let declaration = node.child_by_field_name("declaration").unwrap();
-            Some(ArtelStatement::ExportStatement(parse_statement(source, &declaration).unwrap().into()))
+            Some(ArtelStatement::ExportStatement(
+                parse_statement(source, &declaration).unwrap().into(),
+            ))
         }
-        "interface_declaration" => {
-            Some(ArtelStatement::InterfaceDeclaration(parse_interface(source, node)))
-        }
-        "import_statement" => {
-            None
-        }
+        "interface_declaration" => Some(ArtelStatement::InterfaceDeclaration(parse_interface(
+            source, node,
+        ))),
+        "import_statement" => None,
         _ => {
             unimplemented!("{} is unimplemented", node.kind())
         }
@@ -91,7 +99,7 @@ fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
                     parse_type(source, &element.child_by_field_name("type").unwrap());
 
                 // Comments will break this, FIXME 🤬
-                let readonly = dbg!(element.child(0).unwrap().kind()) == "readonly";
+                let readonly = element.child(0).unwrap().kind() == "readonly";
                 vec.push(ArtelInterfaceMember::Property(ArtelProperty::new(
                     readonly,
                     property_ident,
@@ -164,11 +172,7 @@ fn parse_type(source: &str, node: &Node) -> ArtelType {
     parse_type_inner(source, node, &mut vec);
 
     assert!(!vec.is_empty());
-    if vec.len() == 1 {
-        ArtelType::PrimaryType(vec.pop().unwrap())
-    } else {
-        ArtelType::Union(vec)
-    }
+    ArtelType(vec)
 }
 
 fn parse_type_parameters(source: &str, parameters_node: &Node) -> Vec<ArtelTypeParameter> {
@@ -244,7 +248,12 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
             vec.push(ArtelPrimaryType::LiteralType(r#type));
         }
         "generic_type" => {
-            let name = node.utf8_text(source.as_bytes()).unwrap().to_owned();
+            let name = node
+                .child_by_field_name("name")
+                .unwrap()
+                .utf8_text(source.as_bytes())
+                .unwrap()
+                .to_owned();
             let generic_params = node.child_by_field_name("type_arguments").unwrap();
             let mut cursor = generic_params.walk();
             let mut vec2 = Vec::new();
@@ -282,7 +291,9 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
             ));
         }
         "array_type" => {
-            vec.push(ArtelPrimaryType::ArrayType(parse_type(source, &node.named_child(0).unwrap()).into()));
+            vec.push(ArtelPrimaryType::ArrayType(
+                parse_type(source, &node.named_child(0).unwrap()).into(),
+            ));
         }
         _ => {
             unimplemented!("{} is not implemented", node.kind())
@@ -321,7 +332,7 @@ fn parse_enum_declaration(source: &str, node: &Node) -> EnumDeclaration {
             }
         }
     }
-    
+
     EnumDeclaration::new(name_ident, items)
 }
 
@@ -452,6 +463,10 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
                     assert!(modifiers_cursor.goto_next_sibling());
                 }
 
+                let is_optional = {
+                    modifiers_cursor.goto_next_sibling() && modifiers_cursor.node().kind() == "?"
+                };
+
                 let name_str = definition
                     .child_by_field_name("name")
                     .unwrap()
@@ -459,8 +474,15 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
                     .unwrap();
                 let name_ident = ArtelIdentifier::new(name_str);
 
-                let property_type =
+                let mut property_type =
                     parse_type(source, &definition.child_by_field_name("type").unwrap());
+
+                if is_optional {
+                    property_type
+                        .0
+                        .push(ArtelPrimaryType::LiteralType(ArtelLiteralType::Undefined));
+                }
+
                 let art_prop = ArtelProperty::new(is_readonly, name_ident, property_type);
                 let modifiers = ClassMemberModifiers::new(
                     access_modifier,
@@ -641,30 +663,23 @@ fn parse_formal_arguments(source: &str, parameters: &Node) -> Vec<ArtelFunctionA
                 .unwrap();
             ArtelIdentifier::new(arg_name_str)
         };
-        dbg!(param, "HELP");
 
         let mut arg_type = param.child_by_field_name("type").map_or(
-            ArtelType::PrimaryType(ArtelPrimaryType::UnsupportedAny),
+            ArtelType(vec![ArtelPrimaryType::UnsupportedAny]),
             |arg_type| parse_type(source, &arg_type),
         );
 
+        let mut default_value = None;
         if param.kind() == "optional_parameter" {
-            arg_type = match arg_type {
-                ArtelType::PrimaryType(prim_type) => ArtelType::Union(vec![
-                    prim_type,
-                    ArtelPrimaryType::LiteralType(ArtelLiteralType::Undefined),
-                ]),
-                ArtelType::Union(mut vec) => {
-                    vec.push(ArtelPrimaryType::LiteralType(ArtelLiteralType::Undefined));
-                    ArtelType::Union(vec)
-                }
-            };
+            arg_type
+                .0
+                .push(ArtelPrimaryType::LiteralType(ArtelLiteralType::Undefined));
+            default_value = Some(ArtelExpression("пусто".to_owned()));
         }
 
-        let default_value = 'default_value: {
-            let Some(value) = param.child_by_field_name("value") else { break 'default_value None };
+        if let Some(value) = param.child_by_field_name("value") {
             let value_str = value.utf8_text(source.as_bytes()).unwrap().to_owned();
-            Some(ArtelExpression(value_str)) // TODO, expression parsing
+            default_value = Some(ArtelExpression(value_str)); // TODO, expression parsing
         };
 
         arguments.push(ArtelFunctionArgument::new(
@@ -854,4 +869,13 @@ fn parse_lexical_declaration(source: &str, node: &Node) -> ArtelStatement {
         )
     };
     unimplemented!()
+}
+
+pub fn create_artel_code(artel_program: &ArtelProgram) -> String {
+    let mut statements = Vec::new();
+    for statement in artel_program {
+        statements.push(statement.artel_str(4));
+    }
+
+    statements.join("\n")
 }

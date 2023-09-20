@@ -9,6 +9,7 @@ class Greeter extends Object {
   greet() {
     return "Hello, " + this.greeting;
   }
+
   hmmm: number;
   private hmm: number;
   protected xd: number;

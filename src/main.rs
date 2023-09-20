@@ -24,10 +24,11 @@ fn convert_ts(code: &str) -> () {
     walk_tree_recursively_dbg(&code, &root, 0);
 
     let res = walk_tree(&code, &root);
+    dbg!(&res);
 
     println!("{code}");
     println!("---");
-    dbg!(res);
+    println!("{}", create_artel_code(&res));
 }
 
 fn convert_ts_no_debug(code: &str) {
@@ -54,6 +55,7 @@ fn main() {
 mod tests {
     use crate::*;
     use rstest::rstest;
+
     #[rstest]
     fn test_ts_file(
         #[values(
@@ -74,7 +76,7 @@ mod tests {
             "object.ts",
             "object_simple_method.ts",
             "object_simple_prop.ts",
-            "array_type.ts",
+            "array_type.ts"
         )]
         path: &str,
     ) {
