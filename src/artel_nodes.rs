@@ -68,7 +68,7 @@ pub enum ArtelPrimaryType {
     TypeReference(ArtelTypeReference),
     ObjectType(ArtelObjectType),
     FunctionType(Box<ArtelFunctionDeclaration>),
-    ArrayType(Box<ArtelPrimaryType>),
+    ArrayType(Box<ArtelType>),
     TupleType(Vec<ArtelType>),
     //TypeQuery, IDK, todo?
 }

@@ -73,7 +73,8 @@ mod tests {
             "export.ts",
             "object.ts",
             "object_simple_method.ts",
-            "object_simple_prop.ts"
+            "object_simple_prop.ts",
+            "array_type.ts",
         )]
         path: &str,
     ) {

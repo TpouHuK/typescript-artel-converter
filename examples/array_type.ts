@@ -1,0 +1,1 @@
+type MyTypeHelp = string[];

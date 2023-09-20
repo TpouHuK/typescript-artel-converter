@@ -5,11 +5,10 @@
 - [x] object declaration: done in ~4 hours
 - [x] enum declaration
 - [ ] object type
-- [ ] array type
+- [x] array type
 - [ ] variable definitions as structs
 
 # Code refactoring
-- [ ] 
 - [ ] Parameters code dupltication
 - [ ] Function arguments are called parameters, and these names are inconsistent throughout the code.
 - [ ] Type conversion
@@ -18,17 +17,17 @@
 - [ ] ArtelType should be just vector of types, no need to distinguish between one element and many
 - [ ] Refactor common things, like identified from "name" and stuff
 - [ ] refactor out "cursor" which is used one time
-
+- [ ] refactor identifiers
 
 # Ideas
 - [ ] Identifier conversion
-
 
 # Big questions
 - [ ] Void problem... Void = anything but ignored, not undefined...
 - [ ] arbitrary expression in default values to the function
 - [ ] Indexable types?
 - [ ] Just stuff that can't work in artel
+- [ ] Abstract stuff?
 
 # Tasks for 10...
 - [x] introduce tests

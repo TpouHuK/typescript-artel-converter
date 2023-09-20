@@ -10,43 +10,48 @@ pub fn walk_tree(source: &str, node: &Node) -> ArtelProgram {
 
     let mut statements = Vec::new();
     for child in node.named_children(&mut cursor) {
-        statements.push(parse_statement(source, &child));
+        if let Some(stmt) = parse_statement(source, &child) {
+            statements.push(stmt);
+        }
     }
 
     statements
 }
 
-pub fn parse_statement(source: &str, node: &Node) -> ArtelStatement {
+pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
     let output = match node.kind() {
-        "lexical_declaration" => parse_lexical_declaration(source, node),
+        "lexical_declaration" => Some(parse_lexical_declaration(source, node)),
         //"expression_statement" => { parse_expression(source, &node.named_child(0).unwrap())},
         //"if_statement" => parse_if_statement(source, node),
         //"statement_block" => parse_statement_block(source, node),
         "function_declaration" => {
-            ArtelStatement::FunctionDeclaration(parse_function_declaration(source, node))
+            Some(ArtelStatement::FunctionDeclaration(parse_function_declaration(source, node)))
         }
         //"return_statement" => parse_return_statement(source, node),
         "class_declaration" => {
-            ArtelStatement::ClassDeclaration(parse_class_declaration(source, node, /*is abstract*/ false))
+            Some(ArtelStatement::ClassDeclaration(parse_class_declaration(source, node, /*is abstract*/ false)))
         }
         "abstract_class_declaration" => {
-            ArtelStatement::ClassDeclaration(parse_class_declaration(source, node, /*is abstract*/ true))
+            Some(ArtelStatement::ClassDeclaration(parse_class_declaration(source, node, /*is abstract*/ true)))
         }
-        "comment" => ArtelStatement::Commment(node.utf8_text(&source.as_bytes()).unwrap().to_owned()),
+        "comment" => Some(ArtelStatement::Commment(node.utf8_text(&source.as_bytes()).unwrap().to_owned())),
         //"while_statement" => parse_while_statement(source, node),
         //"do_statement" => parse_do_statement(source, node),
         //"break_statement" => String::from("прервать цикл"),
         //"continue_statement" => String::from("продолжить цикл"),
-        "enum_declaration" => ArtelStatement::EnumDeclaration(parse_enum_declaration(source, node)),
+        "enum_declaration" => Some(ArtelStatement::EnumDeclaration(parse_enum_declaration(source, node))),
         "type_alias_declaration" => {
-            ArtelStatement::TypeAliasDeclaration(parse_type_alias_declaration(source, node))
+            Some(ArtelStatement::TypeAliasDeclaration(parse_type_alias_declaration(source, node)))
         }
         "export_statement" => {
             let declaration = node.child_by_field_name("declaration").unwrap();
-            ArtelStatement::ExportStatement(parse_statement(source, &declaration).into())
+            Some(ArtelStatement::ExportStatement(parse_statement(source, &declaration).unwrap().into()))
         }
         "interface_declaration" => {
-            ArtelStatement::InterfaceDeclaration(parse_interface(source, node))
+            Some(ArtelStatement::InterfaceDeclaration(parse_interface(source, node)))
+        }
+        "import_statement" => {
+            None
         }
         _ => {
             unimplemented!("{} is unimplemented", node.kind())
@@ -274,7 +279,10 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
                     return_type,
                 )
                 .into(),
-            ))
+            ));
+        }
+        "array_type" => {
+            vec.push(ArtelPrimaryType::ArrayType(parse_type(source, &node.named_child(0).unwrap()).into()));
         }
         _ => {
             unimplemented!("{} is not implemented", node.kind())
