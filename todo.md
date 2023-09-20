@@ -24,10 +24,10 @@
 
 # Big questions
 - [ ] Void problem... Void = anything but ignored, not undefined...
-- [ ] arbitrary expression in default values to the function
-- [ ] Indexable types?
-- [ ] Just stuff that can't work in artel
-- [ ] Abstract stuff?
+- [x] arbitrary expression in default values to the function
+- [x] Indexable types?
+- [x] Just stuff that can't work in artel
+- [x] Abstract stuff?
 
 # Tasks for 10...
 - [x] introduce tests

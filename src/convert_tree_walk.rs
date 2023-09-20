@@ -3,13 +3,12 @@ use std::string::String;
 use tree_sitter::Node;
 
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
-/// In the future it shoudl return it's own *ArtelProgram* which then should be stringified
-/// String for now...
+/// It returns sequence of statements, which is something like AST, and that can be converted into
+/// Artel API defitions directly.
 pub fn walk_tree(source: &str, node: &Node) -> ArtelProgram {
-    let mut cursor = node.walk();
-
     let mut statements = Vec::new();
-    for child in node.named_children(&mut cursor) {
+
+    for child in node.named_children(&mut node.walk()) {
         if let Some(stmt) = parse_statement(source, &child) {
             statements.push(stmt);
         }
@@ -160,6 +159,7 @@ fn parse_type_alias_declaration(source: &str, node: &Node) -> ArtelTypeAliasDecl
 }
 
 fn parse_type(source: &str, node: &Node) -> ArtelType {
+    // what did i just do
     let _temp;
     let node = if node.kind() == "type_annotation" {
         _temp = node.named_child(0).unwrap();
