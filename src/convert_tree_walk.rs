@@ -26,7 +26,14 @@ pub fn parse_statement(source: &str, node: &Node) -> String {
             "todo".to_owned()
         }
         "return_statement" => parse_return_statement(source, node),
-        "class_declaration" => parse_class_declaration(source, node),
+        "class_declaration" => {
+            parse_class_declaration(source, node, /*is abstract*/ false);
+            "shit".to_owned()
+        }
+        "abstract_class_declaration" => {
+            parse_class_declaration(source, node, /*is abstract*/ true);
+            "shit".to_owned()
+        }
         "comment" => node.utf8_text(&source.as_bytes()).unwrap().to_owned(),
         "while_statement" => parse_while_statement(source, node),
         "do_statement" => parse_do_statement(source, node),
@@ -42,7 +49,7 @@ pub fn parse_statement(source: &str, node: &Node) -> String {
             parse_statement(source, &declaration)
         }
         "interface_declaration" => {
-
+            parse_interface(source, node);
             "todo".to_owned()
         }
         _ => {
@@ -51,6 +58,62 @@ pub fn parse_statement(source: &str, node: &Node) -> String {
     };
 
     output
+}
+
+fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
+    let interface_name_ident = {
+        let name_str = node
+            .child_by_field_name("name")
+            .expect("No function name")
+            .utf8_text(&source.as_bytes())
+            .unwrap();
+        ArtelIdentifier::new(name_str)
+    };
+
+    let type_parameters = 'type_parameters: {
+        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+        parse_type_parameters(source, &parameters_node)
+    };
+
+    let mut vec = Vec::new();
+    let body = node.child_by_field_name("body").unwrap();
+    for element in body.named_children(&mut body.walk()) {
+        match element.kind() {
+            "property_signature" => {
+                let property_name = element
+                    .child_by_field_name("name")
+                    .expect("No function name")
+                    .utf8_text(&source.as_bytes())
+                    .unwrap();
+                let property_ident = ArtelIdentifier::new(property_name);
+                let property_type =
+                    parse_type(source, &element.child_by_field_name("type").unwrap());
+
+                // Comments will break this, FIXME 🤬
+                let readonly = dbg!(element.child(0).unwrap().kind()) == "readonly";
+                vec.push(ArtelInterfaceMember::Property(ArtelProperty::new(
+                    readonly,
+                    property_ident,
+                    property_type,
+                )))
+            }
+            "method_signature" => {
+                let method = parse_function_declaration(source, &element);
+                vec.push(ArtelInterfaceMember::Method(method))
+            }
+            "comment" => { // TODO
+            }
+            _ => {
+                unimplemented!("{}", element.kind())
+            }
+        }
+    }
+
+    dbg!(ArtelInterfaceDeclaration::new(
+        interface_name_ident,
+        type_parameters,
+        vec
+    ))
 }
 
 fn parse_type_alias_declaration(source: &str, node: &Node) -> ArtelTypeAliasDeclaration {
@@ -193,6 +256,30 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
             )));
         }
         "index_type_query" => vec.push(ArtelPrimaryType::UnsupportedAny),
+        "function_type" => {
+            let type_parameters = 'type_parameters: {
+                let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+                parse_type_parameters(source, &parameters_node)
+            };
+
+            let arguments =
+                parse_formal_arguments(&source, &node.child_by_field_name("parameters").unwrap());
+
+            let return_type = 'return_type: {
+                let Some(return_type) = node.child_by_field_name("return_type") else { break 'return_type None };
+                Some(parse_type(source, &return_type))
+            };
+            vec.push(ArtelPrimaryType::FunctionType(
+                ArtelFunctionDeclaration::new(
+                    false,
+                    ArtelIdentifier::new("$FUNCTION_TYPE$"),
+                    type_parameters,
+                    arguments,
+                    return_type,
+                )
+                .into(),
+            ))
+        }
         _ => {
             unimplemented!("{} is not implemented", node.kind())
         }
@@ -262,121 +349,231 @@ fn parse_new_expression(source: &str, node: &Node) -> String {
     return node.utf8_text(&source.as_bytes()).unwrap().to_owned();
 }
 
-fn parse_class_declaration(source: &str, node: &Node) -> String {
+fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> ArtelClassDeclaration {
     let name = node.child_by_field_name("name").unwrap();
+    let name_ident = ArtelIdentifier::new(name.utf8_text(&source.as_bytes()).unwrap());
 
-    let name_str = name.utf8_text(&source.as_bytes()).unwrap();
-    let inheritance = {
-        let next = name.next_sibling().unwrap();
-        let inheritance = if next.kind() == "class_heritage" {
-            let mut cursor = next.walk();
+    let type_parameters = 'type_parameters: {
+        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+        parse_type_parameters(source, &parameters_node)
+    };
+
+    let (extends_clause, implements_clause) = {
+        let next = if type_parameters.is_empty() {
+            name.next_sibling().unwrap()
+        } else {
+            node.child_by_field_name("type_parameters")
+                .unwrap()
+                .next_sibling()
+                .unwrap()
+        };
+
+        if next.kind() == "class_heritage" {
             let mut extends_clause = None;
-            for clause in next.named_children(&mut cursor) {
+            let mut implements_clause = Vec::new();
+
+            for clause in next.named_children(&mut next.walk()) {
                 if clause.kind() == "extends_clause" {
-                    extends_clause = Some(
-                        clause
-                            .child_by_field_name("value")
-                            .unwrap()
-                            .utf8_text(&source.as_bytes())
-                            .unwrap(),
-                    )
+                    let type_parameters = 'type_parameters: {
+                        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+                        parse_type_parameters(source, &parameters_node)
+                    };
+                    extends_clause = Some((
+                        ArtelIdentifier::new(
+                            clause
+                                .child_by_field_name("value")
+                                .unwrap()
+                                .utf8_text(&source.as_bytes())
+                                .unwrap(),
+                        ),
+                        type_parameters,
+                    ));
                 }
+
                 if clause.kind() == "implements_clause" {
-                    unimplemented!("implements clause is not implemented");
+                    for r#type in clause.named_children(&mut clause.walk()) {
+                        implements_clause.push(parse_type(source, &r#type));
+                    }
                 }
             }
-            extends_clause
+
+            (extends_clause, implements_clause)
         } else {
-            None
-        };
-        inheritance
+            (None, Vec::new())
+        }
     };
 
     let body = node.child_by_field_name("body").unwrap();
     let mut cursor = body.walk();
 
     let mut definitions = Vec::new();
-
     for definition in body.named_children(&mut cursor) {
-        let definition_str = match definition.kind() {
+        match definition.kind() {
             "public_field_definition" => {
+                let mut modifiers_cursor = definition.walk();
+                assert!(modifiers_cursor.goto_first_child());
+
+                let mut access_modifier = ArtelAccessModifier::Default;
+                let mut is_static = false;
+                let mut is_readonly = false;
+                let mut is_abstract = false;
+
+                while modifiers_cursor.field_name() != Some("name") {
+                    match modifiers_cursor.node().kind() {
+                        "accessibility_modifier" => {
+                            access_modifier = ArtelAccessModifier::from(
+                                modifiers_cursor
+                                    .node()
+                                    .utf8_text(source.as_bytes())
+                                    .unwrap(),
+                            )
+                        }
+                        "static" => {
+                            is_static = true;
+                        }
+                        "abstract" => {
+                            is_abstract = true;
+                        }
+                        "readonly" => {
+                            is_readonly = true;
+                        }
+                        _ => {
+                            unimplemented!()
+                        }
+                    }
+                    assert!(modifiers_cursor.goto_next_sibling());
+                }
+
                 let name_str = definition
                     .child_by_field_name("name")
                     .unwrap()
                     .utf8_text(&source.as_bytes())
                     .unwrap();
-                let type_str = definition
-                    .child_by_field_name("type")
-                    .unwrap()
-                    .named_child(0)
-                    .unwrap()
-                    .utf8_text(&source.as_bytes())
-                    .unwrap();
-                format!("{name_str}: {type_str}")
+                let name_ident = ArtelIdentifier::new(name_str);
+
+                let property_type =
+                    parse_type(source, &definition.child_by_field_name("type").unwrap());
+                let art_prop = ArtelProperty::new(is_readonly, name_ident, property_type);
+                let modifiers = ClassMemberModifiers::new(
+                    access_modifier,
+                    if is_abstract {
+                        ArtelModifier::Abstract
+                    } else if is_static {
+                        ArtelModifier::Static
+                    } else {
+                        ArtelModifier::None
+                    },
+                );
+                let definition = ArtelClassMember::Property((modifiers, art_prop));
+                dbg!(&definition);
+                definitions.push(definition);
             }
-            "method_definition" => parse_method_definition(source, &definition),
+            "method_definition" => {
+                let definition = parse_method_definition(source, &definition);
+                dbg!(&definition);
+                definitions.push(definition);
+            }
+            "comment" => {}
             _ => {
                 unimplemented!("{} is not implemented in a class body", definition.kind())
             }
         };
-        definitions.push(definition_str);
-        dbg!(definition);
     }
-    let body_str = definitions.join("\n\n");
 
-    let inheritance_str =
-        inheritance.map_or_else(|| String::from(""), |i| format!("на основе {i} "));
-
-    format!("тип {name_str} = объект {inheritance_str}\n{{\n{body_str}}}")
+    dbg!(ArtelClassDeclaration::new(
+        name_ident,
+        extends_clause,
+        implements_clause,
+        is_abstract,
+        type_parameters,
+        definitions,
+    ))
 }
 
 // TODO arguments/parameters, inconsistent naming
-fn parse_method_definition(source: &str, node: &Node) -> String {
+fn parse_method_definition(source: &str, node: &Node) -> ArtelClassMember {
+    let mut modifiers_cursor = node.walk();
+    assert!(modifiers_cursor.goto_first_child());
+
+    let mut access_modifier = ArtelAccessModifier::Default;
+    let mut is_static = false;
+    let mut is_async = false;
+    let mut is_abstract = false;
+    let mut getter_setter = GetterSetter::None;
+
+    while modifiers_cursor.field_name() != Some("name") {
+        match modifiers_cursor.node().kind() {
+            "accessibility_modifier" => {
+                access_modifier = ArtelAccessModifier::from(
+                    modifiers_cursor
+                        .node()
+                        .utf8_text(source.as_bytes())
+                        .unwrap(),
+                )
+            }
+            "static" => {
+                is_static = true;
+            }
+            "abstract" => {
+                is_abstract = true;
+            }
+            "async" => {
+                is_async = true;
+            }
+            "get" => {
+                getter_setter = GetterSetter::Get;
+            }
+            "set" => {
+                getter_setter = GetterSetter::Set;
+            }
+            _ => {
+                unimplemented!()
+            }
+        }
+        assert!(modifiers_cursor.goto_next_sibling());
+    }
+
+    let modifiers = ClassMemberModifiers::new(
+        access_modifier,
+        if is_abstract {
+            ArtelModifier::Abstract
+        } else if is_static {
+            ArtelModifier::Static
+        } else {
+            ArtelModifier::None
+        },
+    );
+
     let name_str = node
         .child_by_field_name("name")
         .unwrap()
         .utf8_text(&source.as_bytes())
         .unwrap();
+    let name_ident = ArtelIdentifier::new(name_str);
+
     let parameters = node.child_by_field_name("parameters").unwrap();
+    let arguments = parse_formal_arguments(source, &parameters);
+    let type_parameters = 'type_parameters: {
+        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+        parse_type_parameters(source, &parameters_node)
+    };
 
-    let mut cursor = parameters.walk();
+    let return_type = 'return_type: {
+        let Some(return_type) = node.child_by_field_name("return_type") else { break 'return_type None };
+        Some(parse_type(source, &return_type))
+    };
 
-    let mut arguments = Vec::new();
-    for param in parameters.named_children(&mut cursor) {
-        if param.kind() == "optional_parameter" {
-            unimplemented!("optional_parameter");
-        }
-        let arg_name = param
-            .child_by_field_name("pattern")
-            .unwrap()
-            .utf8_text(&source.as_bytes())
-            .unwrap();
-        let arg_type = param
-            .child_by_field_name("type")
-            .unwrap()
-            .named_child(0)
-            .unwrap()
-            .utf8_text(&source.as_bytes())
-            .unwrap();
-
-        let value = param.child_by_field_name("value");
-        let value_str = value.map(|v| parse_expression(&source, &v));
-
-        arguments.push(if let Some(value_str) = value_str {
-            format!("{arg_name}: {arg_type} = {value_str}")
-        } else {
-            format!("{arg_name}: {arg_type}")
-        });
-    }
-    let arguments_str = arguments.join(", ");
-    let body = node.child_by_field_name("body").unwrap();
-    assert_eq!(body.kind(), "statement_block");
-    let body_str = parse_statement_block(source, &body);
-    if name_str == "constructor" {
-        format!("при создании({arguments_str})\n{body_str}")
-    } else {
-        format!("операция {name_str}({arguments_str})\n{body_str}")
-    }
+    ArtelClassMember::Method((
+        modifiers,
+        getter_setter,
+        ArtelFunctionDeclaration::new(
+            is_async,
+            name_ident,
+            type_parameters,
+            arguments,
+            return_type,
+        ),
+    ))
 }
 
 fn parse_return_statement(source: &str, node: &Node) -> String {
@@ -388,6 +585,7 @@ fn parse_return_statement(source: &str, node: &Node) -> String {
 }
 
 fn parse_function_declaration(source: &str, node: &Node) -> ArtelFunctionDeclaration {
+    let r#async = node.child(0).unwrap().kind() == "async";
     let name_ident = {
         let name_str = node
             .child_by_field_name("name")
@@ -403,11 +601,30 @@ fn parse_function_declaration(source: &str, node: &Node) -> ArtelFunctionDeclara
     };
 
     let parameters = node.child_by_field_name("parameters").unwrap();
-    let mut cursor = parameters.walk();
+    let arguments = parse_formal_arguments(source, &parameters);
 
+    let return_type = 'return_type: {
+        let Some(return_type) = node.child_by_field_name("return_type") else { break 'return_type None };
+        Some(parse_type(source, &return_type))
+    };
+
+    // let body = node.child_by_field_name("body").unwrap();
+    // assert_eq!(body.kind(), "statement_block");
+    // let body_str = parse_statement_block(source, &body);
+    // no body for now
+
+    dbg!(ArtelFunctionDeclaration::new(
+        r#async,
+        name_ident,
+        type_parameters,
+        arguments,
+        return_type
+    ))
+}
+
+fn parse_formal_arguments(source: &str, parameters: &Node) -> Vec<ArtelFunctionArgument> {
     let mut arguments = Vec::<ArtelFunctionArgument>::new();
-
-    for param in parameters.named_children(&mut cursor) {
+    for param in parameters.named_children(&mut parameters.walk()) {
         let arg_name = {
             let arg_name_str = param
                 .child_by_field_name("pattern")
@@ -416,6 +633,7 @@ fn parse_function_declaration(source: &str, node: &Node) -> ArtelFunctionDeclara
                 .unwrap();
             ArtelIdentifier::new(arg_name_str)
         };
+        dbg!(param, "HELP");
 
         let mut arg_type = param.child_by_field_name("type").map_or(
             ArtelType::PrimaryType(ArtelPrimaryType::UnsupportedAny),
@@ -447,23 +665,7 @@ fn parse_function_declaration(source: &str, node: &Node) -> ArtelFunctionDeclara
             default_value,
         ));
     }
-
-    let return_type = 'return_type: {
-        let Some(return_type) = node.child_by_field_name("return_type") else { break 'return_type None };
-        Some(parse_type(source, &return_type))
-    };
-
-    // let body = node.child_by_field_name("body").unwrap();
-    // assert_eq!(body.kind(), "statement_block");
-    // let body_str = parse_statement_block(source, &body);
-    // no body for now
-
-    dbg!(ArtelFunctionDeclaration::new(
-        name_ident,
-        type_parameters,
-        arguments,
-        return_type
-    ))
+    arguments
 }
 
 fn parse_statement_block(source: &str, child: &Node) -> String {
@@ -527,6 +729,7 @@ fn parse_expression(source: &str, node: &Node) -> String {
     }
 }
 
+/// Not used
 fn parse_object(source: &str, node: &Node) -> String {
     let mut cursor = node.walk();
     let mut node_pairs = Vec::new();

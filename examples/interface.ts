@@ -1,16 +1,5 @@
-interface User {
-  name: string;
-  id: number;
+interface User<T> {
+  readonly name: string;
+  foo1<B>(args: string): void;
+  foo2: <X>(args: string) => string;
 }
- 
-class UserAccount {
-  name: string;
-  id: number;
- 
-  constructor(name: string, id: number) {
-    this.name = name;
-    this.id = id;
-  }
-}
- 
-const user: User = new UserAccount("Murphy", 1);

@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 #[derive(Debug)]
 pub struct ArtelProgram(ArtelStatement);
 
@@ -7,6 +8,7 @@ type ArtelStatements = Vec<ArtelStatement>;
 pub enum ArtelStatement {
     LexicalDeclaration(ArtelLexicalDeclaration),
     FunctionDeclaration(ArtelFunctionDeclaration),
+    ClassDeclaration(ArtelClassDeclaration),
     ExportStatement(Box<ArtelStatement>),
 }
 
@@ -38,6 +40,7 @@ pub enum ArtelPrimaryType {
     PredefinedType(ArtelPredefinedType),
     TypeReference(ArtelTypeReference),
     ObjectType(ArtelObjectType),
+    FunctionType(Box<ArtelFunctionDeclaration>),
     ArrayType(Box<ArtelPrimaryType>),
     TupleType(Vec<ArtelType>),
     //TypeQuery, IDK, todo?
@@ -140,8 +143,97 @@ impl ArtelTypeAliasDeclaration {
 }
 
 #[derive(Debug)]
+pub enum ArtelAccessModifier {
+    Default,
+    Public,
+    Private,
+    Protected,
+}
+
+impl<T> From<T> for ArtelAccessModifier
+where
+    T: AsRef<str>,
+{
+    fn from(value: T) -> Self {
+        match value.as_ref() {
+            "public" => ArtelAccessModifier::Public,
+            "protected" => ArtelAccessModifier::Protected,
+            "private" => ArtelAccessModifier::Private,
+            _ => unimplemented!(),
+        }
+    }
+}
+
+#[derive(Debug)]
+pub enum ArtelModifier {
+    None,
+    Abstract,
+    Static,
+}
+
+#[derive(Debug)]
+pub struct ClassMemberModifiers {
+    access_modifier: ArtelAccessModifier,
+    modifier: ArtelModifier,
+}
+
+impl ClassMemberModifiers {
+    pub fn new(access_modifier: ArtelAccessModifier, modifier: ArtelModifier) -> Self {
+        Self {
+            access_modifier,
+            modifier,
+        }
+    }
+}
+
+#[derive(Debug)]
 pub struct ArtelObjectType {
-    // TODO
+    name: ArtelIdentifier,
+    generic_params: ArtelGenericParams,
+    //body: Vec<ArtelObjectMember>,
+}
+
+#[derive(Debug)]
+pub enum GetterSetter {
+    None,
+    Get,
+    Set,
+}
+
+#[derive(Debug)]
+pub enum ArtelClassMember {
+    Property((ClassMemberModifiers, ArtelProperty)),
+    Method((ClassMemberModifiers, GetterSetter, ArtelFunctionDeclaration)),
+}
+
+#[derive(Debug)]
+pub struct ArtelClassDeclaration {
+    name: ArtelIdentifier,
+    extends: Option<(ArtelIdentifier, ArtelGenericParams)>,
+    implements: Vec<ArtelType>,
+    is_abstract: bool,
+    generic_params: ArtelGenericParams,
+    body: Vec<ArtelClassMember>,
+}
+
+impl ArtelClassDeclaration {
+    pub fn new(
+        name: ArtelIdentifier,
+        extends: Option<(ArtelIdentifier, ArtelGenericParams)>,
+        implements: Vec<ArtelType>,
+        is_abstract: bool,
+        generic_params: ArtelGenericParams,
+        body: Vec<ArtelClassMember>,
+    ) -> Self {
+        Self {
+            name,
+            extends,
+            implements,
+            is_abstract,
+            generic_params,
+            body,
+        }
+    }
 }
 
 impl ArtelLexicalDeclarationType {
@@ -185,6 +277,7 @@ impl ArtelFunctionArgument {
 
 #[derive(Debug)]
 pub struct ArtelFunctionDeclaration {
+    r#async: bool,
     name: ArtelIdentifier,
     generic_params: ArtelGenericParams,
     arguments: Vec<ArtelFunctionArgument>,
@@ -193,16 +286,68 @@ pub struct ArtelFunctionDeclaration {
 
 impl ArtelFunctionDeclaration {
     pub fn new(
+        r#async: bool,
         name: ArtelIdentifier,
         generic_params: ArtelGenericParams,
         arguments: Vec<ArtelFunctionArgument>,
         return_type: Option<ArtelType>,
     ) -> Self {
         Self {
+            r#async,
             name,
             generic_params,
             arguments,
             return_type,
+        }
+    }
+}
+
+#[derive(Debug)]
+pub struct ArtelInterfaceDeclaration {
+    name: ArtelIdentifier,
+    generic_params: ArtelGenericParams,
+    body: Vec<ArtelInterfaceMember>,
+}
+
+impl ArtelInterfaceDeclaration {
+    pub fn new(
+        name: ArtelIdentifier,
+        generic_params: ArtelGenericParams,
+        body: Vec<ArtelInterfaceMember>,
+    ) -> Self {
+        Self {
+            name,
+            generic_params,
+            body,
+        }
+    }
+}
+
+#[derive(Debug)]
+pub enum ArtelInterfaceMember {
+    Property(ArtelProperty),
+    Method(ArtelFunctionDeclaration),
+}
+
+impl Default for ArtelAccessModifier {
+    fn default() -> Self {
+        Self::Default
+    }
+}
+
+#[derive(Debug)]
+pub struct ArtelProperty {
+    r#readonly: bool,
+    name: ArtelIdentifier,
+    r#type: ArtelType,
+}
+
+impl ArtelProperty {
+    pub fn new(r#readonly: bool, name: ArtelIdentifier, r#type: ArtelType) -> Self {
+        Self {
+            r#readonly,
+            name,
+            r#type,
         }
     }
 }

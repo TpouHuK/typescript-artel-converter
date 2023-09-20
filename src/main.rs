@@ -70,7 +70,10 @@ mod tests {
             "type_generic.ts",
             "type_default_generic.ts",
             "keyof.ts",
-            "export.ts,"
+            "export.ts,",
+            "object.ts",
+            "object_simple_method.ts",
+            "object_simple_prop.ts"
         )]
         path: &str,
     ) {

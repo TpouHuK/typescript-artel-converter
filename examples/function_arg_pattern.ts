@@ -1,3 +1,2 @@
-function xd(...numbers) {
-	let sum = 0;
+function xdd(...numbers: SomeType<T>) {
 }

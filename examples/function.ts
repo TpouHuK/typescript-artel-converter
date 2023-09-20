@@ -1,3 +1,3 @@
-function xd<T>(a: T): T {
+async function xd<T>(a: T): Promise<T> {
 	return a
 }
