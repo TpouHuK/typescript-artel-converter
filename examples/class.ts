@@ -15,5 +15,3 @@ class Greeter extends Object {
   private lool() {
   }
 }
- 
-let greeter: Greeter = new Greeter("world");

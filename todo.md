@@ -3,10 +3,10 @@
 - [x] interface declaration: est 20 min | done in 25 min
 - [x] function type: est 10 min | done in 14 min
 - [x] object declaration: done in ~4 hours
+- [x] enum declaration
 - [ ] object type
 - [ ] array type
-- [ ] Refactor common things, like identified from "name" and stuff
-- [ ] refactor out "cursor" which is used one time
+- [ ] variable definitions as structs
 
 # Code refactoring
 - [ ] 
@@ -16,6 +16,8 @@
 - [ ] make all the String outputs from the `parse` function return Al objects instead
 - [ ] remove allow(dead_code)
 - [ ] ArtelType should be just vector of types, no need to distinguish between one element and many
+- [ ] Refactor common things, like identified from "name" and stuff
+- [ ] refactor out "cursor" which is used one time
 
 
 # Ideas

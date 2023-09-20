@@ -5,52 +5,48 @@ use tree_sitter::Node;
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
 /// In the future it shoudl return it's own *ArtelProgram* which then should be stringified
 /// String for now...
-pub fn walk_tree(source: &str, node: &Node) -> String {
+pub fn walk_tree(source: &str, node: &Node) -> ArtelProgram {
     let mut cursor = node.walk();
 
     let mut statements = Vec::new();
     for child in node.named_children(&mut cursor) {
         statements.push(parse_statement(source, &child));
     }
-    statements.join("\n").to_owned()
+
+    statements
 }
 
-pub fn parse_statement(source: &str, node: &Node) -> String {
+pub fn parse_statement(source: &str, node: &Node) -> ArtelStatement {
     let output = match node.kind() {
         "lexical_declaration" => parse_lexical_declaration(source, node),
-        "expression_statement" => parse_expression(source, &node.named_child(0).unwrap()),
-        "if_statement" => parse_if_statement(source, node),
-        "statement_block" => parse_statement_block(source, node),
+        //"expression_statement" => { parse_expression(source, &node.named_child(0).unwrap())},
+        //"if_statement" => parse_if_statement(source, node),
+        //"statement_block" => parse_statement_block(source, node),
         "function_declaration" => {
-            parse_function_declaration(source, node);
-            "todo".to_owned()
+            ArtelStatement::FunctionDeclaration(parse_function_declaration(source, node))
         }
-        "return_statement" => parse_return_statement(source, node),
+        //"return_statement" => parse_return_statement(source, node),
         "class_declaration" => {
-            parse_class_declaration(source, node, /*is abstract*/ false);
-            "shit".to_owned()
+            ArtelStatement::ClassDeclaration(parse_class_declaration(source, node, /*is abstract*/ false))
         }
         "abstract_class_declaration" => {
-            parse_class_declaration(source, node, /*is abstract*/ true);
-            "shit".to_owned()
+            ArtelStatement::ClassDeclaration(parse_class_declaration(source, node, /*is abstract*/ true))
         }
-        "comment" => node.utf8_text(&source.as_bytes()).unwrap().to_owned(),
-        "while_statement" => parse_while_statement(source, node),
-        "do_statement" => parse_do_statement(source, node),
-        "break_statement" => String::from("прервать цикл"),
-        "continue_statement" => String::from("продолжить цикл"),
-        "enum_declaration" => parse_enum_declaration(source, node),
+        "comment" => ArtelStatement::Commment(node.utf8_text(&source.as_bytes()).unwrap().to_owned()),
+        //"while_statement" => parse_while_statement(source, node),
+        //"do_statement" => parse_do_statement(source, node),
+        //"break_statement" => String::from("прервать цикл"),
+        //"continue_statement" => String::from("продолжить цикл"),
+        "enum_declaration" => ArtelStatement::EnumDeclaration(parse_enum_declaration(source, node)),
         "type_alias_declaration" => {
-            parse_type_alias_declaration(source, node);
-            "todo".to_owned()
+            ArtelStatement::TypeAliasDeclaration(parse_type_alias_declaration(source, node))
         }
         "export_statement" => {
             let declaration = node.child_by_field_name("declaration").unwrap();
-            parse_statement(source, &declaration)
+            ArtelStatement::ExportStatement(parse_statement(source, &declaration).into())
         }
         "interface_declaration" => {
-            parse_interface(source, node);
-            "todo".to_owned()
+            ArtelStatement::InterfaceDeclaration(parse_interface(source, node))
         }
         _ => {
             unimplemented!("{} is unimplemented", node.kind())
@@ -286,9 +282,11 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
     };
 }
 
-fn parse_enum_declaration(source: &str, node: &Node) -> String {
+fn parse_enum_declaration(source: &str, node: &Node) -> EnumDeclaration {
     let name = node.child_by_field_name("name").unwrap();
     let name_str = name.utf8_text(source.as_bytes()).unwrap();
+    let name_ident = ArtelIdentifier::new(name_str);
+
     let body = node.child_by_field_name("body").unwrap();
     let mut cursor = body.walk();
 
@@ -298,23 +296,25 @@ fn parse_enum_declaration(source: &str, node: &Node) -> String {
             "enum_assignment" => {
                 let item_name = item.child_by_field_name("name").unwrap();
                 let item_name_str = item_name.utf8_text(source.as_bytes()).unwrap();
+                let item_ident = ArtelIdentifier::new(item_name_str);
 
                 let value = item.child_by_field_name("value").unwrap();
-                let value_str = value.utf8_text(source.as_bytes()).unwrap();
+                let value_str = value.utf8_text(source.as_bytes()).unwrap().to_owned();
 
-                items.push(format!("{item_name_str} = {value_str}"));
+                items.push(EnumItem::new(item_ident, Some(value_str)));
             }
             "property_identifier" => {
                 let item_name_str = item.utf8_text(source.as_bytes()).unwrap();
-                items.push(item_name_str.to_owned());
+                let item_ident = ArtelIdentifier::new(item_name_str);
+                items.push(EnumItem::new(item_ident, None));
             }
             _ => {
                 unreachable!("unexpected {} in enum", item.kind())
             }
         }
     }
-    let body_str = items.join("\n");
-    format!("тип {name_str} = вариант {{\n{body_str}\n}}")
+    
+    EnumDeclaration::new(name_ident, items)
 }
 
 fn parse_do_statement(source: &str, node: &Node) -> String {
@@ -674,11 +674,7 @@ fn parse_statement_block(source: &str, child: &Node) -> String {
     for node in child.named_children(&mut cursor) {
         statements.push(parse_statement(source, &node));
     }
-    statements
-        .iter_mut()
-        .map(|s| s.insert_str(0, "    "))
-        .for_each(drop);
-    format!("{{\n{body}\n}}", body = statements.join("\n"))
+    unimplemented!()
 }
 
 fn parse_if_statement(source: &str, child: &Node) -> String {
@@ -702,11 +698,7 @@ fn parse_if_statement(source: &str, child: &Node) -> String {
         None
     };
 
-    if let Some(alternative_str) = alternative_str {
-        format!("если {condition_expression_str} тогда\n    {consequence_str}\nиначе\n    {alternative_str}")
-    } else {
-        format!("если {condition_expression_str} тогда\n    {consequence_str}")
-    }
+    unimplemented!()
 }
 
 fn parse_expression(source: &str, node: &Node) -> String {
@@ -790,7 +782,7 @@ fn parse_unary_expression(source: &str, node: &Node) -> String {
     )
 }
 
-fn parse_lexical_declaration(source: &str, node: &Node) -> String {
+fn parse_lexical_declaration(source: &str, node: &Node) -> ArtelStatement {
     let mut cursor = node.walk();
 
     let decl_type = {
@@ -852,5 +844,6 @@ fn parse_lexical_declaration(source: &str, node: &Node) -> String {
             decl_type = decl_type.to_alstr(),
             body = al_declarations.join("\n"),
         )
-    }
+    };
+    unimplemented!()
 }

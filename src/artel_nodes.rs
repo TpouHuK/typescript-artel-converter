@@ -1,6 +1,8 @@
 #![allow(dead_code)]
-#[derive(Debug)]
-pub struct ArtelProgram(ArtelStatement);
+
+//#[derive(Debug)]
+//pub struct ArtelProgram(ArtelStatement);
+pub type ArtelProgram = ArtelStatements;
 
 type ArtelStatements = Vec<ArtelStatement>;
 
@@ -9,8 +11,33 @@ pub enum ArtelStatement {
     LexicalDeclaration(ArtelLexicalDeclaration),
     FunctionDeclaration(ArtelFunctionDeclaration),
     ClassDeclaration(ArtelClassDeclaration),
+    TypeAliasDeclaration(ArtelTypeAliasDeclaration),
+    InterfaceDeclaration(ArtelInterfaceDeclaration),
+    EnumDeclaration(EnumDeclaration),
     ExportStatement(Box<ArtelStatement>),
+    Commment(String), // TODO
 }
+
+#[derive(Debug)]
+pub struct EnumDeclaration {
+    name: ArtelIdentifier,
+    items: Vec<EnumItem>,
+}
+
+impl EnumDeclaration {
+    pub fn new(name: ArtelIdentifier, items: Vec<EnumItem>) -> Self { Self { name, items } }
+}
+
+#[derive(Debug)]
+pub struct EnumItem {
+    name: ArtelIdentifier,
+    value: Option<String>, // TODO
+}
+
+impl EnumItem {
+    pub fn new(name: ArtelIdentifier, value: Option<String>) -> Self { Self { name, value } }
+}
+
 
 #[derive(Debug)]
 pub enum ArtelLexicalDeclarationType {

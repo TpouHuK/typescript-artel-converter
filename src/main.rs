@@ -27,7 +27,7 @@ fn convert_ts(code: &str) -> () {
 
     println!("{code}");
     println!("---");
-    println!("{res}");
+    dbg!(res);
 }
 
 fn convert_ts_no_debug(code: &str) {
@@ -70,7 +70,7 @@ mod tests {
             "type_generic.ts",
             "type_default_generic.ts",
             "keyof.ts",
-            "export.ts,",
+            "export.ts",
             "object.ts",
             "object_simple_method.ts",
             "object_simple_prop.ts"
