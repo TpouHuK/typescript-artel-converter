@@ -1,5 +1,6 @@
 use tree_sitter::Node;
 
+/// Prints all nodes in the tree and their field_name
 pub fn walk_tree_recursively_dbg(source: &str, node: &Node, ident: usize) {
     let mut cursor = node.walk();
     println!("{:\t<1$} {node:?}", "", ident);

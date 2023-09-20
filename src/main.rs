@@ -39,7 +39,8 @@ fn convert_ts_no_debug(code: &str) {
 
     let parsed = parser.parse(code, None).unwrap();
     let root = parsed.root_node();
-    let _res = walk_tree(&code, &root);
+    let res = walk_tree(&code, &root);
+    create_artel_code(&res);
 }
 
 fn main() {

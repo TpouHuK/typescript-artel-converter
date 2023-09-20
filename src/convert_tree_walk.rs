@@ -203,6 +203,12 @@ fn parse_type_parameters(source: &str, parameters_node: &Node) -> Vec<ArtelTypeP
 
 fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) {
     match node.kind() {
+        "union_type" => {
+            let mut cursor = node.walk();
+            for child in node.named_children(&mut cursor) {
+                parse_type_inner(source, &child, vec);
+            }
+        }
         "type_identifier" => {
             let name = node.utf8_text(source.as_bytes()).unwrap();
             let r#type = ArtelPrimaryType::TypeReference(ArtelTypeReference::new(
@@ -215,12 +221,6 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
             let predefined_type_str = node.utf8_text(source.as_bytes()).unwrap();
             let r#type = ArtelPrimaryType::PredefinedType(predefined_type_str.into());
             vec.push(r#type);
-        }
-        "union_type" => {
-            let mut cursor = node.walk();
-            for child in node.named_children(&mut cursor) {
-                parse_type_inner(source, &child, vec);
-            }
         }
         "literal_type" => {
             let node = node.named_child(0).unwrap();

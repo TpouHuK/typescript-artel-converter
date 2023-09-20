@@ -34,7 +34,11 @@ impl ArtelStr for ArtelStatement {
             ArtelStatement::EnumDeclaration(r#enum) => r#enum.artel_str(ident_level),
             ArtelStatement::InterfaceDeclaration(interface) => interface.artel_str(ident_level),
             ArtelStatement::ClassDeclaration(class) => class.artel_str(ident_level),
-            ArtelStatement::ExportStatement(exprt) => format!("{}внешнее\n{}", ident(ident_level), exprt.artel_str(ident_level + 2)),
+            ArtelStatement::ExportStatement(exprt) => format!(
+                "{}внешнее\n{}",
+                ident(ident_level),
+                exprt.artel_str(ident_level + 2)
+            ),
             ArtelStatement::TypeAliasDeclaration(typealias) => typealias.artel_str(ident_level),
             ArtelStatement::Comment(comment) => format!("{}//{}", ident(ident_level), comment),
             _ => todo!("{self:?}"),
@@ -107,7 +111,7 @@ pub enum ArtelLexicalDeclarationType {
     LET,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ArtelIdentifier(String);
 
 impl ArtelIdentifier {
@@ -231,9 +235,9 @@ impl ArtelStr for ArtelLiteralType {
         match self {
             ArtelLiteralType::Undefined => "пусто".to_owned(),
             ArtelLiteralType::Null => "пусто".to_owned(),
-            _ => {
-                unimplemented!()
-            }
+            ArtelLiteralType::String(x) => format!("\"{x}\""),
+            ArtelLiteralType::Number(x) => x.clone(),
+            ArtelLiteralType::Boolean(x) => if *x {"да"} else {"нет"}.to_owned(),
         }
     }
 }
@@ -358,15 +362,15 @@ pub struct ArtelTypeAliasDeclaration {
 
 impl ArtelStr for ArtelTypeAliasDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
-        let mut str = String::new();
-        str.push_str(ident(ident_level));
-        str.push_str("тип ");
-        str.push_str(&self.alias.0);
-        str.push_str(&self.generic_params.artel_str(0));
-        str.push_str(" = ");
-        str.push_str(&self.value.artel_str(0));
-
-        str
+        [
+            ident(ident_level),
+            "тип ",
+            &self.alias.0,
+            &self.generic_params.artel_str(0),
+            " = ",
+            &self.value.artel_str(0),
+        ]
+        .concat()
     }
 }
 
@@ -449,6 +453,26 @@ impl ClassMemberModifiers {
     }
 }
 
+impl ArtelStr for ClassMemberModifiers {
+    fn artel_str(&self, ident_level: usize) -> String {
+        let mut str = String::new();
+
+        let access_modifier = self.access_modifier.artel_str(0);
+        if !access_modifier.is_empty() {
+            str.push_str(&access_modifier);
+            str.push_str(" ");
+        }
+
+        let modifier = self.modifier.artel_str(0);
+        if !modifier.is_empty() {
+            str.push_str(&modifier);
+            str.push_str(" ");
+        }
+
+        str
+    }
+}
+
 #[derive(Debug, Clone)]
 pub struct ArtelObjectType {
     name: ArtelIdentifier,
@@ -456,7 +480,7 @@ pub struct ArtelObjectType {
     //body: Vec<ArtelObjectMember>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Eq, PartialEq)]
 pub enum GetterSetter {
     None,
     Get,
@@ -469,46 +493,94 @@ pub enum ArtelClassMember {
     Method((ClassMemberModifiers, GetterSetter, ArtelFunctionDeclaration)),
 }
 
+struct PropertyAccessExpression {
+    name: ArtelIdentifier,
+    r#type: ArtelType,
+    get: bool,
+    set: bool,
+}
+
+impl ArtelClassMember {
+    fn is_getter_setter(&self) -> bool {
+        match self {
+            ArtelClassMember::Method((
+                _m,
+                GetterSetter::Set | GetterSetter::Get,
+                _function_declaration,
+            )) => true,
+            _ => false,
+        }
+    }
+
+    /// Returns `PropertyAccessExpression` if the ClassMember is a Method with `get` or `set`
+    /// annotation.
+    fn get_property_func(&self) -> Option<PropertyAccessExpression> {
+        match self {
+            ArtelClassMember::Method((
+                _m, // TODO, modifiers are ignored
+                prop @ GetterSetter::Set | prop @ GetterSetter::Get,
+                function_declaration,
+            )) => {
+                let r#type = match prop {
+                    GetterSetter::Set => function_declaration.arguments.get(0)
+                        .expect("Function annotated with `set` should have atleast single argument, which is the type of the property it access.")
+                        .r#type.clone(),
+                    GetterSetter::Get => function_declaration.return_type.clone()
+                        .expect("Function annotated with `get` should have a return type"),
+                    GetterSetter::None => unreachable!(),
+                };
+
+                Some(PropertyAccessExpression {
+                    name: function_declaration.name.clone(),
+                    r#type,
+                    get: *prop == GetterSetter::Get,
+                    set: *prop == GetterSetter::Set,
+                })
+            }
+            _ => None,
+        }
+    }
+
+    fn artel_str_property(
+        modifiers: &ClassMemberModifiers,
+        property: &ArtelProperty,
+        ident_level: usize,
+    ) -> String {
+        [
+            ident(ident_level),
+            &modifiers.artel_str(0),
+            &property.artel_str(0),
+        ]
+        .concat()
+    }
+
+    fn artel_str_method(
+        modifiers: &ClassMemberModifiers,
+        function_declaration: &ArtelFunctionDeclaration,
+        ident_level: usize,
+    ) -> String {
+        [
+            ident(ident_level),
+            &modifiers.artel_str(0),
+            &function_declaration.artel_str(0),
+        ]
+        .concat()
+    }
+}
+
 impl ArtelStr for ArtelClassMember {
     fn artel_str(&self, ident_level: usize) -> String {
         match self {
-            ArtelClassMember::Property((m, property)) => {
-                let mut str = String::new();
-                str.push_str(ident(ident_level));
-                let access_modifier = m.access_modifier.artel_str(0);
-                if !access_modifier.is_empty() {
-                    str.push_str(&access_modifier);
-                    str.push_str(" ");
-                }
-
-                let modifier = m.modifier.artel_str(0);
-                if !modifier.is_empty() {
-                    str.push_str(&modifier);
-                    str.push_str(" ");
-                }
-                str.push_str(&property.artel_str(0));
-                str
+            ArtelClassMember::Property((modifiers, property)) => {
+                Self::artel_str_property(modifiers, property, ident_level)
             }
 
-            ArtelClassMember::Method((m, getter_setter, function_declaration)) => {
-                let mut str = String::new();
-                str.push_str(ident(ident_level));
-                let access_modifier = m.access_modifier.artel_str(0);
-                if !access_modifier.is_empty() {
-                    str.push_str(&access_modifier);
-                    str.push_str(" ");
-                }
-
-                let modifier = m.modifier.artel_str(0);
-
-                assert!(if let GetterSetter::None = getter_setter {
-                    true
-                } else {
-                    false
-                });
-                
-                str.push_str(&function_declaration.artel_str(0));
-                str
+            ArtelClassMember::Method((modifiers, getter_setter, function_declaration)) => {
+                assert!(
+                    *getter_setter == GetterSetter::None,
+                    "Methods cannot be getters or setters"
+                );
+                Self::artel_str_method(modifiers, function_declaration, ident_level)
             }
         }
     }
@@ -542,98 +614,87 @@ impl ArtelClassDeclaration {
             body,
         }
     }
+
+    fn artel_str_heritage(&self) -> String {
+        let mut vec = Vec::new();
+        if let Some((ident, params)) = &self.extends {
+            vec.push([&ident.0, &params.artel_str(0), ""].concat());
+        }
+        vec.extend(self.implements.iter().map(|t| t.artel_str(0)));
+
+        if !vec.is_empty() {
+            " на основе ".to_owned() + &vec.join(", ")
+        } else {
+            "".to_owned()
+        }
+    }
+
+    fn artel_str_declaration_header(&self, ident_level: usize) -> String {
+        [
+            ident(ident_level),
+            "тип ",
+            &self.name.0,
+            &self.generic_params.artel_str(0),
+            if self.is_abstract {
+                " = /* абстрактный */ объект"
+            } else {
+                " = объект"
+            },
+            &self.artel_str_heritage(),
+            "\n",
+            ident(ident_level),
+            "{\n",
+        ]
+        .concat()
+    }
+
+    fn create_property_access_expression(
+        members: Vec<&ArtelClassMember>,
+    ) -> Vec<PropertyAccessExpression> {
+        let mut property_access_expressions: Vec<PropertyAccessExpression> = Vec::new();
+        'outer: for member in members {
+            let property_access_expression = member
+                .get_property_func()
+                .expect("Everything else is filtered before");
+
+            for item in &mut property_access_expressions {
+                // If we processed getter or setter of this property before
+                if item.name == property_access_expression.name {
+                    assert!(
+                        item.get != property_access_expression.get
+                            && item.set != property_access_expression.set,
+                        "There should be only one setter and getter for the property"
+                    );
+                    item.get |= property_access_expression.get;
+                    item.set |= property_access_expression.set;
+                    continue 'outer;
+                }
+            }
+            property_access_expressions.push(property_access_expression);
+        }
+
+        property_access_expressions
+    }
 }
 
 impl ArtelStr for ArtelClassDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
-        let mut str = String::new();
-        str.push_str(ident(ident_level));
-        str.push_str("тип ");
-        str.push_str(&self.name.0);
-        str.push_str(&self.generic_params.artel_str(0));
+        let mut str = String::new(); // TODO REMOVE
 
-        if self.is_abstract {
-            str.push_str(" = /* абстрактный */ объект");
-        } else {
-            str.push_str(" = объект");
-        }
-
-        if let Some((ident, params)) = &self.extends {
-            str.push_str(" на основе ");
-            str.push_str(&ident.0);
-            str.push_str(&params.artel_str(0));
-        }
-
-        if !self.implements.is_empty() {
-            // TODO
-            let mut first = self.extends.is_none();
-            for t in &self.implements {
-                if !first {
-                    str.push_str(", ");
-                } else {
-                    first = true
-                }
-                str.push_str(&t.artel_str(0));
-            }
-        }
-
-        str.push_str("\n");
-        str.push_str(ident(ident_level));
-        str.push_str("{\n");
-
-        let mut custom_properties = Vec::new();
-
+        let mut getters_setters = Vec::new();
+        let mut members = Vec::new();
 
         for member in &self.body {
-            let is_custom_property = if let ArtelClassMember::Method((m, GetterSetter::None, function_declaration)) = member {
-                false
+            if member.is_getter_setter() {
+                getters_setters.push(member);
             } else {
-                true
-            };
-
-            if is_custom_property {
-                custom_properties.push(member);
-                continue;
+                members.push(member);
             }
-
-            str.push_str(&member.artel_str(ident_level + 2));
-            str.push_str("\n");
         }
 
-        /* processing getters and setters */
-        /* another evil, 1 = getter, 2 = setter, 3 = complete */
-        let mut done_props: Vec<(String, ArtelType, i32)> = Vec::new();
-
-
-        for member in custom_properties {
-            let ArtelClassMember::Method((m, gettersetter, function_declaration)) = member else { unreachable!() };
-            let name = &function_declaration.name.0;
-
-            let r#type;
-            let num = match gettersetter {
-                GetterSetter::Get => {
-                    r#type = function_declaration.return_type.clone().unwrap();
-                    1}
-                GetterSetter::Set => {
-                    r#type = function_declaration.arguments[0].r#type.clone();
-                    2}
-                _ => unreachable!(),
-            };
-
-            for item in &mut done_props {
-                if &item.0 == name {
-                    item.2 += num;
-                }
-            }
-
-            done_props.push((name.clone(), r#type, num));
-        }
-
-        for custom_prop in done_props {
-            let kek = ArtelProperty::new(dbg!(custom_prop.2) == 1, ArtelIdentifier(custom_prop.0), custom_prop.1);
-            str.push_str(&kek.artel_str(ident_level + 2));
-            str.push_str("\n");
-        }
+        self.artel_str_declaration_header(ident_level);
+        let member_body = members.iter().map(|m| m.artel_str(ident_level + 2));
+        let getters_setters = Self::create_property_access_expression(getters_setters);
 
         str.push_str(ident(ident_level));
         str.push_str("}");
@@ -720,6 +781,7 @@ impl ArtelStr for ArtelFunctionDeclaration {
             str.push_str(&self.name.0);
             str.push_str(&self.generic_params.artel_str(0));
         }
+
         str.push_str(&self.arguments.artel_str(0));
         if let Some(return_type) = &self.return_type {
             str.push_str(": ");
