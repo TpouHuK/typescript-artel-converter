@@ -13,7 +13,11 @@ fn read_example(filename: &str) -> String {
         .unwrap_or_else(|_| std::fs::read_to_string(format!("./{filename}")).unwrap())
 }
 
-fn convert_ts(code: &str) -> () {
+fn read_file(filename: &str) -> String {
+    std::fs::read_to_string(filename).unwrap()
+}
+
+fn convert_ts_debug(code: &str) -> () {
     let mut parser = Parser::new();
     parser
         .set_language(tree_sitter_typescript::language_typescript())
@@ -28,10 +32,10 @@ fn convert_ts(code: &str) -> () {
 
     println!("{code}");
     println!("---");
-    println!("{}", create_artel_code(&res));
+    println!("{}", create_artel_code(res));
 }
 
-fn convert_ts_no_debug(code: &str) {
+fn convert_ts(code: &str) -> String {
     let mut parser = Parser::new();
     parser
         .set_language(tree_sitter_typescript::language_typescript())
@@ -40,16 +44,20 @@ fn convert_ts_no_debug(code: &str) {
     let parsed = parser.parse(code, None).unwrap();
     let root = parsed.root_node();
     let res = walk_tree(&code, &root);
-    create_artel_code(&res);
+
+    create_artel_code(res)
 }
 
 fn main() {
     let mut file_name = env::args().nth(1).expect("Filename as the first argument");
-    if !file_name.ends_with(".ts") {
-        file_name.push_str(".ts");
-    }
+    //if !file_name.ends_with(".ts") {
+    //    file_name.push_str(".ts");
+    //}
+    read_file(&file_name);
     let code = read_example(&file_name);
-    convert_ts(&code);
+    let res = convert_ts(&code);
+    println!("{}", res);
+    
 }
 
 #[cfg(test)]
@@ -83,6 +91,6 @@ mod tests {
     ) {
         let path = path;
         let text = read_example(path);
-        convert_ts_no_debug(&text);
+        convert_ts_debug(&text);
     }
 }

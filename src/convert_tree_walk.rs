@@ -871,11 +871,15 @@ fn parse_lexical_declaration(source: &str, node: &Node) -> ArtelStatement {
     unimplemented!()
 }
 
-pub fn create_artel_code(artel_program: &ArtelProgram) -> String {
-    let mut statements = Vec::new();
-    for statement in artel_program {
-        statements.push(statement.artel_str(4));
-    }
+pub fn create_artel_code(artel_program: ArtelProgram) -> String {
+    let flat_export = artel_program.into_iter().filter_map(|stmt| {
+        match stmt {
+            ArtelStatement::ExportStatement(stmt) => Some(*stmt),
+            comment @ ArtelStatement::Comment(_) => Some(comment),
+            _ => { None }
 
-    statements.join("\n")
+        }
+    });
+    ["внешнее {\n", &flat_export.map(|s| s.artel_str(2)).collect::<Vec<String>>().join("\n") ,"\n}"].concat()
+
 }

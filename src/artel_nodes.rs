@@ -1,4 +1,4 @@
-#![allow(dead_code)]
+use itertools::Itertools;
 
 pub trait ArtelStr {
     fn artel_str(&self, ident_level: usize) -> String;
@@ -14,7 +14,6 @@ fn ident(ident: usize) -> &'static str {
 pub type ArtelProgram = ArtelStatements;
 
 type ArtelStatements = Vec<ArtelStatement>;
-
 #[derive(Debug)]
 pub enum ArtelStatement {
     LexicalDeclaration(ArtelLexicalDeclaration),
@@ -237,7 +236,7 @@ impl ArtelStr for ArtelLiteralType {
             ArtelLiteralType::Null => "пусто".to_owned(),
             ArtelLiteralType::String(x) => format!("\"{x}\""),
             ArtelLiteralType::Number(x) => x.clone(),
-            ArtelLiteralType::Boolean(x) => if *x {"да"} else {"нет"}.to_owned(),
+            ArtelLiteralType::Boolean(x) => if *x { "да" } else { "нет" }.to_owned(),
         }
     }
 }
@@ -500,6 +499,29 @@ struct PropertyAccessExpression {
     set: bool,
 }
 
+impl ArtelStr for PropertyAccessExpression {
+    fn artel_str(&self, ident_level: usize) -> String {
+        [
+            ident(ident_level),
+            &self.name.0,
+            ": ",
+            &self.r#type.artel_str(0),
+            &if self.get {
+                ["\n", ident(ident_level + 2), "при чтении { }"].concat()
+            } else {
+                "".to_owned()
+            },
+            &if self.set {
+                ["\n", ident(ident_level + 2), "при записи { }"].concat()
+            } else {
+                "".to_owned()
+            },
+            "\n",
+        ]
+        .concat()
+    }
+}
+
 impl ArtelClassMember {
     fn is_getter_setter(&self) -> bool {
         match self {
@@ -648,7 +670,7 @@ impl ArtelClassDeclaration {
         .concat()
     }
 
-    fn create_property_access_expression(
+    fn create_property_access_expressions(
         members: Vec<&ArtelClassMember>,
     ) -> Vec<PropertyAccessExpression> {
         let mut property_access_expressions: Vec<PropertyAccessExpression> = Vec::new();
@@ -679,8 +701,6 @@ impl ArtelClassDeclaration {
 
 impl ArtelStr for ArtelClassDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
-        let mut str = String::new(); // TODO REMOVE
-
         let mut getters_setters = Vec::new();
         let mut members = Vec::new();
 
@@ -691,15 +711,19 @@ impl ArtelStr for ArtelClassDeclaration {
                 members.push(member);
             }
         }
+        let getters_setters = Self::create_property_access_expressions(getters_setters);
 
-        self.artel_str_declaration_header(ident_level);
         let member_body = members.iter().map(|m| m.artel_str(ident_level + 2));
-        let getters_setters = Self::create_property_access_expression(getters_setters);
+        let getter_setter_body = getters_setters.iter().map(|t| t.artel_str(ident_level + 2));
+        let body_str = member_body.chain(getter_setter_body).join("\n");
 
-        str.push_str(ident(ident_level));
-        str.push_str("}");
-
-        str
+        [
+            &self.artel_str_declaration_header(ident_level),
+            &body_str,
+            ident(ident_level),
+            "}",
+        ]
+        .concat()
     }
 }
 
@@ -730,15 +754,23 @@ pub struct ArtelFunctionArgument {
 
 impl ArtelStr for ArtelFunctionArgument {
     fn artel_str(&self, ident_level: usize) -> String {
-        let mut str = String::new();
-        str.push_str(&self.name.0);
-        str.push_str(": ");
-        str.push_str(&self.r#type.artel_str(0));
-        if let Some(default_value) = &self.default_value {
-            str.push_str(" = ");
-            str.push_str(&default_value.artel_str(0));
-        }
-        str
+        let is_array_param = self.name.0.starts_with("...");
+        let name = if is_array_param {
+            self.name.0.strip_prefix("...").unwrap().to_owned()
+        } else {
+            self.name.0.clone()
+        };
+        [
+            &name,
+            ": ",
+            &self.r#type.artel_str(0),
+            &if let Some(default_value) = &self.default_value {
+                [" = ", &default_value.artel_str(0)].concat()
+            } else {
+                "".to_owned()
+            },
+        ]
+        .concat()
     }
 }
 
@@ -765,29 +797,44 @@ pub struct ArtelFunctionDeclaration {
     return_type: Option<ArtelType>,
 }
 
+impl ArtelFunctionDeclaration {
+    fn annotation_array_param(&self, ident_level: usize) -> String {
+        let any_param_array = self
+            .arguments
+            .iter()
+            .any(|arg| arg.name.0.starts_with("..."));
+        if any_param_array {
+            [ident(ident_level), "#js.МассивПараметров\n"].concat()
+        } else {
+            String::new()
+        }
+    }
+
+    fn artel_str_return_type(&self, _ident_level: usize) -> String {
+        if let Some(return_type) = &self.return_type {
+            [": ", &return_type.artel_str(0)].concat()
+        } else {
+            "".to_owned()
+        }
+    }
+}
+
 impl ArtelStr for ArtelFunctionDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
-        let mut str = String::new();
-        str.push_str(ident(ident_level));
-        if self.r#async {
-            str.push_str("параллельная ");
-        }
-
-        // Evil hack
-        if self.name.0 == "constructor" {
-            str.push_str("при создании");
-        } else {
-            str.push_str("операция ");
-            str.push_str(&self.name.0);
-            str.push_str(&self.generic_params.artel_str(0));
-        }
-
-        str.push_str(&self.arguments.artel_str(0));
-        if let Some(return_type) = &self.return_type {
-            str.push_str(": ");
-            str.push_str(&return_type.artel_str(0));
-        }
-        str
+        [
+            &self.annotation_array_param(ident_level),
+            ident(ident_level),
+            self.r#async.then_some("параллельная").unwrap_or(""),
+            // Evil hack
+            &if self.name.0 == "constructor" {
+                "при создании".to_owned()
+            } else {
+                ["операция ", &self.name.0, &self.generic_params.artel_str(0)].concat()
+            },
+            &self.arguments.artel_str(0),
+            &self.artel_str_return_type(0),
+        ]
+        .concat()
     }
 }
 
@@ -809,36 +856,23 @@ impl ArtelFunctionDeclaration {
     }
 
     pub fn artel_str_as_functype(&self, ident_level: usize) -> String {
-        let mut str = String::new();
-        str.push_str("операция");
-        str.push_str(&self.generic_params.artel_str(0));
-        str.push_str(&self.arguments.artel_str(0));
-        if let Some(return_type) = &self.return_type {
-            str.push_str(": ");
-            str.push_str(&return_type.artel_str(0));
-        }
-
-        str
+        [
+            "операция",
+            &self.generic_params.artel_str(0),
+            &self.arguments.artel_str(0),
+            &if let Some(return_type) = &self.return_type {
+                [": ", &return_type.artel_str(0)].concat()
+            } else {
+                "".to_owned()
+            },
+        ]
+        .concat()
     }
 }
 
 impl ArtelStr for Vec<ArtelFunctionArgument> {
     fn artel_str(&self, ident_level: usize) -> String {
-        let mut str = String::new();
-        if !self.is_empty() {
-            str.push_str("(");
-            let mut first = true;
-            for argument in self {
-                if !first {
-                    str.push_str(", ");
-                } else {
-                    first = false;
-                }
-                str.push_str(&argument.artel_str(0));
-            }
-            str.push_str(")");
-        }
-        str
+        ["(", &self.iter().map(|a| a.artel_str(0)).join(", "), ")"].concat()
     }
 }
 
@@ -959,7 +993,11 @@ pub struct ArtelExpression(pub String);
 
 impl ArtelStr for ArtelExpression {
     fn artel_str(&self, ident_level: usize) -> String {
-        self.0.clone() // TODO
+        match self.0.as_str() {
+            "false" => "нет".to_owned(),
+            "true" => "да".to_owned(),
+            _ => self.0.clone(),
+        }
     }
 }
 

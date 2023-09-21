@@ -11,4 +11,6 @@ abstract class UserAccount<T> extends Many<T> implements Idk<T>, Something {
 
   public static bibabon(name: string, id: number) {
   }
+  get myStuff(): T {}
+  set myStuff(arg: T) {}
 }
