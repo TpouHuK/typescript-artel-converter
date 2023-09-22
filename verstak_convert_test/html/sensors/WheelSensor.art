@@ -1,0 +1,20 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2019-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/verstak/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  тип WheelSensor = объект на основе BasePointerSensor
+  {
+    target: /* unknown */ Объект
+    deltaX: Число
+    deltaY: Число
+    при создании()
+    операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
+    операция reset(): Ничего
+    /* protected */ операция onWheel(e: WheelEvent): Ничего
+    /* protected */ операция doWheel(e: WheelEvent): Ничего
+    /* protected */ операция doReset(): Ничего
+    /* protected */ операция updateSensorData(e: WheelEvent): Ничего  }
+}

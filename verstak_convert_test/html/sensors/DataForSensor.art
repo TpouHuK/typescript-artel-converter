@@ -1,0 +1,33 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2019-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/verstak/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  тип DataForSensor = интерфейс
+  {
+    context: /* unknown */ Объект
+    window: /* unknown */ Объект
+    focus: /* unknown */ Объект
+    hover: /* unknown */ Объект
+    keyboard: /* unknown */ Объект
+    click: /* unknown */ Объект
+    wheel: /* unknown */ Объект
+    resize: /* unknown */ Объект
+    drag: /* unknown */ Объект
+    draggable: /* unknown */ Объект
+    htmlDrag: /* unknown */ Объект
+    htmlDraggable: /* unknown */ Объект
+    button: /* unknown */ Объект
+  }
+
+  конст SymDataForSensor: unique/* = Symbol("DataForSensor") */
+
+  конст SymResizeObserver: unique/* = Symbol("ResizeObserver") */
+
+  конст EmptyDataArray: Список<Объект>/* = [] */
+
+  операция findTargetElementData(targetPath: Список<Объект>, underPointer: Список<Объект>, sym: Символ, anyOfPayloadKeys: Array</* any */ Объект>, ignoreWindow: ДаНет = нет): /* any */ Объект
+  операция grabElementDataList(targetPath: Список<Объект>, sym: Символ, payloadKey: /* any */ Объект, existing: Array</* unknown */ Объект>, ignoreWindow: ДаНет = нет, predicate: операция(element: Объект): ДаНет = () => false): /* any */ Объект
+}

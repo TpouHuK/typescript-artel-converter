@@ -59,7 +59,7 @@ pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
         "lexical_declaration" => Some(ArtelStatement::LexicalDeclaration(
             parse_lexical_declaration(source, node),
         )),
-        "import_statement" | "expression_statement" => None,
+        "import_statement" | "expression_statement" | "if_statement" => None,
         _ => {
             unimplemented!("{} is unimplemented", node.kind())
         }
@@ -569,7 +569,7 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
                 let method = parse_method_definition(source, &definition);
                 definitions.push(method);
             }
-            "comment" => {}
+            "comment" | "decorator" => {}
             _ => {
                 unimplemented!("{} is not implemented in a class body", definition.kind())
             }

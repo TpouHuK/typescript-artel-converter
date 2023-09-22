@@ -1,0 +1,89 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2019-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/verstak/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  //// Verstak
+  тип Verstak = объект
+  {
+    глобальный защищено shortFrameDuration: /* any */ Объект
+    глобальный защищено longFrameDuration: /* any */ Объект
+    глобальный currentRebuildPriority: /* any */ Объект
+    глобальный frameDuration: /* any */ Объект
+    глобальный операция claim<T, M, C, R>(driver: Driver<T>, builder: BlockBuilder<T, M, C, R>? = пусто, base: BlockBuilder<T, M, C, R>? = пусто): Block<T, M, C, R>
+    глобальный операция triggerRebuild(block: Block<Объект, Объект, Объект, Ничего>, triggers: /* unknown */ Объект): Ничего
+    глобальный операция rebuildNestedTreesThenDo(action: операция(error: /* unknown */ Объект): Ничего): Ничего
+    глобальный операция getDefaultLoggingOptions(): LoggingOptions?
+    глобальный операция setDefaultLoggingOptions(logging: LoggingOptions? = пусто): Ничего
+    block: Block
+      при чтении { }
+  }
+  //// BaseDriver
+  тип BaseDriver<T, C> = объект на основе Driver<T, C>
+  {
+    /* public */ глобальный защищено fragment: /* any */ Объект
+    при создании(name: Текст, isRow: ДаНет, preset: SimpleDelegate<T>? = пусто)
+    операция claim(block: Block<T, /* unknown */ Объект, C>): Ничего
+    операция create(block: Block<T, /* unknown */ Объект, C>, b: /* any */ Объект): Ничего
+    операция initialize(block: Block<T, /* unknown */ Объект, C>): Ничего
+    операция mount(block: Block<T, /* unknown */ Объект, C>): Ничего
+    операция rebuild(block: Block<T, /* unknown */ Объект, C>): Ничего | Promise<Ничего>
+    операция finalize(block: Block<T, /* unknown */ Объект, C>, isLeader: ДаНет): ДаНет
+    операция applyKind(block: Block<T, Объект, C, Объект>, value: BlockKind): Ничего
+    операция applyCoords(block: Block<T, Объект, C, Объект>, value: BlockCoords?): Ничего
+    операция applyWidthGrowth(block: Block<T, Объект, C, Объект>, value: Число): Ничего
+    операция applyMinWidth(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyMaxWidth(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyHeightGrowth(block: Block<T, Объект, C, Объект>, value: Число): Ничего
+    операция applyMinHeight(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyMaxHeight(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyContentAlignment(block: Block<T, Объект, C, Объект>, value: Align): Ничего
+    операция applyBlockAlignment(block: Block<T, Объект, C, Объект>, value: Align): Ничего
+    операция applyContentWrapping(block: Block<T, Объект, C, Объект>, value: ДаНет): Ничего
+    операция applyOverlayVisible(block: Block<T, Объект, C, Объект>, value: ДаНет?): Ничего
+    операция applyStyle(block: Block<T, Объект, C, Объект>, secondary: ДаНет, styleName: Текст, enabled: ДаНет? = пусто): Ничего  }
+  //// Utils
+  тип StaticDriver<T> = объект на основе BaseDriver<T>
+  {
+    защищено element: T
+    при создании(element: T, name: Текст, isRow: ДаНет, preset: SimpleDelegate<T>? = пусто)
+    операция create(block: Block<T, /* unknown */ Объект, /* unknown */ Объект, Ничего>, b: /* any */ Объект): Ничего  }
+  //// CursorCommandDriver
+  тип CursorCommand = объект
+  {
+    absolute: Текст?
+    columnShift: Число?
+    rowShift: Число?  }
+  тип CursorCommandDriver = объект на основе BaseDriver
+  {
+    при создании()
+    операция create(block: Block<CursorCommand, /* unknown */ Объект, Ничего, Ничего>, b: /* any */ Объект): Ничего  }
+  //// SubTreeVariable
+  тип SubTreeVariable<T = Object> = объект
+  {
+    защищено defaultValue: T?
+    при создании(defaultValue: T? = пусто)
+    value: T
+      при чтении { }
+      при записи { }
+
+    valueOrUndefined: T?
+      при чтении { }
+  }
+  //// CursorPosition
+  //// BlockCtxImpl
+  //// BlockNodeImpl
+  //// BlockImpl
+  //// Internal
+  //// function forEachChildRecursively(item: Item<XBlock>, action: (e: any) => void): void {
+  ////   const block = item.instance
+  ////   const e = block.native
+  ////   e && action(e)
+  ////   for (const item of block.children.items())
+  ////     forEachChildRecursively(item, action)
+  //// }
+  //// Seamless support for asynchronous programming
+  //// Globals
+}

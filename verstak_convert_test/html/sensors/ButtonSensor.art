@@ -1,0 +1,38 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2019-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/verstak/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  тип ButtonState вариант
+  {
+    Pressed
+    Selecting
+    Selected
+    Released
+  }
+  тип ButtonSensor = объект на основе BasePointerSensor
+  {
+    state: ButtonState
+    pointerButton: PointerButton
+    originData: /* unknown */ Объект
+    selectedData: /* unknown */ Объект
+    selectedX: Число
+    selectedY: Число
+    selected: ДаНет
+    при создании(focusSensor: FocusSensor, windowSensor: WindowSensor)
+    операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
+    /* protected */ операция onPointerDown(e: PointerEvent): Ничего
+    /* protected */ операция onPointerMove(e: PointerEvent): Ничего
+    /* protected */ операция onPointerUp(e: PointerEvent): Ничего
+    /* protected */ операция onLostPointerCapture(e: PointerEvent): Ничего
+    /* protected */ операция onKeyDown(e: KeyboardEvent): Ничего
+    /* protected */ операция press(e: PointerEvent): Ничего
+    /* protected */ операция selecting(e: PointerEvent): Ничего
+    /* protected */ операция select(e: PointerEvent): Ничего
+    /* protected */ операция release(): Ничего
+    /* protected */ операция cancel(): Ничего
+    /* protected */ операция reset(): Ничего
+    /* protected */ операция updateSensorData(e: PointerEvent): Ничего  }
+}

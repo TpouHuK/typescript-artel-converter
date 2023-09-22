@@ -1,0 +1,54 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2019-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/verstak/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  //// Verstak is based on two fundamental layout structures
+  //// called section and table; and on two special non-visual
+  //// elements called row and group.
+  //// Section is a layout structure, which children are layed
+  //// out naturally: rightwards-downwards.
+  //// Table is layout structure, which children are layed out
+  //// over table cells.
+  //// Row is a special non-visual element, which begins
+  //// new layout row inside section or table.
+  //// Note is either plain or markdown-formatted text
+  //// supporting syntax highlighting for code blocks.
+  //// Group is a special non-visual element for logical
+  //// grouping of sections, tables and other groups.
+  //// Section
+  операция Section<M, R>(builder: BlockBuilder<HTMLElement, M, R>? = пусто, base: BlockBuilder<HTMLElement, M, R>? = пусто): Block<HTMLElement, M, R>
+  //// Table
+  операция Table<M, R>(builder: BlockBuilder<HTMLElement, M, R>? = пусто, base: BlockBuilder<HTMLElement, M, R>? = пусто): Block<HTMLElement, M, R>
+  //// Row
+  операция row<T>(builder: операция(block: Ничего): T? = пусто, shiftCursorDown: Число? = пусто): Ничего
+  операция startNewRow(shiftCursorDown: Число? = пусто): Ничего
+  операция cursor(areaParams: BlockArea): Ничего
+  //// Note (either plain or html)
+  операция Note(content: Текст, builder: BlockBuilder<HTMLElement, Ничего, Ничего>? = пусто): Block<HTMLElement, Ничего, Ничего>
+  операция HtmlNote(content: Текст, builder: BlockBuilder<HTMLElement, Ничего, Ничего>? = пусто): Block<HTMLElement, Ничего, Ничего>
+  //// Group
+  операция Group<M, R>(builder: BlockBuilder<HTMLElement, M, R>? = пусто, base: BlockBuilder<HTMLElement, M, R>? = пусто): Block<HTMLElement, M, R>
+  //// Fragment
+  операция Fragment<M, R>(builder: BlockBuilder<Ничего, M, R>? = пусто, base: BlockBuilder<Ничего, M, R>? = пусто): Block<Ничего, M, R>
+  //// VerstakHtmlDriver
+  тип VerstakHtmlDriver<T = HTMLElement> = объект на основе HtmlDriver<T = HTMLElement>
+  {
+    операция applyKind(block: Block<T, Объект, Объект>, value: BlockKind): Ничего
+    операция applyCoords(block: Block<T>, value: BlockCoords?): Ничего
+    операция applyWidthGrowth(block: Block<T>, value: Число): Ничего
+    операция applyMinWidth(block: Block<T>, value: Текст): Ничего
+    операция applyMaxWidth(block: Block<T>, value: Текст): Ничего
+    операция applyHeightGrowth(block: Block<T>, value: Число): Ничего
+    операция applyMinHeight(block: Block<T>, value: Текст): Ничего
+    операция applyMaxHeight(block: Block<T>, value: Текст): Ничего
+    операция applyContentAlignment(block: Block<T>, value: Align): Ничего
+    операция applyBlockAlignment(block: Block<T>, value: Align): Ничего
+    операция applyContentWrapping(block: Block<T>, value: ДаНет): Ничего
+    операция applyOverlayVisible(block: Block<T>, value: ДаНет?): Ничего
+    операция applyStyle(block: Block<T, Объект, Объект>, secondary: ДаНет, styleName: Текст, enabled: ДаНет? = пусто): Ничего
+    операция rebuild(block: Block<T>): Ничего | Promise<Ничего>  }
+  //// Constants
+}

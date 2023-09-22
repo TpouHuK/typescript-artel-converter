@@ -1,0 +1,28 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2019-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/verstak/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  тип BaseHtmlDriver<T = Element, C> = /* абстрактный */ объект на основе BaseDriver<T = Element, C>
+  {
+    операция create(block: Block<T, /* unknown */ Объект, C, Ничего>, b: /* any */ Объект): Ничего
+    операция initialize(block: Block<T, /* unknown */ Объект, C, Ничего>): Ничего
+    операция finalize(block: Block<T, /* unknown */ Объект, C>, isLeader: ДаНет): ДаНет
+    операция mount(block: Block<T, /* unknown */ Объект, C>): Ничего
+    операция relocate(block: Block<T, /* unknown */ Объект, C>): Ничего
+    операция rebuild(block: Block<T, /* unknown */ Объект, C>): Ничего | Promise<Ничего>
+    глобальный операция findEffectiveHtmlBlockHost(block: Block<Объект>): Block<HTMLElement | SVGElement>
+    глобальный операция findPrevSiblingHtmlBlock(ties: Item<Block<Объект>>): Item<Block<HTMLElement | SVGElement>>?
+    blinkingEffectMarker: Текст?
+      при чтении { }
+      при записи { }
+  }
+  тип HtmlDriver<T = HTMLElement, C> = объект на основе BaseHtmlDriver<T = HTMLElement, C>
+  {
+    операция create(block: Block<T, /* unknown */ Объект, C, Ничего>, b: /* any */ Объект): Ничего  }
+  тип SvgDriver<T = SVGElement, C> = объект на основе BaseHtmlDriver<T = SVGElement, C>
+  {
+    операция create(block: Block<T, /* unknown */ Объект, C, Ничего>, b: /* any */ Объект): Ничего  }
+}

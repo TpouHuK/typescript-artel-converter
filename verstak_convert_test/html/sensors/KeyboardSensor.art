@@ -1,0 +1,41 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2019-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/verstak/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  тип KeyboardModifiers вариант
+  {
+    None = 0
+    Ctrl = 1
+    Shift = 2
+    Alt = 4
+    Meta = 8
+    CtrlShift = 1 + 2
+    CtrlAlt = 1 + 4
+    CtrlMeta = 1 + 8
+    CtrlShiftAlt = 1 + 2 + 4
+    CtrlShiftAltMeta = 1 + 2 + 4 + 8
+    CtrlShiftMeta = 1 + 2 + 8
+    ShiftAlt = 2 + 4
+    ShiftMeta = 2 + 8
+    ShiftAltMeta = 2 + 4 + 8
+    AltMeta = 4 + 8
+  }
+  тип KeyboardSensor = объект на основе HtmlElementSensor
+  {
+    down: Текст
+    up: Текст
+    modifiers: KeyboardModifiers
+    при создании()
+    операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
+    операция reset(): Ничего
+    /* protected */ операция onKeyDown(e: KeyboardEvent): Ничего
+    /* protected */ операция onKeyUp(e: KeyboardEvent): Ничего
+    /* protected */ операция keyDown(e: KeyboardEvent): Ничего
+    /* protected */ операция keyUp(e: KeyboardEvent): Ничего
+    /* protected */ операция updateSensorData(e: KeyboardEvent): Ничего
+    /* protected */ глобальный операция getKeyAsModifierIfAny(key: Текст): KeyboardModifiers  }
+  операция extractModifierKeys(e: MouseEvent | KeyboardEvent | WheelEvent): KeyboardModifiers
+}

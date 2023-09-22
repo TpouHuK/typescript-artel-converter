@@ -1,0 +1,26 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2019-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/verstak/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  тип ResizedElement = интерфейс
+  {
+    защищено borderBoxSize: ReadonlyArray<ResizeObserverSize>
+    защищено contentBoxSize: ReadonlyArray<ResizeObserverSize>
+    защищено contentRect: DOMRectReadOnly
+    защищено resizeData: Объект
+  }
+
+  тип ResizeSensor = объект на основе Sensor
+  {
+    /* private */ защищено observer: ResizeObserver
+    resizedElements: Array<ResizedElement>
+    при создании()
+    операция reset(): Ничего
+    операция observeResizing(block: Block<Объект, Объект, Объект>, value: ДаНет, boxSizing: ResizeObserverBoxOptions = "content-box"): Ничего
+    /* protected */ операция onResize(entries: Array<ResizeObserverEntry>): Ничего
+    /* protected */ операция resize(entries: Array<ResizeObserverEntry>): Ничего
+    /* protected */ операция doReset(): Ничего  }
+}

@@ -1,0 +1,23 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2019-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/verstak/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  тип PointerButton вариант
+  {
+    None = 0
+    Left = 1
+    Right = 2
+    Middle = 4
+  }
+  тип BasePointerSensor = объект на основе HtmlElementSensor
+  {
+    positionX: Число
+    positionY: Число
+    modifiers: KeyboardModifiers
+    при создании(focusSensor: FocusSensor? = пусто, windowSensor: WindowSensor? = пусто)  }
+  операция extractPointerButton(e: MouseEvent): PointerButton
+  операция isPointerButtonDown(button: PointerButton, buttonsMask: Число): ДаНет
+}

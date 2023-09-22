@@ -1,0 +1,55 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2019-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/verstak/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  тип Render<E, O> = операция(element: E, options: O): Ничего | Promise<Ничего>
+  тип SuperRender<E, O> = операция(render: операция(options: O): Ничего, element: E): Ничего
+  тип AsyncSuperRender<O, E> = операция(render: операция(options: O): Promise<Ничего>, element: E): Promise<Ничего>
+  тип Customize<E, O> = операция(element: E, options: O): Ничего
+  тип AsyncCustomize<E, O> = операция(element: E, options: O): Promise<Ничего>
+  тип RxNodeType<E, O> = интерфейс
+  {
+    защищено name: Текст
+    защищено sequential: ДаНет
+    операция initialize(node: RxNode<E, O>): Ничего
+    операция mount(node: RxNode<E, O>): Ничего
+    операция render(node: RxNode<E, O>, args: /* unknown */ Объект): Ничего
+    операция finalize(node: RxNode<E, O>, initiator: RxNode): Ничего
+  }
+
+  тип RxNodeInstance<E, O> = интерфейс
+  {
+    защищено uuid: Число
+    защищено level: Число
+    revision: Число
+    native: E
+    model: /* unknown */ Объект
+    children: ReadonlyArray<RxNode>
+    buffer: Array<RxNode>?
+    guests: ReadonlyArray<RxNode>
+    resizeObserver: ResizeObserver
+    операция rerender(node: RxNode<E, O>): Ничего
+  }
+
+  тип RxNode<E, O> = объект
+  {
+    old: RxNode<E, O>?
+    prevSibling: RxNode?
+    при создании(id: Текст, args: /* unknown */ Объект, render: Render<E, O>, superRender: SuperRender<E, O>?, priority: Число, childrenShuffling: ДаНет, type: RxNodeType<E, O>, inline: ДаНет, creator: RxNode, host: RxNode, instance: RxNodeInstance<E, O>? = пусто)
+    parent: RxNode
+      при чтении { }
+
+    revision: Число
+      при чтении { }
+
+    native: E?
+      при чтении { }
+      при записи { }
+
+    resizeObserver: ResizeObserver?
+      при чтении { }
+  }
+}
