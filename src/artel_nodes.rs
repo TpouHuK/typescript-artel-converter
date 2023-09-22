@@ -630,12 +630,7 @@ impl ArtelClassMember {
         function_declaration: &ArtelFunctionDeclaration,
         ident_level: usize,
     ) -> String {
-        [
-            ident(ident_level),
-            &modifiers.artel_str(0),
-            &function_declaration.artel_str(0),
-        ]
-        .concat()
+        function_declaration.artel_str_with_modifier(modifiers.artel_str(0), ident_level)
     }
 }
 
@@ -874,7 +869,7 @@ impl ArtelStr for ArtelFunctionDeclaration {
             &self.annotation_array_param(ident_level),
             ident(ident_level),
             self.r#async.then_some("параллельная").unwrap_or(""),
-            // Evil hack
+
             &if self.name.0 == "constructor" {
                 "при создании".to_owned()
             } else {
@@ -914,6 +909,24 @@ impl ArtelFunctionDeclaration {
             } else {
                 "".to_owned()
             },
+        ]
+        .concat()
+    }
+
+    fn artel_str_with_modifier(&self, modifier: String, ident_level: usize) -> String {
+        [
+            &self.annotation_array_param(ident_level),
+            ident(ident_level),
+            &modifier,
+            self.r#async.then_some("параллельная").unwrap_or(""),
+            // Evil hack
+            &if self.name.0 == "constructor" {
+                "при создании".to_owned()
+            } else {
+                ["операция ", &self.name.0, &self.generic_params.artel_str(0)].concat()
+            },
+            &self.arguments.artel_str(0),
+            &self.artel_str_return_type(0),
         ]
         .concat()
     }

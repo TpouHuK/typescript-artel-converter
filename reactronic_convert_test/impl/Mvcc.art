@@ -58,8 +58,8 @@
     глобальный операция acquireHandle(obj: Объект): ObjectHandle
     глобальный операция createHandleForMvccObject(proto: Объект, data: Объект, blank: Объект, hint: Текст, isObservable: ДаНет): ObjectHandle
     глобальный операция setProfilingMode(isOn: ДаНет, options: Partial<ProfilingOptions>? = пусто): Ничего
-    глобальный #js.МассивПараметров
-операция sensitive<T>(sensitivity: ДаНет, func: F<T>, args: Список<Объект>): T
+    #js.МассивПараметров
+    глобальный операция sensitive<T>(sensitivity: ДаНет, func: F<T>, args: Список<Объект>): T
     глобальный операция setHint<T>(obj: T, hint: Текст?): T
     глобальный операция getHint<T>(obj: T): Текст
     глобальный createOperation: /* any */ Объект

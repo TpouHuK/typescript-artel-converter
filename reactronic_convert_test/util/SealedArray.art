@@ -9,13 +9,13 @@
   {
     операция pop(): T?
     #js.МассивПараметров
-операция push(items: Список<T>): Число
+    операция push(items: Список<T>): Число
     операция sort(compareFn: операция(a: T, b: T): Число? = пусто): /* any */ Объект
     операция splice(start: Число, deleteCount: Число? = пусто): Список<T>
     #js.МассивПараметров
-операция splice(start: Число, deleteCount: Число, items: Список<T>): Список<T>
+    операция splice(start: Число, deleteCount: Число, items: Список<T>): Список<T>
     #js.МассивПараметров
-операция unshift(items: Список<T>): Число
+    операция unshift(items: Список<T>): Число
     операция [Sealant.CreateCopy](): Array<T>
     операция slice(start: Число? = пусто, end: Число? = пусто): Список<T>  }
 }

@@ -16,13 +16,13 @@
     операция toLocaleString(): Текст
     операция pop(): T?
     #js.МассивПараметров
-операция push(items: Список<T>): Число
+    операция push(items: Список<T>): Число
     #js.МассивПараметров
-операция concat(items: Список<T | ConcatArray<T>>): Список<T>
+    операция concat(items: Список<T | ConcatArray<T>>): Список<T>
     #js.МассивПараметров
-операция concat(items: Список<ConcatArray<T>>): Список<T>
+    операция concat(items: Список<ConcatArray<T>>): Список<T>
     #js.МассивПараметров
-операция concat(items: Список<ConcatArray<T>>): Список<T>
+    операция concat(items: Список<ConcatArray<T>>): Список<T>
     операция join(separator: Текст? = пусто): Текст
     операция reverse(): Список<T>
     операция shift(): T?
@@ -30,11 +30,11 @@
     операция sort(compareFn: операция(a: T, b: T): Число? = пусто): /* any */ Объект
     операция splice(start: Число, deleteCount: Число? = пусто): Список<T>
     #js.МассивПараметров
-операция splice(start: Число, deleteCount: Число, items: Список<T>): Список<T>
+    операция splice(start: Число, deleteCount: Число, items: Список<T>): Список<T>
     #js.МассивПараметров
-операция splice(start: Число, deleteCount: Число, items: Список<T>): Список<T>
+    операция splice(start: Число, deleteCount: Число, items: Список<T>): Список<T>
     #js.МассивПараметров
-операция unshift(items: Список<T>): Число
+    операция unshift(items: Список<T>): Число
     операция includes(searchElement: T, fromIndex: Число? = пусто): ДаНет
     операция indexOf(searchElement: T, fromIndex: Число? = пусто): Число
     операция lastIndexOf(searchElement: T, fromIndex: Число? = пусто): Число
@@ -77,7 +77,7 @@
     при создании(arrayLength: Число)
     при создании(arrayLength: Число? = пусто)
     #js.МассивПараметров
-при создании(items: Список<T>)
+    при создании(items: Список<T>)
     при создании(args: Объект? = пусто)  }
   //// ObservableArray
   тип ObservableArray<T> = объект на основе MvccArray<T>
@@ -86,6 +86,6 @@
     при создании(arrayLength: Число)
     при создании(arrayLength: Число? = пусто)
     #js.МассивПараметров
-при создании(items: Список<T>)
+    при создании(items: Список<T>)
     при создании(args: Объект? = пусто)  }
 }
