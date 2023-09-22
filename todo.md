@@ -1,4 +1,6 @@
 # CurrentTODO
+- [ ] ambient declaration doesnt render? 
+- [ ] object type
 - [x] function declaration
 - [x] interface declaration: est 20 min | done in 25 min
 - [x] function type: est 10 min | done in 14 min
@@ -10,7 +12,6 @@
 
 
 # Did not need it
-- [ ] object type
 - [ ] variable definitions as structs
 
 # Code refactoring

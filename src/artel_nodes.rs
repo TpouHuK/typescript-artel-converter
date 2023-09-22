@@ -523,9 +523,7 @@ impl ArtelStr for ClassMemberModifiers {
 
 #[derive(Debug, Clone)]
 pub struct ArtelObjectType {
-    name: ArtelIdentifier,
-    generic_params: ArtelGenericParams,
-    //body: Vec<ArtelObjectMember>,
+    body: Vec<ArtelProperty>,
 }
 
 #[derive(Debug, Eq, PartialEq)]
