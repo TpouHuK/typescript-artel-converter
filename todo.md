@@ -4,8 +4,13 @@
 - [x] function type: est 10 min | done in 14 min
 - [x] object declaration: done in ~4 hours
 - [x] enum declaration
-- [ ] object type
 - [x] array type
+- [x] global variable's with var
+- [x] introduce tests
+
+
+# Did not need it
+- [ ] object type
 - [ ] variable definitions as structs
 
 # Code refactoring
@@ -23,14 +28,7 @@
 - [ ] Identifier conversion
 
 # Big questions
-- [ ] Void problem... Void = anything but ignored, not undefined...
+- [x] Void problem... Void = anything but ignored, not undefined...
 - [x] arbitrary expression in default values to the function
 - [x] Indexable types?
-- [x] Just stuff that can't work in artel
 - [x] Abstract stuff?
-
-# Tasks for 10...
-- [x] introduce tests
-- [ ] global variable's with var
-- [ ] check unary and binary operator precedence in javascript and typescript
-- [ ] what is gonna happen with javascript STRING+NUMBER shit

@@ -1,0 +1,82 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2016-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  конст MAX_REVISION: /* any */ Объект/* = Number.MAX_SAFE_INTEGER */
+
+  конст UNDEFINED_REVISION: /* any */ Объект/* = MAX_REVISION - 1 */
+
+  //// Snapshot
+  тип Changeset = объект на основе AbstractChangeset
+  {
+    глобальный idGen: Число
+    /* private */ глобальный stampGen: Число
+    /* private */ глобальный pending: Список<Changeset>
+    /* private */ глобальный oldest: Changeset?
+    глобальный garbageCollectionSummaryInterval: Число
+    глобальный lastGarbageCollectionSummaryTimestamp: Число
+    глобальный totalObjectHandleCount: Число
+    глобальный totalObjectSnapshotCount: Число
+    защищено id: Число
+    защищено options: SnapshotOptions
+    /* private */ revision: Число
+    /* private */ bumper: Число
+    items: Map<ObjectHandle, ObjectSnapshot>
+    reactive: Список<Observer>
+    sealed: ДаНет
+    при создании(options: SnapshotOptions?)
+    глобальный current: операция(): Changeset
+    глобальный edit: операция(): Changeset
+    глобальный markUsed: операция(observable: ObservableValue, os: ObjectSnapshot, m: MemberName, h: ObjectHandle, kind: Kind, weak: ДаНет): Ничего
+    глобальный markEdited: операция(oldValue: Объект, newValue: Объект, edited: ДаНет, os: ObjectSnapshot, m: MemberName, h: ObjectHandle): Ничего
+    глобальный isConflicting: операция(oldValue: Объект, newValue: Объект): ДаНет
+    глобальный propagateAllChangesThroughSubscriptions: /* any */ Объект
+    глобальный revokeAllSubscriptions: /* any */ Объект
+    глобальный enqueueReactiveFunctionsToRun: /* any */ Объект
+    операция lookupObjectSnapshot(h: ObjectHandle, m: MemberName): ObjectSnapshot
+    операция getObjectSnapshot(h: ObjectHandle, m: MemberName): ObjectSnapshot
+    операция getEditableObjectSnapshot(h: ObjectHandle, m: MemberName, value: Объект, token: Объект? = пусто): ObjectSnapshot
+    глобальный операция takeSnapshot<T>(obj: T): T
+    глобальный операция dispose(obj: Объект): Ничего
+    глобальный операция doDispose(ctx: Changeset, h: ObjectHandle): ObjectSnapshot
+    /* private */ операция isNewSnapshotRequired(h: ObjectHandle, os: ObjectSnapshot, m: MemberName, existing: Объект, value: Объект, token: Объект): ДаНет
+    операция acquire(outer: Changeset): Ничего
+    операция bumpBy(timestamp: Число): Ничего
+    операция rebase(): Список<ObjectSnapshot>?
+    /* private */ операция merge(h: ObjectHandle, ours: ObjectSnapshot): Число
+    операция applyOrDiscard(error: Объект? = пусто): Array<Observer>
+    глобальный операция sealObjectSnapshot(h: ObjectHandle, os: ObjectSnapshot): Ничего
+    глобальный операция sealObservableValue(o: ObservableValue | Символ, m: MemberName, typeName: Текст): Ничего
+    глобальный операция freezeObjectSnapshot(os: ObjectSnapshot): ObjectSnapshot
+    операция triggerGarbageCollection(): Ничего
+    /* private */ операция unlinkHistory(): Ничего
+    глобальный операция _init(): Ничего
+    hint: Текст
+      при чтении { }
+
+    timestamp: Число
+      при чтении { }
+  }
+  //// Dump
+  тип Dump = объект
+  {
+    глобальный valueHint: /* any */ Объект
+    глобальный операция obj(h: ObjectHandle?, m: MemberName? = пусто, stamp: Число? = пусто, snapshotId: Число? = пусто, originSnapshotId: Число? = пусто, value: Объект? = пусто): Текст
+    глобальный операция snapshot2(h: ObjectHandle, s: AbstractChangeset, m: MemberName? = пусто, o: ObservableValue? = пусто): Текст
+    глобальный операция snapshot(os: ObjectSnapshot, m: MemberName? = пусто): Текст
+    глобальный операция conflicts(conflicts: Список<ObjectSnapshot>): Текст
+    глобальный операция conflictingMemberHint(m: MemberName, ours: ObjectSnapshot, theirs: ObjectSnapshot): Текст  }
+  конст EMPTY_SNAPSHOT: /* any */ Объект/* = new ObjectSnapshot(new Changeset({ hint: '<boot>' }), undefined, {}) */
+
+  конст DefaultSnapshotOptions: SnapshotOptions/* = Object.freeze({
+  hint: 'noname',
+  separation: false,
+  journal: undefined,
+  logging: undefined,
+  token: undefined,
+}) */
+
+}

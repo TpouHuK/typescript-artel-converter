@@ -1,0 +1,67 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2016-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  //// MvccObject, TransactionalObject, ObservableObject
+  тип MvccObject = /* абстрактный */ объект
+  {
+    /* protected */ при создании(observable: ДаНет)
+    операция [Symbol.toStringTag](): Текст  }
+  тип TransactionalObject = /* абстрактный */ объект на основе MvccObject
+  {
+    при создании()  }
+  тип ObservableObject = /* абстрактный */ объект на основе MvccObject
+  {
+    при создании()  }
+  //// Options
+  тип OptionsImpl = объект на основе MemberOptions
+  {
+    защищено getter: Function
+    защищено setter: Function
+    защищено kind: Kind
+    защищено separation: SeparationMode
+    защищено order: Число
+    защищено noSideEffects: ДаНет
+    защищено triggeringArgs: ДаНет
+    защищено throttling: Число
+    защищено reentrance: Reentrance
+    защищено journal: Journal?
+    защищено monitor: Monitor?
+    защищено logging: Partial<LoggingOptions>?
+    глобальный защищено INITIAL: /* any */ Объект
+    при создании(getter: Function?, setter: Function?, existing: OptionsImpl, patch: Partial<OptionsImpl>, implicit: ДаНет)  }
+  //// Mvcc
+  тип Mvcc = объект на основе ProxyHandler<ObjectHandle>
+  {
+    глобальный reactivityAutoStartDisabled: ДаНет
+    глобальный repetitiveUsageWarningThreshold: Число
+    глобальный mainThreadBlockingWarningThreshold: Число
+    глобальный asyncActionDurationWarningThreshold: Число
+    глобальный sensitivity: ДаНет
+    глобальный защищено transactional: Mvcc
+    глобальный защищено observable: Mvcc
+    защищено isObservable: ДаНет
+    при создании(isObservable: ДаНет)
+    операция getPrototypeOf(h: ObjectHandle): Объект?
+    операция get(h: ObjectHandle, m: MemberName, receiver: Объект): Объект
+    операция set(h: ObjectHandle, m: MemberName, value: Объект, receiver: Объект): ДаНет
+    операция has(h: ObjectHandle, m: MemberName): ДаНет
+    операция defineProperty(h: ObjectHandle, m: Текст | Символ, attributes: PropertyDescriptor): ДаНет
+    операция getOwnPropertyDescriptor(h: ObjectHandle, m: MemberName): PropertyDescriptor?
+    операция ownKeys(h: ObjectHandle): Array<Текст | Символ>
+    глобальный операция decorateData(isObservable: ДаНет, proto: Объект, member: MemberName): Объект
+    глобальный операция decorateOperation(implicit: ДаНет, decorator: Function, options: Partial<MemberOptions>, proto: Объект, member: MemberName, pd: PropertyDescriptor?): Объект
+    глобальный операция decorateOperationParametrized(decorator: Function, options: Partial<MemberOptions>): F<Объект>
+    глобальный операция acquireHandle(obj: Объект): ObjectHandle
+    глобальный операция createHandleForMvccObject(proto: Объект, data: Объект, blank: Объект, hint: Текст, isObservable: ДаНет): ObjectHandle
+    глобальный операция setProfilingMode(isOn: ДаНет, options: Partial<ProfilingOptions>? = пусто): Ничего
+    глобальный #js.МассивПараметров
+операция sensitive<T>(sensitivity: ДаНет, func: F<T>, args: Список<Объект>): T
+    глобальный операция setHint<T>(obj: T, hint: Текст?): T
+    глобальный операция getHint<T>(obj: T): Текст
+    глобальный createOperation: /* any */ Объект
+    глобальный rememberOperationOptions: /* any */ Объект  }
+}

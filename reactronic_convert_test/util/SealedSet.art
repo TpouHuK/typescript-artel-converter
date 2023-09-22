@@ -1,0 +1,14 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2016-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  тип SealedSet<T> = /* абстрактный */ объект на основе Set<T>, Sealed<Set<T>>
+  {
+    операция add(value: T): /* any */ Объект
+    операция clear(): Ничего
+    операция delete(value: T): ДаНет
+    операция [Sealant.CreateCopy](): Set<T>  }
+}

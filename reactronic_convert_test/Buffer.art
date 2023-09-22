@@ -1,0 +1,17 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2016-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  ///* istanbul ignore file */
+  тип Buffer<T> = /* абстрактный */ объект на основе ObservableObject<T>
+  {
+    /* абстрактный */ защищено capacity: Число
+    /* абстрактный */ защищено count: Число
+    /* абстрактный */ #js.МассивПараметров
+операция put(items: Список<T>): Ничего
+    /* абстрактный */ операция take(count: Число): Список<T>
+    глобальный операция create<T>(hint: Текст? = пусто, capacity: Число? = пусто): Buffer<T>  }
+}

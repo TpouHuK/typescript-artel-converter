@@ -1,0 +1,153 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2016-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  тип LoggingOptions = интерфейс
+  {
+    защищено enabled: ДаНет
+    защищено transaction: ДаНет
+    защищено operation: ДаНет
+    защищено step: ДаНет
+    защищено monitor: ДаНет
+    защищено read: ДаНет
+    защищено write: ДаНет
+    защищено change: ДаНет
+    защищено obsolete: ДаНет
+    защищено error: ДаНет
+    защищено warning: ДаНет
+    защищено gc: ДаНет
+    защищено color: Число
+    защищено prefix: Текст
+    защищено margin1: Число
+    защищено margin2: Число
+  }
+
+  тип ProfilingOptions = интерфейс
+  {
+    repetitiveUsageWarningThreshold: Число
+    mainThreadBlockingWarningThreshold: Число
+    asyncActionDurationWarningThreshold: Число
+    garbageCollectionSummaryInterval: Число
+  }
+
+  конст LoggingLevel: /* any */ Объект/* = {
+
+  Off: {
+    enabled: false,
+    transaction: false,
+    operation: false,
+    step: false,
+    monitor: false,
+    read: false,
+    write: false,
+    change: false,
+    obsolete: false,
+    error: true,
+    warning: true,
+    gc: false,
+    color: 37,
+    prefix: '',
+    margin1: 0,
+    margin2: 0,
+  },
+
+  ErrorsOnly: {
+    enabled: true,
+    transaction: false,
+    operation: false,
+    step: false,
+    monitor: false,
+    read: false,
+    write: false,
+    change: false,
+    obsolete: false,
+    error: true,
+    warning: true,
+    gc: false,
+    color: 37,
+    prefix: '',
+    margin1: 0,
+    margin2: 0,
+  },
+
+  Reactions: {
+    enabled: true,
+    transaction: false,
+    operation: false,
+    step: false,
+    monitor: false,
+    read: false,
+    write: false,
+    change: false,
+    obsolete: true,
+    error: true,
+    warning: true,
+    gc: false,
+    color: 37,
+    prefix: '',
+    margin1: 0,
+    margin2: 0,
+  },
+
+  Transactions: {
+    enabled: true,
+    transaction: true,
+    operation: false,
+    step: false,
+    monitor: false,
+    read: false,
+    write: false,
+    change: false,
+    obsolete: true,
+    error: true,
+    warning: true,
+    gc: false,
+    color: 37,
+    prefix: '',
+    margin1: 0,
+    margin2: 0,
+  },
+
+  Operations: {
+    enabled: true,
+    transaction: true,
+    operation: true,
+    step: false,
+    monitor: true,
+    read: false,
+    write: false,
+    change: true,
+    obsolete: true,
+    error: true,
+    warning: true,
+    gc: false,
+    color: 37,
+    prefix: '',
+    margin1: 0,
+    margin2: 0,
+  },
+
+  Debug: {
+    enabled: true,
+    transaction: true,
+    operation: true,
+    step: true,
+    monitor: true,
+    read: true,
+    write: true,
+    change: true,
+    obsolete: true,
+    error: true,
+    warning: true,
+    gc: false,
+    color: 37,
+    prefix: '',
+    margin1: 0,
+    margin2: 0,
+  },
+} */
+
+}

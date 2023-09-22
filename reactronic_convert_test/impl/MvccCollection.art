@@ -1,0 +1,43 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2016-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  //// ObservableCollection
+  тип ObservableCollection<T> = /* абстрактный */ объект на основе ObservableObject<T>, CollectionReader<T>
+  {
+    /* protected */ /* абстрактный */ impl: Collection<T>
+    операция lookup(key: Текст): Item<T>?
+    операция claim(key: Текст): Item<T>?
+    операция add(instance: T): Item<T>
+    операция remove(item: Item<T>): Ничего
+    операция move(item: Item<T>, after: Item<T>): Ничего
+    операция beginMerge(): Ничего
+    операция endMerge(error: /* unknown */ Объект? = пусто): Ничего
+    операция resetAddedAndRemovedLists(): Ничего
+    операция lastClaimedItem(): Item<T>?
+    операция items(): Generator<Item<T>>
+    операция addedItems(reset: ДаНет? = пусто): Generator<Item<T>>
+    операция removedItems(reset: ДаНет? = пусто): Generator<Item<T>>
+    операция isAdded(item: Item<T>): ДаНет
+    операция isMoved(item: Item<T>): ДаНет
+    операция isRemoved(item: Item<T>): ДаНет
+    операция isCurrent(item: Item<T>): ДаНет
+    isStrict: ДаНет
+      при чтении { }
+
+    count: Число
+      при чтении { }
+
+    addedCount: Число
+      при чтении { }
+
+    removedCount: Число
+      при чтении { }
+
+    isMergeInProgress: ДаНет
+      при чтении { }
+  }
+}

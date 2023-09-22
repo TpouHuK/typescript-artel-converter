@@ -1,0 +1,25 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2016-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  операция error(message: Текст, dump: Error?): Error
+  операция misuse(message: Текст, dump: Объект? = пусто): Error
+  операция fatal(error: Error): Error
+  //// Log
+  тип Log = объект
+  {
+    глобальный DefaultLevel: LoggingOptions
+    глобальный isOn: ДаНет
+    глобальный global: LoggingOptions
+    глобальный getMergedLoggingOptions: /* any */ Объект
+    глобальный операция setMode(isOn: ДаНет, options: LoggingOptions? = пусто): Ничего
+    глобальный операция write(bar: Текст, tran: Текст, message: Текст, ms: Число = 0, highlight: Текст? = undefined, dump: Объект? = пусто): Ничего
+    глобальный операция writeAs(options: Partial<LoggingOptions>?, bar: Текст, tran: Текст, message: Текст, ms: Число = 0, highlight: Текст? = undefined, dump: Объект? = пусто): Ничего
+    глобальный операция merge(t: Partial<LoggingOptions>?, color: Число?, prefix: Текст?, existing: LoggingOptions): LoggingOptions
+    opt: LoggingOptions
+      при чтении { }
+  }
+}

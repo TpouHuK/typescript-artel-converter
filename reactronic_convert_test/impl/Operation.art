@@ -1,0 +1,68 @@
+внешнее {
+  //// The below copyright notice and the license permission notice
+  //// shall be included in all copies or substantial portions.
+  //// Copyright (C) 2016-2022 Nezaboodka Software <contact@nezaboodka.com>
+  //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
+  //// By contributing, you agree that your contributions will be
+  //// automatically licensed under the license referred above.
+  тип OperationController = объект на основе Controller
+  {
+    защищено objectHandle: ObjectHandle
+    защищено memberName: MemberName
+    операция configure(options: Partial<MemberOptions>): MemberOptions
+    операция markObsolete(): Ничего
+    операция pullLastResult(args: Список<Объект>? = пусто): Объект
+    при создании(h: ObjectHandle, m: MemberName)
+    операция useOrRun(weak: ДаНет, args: Список<Объект>?): Operation
+    глобальный операция getControllerOf(method: F<Объект>): Controller<Объект>
+    глобальный операция configureImpl(self: OperationController?, options: Partial<MemberOptions>): MemberOptions
+    глобальный #js.МассивПараметров
+операция runWithin<T>(op: Operation?, func: F<T>, args: Список<Объект>): T
+    глобальный операция why(): Текст
+    глобальный операция briefWhy(): Текст
+    глобальный операция dependencies(): Список<Текст>
+    /* private */ операция peek(args: Список<Объект>?): OperationContext
+    /* private */ операция use(): OperationContext
+    /* private */ операция edit(): OperationContext
+    /* private */ операция acquireFromSnapshot(os: ObjectSnapshot, args: Список<Объект>?): Operation
+    /* private */ операция run(existing: OperationContext, separation: SeparationMode, options: MemberOptions, token: Объект, args: Список<Объект>?): OperationContext
+    /* private */ глобальный операция markObsolete(self: OperationController): Ничего
+    options: MemberOptions
+      при чтении { }
+
+    unobservable: Объект
+      при чтении { }
+
+    args: ReadonlyArray<Объект>
+      при чтении { }
+
+    result: Объект
+      при чтении { }
+
+    error: ДаНет
+      при чтении { }
+
+    stamp: Число
+      при чтении { }
+
+    isUpToDate: ДаНет
+      при чтении { }
+  }
+  //// Operation
+  //// function propagationHint(cause: MemberInfo, full: boolean): string[] {
+  ////   const result: string[] = []
+  ////   let observable: Observable = cause.snapshot.data[cause.memberName]
+  ////   while (observable instanceof Operation && observable.obsoleteDueTo) {
+  ////     full && result.push(Dump.snap(cause.snapshot, cause.memberName))
+  ////     cause = observable.obsoleteDueTo
+  ////     observable = cause.snapshot.data[cause.memberName]
+  ////   }
+  ////   result.push(Dump.snap(cause.snapshot, cause.memberName))
+  ////   full && result.push(cause.snapshot.snapshot.hint)
+  ////   return result
+  //// }
+  ///* istanbul ignore next */
+  операция resolveReturn(value: Объект): Объект
+  ///* istanbul ignore next */
+  операция rejectRethrow(error: Объект): Никогда
+}

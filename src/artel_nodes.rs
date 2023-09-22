@@ -14,6 +14,7 @@ fn ident(ident: usize) -> &'static str {
 pub type ArtelProgram = ArtelStatements;
 
 type ArtelStatements = Vec<ArtelStatement>;
+
 #[derive(Debug)]
 pub enum ArtelStatement {
     LexicalDeclaration(ArtelLexicalDeclaration),
@@ -23,7 +24,20 @@ pub enum ArtelStatement {
     InterfaceDeclaration(ArtelInterfaceDeclaration),
     EnumDeclaration(EnumDeclaration),
     ExportStatement(Box<ArtelStatement>),
+    AmbientDeclaration(ArtelAmbientDeclaration),
     Comment(String), // TODO
+}
+
+#[derive(Debug)]
+pub struct ArtelAmbientDeclaration {
+    name: ArtelIdentifier,
+    body: Vec<ArtelStatement>,
+}
+
+impl ArtelAmbientDeclaration {
+    pub fn new(name: ArtelIdentifier, body: Vec<ArtelStatement>) -> Self {
+        Self { name, body }
+    }
 }
 
 impl ArtelStr for ArtelStatement {
@@ -40,6 +54,7 @@ impl ArtelStr for ArtelStatement {
             ),
             ArtelStatement::TypeAliasDeclaration(typealias) => typealias.artel_str(ident_level),
             ArtelStatement::Comment(comment) => format!("{}//{}", ident(ident_level), comment),
+            ArtelStatement::LexicalDeclaration(decl) => decl.artel_str(ident_level),
             _ => todo!("{self:?}"),
         }
     }
@@ -110,6 +125,15 @@ pub enum ArtelLexicalDeclarationType {
     LET,
 }
 
+impl ArtelStr for ArtelLexicalDeclarationType {
+    fn artel_str(&self, ident_level: usize) -> String {
+        match self {
+            Self::CONST => "конст".to_owned(),
+            Self::LET => "пусть".to_owned(),
+        }
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ArtelIdentifier(String);
 
@@ -172,14 +196,30 @@ pub enum ArtelPrimaryType {
     ObjectType(ArtelObjectType),
     FunctionType(Box<ArtelFunctionDeclaration>),
     ArrayType(Box<ArtelType>),
+    ReadonlyType(Box<ArtelType>),
     TupleType(Vec<ArtelType>),
+    PredicateType(String, Box<ArtelType>),
     //TypeQuery, IDK, todo?
+}
+impl ArtelPrimaryType {
+    fn artel_str_tuple(tuple_type: &[ArtelType]) -> String {
+        [
+            "простой объект { ",
+            &tuple_type
+                .iter()
+                .enumerate()
+                .map(|(i, t)| format!("_{i}: {}", &t.artel_str(0)))
+                .join(", "),
+            " }",
+        ]
+        .concat()
+    }
 }
 
 impl ArtelStr for ArtelPrimaryType {
     fn artel_str(&self, ident_level: usize) -> String {
         match self {
-            ArtelPrimaryType::UnsupportedAny => "Объект".to_owned(),
+            ArtelPrimaryType::UnsupportedAny => "/* any */ Объект".to_owned(),
             ArtelPrimaryType::LiteralType(literal_type) => literal_type.artel_str(0),
             ArtelPrimaryType::PredefinedType(predefined_type) => predefined_type.artel_str(0),
             ArtelPrimaryType::TypeReference(type_reference) => type_reference.artel_str(0),
@@ -190,9 +230,9 @@ impl ArtelStr for ArtelPrimaryType {
             ArtelPrimaryType::ArrayType(array_type) => {
                 format!("Список<{}>", array_type.artel_str(0))
             }
-            ArtelPrimaryType::TupleType(tuple_type) => {
-                todo!()
-            }
+            ArtelPrimaryType::TupleType(tuple_type) => Self::artel_str_tuple(tuple_type),
+            ArtelPrimaryType::ReadonlyType(r#type) => format!("/* защищено */ {}", r#type.artel_str(0)),
+            ArtelPrimaryType::PredicateType(predicate, r#type) => format!("/* {} is */ {}", predicate, r#type.artel_str(0)),
         }
     }
 }
@@ -249,6 +289,9 @@ pub enum ArtelPredefinedType {
     String,
     Void,
     Object,
+    Never,
+    Unknown,
+    Symbol,
 }
 
 impl ArtelStr for ArtelPredefinedType {
@@ -260,6 +303,9 @@ impl ArtelStr for ArtelPredefinedType {
             ArtelPredefinedType::String => "Текст".to_owned(),
             ArtelPredefinedType::Void => "Ничего".to_owned(),
             ArtelPredefinedType::Object => "Объект".to_owned(),
+            ArtelPredefinedType::Never => "Никогда".to_owned(),
+            ArtelPredefinedType::Unknown => "/* unknown */ Объект".to_owned(),
+            ArtelPredefinedType::Symbol => "Символ".to_owned(),
         }
     }
 }
@@ -276,7 +322,10 @@ where
             "string" => ArtelPredefinedType::String,
             "void" => ArtelPredefinedType::Void,
             "object" => ArtelPredefinedType::Object,
-            _ => unreachable!(),
+            "never" => ArtelPredefinedType::Never,
+            "unknown" => ArtelPredefinedType::Unknown,
+            "symbol" => ArtelPredefinedType::Symbol,
+            _ => unreachable!("{}", value.as_ref()),
         }
     }
 }
@@ -954,7 +1003,7 @@ impl ArtelStr for ArtelProperty {
         let mut str = String::new();
         str.push_str(ident(ident_level));
         if self.r#readonly {
-            str.push_str("конст ");
+            str.push_str("защищено ");
         }
         str.push_str(&self.name.0);
         str.push_str(": ");
@@ -975,17 +1024,65 @@ impl ArtelProperty {
 }
 
 #[derive(Debug)]
+pub struct ArtelLexicalDeclarationMember {
+    ident: ArtelIdentifier,
+    var_type: ArtelType,
+    value: Option<String>,
+}
+
+impl ArtelStr for ArtelLexicalDeclarationMember {
+    fn artel_str(&self, ident_level: usize) -> String {
+        [
+            &self.ident.0,
+            ": ",
+            self.var_type.artel_str(0).as_str(),
+            &if let Some(value) = &self.value {
+                format!("/* = {value} */")
+            } else 
+            {
+                "".to_owned()
+            }
+        ].concat()
+    }
+}
+
+impl ArtelLexicalDeclarationMember {
+    pub fn new(ident: ArtelIdentifier, var_type: ArtelType, value: Option<String>) -> Self {
+        Self {
+            ident,
+            var_type,
+            value,
+        }
+    }
+}
+
+#[derive(Debug)]
 pub struct ArtelLexicalDeclaration {
     decl_type: ArtelLexicalDeclarationType,
-    ident: String,
-    var_type: ArtelType, // TODO: var_type
-    value: String,       // TODO expression
+    body: Vec<ArtelLexicalDeclarationMember>,
+}
+
+impl ArtelLexicalDeclaration {
+    pub fn new(
+        decl_type: ArtelLexicalDeclarationType,
+        body: Vec<ArtelLexicalDeclarationMember>,
+    ) -> Self {
+        Self { decl_type, body }
+    }
+
+}
+impl ArtelStr for ArtelLexicalDeclaration {
+    fn artel_str(&self, ident_level: usize) -> String {
+        self.body.iter().map(|decl| {
+             format!("{}{} {}\n", ident(ident_level), self.decl_type.artel_str(0), decl.artel_str(0))
+        }).collect()
+    }
 }
 
 #[derive(Debug)]
 pub struct AlFunctionCall {
-    callee: String,         // TODO, can also be expession
-    arguments: Vec<String>, // todo: Vec of expression
+    callee: String,
+    arguments: Vec<String>,
 }
 
 #[derive(Debug, Clone)]

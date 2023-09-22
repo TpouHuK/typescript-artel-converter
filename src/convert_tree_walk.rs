@@ -19,14 +19,10 @@ pub fn walk_tree(source: &str, node: &Node) -> ArtelProgram {
 
 pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
     let output = match node.kind() {
-        "lexical_declaration" => Some(parse_lexical_declaration(source, node)),
-        //"expression_statement" => { parse_expression(source, &node.named_child(0).unwrap())},
-        //"if_statement" => parse_if_statement(source, node),
-        //"statement_block" => parse_statement_block(source, node),
+        "ambient_declaration" => Some(parse_ambient_declaration(source, node)),
         "function_declaration" => Some(ArtelStatement::FunctionDeclaration(
             parse_function_declaration(source, node),
         )),
-        //"return_statement" => parse_return_statement(source, node),
         "class_declaration" => {
             Some(ArtelStatement::ClassDeclaration(parse_class_declaration(
                 source, node, /*is abstract*/ false,
@@ -40,10 +36,6 @@ pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
         "comment" => Some(ArtelStatement::Comment(
             node.utf8_text(&source.as_bytes()).unwrap().to_owned(),
         )),
-        //"while_statement" => parse_while_statement(source, node),
-        //"do_statement" => parse_do_statement(source, node),
-        //"break_statement" => String::from("прервать цикл"),
-        //"continue_statement" => String::from("продолжить цикл"),
         "enum_declaration" => Some(ArtelStatement::EnumDeclaration(parse_enum_declaration(
             source, node,
         ))),
@@ -51,21 +43,86 @@ pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
             parse_type_alias_declaration(source, node),
         )),
         "export_statement" => {
-            let declaration = node.child_by_field_name("declaration").unwrap();
-            Some(ArtelStatement::ExportStatement(
-                parse_statement(source, &declaration).unwrap().into(),
-            ))
+            if let Some(declaration) = node.child_by_field_name("declaration") {
+                Some(ArtelStatement::ExportStatement(
+                    parse_statement(source, &declaration).unwrap().into(),
+                ))
+            } else {
+                eprintln!("Warning: Export from the import ignored ");
+                None
+            }
         }
         "interface_declaration" => Some(ArtelStatement::InterfaceDeclaration(parse_interface(
             source, node,
         ))),
-        "import_statement" => None,
+        #[allow(unreachable_code)]
+        "lexical_declaration" => Some(ArtelStatement::LexicalDeclaration(
+            parse_lexical_declaration(source, node),
+        )),
+        "import_statement" | "expression_statement" => None,
         _ => {
             unimplemented!("{} is unimplemented", node.kind())
         }
     };
 
     output
+}
+
+fn parse_lexical_declaration(source: &str, node: &Node) -> ArtelLexicalDeclaration {
+    let decl_type = {
+        let const_or_let_str = node.child_by_field_name("kind").unwrap().kind();
+        ArtelLexicalDeclarationType::new(const_or_let_str)
+    };
+
+    let declarations: Vec<ArtelLexicalDeclarationMember> = node
+        .named_children(&mut node.walk())
+        .map(|decl| {
+            assert!(decl.kind() == "variable_declarator");
+            let ident_str = decl
+                .child_by_field_name("name")
+                .unwrap()
+                .utf8_text(&source.as_bytes())
+                .unwrap();
+            let ident = ArtelIdentifier::new(ident_str);
+
+            let var_type = decl
+                .child_by_field_name("type")
+                .map_or(ArtelType(vec![ArtelPrimaryType::UnsupportedAny]), |t| {
+                    parse_type(source, &t)
+                });
+
+            let value = {
+                match decl.child_by_field_name("value") {
+                    Some(node) => Some(parse_expression(source, &node)),
+                    None => None,
+                }
+            };
+            ArtelLexicalDeclarationMember::new(ident, var_type, value)
+        })
+        .collect();
+
+    ArtelLexicalDeclaration::new(decl_type, declarations)
+}
+
+fn parse_ambient_declaration(source: &str, node: &Node) -> ArtelStatement {
+    let mut cursor = node.walk();
+    let mut iterator = node.children(&mut cursor);
+
+    let mut items = Vec::new();
+    let statement;
+    loop {
+        let next = iterator.next().unwrap();
+        if next.kind() == "statement_block" {
+            statement = next;
+            break;
+        }
+        items.push(next.utf8_text(source.as_bytes()).unwrap());
+    }
+    let name = ArtelIdentifier::new(items.concat());
+    ArtelStatement::AmbientDeclaration(ArtelAmbientDeclaration::new(
+        name,
+        parse_statement_block(source, &statement),
+    ))
 }
 
 fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
@@ -117,11 +174,7 @@ fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
         }
     }
 
-    dbg!(ArtelInterfaceDeclaration::new(
-        interface_name_ident,
-        type_parameters,
-        vec
-    ))
+    ArtelInterfaceDeclaration::new(interface_name_ident, type_parameters, vec)
 }
 
 fn parse_type_alias_declaration(source: &str, node: &Node) -> ArtelTypeAliasDeclaration {
@@ -151,11 +204,7 @@ fn parse_type_alias_declaration(source: &str, node: &Node) -> ArtelTypeAliasDecl
     let value = node.child_by_field_name("value").unwrap();
     let value = parse_type(source, &value);
 
-    dbg!(ArtelTypeAliasDeclaration::new(
-        alias,
-        type_parameters,
-        value
-    ))
+    ArtelTypeAliasDeclaration::new(alias, type_parameters, value)
 }
 
 fn parse_type(source: &str, node: &Node) -> ArtelType {
@@ -171,7 +220,7 @@ fn parse_type(source: &str, node: &Node) -> ArtelType {
     let mut vec = Vec::new();
     parse_type_inner(source, node, &mut vec);
 
-    assert!(!vec.is_empty());
+    assert!(!vec.is_empty(), "parsed type, and got no type");
     ArtelType(vec)
 }
 
@@ -209,6 +258,7 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
                 parse_type_inner(source, &child, vec);
             }
         }
+
         "type_identifier" => {
             let name = node.utf8_text(source.as_bytes()).unwrap();
             let r#type = ArtelPrimaryType::TypeReference(ArtelTypeReference::new(
@@ -217,11 +267,13 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
             ));
             vec.push(r#type);
         }
+
         "predefined_type" => {
             let predefined_type_str = node.utf8_text(source.as_bytes()).unwrap();
             let r#type = ArtelPrimaryType::PredefinedType(predefined_type_str.into());
             vec.push(r#type);
         }
+
         "literal_type" => {
             let node = node.named_child(0).unwrap();
             let r#type = match node.kind() {
@@ -247,6 +299,7 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
             };
             vec.push(ArtelPrimaryType::LiteralType(r#type));
         }
+
         "generic_type" => {
             let name = node
                 .child_by_field_name("name")
@@ -265,7 +318,7 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
                 vec2,
             )));
         }
-        "index_type_query" => vec.push(ArtelPrimaryType::UnsupportedAny),
+
         "function_type" => {
             let type_parameters = 'type_parameters: {
                 let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
@@ -290,13 +343,46 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
                 .into(),
             ));
         }
+        "index_type_query" | "lookup_type" => vec.push(ArtelPrimaryType::UnsupportedAny),
+
+        "object_type" => vec.push(ArtelPrimaryType::UnsupportedAny),
+
         "array_type" => {
             vec.push(ArtelPrimaryType::ArrayType(
                 parse_type(source, &node.named_child(0).unwrap()).into(),
             ));
         }
+
+        "readonly_type" => {
+            vec.push(ArtelPrimaryType::ReadonlyType(
+                parse_type(source, &node.named_child(0).unwrap()).into(),
+            ));
+        }
+        "this_type" => {
+            //TODO
+            vec.push(ArtelPrimaryType::UnsupportedAny)
+        }
+
+        "tuple_type" => {
+            let tuple: Vec<_> = node
+                .named_children(&mut node.walk())
+                .map(|n| parse_type(source, &n))
+                .collect();
+            vec.push(ArtelPrimaryType::TupleType(tuple));
+        }
+        "parenthesized_type" => {
+            vec.extend(parse_type(source, &node.named_child(0).unwrap()).0)
+        }
+        "type_predicate" => {
+            let name = node.child_by_field_name("name").unwrap().utf8_text(source.as_bytes()).unwrap().to_owned();
+            let r#type = parse_type(source, &node.child_by_field_name("type").unwrap());
+            vec.push(ArtelPrimaryType::PredicateType(name, r#type.into()));
+        }
+        "type_predicate_annotation" => {
+            vec.extend(parse_type(source, &node.named_child(0).unwrap()).0);
+        }
         _ => {
-            unimplemented!("{} is not implemented", node.kind())
+            unimplemented!("{} is not implemented: {:?}", node.kind(), node)
         }
     };
 }
@@ -327,6 +413,7 @@ fn parse_enum_declaration(source: &str, node: &Node) -> EnumDeclaration {
                 let item_ident = ArtelIdentifier::new(item_name_str);
                 items.push(EnumItem::new(item_ident, None));
             }
+            "comment" => { }, // TODO
             _ => {
                 unreachable!("unexpected {} in enum", item.kind())
             }
@@ -336,35 +423,7 @@ fn parse_enum_declaration(source: &str, node: &Node) -> EnumDeclaration {
     EnumDeclaration::new(name_ident, items)
 }
 
-fn parse_do_statement(source: &str, node: &Node) -> String {
-    let condition = node.child_by_field_name("condition").unwrap();
-    // Condition is parenthesized expression
-    // But in artel we do not need `()` in if
-    // So we extract single expression from parenths
-    assert_eq!(condition.named_child_count(), 1);
-
-    let condition = condition.named_child(0).unwrap();
-    let body = node.child_by_field_name("body").unwrap();
-    let condition_str = parse_expression(source, &condition);
-    let body_str = parse_statement_block(source, &body);
-    format!("выполнить\n{body_str}\nповтор пока {condition_str}")
-}
-
-fn parse_while_statement(source: &str, node: &Node) -> String {
-    let condition = node.child_by_field_name("condition").unwrap();
-    // Condition is parenthesized expression
-    // But in artel we do not need `()` in if
-    // So we extract single expression from parenths
-    assert_eq!(condition.named_child_count(), 1);
-    let condition = condition.named_child(0).unwrap();
-
-    let body = node.child_by_field_name("body").unwrap();
-    let condition_str = parse_expression(source, &condition);
-    let body_str = parse_statement_block(source, &body);
-    format!("пока {condition_str} выполнить\n{body_str}")
-}
-
-fn parse_new_expression(source: &str, node: &Node) -> String {
+fn parse_expression(source: &str, node: &Node) -> String {
     return node.utf8_text(&source.as_bytes()).unwrap().to_owned();
 }
 
@@ -474,9 +533,10 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
                     .unwrap();
                 let name_ident = ArtelIdentifier::new(name_str);
 
-                let mut property_type =
-                    parse_type(source, &definition.child_by_field_name("type").unwrap());
-
+                // TODO NO TYPE IS INSIDE THIS SHIT
+                //
+                let mut property_type = definition.child_by_field_name("type").map_or(ArtelType(vec![ArtelPrimaryType::UnsupportedAny]), |n|
+                                                               parse_type(source, &n));
                 if is_optional {
                     property_type
                         .0
@@ -495,13 +555,19 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
                     },
                 );
                 let definition = ArtelClassMember::Property((modifiers, art_prop));
-                dbg!(&definition);
                 definitions.push(definition);
             }
             "method_definition" => {
                 let definition = parse_method_definition(source, &definition);
-                dbg!(&definition);
                 definitions.push(definition);
+            }
+            "abstract_method_signature" => {
+                let method = parse_method_definition(source, &definition);
+                definitions.push(method);
+            }
+            "method_signature" => {
+                let method = parse_method_definition(source, &definition);
+                definitions.push(method);
             }
             "comment" => {}
             _ => {
@@ -510,14 +576,14 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
         };
     }
 
-    dbg!(ArtelClassDeclaration::new(
+    ArtelClassDeclaration::new(
         name_ident,
         extends_clause,
         implements_clause,
         is_abstract,
         type_parameters,
         definitions,
-    ))
+    )
 }
 
 // TODO arguments/parameters, inconsistent naming
@@ -530,6 +596,7 @@ fn parse_method_definition(source: &str, node: &Node) -> ArtelClassMember {
     let mut is_async = false;
     let mut is_abstract = false;
     let mut getter_setter = GetterSetter::None;
+    let mut is_iterator = false;
 
     while modifiers_cursor.field_name() != Some("name") {
         match modifiers_cursor.node().kind() {
@@ -556,8 +623,11 @@ fn parse_method_definition(source: &str, node: &Node) -> ArtelClassMember {
             "set" => {
                 getter_setter = GetterSetter::Set;
             }
-            _ => {
-                unimplemented!()
+            "*" => {
+                is_iterator = true;
+            }
+            x => {
+                unimplemented!("{x}");
             }
         }
         assert!(modifiers_cursor.goto_next_sibling());
@@ -643,13 +713,7 @@ fn parse_function_declaration(source: &str, node: &Node) -> ArtelFunctionDeclara
     // let body_str = parse_statement_block(source, &body);
     // no body for now
 
-    dbg!(ArtelFunctionDeclaration::new(
-        r#async,
-        name_ident,
-        type_parameters,
-        arguments,
-        return_type
-    ))
+    ArtelFunctionDeclaration::new(r#async, name_ident, type_parameters, arguments, return_type)
 }
 
 fn parse_formal_arguments(source: &str, parameters: &Node) -> Vec<ArtelFunctionArgument> {
@@ -691,195 +755,25 @@ fn parse_formal_arguments(source: &str, parameters: &Node) -> Vec<ArtelFunctionA
     arguments
 }
 
-fn parse_statement_block(source: &str, child: &Node) -> String {
-    let mut cursor = child.walk();
-    let mut statements = Vec::new();
-    for node in child.named_children(&mut cursor) {
-        statements.push(parse_statement(source, &node));
-    }
-    unimplemented!()
-}
-
-fn parse_if_statement(source: &str, child: &Node) -> String {
-    let condition = child.child_by_field_name("condition").unwrap();
-
-    // Condition is a parenthesized expression in javascript
-    // but there are no parenthesis in Artel
-    let condition_expression_node = condition.named_child(0).unwrap();
-    let condition_expression_str = parse_expression(&source, &condition_expression_node);
-
-    let consequence = child.child_by_field_name("consequence").unwrap();
-    let consequence_str = parse_statement(source, &consequence);
-
-    let alternative = child.child_by_field_name("alternative");
-    let alternative_str = if let Some(alternative) = alternative {
-        Some(parse_statement(
-            source,
-            &alternative.named_child(0).unwrap(),
-        ))
-    } else {
-        None
-    };
-
-    unimplemented!()
-}
-
-fn parse_expression(source: &str, node: &Node) -> String {
-    let raw_text = || node.utf8_text(&source.as_bytes()).unwrap().to_owned();
-    match node.kind() {
-        "number" => raw_text(),
-        "string" => raw_text(),
-        "call_expression" => raw_text(), // TODO
-        "binary_expression" => parse_binary_expression(source, node),
-        "unary_expression" => parse_unary_expression(source, node),
-        "true" => String::from("Да"),
-        "false" => String::from("Нет"),
-        "identifier" => raw_text(),
-        "assignment_expression" => parse_assignment_expression(source, node),
-        "parenthesized_expression" => parse_parenthesized_expression(source, node),
-        "member_expression" => raw_text(), // TODO
-        "new_expression" => parse_new_expression(source, node),
-        "object" => parse_object(source, node),
-        _ => todo!("ну надо сделать ещё палучаицца, {}", node.kind()),
-    }
-}
-
-/// Not used
-fn parse_object(source: &str, node: &Node) -> String {
-    let mut cursor = node.walk();
-    let mut node_pairs = Vec::new();
-    for node_pair in node.named_children(&mut cursor) {
-        let key = node_pair.child_by_field_name("key").unwrap();
-        let key_str = key.utf8_text(source.as_bytes()).unwrap();
-
-        let value = node_pair.child_by_field_name("value").unwrap();
-        let value_str = parse_expression(source, &value);
-        node_pairs.push(format!("{key_str} = {value_str}"));
-    }
-
-    let object_body = node_pairs.join(", ");
-    format!("[{object_body}]")
-}
-
-fn parse_parenthesized_expression(source: &str, node: &Node) -> String {
-    let inner_expr = node.named_child(0).unwrap();
-    let inner_expr_str = parse_expression(source, &inner_expr);
-    return format!("({inner_expr_str})");
-}
-
-/// TODO
-fn parse_lvalue(source: &str, node: &Node) -> String {
-    return node.utf8_text(&source.as_bytes()).unwrap().to_owned();
-}
-
-fn parse_assignment_expression(source: &str, node: &Node) -> String {
-    let left = node.child_by_field_name("left").unwrap();
-    let left_str = parse_lvalue(source, &left);
-
-    let right = node.child_by_field_name("right").unwrap();
-    let right_str = parse_expression(source, &right);
-    format!("{left_str} = {right_str}")
-}
-
-fn parse_binary_expression(source: &str, node: &Node) -> String {
-    let left_node = node.child_by_field_name("left").unwrap();
-    let sign = node.child_by_field_name("operator").unwrap();
-    let right_node = node.child_by_field_name("right").unwrap();
-
-    // (may be troubles with sign)
-    format!(
-        "{left} {sign} {right}",
-        left = parse_expression(source, &left_node),
-        sign = sign.utf8_text(&source.as_bytes()).unwrap(),
-        right = parse_expression(source, &right_node)
-    )
-}
-
-fn parse_unary_expression(source: &str, node: &Node) -> String {
-    let operator = node.child_by_field_name("operator").unwrap();
-    let argument = node.child_by_field_name("argument").unwrap();
-    format!(
-        "{operator_str}{expr}",
-        operator_str = operator.utf8_text(&source.as_bytes()).unwrap(),
-        expr = parse_expression(source, &argument)
-    )
-}
-
-fn parse_lexical_declaration(source: &str, node: &Node) -> ArtelStatement {
-    let mut cursor = node.walk();
-
-    let decl_type = {
-        let const_or_let_str = node
-            .child_by_field_name("kind")
-            .expect("variable declaration statement was not found")
-            .kind();
-        ArtelLexicalDeclarationType::new(const_or_let_str)
-    };
-
-    let mut al_declarations = Vec::<String>::new();
-
-    for declaration in node.children(&mut cursor) {
-        if declaration.kind() == "variable_declarator" {
-            let ident = declaration
-                .child_by_field_name("name")
-                .expect("variable name")
-                .utf8_text(&source.as_bytes())
-                .unwrap();
-            let var_type = {
-                let var_type_name = declaration
-                    .child_by_field_name("type")
-                    .expect("variable type")
-                    .named_child(0)
-                    .expect("variable type")
-                    .utf8_text(&source.as_bytes())
-                    .unwrap();
-                var_type_name
-            };
-            let value = {
-                // TODO, parse correct value
-                match declaration.child_by_field_name("value") {
-                    Some(node) => Some(parse_expression(source, &node)),
-                    None => None,
-                }
-            };
-
-            al_declarations.push(match value {
-                Some(value) => format!("{ident}: {var_type} = {value}"),
-                None => format!("{ident}: {var_type}"),
-            });
-        }
-    }
-
-    if al_declarations.len() == 1 {
-        format!(
-            "{decl_type} {stmnt}",
-            decl_type = decl_type.to_alstr(),
-            stmnt = al_declarations[0]
-        )
-    } else {
-        al_declarations
-            .iter_mut()
-            .map(|s| s.insert_str(0, "    "))
-            .for_each(drop);
-
-        format!(
-            "{decl_type} {{\n{body}\n}}",
-            decl_type = decl_type.to_alstr(),
-            body = al_declarations.join("\n"),
-        )
-    };
-    unimplemented!()
+fn parse_statement_block(source: &str, node: &Node) -> Vec<ArtelStatement> {
+    node.named_children(&mut node.walk())
+        .filter_map(|s| parse_statement(source, &s))
+        .collect()
 }
 
 pub fn create_artel_code(artel_program: ArtelProgram) -> String {
-    let flat_export = artel_program.into_iter().filter_map(|stmt| {
-        match stmt {
-            ArtelStatement::ExportStatement(stmt) => Some(*stmt),
-            comment @ ArtelStatement::Comment(_) => Some(comment),
-            _ => { None }
-
-        }
+    let flat_export = artel_program.into_iter().filter_map(|stmt| match stmt {
+        ArtelStatement::ExportStatement(stmt) => Some(*stmt),
+        comment @ ArtelStatement::Comment(_) => Some(comment),
+        _ => None,
     });
-    ["внешнее {\n", &flat_export.map(|s| s.artel_str(2)).collect::<Vec<String>>().join("\n") ,"\n}"].concat()
-
+    [
+        "внешнее {\n",
+        &flat_export
+            .map(|s| s.artel_str(2))
+            .collect::<Vec<String>>()
+            .join("\n"),
+        "\n}",
+    ]
+    .concat()
 }

@@ -50,14 +50,19 @@ fn convert_ts(code: &str) -> String {
 
 fn main() {
     let mut file_name = env::args().nth(1).expect("Filename as the first argument");
-    //if !file_name.ends_with(".ts") {
-    //    file_name.push_str(".ts");
-    //}
-    read_file(&file_name);
+
+    if !file_name.ends_with(".ts") {
+        file_name.push_str(".ts");
+    }
+
     let code = read_example(&file_name);
-    let res = convert_ts(&code);
-    println!("{}", res);
-    
+
+    if let Some("--dbg") = env::args().nth(2).as_deref() {
+        convert_ts_debug(&code);
+    } else {
+        let res = convert_ts(&code);
+        println!("{}", res);
+    }
 }
 
 #[cfg(test)]
