@@ -219,20 +219,18 @@ impl ArtelPrimaryType {
 impl ArtelStr for ArtelPrimaryType {
     fn artel_str(&self, ident_level: usize) -> String {
         match self {
-            ArtelPrimaryType::UnsupportedAny => "/* any */ Объект".to_owned(),
+            ArtelPrimaryType::UnsupportedAny => "/*(!) any */ Объект".to_owned(),
             ArtelPrimaryType::LiteralType(literal_type) => literal_type.artel_str(0),
             ArtelPrimaryType::PredefinedType(predefined_type) => predefined_type.artel_str(0),
             ArtelPrimaryType::TypeReference(type_reference) => type_reference.artel_str(0),
-            ArtelPrimaryType::ObjectType(object_type) => {
-                todo!()
-            }
+            ArtelPrimaryType::ObjectType(object_type) => { object_type.artel_str(0) }
             ArtelPrimaryType::FunctionType(fun_decl) => fun_decl.artel_str_as_functype(0),
             ArtelPrimaryType::ArrayType(array_type) => {
                 format!("Список<{}>", array_type.artel_str(0))
             }
             ArtelPrimaryType::TupleType(tuple_type) => Self::artel_str_tuple(tuple_type),
-            ArtelPrimaryType::ReadonlyType(r#type) => format!("/* защищено */ {}", r#type.artel_str(0)),
-            ArtelPrimaryType::PredicateType(predicate, r#type) => format!("/* {} is */ {}", predicate, r#type.artel_str(0)),
+            ArtelPrimaryType::ReadonlyType(r#type) => format!("/*(!) защищено */ {}", r#type.artel_str(0)),
+            ArtelPrimaryType::PredicateType(predicate, r#type) => format!("/*(!) {} is */ {}", predicate, r#type.artel_str(0)),
         }
     }
 }
@@ -304,7 +302,7 @@ impl ArtelStr for ArtelPredefinedType {
             ArtelPredefinedType::Void => "Ничего".to_owned(),
             ArtelPredefinedType::Object => "Объект".to_owned(),
             ArtelPredefinedType::Never => "Никогда".to_owned(),
-            ArtelPredefinedType::Unknown => "/* unknown */ Объект".to_owned(),
+            ArtelPredefinedType::Unknown => "/*(!) unknown */ Объект".to_owned(),
             ArtelPredefinedType::Symbol => "Символ".to_owned(),
         }
     }
@@ -462,9 +460,9 @@ impl ArtelStr for ArtelAccessModifier {
     fn artel_str(&self, ident_level: usize) -> String {
         match self {
             ArtelAccessModifier::Default => String::new(),
-            ArtelAccessModifier::Public => "/* public */".to_owned(),
-            ArtelAccessModifier::Private => "/* private */".to_owned(),
-            ArtelAccessModifier::Protected => "/* protected */".to_owned(),
+            ArtelAccessModifier::Public => "/*(!) public */".to_owned(),
+            ArtelAccessModifier::Private => "/*(!) private */".to_owned(),
+            ArtelAccessModifier::Protected => "/*(!) protected */".to_owned(),
         }
     }
 }
@@ -480,7 +478,7 @@ impl ArtelStr for ArtelModifier {
     fn artel_str(&self, ident_level: usize) -> String {
         match self {
             ArtelModifier::None => String::new(),
-            ArtelModifier::Abstract => "/* абстрактный */".to_owned(),
+            ArtelModifier::Abstract => "/*(!) абстрактный */".to_owned(),
             ArtelModifier::Static => "глобальный".to_owned(),
         }
     }
@@ -526,6 +524,20 @@ pub struct ArtelObjectType {
     body: Vec<ArtelProperty>,
 }
 
+impl ArtelStr for ArtelObjectType {
+    fn artel_str(&self, ident_level: usize) -> String {
+        [
+            "{ ",
+            &self.body.iter().map(|p| p.artel_str(usize::MAX)).join(", "),
+            "}",
+        ].concat()
+    }
+}
+
+impl ArtelObjectType {
+    pub fn new(body: Vec<ArtelProperty>) -> Self { Self { body } }
+}
+
 #[derive(Debug, Eq, PartialEq)]
 pub enum GetterSetter {
     None,
@@ -563,7 +575,6 @@ impl ArtelStr for PropertyAccessExpression {
             } else {
                 "".to_owned()
             },
-            "\n",
         ]
         .concat()
     }
@@ -615,12 +626,7 @@ impl ArtelClassMember {
         property: &ArtelProperty,
         ident_level: usize,
     ) -> String {
-        [
-            ident(ident_level),
-            &modifiers.artel_str(0),
-            &property.artel_str(0),
-        ]
-        .concat()
+        property.artel_str_with_modifier(modifiers.artel_str(0), ident_level)
     }
 
     fn artel_str_method(
@@ -700,7 +706,7 @@ impl ArtelClassDeclaration {
             &self.name.0,
             &self.generic_params.artel_str(0),
             if self.is_abstract {
-                " = /* абстрактный */ объект"
+                " = /*(!) абстрактный */ объект"
             } else {
                 " = объект"
             },
@@ -757,11 +763,12 @@ impl ArtelStr for ArtelClassDeclaration {
 
         let member_body = members.iter().map(|m| m.artel_str(ident_level + 2));
         let getter_setter_body = getters_setters.iter().map(|t| t.artel_str(ident_level + 2));
-        let body_str = member_body.chain(getter_setter_body).join("\n");
+        let body_str = member_body.chain(getter_setter_body).join("\n\n");
 
         [
             &self.artel_str_declaration_header(ident_level),
             &body_str,
+            "\n",
             ident(ident_level),
             "}",
         ]
@@ -863,20 +870,7 @@ impl ArtelFunctionDeclaration {
 
 impl ArtelStr for ArtelFunctionDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
-        [
-            &self.annotation_array_param(ident_level),
-            ident(ident_level),
-            self.r#async.then_some("параллельная").unwrap_or(""),
-
-            &if self.name.0 == "constructor" {
-                "при создании".to_owned()
-            } else {
-                ["операция ", &self.name.0, &self.generic_params.artel_str(0)].concat()
-            },
-            &self.arguments.artel_str(0),
-            &self.artel_str_return_type(0),
-        ]
-        .concat()
+        self.artel_str_with_modifier("".to_owned(), ident_level)
     }
 }
 
@@ -897,7 +891,7 @@ impl ArtelFunctionDeclaration {
         }
     }
 
-    pub fn artel_str_as_functype(&self, ident_level: usize) -> String {
+    pub fn artel_str_as_functype(&self, _ident_level: usize) -> String {
         [
             "операция",
             &self.generic_params.artel_str(0),
@@ -912,11 +906,16 @@ impl ArtelFunctionDeclaration {
     }
 
     fn artel_str_with_modifier(&self, modifier: String, ident_level: usize) -> String {
+        let modifier = [
+            &modifier,
+            self.r#async.then_some("параллельная").unwrap_or(""),
+        ].concat();
+        let modifier = (!modifier.is_empty()).then(|| format!("{modifier}\n{}", ident(ident_level))).unwrap_or_default();
+
         [
             &self.annotation_array_param(ident_level),
             ident(ident_level),
             &modifier,
-            self.r#async.then_some("параллельная").unwrap_or(""),
             // Evil hack
             &if self.name.0 == "constructor" {
                 "при создании".to_owned()
@@ -958,7 +957,7 @@ impl ArtelStr for ArtelInterfaceDeclaration {
 
         for member in &self.body {
             str.push_str(&member.artel_str(ident_level + 2));
-            str.push_str("\n");
+            str.push_str("\n\n");
         }
 
         str.push_str(ident(ident_level));
@@ -1002,7 +1001,7 @@ impl Default for ArtelAccessModifier {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct ArtelProperty {
     r#readonly: bool,
     name: ArtelIdentifier,
@@ -1011,15 +1010,17 @@ pub struct ArtelProperty {
 
 impl ArtelStr for ArtelProperty {
     fn artel_str(&self, ident_level: usize) -> String {
-        let mut str = String::new();
-        str.push_str(ident(ident_level));
-        if self.r#readonly {
-            str.push_str("защищено ");
+        // Dirty hack
+        if ident_level != usize::MAX {
+            return self.artel_str_with_modifier("".to_owned(), ident_level);
         }
+
+        let mut str = String::new();
+        let modifier = self.r#readonly.then(|| "защищено ").unwrap_or_default();
+        str.push_str(&modifier);
         str.push_str(&self.name.0);
         str.push_str(": ");
         str.push_str(&self.r#type.artel_str(0));
-
         str
     }
 }
@@ -1031,6 +1032,23 @@ impl ArtelProperty {
             name,
             r#type,
         }
+    }
+
+    pub fn artel_str_with_modifier(&self, modifier: String, ident_level: usize) -> String {
+        let mut str = String::new();
+        let modifier = [&modifier, self.r#readonly.then(|| "защищено").unwrap_or_default()].concat();
+        str.push_str(ident(ident_level));
+
+        if !modifier.is_empty() {
+            str.push_str(&modifier);
+            str.push_str("\n");
+            str.push_str(ident(ident_level));
+        }
+        str.push_str(&self.name.0);
+        str.push_str(": ");
+        str.push_str(&self.r#type.artel_str(0));
+
+        str
     }
 }
 
@@ -1048,7 +1066,7 @@ impl ArtelStr for ArtelLexicalDeclarationMember {
             ": ",
             self.var_type.artel_str(0).as_str(),
             &if let Some(value) = &self.value {
-                format!("/* = {value} */")
+                format!(" /*(!) = {value} */")
             } else 
             {
                 "".to_owned()

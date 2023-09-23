@@ -1,5 +1,6 @@
 use super::artel_nodes::*;
 use std::string::String;
+use itertools::Itertools;
 use tree_sitter::Node;
 
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
@@ -48,7 +49,7 @@ pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
                     parse_statement(source, &declaration).unwrap().into(),
                 ))
             } else {
-                eprintln!("Warning: Export from the import ignored ");
+                //eprintln!("Warning: Export from the import ignored ");
                 None
             }
         }
@@ -345,7 +346,9 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
         }
         "index_type_query" | "lookup_type" => vec.push(ArtelPrimaryType::UnsupportedAny),
 
-        "object_type" => vec.push(ArtelPrimaryType::UnsupportedAny),
+        "object_type" => {
+            vec.push(parse_object_type(source, &node))
+        }
 
         "array_type" => {
             vec.push(ArtelPrimaryType::ArrayType(
@@ -385,6 +388,28 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
             unimplemented!("{} is not implemented: {:?}", node.kind(), node)
         }
     };
+}
+
+fn parse_object_type(source: &str, node: &Node) -> ArtelPrimaryType {
+    let body = node.named_children(&mut node.walk())
+        .filter(|n| n.kind() != "comment")
+        .map(|property_signature| {
+        // Anti-support for mapped types
+        if property_signature.kind() == "index_signature" { return None }
+
+        let readonly = property_signature.child(0).unwrap().kind() == "readonly";
+        let name_str = property_signature.child_by_field_name("name").unwrap().utf8_text(source.as_bytes()).unwrap();
+        let name_ident = ArtelIdentifier::new(name_str);
+        let r#type = parse_type(source, &property_signature.child_by_field_name("type").unwrap());
+        Some(ArtelProperty::new(readonly, name_ident, r#type))
+    }).take_while_inclusive(|p| p.is_some()).collect_vec();
+
+    // Anti-support for mapped types
+    if let Some(None) = body.last() {
+        return ArtelPrimaryType::UnsupportedAny;
+    }
+    
+    ArtelPrimaryType::ObjectType(ArtelObjectType::new(body.into_iter().map(|e| e.unwrap()).collect_vec()))
 }
 
 fn parse_enum_declaration(source: &str, node: &Node) -> EnumDeclaration {
@@ -770,7 +795,13 @@ pub fn create_artel_code(artel_program: ArtelProgram) -> String {
     [
         "внешнее {\n",
         &flat_export
-            .map(|s| s.artel_str(2))
+            .map(|s| {
+                if let ArtelStatement::Comment(_) = s {
+                    s.artel_str(2)
+                } else {
+                    [&s.artel_str(2), "\n"].concat()
+                }
+            } )
             .collect::<Vec<String>>()
             .join("\n"),
         "\n}",
