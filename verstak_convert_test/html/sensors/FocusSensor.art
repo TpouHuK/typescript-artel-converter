@@ -8,31 +8,61 @@
   тип FocusModel = интерфейс
   {
     isEditMode: ДаНет
+
     onFocusIn: операция(focus: FocusSensor): Ничего
+
     onFocusOut: операция(focus: FocusSensor): Ничего
+
   }
+
 
   тип ContextModel = интерфейс
   {
     contextToggle: ToggleRef
+
     onContextIn: операция(focus: FocusSensor): Ничего
+
     onContextOut: операция(focus: FocusSensor): Ничего
+
   }
+
 
   тип FocusSensor = объект на основе HtmlElementSensor
   {
-    activeData: /* unknown */ Объект
-    oldActiveData: /* unknown */ Объект
-    contextElementDataList: Список</* unknown */ Объект>
+    activeData: /*(!) unknown */ Объект
+
+    oldActiveData: /*(!) unknown */ Объект
+
+    contextElementDataList: Список</*(!) unknown */ Объект>
+
     при создании(windowSensor: WindowSensor)
-    операция setActiveData(data: /* unknown */ Объект, debugHint: Текст = ""): Ничего
+
+    операция setActiveData(data: /*(!) unknown */ Объект, debugHint: Текст = ""): Ничего
+
     операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
+
     операция reset(): Ничего
-    /* protected */ операция onFocusIn(e: FocusEvent): Ничего
-    /* protected */ операция onFocusOut(e: FocusEvent): Ничего
-    /* protected */ операция onMouseDown(e: MouseEvent): Ничего
-    /* protected */ операция doFocusIn(e: FocusEvent): Ничего
-    /* protected */ операция doFocusOut(e: FocusEvent): Ничего
-    /* protected */ операция doMouseDown(e: MouseEvent): Ничего
-    /* private */ операция trySetEditMode(candidateData: /* unknown */ Объект, indent: Текст = ""): Ничего  }
+
+    /*(!) protected */ 
+    операция onFocusIn(e: FocusEvent): Ничего
+
+    /*(!) protected */ 
+    операция onFocusOut(e: FocusEvent): Ничего
+
+    /*(!) protected */ 
+    операция onMouseDown(e: MouseEvent): Ничего
+
+    /*(!) protected */ 
+    операция doFocusIn(e: FocusEvent): Ничего
+
+    /*(!) protected */ 
+    операция doFocusOut(e: FocusEvent): Ничего
+
+    /*(!) protected */ 
+    операция doMouseDown(e: MouseEvent): Ничего
+
+    /*(!) private */ 
+    операция trySetEditMode(candidateData: /*(!) unknown */ Объект, indent: Текст = ""): Ничего
+  }
+
 }

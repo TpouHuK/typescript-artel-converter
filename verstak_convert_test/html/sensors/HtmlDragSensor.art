@@ -6,60 +6,139 @@
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
   тип DragEffectAllowed = "none" | "copy" | "copyLink" | "copyMove" | "link" | "linkMove" | "move" | "all" | "uninitialized"
+
   тип DropEffect = "none" | "copy" | "link" | "move"
+
   тип HtmlDragSensor = объект на основе HtmlElementSensor
   {
-    draggable: /* unknown */ Объект
-    dragSource: /* unknown */ Объект
-    dragTarget: /* unknown */ Объект
-    dragTargetWindow: /* unknown */ Объект
-    previousDragTarget: /* unknown */ Объект
+    draggable: /*(!) unknown */ Объект
+
+    dragSource: /*(!) unknown */ Объект
+
+    dragTarget: /*(!) unknown */ Объект
+
+    dragTargetWindow: /*(!) unknown */ Объект
+
+    previousDragTarget: /*(!) unknown */ Объект
+
     dragStarted: ДаНет
+
     dragFinished: ДаНет
+
     startX: Число
+
     startY: Число
-    /* private */ dataByFormat: Map<Текст, /* unknown */ Объект>
-    /* private */ draggingImage: HTMLElement?
-    /* private */ draggingImageX: Число
-    /* private */ draggingImageY: Число
+
+    /*(!) private */ 
+    dataByFormat: Map<Текст, /*(!) unknown */ Объект>
+
+    /*(!) private */ 
+    draggingImage: HTMLElement?
+
+    /*(!) private */ 
+    draggingImageX: Число
+
+    /*(!) private */ 
+    draggingImageY: Число
+
     dropEffect: DropEffect
+
     dataTypesAllowed: Список<Текст>
+
     effectAllowed: DragEffectAllowed
+
     dropAllowed: ДаНет
+
     draggingOver: ДаНет
+
     draggingDataTypes: Список<Текст>
+
     positionX: Число
+
     positionY: Число
+
     modifiers: KeyboardModifiers
+
     dropX: Число
+
     dropY: Число
+
     dropped: ДаНет
+
     immediatePositionX: Число
+
     immediatePositionY: Число
+
     immediateModifiers: KeyboardModifiers
+
     при создании(focusSensor: FocusSensor, windowSensor: WindowSensor)
-    операция getData(format: Текст): /* unknown */ Объект
-    операция setData(format: Текст, value: /* unknown */ Объект): Ничего
+
+    операция getData(format: Текст): /*(!) unknown */ Объект
+
+    операция setData(format: Текст, value: /*(!) unknown */ Объект): Ничего
+
     операция clearData(format: Текст? = пусто): Ничего
+
     операция setDragImage(value: HTMLElement, x: Число, y: Число): Ничего
+
     операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
-    /* protected */ операция onDragStart(e: DragEvent): Ничего
-    /* protected */ операция onDrag(e: DragEvent): Ничего
-    /* protected */ операция onDragEnter(e: DragEvent): Ничего
-    /* protected */ операция onDragLeave(e: DragEvent): Ничего
-    /* protected */ операция onDragOver(e: DragEvent): Ничего
-    /* protected */ операция onDrop(e: DragEvent): Ничего
-    /* protected */ операция onDragEnd(e: DragEvent): Ничего
-    /* protected */ операция startDragging(e: DragEvent): Ничего
-    /* protected */ операция dragging(e: DragEvent): Ничего
-    /* protected */ операция finishDragging(e: DragEvent): Ничего
-    /* protected */ операция enterTarget(e: DragEvent): Ничего
-    /* protected */ операция leaveTarget(e: DragEvent): Ничего
-    /* protected */ операция dragOver(e: DragEvent): Ничего
-    /* protected */ операция drop(e: DragEvent): Ничего
-    /* protected */ операция updateEventOnDragStart(e: DragEvent): Ничего
-    /* protected */ операция updateEventOnDropAllowed(e: DragEvent): Ничего
-    /* protected */ операция reset(): Ничего
-    /* protected */ операция updateDragTarget(e: DragEvent): Ничего
-    /* protected */ операция whenDragging(): Ничего  }
+
+    /*(!) protected */ 
+    операция onDragStart(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция onDrag(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция onDragEnter(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция onDragLeave(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция onDragOver(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция onDrop(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция onDragEnd(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция startDragging(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция dragging(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция finishDragging(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция enterTarget(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция leaveTarget(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция dragOver(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция drop(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция updateEventOnDragStart(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция updateEventOnDropAllowed(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция reset(): Ничего
+
+    /*(!) protected */ 
+    операция updateDragTarget(e: DragEvent): Ничего
+
+    /*(!) protected */ 
+    операция whenDragging(): Ничего
+  }
+
 }

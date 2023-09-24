@@ -23,19 +23,40 @@
     ShiftAltMeta = 2 + 4 + 8
     AltMeta = 4 + 8
   }
+
   тип KeyboardSensor = объект на основе HtmlElementSensor
   {
     down: Текст
+
     up: Текст
+
     modifiers: KeyboardModifiers
+
     при создании()
+
     операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
+
     операция reset(): Ничего
-    /* protected */ операция onKeyDown(e: KeyboardEvent): Ничего
-    /* protected */ операция onKeyUp(e: KeyboardEvent): Ничего
-    /* protected */ операция keyDown(e: KeyboardEvent): Ничего
-    /* protected */ операция keyUp(e: KeyboardEvent): Ничего
-    /* protected */ операция updateSensorData(e: KeyboardEvent): Ничего
-    /* protected */ глобальный операция getKeyAsModifierIfAny(key: Текст): KeyboardModifiers  }
+
+    /*(!) protected */ 
+    операция onKeyDown(e: KeyboardEvent): Ничего
+
+    /*(!) protected */ 
+    операция onKeyUp(e: KeyboardEvent): Ничего
+
+    /*(!) protected */ 
+    операция keyDown(e: KeyboardEvent): Ничего
+
+    /*(!) protected */ 
+    операция keyUp(e: KeyboardEvent): Ничего
+
+    /*(!) protected */ 
+    операция updateSensorData(e: KeyboardEvent): Ничего
+
+    /*(!) protected */ глобальный 
+    операция getKeyAsModifierIfAny(key: Текст): KeyboardModifiers
+  }
+
   операция extractModifierKeys(e: MouseEvent | KeyboardEvent | WheelEvent): KeyboardModifiers
+
 }

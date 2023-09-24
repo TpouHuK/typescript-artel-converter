@@ -6,4 +6,5 @@
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
   операция FocuserReaction(key: Текст, target: HTMLElement, model: FocusModel, switchEditMode: операция(model: FocusModel? = пусто): Ничего? = undefined): Ничего
+
 }

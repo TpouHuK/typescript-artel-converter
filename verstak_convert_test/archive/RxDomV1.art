@@ -9,50 +9,104 @@
   тип BasicNodeType<E, O> = объект на основе RxNodeType<E, O>
   {
     при создании(name: Текст, sequential: ДаНет)
+
     операция initialize(node: RxNode<E, O>): Ничего
-    операция render(node: RxNode<E, O>, args: /* unknown */ Объект): Ничего
-    операция finalize(node: RxNode<E, O>, initiator: RxNode): Ничего  }
+
+    операция render(node: RxNode<E, O>, args: /*(!) unknown */ Объект): Ничего
+
+    операция finalize(node: RxNode<E, O>, initiator: RxNode): Ничего
+  }
+
   //// RxNodeInstanceImpl
   тип RxNodeInstanceImpl<E, O> = объект на основе RxNodeInstance<E, O>
   {
-    /* private */ глобальный gUuid: Число
-    защищено uuid: Число
-    защищено level: Число
+    /*(!) private */ глобальный 
+    gUuid: Число
+
+    защищено
+    uuid: Число
+
+    защищено
+    level: Число
+
     revision: Число
+
     native: E?
-    model: /* unknown */ Объект?
+
+    model: /*(!) unknown */ Объект?
+
     children: ReadonlyArray<RxNode>
+
     buffer: Array<RxNode>?
+
     guests: ReadonlyArray<RxNode>
+
     resizeObserver: ResizeObserver?
+
     при создании(level: Число)
-    операция rerender(node: RxNode<E, O>): Ничего  }
+
+    операция rerender(node: RxNode<E, O>): Ничего
+  }
+
   //// RxDom
   тип RxDom = объект
   {
-    /* public */ глобальный защищено basic: /* any */ Объект
-    глобальный операция Root<T>(render: операция(): T): T
-    глобальный операция Node<E, O>(id: Текст, args: Объект, render: Render<E, O>, superRender: SuperRender<E, O>? = пусто, type: RxNodeType<E, O>? = пусто, inline: ДаНет? = пусто, creator: RxNode? = пусто, host: RxNode? = пусто): RxNode<E, O>
-    глобальный операция renderChildrenThenDo(action: операция(): Ничего): Ничего
-    глобальный операция usingAnotherHost<E>(host: RxNode<E>, run: операция(e: E): Ничего): Ничего
-    глобальный операция createRootNode<E>(id: Текст, sequential: ДаНет, native: E): RxNode<E>
-    глобальный операция currentNodeInstance<T>(): /* any */ Объект
-    глобальный операция currentNodeInstanceInternal<E>(): RxNodeInstanceImpl<E>
-    глобальный операция currentNodeRevision(): Число
-    глобальный операция forAll<E>(action: операция(e: E): Ничего): Ничего
-    /* private */ глобальный операция mergeAndRenderSequentialChildren(node: RxNode, finish: операция(): Ничего): Ничего
-    /* private */ глобальный операция mergeAndRenderChildren(node: RxNode, finish: операция(): Ничего): Ничего
-    /* private */ глобальный параллельнаяоперация renderIncrementally(parent: RxNode, p1: Array<RxNode>?, p2: Array<RxNode>?, checkEveryN: Число = 30, timeLimit: Число = 12): Promise<Ничего>
-    /* private */ глобальный операция mergeGuests(host: RxNodeInstance, creator: RxNodeInstance, guests: Array<RxNode>): Ничего
-    /* private */ глобальный операция forEachChildRecursively(node: RxNode, action: операция(e: Объект): Ничего): Ничего
+    /*(!) public */ глобальный защищено
+    basic: /*(!) any */ Объект
+
+    глобальный 
+    операция Root<T>(render: операция(): T): T
+
+    глобальный 
+    операция Node<E, O>(id: Текст, args: Объект, render: Render<E, O>, superRender: SuperRender<E, O>? = пусто, type: RxNodeType<E, O>? = пусто, inline: ДаНет? = пусто, creator: RxNode? = пусто, host: RxNode? = пусто): RxNode<E, O>
+
+    глобальный 
+    операция renderChildrenThenDo(action: операция(): Ничего): Ничего
+
+    глобальный 
+    операция usingAnotherHost<E>(host: RxNode<E>, run: операция(e: E): Ничего): Ничего
+
+    глобальный 
+    операция createRootNode<E>(id: Текст, sequential: ДаНет, native: E): RxNode<E>
+
+    глобальный 
+    операция currentNodeInstance<T>(): { model: T}
+
+    глобальный 
+    операция currentNodeInstanceInternal<E>(): RxNodeInstanceImpl<E>
+
+    глобальный 
+    операция currentNodeRevision(): Число
+
+    глобальный 
+    операция forAll<E>(action: операция(e: E): Ничего): Ничего
+
+    /*(!) private */ глобальный 
+    операция mergeAndRenderSequentialChildren(node: RxNode, finish: операция(): Ничего): Ничего
+
+    /*(!) private */ глобальный 
+    операция mergeAndRenderChildren(node: RxNode, finish: операция(): Ничего): Ничего
+
+    /*(!) private */ глобальный параллельная
+    операция renderIncrementally(parent: RxNode, p1: Array<RxNode>?, p2: Array<RxNode>?, checkEveryN: Число = 30, timeLimit: Число = 12): Promise<Ничего>
+
+    /*(!) private */ глобальный 
+    операция mergeGuests(host: RxNodeInstance, creator: RxNodeInstance, guests: Array<RxNode>): Ничего
+
+    /*(!) private */ глобальный 
+    операция forEachChildRecursively(node: RxNode, action: операция(e: Объект): Ничего): Ничего
+
     self: RxNode
       при чтении { }
   }
+
   //// Internal
   //// Support asynchronous programming automatically
   ///* istanbul ignore next */
   операция resolveReturn(value: Объект): Объект
+
   ///* istanbul ignore next */
   операция rejectRethrow(error: Объект): Никогда
+
   //// Globals
 }

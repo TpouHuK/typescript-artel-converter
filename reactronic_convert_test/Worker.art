@@ -7,12 +7,23 @@
   //// automatically licensed under the license referred above.
   тип Worker = интерфейс
   {
-    защищено id: Число
-    защищено hint: Текст
-    защищено isCanceled: ДаНет
-    защищено isFinished: ДаНет
-    операция cancel(error: Error, restartAfter: Worker? = пусто): /* any */ Объект
+    защищено
+    id: Число
+
+    защищено
+    hint: Текст
+
+    защищено
+    isCanceled: ДаНет
+
+    защищено
+    isFinished: ДаНет
+
+    операция cancel(error: Error, restartAfter: Worker? = пусто): /*(!) any */ Объект
+
     операция whenFinished(): Promise<Ничего>
+
   }
+
 
 }

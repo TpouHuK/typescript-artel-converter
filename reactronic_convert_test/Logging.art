@@ -7,33 +7,71 @@
   //// automatically licensed under the license referred above.
   тип LoggingOptions = интерфейс
   {
-    защищено enabled: ДаНет
-    защищено transaction: ДаНет
-    защищено operation: ДаНет
-    защищено step: ДаНет
-    защищено monitor: ДаНет
-    защищено read: ДаНет
-    защищено write: ДаНет
-    защищено change: ДаНет
-    защищено obsolete: ДаНет
-    защищено error: ДаНет
-    защищено warning: ДаНет
-    защищено gc: ДаНет
-    защищено color: Число
-    защищено prefix: Текст
-    защищено margin1: Число
-    защищено margin2: Число
+    защищено
+    enabled: ДаНет
+
+    защищено
+    transaction: ДаНет
+
+    защищено
+    operation: ДаНет
+
+    защищено
+    step: ДаНет
+
+    защищено
+    monitor: ДаНет
+
+    защищено
+    read: ДаНет
+
+    защищено
+    write: ДаНет
+
+    защищено
+    change: ДаНет
+
+    защищено
+    obsolete: ДаНет
+
+    защищено
+    error: ДаНет
+
+    защищено
+    warning: ДаНет
+
+    защищено
+    gc: ДаНет
+
+    защищено
+    color: Число
+
+    защищено
+    prefix: Текст
+
+    защищено
+    margin1: Число
+
+    защищено
+    margin2: Число
+
   }
+
 
   тип ProfilingOptions = интерфейс
   {
     repetitiveUsageWarningThreshold: Число
+
     mainThreadBlockingWarningThreshold: Число
+
     asyncActionDurationWarningThreshold: Число
+
     garbageCollectionSummaryInterval: Число
+
   }
 
-  конст LoggingLevel: /* any */ Объект/* = {
+
+  конст LoggingLevel: { защищено Off: LoggingOptions, защищено ErrorsOnly: LoggingOptions, защищено Reactions: LoggingOptions, защищено Transactions: LoggingOptions, защищено Operations: LoggingOptions, защищено Debug: LoggingOptions} /*(!) = {
 
   Off: {
     enabled: false,
@@ -149,5 +187,6 @@
     margin2: 0,
   },
 } */
+
 
 }

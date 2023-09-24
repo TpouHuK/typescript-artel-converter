@@ -8,11 +8,17 @@
   тип WindowModel = интерфейс
   {
     popupToggle: ToggleRef
+
   }
+
 
   тип WindowSensor = объект на основе Sensor
   {
-    activeData: /* unknown */ Объект
-    previousActiveData: /* unknown */ Объект
-    операция setActiveWindow(window: /* unknown */ Объект, debugHint: Текст = ""): Ничего  }
+    activeData: /*(!) unknown */ Объект
+
+    previousActiveData: /*(!) unknown */ Объект
+
+    операция setActiveWindow(window: /*(!) unknown */ Объект, debugHint: Текст = ""): Ничего
+  }
+
 }

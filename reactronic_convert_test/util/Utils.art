@@ -6,16 +6,28 @@
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
   тип F<T> = операция(args: Список<Объект>): T
+
   тип Utils = объект
   {
-    глобальный операция freezeSet<T>(obj: Set<T>? = пусто): Set<T>?
-    глобальный операция freezeMap<K, V>(obj: Map<K, V>? = пусто): Map<K, V>?
-    глобальный операция copyAllMembers(source: Объект, target: Объект): Объект  }
+    глобальный 
+    операция freezeSet<T>(obj: Set<T>? = пусто): Set<T>?
+
+    глобальный 
+    операция freezeMap<K, V>(obj: Map<K, V>? = пусто): Map<K, V>?
+
+    глобальный 
+    операция copyAllMembers(source: Объект, target: Объект): Объект
+  }
+
   ///* istanbul ignore next */
   #js.МассивПараметров
   операция UNDEF(args: Список<Объект>): Никогда
+
   ///* istanbul ignore next */
-  параллельнаяоперация all(promises: Array<Promise<Объект>>): Promise<Список<Объект>>
+  параллельная
+  операция all(promises: Array<Promise<Объект>>): Promise<Список<Объект>>
+
   ///* istanbul ignore next */
   операция pause<T>(timeout: Число): Promise<T>
+
 }

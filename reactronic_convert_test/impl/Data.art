@@ -8,51 +8,92 @@
   //// AbstractChangeset
   тип AbstractChangeset = интерфейс
   {
-    защищено id: Число
-    защищено hint: Текст
-    защищено timestamp: Число
-    защищено sealed: ДаНет
+    защищено
+    id: Число
+
+    защищено
+    hint: Текст
+
+    защищено
+    timestamp: Число
+
+    защищено
+    sealed: ДаНет
+
   }
+
 
   //// ObservableValue & Observer
   тип ObservableValue = объект
   {
     content: Объект
+
     observers: Set<Observer>?
+
     при создании(content: Объект)
+
     isOperation: ДаНет
       при чтении { }
 
     originSnapshotId: Число?
       при чтении { }
   }
+
   тип SeparationMode = ДаНет | "isolated" | "disposal"
+
   тип Observer = интерфейс
   {
-    защищено order: Число
-    защищено observables: Map<ObservableValue, Subscription>?
-    защищено obsoleteSince: Число
+    защищено
+    order: Число
+
+    защищено
+    observables: Map<ObservableValue, Subscription>?
+
+    защищено
+    obsoleteSince: Число
+
     операция hint(nop: ДаНет? = пусто): Текст
+
     операция markObsoleteDueTo(observable: ObservableValue, m: MemberName, changeset: AbstractChangeset, h: ObjectHandle, outer: Текст, since: Число, reactive: Array<Observer>): Ничего
+
     операция runIfNotUpToDate(now: ДаНет, nothrow: ДаНет): Ничего
+
   }
 
+
   тип MemberName = PropertyKey
+
   тип Subscription = интерфейс
   {
-    защищено memberHint: Текст
-    защищено usageCount: Число
+    защищено
+    memberHint: Текст
+
+    защищено
+    usageCount: Число
+
   }
+
 
   //// ObjectSnapshot
   тип ObjectSnapshot = объект
   {
-    защищено changeset: AbstractChangeset
-    защищено former: /* any */ Объект
-    защищено data: Объект
-    защищено changes: Set<MemberName>
-    защищено conflicts: Map<MemberName, ObjectSnapshot>
+    защищено
+    changeset: AbstractChangeset
+
+    защищено
+    former: { snapshot: ObjectSnapshot}
+
+    защищено
+    data: Объект
+
+    защищено
+    changes: Set<MemberName>
+
+    защищено
+    conflicts: Map<MemberName, ObjectSnapshot>
+
     при создании(changeset: AbstractChangeset, former: ObjectSnapshot?, data: Объект)
+
     revision: Число
       при чтении { }
 
@@ -60,27 +101,50 @@
       при чтении { }
       при записи { }
   }
+
   //// ObjectHandle
   тип ObjectHandle = объект
   {
-    /* private */ глобальный generator: Число
-    защищено id: Число
-    защищено data: Объект
-    защищено proxy: Объект
+    /*(!) private */ глобальный 
+    generator: Число
+
+    защищено
+    id: Число
+
+    защищено
+    data: Объект
+
+    защищено
+    proxy: Объект
+
     head: ObjectSnapshot
+
     editing: ObjectSnapshot?
+
     editors: Число
+
     hint: Текст
+
     при создании(data: Объект, proxy: Объект, handler: ProxyHandler<ObjectHandle>, head: ObjectSnapshot, hint: Текст)
-    глобальный операция getHint(obj: Объект, full: ДаНет): Текст?  }
+
+    глобальный 
+    операция getHint(obj: Объект, full: ДаНет): Текст?
+  }
+
   //// PatchSet & ObjectPatch
   тип PatchSet = Map<Объект, Map<MemberName, ValuePatch>>
+
   тип ValuePatch = интерфейс
   {
     memberName: MemberName
+
     patchKind: "update" | "add" | "remove"
+
     freshValue: Объект
+
     formerValue: Объект
+
   }
+
 
 }

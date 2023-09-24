@@ -5,39 +5,84 @@
   //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
-  тип Transaction = /* абстрактный */ объект на основе Worker
+  тип Transaction = /*(!) абстрактный */ объект на основе Worker
   {
-    /* абстрактный */ защищено id: Число
-    /* абстрактный */ защищено hint: Текст
-    /* абстрактный */ защищено options: SnapshotOptions
-    /* абстрактный */ защищено timestamp: Число
-    /* абстрактный */ защищено error: Error?
-    /* абстрактный */ защищено changeset: Changeset
-    /* абстрактный */ защищено margin: Число
+    /*(!) абстрактный */ защищено
+    id: Число
+
+    /*(!) абстрактный */ защищено
+    hint: Текст
+
+    /*(!) абстрактный */ защищено
+    options: SnapshotOptions
+
+    /*(!) абстрактный */ защищено
+    timestamp: Число
+
+    /*(!) абстрактный */ защищено
+    error: Error?
+
+    /*(!) абстрактный */ защищено
+    changeset: Changeset
+
+    /*(!) абстрактный */ защищено
+    margin: Число
+
     #js.МассивПараметров
-    /* абстрактный */ операция run<T>(func: F<T>, args: Список<Объект>): T
+    /*(!) абстрактный */ 
+    операция run<T>(func: F<T>, args: Список<Объект>): T
+
     #js.МассивПараметров
-    /* абстрактный */ операция inspect<T>(func: F<T>, args: Список<Объект>): T
-    /* абстрактный */ операция apply(): Ничего
-    /* абстрактный */ операция seal(): /* any */ Объект
-    /* абстрактный */ операция wrap<T>(func: F<T>, secondary: ДаНет): F<T>
-    /* абстрактный */ операция cancel(error: Error, retryAfterOrIgnore: Worker? = пусто): /* any */ Объект
-    /* абстрактный */ защищено isCanceled: ДаНет
-    /* абстрактный */ защищено isFinished: ДаНет
-    параллельнаяоперация whenFinished(): Promise<Ничего>
-    глобальный операция create(options: SnapshotOptions?): Transaction
+    /*(!) абстрактный */ 
+    операция inspect<T>(func: F<T>, args: Список<Объект>): T
+
+    /*(!) абстрактный */ 
+    операция apply(): Ничего
+
+    /*(!) абстрактный */ 
+    операция seal(): /*(!) any */ Объект
+
+    /*(!) абстрактный */ 
+    операция wrap<T>(func: F<T>, secondary: ДаНет): F<T>
+
+    /*(!) абстрактный */ 
+    операция cancel(error: Error, retryAfterOrIgnore: Worker? = пусто): /*(!) any */ Объект
+
+    /*(!) абстрактный */ защищено
+    isCanceled: ДаНет
+
+    /*(!) абстрактный */ защищено
+    isFinished: ДаНет
+
+    параллельная
+    операция whenFinished(): Promise<Ничего>
+
+    глобальный 
+    операция create(options: SnapshotOptions?): Transaction
+
     #js.МассивПараметров
-    глобальный операция run<T>(options: SnapshotOptions?, func: F<T>, args: Список<Объект>): T
+    глобальный 
+    операция run<T>(options: SnapshotOptions?, func: F<T>, args: Список<Объект>): T
+
     #js.МассивПараметров
-    глобальный операция separate<T>(func: F<T>, args: Список<Объект>): T
+    глобальный 
+    операция separate<T>(func: F<T>, args: Список<Объект>): T
+
     #js.МассивПараметров
-    глобальный операция outside<T>(func: F<T>, args: Список<Объект>): T
-    глобальный операция isFrameOver(everyN: Число = 1, timeLimit: Число = 10): ДаНет
-    глобальный операция requestNextFrame(sleepTime: Число = 0): Promise<Ничего>
+    глобальный 
+    операция outside<T>(func: F<T>, args: Список<Объект>): T
+
+    глобальный 
+    операция isFrameOver(everyN: Число = 1, timeLimit: Число = 10): ДаНет
+
+    глобальный 
+    операция requestNextFrame(sleepTime: Число = 0): Promise<Ничего>
+
     current: Transaction
       при чтении { }
 
     isCanceled: ДаНет
       при чтении { }
   }
+
 }

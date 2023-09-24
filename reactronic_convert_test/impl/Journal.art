@@ -6,31 +6,70 @@
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
   тип Saver = операция(patch: PatchSet): Promise<Ничего>
-  тип Journal = /* абстрактный */ объект на основе ObservableObject
+
+  тип Journal = /*(!) абстрактный */ объект на основе ObservableObject
   {
-    /* абстрактный */ capacity: Число
-    /* абстрактный */ защищено edits: ReadonlyArray<PatchSet>
-    /* абстрактный */ защищено unsaved: PatchSet
-    /* абстрактный */ защищено canUndo: ДаНет
-    /* абстрактный */ защищено canRedo: ДаНет
-    /* абстрактный */ операция edited(patch: PatchSet): Ничего
-    /* абстрактный */ операция saved(patch: PatchSet): Ничего
-    /* абстрактный */ операция undo(count: Число? = пусто): Ничего
-    /* абстрактный */ операция redo(count: Число? = пусто): Ничего
-    глобальный операция create(): Journal  }
+    /*(!) абстрактный */ 
+    capacity: Число
+
+    /*(!) абстрактный */ защищено
+    edits: ReadonlyArray<PatchSet>
+
+    /*(!) абстрактный */ защищено
+    unsaved: PatchSet
+
+    /*(!) абстрактный */ защищено
+    canUndo: ДаНет
+
+    /*(!) абстрактный */ защищено
+    canRedo: ДаНет
+
+    /*(!) абстрактный */ 
+    операция edited(patch: PatchSet): Ничего
+
+    /*(!) абстрактный */ 
+    операция saved(patch: PatchSet): Ничего
+
+    /*(!) абстрактный */ 
+    операция undo(count: Число? = пусто): Ничего
+
+    /*(!) абстрактный */ 
+    операция redo(count: Число? = пусто): Ничего
+
+    глобальный 
+    операция create(): Journal
+  }
+
   тип JournalImpl = объект на основе Journal
   {
-    /* private */ _capacity: Число
-    /* private */ _edits: Список<PatchSet>
-    /* private */ _unsaved: PatchSet
-    /* private */ _position: Число
+    /*(!) private */ 
+    _capacity: Число
+
+    /*(!) private */ 
+    _edits: Список<PatchSet>
+
+    /*(!) private */ 
+    _unsaved: PatchSet
+
+    /*(!) private */ 
+    _position: Число
+
     операция edited(p: PatchSet): Ничего
+
     операция saved(patch: PatchSet): Ничего
+
     операция undo(count: Число = 1): Ничего
+
     операция redo(count: Число = 1): Ничего
-    глобальный операция buildPatch(hint: Текст, items: Map<ObjectHandle, ObjectSnapshot>): PatchSet
-    глобальный операция applyPatch(patch: PatchSet, undoing: ДаНет): Ничего
+
+    глобальный 
+    операция buildPatch(hint: Текст, items: Map<ObjectHandle, ObjectSnapshot>): PatchSet
+
+    глобальный 
+    операция applyPatch(patch: PatchSet, undoing: ДаНет): Ничего
+
     операция mergePatchToUnsaved(patch: PatchSet, undoing: ДаНет): Ничего
+
     capacity: Число
       при чтении { }
       при записи { }
@@ -47,4 +86,5 @@
     canRedo: ДаНет
       при чтении { }
   }
+
 }

@@ -5,17 +5,40 @@
   //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
-  тип Meta = /* абстрактный */ объект
+  тип Meta = /*(!) абстрактный */ объект
   {
-    глобальный защищено Handle: unique
-    глобальный защищено Revision: unique
-    глобальный защищено Controller: unique
-    глобальный защищено Initial: unique
-    глобальный защищено Reactive: unique
-    глобальный защищено Raw: unique
-    глобальный защищено Undefined: unique
-    глобальный операция get<T>(obj: Объект, sym: Символ): T
-    глобальный операция set(obj: Объект, sym: Символ, value: Объект): Объект
-    глобальный операция acquire(proto: Объект, sym: Символ): Объект
-    глобальный операция getFrom<T>(proto: Объект, sym: Символ): T  }
+    глобальный защищено
+    Handle: unique
+
+    глобальный защищено
+    Revision: unique
+
+    глобальный защищено
+    Controller: unique
+
+    глобальный защищено
+    Initial: unique
+
+    глобальный защищено
+    Reactive: unique
+
+    глобальный защищено
+    Raw: unique
+
+    глобальный защищено
+    Undefined: unique
+
+    глобальный 
+    операция get<T>(obj: Объект, sym: Символ): T
+
+    глобальный 
+    операция set(obj: Объект, sym: Символ, value: Объект): Объект
+
+    глобальный 
+    операция acquire(proto: Объект, sym: Символ): Объект
+
+    глобальный 
+    операция getFrom<T>(proto: Объект, sym: Символ): T
+  }
+
 }

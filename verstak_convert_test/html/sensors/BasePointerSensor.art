@@ -12,12 +12,20 @@
     Right = 2
     Middle = 4
   }
+
   тип BasePointerSensor = объект на основе HtmlElementSensor
   {
     positionX: Число
+
     positionY: Число
+
     modifiers: KeyboardModifiers
-    при создании(focusSensor: FocusSensor? = пусто, windowSensor: WindowSensor? = пусто)  }
+
+    при создании(focusSensor: FocusSensor? = пусто, windowSensor: WindowSensor? = пусто)
+  }
+
   операция extractPointerButton(e: MouseEvent): PointerButton
+
   операция isPointerButtonDown(button: PointerButton, buttonsMask: Число): ДаНет
+
 }

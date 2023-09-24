@@ -7,9 +7,13 @@
   //// automatically licensed under the license referred above.
   //// Delegates
   тип Callback<T> = операция(native: T): Ничего
+
   тип Delegate<T, M, C, R> = операция(block: Block<T, M, C, R>, base: операция(): R): R
+
   тип AsyncDelegate<T, M> = операция(block: Block<T, M, Promise<Ничего>>): Promise<Ничего>
+
   тип SimpleDelegate<T> = операция(block: Block<T, Объект, Объект, Объект>): Ничего
+
   //// Block
   тип BlockKind вариант
   {
@@ -21,105 +25,202 @@
     Cursor = 5
     Native = 6
   }
+
   тип Block<T, M, C, R> = интерфейс
   {
-    защищено node: BlockNode<T, M, C, R>
-    защищено native: T
-    защищено isSection: ДаНет
-    защищено isTable: ДаНет
+    защищено
+    node: BlockNode<T, M, C, R>
+
+    защищено
+    native: T
+
+    защищено
+    isSection: ДаНет
+
+    защищено
+    isTable: ДаНет
+
     model: M
+
     controller: C
+
     kind: BlockKind
+
     area: BlockArea
+
     widthGrowth: Число
+
     minWidth: Текст
+
     maxWidth: Текст
+
     heightGrowth: Число
+
     minHeight: Текст
+
     maxHeight: Текст
+
     contentAlignment: Align
+
     blockAlignment: Align
+
     contentWrapping: ДаНет
+
     overlayVisible: ДаНет?
+
     rebuildPriority: Priority
+
     childrenShuffling: ДаНет
+
     strictOrder: ДаНет
-    защищено isInitialRebuild: ДаНет
+
+    защищено
+    isInitialRebuild: ДаНет
+
     операция useStyle(styleName: Текст, enabled: ДаНет? = пусто): Ничего
+
     операция configureReactronic(options: Partial<MemberOptions>): MemberOptions
+
   }
+
 
   //// BlockNode
   тип BlockNode<T, M, C, R> = интерфейс
   {
-    защищено key: Текст
-    защищено driver: Driver<T>
-    защищено builder: Readonly<BlockBuilder<T, M, C, R>>
-    защищено level: Число
-    защищено owner: Block
-    защищено host: Block
-    защищено children: CollectionReader<Block>
-    защищено ties: Item<Block>?
-    защищено stamp: Число
-    защищено outer: Block
-    защищено context: BlockCtx?
+    защищено
+    key: Текст
+
+    защищено
+    driver: Driver<T>
+
+    защищено
+    builder: Readonly<BlockBuilder<T, M, C, R>>
+
+    защищено
+    level: Число
+
+    защищено
+    owner: Block
+
+    защищено
+    host: Block
+
+    защищено
+    children: CollectionReader<Block>
+
+    защищено
+    ties: Item<Block>?
+
+    защищено
+    stamp: Число
+
+    защищено
+    outer: Block
+
+    защищено
+    context: BlockCtx?
+
   }
+
 
   //// BlockBuilder
   тип BlockBuilder<T, M, C, R> = интерфейс
   {
     base: BlockBuilder<T, M, C, R>
+
     key: Текст
+
     mode: Mode
-    triggers: /* unknown */ Объект
+
+    triggers: /*(!) unknown */ Объект
+
     claim: Delegate<T, M, C, R>
+
     create: Delegate<T, M, C, R>
+
     initialize: Delegate<T, M, C, R>
+
     rebuild: Delegate<T, M, C, R>
+
     finalize: Delegate<T, M, C, R>
+
   }
+
 
   //// BlockCtx
   тип BlockCtx<T = Object> = интерфейс
   {
     value: T
+
   }
+
 
   //// Driver
   тип Driver<T, C> = интерфейс
   {
-    защищено name: Текст
-    защищено isRow: ДаНет
-    защищено preset: SimpleDelegate<T>
-    операция claim(block: Block<T, /* unknown */ Объект, C>): Ничего
-    операция create(block: Block<T, /* unknown */ Объект, C>, b: /* any */ Объект): Ничего
-    операция initialize(block: Block<T, /* unknown */ Объект, C>): Ничего
-    операция mount(block: Block<T, /* unknown */ Объект, C>): Ничего
-    операция rebuild(block: Block<T, /* unknown */ Объект, C>): Ничего | Promise<Ничего>
-    операция finalize(block: Block<T, /* unknown */ Объект, C>, isLeader: ДаНет): ДаНет
+    защищено
+    name: Текст
+
+    защищено
+    isRow: ДаНет
+
+    защищено
+    preset: SimpleDelegate<T>
+
+    операция claim(block: Block<T, /*(!) unknown */ Объект, C>): Ничего
+
+    операция create(block: Block<T, /*(!) unknown */ Объект, C>, b: { native: T, controller: C}): Ничего
+
+    операция initialize(block: Block<T, /*(!) unknown */ Объект, C>): Ничего
+
+    операция mount(block: Block<T, /*(!) unknown */ Объект, C>): Ничего
+
+    операция rebuild(block: Block<T, /*(!) unknown */ Объект, C>): Ничего | Promise<Ничего>
+
+    операция finalize(block: Block<T, /*(!) unknown */ Объект, C>, isLeader: ДаНет): ДаНет
+
     операция applyKind(block: Block<T, Объект, C, Объект>, value: BlockKind): Ничего
+
     операция applyCoords(block: Block<T, Объект, C, Объект>, value: BlockCoords?): Ничего
+
     операция applyWidthGrowth(block: Block<T, Объект, C, Объект>, value: Число): Ничего
+
     операция applyMinWidth(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+
     операция applyMaxWidth(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+
     операция applyHeightGrowth(block: Block<T, Объект, C, Объект>, value: Число): Ничего
+
     операция applyMinHeight(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+
     операция applyMaxHeight(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+
     операция applyContentAlignment(block: Block<T, Объект, C, Объект>, value: Align): Ничего
+
     операция applyBlockAlignment(block: Block<T, Объект, C, Объект>, value: Align): Ничего
+
     операция applyContentWrapping(block: Block<T, Объект, C, Объект>, value: ДаНет): Ничего
+
     операция applyOverlayVisible(block: Block<T, Объект, C, Объект>, value: ДаНет?): Ничего
+
     операция applyStyle(block: Block<T, Объект, C, Объект>, secondary: ДаНет, styleName: Текст, enabled: ДаНет? = пусто): Ничего
+
   }
+
 
   //// Other
   тип BlockCoords = интерфейс
   {
     x1: Число
+
     y1: Число
+
     x2: Число
+
     y2: Число
+
   }
+
 
   тип Priority вариант
   {
@@ -127,12 +228,14 @@
     Normal = 1
     Background = 2
   }
+
   тип Mode вариант
   {
     Default = 0
     PinpointRebuild = 1
     ManualMount = 2
   }
+
   тип Align вариант
   {
     Stretch = 0b00000
@@ -145,18 +248,27 @@
     Default = 0b10000
     Center = CenterX + CenterY
   }
+
   тип ElasticSize = интерфейс
   {
     cells: Число
+
     min: Текст
+
     max: Текст
+
     growth: Число
+
   }
+
 
   тип TrackSize = интерфейс
   {
     track: Текст | Число
+
   }
 
-  тип BlockArea = пусто | Текст | /* any */ Объект
+
+  тип BlockArea = пусто | Текст | { cellsOverWidth: Число, cellsOverHeight: Число}
+
 }

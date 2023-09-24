@@ -7,26 +7,58 @@
   //// automatically licensed under the license referred above.
   тип SnapshotOptions = интерфейс
   {
-    защищено hint: Текст
-    защищено separation: SeparationMode
-    защищено journal: Journal
-    защищено logging: Partial<LoggingOptions>
-    защищено token: Объект
+    защищено
+    hint: Текст
+
+    защищено
+    separation: SeparationMode
+
+    защищено
+    journal: Journal
+
+    защищено
+    logging: Partial<LoggingOptions>
+
+    защищено
+    token: Объект
+
   }
+
 
   тип MemberOptions = интерфейс
   {
-    защищено kind: Kind
-    защищено separation: SeparationMode
-    защищено order: Число
-    защищено noSideEffects: ДаНет
-    защищено triggeringArgs: ДаНет
-    защищено throttling: Число
-    защищено reentrance: Reentrance
-    защищено journal: Journal?
-    защищено monitor: Monitor?
-    защищено logging: Partial<LoggingOptions>
+    защищено
+    kind: Kind
+
+    защищено
+    separation: SeparationMode
+
+    защищено
+    order: Число
+
+    защищено
+    noSideEffects: ДаНет
+
+    защищено
+    triggeringArgs: ДаНет
+
+    защищено
+    throttling: Число
+
+    защищено
+    reentrance: Reentrance
+
+    защищено
+    journal: Journal?
+
+    защищено
+    monitor: Monitor?
+
+    защищено
+    logging: Partial<LoggingOptions>
+
   }
+
 
   тип Kind вариант
   {
@@ -35,6 +67,7 @@
     Reactive = 2
     Cached = 3
   }
+
   тип Reentrance вариант
   {
     PreventWithError = 1
@@ -44,4 +77,5 @@
     OverwritePrevious = -3
     RunSideBySide = -4
   }
+
 }

@@ -8,12 +8,25 @@
   //// import { FocusSensor } from './FocusSensor'
   тип HtmlElementSensor = объект на основе Sensor
   {
-    защищено focusSensor: Объект?
-    защищено windowSensor: WindowSensor?
+    защищено
+    focusSensor: Объект?
+
+    защищено
+    windowSensor: WindowSensor?
+
     sourceElement: HTMLElement?
+
     preventDefault: ДаНет
+
     stopPropagation: ДаНет
+
     при создании(focusSensor: Объект? = пусто, windowSensor: WindowSensor? = пусто)
-    /* protected */ операция getDefaultSensorData(): DataForSensor?
-    /* protected */ операция setPreventDefaultAndStopPropagation(e: Event): Ничего  }
+
+    /*(!) protected */ 
+    операция getDefaultSensorData(): DataForSensor?
+
+    /*(!) protected */ 
+    операция setPreventDefaultAndStopPropagation(e: Event): Ничего
+  }
+
 }

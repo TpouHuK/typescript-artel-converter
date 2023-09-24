@@ -5,15 +5,34 @@
   //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
-  тип Controller<T> = /* абстрактный */ объект
+  тип Controller<T> = /*(!) абстрактный */ объект
   {
-    /* абстрактный */ защищено options: MemberOptions
-    /* абстрактный */ защищено args: ReadonlyArray<Объект>
-    /* абстрактный */ защищено result: T
-    /* абстрактный */ защищено error: Объект
-    /* абстрактный */ защищено stamp: Число
-    /* абстрактный */ защищено isUpToDate: ДаНет
-    /* абстрактный */ операция configure(options: Partial<MemberOptions>): MemberOptions
-    /* абстрактный */ операция markObsolete(): Ничего
-    /* абстрактный */ операция pullLastResult(args: Список<Объект>? = пусто): T?  }
+    /*(!) абстрактный */ защищено
+    options: MemberOptions
+
+    /*(!) абстрактный */ защищено
+    args: ReadonlyArray<Объект>
+
+    /*(!) абстрактный */ защищено
+    result: T
+
+    /*(!) абстрактный */ защищено
+    error: Объект
+
+    /*(!) абстрактный */ защищено
+    stamp: Число
+
+    /*(!) абстрактный */ защищено
+    isUpToDate: ДаНет
+
+    /*(!) абстрактный */ 
+    операция configure(options: Partial<MemberOptions>): MemberOptions
+
+    /*(!) абстрактный */ 
+    операция markObsolete(): Ничего
+
+    /*(!) абстрактный */ 
+    операция pullLastResult(args: Список<Объект>? = пусто): T?
+  }
+
 }

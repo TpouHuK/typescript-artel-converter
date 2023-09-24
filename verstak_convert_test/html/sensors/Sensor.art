@@ -8,8 +8,11 @@
   тип Sensor = объект на основе ObservableObject
   {
     revision: Число
-    elementDataList: Список</* unknown */ Объект>
-    topElementData: /* unknown */ Объект
+
+    elementDataList: Список</*(!) unknown */ Объект>
+
+    topElementData: /*(!) unknown */ Объект
       при чтении { }
   }
+
 }

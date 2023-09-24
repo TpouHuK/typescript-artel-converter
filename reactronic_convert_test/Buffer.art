@@ -6,12 +6,23 @@
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
   ///* istanbul ignore file */
-  тип Buffer<T> = /* абстрактный */ объект на основе ObservableObject<T>
+  тип Buffer<T> = /*(!) абстрактный */ объект на основе ObservableObject<T>
   {
-    /* абстрактный */ защищено capacity: Число
-    /* абстрактный */ защищено count: Число
+    /*(!) абстрактный */ защищено
+    capacity: Число
+
+    /*(!) абстрактный */ защищено
+    count: Число
+
     #js.МассивПараметров
-    /* абстрактный */ операция put(items: Список<T>): Ничего
-    /* абстрактный */ операция take(count: Число): Список<T>
-    глобальный операция create<T>(hint: Текст? = пусто, capacity: Число? = пусто): Buffer<T>  }
+    /*(!) абстрактный */ 
+    операция put(items: Список<T>): Ничего
+
+    /*(!) абстрактный */ 
+    операция take(count: Число): Список<T>
+
+    глобальный 
+    операция create<T>(hint: Текст? = пусто, capacity: Число? = пусто): Buffer<T>
+  }
+
 }

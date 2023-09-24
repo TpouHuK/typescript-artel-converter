@@ -7,26 +7,59 @@
   //// automatically licensed under the license referred above.
   тип OperationController = объект на основе Controller
   {
-    защищено objectHandle: ObjectHandle
-    защищено memberName: MemberName
+    защищено
+    objectHandle: ObjectHandle
+
+    защищено
+    memberName: MemberName
+
     операция configure(options: Partial<MemberOptions>): MemberOptions
+
     операция markObsolete(): Ничего
+
     операция pullLastResult(args: Список<Объект>? = пусто): Объект
+
     при создании(h: ObjectHandle, m: MemberName)
+
     операция useOrRun(weak: ДаНет, args: Список<Объект>?): Operation
-    глобальный операция getControllerOf(method: F<Объект>): Controller<Объект>
-    глобальный операция configureImpl(self: OperationController?, options: Partial<MemberOptions>): MemberOptions
+
+    глобальный 
+    операция getControllerOf(method: F<Объект>): Controller<Объект>
+
+    глобальный 
+    операция configureImpl(self: OperationController?, options: Partial<MemberOptions>): MemberOptions
+
     #js.МассивПараметров
-    глобальный операция runWithin<T>(op: Operation?, func: F<T>, args: Список<Объект>): T
-    глобальный операция why(): Текст
-    глобальный операция briefWhy(): Текст
-    глобальный операция dependencies(): Список<Текст>
-    /* private */ операция peek(args: Список<Объект>?): OperationContext
-    /* private */ операция use(): OperationContext
-    /* private */ операция edit(): OperationContext
-    /* private */ операция acquireFromSnapshot(os: ObjectSnapshot, args: Список<Объект>?): Operation
-    /* private */ операция run(existing: OperationContext, separation: SeparationMode, options: MemberOptions, token: Объект, args: Список<Объект>?): OperationContext
-    /* private */ глобальный операция markObsolete(self: OperationController): Ничего
+    глобальный 
+    операция runWithin<T>(op: Operation?, func: F<T>, args: Список<Объект>): T
+
+    глобальный 
+    операция why(): Текст
+
+    глобальный 
+    операция briefWhy(): Текст
+
+    глобальный 
+    операция dependencies(): Список<Текст>
+
+    /*(!) private */ 
+    операция peek(args: Список<Объект>?): OperationContext
+
+    /*(!) private */ 
+    операция use(): OperationContext
+
+    /*(!) private */ 
+    операция edit(): OperationContext
+
+    /*(!) private */ 
+    операция acquireFromSnapshot(os: ObjectSnapshot, args: Список<Объект>?): Operation
+
+    /*(!) private */ 
+    операция run(existing: OperationContext, separation: SeparationMode, options: MemberOptions, token: Объект, args: Список<Объект>?): OperationContext
+
+    /*(!) private */ глобальный 
+    операция markObsolete(self: OperationController): Ничего
+
     options: MemberOptions
       при чтении { }
 
@@ -48,6 +81,7 @@
     isUpToDate: ДаНет
       при чтении { }
   }
+
   //// Operation
   //// function propagationHint(cause: MemberInfo, full: boolean): string[] {
   ////   const result: string[] = []
@@ -63,6 +97,8 @@
   //// }
   ///* istanbul ignore next */
   операция resolveReturn(value: Объект): Объект
+
   ///* istanbul ignore next */
   операция rejectRethrow(error: Объект): Никогда
+
 }

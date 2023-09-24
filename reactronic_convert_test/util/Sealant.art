@@ -8,19 +8,35 @@
   тип Sealable<T> = интерфейс
   {
     операция toMutable(): T
+
     [Sealant.SealedType]: Объект
+
   }
+
 
   тип Sealed<T> = интерфейс
   {
     [Sealant.CreateCopy]: операция(): T
+
   }
 
-  тип Sealant = /* абстрактный */ объект
+
+  тип Sealant = /*(!) абстрактный */ объект
   {
-    глобальный защищено SealedType: unique
-    глобальный защищено CreateCopy: unique
-    глобальный операция seal<T = Sealable<T>>(collection: T, sealedType: Объект, typeName: Текст, member: Объект): T
-    глобальный операция toMutable<T = Sealable<T>>(collection: T): T
-    глобальный операция error(collection: Sealed<Объект>): Error  }
+    глобальный защищено
+    SealedType: unique
+
+    глобальный защищено
+    CreateCopy: unique
+
+    глобальный 
+    операция seal<T = Sealable<T>>(collection: T, sealedType: Объект, typeName: Текст, member: Объект): T
+
+    глобальный 
+    операция toMutable<T = Sealable<T>>(collection: T): T
+
+    глобальный 
+    операция error(collection: Sealed<Объект>): Error
+  }
+
 }

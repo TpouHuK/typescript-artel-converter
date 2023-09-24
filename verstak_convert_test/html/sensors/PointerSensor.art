@@ -8,57 +8,135 @@
   тип PointerSensor = объект на основе BasePointerSensor
   {
     pointerButton: PointerButton
-    /* private */ clickable: /* unknown */ Объект
+
+    /*(!) private */ 
+    clickable: /*(!) unknown */ Объект
+
     hotPositionX: Число
+
     hotPositionY: Число
-    clicking: /* unknown */ Объект
-    clicked: /* unknown */ Объект
+
+    clicking: /*(!) unknown */ Объект
+
+    clicked: /*(!) unknown */ Объект
+
     clickX: Число
+
     clickY: Число
-    /* private */ tryingDragging: ДаНет
-    draggableData: /* unknown */ Объект
-    dragSource: /* unknown */ Объект
-    dragTarget: /* unknown */ Объект
-    dragTargetWindow: /* unknown */ Объект
-    previousDragTarget: /* unknown */ Объект
+
+    /*(!) private */ 
+    tryingDragging: ДаНет
+
+    draggableData: /*(!) unknown */ Объект
+
+    dragSource: /*(!) unknown */ Объект
+
+    dragTarget: /*(!) unknown */ Объект
+
+    dragTargetWindow: /*(!) unknown */ Объект
+
+    previousDragTarget: /*(!) unknown */ Объект
+
     dragStarted: ДаНет
+
     dragFinished: ДаНет
+
     startX: Число
+
     startY: Число
-    /* private */ draggingData: /* unknown */ Объект
+
+    /*(!) private */ 
+    draggingData: /*(!) unknown */ Объект
+
     dropAllowed: ДаНет
+
     draggingOver: ДаНет
+
     positionX: Число
+
     positionY: Число
+
     modifiers: KeyboardModifiers
+
     dropX: Число
+
     dropY: Число
+
     dropped: ДаНет
+
     immediatePositionX: Число
+
     immediatePositionY: Число
+
     immediateModifiers: KeyboardModifiers
-    глобальный защищено DraggingThreshold: /* any */ Объект
+
+    глобальный защищено
+    DraggingThreshold: /*(!) any */ Объект
+
     при создании(focusSensor: FocusSensor, windowSensor: WindowSensor)
-    операция getData(): /* unknown */ Объект
-    операция setData(value: /* unknown */ Объект): Ничего
+
+    операция getData(): /*(!) unknown */ Объект
+
+    операция setData(value: /*(!) unknown */ Объект): Ничего
+
     операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
-    /* protected */ операция onPointerDown(e: PointerEvent): Ничего
-    /* protected */ операция onPointerMove(e: PointerEvent): Ничего
-    /* protected */ операция onPointerUp(e: PointerEvent): Ничего
-    /* protected */ операция onLostPointerCapture(e: PointerEvent): Ничего
-    /* protected */ операция onKeyDown(e: KeyboardEvent): Ничего
-    /* protected */ операция moveOver(e: PointerEvent): Ничего
-    /* protected */ операция tryClickingOrDragging(e: PointerEvent): Ничего
-    /* protected */ операция clickingOver(e: PointerEvent): Ничего
-    /* protected */ операция click(e: PointerEvent): Ничего
-    /* protected */ операция startDragging(e: PointerEvent): Ничего
-    /* protected */ операция dragOver(e: PointerEvent): Ничего
-    /* protected */ операция drop(e: PointerEvent): Ничего
-    /* protected */ операция finishDragging(): Ничего
-    /* protected */ операция cancelDragging(): Ничего
-    /* protected */ операция reset(): Ничего
-    /* protected */ операция updateClicking(e: PointerEvent): ДаНет
-    /* protected */ операция updateDragTarget(e: PointerEvent): Ничего
-    /* protected */ операция whenClickingOrDragging(): Ничего
-    /* protected */ операция whenMoving(): Ничего  }
+
+    /*(!) protected */ 
+    операция onPointerDown(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция onPointerMove(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция onPointerUp(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция onLostPointerCapture(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция onKeyDown(e: KeyboardEvent): Ничего
+
+    /*(!) protected */ 
+    операция moveOver(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция tryClickingOrDragging(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция clickingOver(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция click(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция startDragging(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция dragOver(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция drop(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция finishDragging(): Ничего
+
+    /*(!) protected */ 
+    операция cancelDragging(): Ничего
+
+    /*(!) protected */ 
+    операция reset(): Ничего
+
+    /*(!) protected */ 
+    операция updateClicking(e: PointerEvent): ДаНет
+
+    /*(!) protected */ 
+    операция updateDragTarget(e: PointerEvent): Ничего
+
+    /*(!) protected */ 
+    операция whenClickingOrDragging(): Ничего
+
+    /*(!) protected */ 
+    операция whenMoving(): Ничего
+  }
+
 }

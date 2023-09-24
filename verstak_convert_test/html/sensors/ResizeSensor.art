@@ -7,20 +7,42 @@
   //// automatically licensed under the license referred above.
   тип ResizedElement = интерфейс
   {
-    защищено borderBoxSize: ReadonlyArray<ResizeObserverSize>
-    защищено contentBoxSize: ReadonlyArray<ResizeObserverSize>
-    защищено contentRect: DOMRectReadOnly
-    защищено resizeData: Объект
+    защищено
+    borderBoxSize: ReadonlyArray<ResizeObserverSize>
+
+    защищено
+    contentBoxSize: ReadonlyArray<ResizeObserverSize>
+
+    защищено
+    contentRect: DOMRectReadOnly
+
+    защищено
+    resizeData: Объект
+
   }
+
 
   тип ResizeSensor = объект на основе Sensor
   {
-    /* private */ защищено observer: ResizeObserver
+    /*(!) private */ защищено
+    observer: ResizeObserver
+
     resizedElements: Array<ResizedElement>
+
     при создании()
+
     операция reset(): Ничего
+
     операция observeResizing(block: Block<Объект, Объект, Объект>, value: ДаНет, boxSizing: ResizeObserverBoxOptions = "content-box"): Ничего
-    /* protected */ операция onResize(entries: Array<ResizeObserverEntry>): Ничего
-    /* protected */ операция resize(entries: Array<ResizeObserverEntry>): Ничего
-    /* protected */ операция doReset(): Ничего  }
+
+    /*(!) protected */ 
+    операция onResize(entries: Array<ResizeObserverEntry>): Ничего
+
+    /*(!) protected */ 
+    операция resize(entries: Array<ResizeObserverEntry>): Ничего
+
+    /*(!) protected */ 
+    операция doReset(): Ничего
+  }
+
 }

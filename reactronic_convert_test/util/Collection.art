@@ -6,68 +6,140 @@
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
   тип GetItemKey<T> = операция(item: T): Текст?
+
   тип CollectionReader<T> = интерфейс
   {
-    защищено isStrict: ДаНет
-    защищено count: Число
-    защищено addedCount: Число
-    защищено removedCount: Число
-    защищено isMergeInProgress: ДаНет
+    защищено
+    isStrict: ДаНет
+
+    защищено
+    count: Число
+
+    защищено
+    addedCount: Число
+
+    защищено
+    removedCount: Число
+
+    защищено
+    isMergeInProgress: ДаНет
+
     операция lookup(key: Текст): Item<T>?
+
     операция claim(key: Текст): Item<T>?
+
     операция add(instance: T): Item<T>
+
     операция remove(item: Item<T>): Ничего
+
     операция move(item: Item<T>, after: Item<T>): Ничего
+
     операция beginMerge(): Ничего
-    операция endMerge(error: /* unknown */ Объект? = пусто): Ничего
+
+    операция endMerge(error: /*(!) unknown */ Объект? = пусто): Ничего
+
     операция resetAddedAndRemovedLists(): Ничего
+
     операция lastClaimedItem(): Item<T>?
+
     операция items(): Generator<Item<T>>
+
     операция addedItems(reset: ДаНет? = пусто): Generator<Item<T>>
+
     операция removedItems(reset: ДаНет? = пусто): Generator<Item<T>>
+
     операция isAdded(item: Item<T>): ДаНет
+
     операция isMoved(item: Item<T>): ДаНет
+
     операция isRemoved(item: Item<T>): ДаНет
+
     операция isCurrent(item: Item<T>): ДаНет
+
   }
+
 
   тип Item<T> = интерфейс
   {
-    защищено instance: T
-    защищено prev: Item<T>
+    защищено
+    instance: T
+
+    защищено
+    prev: Item<T>
+
     aux: Item<T>
+
   }
+
 
   тип Collection<T> = объект на основе CollectionReader<T>
   {
-    защищено getKey: GetItemKey<T>
-    /* private */ strict: ДаНет
-    /* private */ map: Map<Текст?, ItemImpl<T>>
-    /* private */ tag: Число
-    /* private */ current: ItemChain<T>
-    /* private */ added: ItemChain<T>
-    /* private */ removed: ItemChain<T>
-    /* private */ lastNotFoundKey: Текст?
-    /* private */ strictNextItem: ItemImpl<T>?
+    защищено
+    getKey: GetItemKey<T>
+
+    /*(!) private */ 
+    strict: ДаНет
+
+    /*(!) private */ 
+    map: Map<Текст?, ItemImpl<T>>
+
+    /*(!) private */ 
+    tag: Число
+
+    /*(!) private */ 
+    current: ItemChain<T>
+
+    /*(!) private */ 
+    added: ItemChain<T>
+
+    /*(!) private */ 
+    removed: ItemChain<T>
+
+    /*(!) private */ 
+    lastNotFoundKey: Текст?
+
+    /*(!) private */ 
+    strictNextItem: ItemImpl<T>?
+
     при создании(getKey: GetItemKey<T>, strict: ДаНет = нет)
+
     операция lookup(key: Текст?): Item<T>?
-    операция claim(key: Текст, resolution: /* any */ Объект? = пусто, error: Текст? = пусто): Item<T>?
+
+    операция claim(key: Текст, resolution: { isDuplicate: ДаНет}? = пусто, error: Текст? = пусто): Item<T>?
+
     операция add(instance: T): Item<T>
+
     операция remove(item: Item<T>): Ничего
+
     операция move(item: Item<T>, after: Item<T>): Ничего
+
     операция beginMerge(): Ничего
-    операция endMerge(error: /* unknown */ Объект? = пусто): Ничего
+
+    операция endMerge(error: /*(!) unknown */ Объект? = пусто): Ничего
+
     операция resetAddedAndRemovedLists(): Ничего
+
     операция lastClaimedItem(): Item<T>?
+
     операция items(): Generator<Item<T>>
+
     операция addedItems(reset: ДаНет? = пусто): Generator<Item<T>>
+
     операция removedItems(reset: ДаНет? = пусто): Generator<Item<T>>
+
     операция isAdded(item: Item<T>): ДаНет
+
     операция isMoved(item: Item<T>): ДаНет
+
     операция isRemoved(item: Item<T>): ДаНет
+
     операция isCurrent(item: Item<T>): ДаНет
+
     операция markAsMoved(item: Item<T>): Ничего
-    глобальный операция createItem<T>(instance: T): Item<T>
+
+    глобальный 
+    операция createItem<T>(instance: T): Item<T>
+
     isStrict: ДаНет
       при чтении { }
       при записи { }
@@ -84,4 +156,5 @@
     isMergeInProgress: ДаНет
       при чтении { }
   }
+
 }

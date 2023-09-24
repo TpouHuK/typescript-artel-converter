@@ -8,61 +8,110 @@
   //// MvccArray
   тип MvccArray<T> = объект на основе MvccObject<T>
   {
-    /* private */ impl: Array<T>
+    /*(!) private */ 
+    impl: Array<T>
+
     при создании(isObservable: ДаНет, array: Array<T>)
+
     операция getItem(n: Число): T
+
     операция setItem(n: Число, item: T): Ничего
+
     операция toString(): Текст
+
     операция toLocaleString(): Текст
+
     операция pop(): T?
+
     #js.МассивПараметров
     операция push(items: Список<T>): Число
+
     #js.МассивПараметров
     операция concat(items: Список<T | ConcatArray<T>>): Список<T>
+
     #js.МассивПараметров
     операция concat(items: Список<ConcatArray<T>>): Список<T>
+
     #js.МассивПараметров
     операция concat(items: Список<ConcatArray<T>>): Список<T>
+
     операция join(separator: Текст? = пусто): Текст
+
     операция reverse(): Список<T>
+
     операция shift(): T?
+
     операция slice(start: Число? = пусто, end: Число? = пусто): Список<T>
-    операция sort(compareFn: операция(a: T, b: T): Число? = пусто): /* any */ Объект
+
+    операция sort(compareFn: операция(a: T, b: T): Число? = пусто): /*(!) any */ Объект
+
     операция splice(start: Число, deleteCount: Число? = пусто): Список<T>
+
     #js.МассивПараметров
     операция splice(start: Число, deleteCount: Число, items: Список<T>): Список<T>
+
     #js.МассивПараметров
     операция splice(start: Число, deleteCount: Число, items: Список<T>): Список<T>
+
     #js.МассивПараметров
     операция unshift(items: Список<T>): Число
+
     операция includes(searchElement: T, fromIndex: Число? = пусто): ДаНет
+
     операция indexOf(searchElement: T, fromIndex: Число? = пусто): Число
+
     операция lastIndexOf(searchElement: T, fromIndex: Число? = пусто): Число
-    операция every(predicate: операция(value: T, index: Число, array: Список<T>): /* unknown */ Объект, thisArg: Объект? = пусто): ДаНет
-    операция every<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /* value is */ S, thisArg: Объект? = пусто): /* this is */ Список<S>
+
+    операция every(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект, thisArg: Объект? = пусто): ДаНет
+
+    операция every<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: Объект? = пусто): /*(!) this is */ Список<S>
+
     операция every(predicate: операция(value: T, index: Число, array: Список<T>): Объект, thisArg: Объект? = пусто): Объект
-    операция some(predicate: операция(value: T, index: Число, array: Список<T>): /* unknown */ Объект, thisArg: Объект? = пусто): ДаНет
+
+    операция some(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект, thisArg: Объект? = пусто): ДаНет
+
     операция forEach(callbackfn: операция(value: T, index: Число, array: Список<T>): Ничего, thisArg: Объект? = пусто): Ничего
+
     операция map<U>(callbackfn: операция(value: T, index: Число, array: Список<T>): U, thisArg: Объект? = пусто): Список<U>
-    операция filter(predicate: операция(value: T, index: Число, array: Список<T>): /* unknown */ Объект, thisArg: Объект? = пусто): Список<T>
-    операция filter<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /* value is */ S, thisArg: Объект? = пусто): Список<S>
+
+    операция filter(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект, thisArg: Объект? = пусто): Список<T>
+
+    операция filter<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: Объект? = пусто): Список<S>
+
     операция filter(predicate: операция(value: T, index: Число, array: Список<T>): Объект, thisArg: Объект? = пусто): Список<Объект>
+
     операция reduce(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: Список<T>): T): T
+
     операция reduce(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: Список<T>): T, initialValue: T): T
+
     операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: T, currentIndex: Число, array: Список<T>): U, initialValue: U): U
+
     операция reduce(callbackfn: операция(previousValue: Объект, currentValue: T, currentIndex: Число, array: Список<T>): Объект, initialValue: Объект? = пусто): Объект
+
     операция reduceRight(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: Список<T>): T): T
+
     операция reduceRight(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: Список<T>): T, initialValue: T): T
+
     операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: T, currentIndex: Число, array: Список<T>): U, initialValue: U): U
+
     операция reduceRight(callbackfn: операция(previousValue: Объект, currentValue: T, currentIndex: Число, array: Список<T>): Объект, initialValue: Объект? = пусто): Объект
-    операция find<S = T>(predicate: операция(this: Ничего, value: T, index: Число, obj: Список<T>): /* value is */ S, thisArg: Объект? = пусто): S?
-    операция findIndex(predicate: операция(value: T, index: Число, obj: Список<T>): /* unknown */ Объект, thisArg: Объект? = пусто): Число
-    операция fill(value: T, start: Число? = пусто, end: Число? = пусто): /* any */ Объект
-    операция copyWithin(target: Число, start: Число, end: Число? = пусто): /* any */ Объект
+
+    операция find<S = T>(predicate: операция(this: Ничего, value: T, index: Число, obj: Список<T>): /*(!) value is */ S, thisArg: Объект? = пусто): S?
+
+    операция findIndex(predicate: операция(value: T, index: Число, obj: Список<T>): /*(!) unknown */ Объект, thisArg: Объект? = пусто): Число
+
+    операция fill(value: T, start: Число? = пусто, end: Число? = пусто): /*(!) any */ Объект
+
+    операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) any */ Объект
+
     операция [Symbol.iterator](): IterableIterator<T>
+
     операция entries(): IterableIterator<простой объект { _0: Число, _1: T }>
+
     операция keys(): IterableIterator<Число>
+
     операция values(): IterableIterator<T>
+
     length: Число
       при чтении { }
       при записи { }
@@ -70,22 +119,35 @@
     mutable: Array<T>
       при чтении { }
   }
+
   //// TransactionalArray
   тип TransactionalArray<T> = объект на основе MvccArray<T>
   {
     при создании()
+
     при создании(arrayLength: Число)
+
     при создании(arrayLength: Число? = пусто)
+
     #js.МассивПараметров
     при создании(items: Список<T>)
-    при создании(args: Объект? = пусто)  }
+
+    при создании(args: Объект? = пусто)
+  }
+
   //// ObservableArray
   тип ObservableArray<T> = объект на основе MvccArray<T>
   {
     при создании()
+
     при создании(arrayLength: Число)
+
     при создании(arrayLength: Число? = пусто)
+
     #js.МассивПараметров
     при создании(items: Список<T>)
-    при создании(args: Объект? = пусто)  }
+
+    при создании(args: Объект? = пусто)
+  }
+
 }

@@ -6,10 +6,17 @@
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
   операция parseBlockCoords(text: Текст, result: BlockCoords): BlockCoords
+
   операция emitBlockCoords(value: BlockCoords): Текст
+
   операция emitLetters(n: Число): Текст
+
   операция emitCellPosition(x: Число, y: Число): Текст
+
   операция equalBlockCoords(a: BlockCoords, b: BlockCoords): ДаНет
-  операция objectHasMember<T>(obj: Объект, member: Текст): /* obj is */ T
+
+  операция objectHasMember<T>(obj: Объект, member: Текст): /*(!) obj is */ T
+
   операция getCallerInfo(prefix: Текст): Текст
+
 }

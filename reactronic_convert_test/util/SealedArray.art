@@ -5,17 +5,26 @@
   //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
-  тип SealedArray<T> = /* абстрактный */ объект на основе Array<T>, Sealed<Array<T>>
+  тип SealedArray<T> = /*(!) абстрактный */ объект на основе Array<T>, Sealed<Array<T>>
   {
     операция pop(): T?
+
     #js.МассивПараметров
     операция push(items: Список<T>): Число
-    операция sort(compareFn: операция(a: T, b: T): Число? = пусто): /* any */ Объект
+
+    операция sort(compareFn: операция(a: T, b: T): Число? = пусто): /*(!) any */ Объект
+
     операция splice(start: Число, deleteCount: Число? = пусто): Список<T>
+
     #js.МассивПараметров
     операция splice(start: Число, deleteCount: Число, items: Список<T>): Список<T>
+
     #js.МассивПараметров
     операция unshift(items: Список<T>): Число
+
     операция [Sealant.CreateCopy](): Array<T>
-    операция slice(start: Число? = пусто, end: Число? = пусто): Список<T>  }
+
+    операция slice(start: Число? = пусто, end: Число? = пусто): Список<T>
+  }
+
 }

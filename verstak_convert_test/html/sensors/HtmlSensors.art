@@ -7,15 +7,36 @@
   //// automatically licensed under the license referred above.
   тип HtmlSensors = объект
   {
-    защищено window: WindowSensor
-    защищено focus: FocusSensor
-    защищено hover: HoverSensor
-    защищено keyboard: KeyboardSensor
-    защищено wheel: WheelSensor
-    защищено resize: ResizeSensor
-    защищено htmlDrag: HtmlDragSensor
-    защищено button: ButtonSensor
-    защищено pointer: PointerSensor
+    защищено
+    window: WindowSensor
+
+    защищено
+    focus: FocusSensor
+
+    защищено
+    hover: HoverSensor
+
+    защищено
+    keyboard: KeyboardSensor
+
+    защищено
+    wheel: WheelSensor
+
+    защищено
+    resize: ResizeSensor
+
+    защищено
+    htmlDrag: HtmlDragSensor
+
+    защищено
+    button: ButtonSensor
+
+    защищено
+    pointer: PointerSensor
+
     при создании()
-    операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего  }
+
+    операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
+  }
+
 }

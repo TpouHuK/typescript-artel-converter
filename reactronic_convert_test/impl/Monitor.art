@@ -5,27 +5,61 @@
   //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
-  тип Monitor = /* абстрактный */ объект на основе ObservableObject
+  тип Monitor = /*(!) абстрактный */ объект на основе ObservableObject
   {
-    /* абстрактный */ защищено isActive: ДаНет
-    /* абстрактный */ защищено counter: Число
-    /* абстрактный */ защищено workers: ReadonlySet<Worker>
-    /* абстрактный */ защищено duration: Число
-    глобальный операция create(hint: Текст, activationDelay: Число, deactivationDelay: Число, durationResolution: Число): Monitor  }
+    /*(!) абстрактный */ защищено
+    isActive: ДаНет
+
+    /*(!) абстрактный */ защищено
+    counter: Число
+
+    /*(!) абстрактный */ защищено
+    workers: ReadonlySet<Worker>
+
+    /*(!) абстрактный */ защищено
+    duration: Число
+
+    глобальный 
+    операция create(hint: Текст, activationDelay: Число, deactivationDelay: Число, durationResolution: Число): Monitor
+  }
+
   тип MonitorImpl = объект на основе Monitor
   {
-    isActive: /* any */ Объект
-    counter: /* any */ Объект
-    workers: /* any */ Объект
-    duration: /* any */ Объект
-    защищено internals: /* any */ Объект
+    isActive: /*(!) any */ Объект
+
+    counter: /*(!) any */ Объект
+
+    workers: /*(!) any */ Объект
+
+    duration: /*(!) any */ Объект
+
+    защищено
+    internals: /*(!) any */ Объект
+
     операция enter(worker: Worker): Ничего
+
     операция leave(worker: Worker): Ничего
-    глобальный операция create(hint: Текст, activationDelay: Число, deactivationDelay: Число, durationResolution: Число): MonitorImpl
-    глобальный операция enter(mon: MonitorImpl, worker: Worker): Ничего
-    глобальный операция leave(mon: MonitorImpl, worker: Worker): Ничего
-    /* private */ глобальный операция doCreate(hint: Текст, activationDelay: Число, deactivationDelay: Число, durationResolution: Число): MonitorImpl
-    /* private */ глобальный операция activate(mon: MonitorImpl, delay: Число): Ничего
-    /* private */ глобальный операция deactivate(mon: MonitorImpl, delay: Число): Ничего
-    /* private */ глобальный операция tick(mon: MonitorImpl): Ничего  }
+
+    глобальный 
+    операция create(hint: Текст, activationDelay: Число, deactivationDelay: Число, durationResolution: Число): MonitorImpl
+
+    глобальный 
+    операция enter(mon: MonitorImpl, worker: Worker): Ничего
+
+    глобальный 
+    операция leave(mon: MonitorImpl, worker: Worker): Ничего
+
+    /*(!) private */ глобальный 
+    операция doCreate(hint: Текст, activationDelay: Число, deactivationDelay: Число, durationResolution: Число): MonitorImpl
+
+    /*(!) private */ глобальный 
+    операция activate(mon: MonitorImpl, delay: Число): Ничего
+
+    /*(!) private */ глобальный 
+    операция deactivate(mon: MonitorImpl, delay: Число): Ничего
+
+    /*(!) private */ глобальный 
+    операция tick(mon: MonitorImpl): Ничего
+  }
+
 }
