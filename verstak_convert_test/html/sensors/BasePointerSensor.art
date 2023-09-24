@@ -5,7 +5,7 @@
   //// License: https://raw.githubusercontent.com/nezaboodka/verstak/master/LICENSE
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
-  тип PointerButton вариант
+  тип PointerButton = вариант
   {
     None = 0
     Left = 1

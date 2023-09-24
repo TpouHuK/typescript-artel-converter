@@ -15,7 +15,7 @@
   тип SimpleDelegate<T> = операция(block: Block<T, Объект, Объект, Объект>): Ничего
 
   //// Block
-  тип BlockKind вариант
+  тип BlockKind = вариант
   {
     Section = 0
     Table = 1
@@ -222,21 +222,21 @@
   }
 
 
-  тип Priority вариант
+  тип Priority = вариант
   {
     Realtime = 0
     Normal = 1
     Background = 2
   }
 
-  тип Mode вариант
+  тип Mode = вариант
   {
     Default = 0
     PinpointRebuild = 1
     ManualMount = 2
   }
 
-  тип Align вариант
+  тип Align = вариант
   {
     Stretch = 0b00000
     Left = 0b00001

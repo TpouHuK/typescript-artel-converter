@@ -60,7 +60,7 @@
   }
 
 
-  тип Kind вариант
+  тип Kind = вариант
   {
     Plain = 0
     Transactional = 1
@@ -68,7 +68,7 @@
     Cached = 3
   }
 
-  тип Reentrance вариант
+  тип Reentrance = вариант
   {
     PreventWithError = 1
     WaitAndRestart = 0
