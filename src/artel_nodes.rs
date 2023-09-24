@@ -72,7 +72,7 @@ impl ArtelStr for EnumDeclaration {
         str.push_str(ident(ident_level));
         str.push_str("тип ");
         str.push_str(&self.name.0);
-        str.push_str(" вариант");
+        str.push_str(" = вариант");
         str.push_str("\n");
         str.push_str(ident(ident_level));
         str.push_str("{\n");
