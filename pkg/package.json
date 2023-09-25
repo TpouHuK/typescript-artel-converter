@@ -1,0 +1,16 @@
+{
+  "name": "typescript-artel-converter",
+  "version": "0.1.0",
+  "files": [
+    "typescript_artel_converter_bg.wasm",
+    "typescript_artel_converter.js",
+    "typescript_artel_converter_bg.js",
+    "typescript_artel_converter.d.ts"
+  ],
+  "module": "typescript_artel_converter.js",
+  "types": "typescript_artel_converter.d.ts",
+  "sideEffects": [
+    "./typescript_artel_converter.js",
+    "./snippets/*"
+  ]
+}
