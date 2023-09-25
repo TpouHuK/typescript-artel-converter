@@ -4,10 +4,14 @@ version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+crate-type = ["cdylib"]
 
 [dependencies]
 itertools = "0.11.0"
 newtype_derive = "0.1.6"
 rstest = "0.18.2"
-tree-sitter = "0.20.10"
-tree-sitter-typescript = "0.20.2"
+tree-sitter-c2rust = "0.20.10"
+tree-sitter-typescript = { path = "./tree-sitter-typescript" }
+wasm-bindgen = "0.2.87"
+web-sys = { version = "0.3.64", features = ["DataTransfer", "DataTransferItemList", "DataTransferItem"] }
