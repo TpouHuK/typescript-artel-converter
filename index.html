@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>hello-wasm example</title>
+  </head>
+  <body>
+    <script type="module">
+      import init, { convert_ts } from "./pkg/typescript_artel_converter.js";
+      init().then(() => {
+	  	alert(convert_ts("export type MyType = string | number;"))
+      });
+    </script>
+  </body>
+</html>
