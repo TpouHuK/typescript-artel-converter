@@ -35,13 +35,13 @@
 
     операция observeResizing(block: Block<Объект, Объект, Объект>, value: ДаНет, boxSizing: ResizeObserverBoxOptions = "content-box"): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onResize(entries: Array<ResizeObserverEntry>): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция resize(entries: Array<ResizeObserverEntry>): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция doReset(): Ничего
   }
 

@@ -13,16 +13,16 @@
 
     операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onPointerOver(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onPointerOut(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция doPointerOver(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция doPointerOut(): Ничего
   }
 

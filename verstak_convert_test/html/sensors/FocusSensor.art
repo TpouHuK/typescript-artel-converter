@@ -43,22 +43,22 @@
 
     операция reset(): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onFocusIn(e: FocusEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onFocusOut(e: FocusEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onMouseDown(e: MouseEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция doFocusIn(e: FocusEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция doFocusOut(e: FocusEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция doMouseDown(e: MouseEvent): Ничего
 
     /*(!) private */ 

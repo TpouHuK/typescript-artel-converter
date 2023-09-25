@@ -38,22 +38,22 @@
 
     операция reset(): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onKeyDown(e: KeyboardEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onKeyUp(e: KeyboardEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция keyDown(e: KeyboardEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция keyUp(e: KeyboardEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция updateSensorData(e: KeyboardEvent): Ничего
 
-    /*(!) protected */ глобальный 
+    скрыто типом глобальный 
     операция getKeyAsModifierIfAny(key: Текст): KeyboardModifiers
   }
 

@@ -8,7 +8,7 @@
   //// ObservableCollection
   тип ObservableCollection<T> = /*(!) абстрактный */ объект на основе ObservableObject<T>, CollectionReader<T>
   {
-    /*(!) protected */ /*(!) абстрактный */ 
+    скрыто типом /*(!) абстрактный */ 
     impl: Collection<T>
 
     операция lookup(key: Текст): Item<T>?

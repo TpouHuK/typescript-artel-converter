@@ -29,16 +29,16 @@
 
     startY: Число
 
-    /*(!) private */ 
+    /*(!) private */
     dataByFormat: Map<Текст, /*(!) unknown */ Объект>
 
-    /*(!) private */ 
+    /*(!) private */
     draggingImage: HTMLElement?
 
-    /*(!) private */ 
+    /*(!) private */
     draggingImageX: Число
 
-    /*(!) private */ 
+    /*(!) private */
     draggingImageY: Число
 
     dropEffect: DropEffect
@@ -83,61 +83,61 @@
 
     операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция onDragStart(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция onDrag(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция onDragEnter(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция onDragLeave(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция onDragOver(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция onDrop(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция onDragEnd(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция startDragging(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция dragging(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция finishDragging(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция enterTarget(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция leaveTarget(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция dragOver(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция drop(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция updateEventOnDragStart(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция updateEventOnDropAllowed(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция reset(): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция updateDragTarget(e: DragEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом
     операция whenDragging(): Ничего
   }
 

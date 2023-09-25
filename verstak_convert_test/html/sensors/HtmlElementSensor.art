@@ -22,10 +22,10 @@
 
     при создании(focusSensor: Объект? = пусто, windowSensor: WindowSensor? = пусто)
 
-    /*(!) protected */ 
+    скрыто типом 
     операция getDefaultSensorData(): DataForSensor?
 
-    /*(!) protected */ 
+    скрыто типом 
     операция setPreventDefaultAndStopPropagation(e: Event): Ничего
   }
 

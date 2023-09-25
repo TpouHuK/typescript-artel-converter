@@ -81,61 +81,61 @@
 
     операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onPointerDown(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onPointerMove(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onPointerUp(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onLostPointerCapture(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onKeyDown(e: KeyboardEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция moveOver(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция tryClickingOrDragging(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция clickingOver(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция click(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция startDragging(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция dragOver(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция drop(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция finishDragging(): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция cancelDragging(): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция reset(): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция updateClicking(e: PointerEvent): ДаНет
 
-    /*(!) protected */ 
+    скрыто типом 
     операция updateDragTarget(e: PointerEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция whenClickingOrDragging(): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция whenMoving(): Ничего
   }
 

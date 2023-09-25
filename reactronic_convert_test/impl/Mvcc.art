@@ -8,7 +8,7 @@
   //// MvccObject, TransactionalObject, ObservableObject
   тип MvccObject = /*(!) абстрактный */ объект
   {
-    /*(!) protected */ 
+    скрыто типом 
     при создании(observable: ДаНет)
 
     операция [Symbol.toStringTag](): Текст

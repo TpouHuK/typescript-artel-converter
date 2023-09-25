@@ -20,7 +20,7 @@
   //// RxNodeInstanceImpl
   тип RxNodeInstanceImpl<E, O> = объект на основе RxNodeInstance<E, O>
   {
-    /*(!) private */ глобальный 
+    /*(!) private */ глобальный
     gUuid: Число
 
     защищено
@@ -54,46 +54,46 @@
     /*(!) public */ глобальный защищено
     basic: /*(!) any */ Объект
 
-    глобальный 
+    глобальный
     операция Root<T>(render: операция(): T): T
 
-    глобальный 
+    глобальный
     операция Node<E, O>(id: Текст, args: Объект, render: Render<E, O>, superRender: SuperRender<E, O>? = пусто, type: RxNodeType<E, O>? = пусто, inline: ДаНет? = пусто, creator: RxNode? = пусто, host: RxNode? = пусто): RxNode<E, O>
 
-    глобальный 
+    глобальный
     операция renderChildrenThenDo(action: операция(): Ничего): Ничего
 
-    глобальный 
+    глобальный
     операция usingAnotherHost<E>(host: RxNode<E>, run: операция(e: E): Ничего): Ничего
 
-    глобальный 
+    глобальный
     операция createRootNode<E>(id: Текст, sequential: ДаНет, native: E): RxNode<E>
 
-    глобальный 
+    глобальный
     операция currentNodeInstance<T>(): { model: T}
 
-    глобальный 
+    глобальный
     операция currentNodeInstanceInternal<E>(): RxNodeInstanceImpl<E>
 
-    глобальный 
+    глобальный
     операция currentNodeRevision(): Число
 
-    глобальный 
+    глобальный
     операция forAll<E>(action: операция(e: E): Ничего): Ничего
 
-    /*(!) private */ глобальный 
+    /*(!) private */ глобальный
     операция mergeAndRenderSequentialChildren(node: RxNode, finish: операция(): Ничего): Ничего
 
-    /*(!) private */ глобальный 
+    /*(!) private */ глобальный
     операция mergeAndRenderChildren(node: RxNode, finish: операция(): Ничего): Ничего
 
     /*(!) private */ глобальный параллельная
     операция renderIncrementally(parent: RxNode, p1: Array<RxNode>?, p2: Array<RxNode>?, checkEveryN: Число = 30, timeLimit: Число = 12): Promise<Ничего>
 
-    /*(!) private */ глобальный 
+    /*(!) private */ глобальный
     операция mergeGuests(host: RxNodeInstance, creator: RxNodeInstance, guests: Array<RxNode>): Ничего
 
-    /*(!) private */ глобальный 
+    /*(!) private */ глобальный
     операция forEachChildRecursively(node: RxNode, action: операция(e: Объект): Ничего): Ничего
 
     self: RxNode

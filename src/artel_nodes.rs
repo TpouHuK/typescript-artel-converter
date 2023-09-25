@@ -457,12 +457,12 @@ where
 }
 
 impl ArtelStr for ArtelAccessModifier {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         match self {
             ArtelAccessModifier::Default => String::new(),
             ArtelAccessModifier::Public => "/*(!) public */".to_owned(),
             ArtelAccessModifier::Private => "/*(!) private */".to_owned(),
-            ArtelAccessModifier::Protected => "/*(!) protected */".to_owned(),
+            ArtelAccessModifier::Protected => "скрыто типом".to_owned(),
         }
     }
 }

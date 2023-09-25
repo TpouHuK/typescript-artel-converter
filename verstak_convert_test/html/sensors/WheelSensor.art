@@ -19,16 +19,16 @@
 
     операция reset(): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция onWheel(e: WheelEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция doWheel(e: WheelEvent): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция doReset(): Ничего
 
-    /*(!) protected */ 
+    скрыто типом 
     операция updateSensorData(e: WheelEvent): Ничего
   }
 
