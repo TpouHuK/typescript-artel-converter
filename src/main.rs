@@ -10,11 +10,7 @@ use dbg_tree_walk::walk_tree_recursively_dbg;
 
 fn read_example(filename: &str) -> String {
     std::fs::read_to_string(format!("./examples/{filename}"))
-        .unwrap_or_else(|_| std::fs::read_to_string(format!("./{filename}")).unwrap())
-}
-
-fn read_file(filename: &str) -> String {
-    std::fs::read_to_string(filename).unwrap()
+        .unwrap_or_else(|_| std::fs::read_to_string(filename).unwrap())
 }
 
 fn convert_ts_debug(code: &str) -> () {

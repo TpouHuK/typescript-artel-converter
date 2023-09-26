@@ -1,6 +1,5 @@
 mod artel_nodes;
 mod convert_tree_walk;
-mod dbg_tree_walk;
 
 use convert_tree_walk::*;
 use tree_sitter_c2rust::Parser;

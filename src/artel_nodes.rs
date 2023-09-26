@@ -468,7 +468,7 @@ impl ArtelTypeReference {
 pub struct ArtelTypeParameter {
     indentifier: ArtelIdentifier,
     constraint: Option<ArtelType>,
-    default: Option<ArtelType>,
+    _default: Option<ArtelType>,
 }
 
 impl ArtelStr for ArtelTypeParameter {
@@ -493,7 +493,7 @@ impl ArtelTypeParameter {
         Self {
             indentifier,
             constraint,
-            default,
+            _default: default,
         }
     }
 }
@@ -1221,12 +1221,6 @@ impl ArtelStr for ArtelLexicalDeclaration {
     }
 }
 
-#[derive(Debug)]
-pub struct AlFunctionCall {
-    callee: String,
-    arguments: Vec<String>,
-}
-
 #[derive(Debug, Clone)]
 pub struct ArtelExpression(pub String);
 
@@ -1238,9 +1232,4 @@ impl ArtelStr for ArtelExpression {
             _ => self.0.clone(),
         }
     }
-}
-
-#[derive(Debug)]
-pub struct AlNumber {
-    num: String,
 }

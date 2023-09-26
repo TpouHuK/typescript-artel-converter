@@ -729,7 +729,8 @@ fn parse_method_definition(source: &str, node: &Node) -> ArtelClassMember {
     let mut is_async = false;
     let mut is_abstract = false;
     let mut getter_setter = GetterSetter::None;
-    let mut is_iterator = false;
+    // TODO, iterators
+    let mut _is_iterator = false;
 
     while modifiers_cursor.field_name() != Some("name") {
         match modifiers_cursor.node().kind() {
@@ -757,7 +758,7 @@ fn parse_method_definition(source: &str, node: &Node) -> ArtelClassMember {
                 getter_setter = GetterSetter::Set;
             }
             "*" => {
-                is_iterator = true;
+                _is_iterator = true;
             }
             x => {
                 unimplemented!("{x}");
