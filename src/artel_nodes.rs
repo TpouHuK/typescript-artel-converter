@@ -198,7 +198,7 @@ pub enum ArtelLexicalDeclarationType {
 }
 
 impl ArtelStr for ArtelLexicalDeclarationType {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         match self {
             Self::CONST => "конст".to_owned(),
             Self::LET => "пусть".to_owned(),
@@ -240,7 +240,7 @@ impl ArtelType {
 }
 
 impl ArtelStr for ArtelType {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         assert!(!self.0.is_empty());
         let mut str = String::new();
         let mut first = true;
@@ -309,7 +309,7 @@ impl ArtelPrimaryType {
 }
 
 impl ArtelStr for ArtelPrimaryType {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         match self {
             ArtelPrimaryType::UnsupportedAny(s) => format!("/*(!) {s} */ Объект?"),
             ArtelPrimaryType::LiteralType(literal_type) => literal_type.artel_str(0),
@@ -335,7 +335,7 @@ impl ArtelStr for ArtelPrimaryType {
 type ArtelGenericParams = Vec<ArtelTypeParameter>;
 
 impl ArtelStr for ArtelGenericParams {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         let mut str = String::new();
         if !self.is_empty() {
             str.push_str("<");
@@ -364,7 +364,7 @@ pub enum ArtelLiteralType {
 }
 
 impl ArtelStr for ArtelLiteralType {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         match self {
             ArtelLiteralType::Undefined => "пусто".to_owned(),
             ArtelLiteralType::Null => "пусто".to_owned(),
@@ -434,7 +434,7 @@ pub struct ArtelTypeReference {
 }
 
 impl ArtelStr for ArtelTypeReference {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         let mut str = String::new();
         str.push_str(&self.type_name.0);
 
@@ -472,7 +472,7 @@ pub struct ArtelTypeParameter {
 }
 
 impl ArtelStr for ArtelTypeParameter {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         let mut str = String::new();
         str.push_str(&self.indentifier.0);
         if let Some(constraint) = &self.constraint {
@@ -574,7 +574,7 @@ pub enum ArtelModifier {
 }
 
 impl ArtelStr for ArtelModifier {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         match self {
             ArtelModifier::None => String::new(),
             ArtelModifier::Abstract => "/*(!) абстрактный */".to_owned(),
@@ -599,7 +599,7 @@ impl ClassMemberModifiers {
 }
 
 impl ArtelStr for ClassMemberModifiers {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         let mut str = String::new();
 
         let access_modifier = self.access_modifier.artel_str(0);
@@ -624,7 +624,7 @@ pub struct ArtelObjectType {
 }
 
 impl ArtelStr for ArtelObjectType {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         [
             "объект { ",
             &self
@@ -901,7 +901,7 @@ pub struct ArtelFunctionArgument {
 }
 
 impl ArtelStr for ArtelFunctionArgument {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         let is_array_param = self.name.0.starts_with("...");
         let name = if is_array_param {
             self.name.0.strip_prefix("...").unwrap().to_owned()
@@ -1028,7 +1028,7 @@ impl ArtelFunctionDeclaration {
 }
 
 impl ArtelStr for Vec<ArtelFunctionArgument> {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         ["(", &self.iter().map(|a| a.artel_str(0)).join(", "), ")"].concat()
     }
 }
@@ -1166,7 +1166,7 @@ pub struct ArtelLexicalDeclarationMember {
 }
 
 impl ArtelStr for ArtelLexicalDeclarationMember {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         [
             &self.ident.0,
             ": ",
@@ -1231,7 +1231,7 @@ pub struct AlFunctionCall {
 pub struct ArtelExpression(pub String);
 
 impl ArtelStr for ArtelExpression {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         match self.0.as_str() {
             "false" => "нет".to_owned(),
             "true" => "да".to_owned(),
