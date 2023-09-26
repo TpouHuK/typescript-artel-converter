@@ -20,7 +20,7 @@
     logging: Partial<LoggingOptions>
 
     защищено
-    token: Объект
+    token: /*(!) any */ Объект?
 
   }
 

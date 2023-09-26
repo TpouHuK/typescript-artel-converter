@@ -14,31 +14,31 @@
     операция getController<T>(method: F<T>): Controller<T>
 
     глобальный 
-    операция pullLastResult<T>(method: F<Promise<T>>, args: Список<Объект>? = пусто): T?
+    операция pullLastResult<T>(method: F<Promise<T>>, args: Список</*(!) any */ Объект?>? = пусто): T?
 
     глобальный 
     операция configureCurrentOperation(options: Partial<MemberOptions>): MemberOptions
 
     глобальный 
-    операция getRevisionOf(obj: Объект): Число
+    операция getRevisionOf(obj: /*(!) any */ Объект?): Число
 
     глобальный 
     операция takeSnapshot<T>(obj: T): T
 
     глобальный 
-    операция dispose(obj: Объект): Ничего
+    операция dispose(obj: /*(!) any */ Объект?)
 
     глобальный 
-    операция setLoggingMode(isOn: ДаНет, options: LoggingOptions? = пусто): Ничего
+    операция setLoggingMode(isOn: ДаНет, options: LoggingOptions? = пусто)
 
     глобальный 
-    операция setLoggingHint<T = Объект>(obj: T, name: Текст?): Ничего
+    операция setLoggingHint<T = Объект>(obj: T, name: Текст?)
 
     глобальный 
     операция getLoggingHint<T = Объект>(obj: T, full: ДаНет = нет): Текст?
 
     глобальный 
-    операция setProfilingMode(isOn: ДаНет, options: Partial<ProfilingOptions>? = пусто): Ничего
+    операция setProfilingMode(isOn: ДаНет, options: Partial<ProfilingOptions>? = пусто)
 
     reactivityAutoStartDisabled: ДаНет
       при чтении { }
@@ -53,22 +53,22 @@
 
   //// Operators
   #js.МассивПараметров
-  операция nonreactive<T>(func: F<T>, args: Список<Объект>): T
+  операция nonreactive<T>(func: F<T>, args: Список</*(!) any */ Объект?>): T
 
   #js.МассивПараметров
-  операция sensitive<T>(sensitivity: ДаНет, func: F<T>, args: Список<Объект>): T
+  операция sensitive<T>(sensitivity: ДаНет, func: F<T>, args: Список</*(!) any */ Объект?>): T
 
   //// Decorators
-  операция raw(proto: Объект, prop: PropertyKey): Объект
+  операция raw(proto: Объект, prop: PropertyKey): /*(!) any */ Объект?
 
-  операция observable(proto: Объект, prop: PropertyKey): Объект
+  операция observable(proto: Объект, prop: PropertyKey): /*(!) any */ Объект?
 
-  операция transactional(proto: Объект, prop: PropertyKey, pd: PropertyDescriptor): Объект
+  операция transactional(proto: Объект, prop: PropertyKey, pd: PropertyDescriptor): /*(!) any */ Объект?
 
-  операция reactive(proto: Объект, prop: PropertyKey, pd: PropertyDescriptor): Объект
+  операция reactive(proto: Объект, prop: PropertyKey, pd: PropertyDescriptor): /*(!) any */ Объект?
 
-  операция cached(proto: Объект, prop: PropertyKey, pd: PropertyDescriptor): Объект
+  операция cached(proto: Объект, prop: PropertyKey, pd: PropertyDescriptor): /*(!) any */ Объект?
 
-  операция options(value: Partial<MemberOptions>): F<Объект>
+  операция options(value: Partial<MemberOptions>): F</*(!) any */ Объект?>
 
 }

@@ -5,19 +5,19 @@
   //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
-  тип BoolOnly<T> = Pick<T, /*(!) any */ Объект>
+  тип BoolOnly<T> = Pick<T, /*(!) any */ Объект?>
 
-  тип GivenTypeOnly<T, V> = Pick<T, /*(!) any */ Объект>
+  тип GivenTypeOnly<T, V> = Pick<T, /*(!) any */ Объект?>
 
-  операция refs<O = Объект>(owner: O): /*(!) any */ Объект
+  операция refs<O = Объект>(owner: O): /*(!) any */ Объект?
 
-  операция toggleRefs<O = Объект>(owner: O): /*(!) any */ Объект
+  операция toggleRefs<O = Объект>(owner: O): /*(!) any */ Объект?
 
-  операция customToggleRefs<T, O = Объект>(owner: O, value1: T, value2: T): /*(!) any */ Объект
+  операция customToggleRefs<T, O = Объект>(owner: O, value1: T, value2: T): /*(!) any */ Объект?
 
   тип Ref<T> = объект
   {
-    при создании(owner: Объект, name: Текст, index: Число = -1)
+    при создании(owner: /*(!) any */ Объект?, name: Текст, index: Число = -1)/*(!) any */ Объект?
 
     операция unobservable(): T
 
@@ -38,9 +38,9 @@
 
   тип ToggleRef<T> = объект на основе Ref<T>
   {
-    при создании(owner: Объект, name: Текст, valueOn: T, valueOff: T)
+    при создании(owner: /*(!) any */ Объект?, name: Текст, valueOn: T, valueOff: T)/*(!) any */ Объект?
 
-    операция toggle(): Ничего
+    операция toggle()
   }
 
   //// Internal

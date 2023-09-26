@@ -157,6 +157,14 @@ impl ArtelType {
             false
         }
     }
+
+    fn convert_return_type(return_type: &ArtelType) -> String {
+        if return_type.is_nothing() {
+            "".to_owned()
+        } else {
+            [": ", &return_type.artel_str(0)].concat()
+        }
+    }
 }
 
 impl ArtelStr for ArtelType {
@@ -303,6 +311,7 @@ pub enum ArtelPredefinedType {
     Never,
     Unknown,
     Symbol,
+    UniqueSymbol,
 }
 
 impl ArtelStr for ArtelPredefinedType {
@@ -317,6 +326,7 @@ impl ArtelStr for ArtelPredefinedType {
             ArtelPredefinedType::Never => "Никогда".to_owned(),
             ArtelPredefinedType::Unknown => "/*(!) unknown */ Объект?".to_owned(),
             ArtelPredefinedType::Symbol => "Символ".to_owned(),
+            ArtelPredefinedType::UniqueSymbol => "/*(!) unique symbol */ Объект".to_owned(),
         }
     }
 }
@@ -336,6 +346,7 @@ where
             "never" => ArtelPredefinedType::Never,
             "unknown" => ArtelPredefinedType::Unknown,
             "symbol" => ArtelPredefinedType::Symbol,
+            "unique symbol" => ArtelPredefinedType::UniqueSymbol,
             _ => unreachable!("{}", value.as_ref()),
         }
     }
@@ -874,11 +885,7 @@ impl ArtelFunctionDeclaration {
 
     fn artel_str_return_type(&self, _ident_level: usize) -> String {
         if let Some(return_type) = &self.return_type {
-            if return_type.is_nothing() {
-                "".to_owned()
-            } else {
-                [": ", &return_type.artel_str(0)].concat()
-            }
+            ArtelType::convert_return_type(return_type)
         } else {
             ArtelType(vec![ArtelPrimaryType::UnsupportedAny]).artel_str(0)
         }

@@ -21,7 +21,7 @@
 
     modifiers: KeyboardModifiers
 
-    при создании(focusSensor: FocusSensor? = пусто, windowSensor: WindowSensor? = пусто)
+    при создании(focusSensor: FocusSensor? = пусто, windowSensor: WindowSensor? = пусто)/*(!) any */ Объект?
   }
 
   операция extractPointerButton(e: MouseEvent): PointerButton

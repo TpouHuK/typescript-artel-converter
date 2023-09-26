@@ -7,9 +7,9 @@
   //// automatically licensed under the license referred above.
   тип SealedSet<T> = /*(!) абстрактный */ объект на основе Set<T>, Sealed<Set<T>>
   {
-    операция add(value: T): /*(!) any */ Объект
+    операция add(value: T): /*(!) any */ Объект?
 
-    операция clear(): Ничего
+    операция clear()
 
     операция delete(value: T): ДаНет
 

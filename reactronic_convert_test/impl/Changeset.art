@@ -5,10 +5,10 @@
   //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
-  конст MAX_REVISION: /*(!) any */ Объект /*(!) = Number.MAX_SAFE_INTEGER */
+  конст MAX_REVISION: /*(!) any */ Объект? /*(!) = Number.MAX_SAFE_INTEGER */
 
 
-  конст UNDEFINED_REVISION: /*(!) any */ Объект /*(!) = MAX_REVISION - 1 */
+  конст UNDEFINED_REVISION: /*(!) any */ Объект? /*(!) = MAX_REVISION - 1 */
 
 
   //// Snapshot
@@ -56,7 +56,7 @@
 
     sealed: ДаНет
 
-    при создании(options: SnapshotOptions?)
+    при создании(options: SnapshotOptions?)/*(!) any */ Объект?
 
     глобальный 
     current: операция(): Changeset
@@ -68,65 +68,65 @@
     markUsed: операция(observable: ObservableValue, os: ObjectSnapshot, m: MemberName, h: ObjectHandle, kind: Kind, weak: ДаНет): Ничего
 
     глобальный 
-    markEdited: операция(oldValue: Объект, newValue: Объект, edited: ДаНет, os: ObjectSnapshot, m: MemberName, h: ObjectHandle): Ничего
+    markEdited: операция(oldValue: /*(!) any */ Объект?, newValue: /*(!) any */ Объект?, edited: ДаНет, os: ObjectSnapshot, m: MemberName, h: ObjectHandle): Ничего
 
     глобальный 
-    isConflicting: операция(oldValue: Объект, newValue: Объект): ДаНет
+    isConflicting: операция(oldValue: /*(!) any */ Объект?, newValue: /*(!) any */ Объект?): ДаНет
 
     глобальный 
-    propagateAllChangesThroughSubscriptions: /*(!) any */ Объект
+    propagateAllChangesThroughSubscriptions: /*(!) any */ Объект?
 
     глобальный 
-    revokeAllSubscriptions: /*(!) any */ Объект
+    revokeAllSubscriptions: /*(!) any */ Объект?
 
     глобальный 
-    enqueueReactiveFunctionsToRun: /*(!) any */ Объект
+    enqueueReactiveFunctionsToRun: /*(!) any */ Объект?
 
     операция lookupObjectSnapshot(h: ObjectHandle, m: MemberName): ObjectSnapshot
 
     операция getObjectSnapshot(h: ObjectHandle, m: MemberName): ObjectSnapshot
 
-    операция getEditableObjectSnapshot(h: ObjectHandle, m: MemberName, value: Объект, token: Объект? = пусто): ObjectSnapshot
+    операция getEditableObjectSnapshot(h: ObjectHandle, m: MemberName, value: /*(!) any */ Объект?, token: /*(!) any */ Объект?? = пусто): ObjectSnapshot
 
     глобальный 
     операция takeSnapshot<T>(obj: T): T
 
     глобальный 
-    операция dispose(obj: Объект): Ничего
+    операция dispose(obj: /*(!) any */ Объект?)
 
     глобальный 
     операция doDispose(ctx: Changeset, h: ObjectHandle): ObjectSnapshot
 
     /*(!) private */ 
-    операция isNewSnapshotRequired(h: ObjectHandle, os: ObjectSnapshot, m: MemberName, existing: Объект, value: Объект, token: Объект): ДаНет
+    операция isNewSnapshotRequired(h: ObjectHandle, os: ObjectSnapshot, m: MemberName, existing: /*(!) any */ Объект?, value: /*(!) any */ Объект?, token: /*(!) any */ Объект?): ДаНет
 
-    операция acquire(outer: Changeset): Ничего
+    операция acquire(outer: Changeset)
 
-    операция bumpBy(timestamp: Число): Ничего
+    операция bumpBy(timestamp: Число)
 
     операция rebase(): Список<ObjectSnapshot>?
 
     /*(!) private */ 
     операция merge(h: ObjectHandle, ours: ObjectSnapshot): Число
 
-    операция applyOrDiscard(error: Объект? = пусто): Array<Observer>
+    операция applyOrDiscard(error: /*(!) any */ Объект?? = пусто): Array<Observer>
 
     глобальный 
-    операция sealObjectSnapshot(h: ObjectHandle, os: ObjectSnapshot): Ничего
+    операция sealObjectSnapshot(h: ObjectHandle, os: ObjectSnapshot)
 
     глобальный 
-    операция sealObservableValue(o: ObservableValue | Символ, m: MemberName, typeName: Текст): Ничего
+    операция sealObservableValue(o: ObservableValue | Символ, m: MemberName, typeName: Текст)
 
     глобальный 
     операция freezeObjectSnapshot(os: ObjectSnapshot): ObjectSnapshot
 
-    операция triggerGarbageCollection(): Ничего
+    операция triggerGarbageCollection()
 
     /*(!) private */ 
-    операция unlinkHistory(): Ничего
+    операция unlinkHistory()
 
     глобальный 
-    операция _init(): Ничего
+    операция _init()
 
     hint: Текст
       при чтении { }
@@ -139,10 +139,10 @@
   тип Dump = объект
   {
     глобальный 
-    valueHint: /*(!) any */ Объект
+    valueHint: /*(!) any */ Объект?
 
     глобальный 
-    операция obj(h: ObjectHandle?, m: MemberName? = пусто, stamp: Число? = пусто, snapshotId: Число? = пусто, originSnapshotId: Число? = пусто, value: Объект? = пусто): Текст
+    операция obj(h: ObjectHandle?, m: MemberName? = пусто, stamp: Число? = пусто, snapshotId: Число? = пусто, originSnapshotId: Число? = пусто, value: /*(!) any */ Объект?? = пусто): Текст
 
     глобальный 
     операция snapshot2(h: ObjectHandle, s: AbstractChangeset, m: MemberName? = пусто, o: ObservableValue? = пусто): Текст
@@ -157,7 +157,7 @@
     операция conflictingMemberHint(m: MemberName, ours: ObjectSnapshot, theirs: ObjectSnapshot): Текст
   }
 
-  конст EMPTY_SNAPSHOT: /*(!) any */ Объект /*(!) = new ObjectSnapshot(new Changeset({ hint: '<boot>' }), undefined, {}) */
+  конст EMPTY_SNAPSHOT: /*(!) any */ Объект? /*(!) = new ObjectSnapshot(new Changeset({ hint: '<boot>' }), undefined, {}) */
 
 
   конст DefaultSnapshotOptions: SnapshotOptions /*(!) = Object.freeze({

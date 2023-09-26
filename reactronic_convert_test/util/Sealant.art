@@ -24,19 +24,19 @@
   тип Sealant = /*(!) абстрактный */ объект
   {
     глобальный защищено
-    SealedType: unique
+    SealedType: /*(!) unique symbol */ Объект
 
     глобальный защищено
-    CreateCopy: unique
+    CreateCopy: /*(!) unique symbol */ Объект
 
     глобальный 
-    операция seal<T = Sealable<T>>(collection: T, sealedType: Объект, typeName: Текст, member: Объект): T
+    операция seal<T = Sealable<T>>(collection: T, sealedType: Объект, typeName: Текст, member: /*(!) any */ Объект?): T
 
     глобальный 
     операция toMutable<T = Sealable<T>>(collection: T): T
 
     глобальный 
-    операция error(collection: Sealed<Объект>): Error
+    операция error(collection: Sealed</*(!) any */ Объект?>): Error
   }
 
 }

@@ -29,40 +29,40 @@
 
   тип FocusSensor = объект на основе HtmlElementSensor
   {
-    activeData: /*(!) unknown */ Объект
+    activeData: /*(!) unknown */ Объект?
 
-    oldActiveData: /*(!) unknown */ Объект
+    oldActiveData: /*(!) unknown */ Объект?
 
-    contextElementDataList: Список</*(!) unknown */ Объект>
+    contextElementDataList: Список</*(!) unknown */ Объект?>
 
-    при создании(windowSensor: WindowSensor)
+    при создании(windowSensor: WindowSensor)/*(!) any */ Объект?
 
-    операция setActiveData(data: /*(!) unknown */ Объект, debugHint: Текст = ""): Ничего
+    операция setActiveData(data: /*(!) unknown */ Объект?, debugHint: Текст = "")
 
-    операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
+    операция listen(element: HTMLElement?, enabled: ДаНет = да)
 
-    операция reset(): Ничего
+    операция reset()
 
-    скрыто типом 
-    операция onFocusIn(e: FocusEvent): Ничего
+    скрыто типом
+    операция onFocusIn(e: FocusEvent)
 
-    скрыто типом 
-    операция onFocusOut(e: FocusEvent): Ничего
+    скрыто типом
+    операция onFocusOut(e: FocusEvent)
 
-    скрыто типом 
-    операция onMouseDown(e: MouseEvent): Ничего
+    скрыто типом
+    операция onMouseDown(e: MouseEvent)
 
-    скрыто типом 
-    операция doFocusIn(e: FocusEvent): Ничего
+    скрыто типом
+    операция doFocusIn(e: FocusEvent)
 
-    скрыто типом 
-    операция doFocusOut(e: FocusEvent): Ничего
+    скрыто типом
+    операция doFocusOut(e: FocusEvent)
 
-    скрыто типом 
-    операция doMouseDown(e: MouseEvent): Ничего
+    скрыто типом
+    операция doMouseDown(e: MouseEvent)
 
-    /*(!) private */ 
-    операция trySetEditMode(candidateData: /*(!) unknown */ Объект, indent: Текст = ""): Ничего
+    /*(!) private */
+    операция trySetEditMode(candidateData: /*(!) unknown */ Объект?, indent: Текст = "")
   }
 
 }

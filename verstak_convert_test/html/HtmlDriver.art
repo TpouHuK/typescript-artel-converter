@@ -7,23 +7,23 @@
   //// automatically licensed under the license referred above.
   тип BaseHtmlDriver<T = Element, C> = /*(!) абстрактный */ объект на основе BaseDriver<T = Element, C>
   {
-    операция create(block: Block<T, /*(!) unknown */ Объект, C, Ничего>, b: { native: T, controller: C}): Ничего
+    операция create(block: Block<T, /*(!) unknown */ Объект?, C, Ничего>, b: объект { native: T; controller: C })
 
-    операция initialize(block: Block<T, /*(!) unknown */ Объект, C, Ничего>): Ничего
+    операция initialize(block: Block<T, /*(!) unknown */ Объект?, C, Ничего>)
 
-    операция finalize(block: Block<T, /*(!) unknown */ Объект, C>, isLeader: ДаНет): ДаНет
+    операция finalize(block: Block<T, /*(!) unknown */ Объект?, C>, isLeader: ДаНет): ДаНет
 
-    операция mount(block: Block<T, /*(!) unknown */ Объект, C>): Ничего
+    операция mount(block: Block<T, /*(!) unknown */ Объект?, C>)
 
-    операция relocate(block: Block<T, /*(!) unknown */ Объект, C>): Ничего
+    операция relocate(block: Block<T, /*(!) unknown */ Объект?, C>)
 
-    операция rebuild(block: Block<T, /*(!) unknown */ Объект, C>): Ничего | Promise<Ничего>
-
-    глобальный 
-    операция findEffectiveHtmlBlockHost(block: Block<Объект>): Block<HTMLElement | SVGElement>
+    операция rebuild(block: Block<T, /*(!) unknown */ Объект?, C>): Ничего | Promise<Ничего>
 
     глобальный 
-    операция findPrevSiblingHtmlBlock(ties: Item<Block<Объект>>): Item<Block<HTMLElement | SVGElement>>?
+    операция findEffectiveHtmlBlockHost(block: Block</*(!) any */ Объект?>): Block<HTMLElement | SVGElement>
+
+    глобальный 
+    операция findPrevSiblingHtmlBlock(ties: Item<Block</*(!) any */ Объект?>>): Item<Block<HTMLElement | SVGElement>>?
 
     blinkingEffectMarker: Текст?
       при чтении { }
@@ -32,12 +32,12 @@
 
   тип HtmlDriver<T = HTMLElement, C> = объект на основе BaseHtmlDriver<T = HTMLElement, C>
   {
-    операция create(block: Block<T, /*(!) unknown */ Объект, C, Ничего>, b: { native: T?, controller: C?}): Ничего
+    операция create(block: Block<T, /*(!) unknown */ Объект?, C, Ничего>, b: объект { native: T?; controller: C? })
   }
 
   тип SvgDriver<T = SVGElement, C> = объект на основе BaseHtmlDriver<T = SVGElement, C>
   {
-    операция create(block: Block<T, /*(!) unknown */ Объект, C, Ничего>, b: { native: T?, controller: C?}): Ничего
+    операция create(block: Block<T, /*(!) unknown */ Объект?, C, Ничего>, b: объект { native: T?; controller: C? })
   }
 
 }

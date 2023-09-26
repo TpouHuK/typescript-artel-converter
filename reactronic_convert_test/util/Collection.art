@@ -30,15 +30,15 @@
 
     операция add(instance: T): Item<T>
 
-    операция remove(item: Item<T>): Ничего
+    операция remove(item: Item<T>)
 
-    операция move(item: Item<T>, after: Item<T>): Ничего
+    операция move(item: Item<T>, after: Item<T>)
 
-    операция beginMerge(): Ничего
+    операция beginMerge()
 
-    операция endMerge(error: /*(!) unknown */ Объект? = пусто): Ничего
+    операция endMerge(error: /*(!) unknown */ Объект?? = пусто)
 
-    операция resetAddedAndRemovedLists(): Ничего
+    операция resetAddedAndRemovedLists()
 
     операция lastClaimedItem(): Item<T>?
 
@@ -101,23 +101,23 @@
     /*(!) private */ 
     strictNextItem: ItemImpl<T>?
 
-    при создании(getKey: GetItemKey<T>, strict: ДаНет = нет)
+    при создании(getKey: GetItemKey<T>, strict: ДаНет = нет)/*(!) any */ Объект?
 
     операция lookup(key: Текст?): Item<T>?
 
-    операция claim(key: Текст, resolution: { isDuplicate: ДаНет}? = пусто, error: Текст? = пусто): Item<T>?
+    операция claim(key: Текст, resolution: объект { isDuplicate: ДаНет }? = пусто, error: Текст? = пусто): Item<T>?
 
     операция add(instance: T): Item<T>
 
-    операция remove(item: Item<T>): Ничего
+    операция remove(item: Item<T>)
 
-    операция move(item: Item<T>, after: Item<T>): Ничего
+    операция move(item: Item<T>, after: Item<T>)
 
-    операция beginMerge(): Ничего
+    операция beginMerge()
 
-    операция endMerge(error: /*(!) unknown */ Объект? = пусто): Ничего
+    операция endMerge(error: /*(!) unknown */ Объект?? = пусто)
 
-    операция resetAddedAndRemovedLists(): Ничего
+    операция resetAddedAndRemovedLists()
 
     операция lastClaimedItem(): Item<T>?
 
@@ -135,7 +135,7 @@
 
     операция isCurrent(item: Item<T>): ДаНет
 
-    операция markAsMoved(item: Item<T>): Ничего
+    операция markAsMoved(item: Item<T>)
 
     глобальный 
     операция createItem<T>(instance: T): Item<T>

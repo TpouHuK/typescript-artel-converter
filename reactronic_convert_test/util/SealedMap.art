@@ -7,11 +7,11 @@
   //// automatically licensed under the license referred above.
   тип SealedMap<K, V> = /*(!) абстрактный */ объект на основе Map<K, V>, Sealed<Map<K, V>>
   {
-    операция clear(): Ничего
+    операция clear()
 
     операция delete(key: K): ДаНет
 
-    операция set(key: K, value: V): /*(!) any */ Объект
+    операция set(key: K, value: V): /*(!) any */ Объект?
 
     операция [Sealant.CreateCopy](): Map<K, V>
   }

@@ -14,11 +14,11 @@
 
   тип WindowSensor = объект на основе Sensor
   {
-    activeData: /*(!) unknown */ Объект
+    activeData: /*(!) unknown */ Объект?
 
-    previousActiveData: /*(!) unknown */ Объект
+    previousActiveData: /*(!) unknown */ Объект?
 
-    операция setActiveWindow(window: /*(!) unknown */ Объект, debugHint: Текст = ""): Ничего
+    операция setActiveWindow(window: /*(!) unknown */ Объект?, debugHint: Текст = "")
   }
 
 }

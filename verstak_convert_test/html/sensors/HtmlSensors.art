@@ -34,9 +34,9 @@
     защищено
     pointer: PointerSensor
 
-    при создании()
+    при создании()/*(!) any */ Объект?
 
-    операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
+    операция listen(element: HTMLElement?, enabled: ДаНет = да)
   }
 
 }

@@ -19,7 +19,7 @@
     защищено
     isFinished: ДаНет
 
-    операция cancel(error: Error, restartAfter: Worker? = пусто): /*(!) any */ Объект
+    операция cancel(error: Error, restartAfter: Worker? = пусто): /*(!) any */ Объект?
 
     операция whenFinished(): Promise<Ничего>
 

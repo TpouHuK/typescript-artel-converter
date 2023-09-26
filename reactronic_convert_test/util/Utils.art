@@ -5,7 +5,7 @@
   //// License: https://raw.githubusercontent.com/nezaboodka/reactronic/master/LICENSE
   //// By contributing, you agree that your contributions will be
   //// automatically licensed under the license referred above.
-  тип F<T> = операция(args: Список<Объект>): T
+  тип F<T> = операция(args: Список</*(!) any */ Объект?>): T
 
   тип Utils = объект
   {
@@ -16,16 +16,16 @@
     операция freezeMap<K, V>(obj: Map<K, V>? = пусто): Map<K, V>?
 
     глобальный 
-    операция copyAllMembers(source: Объект, target: Объект): Объект
+    операция copyAllMembers(source: /*(!) any */ Объект?, target: /*(!) any */ Объект?): /*(!) any */ Объект?
   }
 
   ///* istanbul ignore next */
   #js.МассивПараметров
-  операция UNDEF(args: Список<Объект>): Никогда
+  операция UNDEF(args: Список</*(!) any */ Объект?>): Никогда
 
   ///* istanbul ignore next */
   параллельная
-  операция all(promises: Array<Promise<Объект>>): Promise<Список<Объект>>
+  операция all(promises: Array<Promise</*(!) any */ Объект?>>): Promise<Список</*(!) any */ Объект?>>
 
   ///* istanbul ignore next */
   операция pause<T>(timeout: Число): Promise<T>

@@ -30,23 +30,23 @@
 
     #js.МассивПараметров
     /*(!) абстрактный */ 
-    операция run<T>(func: F<T>, args: Список<Объект>): T
+    операция run<T>(func: F<T>, args: Список</*(!) any */ Объект?>): T
 
     #js.МассивПараметров
     /*(!) абстрактный */ 
-    операция inspect<T>(func: F<T>, args: Список<Объект>): T
+    операция inspect<T>(func: F<T>, args: Список</*(!) any */ Объект?>): T
 
     /*(!) абстрактный */ 
-    операция apply(): Ничего
+    операция apply()
 
     /*(!) абстрактный */ 
-    операция seal(): /*(!) any */ Объект
+    операция seal(): /*(!) any */ Объект?
 
     /*(!) абстрактный */ 
     операция wrap<T>(func: F<T>, secondary: ДаНет): F<T>
 
     /*(!) абстрактный */ 
-    операция cancel(error: Error, retryAfterOrIgnore: Worker? = пусто): /*(!) any */ Объект
+    операция cancel(error: Error, retryAfterOrIgnore: Worker? = пусто): /*(!) any */ Объект?
 
     /*(!) абстрактный */ защищено
     isCanceled: ДаНет
@@ -62,15 +62,15 @@
 
     #js.МассивПараметров
     глобальный 
-    операция run<T>(options: SnapshotOptions?, func: F<T>, args: Список<Объект>): T
+    операция run<T>(options: SnapshotOptions?, func: F<T>, args: Список</*(!) any */ Объект?>): T
 
     #js.МассивПараметров
     глобальный 
-    операция separate<T>(func: F<T>, args: Список<Объект>): T
+    операция separate<T>(func: F<T>, args: Список</*(!) any */ Объект?>): T
 
     #js.МассивПараметров
     глобальный 
-    операция outside<T>(func: F<T>, args: Список<Объект>): T
+    операция outside<T>(func: F<T>, args: Список</*(!) any */ Объект?>): T
 
     глобальный 
     операция isFrameOver(everyN: Число = 1, timeLimit: Число = 10): ДаНет

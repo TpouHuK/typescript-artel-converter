@@ -71,7 +71,7 @@
   }
 
 
-  конст LoggingLevel: { защищено Off: LoggingOptions, защищено ErrorsOnly: LoggingOptions, защищено Reactions: LoggingOptions, защищено Transactions: LoggingOptions, защищено Operations: LoggingOptions, защищено Debug: LoggingOptions} /*(!) = {
+  конст LoggingLevel: объект { защищено Off: LoggingOptions; защищено ErrorsOnly: LoggingOptions; защищено Reactions: LoggingOptions; защищено Transactions: LoggingOptions; защищено Operations: LoggingOptions; защищено Debug: LoggingOptions } /*(!) = {
 
   Off: {
     enabled: false,

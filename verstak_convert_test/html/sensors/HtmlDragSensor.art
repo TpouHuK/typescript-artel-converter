@@ -11,15 +11,15 @@
 
   тип HtmlDragSensor = объект на основе HtmlElementSensor
   {
-    draggable: /*(!) unknown */ Объект
+    draggable: /*(!) unknown */ Объект?
 
-    dragSource: /*(!) unknown */ Объект
+    dragSource: /*(!) unknown */ Объект?
 
-    dragTarget: /*(!) unknown */ Объект
+    dragTarget: /*(!) unknown */ Объект?
 
-    dragTargetWindow: /*(!) unknown */ Объект
+    dragTargetWindow: /*(!) unknown */ Объект?
 
-    previousDragTarget: /*(!) unknown */ Объект
+    previousDragTarget: /*(!) unknown */ Объект?
 
     dragStarted: ДаНет
 
@@ -29,16 +29,16 @@
 
     startY: Число
 
-    /*(!) private */
-    dataByFormat: Map<Текст, /*(!) unknown */ Объект>
+    /*(!) private */ 
+    dataByFormat: Map<Текст, /*(!) unknown */ Объект?>
 
-    /*(!) private */
+    /*(!) private */ 
     draggingImage: HTMLElement?
 
-    /*(!) private */
+    /*(!) private */ 
     draggingImageX: Число
 
-    /*(!) private */
+    /*(!) private */ 
     draggingImageY: Число
 
     dropEffect: DropEffect
@@ -71,74 +71,74 @@
 
     immediateModifiers: KeyboardModifiers
 
-    при создании(focusSensor: FocusSensor, windowSensor: WindowSensor)
+    при создании(focusSensor: FocusSensor, windowSensor: WindowSensor)/*(!) any */ Объект?
 
-    операция getData(format: Текст): /*(!) unknown */ Объект
+    операция getData(format: Текст): /*(!) unknown */ Объект?
 
-    операция setData(format: Текст, value: /*(!) unknown */ Объект): Ничего
+    операция setData(format: Текст, value: /*(!) unknown */ Объект?)
 
-    операция clearData(format: Текст? = пусто): Ничего
+    операция clearData(format: Текст? = пусто)
 
-    операция setDragImage(value: HTMLElement, x: Число, y: Число): Ничего
+    операция setDragImage(value: HTMLElement, x: Число, y: Число)
 
-    операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
+    операция listen(element: HTMLElement?, enabled: ДаНет = да)
 
-    скрыто типом
-    операция onDragStart(e: DragEvent): Ничего
+    скрыто типом 
+    операция onDragStart(e: DragEvent)
 
-    скрыто типом
-    операция onDrag(e: DragEvent): Ничего
+    скрыто типом 
+    операция onDrag(e: DragEvent)
 
-    скрыто типом
-    операция onDragEnter(e: DragEvent): Ничего
+    скрыто типом 
+    операция onDragEnter(e: DragEvent)
 
-    скрыто типом
-    операция onDragLeave(e: DragEvent): Ничего
+    скрыто типом 
+    операция onDragLeave(e: DragEvent)
 
-    скрыто типом
-    операция onDragOver(e: DragEvent): Ничего
+    скрыто типом 
+    операция onDragOver(e: DragEvent)
 
-    скрыто типом
-    операция onDrop(e: DragEvent): Ничего
+    скрыто типом 
+    операция onDrop(e: DragEvent)
 
-    скрыто типом
-    операция onDragEnd(e: DragEvent): Ничего
+    скрыто типом 
+    операция onDragEnd(e: DragEvent)
 
-    скрыто типом
-    операция startDragging(e: DragEvent): Ничего
+    скрыто типом 
+    операция startDragging(e: DragEvent)
 
-    скрыто типом
-    операция dragging(e: DragEvent): Ничего
+    скрыто типом 
+    операция dragging(e: DragEvent)
 
-    скрыто типом
-    операция finishDragging(e: DragEvent): Ничего
+    скрыто типом 
+    операция finishDragging(e: DragEvent)
 
-    скрыто типом
-    операция enterTarget(e: DragEvent): Ничего
+    скрыто типом 
+    операция enterTarget(e: DragEvent)
 
-    скрыто типом
-    операция leaveTarget(e: DragEvent): Ничего
+    скрыто типом 
+    операция leaveTarget(e: DragEvent)
 
-    скрыто типом
-    операция dragOver(e: DragEvent): Ничего
+    скрыто типом 
+    операция dragOver(e: DragEvent)
 
-    скрыто типом
-    операция drop(e: DragEvent): Ничего
+    скрыто типом 
+    операция drop(e: DragEvent)
 
-    скрыто типом
-    операция updateEventOnDragStart(e: DragEvent): Ничего
+    скрыто типом 
+    операция updateEventOnDragStart(e: DragEvent)
 
-    скрыто типом
-    операция updateEventOnDropAllowed(e: DragEvent): Ничего
+    скрыто типом 
+    операция updateEventOnDropAllowed(e: DragEvent)
 
-    скрыто типом
-    операция reset(): Ничего
+    скрыто типом 
+    операция reset()
 
-    скрыто типом
-    операция updateDragTarget(e: DragEvent): Ничего
+    скрыто типом 
+    операция updateDragTarget(e: DragEvent)
 
-    скрыто типом
-    операция whenDragging(): Ничего
+    скрыто типом 
+    операция whenDragging()
   }
 
 }

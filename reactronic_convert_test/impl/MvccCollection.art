@@ -17,15 +17,15 @@
 
     операция add(instance: T): Item<T>
 
-    операция remove(item: Item<T>): Ничего
+    операция remove(item: Item<T>)
 
-    операция move(item: Item<T>, after: Item<T>): Ничего
+    операция move(item: Item<T>, after: Item<T>)
 
-    операция beginMerge(): Ничего
+    операция beginMerge()
 
-    операция endMerge(error: /*(!) unknown */ Объект? = пусто): Ничего
+    операция endMerge(error: /*(!) unknown */ Объект?? = пусто)
 
-    операция resetAddedAndRemovedLists(): Ничего
+    операция resetAddedAndRemovedLists()
 
     операция lastClaimedItem(): Item<T>?
 

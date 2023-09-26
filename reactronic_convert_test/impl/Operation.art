@@ -15,23 +15,23 @@
 
     операция configure(options: Partial<MemberOptions>): MemberOptions
 
-    операция markObsolete(): Ничего
+    операция markObsolete()
 
-    операция pullLastResult(args: Список<Объект>? = пусто): Объект
+    операция pullLastResult(args: Список</*(!) any */ Объект?>? = пусто): /*(!) any */ Объект?
 
-    при создании(h: ObjectHandle, m: MemberName)
+    при создании(h: ObjectHandle, m: MemberName)/*(!) any */ Объект?
 
-    операция useOrRun(weak: ДаНет, args: Список<Объект>?): Operation
+    операция useOrRun(weak: ДаНет, args: Список</*(!) any */ Объект?>?): Operation
 
     глобальный 
-    операция getControllerOf(method: F<Объект>): Controller<Объект>
+    операция getControllerOf(method: F</*(!) any */ Объект?>): Controller</*(!) any */ Объект?>
 
     глобальный 
     операция configureImpl(self: OperationController?, options: Partial<MemberOptions>): MemberOptions
 
     #js.МассивПараметров
     глобальный 
-    операция runWithin<T>(op: Operation?, func: F<T>, args: Список<Объект>): T
+    операция runWithin<T>(op: Operation?, func: F<T>, args: Список</*(!) any */ Объект?>): T
 
     глобальный 
     операция why(): Текст
@@ -43,7 +43,7 @@
     операция dependencies(): Список<Текст>
 
     /*(!) private */ 
-    операция peek(args: Список<Объект>?): OperationContext
+    операция peek(args: Список</*(!) any */ Объект?>?): OperationContext
 
     /*(!) private */ 
     операция use(): OperationContext
@@ -52,24 +52,24 @@
     операция edit(): OperationContext
 
     /*(!) private */ 
-    операция acquireFromSnapshot(os: ObjectSnapshot, args: Список<Объект>?): Operation
+    операция acquireFromSnapshot(os: ObjectSnapshot, args: Список</*(!) any */ Объект?>?): Operation
 
     /*(!) private */ 
-    операция run(existing: OperationContext, separation: SeparationMode, options: MemberOptions, token: Объект, args: Список<Объект>?): OperationContext
+    операция run(existing: OperationContext, separation: SeparationMode, options: MemberOptions, token: /*(!) any */ Объект?, args: Список</*(!) any */ Объект?>?): OperationContext
 
     /*(!) private */ глобальный 
-    операция markObsolete(self: OperationController): Ничего
+    операция markObsolete(self: OperationController)
 
     options: MemberOptions
       при чтении { }
 
-    unobservable: Объект
+    unobservable: /*(!) any */ Объект?
       при чтении { }
 
-    args: ReadonlyArray<Объект>
+    args: ReadonlyArray</*(!) any */ Объект?>
       при чтении { }
 
-    result: Объект
+    result: /*(!) any */ Объект?
       при чтении { }
 
     error: ДаНет
@@ -96,9 +96,9 @@
   ////   return result
   //// }
   ///* istanbul ignore next */
-  операция resolveReturn(value: Объект): Объект
+  операция resolveReturn(value: /*(!) any */ Объект?): /*(!) any */ Объект?
 
   ///* istanbul ignore next */
-  операция rejectRethrow(error: Объект): Никогда
+  операция rejectRethrow(error: /*(!) any */ Объект?): Никогда
 
 }

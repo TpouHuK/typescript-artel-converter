@@ -15,7 +15,7 @@
 
   операция equalBlockCoords(a: BlockCoords, b: BlockCoords): ДаНет
 
-  операция objectHasMember<T>(obj: Объект, member: Текст): /*(!) obj is */ T
+  операция objectHasMember<T>(obj: /*(!) any */ Объект?, member: Текст): /*(!) obj is */ T
 
   операция getCallerInfo(prefix: Текст): Текст
 

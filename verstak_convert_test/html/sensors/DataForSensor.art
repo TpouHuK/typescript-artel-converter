@@ -7,46 +7,46 @@
   //// automatically licensed under the license referred above.
   тип DataForSensor = интерфейс
   {
-    context: /*(!) unknown */ Объект
+    context: /*(!) unknown */ Объект?
 
-    window: /*(!) unknown */ Объект
+    window: /*(!) unknown */ Объект?
 
-    focus: /*(!) unknown */ Объект
+    focus: /*(!) unknown */ Объект?
 
-    hover: /*(!) unknown */ Объект
+    hover: /*(!) unknown */ Объект?
 
-    keyboard: /*(!) unknown */ Объект
+    keyboard: /*(!) unknown */ Объект?
 
-    click: /*(!) unknown */ Объект
+    click: /*(!) unknown */ Объект?
 
-    wheel: /*(!) unknown */ Объект
+    wheel: /*(!) unknown */ Объект?
 
-    resize: /*(!) unknown */ Объект
+    resize: /*(!) unknown */ Объект?
 
-    drag: /*(!) unknown */ Объект
+    drag: /*(!) unknown */ Объект?
 
-    draggable: /*(!) unknown */ Объект
+    draggable: /*(!) unknown */ Объект?
 
-    htmlDrag: /*(!) unknown */ Объект
+    htmlDrag: /*(!) unknown */ Объект?
 
-    htmlDraggable: /*(!) unknown */ Объект
+    htmlDraggable: /*(!) unknown */ Объект?
 
-    button: /*(!) unknown */ Объект
+    button: /*(!) unknown */ Объект?
 
   }
 
 
-  конст SymDataForSensor: unique /*(!) = Symbol("DataForSensor") */
+  конст SymDataForSensor: /*(!) unique symbol */ Объект /*(!) = Symbol("DataForSensor") */
 
 
-  конст SymResizeObserver: unique /*(!) = Symbol("ResizeObserver") */
+  конст SymResizeObserver: /*(!) unique symbol */ Объект /*(!) = Symbol("ResizeObserver") */
 
 
-  конст EmptyDataArray: Список<Объект> /*(!) = [] */
+  конст EmptyDataArray: Список</*(!) any */ Объект?> /*(!) = [] */
 
 
-  операция findTargetElementData(targetPath: Список<Объект>, underPointer: Список<Объект>, sym: Символ, anyOfPayloadKeys: Array</*(!) any */ Объект>, ignoreWindow: ДаНет = нет): { data: DataForSensor, window: /*(!) unknown */ Объект}
+  операция findTargetElementData(targetPath: Список</*(!) any */ Объект?>, underPointer: Список</*(!) any */ Объект?>, sym: Символ, anyOfPayloadKeys: Array</*(!) any */ Объект?>, ignoreWindow: ДаНет = нет): объект { data: DataForSensor; window: /*(!) unknown */ Объект? }
 
-  операция grabElementDataList(targetPath: Список<Объект>, sym: Символ, payloadKey: /*(!) any */ Объект, existing: Array</*(!) unknown */ Объект>, ignoreWindow: ДаНет = нет, predicate: операция(element: Объект): ДаНет = () => false): { dataList: Array</*(!) unknown */ Объект>, window: /*(!) unknown */ Объект, activeData: /*(!) unknown */ Объект}
+  операция grabElementDataList(targetPath: Список</*(!) any */ Объект?>, sym: Символ, payloadKey: /*(!) any */ Объект?, existing: Array</*(!) unknown */ Объект?>, ignoreWindow: ДаНет = нет, predicate: операция(element: /*(!) any */ Объект?): ДаНет = () => false): объект { dataList: Array</*(!) unknown */ Объект?>; window: /*(!) unknown */ Объект?; activeData: /*(!) unknown */ Объект? }
 
 }

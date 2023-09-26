@@ -9,19 +9,19 @@
   тип MvccObject = /*(!) абстрактный */ объект
   {
     скрыто типом 
-    при создании(observable: ДаНет)
+    при создании(observable: ДаНет)/*(!) any */ Объект?
 
     операция [Symbol.toStringTag](): Текст
   }
 
   тип TransactionalObject = /*(!) абстрактный */ объект на основе MvccObject
   {
-    при создании()
+    при создании()/*(!) any */ Объект?
   }
 
   тип ObservableObject = /*(!) абстрактный */ объект на основе MvccObject
   {
-    при создании()
+    при создании()/*(!) any */ Объект?
   }
 
   //// Options
@@ -64,9 +64,9 @@
     logging: Partial<LoggingOptions>?
 
     глобальный защищено
-    INITIAL: /*(!) any */ Объект
+    INITIAL: /*(!) any */ Объект?
 
-    при создании(getter: Function?, setter: Function?, existing: OptionsImpl, patch: Partial<OptionsImpl>, implicit: ДаНет)
+    при создании(getter: Function?, setter: Function?, existing: OptionsImpl, patch: Partial<OptionsImpl>, implicit: ДаНет)/*(!) any */ Объект?
   }
 
   //// Mvcc
@@ -96,13 +96,13 @@
     защищено
     isObservable: ДаНет
 
-    при создании(isObservable: ДаНет)
+    при создании(isObservable: ДаНет)/*(!) any */ Объект?
 
     операция getPrototypeOf(h: ObjectHandle): Объект?
 
-    операция get(h: ObjectHandle, m: MemberName, receiver: Объект): Объект
+    операция get(h: ObjectHandle, m: MemberName, receiver: /*(!) any */ Объект?): /*(!) any */ Объект?
 
-    операция set(h: ObjectHandle, m: MemberName, value: Объект, receiver: Объект): ДаНет
+    операция set(h: ObjectHandle, m: MemberName, value: /*(!) any */ Объект?, receiver: /*(!) any */ Объект?): ДаНет
 
     операция has(h: ObjectHandle, m: MemberName): ДаНет
 
@@ -113,26 +113,26 @@
     операция ownKeys(h: ObjectHandle): Array<Текст | Символ>
 
     глобальный 
-    операция decorateData(isObservable: ДаНет, proto: Объект, member: MemberName): Объект
+    операция decorateData(isObservable: ДаНет, proto: /*(!) any */ Объект?, member: MemberName): /*(!) any */ Объект?
 
     глобальный 
-    операция decorateOperation(implicit: ДаНет, decorator: Function, options: Partial<MemberOptions>, proto: Объект, member: MemberName, pd: PropertyDescriptor?): Объект
+    операция decorateOperation(implicit: ДаНет, decorator: Function, options: Partial<MemberOptions>, proto: /*(!) any */ Объект?, member: MemberName, pd: PropertyDescriptor?): /*(!) any */ Объект?
 
     глобальный 
-    операция decorateOperationParametrized(decorator: Function, options: Partial<MemberOptions>): F<Объект>
+    операция decorateOperationParametrized(decorator: Function, options: Partial<MemberOptions>): F</*(!) any */ Объект?>
 
     глобальный 
-    операция acquireHandle(obj: Объект): ObjectHandle
+    операция acquireHandle(obj: /*(!) any */ Объект?): ObjectHandle
 
     глобальный 
-    операция createHandleForMvccObject(proto: Объект, data: Объект, blank: Объект, hint: Текст, isObservable: ДаНет): ObjectHandle
+    операция createHandleForMvccObject(proto: /*(!) any */ Объект?, data: /*(!) any */ Объект?, blank: /*(!) any */ Объект?, hint: Текст, isObservable: ДаНет): ObjectHandle
 
     глобальный 
-    операция setProfilingMode(isOn: ДаНет, options: Partial<ProfilingOptions>? = пусто): Ничего
+    операция setProfilingMode(isOn: ДаНет, options: Partial<ProfilingOptions>? = пусто)
 
     #js.МассивПараметров
     глобальный 
-    операция sensitive<T>(sensitivity: ДаНет, func: F<T>, args: Список<Объект>): T
+    операция sensitive<T>(sensitivity: ДаНет, func: F<T>, args: Список</*(!) any */ Объект?>): T
 
     глобальный 
     операция setHint<T>(obj: T, hint: Текст?): T
@@ -141,10 +141,10 @@
     операция getHint<T>(obj: T): Текст
 
     глобальный 
-    createOperation: /*(!) any */ Объект
+    createOperation: /*(!) any */ Объект?
 
     глобальный 
-    rememberOperationOptions: /*(!) any */ Объект
+    rememberOperationOptions: /*(!) any */ Объект?
   }
 
 }

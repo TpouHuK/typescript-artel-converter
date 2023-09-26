@@ -7,23 +7,23 @@
   //// automatically licensed under the license referred above.
   тип HoverSensor = объект на основе BasePointerSensor
   {
-    target: /*(!) unknown */ Объект
+    target: /*(!) unknown */ Объект?
 
-    при создании()
+    при создании()/*(!) any */ Объект?
 
-    операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
-
-    скрыто типом 
-    операция onPointerOver(e: PointerEvent): Ничего
+    операция listen(element: HTMLElement?, enabled: ДаНет = да)
 
     скрыто типом 
-    операция onPointerOut(e: PointerEvent): Ничего
+    операция onPointerOver(e: PointerEvent)
 
     скрыто типом 
-    операция doPointerOver(e: PointerEvent): Ничего
+    операция onPointerOut(e: PointerEvent)
 
     скрыто типом 
-    операция doPointerOut(): Ничего
+    операция doPointerOver(e: PointerEvent)
+
+    скрыто типом 
+    операция doPointerOut()
   }
 
 }

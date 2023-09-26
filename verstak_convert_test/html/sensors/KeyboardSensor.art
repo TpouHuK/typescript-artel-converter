@@ -32,26 +32,26 @@
 
     modifiers: KeyboardModifiers
 
-    при создании()
+    при создании()/*(!) any */ Объект?
 
-    операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
+    операция listen(element: HTMLElement?, enabled: ДаНет = да)
 
-    операция reset(): Ничего
-
-    скрыто типом 
-    операция onKeyDown(e: KeyboardEvent): Ничего
+    операция reset()
 
     скрыто типом 
-    операция onKeyUp(e: KeyboardEvent): Ничего
+    операция onKeyDown(e: KeyboardEvent)
 
     скрыто типом 
-    операция keyDown(e: KeyboardEvent): Ничего
+    операция onKeyUp(e: KeyboardEvent)
 
     скрыто типом 
-    операция keyUp(e: KeyboardEvent): Ничего
+    операция keyDown(e: KeyboardEvent)
 
     скрыто типом 
-    операция updateSensorData(e: KeyboardEvent): Ничего
+    операция keyUp(e: KeyboardEvent)
+
+    скрыто типом 
+    операция updateSensorData(e: KeyboardEvent)
 
     скрыто типом глобальный 
     операция getKeyAsModifierIfAny(key: Текст): KeyboardModifiers

@@ -7,29 +7,29 @@
   //// automatically licensed under the license referred above.
   тип WheelSensor = объект на основе BasePointerSensor
   {
-    target: /*(!) unknown */ Объект
+    target: /*(!) unknown */ Объект?
 
     deltaX: Число
 
     deltaY: Число
 
-    при создании()
+    при создании()/*(!) any */ Объект?
 
-    операция listen(element: HTMLElement?, enabled: ДаНет = да): Ничего
+    операция listen(element: HTMLElement?, enabled: ДаНет = да)
 
-    операция reset(): Ничего
-
-    скрыто типом 
-    операция onWheel(e: WheelEvent): Ничего
+    операция reset()
 
     скрыто типом 
-    операция doWheel(e: WheelEvent): Ничего
+    операция onWheel(e: WheelEvent)
 
     скрыто типом 
-    операция doReset(): Ничего
+    операция doWheel(e: WheelEvent)
 
     скрыто типом 
-    операция updateSensorData(e: WheelEvent): Ничего
+    операция doReset()
+
+    скрыто типом 
+    операция updateSensorData(e: WheelEvent)
   }
 
 }

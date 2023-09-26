@@ -25,11 +25,11 @@
   операция Table<M, R>(builder: BlockBuilder<HTMLElement, M, R>? = пусто, base: BlockBuilder<HTMLElement, M, R>? = пусто): Block<HTMLElement, M, R>
 
   //// Row
-  операция row<T>(builder: операция(block: Ничего): T? = пусто, shiftCursorDown: Число? = пусто): Ничего
+  операция row<T>(builder: операция(block: Ничего): T? = пусто, shiftCursorDown: Число? = пусто)
 
-  операция startNewRow(shiftCursorDown: Число? = пусто): Ничего
+  операция startNewRow(shiftCursorDown: Число? = пусто)
 
-  операция cursor(areaParams: BlockArea): Ничего
+  операция cursor(areaParams: BlockArea)
 
   //// Note (either plain or html)
   операция Note(content: Текст, builder: BlockBuilder<HTMLElement, Ничего, Ничего>? = пусто): Block<HTMLElement, Ничего, Ничего>
@@ -45,31 +45,31 @@
   //// VerstakHtmlDriver
   тип VerstakHtmlDriver<T = HTMLElement> = объект на основе HtmlDriver<T = HTMLElement>
   {
-    операция applyKind(block: Block<T, Объект, Объект>, value: BlockKind): Ничего
+    операция applyKind(block: Block<T, /*(!) any */ Объект?, /*(!) any */ Объект?>, value: BlockKind)
 
-    операция applyCoords(block: Block<T>, value: BlockCoords?): Ничего
+    операция applyCoords(block: Block<T>, value: BlockCoords?)
 
-    операция applyWidthGrowth(block: Block<T>, value: Число): Ничего
+    операция applyWidthGrowth(block: Block<T>, value: Число)
 
-    операция applyMinWidth(block: Block<T>, value: Текст): Ничего
+    операция applyMinWidth(block: Block<T>, value: Текст)
 
-    операция applyMaxWidth(block: Block<T>, value: Текст): Ничего
+    операция applyMaxWidth(block: Block<T>, value: Текст)
 
-    операция applyHeightGrowth(block: Block<T>, value: Число): Ничего
+    операция applyHeightGrowth(block: Block<T>, value: Число)
 
-    операция applyMinHeight(block: Block<T>, value: Текст): Ничего
+    операция applyMinHeight(block: Block<T>, value: Текст)
 
-    операция applyMaxHeight(block: Block<T>, value: Текст): Ничего
+    операция applyMaxHeight(block: Block<T>, value: Текст)
 
-    операция applyContentAlignment(block: Block<T>, value: Align): Ничего
+    операция applyContentAlignment(block: Block<T>, value: Align)
 
-    операция applyBlockAlignment(block: Block<T>, value: Align): Ничего
+    операция applyBlockAlignment(block: Block<T>, value: Align)
 
-    операция applyContentWrapping(block: Block<T>, value: ДаНет): Ничего
+    операция applyContentWrapping(block: Block<T>, value: ДаНет)
 
-    операция applyOverlayVisible(block: Block<T>, value: ДаНет?): Ничего
+    операция applyOverlayVisible(block: Block<T>, value: ДаНет?)
 
-    операция applyStyle(block: Block<T, Объект, Объект>, secondary: ДаНет, styleName: Текст, enabled: ДаНет? = пусто): Ничего
+    операция applyStyle(block: Block<T, /*(!) any */ Объект?, /*(!) any */ Объект?>, secondary: ДаНет, styleName: Текст, enabled: ДаНет? = пусто)
 
     операция rebuild(block: Block<T>): Ничего | Promise<Ничего>
   }

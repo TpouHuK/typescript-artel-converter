@@ -12,7 +12,7 @@
 
   тип AsyncDelegate<T, M> = операция(block: Block<T, M, Promise<Ничего>>): Promise<Ничего>
 
-  тип SimpleDelegate<T> = операция(block: Block<T, Объект, Объект, Объект>): Ничего
+  тип SimpleDelegate<T> = операция(block: Block<T, /*(!) any */ Объект?, /*(!) any */ Объект?, /*(!) any */ Объект?>): Ничего
 
   //// Block
   тип BlockKind = вариант
@@ -77,7 +77,7 @@
     защищено
     isInitialRebuild: ДаНет
 
-    операция useStyle(styleName: Текст, enabled: ДаНет? = пусто): Ничего
+    операция useStyle(styleName: Текст, enabled: ДаНет? = пусто)
 
     операция configureReactronic(options: Partial<MemberOptions>): MemberOptions
 
@@ -132,7 +132,7 @@
 
     mode: Mode
 
-    triggers: /*(!) unknown */ Объект
+    triggers: /*(!) unknown */ Объект?
 
     claim: Delegate<T, M, C, R>
 
@@ -167,43 +167,43 @@
     защищено
     preset: SimpleDelegate<T>
 
-    операция claim(block: Block<T, /*(!) unknown */ Объект, C>): Ничего
+    операция claim(block: Block<T, /*(!) unknown */ Объект?, C>)
 
-    операция create(block: Block<T, /*(!) unknown */ Объект, C>, b: { native: T, controller: C}): Ничего
+    операция create(block: Block<T, /*(!) unknown */ Объект?, C>, b: объект { native: T; controller: C })
 
-    операция initialize(block: Block<T, /*(!) unknown */ Объект, C>): Ничего
+    операция initialize(block: Block<T, /*(!) unknown */ Объект?, C>)
 
-    операция mount(block: Block<T, /*(!) unknown */ Объект, C>): Ничего
+    операция mount(block: Block<T, /*(!) unknown */ Объект?, C>)
 
-    операция rebuild(block: Block<T, /*(!) unknown */ Объект, C>): Ничего | Promise<Ничего>
+    операция rebuild(block: Block<T, /*(!) unknown */ Объект?, C>): Ничего | Promise<Ничего>
 
-    операция finalize(block: Block<T, /*(!) unknown */ Объект, C>, isLeader: ДаНет): ДаНет
+    операция finalize(block: Block<T, /*(!) unknown */ Объект?, C>, isLeader: ДаНет): ДаНет
 
-    операция applyKind(block: Block<T, Объект, C, Объект>, value: BlockKind): Ничего
+    операция applyKind(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: BlockKind)
 
-    операция applyCoords(block: Block<T, Объект, C, Объект>, value: BlockCoords?): Ничего
+    операция applyCoords(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: BlockCoords?)
 
-    операция applyWidthGrowth(block: Block<T, Объект, C, Объект>, value: Число): Ничего
+    операция applyWidthGrowth(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Число)
 
-    операция applyMinWidth(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyMinWidth(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Текст)
 
-    операция applyMaxWidth(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyMaxWidth(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Текст)
 
-    операция applyHeightGrowth(block: Block<T, Объект, C, Объект>, value: Число): Ничего
+    операция applyHeightGrowth(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Число)
 
-    операция applyMinHeight(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyMinHeight(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Текст)
 
-    операция applyMaxHeight(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyMaxHeight(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Текст)
 
-    операция applyContentAlignment(block: Block<T, Объект, C, Объект>, value: Align): Ничего
+    операция applyContentAlignment(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Align)
 
-    операция applyBlockAlignment(block: Block<T, Объект, C, Объект>, value: Align): Ничего
+    операция applyBlockAlignment(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Align)
 
-    операция applyContentWrapping(block: Block<T, Объект, C, Объект>, value: ДаНет): Ничего
+    операция applyContentWrapping(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: ДаНет)
 
-    операция applyOverlayVisible(block: Block<T, Объект, C, Объект>, value: ДаНет?): Ничего
+    операция applyOverlayVisible(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: ДаНет?)
 
-    операция applyStyle(block: Block<T, Объект, C, Объект>, secondary: ДаНет, styleName: Текст, enabled: ДаНет? = пусто): Ничего
+    операция applyStyle(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, secondary: ДаНет, styleName: Текст, enabled: ДаНет? = пусто)
 
   }
 
@@ -269,6 +269,6 @@
   }
 
 
-  тип BlockArea = пусто | Текст | { cellsOverWidth: Число, cellsOverHeight: Число}
+  тип BlockArea = пусто | Текст | объект { cellsOverWidth: Число; cellsOverHeight: Число }
 
 }

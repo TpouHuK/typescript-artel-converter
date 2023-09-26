@@ -11,21 +11,21 @@
     /*(!) private */ 
     impl: Map<K, V>
 
-    при создании(isObservable: ДаНет, map: Map<K, V>)
+    при создании(isObservable: ДаНет, map: Map<K, V>)/*(!) any */ Объект?
 
-    операция clear(): Ничего
+    операция clear()
 
     операция delete(key: K): ДаНет
 
-    операция forEach(callbackfn: операция(value: V, key: K, map: Map<K, V>): Ничего, thisArg: Объект? = пусто): Ничего
+    операция forEach(callbackfn: операция(value: V, key: K, map: Map<K, V>): Ничего, thisArg: /*(!) any */ Объект?? = пусто)
 
     операция get(key: K): V?
 
     операция has(key: K): ДаНет
 
-    операция set(key: K, value: V): /*(!) any */ Объект
+    операция set(key: K, value: V): /*(!) any */ Объект?
 
-    операция entries(): IterableIterator<простой объект { _0: K, _1: V }>
+    операция entries(): IterableIterator<объект { _0: K, _1: V }>
 
     операция keys(): IterableIterator<K>
 
@@ -43,21 +43,21 @@
   //// TransactionalMap<K, V>
   тип TransactionalMap<K, V> = объект на основе MvccMap<K, V>
   {
-    при создании()
+    при создании()/*(!) any */ Объект?
 
-    при создании(iterable: Iterable</*(!) защищено */ простой объект { _0: K, _1: V }>? = пусто)
+    при создании(iterable: Iterable</*(!) защищено */ объект { _0: K, _1: V }>? = пусто)/*(!) any */ Объект?
 
-    при создании(args: Объект? = пусто)
+    при создании(args: /*(!) any */ Объект?? = пусто)/*(!) any */ Объект?
   }
 
   //// ObservableMap<K, V>
   тип ObservableMap<K, V> = объект на основе MvccMap<K, V>
   {
-    при создании()
+    при создании()/*(!) any */ Объект?
 
-    при создании(iterable: Iterable</*(!) защищено */ простой объект { _0: K, _1: V }>? = пусто)
+    при создании(iterable: Iterable</*(!) защищено */ объект { _0: K, _1: V }>? = пусто)/*(!) any */ Объект?
 
-    при создании(args: Объект? = пусто)
+    при создании(args: /*(!) any */ Объект?? = пусто)/*(!) any */ Объект?
   }
 
 }

@@ -9,7 +9,7 @@
   тип HtmlElementSensor = объект на основе Sensor
   {
     защищено
-    focusSensor: Объект?
+    focusSensor: /*(!) any */ Объект??
 
     защищено
     windowSensor: WindowSensor?
@@ -20,13 +20,13 @@
 
     stopPropagation: ДаНет
 
-    при создании(focusSensor: Объект? = пусто, windowSensor: WindowSensor? = пусто)
+    при создании(focusSensor: /*(!) any */ Объект?? = пусто, windowSensor: WindowSensor? = пусто)/*(!) any */ Объект?
 
     скрыто типом 
     операция getDefaultSensorData(): DataForSensor?
 
     скрыто типом 
-    операция setPreventDefaultAndStopPropagation(e: Event): Ничего
+    операция setPreventDefaultAndStopPropagation(e: Event)
   }
 
 }

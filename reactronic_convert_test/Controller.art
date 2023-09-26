@@ -11,13 +11,13 @@
     options: MemberOptions
 
     /*(!) абстрактный */ защищено
-    args: ReadonlyArray<Объект>
+    args: ReadonlyArray</*(!) any */ Объект?>
 
     /*(!) абстрактный */ защищено
     result: T
 
     /*(!) абстрактный */ защищено
-    error: Объект
+    error: /*(!) any */ Объект?
 
     /*(!) абстрактный */ защищено
     stamp: Число
@@ -29,10 +29,10 @@
     операция configure(options: Partial<MemberOptions>): MemberOptions
 
     /*(!) абстрактный */ 
-    операция markObsolete(): Ничего
+    операция markObsolete()
 
     /*(!) абстрактный */ 
-    операция pullLastResult(args: Список<Объект>? = пусто): T?
+    операция pullLastResult(args: Список</*(!) any */ Объект?>? = пусто): T?
   }
 
 }

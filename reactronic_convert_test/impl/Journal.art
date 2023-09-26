@@ -25,16 +25,16 @@
     canRedo: ДаНет
 
     /*(!) абстрактный */ 
-    операция edited(patch: PatchSet): Ничего
+    операция edited(patch: PatchSet)
 
     /*(!) абстрактный */ 
-    операция saved(patch: PatchSet): Ничего
+    операция saved(patch: PatchSet)
 
     /*(!) абстрактный */ 
-    операция undo(count: Число? = пусто): Ничего
+    операция undo(count: Число? = пусто)
 
     /*(!) абстрактный */ 
-    операция redo(count: Число? = пусто): Ничего
+    операция redo(count: Число? = пусто)
 
     глобальный 
     операция create(): Journal
@@ -54,21 +54,21 @@
     /*(!) private */ 
     _position: Число
 
-    операция edited(p: PatchSet): Ничего
+    операция edited(p: PatchSet)
 
-    операция saved(patch: PatchSet): Ничего
+    операция saved(patch: PatchSet)
 
-    операция undo(count: Число = 1): Ничего
+    операция undo(count: Число = 1)
 
-    операция redo(count: Число = 1): Ничего
+    операция redo(count: Число = 1)
 
     глобальный 
     операция buildPatch(hint: Текст, items: Map<ObjectHandle, ObjectSnapshot>): PatchSet
 
     глобальный 
-    операция applyPatch(patch: PatchSet, undoing: ДаНет): Ничего
+    операция applyPatch(patch: PatchSet, undoing: ДаНет)
 
-    операция mergePatchToUnsaved(patch: PatchSet, undoing: ДаНет): Ничего
+    операция mergePatchToUnsaved(patch: PatchSet, undoing: ДаНет)
 
     capacity: Число
       при чтении { }

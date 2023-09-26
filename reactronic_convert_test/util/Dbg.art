@@ -7,7 +7,7 @@
   //// automatically licensed under the license referred above.
   операция error(message: Текст, dump: Error?): Error
 
-  операция misuse(message: Текст, dump: Объект? = пусто): Error
+  операция misuse(message: Текст, dump: /*(!) any */ Объект?? = пусто): Error
 
   операция fatal(error: Error): Error
 
@@ -24,16 +24,16 @@
     global: LoggingOptions
 
     глобальный 
-    getMergedLoggingOptions: /*(!) any */ Объект
+    getMergedLoggingOptions: /*(!) any */ Объект?
 
     глобальный 
-    операция setMode(isOn: ДаНет, options: LoggingOptions? = пусто): Ничего
+    операция setMode(isOn: ДаНет, options: LoggingOptions? = пусто)
 
     глобальный 
-    операция write(bar: Текст, tran: Текст, message: Текст, ms: Число = 0, highlight: Текст? = undefined, dump: Объект? = пусто): Ничего
+    операция write(bar: Текст, tran: Текст, message: Текст, ms: Число = 0, highlight: Текст? = undefined, dump: /*(!) any */ Объект?? = пусто)
 
     глобальный 
-    операция writeAs(options: Partial<LoggingOptions>?, bar: Текст, tran: Текст, message: Текст, ms: Число = 0, highlight: Текст? = undefined, dump: Объект? = пусто): Ничего
+    операция writeAs(options: Partial<LoggingOptions>?, bar: Текст, tran: Текст, message: Текст, ms: Число = 0, highlight: Текст? = undefined, dump: /*(!) any */ Объект?? = пусто)
 
     глобальный 
     операция merge(t: Partial<LoggingOptions>?, color: Число?, prefix: Текст?, existing: LoggingOptions): LoggingOptions

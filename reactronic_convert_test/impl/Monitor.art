@@ -25,41 +25,41 @@
 
   тип MonitorImpl = объект на основе Monitor
   {
-    isActive: /*(!) any */ Объект
+    isActive: /*(!) any */ Объект?
 
-    counter: /*(!) any */ Объект
+    counter: /*(!) any */ Объект?
 
-    workers: /*(!) any */ Объект
+    workers: /*(!) any */ Объект?
 
-    duration: /*(!) any */ Объект
+    duration: /*(!) any */ Объект?
 
     защищено
-    internals: /*(!) any */ Объект
+    internals: /*(!) any */ Объект?
 
-    операция enter(worker: Worker): Ничего
+    операция enter(worker: Worker)
 
-    операция leave(worker: Worker): Ничего
+    операция leave(worker: Worker)
 
     глобальный 
     операция create(hint: Текст, activationDelay: Число, deactivationDelay: Число, durationResolution: Число): MonitorImpl
 
     глобальный 
-    операция enter(mon: MonitorImpl, worker: Worker): Ничего
+    операция enter(mon: MonitorImpl, worker: Worker)
 
     глобальный 
-    операция leave(mon: MonitorImpl, worker: Worker): Ничего
+    операция leave(mon: MonitorImpl, worker: Worker)
 
     /*(!) private */ глобальный 
     операция doCreate(hint: Текст, activationDelay: Число, deactivationDelay: Число, durationResolution: Число): MonitorImpl
 
     /*(!) private */ глобальный 
-    операция activate(mon: MonitorImpl, delay: Число): Ничего
+    операция activate(mon: MonitorImpl, delay: Число)
 
     /*(!) private */ глобальный 
-    операция deactivate(mon: MonitorImpl, delay: Число): Ничего
+    операция deactivate(mon: MonitorImpl, delay: Число)
 
     /*(!) private */ глобальный 
-    операция tick(mon: MonitorImpl): Ничего
+    операция tick(mon: MonitorImpl)
   }
 
 }

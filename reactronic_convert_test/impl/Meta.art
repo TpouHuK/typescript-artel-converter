@@ -8,37 +8,37 @@
   тип Meta = /*(!) абстрактный */ объект
   {
     глобальный защищено
-    Handle: unique
+    Handle: /*(!) unique symbol */ Объект
 
     глобальный защищено
-    Revision: unique
+    Revision: /*(!) unique symbol */ Объект
 
     глобальный защищено
-    Controller: unique
+    Controller: /*(!) unique symbol */ Объект
 
     глобальный защищено
-    Initial: unique
+    Initial: /*(!) unique symbol */ Объект
 
     глобальный защищено
-    Reactive: unique
+    Reactive: /*(!) unique symbol */ Объект
 
     глобальный защищено
-    Raw: unique
+    Raw: /*(!) unique symbol */ Объект
 
     глобальный защищено
-    Undefined: unique
+    Undefined: /*(!) unique symbol */ Объект
 
     глобальный 
-    операция get<T>(obj: Объект, sym: Символ): T
+    операция get<T>(obj: /*(!) any */ Объект?, sym: Символ): T
 
     глобальный 
-    операция set(obj: Объект, sym: Символ, value: Объект): Объект
+    операция set(obj: /*(!) any */ Объект?, sym: Символ, value: /*(!) any */ Объект?): /*(!) any */ Объект?
 
     глобальный 
-    операция acquire(proto: Объект, sym: Символ): Объект
+    операция acquire(proto: /*(!) any */ Объект?, sym: Символ): /*(!) any */ Объект?
 
     глобальный 
-    операция getFrom<T>(proto: Объект, sym: Символ): T
+    операция getFrom<T>(proto: /*(!) any */ Объект?, sym: Символ): T
   }
 
 }

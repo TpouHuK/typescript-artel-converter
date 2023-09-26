@@ -9,31 +9,31 @@
   тип Verstak = объект
   {
     глобальный защищено
-    shortFrameDuration: /*(!) any */ Объект
+    shortFrameDuration: /*(!) any */ Объект?
 
     глобальный защищено
-    longFrameDuration: /*(!) any */ Объект
+    longFrameDuration: /*(!) any */ Объект?
 
     глобальный 
-    currentRebuildPriority: /*(!) any */ Объект
+    currentRebuildPriority: /*(!) any */ Объект?
 
     глобальный 
-    frameDuration: /*(!) any */ Объект
+    frameDuration: /*(!) any */ Объект?
 
     глобальный 
     операция claim<T, M, C, R>(driver: Driver<T>, builder: BlockBuilder<T, M, C, R>? = пусто, base: BlockBuilder<T, M, C, R>? = пусто): Block<T, M, C, R>
 
     глобальный 
-    операция triggerRebuild(block: Block<Объект, Объект, Объект, Ничего>, triggers: /*(!) unknown */ Объект): Ничего
+    операция triggerRebuild(block: Block</*(!) any */ Объект?, /*(!) any */ Объект?, /*(!) any */ Объект?, Ничего>, triggers: /*(!) unknown */ Объект?)
 
     глобальный 
-    операция rebuildNestedTreesThenDo(action: операция(error: /*(!) unknown */ Объект): Ничего): Ничего
+    операция rebuildNestedTreesThenDo(action: операция(error: /*(!) unknown */ Объект?): Ничего)
 
     глобальный 
     операция getDefaultLoggingOptions(): LoggingOptions?
 
     глобальный 
-    операция setDefaultLoggingOptions(logging: LoggingOptions? = пусто): Ничего
+    операция setDefaultLoggingOptions(logging: LoggingOptions? = пусто)
 
     block: Block
       при чтении { }
@@ -43,47 +43,47 @@
   тип BaseDriver<T, C> = объект на основе Driver<T, C>
   {
     /*(!) public */ глобальный защищено
-    fragment: /*(!) any */ Объект
+    fragment: /*(!) any */ Объект?
 
-    при создании(name: Текст, isRow: ДаНет, preset: SimpleDelegate<T>? = пусто)
+    при создании(name: Текст, isRow: ДаНет, preset: SimpleDelegate<T>? = пусто)/*(!) any */ Объект?
 
-    операция claim(block: Block<T, /*(!) unknown */ Объект, C>): Ничего
+    операция claim(block: Block<T, /*(!) unknown */ Объект?, C>)
 
-    операция create(block: Block<T, /*(!) unknown */ Объект, C>, b: { native: T, controller: C}): Ничего
+    операция create(block: Block<T, /*(!) unknown */ Объект?, C>, b: объект { native: T; controller: C })
 
-    операция initialize(block: Block<T, /*(!) unknown */ Объект, C>): Ничего
+    операция initialize(block: Block<T, /*(!) unknown */ Объект?, C>)
 
-    операция mount(block: Block<T, /*(!) unknown */ Объект, C>): Ничего
+    операция mount(block: Block<T, /*(!) unknown */ Объект?, C>)
 
-    операция rebuild(block: Block<T, /*(!) unknown */ Объект, C>): Ничего | Promise<Ничего>
+    операция rebuild(block: Block<T, /*(!) unknown */ Объект?, C>): Ничего | Promise<Ничего>
 
-    операция finalize(block: Block<T, /*(!) unknown */ Объект, C>, isLeader: ДаНет): ДаНет
+    операция finalize(block: Block<T, /*(!) unknown */ Объект?, C>, isLeader: ДаНет): ДаНет
 
-    операция applyKind(block: Block<T, Объект, C, Объект>, value: BlockKind): Ничего
+    операция applyKind(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: BlockKind)
 
-    операция applyCoords(block: Block<T, Объект, C, Объект>, value: BlockCoords?): Ничего
+    операция applyCoords(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: BlockCoords?)
 
-    операция applyWidthGrowth(block: Block<T, Объект, C, Объект>, value: Число): Ничего
+    операция applyWidthGrowth(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Число)
 
-    операция applyMinWidth(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyMinWidth(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Текст)
 
-    операция applyMaxWidth(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyMaxWidth(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Текст)
 
-    операция applyHeightGrowth(block: Block<T, Объект, C, Объект>, value: Число): Ничего
+    операция applyHeightGrowth(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Число)
 
-    операция applyMinHeight(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyMinHeight(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Текст)
 
-    операция applyMaxHeight(block: Block<T, Объект, C, Объект>, value: Текст): Ничего
+    операция applyMaxHeight(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Текст)
 
-    операция applyContentAlignment(block: Block<T, Объект, C, Объект>, value: Align): Ничего
+    операция applyContentAlignment(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Align)
 
-    операция applyBlockAlignment(block: Block<T, Объект, C, Объект>, value: Align): Ничего
+    операция applyBlockAlignment(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: Align)
 
-    операция applyContentWrapping(block: Block<T, Объект, C, Объект>, value: ДаНет): Ничего
+    операция applyContentWrapping(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: ДаНет)
 
-    операция applyOverlayVisible(block: Block<T, Объект, C, Объект>, value: ДаНет?): Ничего
+    операция applyOverlayVisible(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, value: ДаНет?)
 
-    операция applyStyle(block: Block<T, Объект, C, Объект>, secondary: ДаНет, styleName: Текст, enabled: ДаНет? = пусто): Ничего
+    операция applyStyle(block: Block<T, /*(!) any */ Объект?, C, /*(!) any */ Объект?>, secondary: ДаНет, styleName: Текст, enabled: ДаНет? = пусто)
   }
 
   //// Utils
@@ -92,9 +92,9 @@
     защищено
     element: T
 
-    при создании(element: T, name: Текст, isRow: ДаНет, preset: SimpleDelegate<T>? = пусто)
+    при создании(element: T, name: Текст, isRow: ДаНет, preset: SimpleDelegate<T>? = пусто)/*(!) any */ Объект?
 
-    операция create(block: Block<T, /*(!) unknown */ Объект, /*(!) unknown */ Объект, Ничего>, b: { native: T, controller: /*(!) unknown */ Объект}): Ничего
+    операция create(block: Block<T, /*(!) unknown */ Объект?, /*(!) unknown */ Объект?, Ничего>, b: объект { native: T; controller: /*(!) unknown */ Объект? })
   }
 
   //// CursorCommandDriver
@@ -109,9 +109,9 @@
 
   тип CursorCommandDriver = объект на основе BaseDriver
   {
-    при создании()
+    при создании()/*(!) any */ Объект?
 
-    операция create(block: Block<CursorCommand, /*(!) unknown */ Объект, Ничего, Ничего>, b: { native: CursorCommand, controller: Ничего}): Ничего
+    операция create(block: Block<CursorCommand, /*(!) unknown */ Объект?, Ничего, Ничего>, b: объект { native: CursorCommand; controller: Ничего })
   }
 
   //// SubTreeVariable
@@ -120,7 +120,7 @@
     защищено
     defaultValue: T?
 
-    при создании(defaultValue: T? = пусто)
+    при создании(defaultValue: T? = пусто)/*(!) any */ Объект?
 
     value: T
       при чтении { }

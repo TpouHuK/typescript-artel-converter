@@ -26,11 +26,11 @@
   //// ObservableValue & Observer
   тип ObservableValue = объект
   {
-    content: Объект
+    content: /*(!) any */ Объект?
 
     observers: Set<Observer>?
 
-    при создании(content: Объект)
+    при создании(content: /*(!) any */ Объект?)/*(!) any */ Объект?
 
     isOperation: ДаНет
       при чтении { }
@@ -54,9 +54,9 @@
 
     операция hint(nop: ДаНет? = пусто): Текст
 
-    операция markObsoleteDueTo(observable: ObservableValue, m: MemberName, changeset: AbstractChangeset, h: ObjectHandle, outer: Текст, since: Число, reactive: Array<Observer>): Ничего
+    операция markObsoleteDueTo(observable: ObservableValue, m: MemberName, changeset: AbstractChangeset, h: ObjectHandle, outer: Текст, since: Число, reactive: Array<Observer>)
 
-    операция runIfNotUpToDate(now: ДаНет, nothrow: ДаНет): Ничего
+    операция runIfNotUpToDate(now: ДаНет, nothrow: ДаНет)
 
   }
 
@@ -81,10 +81,10 @@
     changeset: AbstractChangeset
 
     защищено
-    former: { snapshot: ObjectSnapshot}
+    former: объект { snapshot: ObjectSnapshot }
 
     защищено
-    data: Объект
+    data: /*(!) any */ Объект?
 
     защищено
     changes: Set<MemberName>
@@ -92,7 +92,7 @@
     защищено
     conflicts: Map<MemberName, ObjectSnapshot>
 
-    при создании(changeset: AbstractChangeset, former: ObjectSnapshot?, data: Объект)
+    при создании(changeset: AbstractChangeset, former: ObjectSnapshot?, data: Объект)/*(!) any */ Объект?
 
     revision: Число
       при чтении { }
@@ -112,10 +112,10 @@
     id: Число
 
     защищено
-    data: Объект
+    data: /*(!) any */ Объект?
 
     защищено
-    proxy: Объект
+    proxy: /*(!) any */ Объект?
 
     head: ObjectSnapshot
 
@@ -125,7 +125,7 @@
 
     hint: Текст
 
-    при создании(data: Объект, proxy: Объект, handler: ProxyHandler<ObjectHandle>, head: ObjectSnapshot, hint: Текст)
+    при создании(data: /*(!) any */ Объект?, proxy: /*(!) any */ Объект?, handler: ProxyHandler<ObjectHandle>, head: ObjectSnapshot, hint: Текст)/*(!) any */ Объект?
 
     глобальный 
     операция getHint(obj: Объект, full: ДаНет): Текст?
@@ -140,9 +140,9 @@
 
     patchKind: "update" | "add" | "remove"
 
-    freshValue: Объект
+    freshValue: /*(!) any */ Объект?
 
-    formerValue: Объект
+    formerValue: /*(!) any */ Объект?
 
   }
 

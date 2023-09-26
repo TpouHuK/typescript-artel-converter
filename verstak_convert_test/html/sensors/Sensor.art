@@ -9,9 +9,9 @@
   {
     revision: Число
 
-    elementDataList: Список</*(!) unknown */ Объект>
+    elementDataList: Список</*(!) unknown */ Объект?>
 
-    topElementData: /*(!) unknown */ Объект
+    topElementData: /*(!) unknown */ Объект?
       при чтении { }
   }
 

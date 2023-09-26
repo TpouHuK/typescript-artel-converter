@@ -17,7 +17,7 @@
     contentRect: DOMRectReadOnly
 
     защищено
-    resizeData: Объект
+    resizeData: /*(!) any */ Объект?
 
   }
 
@@ -29,20 +29,20 @@
 
     resizedElements: Array<ResizedElement>
 
-    при создании()
+    при создании()/*(!) any */ Объект?
 
-    операция reset(): Ничего
+    операция reset()
 
-    операция observeResizing(block: Block<Объект, Объект, Объект>, value: ДаНет, boxSizing: ResizeObserverBoxOptions = "content-box"): Ничего
-
-    скрыто типом 
-    операция onResize(entries: Array<ResizeObserverEntry>): Ничего
+    операция observeResizing(block: Block</*(!) any */ Объект?, /*(!) any */ Объект?, /*(!) any */ Объект?>, value: ДаНет, boxSizing: ResizeObserverBoxOptions = "content-box")
 
     скрыто типом 
-    операция resize(entries: Array<ResizeObserverEntry>): Ничего
+    операция onResize(entries: Array<ResizeObserverEntry>)
 
     скрыто типом 
-    операция doReset(): Ничего
+    операция resize(entries: Array<ResizeObserverEntry>)
+
+    скрыто типом 
+    операция doReset()
   }
 
 }
