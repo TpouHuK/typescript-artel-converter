@@ -6,6 +6,7 @@ use convert_tree_walk::*;
 use tree_sitter_c2rust::Parser;
 use wasm_bindgen::prelude::wasm_bindgen;
 
+#[allow(improper_ctypes_definitions)] // String is fine for wasm_bindgen
 #[wasm_bindgen]
 pub extern "C" fn convert_ts(code: &str) -> String {
     let mut parser = Parser::new();

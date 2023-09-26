@@ -809,14 +809,6 @@ fn parse_method_definition(source: &str, node: &Node) -> ArtelClassMember {
     ))
 }
 
-fn parse_return_statement(source: &str, node: &Node) -> String {
-    let Some(expression) = node.named_child(0) else {
-        return String::from("возврат");
-    };
-    let expression_str = parse_expression(source, &expression);
-    format!("возврат {expression_str}")
-}
-
 fn parse_construct_signature(source: &str, node: &Node) -> ArtelFunctionDeclaration {
     let r#async = node.child(0).unwrap().kind() == "async";
     let name_ident = ArtelIdentifier::new("constructor");

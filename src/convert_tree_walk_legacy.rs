@@ -149,3 +149,11 @@ fn parse_unary_expression(source: &str, node: &Node) -> String {
     };
     unimplemented!()
 }
+
+fn parse_return_statement(source: &str, node: &Node) -> String {
+    let Some(expression) = node.named_child(0) else {
+        return String::from("возврат");
+    };
+    let expression_str = parse_expression(source, &expression);
+    format!("возврат {expression_str}")
+}
