@@ -62,16 +62,20 @@ pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
         "statement_block" => Some(ArtelStatement::StatementBlock(parse_statement_block(
             source, node,
         ))),
-        "import_statement"  | "if_statement" => None,
+        "import_statement" | "if_statement" => None,
         "expression_statement" => {
             if node.child(0).unwrap().kind() == "internal_module" {
-                    Some(parse_internal_module(source, node))
+                Some(parse_internal_module(source, node))
             } else {
                 None
             }
         }
         _ => {
-            unimplemented!("{} is unimplemented, {:?}", node.kind(), node.utf8_text(source.as_bytes()).unwrap())
+            unimplemented!(
+                "{} is unimplemented, {:?}",
+                node.kind(),
+                node.utf8_text(source.as_bytes()).unwrap()
+            )
         }
     };
 
@@ -79,8 +83,16 @@ pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
 }
 
 fn parse_internal_module(source: &str, node: &Node) -> ArtelStatement {
-    let name = ArtelIdentifier::new(node.child_by_field_name("name").unwrap().utf8_text(source.as_bytes()).unwrap());
-    let body = node.child_by_field_name("body").unwrap().named_children(&mut node.walk())
+    let name = ArtelIdentifier::new(
+        node.child_by_field_name("name")
+            .unwrap()
+            .utf8_text(source.as_bytes())
+            .unwrap(),
+    );
+    let body = node
+        .child_by_field_name("body")
+        .unwrap()
+        .named_children(&mut node.walk())
         .filter_map(|s| parse_statement(source, &s))
         .collect();
     ArtelStatement::InternalModule(ArtelInternalModule::new(name, body))
@@ -143,7 +155,10 @@ fn parse_ambient_declaration(source: &str, node: &Node) -> ArtelStatement {
     if node.named_child(0).unwrap().kind() == "internal_module" {
         let internal_module = node.named_child(0).unwrap();
         let internal_module = parse_internal_module(source, &internal_module);
-        return ArtelStatement::AmbientDeclaration(ArtelAmbientDeclaration::new(false, vec![internal_module]));
+        return ArtelStatement::AmbientDeclaration(ArtelAmbientDeclaration::new(
+            false,
+            vec![internal_module],
+        ));
     }
 
     let body: Vec<_> = node
@@ -158,12 +173,12 @@ fn parse_ambient_declaration(source: &str, node: &Node) -> ArtelStatement {
             "type_alias_declaration" => Some(ArtelStatement::TypeAliasDeclaration(
                 parse_type_alias_declaration(source, &s),
             )),
-            "class_declaration" => Some(ArtelStatement::ClassDeclaration(
-                    parse_class_declaration(source, &s, false)
-                    )),
+            "class_declaration" => Some(ArtelStatement::ClassDeclaration(parse_class_declaration(
+                source, &s, false,
+            ))),
             "lexical_declaration" => Some(ArtelStatement::LexicalDeclaration(
-                    parse_lexical_declaration(source, &s)
-                    )),
+                parse_lexical_declaration(source, &s),
+            )),
             _ => unimplemented!("{s:?}"),
         })
         .collect();
@@ -482,7 +497,10 @@ fn parse_object_type(source: &str, node: &Node) -> ArtelPrimaryType {
                     parse_construct_signature(source, &property_signature),
                 )),
                 "index_signature" | "call_signature" => Some(ArtelInterfaceMember::Unsupported(
-                    property_signature.utf8_text(source.as_bytes()).unwrap().to_owned(),
+                    property_signature
+                        .utf8_text(source.as_bytes())
+                        .unwrap()
+                        .to_owned(),
                 )),
                 _ => unimplemented!("{}", property_signature.kind()),
             }
@@ -904,7 +922,7 @@ fn parse_statement_block(source: &str, node: &Node) -> Vec<ArtelStatement> {
 pub fn create_artel_code(artel_program: ArtelProgram) -> String {
     let flat_export = artel_program.artel_str(0);
     flat_export
-    
+
     /* let flat_export = artel_program.into_iter().filter_map(|stmt| match stmt {
         ArtelStatement::ExportStatement(stmt) => Some(*stmt),
         comment @ ArtelStatement::Comment(_) => Some(comment),

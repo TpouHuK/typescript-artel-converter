@@ -18,7 +18,9 @@ fn set_ident<T: AsRef<str>>(str: T, ident_level: usize) -> String {
     } else {
         spliter = "\n";
     }
-    str.split(spliter).map(|line| format!("{}{}", ident(ident_level), line.trim_start())).join("\n")
+    str.split(spliter)
+        .map(|line| format!("{}{}", ident(ident_level), line.trim_start()))
+        .join("\n")
 }
 //#[derive(Debug)]
 //pub struct ArtelProgram(ArtelStatement);
@@ -65,12 +67,15 @@ impl ArtelStr for ArtelInternalModule {
             "\n",
             ident(ident_level),
             "}",
-        ].concat()
+        ]
+        .concat()
     }
 }
 
 impl ArtelInternalModule {
-    pub fn new(name: ArtelIdentifier, statements: Vec<ArtelStatement>) -> Self { Self { name, statements } }
+    pub fn new(name: ArtelIdentifier, statements: Vec<ArtelStatement>) -> Self {
+        Self { name, statements }
+    }
 }
 
 #[derive(Debug)]
@@ -80,21 +85,29 @@ pub struct ArtelAmbientDeclaration {
 }
 
 impl ArtelAmbientDeclaration {
-    pub fn new(is_global: bool, body: Vec<ArtelStatement>) -> Self { Self { is_global, body } }
-
+    pub fn new(is_global: bool, body: Vec<ArtelStatement>) -> Self {
+        Self { is_global, body }
+    }
 }
 
 impl ArtelStr for ArtelAmbientDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
         let global_str = self.is_global.then_some(" /*(!) global */").unwrap_or("");
         if self.body.len() == 1 {
-            format!("{ident}внешнее{global_str}\n{ident}{body}", ident=ident(ident_level), body=self.body[0].artel_str(ident_level))
+            format!(
+                "{ident}внешнее{global_str}\n{ident}{body}",
+                ident = ident(ident_level),
+                body = self.body[0].artel_str(ident_level)
+            )
         } else {
-            format!("{ident}внешнее{global_str}\n{ident}{{\n{body}\n{ident}}}", body=self.body[0].artel_str(ident_level), ident=ident(ident_level))
+            format!(
+                "{ident}внешнее{global_str}\n{ident}{{\n{body}\n{ident}}}",
+                body = self.body[0].artel_str(ident_level),
+                ident = ident(ident_level)
+            )
         }
     }
 }
-
 
 impl ArtelStr for ArtelStatement {
     fn artel_str(&self, ident_level: usize) -> String {
@@ -229,7 +242,6 @@ impl ArtelType {
 impl ArtelStr for ArtelType {
     fn artel_str(&self, ident_level: usize) -> String {
         assert!(!self.0.is_empty());
-
         let mut str = String::new();
         let mut first = true;
 
@@ -1040,7 +1052,13 @@ impl ArtelStr for ArtelInterfaceDeclaration {
 
         str.push_str(ident(ident_level));
         str.push_str("{\n");
-        str.push_str(&self.body.iter().map(|m| m.artel_str(ident_level + 2 )).join("\n\n"));
+        str.push_str(
+            &self
+                .body
+                .iter()
+                .map(|m| m.artel_str(ident_level + 2))
+                .join("\n\n"),
+        );
         str.push_str("\n");
         str.push_str(ident(ident_level));
         str.push_str("}\n");
