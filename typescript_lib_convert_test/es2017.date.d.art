@@ -1,5 +1,5 @@
 тип DateConstructor = интерфейс
 {
-  операция UTC(year: Число, monthIndex: Число?FUCKFUCK = пусто, date: Число?FUCKFUCK = пусто, hours: Число?FUCKFUCK = пусто, minutes: Число?FUCKFUCK = пусто, seconds: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто): Число
+  операция UTC(year: Число, monthIndex: Число? = пусто, date: Число? = пусто, hours: Число? = пусто, minutes: Число? = пусто, seconds: Число? = пусто, ms: Число? = пусто): Число
 }
 

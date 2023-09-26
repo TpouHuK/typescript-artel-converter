@@ -1,19 +1,19 @@
 тип Array<T> = интерфейс
 {
-  операция findLast<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): T?FUCKFUCK
+  операция findLast(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): T?
 
-  операция findLastIndex(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): Список<T>
 
-  операция toSorted(compareFn: операция(a: T, b: T): Число?FUCKFUCK = пусто): Список<T>
+  операция toSorted(compareFn: операция(a: T, b: T): Число? = пусто): Список<T>
 
   #js.МассивПараметров
   операция toSpliced(start: Число, deleteCount: Число, items: Список<T>): Список<T>
 
-  операция toSpliced(start: Число, deleteCount: Число?FUCKFUCK = пусто): Список<T>
+  операция toSpliced(start: Число, deleteCount: Число? = пусто): Список<T>
 
   операция with(index: Число, value: T): Список<T>
 }
@@ -21,20 +21,20 @@
 
 тип ReadonlyArray<T> = интерфейс
 {
-  операция findLast<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): T?FUCKFUCK
+  операция findLast(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): T?
 
-  операция findLastIndex(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): Список<T>
 
-  операция toSorted(compareFn: операция(a: T, b: T): Число?FUCKFUCK = пусто): Список<T>
+  операция toSorted(compareFn: операция(a: T, b: T): Число? = пусто): Список<T>
 
   #js.МассивПараметров
   операция toSpliced(start: Число, deleteCount: Число, items: Список<T>): Список<T>
 
-  операция toSpliced(start: Число, deleteCount: Число?FUCKFUCK = пусто): Список<T>
+  операция toSpliced(start: Число, deleteCount: Число? = пусто): Список<T>
 
   операция with(index: Число, value: T): Список<T>
 }
@@ -42,15 +42,15 @@
 
 тип Int8Array = интерфейс
 {
-  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция findLast(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): Uint8Array
 
-  операция toSorted(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): Uint8Array
+  операция toSorted(compareFn: операция(a: Число, b: Число): Число? = пусто): Uint8Array
 
   операция with(index: Число, value: Число): Uint8Array
 }
@@ -58,15 +58,15 @@
 
 тип Uint8Array = интерфейс
 {
-  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция findLast(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): Uint8Array
 
-  операция toSorted(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): Uint8Array
+  операция toSorted(compareFn: операция(a: Число, b: Число): Число? = пусто): Uint8Array
 
   операция with(index: Число, value: Число): Uint8Array
 }
@@ -74,15 +74,15 @@
 
 тип Uint8ClampedArray = интерфейс
 {
-  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция findLast(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): Uint8ClampedArray
 
-  операция toSorted(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): Uint8ClampedArray
+  операция toSorted(compareFn: операция(a: Число, b: Число): Число? = пусто): Uint8ClampedArray
 
   операция with(index: Число, value: Число): Uint8ClampedArray
 }
@@ -90,15 +90,15 @@
 
 тип Int16Array = интерфейс
 {
-  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция findLast(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): Int16Array
 
-  операция toSorted(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): Int16Array
+  операция toSorted(compareFn: операция(a: Число, b: Число): Число? = пусто): Int16Array
 
   операция with(index: Число, value: Число): Int16Array
 }
@@ -106,15 +106,15 @@
 
 тип Uint16Array = интерфейс
 {
-  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция findLast(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): Uint16Array
 
-  операция toSorted(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): Uint16Array
+  операция toSorted(compareFn: операция(a: Число, b: Число): Число? = пусто): Uint16Array
 
   операция with(index: Число, value: Число): Uint16Array
 }
@@ -122,15 +122,15 @@
 
 тип Int32Array = интерфейс
 {
-  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция findLast(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): Int32Array
 
-  операция toSorted(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): Int32Array
+  операция toSorted(compareFn: операция(a: Число, b: Число): Число? = пусто): Int32Array
 
   операция with(index: Число, value: Число): Int32Array
 }
@@ -138,15 +138,15 @@
 
 тип Uint32Array = интерфейс
 {
-  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция findLast(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): Uint32Array
 
-  операция toSorted(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): Uint32Array
+  операция toSorted(compareFn: операция(a: Число, b: Число): Число? = пусто): Uint32Array
 
   операция with(index: Число, value: Число): Uint32Array
 }
@@ -154,15 +154,15 @@
 
 тип Float32Array = интерфейс
 {
-  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция findLast(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): Float32Array
 
-  операция toSorted(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): Float32Array
+  операция toSorted(compareFn: операция(a: Число, b: Число): Число? = пусто): Float32Array
 
   операция with(index: Число, value: Число): Float32Array
 }
@@ -170,15 +170,15 @@
 
 тип Float64Array = интерфейс
 {
-  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = Число>(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция findLast(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): Float64Array
 
-  операция toSorted(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): Float64Array
+  операция toSorted(compareFn: операция(a: Число, b: Число): Число? = пусто): Float64Array
 
   операция with(index: Число, value: Число): Float64Array
 }
@@ -186,15 +186,15 @@
 
 тип BigInt64Array = интерфейс
 {
-  операция findLast<S = bigint>(predicate: операция(value: bigint, index: Число, array: BigInt64Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = bigint>(predicate: операция(value: bigint, index: Число, array: BigInt64Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: bigint, index: Число, array: BigInt64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): bigint?FUCKFUCK
+  операция findLast(predicate: операция(value: bigint, index: Число, array: BigInt64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): bigint?
 
-  операция findLastIndex(predicate: операция(value: bigint, index: Число, array: BigInt64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: bigint, index: Число, array: BigInt64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): BigInt64Array
 
-  операция toSorted(compareFn: операция(a: bigint, b: bigint): Число?FUCKFUCK = пусто): BigInt64Array
+  операция toSorted(compareFn: операция(a: bigint, b: bigint): Число? = пусто): BigInt64Array
 
   операция with(index: Число, value: bigint): BigInt64Array
 }
@@ -202,15 +202,15 @@
 
 тип BigUint64Array = интерфейс
 {
-  операция findLast<S = bigint>(predicate: операция(value: bigint, index: Число, array: BigUint64Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+  операция findLast<S = bigint>(predicate: операция(value: bigint, index: Число, array: BigUint64Array): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
 
-  операция findLast(predicate: операция(value: bigint, index: Число, array: BigUint64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): bigint?FUCKFUCK
+  операция findLast(predicate: операция(value: bigint, index: Число, array: BigUint64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): bigint?
 
-  операция findLastIndex(predicate: операция(value: bigint, index: Число, array: BigUint64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findLastIndex(predicate: операция(value: bigint, index: Число, array: BigUint64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
 
   операция toReversed(): BigUint64Array
 
-  операция toSorted(compareFn: операция(a: bigint, b: bigint): Число?FUCKFUCK = пусто): BigUint64Array
+  операция toSorted(compareFn: операция(a: bigint, b: bigint): Число? = пусто): BigUint64Array
 
   операция with(index: Число, value: bigint): BigUint64Array
 }

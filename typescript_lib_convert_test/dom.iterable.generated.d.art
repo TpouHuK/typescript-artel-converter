@@ -20,7 +20,7 @@
 {
   операция createIIRFilter(feedforward: Iterable<Число>, feedback: Iterable<Число>): IIRFilterNode
 
-  операция createPeriodicWave(real: Iterable<Число>, imag: Iterable<Число>, constraints: PeriodicWaveConstraints?FUCKFUCK = пусто): PeriodicWave
+  операция createPeriodicWave(real: Iterable<Число>, imag: Iterable<Число>, constraints: PeriodicWaveConstraints? = пусто): PeriodicWave
 }
 
 
@@ -200,13 +200,13 @@
 
 тип IDBDatabase = интерфейс
 {
-  операция transaction(storeNames: Текст | Iterable<Текст>, mode: IDBTransactionMode?FUCKFUCK = пусто, options: IDBTransactionOptions?FUCKFUCK = пусто): IDBTransaction
+  операция transaction(storeNames: Текст | Iterable<Текст>, mode: IDBTransactionMode? = пусто, options: IDBTransactionOptions? = пусто): IDBTransaction
 }
 
 
 тип IDBObjectStore = интерфейс
 {
-  операция createIndex(name: Текст, keyPath: Текст | Iterable<Текст>, options: IDBIndexParameters?FUCKFUCK = пусто): IDBIndex
+  операция createIndex(name: Текст, keyPath: Текст | Iterable<Текст>, options: IDBIndexParameters? = пусто): IDBIndex
 }
 
 
@@ -218,7 +218,7 @@
 
 тип MIDIOutput = интерфейс
 {
-  операция send(data: Iterable<Число>, timestamp: DOMHighResTimeStamp?FUCKFUCK = пусто)
+  операция send(data: Iterable<Число>, timestamp: DOMHighResTimeStamp? = пусто)
 }
 
 
@@ -248,7 +248,7 @@
 
 тип MessageEvent<T> = интерфейс
 {
-  операция initMessageEvent(type: Текст, bubbles: ДаНет?FUCKFUCK = пусто, cancelable: ДаНет?FUCKFUCK = пусто, data: /*(!) any */ Объект??FUCKFUCK = пусто, origin: Текст?FUCKFUCK = пусто, lastEventId: Текст?FUCKFUCK = пусто, source: MessageEventSource?FUCKFUCK = пусто, ports: Iterable<MessagePort>?FUCKFUCK = пусто)
+  операция initMessageEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, data: /*(!) any */ Объект?? = пусто, origin: Текст? = пусто, lastEventId: Текст? = пусто, source: MessageEventSource? = пусто, ports: Iterable<MessagePort>? = пусто)
 }
 
 
@@ -454,17 +454,17 @@
 
 тип WebGL2RenderingContextBase = интерфейс
 {
-  операция clearBufferfv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто)
+  операция clearBufferfv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLfloat>, srcOffset: GLuint? = пусто)
 
-  операция clearBufferiv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLint>, srcOffset: GLuint?FUCKFUCK = пусто)
+  операция clearBufferiv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLint>, srcOffset: GLuint? = пусто)
 
-  операция clearBufferuiv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLuint>, srcOffset: GLuint?FUCKFUCK = пусто)
+  операция clearBufferuiv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLuint>, srcOffset: GLuint? = пусто)
 
   операция drawBuffers(buffers: Iterable<GLenum>)
 
   операция getActiveUniforms(program: WebGLProgram, uniformIndices: Iterable<GLuint>, pname: GLenum): /*(!) any */ Объект?
 
-  операция getUniformIndices(program: WebGLProgram, uniformNames: Iterable<Текст>): Iterable<GLuint>?FUCKFUCK
+  операция getUniformIndices(program: WebGLProgram, uniformNames: Iterable<Текст>): Iterable<GLuint>?
 
   операция invalidateFramebuffer(target: GLenum, attachments: Iterable<GLenum>)
 
@@ -472,25 +472,25 @@
 
   операция transformFeedbackVaryings(program: WebGLProgram, varyings: Iterable<Текст>, bufferMode: GLenum)
 
-  операция uniform1uiv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLuint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform1uiv(location: WebGLUniformLocation?, data: Iterable<GLuint>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform2uiv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLuint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform2uiv(location: WebGLUniformLocation?, data: Iterable<GLuint>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform3uiv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLuint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform3uiv(location: WebGLUniformLocation?, data: Iterable<GLuint>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform4uiv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLuint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform4uiv(location: WebGLUniformLocation?, data: Iterable<GLuint>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix2x3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix2x3fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix2x4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix2x4fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix3x2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix3x2fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix3x4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix3x4fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix4x2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix4x2fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix4x3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix4x3fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
   операция vertexAttribI4iv(index: GLuint, values: Iterable<GLint>)
 
@@ -500,27 +500,27 @@
 
 тип WebGL2RenderingContextOverloads = интерфейс
 {
-  операция uniform1fv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform1fv(location: WebGLUniformLocation?, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform1iv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform1iv(location: WebGLUniformLocation?, data: Iterable<GLint>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform2fv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform2fv(location: WebGLUniformLocation?, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform2iv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform2iv(location: WebGLUniformLocation?, data: Iterable<GLint>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform3fv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform3fv(location: WebGLUniformLocation?, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform3iv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform3iv(location: WebGLUniformLocation?, data: Iterable<GLint>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform4fv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform4fv(location: WebGLUniformLocation?, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform4iv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform4iv(location: WebGLUniformLocation?, data: Iterable<GLint>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix2fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix3fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix4fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 }
 
 
@@ -538,26 +538,26 @@
 
 тип WebGLRenderingContextOverloads = интерфейс
 {
-  операция uniform1fv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLfloat>)
+  операция uniform1fv(location: WebGLUniformLocation?, v: Iterable<GLfloat>)
 
-  операция uniform1iv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLint>)
+  операция uniform1iv(location: WebGLUniformLocation?, v: Iterable<GLint>)
 
-  операция uniform2fv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLfloat>)
+  операция uniform2fv(location: WebGLUniformLocation?, v: Iterable<GLfloat>)
 
-  операция uniform2iv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLint>)
+  операция uniform2iv(location: WebGLUniformLocation?, v: Iterable<GLint>)
 
-  операция uniform3fv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLfloat>)
+  операция uniform3fv(location: WebGLUniformLocation?, v: Iterable<GLfloat>)
 
-  операция uniform3iv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLint>)
+  операция uniform3iv(location: WebGLUniformLocation?, v: Iterable<GLint>)
 
-  операция uniform4fv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLfloat>)
+  операция uniform4fv(location: WebGLUniformLocation?, v: Iterable<GLfloat>)
 
-  операция uniform4iv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLint>)
+  операция uniform4iv(location: WebGLUniformLocation?, v: Iterable<GLint>)
 
-  операция uniformMatrix2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, value: Iterable<GLfloat>)
+  операция uniformMatrix2fv(location: WebGLUniformLocation?, transpose: GLboolean, value: Iterable<GLfloat>)
 
-  операция uniformMatrix3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, value: Iterable<GLfloat>)
+  операция uniformMatrix3fv(location: WebGLUniformLocation?, transpose: GLboolean, value: Iterable<GLfloat>)
 
-  операция uniformMatrix4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, value: Iterable<GLfloat>)
+  операция uniformMatrix4fv(location: WebGLUniformLocation?, transpose: GLboolean, value: Iterable<GLfloat>)
 }
 

@@ -492,7 +492,7 @@
 
 тип IDBVersionChangeEventInit = интерфейс
 {
-  newVersion: Число?FUCKFUCK
+  newVersion: Число?
 
   oldVersion: Число
 }
@@ -668,7 +668,7 @@
 
   ports: Список<MessagePort>
 
-  source: MessageEventSource?FUCKFUCK
+  source: MessageEventSource?
 }
 
 
@@ -726,7 +726,7 @@
 
   requireInteraction: ДаНет
 
-  silent: ДаНет?FUCKFUCK
+  silent: ДаНет?
 
   tag: Текст
 
@@ -818,7 +818,7 @@
 {
   endpoint: Текст
 
-  expirationTime: EpochTimeStamp?FUCKFUCK
+  expirationTime: EpochTimeStamp?
 
   keys: Record<Текст, Текст>
 }
@@ -922,7 +922,7 @@
 
 тип RequestInit = интерфейс
 {
-  body: BodyInit?FUCKFUCK
+  body: BodyInit?
 
   cache: RequestCache
 
@@ -944,7 +944,7 @@
 
   referrerPolicy: ReferrerPolicy
 
-  signal: AbortSignal?FUCKFUCK
+  signal: AbortSignal?
 
   window: пусто
 }
@@ -1148,13 +1148,13 @@
 
 тип VideoColorSpaceInit = интерфейс
 {
-  fullRange: ДаНет?FUCKFUCK
+  fullRange: ДаНет?
 
-  matrix: VideoMatrixCoefficients?FUCKFUCK
+  matrix: VideoMatrixCoefficients?
 
-  primaries: VideoColorPrimaries?FUCKFUCK
+  primaries: VideoColorPrimaries?
 
-  transfer: VideoTransferCharacteristics?FUCKFUCK
+  transfer: VideoTransferCharacteristics?
 }
 
 
@@ -1358,7 +1358,7 @@
 {
   source: WebTransportErrorSource
 
-  streamErrorCode: Число?FUCKFUCK
+  streamErrorCode: Число?
 }
 
 
@@ -1384,7 +1384,7 @@
 
 тип WebTransportSendStreamOptions = интерфейс
 {
-  sendOrder: Число?FUCKFUCK
+  sendOrder: Число?
 }
 
 
@@ -1402,9 +1402,9 @@
 {
   data: BufferSource | Blob | Текст | пусто
 
-  position: Число?FUCKFUCK
+  position: Число?
 
-  size: Число?FUCKFUCK
+  size: Число?
 
   type: WriteCommandType
 }
@@ -1440,7 +1440,7 @@
   защищено 
   signal: AbortSignal
 
-  операция abort(reason: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция abort(reason: /*(!) any */ Объект?? = пусто)
 }
 
 
@@ -1465,7 +1465,7 @@
   защищено 
   aborted: ДаНет
 
-  onabort: операция(this: AbortSignal, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onabort: операция(this: AbortSignal, ev: Event): /*(!) any */ Объект??
 
   защищено 
   reason: /*(!) any */ Объект?
@@ -1483,7 +1483,7 @@
 
 
 внешнее
-/*(!) var */ AbortSignal: объект { prototype: AbortSignal; при создании()/*(!) no_type */ Объект?; операция abort(reason: /*(!) any */ Объект??FUCKFUCK = пусто): AbortSignal; операция timeout(milliseconds: Число): AbortSignal }
+/*(!) var */ AbortSignal: объект { prototype: AbortSignal; при создании()/*(!) no_type */ Объект?; операция abort(reason: /*(!) any */ Объект?? = пусто): AbortSignal; операция timeout(milliseconds: Число): AbortSignal }
 
 
 тип AbstractWorkerEventMap = интерфейс
@@ -1494,7 +1494,7 @@
 
 тип AbstractWorker = интерфейс
 {
-  onerror: операция(this: AbstractWorker, ev: ErrorEvent): /*(!) any */ Объект??FUCKFUCK
+  onerror: операция(this: AbstractWorker, ev: ErrorEvent): /*(!) any */ Объект??
 
   операция addEventListener<K = /*(!) keyof AbstractWorkerEventMap */ Объект?>(type: K, listener: операция(this: AbstractWorker, ev: /*(!) AbstractWorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -1530,7 +1530,7 @@
 
   операция arrayBuffer(): Promise<ArrayBuffer>
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто, contentType: Текст?FUCKFUCK = пусто): Blob
+  операция slice(start: Число? = пусто, end: Число? = пусто, contentType: Текст? = пусто): Blob
 
   операция stream(): ReadableStream<Uint8Array>
 
@@ -1539,13 +1539,13 @@
 
 
 внешнее
-/*(!) var */ Blob: объект { prototype: Blob; при создании(blobParts: Список<BlobPart>?FUCKFUCK = пусто, options: BlobPropertyBag?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Blob: объект { prototype: Blob; при создании(blobParts: Список<BlobPart>? = пусто, options: BlobPropertyBag? = пусто)/*(!) no_type */ Объект? }
 
 
 тип Body = интерфейс
 {
   защищено 
-  body: ReadableStream<Uint8Array>?FUCKFUCK
+  body: ReadableStream<Uint8Array>?
 
   защищено 
   bodyUsed: ДаНет
@@ -1577,9 +1577,9 @@
   защищено 
   name: Текст
 
-  onmessage: операция(this: BroadcastChannel, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessage: операция(this: BroadcastChannel, ev: MessageEvent): /*(!) any */ Объект??
 
-  onmessageerror: операция(this: BroadcastChannel, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessageerror: операция(this: BroadcastChannel, ev: MessageEvent): /*(!) any */ Объект??
 
   операция close()
 
@@ -1760,7 +1760,7 @@
 
 
 внешнее
-/*(!) var */ CSSMatrixComponent: объект { prototype: CSSMatrixComponent; при создании(matrix: DOMMatrixReadOnly, options: CSSMatrixComponentOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CSSMatrixComponent: объект { prototype: CSSMatrixComponent; при создании(matrix: DOMMatrixReadOnly, options: CSSMatrixComponentOptions? = пусто)/*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSNumericArray) */
@@ -1770,7 +1770,7 @@
   защищено 
   length: Число
 
-  операция forEach(callbackfn: операция(value: CSSNumericValue, key: Число, parent: CSSNumericArray), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: CSSNumericValue, key: Число, parent: CSSNumericArray), thisArg: /*(!) any */ Объект?? = пусто)
 
   /*(!) [index: number]: CSSNumericValue*/
 }
@@ -1861,7 +1861,7 @@
 
 
 внешнее
-/*(!) var */ CSSScale: объект { prototype: CSSScale; при создании(x: CSSNumberish, y: CSSNumberish, z: CSSNumberish?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CSSScale: объект { prototype: CSSScale; при создании(x: CSSNumberish, y: CSSNumberish, z: CSSNumberish? = пусто)/*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSSkew) */
@@ -1942,7 +1942,7 @@
 
   операция toMatrix(): DOMMatrix
 
-  операция forEach(callbackfn: операция(value: CSSTransformComponent, key: Число, parent: CSSTransformValue), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: CSSTransformComponent, key: Число, parent: CSSTransformValue), thisArg: /*(!) any */ Объект?? = пусто)
 
   /*(!) [index: number]: CSSTransformComponent*/
 }
@@ -1965,7 +1965,7 @@
 
 
 внешнее
-/*(!) var */ CSSTranslate: объект { prototype: CSSTranslate; при создании(x: CSSNumericValue, y: CSSNumericValue, z: CSSNumericValue?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CSSTranslate: объект { prototype: CSSTranslate; при создании(x: CSSNumericValue, y: CSSNumericValue, z: CSSNumericValue? = пусто)/*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSUnitValue) */
@@ -1990,7 +1990,7 @@
   защищено 
   length: Число
 
-  операция forEach(callbackfn: операция(value: CSSUnparsedSegment, key: Число, parent: CSSUnparsedValue), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: CSSUnparsedSegment, key: Число, parent: CSSUnparsedValue), thisArg: /*(!) any */ Объект?? = пусто)
 
   /*(!) [index: number]: CSSUnparsedSegment*/
 }
@@ -2005,14 +2005,14 @@
 тип CSSVariableReferenceValue = интерфейс
 {
   защищено 
-  fallback: CSSUnparsedValue?FUCKFUCK
+  fallback: CSSUnparsedValue?
 
   variable: Текст
 }
 
 
 внешнее
-/*(!) var */ CSSVariableReferenceValue: объект { prototype: CSSVariableReferenceValue; при создании(variable: Текст, fallback: CSSUnparsedValue?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CSSVariableReferenceValue: объект { prototype: CSSVariableReferenceValue; при создании(variable: Текст, fallback: CSSUnparsedValue? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -2028,13 +2028,13 @@
 
   операция addAll(requests: Список<RequestInfo>): Promise<Ничего>
 
-  операция delete(request: RequestInfo | URL, options: CacheQueryOptions?FUCKFUCK = пусто): Promise<ДаНет>
+  операция delete(request: RequestInfo | URL, options: CacheQueryOptions? = пусто): Promise<ДаНет>
 
-  операция keys(request: RequestInfo | URL | пусто = пусто, options: CacheQueryOptions?FUCKFUCK = пусто): Promise<ReadonlyArray<Request>>
+  операция keys(request: RequestInfo | URL | пусто = пусто, options: CacheQueryOptions? = пусто): Promise<ReadonlyArray<Request>>
 
-  операция match(request: RequestInfo | URL, options: CacheQueryOptions?FUCKFUCK = пусто): Promise<Response?FUCKFUCK>
+  операция match(request: RequestInfo | URL, options: CacheQueryOptions? = пусто): Promise<Response?>
 
-  операция matchAll(request: RequestInfo | URL | пусто = пусто, options: CacheQueryOptions?FUCKFUCK = пусто): Promise<ReadonlyArray<Response>>
+  операция matchAll(request: RequestInfo | URL | пусто = пусто, options: CacheQueryOptions? = пусто): Promise<ReadonlyArray<Response>>
 
   операция put(request: RequestInfo | URL, response: Response): Promise<Ничего>
 }
@@ -2059,7 +2059,7 @@
 
   операция keys(): Promise<Список<Текст>>
 
-  операция match(request: RequestInfo | URL, options: MultiCacheQueryOptions?FUCKFUCK = пусто): Promise<Response?FUCKFUCK>
+  операция match(request: RequestInfo | URL, options: MultiCacheQueryOptions? = пусто): Promise<Response?>
 
   операция open(cacheName: Текст): Promise<Cache>
 }
@@ -2091,17 +2091,17 @@
 {
   операция beginPath()
 
-  операция clip(fillRule: CanvasFillRule?FUCKFUCK = пусто)
+  операция clip(fillRule: CanvasFillRule? = пусто)
 
-  операция clip(path: Path2D, fillRule: CanvasFillRule?FUCKFUCK = пусто)
+  операция clip(path: Path2D, fillRule: CanvasFillRule? = пусто)
 
-  операция fill(fillRule: CanvasFillRule?FUCKFUCK = пусто)
+  операция fill(fillRule: CanvasFillRule? = пусто)
 
-  операция fill(path: Path2D, fillRule: CanvasFillRule?FUCKFUCK = пусто)
+  операция fill(path: Path2D, fillRule: CanvasFillRule? = пусто)
 
-  операция isPointInPath(x: Число, y: Число, fillRule: CanvasFillRule?FUCKFUCK = пусто): ДаНет
+  операция isPointInPath(x: Число, y: Число, fillRule: CanvasFillRule? = пусто): ДаНет
 
-  операция isPointInPath(path: Path2D, x: Число, y: Число, fillRule: CanvasFillRule?FUCKFUCK = пусто): ДаНет
+  операция isPointInPath(path: Path2D, x: Число, y: Число, fillRule: CanvasFillRule? = пусто): ДаНет
 
   операция isPointInStroke(x: Число, y: Число): ДаНет
 
@@ -2123,7 +2123,7 @@
 
   операция createLinearGradient(x0: Число, y0: Число, x1: Число, y1: Число): CanvasGradient
 
-  операция createPattern(image: CanvasImageSource, repetition: Текст?FUCKFUCK): CanvasPattern?FUCKFUCK
+  операция createPattern(image: CanvasImageSource, repetition: Текст?): CanvasPattern?
 
   операция createRadialGradient(x0: Число, y0: Число, r0: Число, x1: Число, y1: Число, r1: Число): CanvasGradient
 }
@@ -2153,11 +2153,11 @@
 
 тип CanvasImageData = интерфейс
 {
-  операция createImageData(sw: Число, sh: Число, settings: ImageDataSettings?FUCKFUCK = пусто): ImageData
+  операция createImageData(sw: Число, sh: Число, settings: ImageDataSettings? = пусто): ImageData
 
   операция createImageData(imagedata: ImageData): ImageData
 
-  операция getImageData(sx: Число, sy: Число, sw: Число, sh: Число, settings: ImageDataSettings?FUCKFUCK = пусто): ImageData
+  операция getImageData(sx: Число, sy: Число, sw: Число, sh: Число, settings: ImageDataSettings? = пусто): ImageData
 
   операция putImageData(imagedata: ImageData, dx: Число, dy: Число)
 
@@ -2175,7 +2175,7 @@
 
 тип CanvasPath = интерфейс
 {
-  операция arc(x: Число, y: Число, radius: Число, startAngle: Число, endAngle: Число, counterclockwise: ДаНет?FUCKFUCK = пусто)
+  операция arc(x: Число, y: Число, radius: Число, startAngle: Число, endAngle: Число, counterclockwise: ДаНет? = пусто)
 
   операция arcTo(x1: Число, y1: Число, x2: Число, y2: Число, radius: Число)
 
@@ -2183,7 +2183,7 @@
 
   операция closePath()
 
-  операция ellipse(x: Число, y: Число, radiusX: Число, radiusY: Число, rotation: Число, startAngle: Число, endAngle: Число, counterclockwise: ДаНет?FUCKFUCK = пусто)
+  операция ellipse(x: Число, y: Число, radiusX: Число, radiusY: Число, rotation: Число, startAngle: Число, endAngle: Число, counterclockwise: ДаНет? = пусто)
 
   операция lineTo(x: Число, y: Число)
 
@@ -2223,7 +2223,7 @@
 
 тип CanvasPattern = интерфейс
 {
-  операция setTransform(transform: DOMMatrix2DInit?FUCKFUCK = пусто)
+  операция setTransform(transform: DOMMatrix2DInit? = пусто)
 }
 
 
@@ -2265,11 +2265,11 @@
 
 тип CanvasText = интерфейс
 {
-  операция fillText(text: Текст, x: Число, y: Число, maxWidth: Число?FUCKFUCK = пусто)
+  операция fillText(text: Текст, x: Число, y: Число, maxWidth: Число? = пусто)
 
   операция measureText(text: Текст): TextMetrics
 
-  операция strokeText(text: Текст, x: Число, y: Число, maxWidth: Число?FUCKFUCK = пусто)
+  операция strokeText(text: Текст, x: Число, y: Число, maxWidth: Число? = пусто)
 }
 
 
@@ -2299,7 +2299,7 @@
 
   операция setTransform(a: Число, b: Число, c: Число, d: Число, e: Число, f: Число)
 
-  операция setTransform(transform: DOMMatrix2DInit?FUCKFUCK = пусто)
+  операция setTransform(transform: DOMMatrix2DInit? = пусто)
 
   операция transform(a: Число, b: Число, c: Число, d: Число, e: Число, f: Число)
 
@@ -2329,7 +2329,7 @@
 
   операция postMessage(message: /*(!) any */ Объект?, transfer: Список<Transferable>)
 
-  операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions?FUCKFUCK = пусто)
+  операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions? = пусто)
 }
 
 
@@ -2347,11 +2347,11 @@
 {
   операция claim(): Promise<Ничего>
 
-  операция get(id: Текст): Promise<Client?FUCKFUCK>
+  операция get(id: Текст): Promise<Client?>
 
-  операция matchAll<T = ClientQueryOptions>(options: T?FUCKFUCK = пусто): Promise<ReadonlyArray</*(!) T["type"] extends "window" ? WindowClient : Client */ Объект?>>
+  операция matchAll<T = ClientQueryOptions>(options: T? = пусто): Promise<ReadonlyArray</*(!) T["type"] extends "window" ? WindowClient : Client */ Объект?>>
 
-  операция openWindow(url: Текст | URL): Promise<WindowClient?FUCKFUCK>
+  операция openWindow(url: Текст | URL): Promise<WindowClient?>
 }
 
 
@@ -2379,7 +2379,7 @@
 
 
 внешнее
-/*(!) var */ CloseEvent: объект { prototype: CloseEvent; при создании(type: Текст, eventInitDict: CloseEventInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CloseEvent: объект { prototype: CloseEvent; при создании(type: Текст, eventInitDict: CloseEventInit? = пусто)/*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CompressionStream) */
@@ -2425,7 +2425,7 @@
   защищено 
   subtle: SubtleCrypto
 
-  операция getRandomValues<T = ArrayBufferView?FUCKFUCK>(array: T): T
+  операция getRandomValues<T = ArrayBufferView?>(array: T): T
 
   операция randomUUID(): /*(!) `${string}-${string}-${string}-${string}-${string}` */ Объект?
 }
@@ -2469,12 +2469,12 @@
   защищено 
   detail: T
 
-  операция initCustomEvent(type: Текст, bubbles: ДаНет?FUCKFUCK = пусто, cancelable: ДаНет?FUCKFUCK = пусто, detail: T?FUCKFUCK = пусто)
+  операция initCustomEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, detail: T? = пусто)
 }
 
 
 внешнее
-/*(!) var */ CustomEvent: объект { prototype: CustomEvent; при создании(type: Текст, eventInitDict: CustomEventInit<T>?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CustomEvent: объект { prototype: CustomEvent; при создании(type: Текст, eventInitDict: CustomEventInit<T>? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -2572,7 +2572,7 @@
 
 
 внешнее
-/*(!) var */ DOMException: объект { prototype: DOMException; при создании(message: Текст?FUCKFUCK = пусто, name: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?; защищено  INDEX_SIZE_ERR: 1; защищено  DOMSTRING_SIZE_ERR: 2; защищено  HIERARCHY_REQUEST_ERR: 3; защищено  WRONG_DOCUMENT_ERR: 4; защищено  INVALID_CHARACTER_ERR: 5; защищено  NO_DATA_ALLOWED_ERR: 6; защищено  NO_MODIFICATION_ALLOWED_ERR: 7; защищено  NOT_FOUND_ERR: 8; защищено  NOT_SUPPORTED_ERR: 9; защищено  INUSE_ATTRIBUTE_ERR: 10; защищено  INVALID_STATE_ERR: 11; защищено  SYNTAX_ERR: 12; защищено  INVALID_MODIFICATION_ERR: 13; защищено  NAMESPACE_ERR: 14; защищено  INVALID_ACCESS_ERR: 15; защищено  VALIDATION_ERR: 16; защищено  TYPE_MISMATCH_ERR: 17; защищено  SECURITY_ERR: 18; защищено  NETWORK_ERR: 19; защищено  ABORT_ERR: 20; защищено  URL_MISMATCH_ERR: 21; защищено  QUOTA_EXCEEDED_ERR: 22; защищено  TIMEOUT_ERR: 23; защищено  INVALID_NODE_TYPE_ERR: 24; защищено  DATA_CLONE_ERR: 25 }
+/*(!) var */ DOMException: объект { prototype: DOMException; при создании(message: Текст? = пусто, name: Текст? = пусто)/*(!) no_type */ Объект?; защищено  INDEX_SIZE_ERR: 1; защищено  DOMSTRING_SIZE_ERR: 2; защищено  HIERARCHY_REQUEST_ERR: 3; защищено  WRONG_DOCUMENT_ERR: 4; защищено  INVALID_CHARACTER_ERR: 5; защищено  NO_DATA_ALLOWED_ERR: 6; защищено  NO_MODIFICATION_ALLOWED_ERR: 7; защищено  NOT_FOUND_ERR: 8; защищено  NOT_SUPPORTED_ERR: 9; защищено  INUSE_ATTRIBUTE_ERR: 10; защищено  INVALID_STATE_ERR: 11; защищено  SYNTAX_ERR: 12; защищено  INVALID_MODIFICATION_ERR: 13; защищено  NAMESPACE_ERR: 14; защищено  INVALID_ACCESS_ERR: 15; защищено  VALIDATION_ERR: 16; защищено  TYPE_MISMATCH_ERR: 17; защищено  SECURITY_ERR: 18; защищено  NETWORK_ERR: 19; защищено  ABORT_ERR: 20; защищено  URL_MISMATCH_ERR: 21; защищено  QUOTA_EXCEEDED_ERR: 22; защищено  TIMEOUT_ERR: 23; защищено  INVALID_NODE_TYPE_ERR: 24; защищено  DATA_CLONE_ERR: 25 }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMMatrix) */
@@ -2625,30 +2625,30 @@
 
   операция invertSelf(): DOMMatrix
 
-  операция multiplySelf(other: DOMMatrixInit?FUCKFUCK = пусто): DOMMatrix
+  операция multiplySelf(other: DOMMatrixInit? = пусто): DOMMatrix
 
-  операция preMultiplySelf(other: DOMMatrixInit?FUCKFUCK = пусто): DOMMatrix
+  операция preMultiplySelf(other: DOMMatrixInit? = пусто): DOMMatrix
 
-  операция rotateAxisAngleSelf(x: Число?FUCKFUCK = пусто, y: Число?FUCKFUCK = пусто, z: Число?FUCKFUCK = пусто, angle: Число?FUCKFUCK = пусто): DOMMatrix
+  операция rotateAxisAngleSelf(x: Число? = пусто, y: Число? = пусто, z: Число? = пусто, angle: Число? = пусто): DOMMatrix
 
-  операция rotateFromVectorSelf(x: Число?FUCKFUCK = пусто, y: Число?FUCKFUCK = пусто): DOMMatrix
+  операция rotateFromVectorSelf(x: Число? = пусто, y: Число? = пусто): DOMMatrix
 
-  операция rotateSelf(rotX: Число?FUCKFUCK = пусто, rotY: Число?FUCKFUCK = пусто, rotZ: Число?FUCKFUCK = пусто): DOMMatrix
+  операция rotateSelf(rotX: Число? = пусто, rotY: Число? = пусто, rotZ: Число? = пусто): DOMMatrix
 
-  операция scale3dSelf(scale: Число?FUCKFUCK = пусто, originX: Число?FUCKFUCK = пусто, originY: Число?FUCKFUCK = пусто, originZ: Число?FUCKFUCK = пусто): DOMMatrix
+  операция scale3dSelf(scale: Число? = пусто, originX: Число? = пусто, originY: Число? = пусто, originZ: Число? = пусто): DOMMatrix
 
-  операция scaleSelf(scaleX: Число?FUCKFUCK = пусто, scaleY: Число?FUCKFUCK = пусто, scaleZ: Число?FUCKFUCK = пусто, originX: Число?FUCKFUCK = пусто, originY: Число?FUCKFUCK = пусто, originZ: Число?FUCKFUCK = пусто): DOMMatrix
+  операция scaleSelf(scaleX: Число? = пусто, scaleY: Число? = пусто, scaleZ: Число? = пусто, originX: Число? = пусто, originY: Число? = пусто, originZ: Число? = пусто): DOMMatrix
 
-  операция skewXSelf(sx: Число?FUCKFUCK = пусто): DOMMatrix
+  операция skewXSelf(sx: Число? = пусто): DOMMatrix
 
-  операция skewYSelf(sy: Число?FUCKFUCK = пусто): DOMMatrix
+  операция skewYSelf(sy: Число? = пусто): DOMMatrix
 
-  операция translateSelf(tx: Число?FUCKFUCK = пусто, ty: Число?FUCKFUCK = пусто, tz: Число?FUCKFUCK = пусто): DOMMatrix
+  операция translateSelf(tx: Число? = пусто, ty: Число? = пусто, tz: Число? = пусто): DOMMatrix
 }
 
 
 внешнее
-/*(!) var */ DOMMatrix: объект { prototype: DOMMatrix; при создании(init: Текст | Список<Число> | пусто = пусто)/*(!) no_type */ Объект?; операция fromFloat32Array(array32: Float32Array): DOMMatrix; операция fromFloat64Array(array64: Float64Array): DOMMatrix; операция fromMatrix(other: DOMMatrixInit?FUCKFUCK = пусто): DOMMatrix }
+/*(!) var */ DOMMatrix: объект { prototype: DOMMatrix; при создании(init: Текст | Список<Число> | пусто = пусто)/*(!) no_type */ Объект?; операция fromFloat32Array(array32: Float32Array): DOMMatrix; операция fromFloat64Array(array64: Float64Array): DOMMatrix; операция fromMatrix(other: DOMMatrixInit? = пусто): DOMMatrix }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMMatrixReadOnly) */
@@ -2733,23 +2733,23 @@
 
   операция inverse(): DOMMatrix
 
-  операция multiply(other: DOMMatrixInit?FUCKFUCK = пусто): DOMMatrix
+  операция multiply(other: DOMMatrixInit? = пусто): DOMMatrix
 
-  операция rotate(rotX: Число?FUCKFUCK = пусто, rotY: Число?FUCKFUCK = пусто, rotZ: Число?FUCKFUCK = пусто): DOMMatrix
+  операция rotate(rotX: Число? = пусто, rotY: Число? = пусто, rotZ: Число? = пусто): DOMMatrix
 
-  операция rotateAxisAngle(x: Число?FUCKFUCK = пусто, y: Число?FUCKFUCK = пусто, z: Число?FUCKFUCK = пусто, angle: Число?FUCKFUCK = пусто): DOMMatrix
+  операция rotateAxisAngle(x: Число? = пусто, y: Число? = пусто, z: Число? = пусто, angle: Число? = пусто): DOMMatrix
 
-  операция rotateFromVector(x: Число?FUCKFUCK = пусто, y: Число?FUCKFUCK = пусто): DOMMatrix
+  операция rotateFromVector(x: Число? = пусто, y: Число? = пусто): DOMMatrix
 
-  операция scale(scaleX: Число?FUCKFUCK = пусто, scaleY: Число?FUCKFUCK = пусто, scaleZ: Число?FUCKFUCK = пусто, originX: Число?FUCKFUCK = пусто, originY: Число?FUCKFUCK = пусто, originZ: Число?FUCKFUCK = пусто): DOMMatrix
+  операция scale(scaleX: Число? = пусто, scaleY: Число? = пусто, scaleZ: Число? = пусто, originX: Число? = пусто, originY: Число? = пусто, originZ: Число? = пусто): DOMMatrix
 
-  операция scale3d(scale: Число?FUCKFUCK = пусто, originX: Число?FUCKFUCK = пусто, originY: Число?FUCKFUCK = пусто, originZ: Число?FUCKFUCK = пусто): DOMMatrix
+  операция scale3d(scale: Число? = пусто, originX: Число? = пусто, originY: Число? = пусто, originZ: Число? = пусто): DOMMatrix
 
-  операция scaleNonUniform(scaleX: Число?FUCKFUCK = пусто, scaleY: Число?FUCKFUCK = пусто): DOMMatrix
+  операция scaleNonUniform(scaleX: Число? = пусто, scaleY: Число? = пусто): DOMMatrix
 
-  операция skewX(sx: Число?FUCKFUCK = пусто): DOMMatrix
+  операция skewX(sx: Число? = пусто): DOMMatrix
 
-  операция skewY(sy: Число?FUCKFUCK = пусто): DOMMatrix
+  операция skewY(sy: Число? = пусто): DOMMatrix
 
   операция toFloat32Array(): Float32Array
 
@@ -2757,14 +2757,14 @@
 
   операция toJSON(): /*(!) any */ Объект?
 
-  операция transformPoint(point: DOMPointInit?FUCKFUCK = пусто): DOMPoint
+  операция transformPoint(point: DOMPointInit? = пусто): DOMPoint
 
-  операция translate(tx: Число?FUCKFUCK = пусто, ty: Число?FUCKFUCK = пусто, tz: Число?FUCKFUCK = пусто): DOMMatrix
+  операция translate(tx: Число? = пусто, ty: Число? = пусто, tz: Число? = пусто): DOMMatrix
 }
 
 
 внешнее
-/*(!) var */ DOMMatrixReadOnly: объект { prototype: DOMMatrixReadOnly; при создании(init: Текст | Список<Число> | пусто = пусто)/*(!) no_type */ Объект?; операция fromFloat32Array(array32: Float32Array): DOMMatrixReadOnly; операция fromFloat64Array(array64: Float64Array): DOMMatrixReadOnly; операция fromMatrix(other: DOMMatrixInit?FUCKFUCK = пусто): DOMMatrixReadOnly }
+/*(!) var */ DOMMatrixReadOnly: объект { prototype: DOMMatrixReadOnly; при создании(init: Текст | Список<Число> | пусто = пусто)/*(!) no_type */ Объект?; операция fromFloat32Array(array32: Float32Array): DOMMatrixReadOnly; операция fromFloat64Array(array64: Float64Array): DOMMatrixReadOnly; операция fromMatrix(other: DOMMatrixInit? = пусто): DOMMatrixReadOnly }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMPoint) */
@@ -2782,7 +2782,7 @@
 
 
 внешнее
-/*(!) var */ DOMPoint: объект { prototype: DOMPoint; при создании(x: Число?FUCKFUCK = пусто, y: Число?FUCKFUCK = пусто, z: Число?FUCKFUCK = пусто, w: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?; операция fromPoint(other: DOMPointInit?FUCKFUCK = пусто): DOMPoint }
+/*(!) var */ DOMPoint: объект { prototype: DOMPoint; при создании(x: Число? = пусто, y: Число? = пусто, z: Число? = пусто, w: Число? = пусто)/*(!) no_type */ Объект?; операция fromPoint(other: DOMPointInit? = пусто): DOMPoint }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMPointReadOnly) */
@@ -2801,14 +2801,14 @@
   защищено 
   z: Число
 
-  операция matrixTransform(matrix: DOMMatrixInit?FUCKFUCK = пусто): DOMPoint
+  операция matrixTransform(matrix: DOMMatrixInit? = пусто): DOMPoint
 
   операция toJSON(): /*(!) any */ Объект?
 }
 
 
 внешнее
-/*(!) var */ DOMPointReadOnly: объект { prototype: DOMPointReadOnly; при создании(x: Число?FUCKFUCK = пусто, y: Число?FUCKFUCK = пусто, z: Число?FUCKFUCK = пусто, w: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?; операция fromPoint(other: DOMPointInit?FUCKFUCK = пусто): DOMPointReadOnly }
+/*(!) var */ DOMPointReadOnly: объект { prototype: DOMPointReadOnly; при создании(x: Число? = пусто, y: Число? = пусто, z: Число? = пусто, w: Число? = пусто)/*(!) no_type */ Объект?; операция fromPoint(other: DOMPointInit? = пусто): DOMPointReadOnly }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMQuad) */
@@ -2834,7 +2834,7 @@
 
 
 внешнее
-/*(!) var */ DOMQuad: объект { prototype: DOMQuad; при создании(p1: DOMPointInit?FUCKFUCK = пусто, p2: DOMPointInit?FUCKFUCK = пусто, p3: DOMPointInit?FUCKFUCK = пусто, p4: DOMPointInit?FUCKFUCK = пусто)/*(!) no_type */ Объект?; операция fromQuad(other: DOMQuadInit?FUCKFUCK = пусто): DOMQuad; операция fromRect(other: DOMRectInit?FUCKFUCK = пусто): DOMQuad }
+/*(!) var */ DOMQuad: объект { prototype: DOMQuad; при создании(p1: DOMPointInit? = пусто, p2: DOMPointInit? = пусто, p3: DOMPointInit? = пусто, p4: DOMPointInit? = пусто)/*(!) no_type */ Объект?; операция fromQuad(other: DOMQuadInit? = пусто): DOMQuad; операция fromRect(other: DOMRectInit? = пусто): DOMQuad }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMRect) */
@@ -2852,7 +2852,7 @@
 
 
 внешнее
-/*(!) var */ DOMRect: объект { prototype: DOMRect; при создании(x: Число?FUCKFUCK = пусто, y: Число?FUCKFUCK = пусто, width: Число?FUCKFUCK = пусто, height: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?; операция fromRect(other: DOMRectInit?FUCKFUCK = пусто): DOMRect }
+/*(!) var */ DOMRect: объект { prototype: DOMRect; при создании(x: Число? = пусто, y: Число? = пусто, width: Число? = пусто, height: Число? = пусто)/*(!) no_type */ Объект?; операция fromRect(other: DOMRectInit? = пусто): DOMRect }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMRectReadOnly) */
@@ -2888,7 +2888,7 @@
 
 
 внешнее
-/*(!) var */ DOMRectReadOnly: объект { prototype: DOMRectReadOnly; при создании(x: Число?FUCKFUCK = пусто, y: Число?FUCKFUCK = пусто, width: Число?FUCKFUCK = пусто, height: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?; операция fromRect(other: DOMRectInit?FUCKFUCK = пусто): DOMRectReadOnly }
+/*(!) var */ DOMRectReadOnly: объект { prototype: DOMRectReadOnly; при создании(x: Число? = пусто, y: Число? = пусто, width: Число? = пусто, height: Число? = пусто)/*(!) no_type */ Объект?; операция fromRect(other: DOMRectInit? = пусто): DOMRectReadOnly }
 
 
 /**
@@ -2904,7 +2904,7 @@
 
   операция contains(string: Текст): ДаНет
 
-  операция item(index: Число): Текст?FUCKFUCK
+  операция item(index: Число): Текст?
 
   /*(!) [index: number]: string*/
 }
@@ -2945,15 +2945,15 @@
   защищено 
   name: Текст
 
-  onmessage: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessage: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
 
-  onmessageerror: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessageerror: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
 
   операция close()
 
   операция postMessage(message: /*(!) any */ Объект?, transfer: Список<Transferable>)
 
-  операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions?FUCKFUCK = пусто)
+  операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions? = пусто)
 
   операция addEventListener<K = /*(!) keyof DedicatedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: DedicatedWorkerGlobalScope, ev: /*(!) DedicatedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -3143,7 +3143,7 @@
   byteLength: Число
 
   защищено 
-  duration: Число?FUCKFUCK
+  duration: Число?
 
   защищено 
   timestamp: Число
@@ -3185,7 +3185,7 @@
 
 
 внешнее
-/*(!) var */ ErrorEvent: объект { prototype: ErrorEvent; при создании(type: Текст, eventInitDict: ErrorEventInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ErrorEvent: объект { prototype: ErrorEvent; при создании(type: Текст, eventInitDict: ErrorEventInit? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -3208,7 +3208,7 @@
   composed: ДаНет
 
   защищено 
-  currentTarget: EventTarget?FUCKFUCK
+  currentTarget: EventTarget?
 
   защищено 
   defaultPrevented: ДаНет
@@ -3222,10 +3222,10 @@
   returnValue: ДаНет
 
   защищено 
-  srcElement: EventTarget?FUCKFUCK
+  srcElement: EventTarget?
 
   защищено 
-  target: EventTarget?FUCKFUCK
+  target: EventTarget?
 
   защищено 
   timeStamp: DOMHighResTimeStamp
@@ -3235,7 +3235,7 @@
 
   операция composedPath(): Список<EventTarget>
 
-  операция initEvent(type: Текст, bubbles: ДаНет?FUCKFUCK = пусто, cancelable: ДаНет?FUCKFUCK = пусто)
+  операция initEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто)
 
   операция preventDefault()
 
@@ -3258,7 +3258,7 @@
 
 
 внешнее
-/*(!) var */ Event: объект { prototype: Event; при создании(type: Текст, eventInitDict: EventInit?FUCKFUCK = пусто)/*(!) no_type */ Объект?; защищено  NONE: 0; защищено  CAPTURING_PHASE: 1; защищено  AT_TARGET: 2; защищено  BUBBLING_PHASE: 3 }
+/*(!) var */ Event: объект { prototype: Event; при создании(type: Текст, eventInitDict: EventInit? = пусто)/*(!) no_type */ Объект?; защищено  NONE: 0; защищено  CAPTURING_PHASE: 1; защищено  AT_TARGET: 2; защищено  BUBBLING_PHASE: 3 }
 
 
 тип EventListener = интерфейс
@@ -3287,11 +3287,11 @@
 
 тип EventSource = интерфейс
 {
-  onerror: операция(this: EventSource, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onerror: операция(this: EventSource, ev: Event): /*(!) any */ Объект??
 
-  onmessage: операция(this: EventSource, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessage: операция(this: EventSource, ev: MessageEvent): /*(!) any */ Объект??
 
-  onopen: операция(this: EventSource, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onopen: операция(this: EventSource, ev: Event): /*(!) any */ Объект??
 
   защищено 
   readyState: Число
@@ -3328,7 +3328,7 @@
 
 
 внешнее
-/*(!) var */ EventSource: объект { prototype: EventSource; при создании(url: Текст | URL, eventSourceInitDict: EventSourceInit?FUCKFUCK = пусто)/*(!) no_type */ Объект?; защищено  CONNECTING: 0; защищено  OPEN: 1; защищено  CLOSED: 2 }
+/*(!) var */ EventSource: объект { prototype: EventSource; при создании(url: Текст | URL, eventSourceInitDict: EventSourceInit? = пусто)/*(!) no_type */ Объект?; защищено  CONNECTING: 0; защищено  OPEN: 1; защищено  CLOSED: 2 }
 
 
 /**
@@ -3339,11 +3339,11 @@
 
 тип EventTarget = интерфейс
 {
-  операция addEventListener(type: Текст, callback: EventListenerOrEventListenerObject?FUCKFUCK, options: AddEventListenerOptions | ДаНет | пусто = пусто)
+  операция addEventListener(type: Текст, callback: EventListenerOrEventListenerObject?, options: AddEventListenerOptions | ДаНет | пусто = пусто)
 
   операция dispatchEvent(event: Event): ДаНет
 
-  операция removeEventListener(type: Текст, callback: EventListenerOrEventListenerObject?FUCKFUCK, options: EventListenerOptions | ДаНет | пусто = пусто)
+  операция removeEventListener(type: Текст, callback: EventListenerOrEventListenerObject?, options: EventListenerOptions | ДаНет | пусто = пусто)
 }
 
 
@@ -3364,7 +3364,7 @@
 
 
 внешнее
-/*(!) var */ ExtendableEvent: объект { prototype: ExtendableEvent; при создании(type: Текст, eventInitDict: ExtendableEventInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ExtendableEvent: объект { prototype: ExtendableEvent; при создании(type: Текст, eventInitDict: ExtendableEventInit? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -3393,7 +3393,7 @@
 
 
 внешнее
-/*(!) var */ ExtendableMessageEvent: объект { prototype: ExtendableMessageEvent; при создании(type: Текст, eventInitDict: ExtendableMessageEventInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ExtendableMessageEvent: объект { prototype: ExtendableMessageEvent; при создании(type: Текст, eventInitDict: ExtendableMessageEventInit? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -3447,7 +3447,7 @@
 
 
 внешнее
-/*(!) var */ File: объект { prototype: File; при создании(fileBits: Список<BlobPart>, fileName: Текст, options: FilePropertyBag?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ File: объект { prototype: File; при создании(fileBits: Список<BlobPart>, fileName: Текст, options: FilePropertyBag? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -3461,7 +3461,7 @@
   защищено 
   length: Число
 
-  операция item(index: Число): File?FUCKFUCK
+  операция item(index: Число): File?
 
   /*(!) [index: number]: File*/
 }
@@ -3496,19 +3496,19 @@
 тип FileReader = интерфейс
 {
   защищено 
-  error: DOMException?FUCKFUCK
+  error: DOMException?
 
-  onabort: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??FUCKFUCK
+  onabort: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
 
-  onerror: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??FUCKFUCK
+  onerror: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
 
-  onload: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??FUCKFUCK
+  onload: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
 
-  onloadend: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??FUCKFUCK
+  onloadend: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
 
-  onloadstart: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??FUCKFUCK
+  onloadstart: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
 
-  onprogress: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??FUCKFUCK
+  onprogress: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
 
   защищено 
   readyState: /*(!) typeof FileReader.EMPTY */ Объект? | /*(!) typeof FileReader.LOADING */ Объект? | /*(!) typeof FileReader.DONE */ Объект?
@@ -3524,7 +3524,7 @@
 
   операция readAsDataURL(blob: Blob)
 
-  операция readAsText(blob: Blob, encoding: Текст?FUCKFUCK = пусто)
+  операция readAsText(blob: Blob, encoding: Текст? = пусто)
 
   защищено 
   EMPTY: 0
@@ -3563,7 +3563,7 @@
 
   операция readAsDataURL(blob: Blob): Текст
 
-  операция readAsText(blob: Blob, encoding: Текст?FUCKFUCK = пусто): Текст
+  операция readAsText(blob: Blob, encoding: Текст? = пусто): Текст
 }
 
 
@@ -3582,13 +3582,13 @@
   защищено 
   kind: "directory"
 
-  операция getDirectoryHandle(name: Текст, options: FileSystemGetDirectoryOptions?FUCKFUCK = пусто): Promise<FileSystemDirectoryHandle>
+  операция getDirectoryHandle(name: Текст, options: FileSystemGetDirectoryOptions? = пусто): Promise<FileSystemDirectoryHandle>
 
-  операция getFileHandle(name: Текст, options: FileSystemGetFileOptions?FUCKFUCK = пусто): Promise<FileSystemFileHandle>
+  операция getFileHandle(name: Текст, options: FileSystemGetFileOptions? = пусто): Promise<FileSystemFileHandle>
 
-  операция removeEntry(name: Текст, options: FileSystemRemoveOptions?FUCKFUCK = пусто): Promise<Ничего>
+  операция removeEntry(name: Текст, options: FileSystemRemoveOptions? = пусто): Promise<Ничего>
 
-  операция resolve(possibleDescendant: FileSystemHandle): Promise<Список<Текст>?FUCKFUCK>
+  операция resolve(possibleDescendant: FileSystemHandle): Promise<Список<Текст>?>
 }
 
 
@@ -3609,7 +3609,7 @@
 
   операция createSyncAccessHandle(): Promise<FileSystemSyncAccessHandle>
 
-  операция createWritable(options: FileSystemCreateWritableOptions?FUCKFUCK = пусто): Promise<FileSystemWritableFileStream>
+  операция createWritable(options: FileSystemCreateWritableOptions? = пусто): Promise<FileSystemWritableFileStream>
 
   операция getFile(): Promise<File>
 }
@@ -3655,11 +3655,11 @@
 
   операция getSize(): Число
 
-  операция read(buffer: AllowSharedBufferSource, options: FileSystemReadWriteOptions?FUCKFUCK = пусто): Число
+  операция read(buffer: AllowSharedBufferSource, options: FileSystemReadWriteOptions? = пусто): Число
 
   операция truncate(newSize: Число)
 
-  операция write(buffer: AllowSharedBufferSource, options: FileSystemReadWriteOptions?FUCKFUCK = пусто): Число
+  операция write(buffer: AllowSharedBufferSource, options: FileSystemReadWriteOptions? = пусто): Число
 }
 
 
@@ -3724,7 +3724,7 @@
 
 
 внешнее
-/*(!) var */ FontFace: объект { prototype: FontFace; при создании(family: Текст, source: Текст | BinaryData, descriptors: FontFaceDescriptors?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ FontFace: объект { prototype: FontFace; при создании(family: Текст, source: Текст | BinaryData, descriptors: FontFaceDescriptors? = пусто)/*(!) no_type */ Объект? }
 
 
 тип FontFaceSetEventMap = интерфейс
@@ -3741,11 +3741,11 @@
 
 тип FontFaceSet = интерфейс
 {
-  onloading: операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onloading: операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект??
 
-  onloadingdone: операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onloadingdone: операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект??
 
-  onloadingerror: операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onloadingerror: операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект??
 
   защищено 
   ready: Promise<FontFaceSet>
@@ -3753,11 +3753,11 @@
   защищено 
   status: FontFaceSetLoadStatus
 
-  операция check(font: Текст, text: Текст?FUCKFUCK = пусто): ДаНет
+  операция check(font: Текст, text: Текст? = пусто): ДаНет
 
-  операция load(font: Текст, text: Текст?FUCKFUCK = пусто): Promise<Список<FontFace>>
+  операция load(font: Текст, text: Текст? = пусто): Promise<Список<FontFace>>
 
-  операция forEach(callbackfn: операция(value: FontFace, key: FontFace, parent: FontFaceSet), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: FontFace, key: FontFace, parent: FontFaceSet), thisArg: /*(!) any */ Объект?? = пусто)
 
   операция addEventListener<K = /*(!) keyof FontFaceSetEventMap */ Объект?>(type: K, listener: операция(this: FontFaceSet, ev: /*(!) FontFaceSetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -3783,7 +3783,7 @@
 
 
 внешнее
-/*(!) var */ FontFaceSetLoadEvent: объект { prototype: FontFaceSetLoadEvent; при создании(type: Текст, eventInitDict: FontFaceSetLoadEventInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ FontFaceSetLoadEvent: объект { prototype: FontFaceSetLoadEvent; при создании(type: Текст, eventInitDict: FontFaceSetLoadEventInit? = пусто)/*(!) no_type */ Объект? }
 
 
 тип FontFaceSource = интерфейс
@@ -3805,11 +3805,11 @@
 
   операция append(name: Текст, value: Текст)
 
-  операция append(name: Текст, blobValue: Blob, filename: Текст?FUCKFUCK = пусто)
+  операция append(name: Текст, blobValue: Blob, filename: Текст? = пусто)
 
   операция delete(name: Текст)
 
-  операция get(name: Текст): FormDataEntryValue?FUCKFUCK
+  операция get(name: Текст): FormDataEntryValue?
 
   операция getAll(name: Текст): Список<FormDataEntryValue>
 
@@ -3819,9 +3819,9 @@
 
   операция set(name: Текст, value: Текст)
 
-  операция set(name: Текст, blobValue: Blob, filename: Текст?FUCKFUCK = пусто)
+  операция set(name: Текст, blobValue: Blob, filename: Текст? = пусто)
 
-  операция forEach(callbackfn: операция(value: FormDataEntryValue, key: Текст, parent: FormData), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: FormDataEntryValue, key: Текст, parent: FormData), thisArg: /*(!) any */ Объект?? = пусто)
 }
 
 
@@ -3851,7 +3851,7 @@
 
   операция delete(name: Текст)
 
-  операция get(name: Текст): Текст?FUCKFUCK
+  операция get(name: Текст): Текст?
 
   операция getSetCookie(): Список<Текст>
 
@@ -3859,12 +3859,12 @@
 
   операция set(name: Текст, value: Текст)
 
-  операция forEach(callbackfn: операция(value: Текст, key: Текст, parent: Headers), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Текст, key: Текст, parent: Headers), thisArg: /*(!) any */ Объект?? = пусто)
 }
 
 
 внешнее
-/*(!) var */ Headers: объект { prototype: Headers; при создании(init: HeadersInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Headers: объект { prototype: Headers; при создании(init: HeadersInit? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -3892,7 +3892,7 @@
 
   операция advance(count: Число)
 
-  операция continue(key: IDBValidKey?FUCKFUCK = пусто)
+  операция continue(key: IDBValidKey? = пусто)
 
   операция continuePrimaryKey(key: IDBValidKey, primaryKey: IDBValidKey)
 
@@ -3949,24 +3949,24 @@
   защищено 
   objectStoreNames: DOMStringList
 
-  onabort: операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onabort: операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект??
 
-  onclose: операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onclose: операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект??
 
-  onerror: операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onerror: операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект??
 
-  onversionchange: операция(this: IDBDatabase, ev: IDBVersionChangeEvent): /*(!) any */ Объект??FUCKFUCK
+  onversionchange: операция(this: IDBDatabase, ev: IDBVersionChangeEvent): /*(!) any */ Объект??
 
   защищено 
   version: Число
 
   операция close()
 
-  операция createObjectStore(name: Текст, options: IDBObjectStoreParameters?FUCKFUCK = пусто): IDBObjectStore
+  операция createObjectStore(name: Текст, options: IDBObjectStoreParameters? = пусто): IDBObjectStore
 
   операция deleteObjectStore(name: Текст)
 
-  операция transaction(storeNames: Текст | Список<Текст>, mode: IDBTransactionMode?FUCKFUCK = пусто, options: IDBTransactionOptions?FUCKFUCK = пусто): IDBTransaction
+  операция transaction(storeNames: Текст | Список<Текст>, mode: IDBTransactionMode? = пусто, options: IDBTransactionOptions? = пусто): IDBTransaction
 
   операция addEventListener<K = /*(!) keyof IDBDatabaseEventMap */ Объект?>(type: K, listener: операция(this: IDBDatabase, ev: /*(!) IDBDatabaseEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -3996,7 +3996,7 @@
 
   операция deleteDatabase(name: Текст): IDBOpenDBRequest
 
-  операция open(name: Текст, version: Число?FUCKFUCK = пусто): IDBOpenDBRequest
+  операция open(name: Текст, version: Число? = пусто): IDBOpenDBRequest
 }
 
 
@@ -4030,15 +4030,15 @@
 
   операция get(query: IDBValidKey | IDBKeyRange): IDBRequest</*(!) any */ Объект?>
 
-  операция getAll(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число?FUCKFUCK = пусто): IDBRequest<Список</*(!) any */ Объект?>>
+  операция getAll(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число? = пусто): IDBRequest<Список</*(!) any */ Объект?>>
 
-  операция getAllKeys(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число?FUCKFUCK = пусто): IDBRequest<Список<IDBValidKey>>
+  операция getAllKeys(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число? = пусто): IDBRequest<Список<IDBValidKey>>
 
-  операция getKey(query: IDBValidKey | IDBKeyRange): IDBRequest<IDBValidKey?FUCKFUCK>
+  операция getKey(query: IDBValidKey | IDBKeyRange): IDBRequest<IDBValidKey?>
 
-  операция openCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection?FUCKFUCK = пусто): IDBRequest<IDBCursorWithValue?FUCKFUCK>
+  операция openCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursorWithValue?>
 
-  операция openKeyCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection?FUCKFUCK = пусто): IDBRequest<IDBCursor?FUCKFUCK>
+  операция openKeyCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursor?>
 }
 
 
@@ -4071,7 +4071,7 @@
 
 
 внешнее
-/*(!) var */ IDBKeyRange: объект { prototype: IDBKeyRange; при создании()/*(!) no_type */ Объект?; операция bound(lower: /*(!) any */ Объект?, upper: /*(!) any */ Объект?, lowerOpen: ДаНет?FUCKFUCK = пусто, upperOpen: ДаНет?FUCKFUCK = пусто): IDBKeyRange; операция lowerBound(lower: /*(!) any */ Объект?, open: ДаНет?FUCKFUCK = пусто): IDBKeyRange; операция only(value: /*(!) any */ Объект?): IDBKeyRange; операция upperBound(upper: /*(!) any */ Объект?, open: ДаНет?FUCKFUCK = пусто): IDBKeyRange }
+/*(!) var */ IDBKeyRange: объект { prototype: IDBKeyRange; при создании()/*(!) no_type */ Объект?; операция bound(lower: /*(!) any */ Объект?, upper: /*(!) any */ Объект?, lowerOpen: ДаНет? = пусто, upperOpen: ДаНет? = пусто): IDBKeyRange; операция lowerBound(lower: /*(!) any */ Объект?, open: ДаНет? = пусто): IDBKeyRange; операция only(value: /*(!) any */ Объект?): IDBKeyRange; операция upperBound(upper: /*(!) any */ Объект?, open: ДаНет? = пусто): IDBKeyRange }
 
 
 /**
@@ -4096,13 +4096,13 @@
   защищено 
   transaction: IDBTransaction
 
-  операция add(value: /*(!) any */ Объект?, key: IDBValidKey?FUCKFUCK = пусто): IDBRequest<IDBValidKey>
+  операция add(value: /*(!) any */ Объект?, key: IDBValidKey? = пусто): IDBRequest<IDBValidKey>
 
   операция clear(): IDBRequest<пусто>
 
   операция count(query: IDBValidKey | IDBKeyRange | пусто = пусто): IDBRequest<Число>
 
-  операция createIndex(name: Текст, keyPath: Текст | Список<Текст>, options: IDBIndexParameters?FUCKFUCK = пусто): IDBIndex
+  операция createIndex(name: Текст, keyPath: Текст | Список<Текст>, options: IDBIndexParameters? = пусто): IDBIndex
 
   операция delete(query: IDBValidKey | IDBKeyRange): IDBRequest<пусто>
 
@@ -4110,19 +4110,19 @@
 
   операция get(query: IDBValidKey | IDBKeyRange): IDBRequest</*(!) any */ Объект?>
 
-  операция getAll(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число?FUCKFUCK = пусто): IDBRequest<Список</*(!) any */ Объект?>>
+  операция getAll(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число? = пусто): IDBRequest<Список</*(!) any */ Объект?>>
 
-  операция getAllKeys(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число?FUCKFUCK = пусто): IDBRequest<Список<IDBValidKey>>
+  операция getAllKeys(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число? = пусто): IDBRequest<Список<IDBValidKey>>
 
-  операция getKey(query: IDBValidKey | IDBKeyRange): IDBRequest<IDBValidKey?FUCKFUCK>
+  операция getKey(query: IDBValidKey | IDBKeyRange): IDBRequest<IDBValidKey?>
 
   операция index(name: Текст): IDBIndex
 
-  операция openCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection?FUCKFUCK = пусто): IDBRequest<IDBCursorWithValue?FUCKFUCK>
+  операция openCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursorWithValue?>
 
-  операция openKeyCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection?FUCKFUCK = пусто): IDBRequest<IDBCursor?FUCKFUCK>
+  операция openKeyCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursor?>
 
-  операция put(value: /*(!) any */ Объект?, key: IDBValidKey?FUCKFUCK = пусто): IDBRequest<IDBValidKey>
+  операция put(value: /*(!) any */ Объект?, key: IDBValidKey? = пусто): IDBRequest<IDBValidKey>
 }
 
 
@@ -4146,9 +4146,9 @@
 
 тип IDBOpenDBRequest = интерфейс
 {
-  onblocked: операция(this: IDBOpenDBRequest, ev: IDBVersionChangeEvent): /*(!) any */ Объект??FUCKFUCK
+  onblocked: операция(this: IDBOpenDBRequest, ev: IDBVersionChangeEvent): /*(!) any */ Объект??
 
-  onupgradeneeded: операция(this: IDBOpenDBRequest, ev: IDBVersionChangeEvent): /*(!) any */ Объект??FUCKFUCK
+  onupgradeneeded: операция(this: IDBOpenDBRequest, ev: IDBVersionChangeEvent): /*(!) any */ Объект??
 
   операция addEventListener<K = /*(!) keyof IDBOpenDBRequestEventMap */ Объект?>(type: K, listener: операция(this: IDBOpenDBRequest, ev: /*(!) IDBOpenDBRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -4181,11 +4181,11 @@
 тип IDBRequest<T> = интерфейс
 {
   защищено 
-  error: DOMException?FUCKFUCK
+  error: DOMException?
 
-  onerror: операция(this: IDBRequest<T>, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onerror: операция(this: IDBRequest<T>, ev: Event): /*(!) any */ Объект??
 
-  onsuccess: операция(this: IDBRequest<T>, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onsuccess: операция(this: IDBRequest<T>, ev: Event): /*(!) any */ Объект??
 
   защищено 
   readyState: IDBRequestReadyState
@@ -4197,7 +4197,7 @@
   source: IDBObjectStore | IDBIndex | IDBCursor
 
   защищено 
-  transaction: IDBTransaction?FUCKFUCK
+  transaction: IDBTransaction?
 
   операция addEventListener<K = /*(!) keyof IDBRequestEventMap */ Объект?>(type: K, listener: операция(this: IDBRequest<T>, ev: /*(!) IDBRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -4234,7 +4234,7 @@
   durability: IDBTransactionDurability
 
   защищено 
-  error: DOMException?FUCKFUCK
+  error: DOMException?
 
   защищено 
   mode: IDBTransactionMode
@@ -4242,11 +4242,11 @@
   защищено 
   objectStoreNames: DOMStringList
 
-  onabort: операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onabort: операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект??
 
-  oncomplete: операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  oncomplete: операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект??
 
-  onerror: операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onerror: операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект??
 
   операция abort()
 
@@ -4277,7 +4277,7 @@
 тип IDBVersionChangeEvent = интерфейс
 {
   защищено 
-  newVersion: Число?FUCKFUCK
+  newVersion: Число?
 
   защищено 
   oldVersion: Число
@@ -4285,7 +4285,7 @@
 
 
 внешнее
-/*(!) var */ IDBVersionChangeEvent: объект { prototype: IDBVersionChangeEvent; при создании(type: Текст, eventInitDict: IDBVersionChangeEventInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ IDBVersionChangeEvent: объект { prototype: IDBVersionChangeEvent; при создании(type: Текст, eventInitDict: IDBVersionChangeEventInit? = пусто)/*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ImageBitmap) */
@@ -4310,7 +4310,7 @@
 
 тип ImageBitmapRenderingContext = интерфейс
 {
-  операция transferFromImageBitmap(bitmap: ImageBitmap?FUCKFUCK)
+  операция transferFromImageBitmap(bitmap: ImageBitmap?)
 }
 
 
@@ -4341,7 +4341,7 @@
 
 
 внешнее
-/*(!) var */ ImageData: объект { prototype: ImageData; при создании(sw: Число, sh: Число, settings: ImageDataSettings?FUCKFUCK = пусто)/*(!) no_type */ Объект?; при создании(data: Uint8ClampedArray, sw: Число, sh: Число?FUCKFUCK = пусто, settings: ImageDataSettings?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ImageData: объект { prototype: ImageData; при создании(sw: Число, sh: Число, settings: ImageDataSettings? = пусто)/*(!) no_type */ Объект?; при создании(data: Uint8ClampedArray, sw: Число, sh: Число? = пусто, settings: ImageDataSettings? = пусто)/*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/KHR_parallel_shader_compile) */
@@ -4448,14 +4448,14 @@
   ports: ReadonlyArray<MessagePort>
 
   защищено 
-  source: MessageEventSource?FUCKFUCK
+  source: MessageEventSource?
 
-  операция initMessageEvent(type: Текст, bubbles: ДаНет?FUCKFUCK = пусто, cancelable: ДаНет?FUCKFUCK = пусто, data: /*(!) any */ Объект??FUCKFUCK = пусто, origin: Текст?FUCKFUCK = пусто, lastEventId: Текст?FUCKFUCK = пусто, source: MessageEventSource?FUCKFUCK = пусто, ports: Список<MessagePort>?FUCKFUCK = пусто)
+  операция initMessageEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, data: /*(!) any */ Объект?? = пусто, origin: Текст? = пусто, lastEventId: Текст? = пусто, source: MessageEventSource? = пусто, ports: Список<MessagePort>? = пусто)
 }
 
 
 внешнее
-/*(!) var */ MessageEvent: объект { prototype: MessageEvent; при создании(type: Текст, eventInitDict: MessageEventInit<T>?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ MessageEvent: объект { prototype: MessageEvent; при создании(type: Текст, eventInitDict: MessageEventInit<T>? = пусто)/*(!) no_type */ Объект? }
 
 
 тип MessagePortEventMap = интерфейс
@@ -4474,15 +4474,15 @@
 
 тип MessagePort = интерфейс
 {
-  onmessage: операция(this: MessagePort, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessage: операция(this: MessagePort, ev: MessageEvent): /*(!) any */ Объект??
 
-  onmessageerror: операция(this: MessagePort, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessageerror: операция(this: MessagePort, ev: MessageEvent): /*(!) any */ Объект??
 
   операция close()
 
   операция postMessage(message: /*(!) any */ Объект?, transfer: Список<Transferable>)
 
-  операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions?FUCKFUCK = пусто)
+  операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions? = пусто)
 
   операция start()
 
@@ -4528,7 +4528,7 @@
 {
   операция clearAppBadge(): Promise<Ничего>
 
-  операция setAppBadge(contents: Число?FUCKFUCK = пусто): Promise<Ничего>
+  операция setAppBadge(contents: Число? = пусто): Promise<Ничего>
 }
 
 
@@ -4631,16 +4631,16 @@
   защищено 
   lang: Текст
 
-  onclick: операция(this: Notification, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onclick: операция(this: Notification, ev: Event): /*(!) any */ Объект??
 
-  onclose: операция(this: Notification, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onclose: операция(this: Notification, ev: Event): /*(!) any */ Объект??
 
-  onerror: операция(this: Notification, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onerror: операция(this: Notification, ev: Event): /*(!) any */ Объект??
 
-  onshow: операция(this: Notification, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onshow: операция(this: Notification, ev: Event): /*(!) any */ Объект??
 
   защищено 
-  silent: ДаНет?FUCKFUCK
+  silent: ДаНет?
 
   защищено 
   tag: Текст
@@ -4661,7 +4661,7 @@
 
 
 внешнее
-/*(!) var */ Notification: объект { prototype: Notification; при создании(title: Текст, options: NotificationOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?; защищено  permission: NotificationPermission }
+/*(!) var */ Notification: объект { prototype: Notification; при создании(title: Текст, options: NotificationOptions? = пусто)/*(!) no_type */ Объект?; защищено  permission: NotificationPermission }
 
 
 /**
@@ -4790,13 +4790,13 @@
 
 тип OES_vertex_array_object = интерфейс
 {
-  операция bindVertexArrayOES(arrayObject: WebGLVertexArrayObjectOES?FUCKFUCK)
+  операция bindVertexArrayOES(arrayObject: WebGLVertexArrayObjectOES?)
 
-  операция createVertexArrayOES(): WebGLVertexArrayObjectOES?FUCKFUCK
+  операция createVertexArrayOES(): WebGLVertexArrayObjectOES?
 
-  операция deleteVertexArrayOES(arrayObject: WebGLVertexArrayObjectOES?FUCKFUCK)
+  операция deleteVertexArrayOES(arrayObject: WebGLVertexArrayObjectOES?)
 
-  операция isVertexArrayOES(arrayObject: WebGLVertexArrayObjectOES?FUCKFUCK): GLboolean
+  операция isVertexArrayOES(arrayObject: WebGLVertexArrayObjectOES?): GLboolean
 
   защищено 
   VERTEX_ARRAY_BINDING_OES: 0x85B5
@@ -4807,7 +4807,7 @@
 
 тип OVR_multiview2 = интерфейс
 {
-  операция framebufferTextureMultiviewOVR(target: GLenum, attachment: GLenum, texture: WebGLTexture?FUCKFUCK, level: GLint, baseViewIndex: GLint, numViews: GLsizei)
+  операция framebufferTextureMultiviewOVR(target: GLenum, attachment: GLenum, texture: WebGLTexture?, level: GLint, baseViewIndex: GLint, numViews: GLsizei)
 
   защищено 
   FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR: 0x9630
@@ -4837,23 +4837,23 @@
 {
   height: Число
 
-  oncontextlost: операция(this: OffscreenCanvas, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  oncontextlost: операция(this: OffscreenCanvas, ev: Event): /*(!) any */ Объект??
 
-  oncontextrestored: операция(this: OffscreenCanvas, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  oncontextrestored: операция(this: OffscreenCanvas, ev: Event): /*(!) any */ Объект??
 
   width: Число
 
-  операция convertToBlob(options: ImageEncodeOptions?FUCKFUCK = пусто): Promise<Blob>
+  операция convertToBlob(options: ImageEncodeOptions? = пусто): Promise<Blob>
 
-  операция getContext(contextId: "2d", options: /*(!) any */ Объект??FUCKFUCK = пусто): OffscreenCanvasRenderingContext2D?FUCKFUCK
+  операция getContext(contextId: "2d", options: /*(!) any */ Объект?? = пусто): OffscreenCanvasRenderingContext2D?
 
-  операция getContext(contextId: "bitmaprenderer", options: /*(!) any */ Объект??FUCKFUCK = пусто): ImageBitmapRenderingContext?FUCKFUCK
+  операция getContext(contextId: "bitmaprenderer", options: /*(!) any */ Объект?? = пусто): ImageBitmapRenderingContext?
 
-  операция getContext(contextId: "webgl", options: /*(!) any */ Объект??FUCKFUCK = пусто): WebGLRenderingContext?FUCKFUCK
+  операция getContext(contextId: "webgl", options: /*(!) any */ Объект?? = пусто): WebGLRenderingContext?
 
-  операция getContext(contextId: "webgl2", options: /*(!) any */ Объект??FUCKFUCK = пусто): WebGL2RenderingContext?FUCKFUCK
+  операция getContext(contextId: "webgl2", options: /*(!) any */ Объект?? = пусто): WebGL2RenderingContext?
 
-  операция getContext(contextId: OffscreenRenderingContextId, options: /*(!) any */ Объект??FUCKFUCK = пусто): OffscreenRenderingContext?FUCKFUCK
+  операция getContext(contextId: OffscreenRenderingContextId, options: /*(!) any */ Объект?? = пусто): OffscreenRenderingContext?
 
   операция transferToImageBitmap(): ImageBitmap
 
@@ -4894,7 +4894,7 @@
 
 тип Path2D = интерфейс
 {
-  операция addPath(path: Path2D, transform: DOMMatrix2DInit?FUCKFUCK = пусто)
+  операция addPath(path: Path2D, transform: DOMMatrix2DInit? = пусто)
 }
 
 
@@ -4916,26 +4916,26 @@
 
 тип Performance = интерфейс
 {
-  onresourcetimingbufferfull: операция(this: Performance, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onresourcetimingbufferfull: операция(this: Performance, ev: Event): /*(!) any */ Объект??
 
   защищено 
   timeOrigin: DOMHighResTimeStamp
 
-  операция clearMarks(markName: Текст?FUCKFUCK = пусто)
+  операция clearMarks(markName: Текст? = пусто)
 
-  операция clearMeasures(measureName: Текст?FUCKFUCK = пусто)
+  операция clearMeasures(measureName: Текст? = пусто)
 
   операция clearResourceTimings()
 
   операция getEntries(): PerformanceEntryList
 
-  операция getEntriesByName(name: Текст, type: Текст?FUCKFUCK = пусто): PerformanceEntryList
+  операция getEntriesByName(name: Текст, type: Текст? = пусто): PerformanceEntryList
 
   операция getEntriesByType(type: Текст): PerformanceEntryList
 
-  операция mark(markName: Текст, markOptions: PerformanceMarkOptions?FUCKFUCK = пусто): PerformanceMark
+  операция mark(markName: Текст, markOptions: PerformanceMarkOptions? = пусто): PerformanceMark
 
-  операция measure(measureName: Текст, startOrMeasureOptions: Текст | PerformanceMeasureOptions | пусто = пусто, endMark: Текст?FUCKFUCK = пусто): PerformanceMeasure
+  операция measure(measureName: Текст, startOrMeasureOptions: Текст | PerformanceMeasureOptions | пусто = пусто, endMark: Текст? = пусто): PerformanceMeasure
 
   операция now(): DOMHighResTimeStamp
 
@@ -4999,7 +4999,7 @@
 
 
 внешнее
-/*(!) var */ PerformanceMark: объект { prototype: PerformanceMark; при создании(markName: Текст, markOptions: PerformanceMarkOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ PerformanceMark: объект { prototype: PerformanceMark; при создании(markName: Текст, markOptions: PerformanceMarkOptions? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -5025,7 +5025,7 @@
 {
   операция disconnect()
 
-  операция observe(options: PerformanceObserverInit?FUCKFUCK = пусто)
+  операция observe(options: PerformanceObserverInit? = пусто)
 
   операция takeRecords(): PerformanceEntryList
 }
@@ -5041,7 +5041,7 @@
 {
   операция getEntries(): PerformanceEntryList
 
-  операция getEntriesByName(name: Текст, type: Текст?FUCKFUCK = пусто): PerformanceEntryList
+  операция getEntriesByName(name: Текст, type: Текст? = пусто): PerformanceEntryList
 
   операция getEntriesByType(type: Текст): PerformanceEntryList
 }
@@ -5155,7 +5155,7 @@
   защищено 
   name: Текст
 
-  onchange: операция(this: PermissionStatus, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onchange: операция(this: PermissionStatus, ev: Event): /*(!) any */ Объект??
 
   защищено 
   state: PermissionState
@@ -5201,7 +5201,7 @@
   loaded: Число
 
   защищено 
-  target: T?FUCKFUCK
+  target: T?
 
   защищено 
   total: Число
@@ -5209,7 +5209,7 @@
 
 
 внешнее
-/*(!) var */ ProgressEvent: объект { prototype: ProgressEvent; при создании(type: Текст, eventInitDict: ProgressEventInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ProgressEvent: объект { prototype: ProgressEvent; при создании(type: Текст, eventInitDict: ProgressEventInit? = пусто)/*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PromiseRejectionEvent) */
@@ -5238,12 +5238,12 @@
 тип PushEvent = интерфейс
 {
   защищено 
-  data: PushMessageData?FUCKFUCK
+  data: PushMessageData?
 }
 
 
 внешнее
-/*(!) var */ PushEvent: объект { prototype: PushEvent; при создании(type: Текст, eventInitDict: PushEventInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ PushEvent: объект { prototype: PushEvent; при создании(type: Текст, eventInitDict: PushEventInit? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -5255,11 +5255,11 @@
 
 тип PushManager = интерфейс
 {
-  операция getSubscription(): Promise<PushSubscription?FUCKFUCK>
+  операция getSubscription(): Promise<PushSubscription?>
 
-  операция permissionState(options: PushSubscriptionOptionsInit?FUCKFUCK = пусто): Promise<PermissionState>
+  операция permissionState(options: PushSubscriptionOptionsInit? = пусто): Promise<PermissionState>
 
-  операция subscribe(options: PushSubscriptionOptionsInit?FUCKFUCK = пусто): Promise<PushSubscription>
+  операция subscribe(options: PushSubscriptionOptionsInit? = пусто): Promise<PushSubscription>
 }
 
 
@@ -5303,12 +5303,12 @@
   endpoint: Текст
 
   защищено 
-  expirationTime: EpochTimeStamp?FUCKFUCK
+  expirationTime: EpochTimeStamp?
 
   защищено 
   options: PushSubscriptionOptions
 
-  операция getKey(name: PushEncryptionKeyName): ArrayBuffer?FUCKFUCK
+  операция getKey(name: PushEncryptionKeyName): ArrayBuffer?
 
   операция toJSON(): PushSubscriptionJSON
 
@@ -5329,7 +5329,7 @@
 тип PushSubscriptionOptions = интерфейс
 {
   защищено 
-  applicationServerKey: ArrayBuffer?FUCKFUCK
+  applicationServerKey: ArrayBuffer?
 
   защищено 
   userVisibleOnly: ДаНет
@@ -5378,16 +5378,16 @@
 тип ReadableByteStreamController = интерфейс
 {
   защищено 
-  byobRequest: ReadableStreamBYOBRequest?FUCKFUCK
+  byobRequest: ReadableStreamBYOBRequest?
 
   защищено 
-  desiredSize: Число?FUCKFUCK
+  desiredSize: Число?
 
   операция close()
 
   операция enqueue(chunk: ArrayBufferView)
 
-  операция error(e: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция error(e: /*(!) any */ Объект?? = пусто)
 }
 
 
@@ -5406,24 +5406,24 @@
   защищено 
   locked: ДаНет
 
-  операция cancel(reason: /*(!) any */ Объект??FUCKFUCK = пусто): Promise<Ничего>
+  операция cancel(reason: /*(!) any */ Объект?? = пусто): Promise<Ничего>
 
   операция getReader(options: объект { mode: "byob" }): ReadableStreamBYOBReader
 
   операция getReader(): ReadableStreamDefaultReader<R>
 
-  операция getReader(options: ReadableStreamGetReaderOptions?FUCKFUCK = пусто): ReadableStreamReader<R>
+  операция getReader(options: ReadableStreamGetReaderOptions? = пусто): ReadableStreamReader<R>
 
-  операция pipeThrough<T>(transform: ReadableWritablePair<T, R>, options: StreamPipeOptions?FUCKFUCK = пусто): ReadableStream<T>
+  операция pipeThrough<T>(transform: ReadableWritablePair<T, R>, options: StreamPipeOptions? = пусто): ReadableStream<T>
 
-  операция pipeTo(destination: WritableStream<R>, options: StreamPipeOptions?FUCKFUCK = пусто): Promise<Ничего>
+  операция pipeTo(destination: WritableStream<R>, options: StreamPipeOptions? = пусто): Promise<Ничего>
 
   операция tee(): объект { _0: ReadableStream<R>, _1: ReadableStream<R> }
 }
 
 
 внешнее
-/*(!) var */ ReadableStream: объект { prototype: ReadableStream; при создании(underlyingSource: UnderlyingByteSource, strategy: объект { highWaterMark: Число }?FUCKFUCK = пусто)/*(!) no_type */ Объект?; при создании(underlyingSource: UnderlyingDefaultSource<R>, strategy: QueuingStrategy<R>?FUCKFUCK = пусто)/*(!) no_type */ Объект?; при создании(underlyingSource: UnderlyingSource<R>?FUCKFUCK = пусто, strategy: QueuingStrategy<R>?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ReadableStream: объект { prototype: ReadableStream; при создании(underlyingSource: UnderlyingByteSource, strategy: объект { highWaterMark: Число }? = пусто)/*(!) no_type */ Объект?; при создании(underlyingSource: UnderlyingDefaultSource<R>, strategy: QueuingStrategy<R>? = пусто)/*(!) no_type */ Объект?; при создании(underlyingSource: UnderlyingSource<R>? = пусто, strategy: QueuingStrategy<R>? = пусто)/*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBReader) */
@@ -5445,7 +5445,7 @@
 тип ReadableStreamBYOBRequest = интерфейс
 {
   защищено 
-  view: ArrayBufferView?FUCKFUCK
+  view: ArrayBufferView?
 
   операция respond(bytesWritten: Число)
 
@@ -5462,13 +5462,13 @@
 тип ReadableStreamDefaultController<R> = интерфейс
 {
   защищено 
-  desiredSize: Число?FUCKFUCK
+  desiredSize: Число?
 
   операция close()
 
-  операция enqueue(chunk: R?FUCKFUCK = пусто)
+  операция enqueue(chunk: R? = пусто)
 
-  операция error(e: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция error(e: /*(!) any */ Объект?? = пусто)
 }
 
 
@@ -5495,7 +5495,7 @@
   защищено 
   closed: Promise<пусто>
 
-  операция cancel(reason: /*(!) any */ Объект??FUCKFUCK = пусто): Promise<Ничего>
+  операция cancel(reason: /*(!) any */ Объект?? = пусто): Promise<Ничего>
 }
 
 
@@ -5504,7 +5504,7 @@
 тип Report = интерфейс
 {
   защищено 
-  body: ReportBody?FUCKFUCK
+  body: ReportBody?
 
   защищено 
   type: Текст
@@ -5545,7 +5545,7 @@
 
 
 внешнее
-/*(!) var */ ReportingObserver: объект { prototype: ReportingObserver; при создании(callback: ReportingObserverCallback, options: ReportingObserverOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ReportingObserver: объект { prototype: ReportingObserver; при создании(callback: ReportingObserverCallback, options: ReportingObserverOptions? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -5600,7 +5600,7 @@
 
 
 внешнее
-/*(!) var */ Request: объект { prototype: Request; при создании(input: RequestInfo | URL, init: RequestInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Request: объект { prototype: Request; при создании(input: RequestInfo | URL, init: RequestInit? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -5637,7 +5637,7 @@
 
 
 внешнее
-/*(!) var */ Response: объект { prototype: Response; при создании(body: BodyInit?FUCKFUCK = пусто, init: ResponseInit?FUCKFUCK = пусто)/*(!) no_type */ Объект?; операция error(): Response; операция json(data: /*(!) any */ Объект?, init: ResponseInit?FUCKFUCK = пусто): Response; операция redirect(url: Текст | URL, status: Число?FUCKFUCK = пусто): Response }
+/*(!) var */ Response: объект { prototype: Response; при создании(body: BodyInit? = пусто, init: ResponseInit? = пусто)/*(!) no_type */ Объект?; операция error(): Response; операция json(data: /*(!) any */ Объект?, init: ResponseInit? = пусто): Response; операция redirect(url: Текст | URL, status: Число? = пусто): Response }
 
 
 /**
@@ -5687,7 +5687,7 @@
 
 
 внешнее
-/*(!) var */ SecurityPolicyViolationEvent: объект { prototype: SecurityPolicyViolationEvent; при создании(type: Текст, eventInitDict: SecurityPolicyViolationEventInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ SecurityPolicyViolationEvent: объект { prototype: SecurityPolicyViolationEvent; при создании(type: Текст, eventInitDict: SecurityPolicyViolationEventInit? = пусто)/*(!) no_type */ Объект? }
 
 
 тип ServiceWorkerEventMap = интерфейс
@@ -5705,7 +5705,7 @@
 
 тип ServiceWorker = интерфейс
 {
-  onstatechange: операция(this: ServiceWorker, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onstatechange: операция(this: ServiceWorker, ev: Event): /*(!) any */ Объект??
 
   защищено 
   scriptURL: Текст
@@ -5715,7 +5715,7 @@
 
   операция postMessage(message: /*(!) any */ Объект?, transfer: Список<Transferable>)
 
-  операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions?FUCKFUCK = пусто)
+  операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions? = пусто)
 
   операция addEventListener<K = /*(!) keyof ServiceWorkerEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorker, ev: /*(!) ServiceWorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -5751,22 +5751,22 @@
 тип ServiceWorkerContainer = интерфейс
 {
   защищено 
-  controller: ServiceWorker?FUCKFUCK
+  controller: ServiceWorker?
 
-  oncontrollerchange: операция(this: ServiceWorkerContainer, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  oncontrollerchange: операция(this: ServiceWorkerContainer, ev: Event): /*(!) any */ Объект??
 
-  onmessage: операция(this: ServiceWorkerContainer, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessage: операция(this: ServiceWorkerContainer, ev: MessageEvent): /*(!) any */ Объект??
 
-  onmessageerror: операция(this: ServiceWorkerContainer, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessageerror: операция(this: ServiceWorkerContainer, ev: MessageEvent): /*(!) any */ Объект??
 
   защищено 
   ready: Promise<ServiceWorkerRegistration>
 
-  операция getRegistration(clientURL: Текст | URL | пусто = пусто): Promise<ServiceWorkerRegistration?FUCKFUCK>
+  операция getRegistration(clientURL: Текст | URL | пусто = пусто): Promise<ServiceWorkerRegistration?>
 
   операция getRegistrations(): Promise<ReadonlyArray<ServiceWorkerRegistration>>
 
-  операция register(scriptURL: Текст | URL, options: RegistrationOptions?FUCKFUCK = пусто): Promise<ServiceWorkerRegistration>
+  операция register(scriptURL: Текст | URL, options: RegistrationOptions? = пусто): Promise<ServiceWorkerRegistration>
 
   операция startMessages()
 
@@ -5817,23 +5817,23 @@
   защищено 
   clients: Clients
 
-  onactivate: операция(this: ServiceWorkerGlobalScope, ev: ExtendableEvent): /*(!) any */ Объект??FUCKFUCK
+  onactivate: операция(this: ServiceWorkerGlobalScope, ev: ExtendableEvent): /*(!) any */ Объект??
 
-  onfetch: операция(this: ServiceWorkerGlobalScope, ev: FetchEvent): /*(!) any */ Объект??FUCKFUCK
+  onfetch: операция(this: ServiceWorkerGlobalScope, ev: FetchEvent): /*(!) any */ Объект??
 
-  oninstall: операция(this: ServiceWorkerGlobalScope, ev: ExtendableEvent): /*(!) any */ Объект??FUCKFUCK
+  oninstall: операция(this: ServiceWorkerGlobalScope, ev: ExtendableEvent): /*(!) any */ Объект??
 
-  onmessage: операция(this: ServiceWorkerGlobalScope, ev: ExtendableMessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessage: операция(this: ServiceWorkerGlobalScope, ev: ExtendableMessageEvent): /*(!) any */ Объект??
 
-  onmessageerror: операция(this: ServiceWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessageerror: операция(this: ServiceWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
 
-  onnotificationclick: операция(this: ServiceWorkerGlobalScope, ev: NotificationEvent): /*(!) any */ Объект??FUCKFUCK
+  onnotificationclick: операция(this: ServiceWorkerGlobalScope, ev: NotificationEvent): /*(!) any */ Объект??
 
-  onnotificationclose: операция(this: ServiceWorkerGlobalScope, ev: NotificationEvent): /*(!) any */ Объект??FUCKFUCK
+  onnotificationclose: операция(this: ServiceWorkerGlobalScope, ev: NotificationEvent): /*(!) any */ Объект??
 
-  onpush: операция(this: ServiceWorkerGlobalScope, ev: PushEvent): /*(!) any */ Объект??FUCKFUCK
+  onpush: операция(this: ServiceWorkerGlobalScope, ev: PushEvent): /*(!) any */ Объект??
 
-  onpushsubscriptionchange: операция(this: ServiceWorkerGlobalScope, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onpushsubscriptionchange: операция(this: ServiceWorkerGlobalScope, ev: Event): /*(!) any */ Объект??
 
   защищено 
   registration: ServiceWorkerRegistration
@@ -5873,15 +5873,15 @@
 тип ServiceWorkerRegistration = интерфейс
 {
   защищено 
-  active: ServiceWorker?FUCKFUCK
+  active: ServiceWorker?
 
   защищено 
-  installing: ServiceWorker?FUCKFUCK
+  installing: ServiceWorker?
 
   защищено 
   navigationPreload: NavigationPreloadManager
 
-  onupdatefound: операция(this: ServiceWorkerRegistration, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onupdatefound: операция(this: ServiceWorkerRegistration, ev: Event): /*(!) any */ Объект??
 
   защищено 
   pushManager: PushManager
@@ -5893,11 +5893,11 @@
   updateViaCache: ServiceWorkerUpdateViaCache
 
   защищено 
-  waiting: ServiceWorker?FUCKFUCK
+  waiting: ServiceWorker?
 
-  операция getNotifications(filter: GetNotificationOptions?FUCKFUCK = пусто): Promise<Список<Notification>>
+  операция getNotifications(filter: GetNotificationOptions? = пусто): Promise<Список<Notification>>
 
-  операция showNotification(title: Текст, options: NotificationOptions?FUCKFUCK = пусто): Promise<Ничего>
+  операция showNotification(title: Текст, options: NotificationOptions? = пусто): Promise<Ничего>
 
   операция unregister(): Promise<ДаНет>
 
@@ -5930,7 +5930,7 @@
   защищено 
   name: Текст
 
-  onconnect: операция(this: SharedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onconnect: операция(this: SharedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
 
   операция close()
 
@@ -5975,13 +5975,13 @@
   защищено 
   size: Число
 
-  операция get(property: Текст): CSSStyleValue?FUCKFUCK
+  операция get(property: Текст): CSSStyleValue?
 
   операция getAll(property: Текст): Список<CSSStyleValue>
 
   операция has(property: Текст): ДаНет
 
-  операция forEach(callbackfn: операция(value: Список<CSSStyleValue>, key: Текст, parent: StylePropertyMapReadOnly), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Список<CSSStyleValue>, key: Текст, parent: StylePropertyMapReadOnly), thisArg: /*(!) any */ Объект?? = пусто)
 }
 
 
@@ -6048,12 +6048,12 @@
 
 тип TextDecoder = интерфейс
 {
-  операция decode(input: AllowSharedBufferSource?FUCKFUCK = пусто, options: TextDecodeOptions?FUCKFUCK = пусто): Текст
+  операция decode(input: AllowSharedBufferSource? = пусто, options: TextDecodeOptions? = пусто): Текст
 }
 
 
 внешнее
-/*(!) var */ TextDecoder: объект { prototype: TextDecoder; при создании(label: Текст?FUCKFUCK = пусто, options: TextDecoderOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ TextDecoder: объект { prototype: TextDecoder; при создании(label: Текст? = пусто, options: TextDecoderOptions? = пусто)/*(!) no_type */ Объект? }
 
 
 тип TextDecoderCommon = интерфейс
@@ -6082,7 +6082,7 @@
 
 
 внешнее
-/*(!) var */ TextDecoderStream: объект { prototype: TextDecoderStream; при создании(label: Текст?FUCKFUCK = пусто, options: TextDecoderOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ TextDecoderStream: объект { prototype: TextDecoderStream; при создании(label: Текст? = пусто, options: TextDecoderOptions? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -6093,7 +6093,7 @@
 
 тип TextEncoder = интерфейс
 {
-  операция encode(input: Текст?FUCKFUCK = пусто): Uint8Array
+  операция encode(input: Текст? = пусто): Uint8Array
 
   операция encodeInto(source: Текст, destination: Uint8Array): TextEncoderEncodeIntoResult
 }
@@ -6174,7 +6174,7 @@
 
 
 внешнее
-/*(!) var */ TransformStream: объект { prototype: TransformStream; при создании(transformer: Transformer<I, O>?FUCKFUCK = пусто, writableStrategy: QueuingStrategy<I>?FUCKFUCK = пусто, readableStrategy: QueuingStrategy<O>?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ TransformStream: объект { prototype: TransformStream; при создании(transformer: Transformer<I, O>? = пусто, writableStrategy: QueuingStrategy<I>? = пусто, readableStrategy: QueuingStrategy<O>? = пусто)/*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/TransformStreamDefaultController) */
@@ -6182,11 +6182,11 @@
 тип TransformStreamDefaultController<O> = интерфейс
 {
   защищено 
-  desiredSize: Число?FUCKFUCK
+  desiredSize: Число?
 
-  операция enqueue(chunk: O?FUCKFUCK = пусто)
+  операция enqueue(chunk: O? = пусто)
 
-  операция error(reason: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция error(reason: /*(!) any */ Объект?? = пусто)
 
   операция terminate()
 }
@@ -6237,7 +6237,7 @@
 
 
 внешнее
-/*(!) var */ URL: объект { prototype: URL; при создании(url: Текст | URL, base: Текст | URL | пусто = пусто)/*(!) no_type */ Объект?; операция canParse(url: Текст | URL, base: Текст?FUCKFUCK = пусто): ДаНет; операция createObjectURL(obj: Blob): Текст; операция revokeObjectURL(url: Текст) }
+/*(!) var */ URL: объект { prototype: URL; при создании(url: Текст | URL, base: Текст | URL | пусто = пусто)/*(!) no_type */ Объект?; операция canParse(url: Текст | URL, base: Текст? = пусто): ДаНет; операция createObjectURL(obj: Blob): Текст; операция revokeObjectURL(url: Текст) }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/URLSearchParams) */
@@ -6249,13 +6249,13 @@
 
   операция append(name: Текст, value: Текст)
 
-  операция delete(name: Текст, value: Текст?FUCKFUCK = пусто)
+  операция delete(name: Текст, value: Текст? = пусто)
 
-  операция get(name: Текст): Текст?FUCKFUCK
+  операция get(name: Текст): Текст?
 
   операция getAll(name: Текст): Список<Текст>
 
-  операция has(name: Текст, value: Текст?FUCKFUCK = пусто): ДаНет
+  операция has(name: Текст, value: Текст? = пусто): ДаНет
 
   операция set(name: Текст, value: Текст)
 
@@ -6263,7 +6263,7 @@
 
   операция toString(): Текст
 
-  операция forEach(callbackfn: операция(value: Текст, key: Текст, parent: URLSearchParams), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Текст, key: Текст, parent: URLSearchParams), thisArg: /*(!) any */ Объект?? = пусто)
 }
 
 
@@ -6276,23 +6276,23 @@
 тип VideoColorSpace = интерфейс
 {
   защищено 
-  fullRange: ДаНет?FUCKFUCK
+  fullRange: ДаНет?
 
   защищено 
-  matrix: VideoMatrixCoefficients?FUCKFUCK
+  matrix: VideoMatrixCoefficients?
 
   защищено 
-  primaries: VideoColorPrimaries?FUCKFUCK
+  primaries: VideoColorPrimaries?
 
   защищено 
-  transfer: VideoTransferCharacteristics?FUCKFUCK
+  transfer: VideoTransferCharacteristics?
 
   операция toJSON(): VideoColorSpaceInit
 }
 
 
 внешнее
-/*(!) var */ VideoColorSpace: объект { prototype: VideoColorSpace; при создании(init: VideoColorSpaceInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ VideoColorSpace: объект { prototype: VideoColorSpace; при создании(init: VideoColorSpaceInit? = пусто)/*(!) no_type */ Объект? }
 
 
 тип VideoDecoderEventMap = интерфейс
@@ -6312,7 +6312,7 @@
   защищено 
   decodeQueueSize: Число
 
-  ondequeue: операция(this: VideoDecoder, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  ondequeue: операция(this: VideoDecoder, ev: Event): /*(!) any */ Объект??
 
   защищено 
   state: CodecState
@@ -6358,7 +6358,7 @@
   защищено 
   encodeQueueSize: Число
 
-  ondequeue: операция(this: VideoEncoder, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  ondequeue: операция(this: VideoEncoder, ev: Event): /*(!) any */ Объект??
 
   защищено 
   state: CodecState
@@ -6367,7 +6367,7 @@
 
   операция configure(config: VideoEncoderConfig)
 
-  операция encode(frame: VideoFrame, options: VideoEncoderEncodeOptions?FUCKFUCK = пусто)
+  операция encode(frame: VideoFrame, options: VideoEncoderEncodeOptions? = пусто)
 
   операция flush(): Promise<Ничего>
 
@@ -6395,7 +6395,7 @@
   codedHeight: Число
 
   защищено 
-  codedRect: DOMRectReadOnly?FUCKFUCK
+  codedRect: DOMRectReadOnly?
 
   защищено 
   codedWidth: Число
@@ -6410,29 +6410,29 @@
   displayWidth: Число
 
   защищено 
-  duration: Число?FUCKFUCK
+  duration: Число?
 
   защищено 
-  format: VideoPixelFormat?FUCKFUCK
+  format: VideoPixelFormat?
 
   защищено 
   timestamp: Число
 
   защищено 
-  visibleRect: DOMRectReadOnly?FUCKFUCK
+  visibleRect: DOMRectReadOnly?
 
-  операция allocationSize(options: VideoFrameCopyToOptions?FUCKFUCK = пусто): Число
+  операция allocationSize(options: VideoFrameCopyToOptions? = пусто): Число
 
   операция clone(): VideoFrame
 
   операция close()
 
-  операция copyTo(destination: BufferSource, options: VideoFrameCopyToOptions?FUCKFUCK = пусто): Promise<Список<PlaneLayout>>
+  операция copyTo(destination: BufferSource, options: VideoFrameCopyToOptions? = пусто): Promise<Список<PlaneLayout>>
 }
 
 
 внешнее
-/*(!) var */ VideoFrame: объект { prototype: VideoFrame; при создании(image: CanvasImageSource, init: VideoFrameInit?FUCKFUCK = пусто)/*(!) no_type */ Объект?; при создании(data: BufferSource, init: VideoFrameBufferInit)/*(!) no_type */ Объект? }
+/*(!) var */ VideoFrame: объект { prototype: VideoFrame; при создании(image: CanvasImageSource, init: VideoFrameInit? = пусто)/*(!) no_type */ Объект?; при создании(data: BufferSource, init: VideoFrameBufferInit)/*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_color_buffer_float) */
@@ -6834,57 +6834,57 @@
 
   операция beginTransformFeedback(primitiveMode: GLenum)
 
-  операция bindBufferBase(target: GLenum, index: GLuint, buffer: WebGLBuffer?FUCKFUCK)
+  операция bindBufferBase(target: GLenum, index: GLuint, buffer: WebGLBuffer?)
 
-  операция bindBufferRange(target: GLenum, index: GLuint, buffer: WebGLBuffer?FUCKFUCK, offset: GLintptr, size: GLsizeiptr)
+  операция bindBufferRange(target: GLenum, index: GLuint, buffer: WebGLBuffer?, offset: GLintptr, size: GLsizeiptr)
 
-  операция bindSampler(unit: GLuint, sampler: WebGLSampler?FUCKFUCK)
+  операция bindSampler(unit: GLuint, sampler: WebGLSampler?)
 
-  операция bindTransformFeedback(target: GLenum, tf: WebGLTransformFeedback?FUCKFUCK)
+  операция bindTransformFeedback(target: GLenum, tf: WebGLTransformFeedback?)
 
-  операция bindVertexArray(array: WebGLVertexArrayObject?FUCKFUCK)
+  операция bindVertexArray(array: WebGLVertexArrayObject?)
 
   операция blitFramebuffer(srcX0: GLint, srcY0: GLint, srcX1: GLint, srcY1: GLint, dstX0: GLint, dstY0: GLint, dstX1: GLint, dstY1: GLint, mask: GLbitfield, filter: GLenum)
 
   операция clearBufferfi(buffer: GLenum, drawbuffer: GLint, depth: GLfloat, stencil: GLint)
 
-  операция clearBufferfv(buffer: GLenum, drawbuffer: GLint, values: Float32List, srcOffset: GLuint?FUCKFUCK = пусто)
+  операция clearBufferfv(buffer: GLenum, drawbuffer: GLint, values: Float32List, srcOffset: GLuint? = пусто)
 
-  операция clearBufferiv(buffer: GLenum, drawbuffer: GLint, values: Int32List, srcOffset: GLuint?FUCKFUCK = пусто)
+  операция clearBufferiv(buffer: GLenum, drawbuffer: GLint, values: Int32List, srcOffset: GLuint? = пусто)
 
-  операция clearBufferuiv(buffer: GLenum, drawbuffer: GLint, values: Uint32List, srcOffset: GLuint?FUCKFUCK = пусто)
+  операция clearBufferuiv(buffer: GLenum, drawbuffer: GLint, values: Uint32List, srcOffset: GLuint? = пусто)
 
   операция clientWaitSync(sync: WebGLSync, flags: GLbitfield, timeout: GLuint64): GLenum
 
   операция compressedTexImage3D(target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, imageSize: GLsizei, offset: GLintptr)
 
-  операция compressedTexImage3D(target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, srcData: ArrayBufferView, srcOffset: GLuint?FUCKFUCK = пусто, srcLengthOverride: GLuint?FUCKFUCK = пусто)
+  операция compressedTexImage3D(target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, srcData: ArrayBufferView, srcOffset: GLuint? = пусто, srcLengthOverride: GLuint? = пусто)
 
   операция compressedTexSubImage3D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, imageSize: GLsizei, offset: GLintptr)
 
-  операция compressedTexSubImage3D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, srcData: ArrayBufferView, srcOffset: GLuint?FUCKFUCK = пусто, srcLengthOverride: GLuint?FUCKFUCK = пусто)
+  операция compressedTexSubImage3D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, srcData: ArrayBufferView, srcOffset: GLuint? = пусто, srcLengthOverride: GLuint? = пусто)
 
   операция copyBufferSubData(readTarget: GLenum, writeTarget: GLenum, readOffset: GLintptr, writeOffset: GLintptr, size: GLsizeiptr)
 
   операция copyTexSubImage3D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, x: GLint, y: GLint, width: GLsizei, height: GLsizei)
 
-  операция createQuery(): WebGLQuery?FUCKFUCK
+  операция createQuery(): WebGLQuery?
 
-  операция createSampler(): WebGLSampler?FUCKFUCK
+  операция createSampler(): WebGLSampler?
 
-  операция createTransformFeedback(): WebGLTransformFeedback?FUCKFUCK
+  операция createTransformFeedback(): WebGLTransformFeedback?
 
-  операция createVertexArray(): WebGLVertexArrayObject?FUCKFUCK
+  операция createVertexArray(): WebGLVertexArrayObject?
 
-  операция deleteQuery(query: WebGLQuery?FUCKFUCK)
+  операция deleteQuery(query: WebGLQuery?)
 
-  операция deleteSampler(sampler: WebGLSampler?FUCKFUCK)
+  операция deleteSampler(sampler: WebGLSampler?)
 
-  операция deleteSync(sync: WebGLSync?FUCKFUCK)
+  операция deleteSync(sync: WebGLSync?)
 
-  операция deleteTransformFeedback(tf: WebGLTransformFeedback?FUCKFUCK)
+  операция deleteTransformFeedback(tf: WebGLTransformFeedback?)
 
-  операция deleteVertexArray(vertexArray: WebGLVertexArrayObject?FUCKFUCK)
+  операция deleteVertexArray(vertexArray: WebGLVertexArrayObject?)
 
   операция drawArraysInstanced(mode: GLenum, first: GLint, count: GLsizei, instanceCount: GLsizei)
 
@@ -6898,17 +6898,17 @@
 
   операция endTransformFeedback()
 
-  операция fenceSync(condition: GLenum, flags: GLbitfield): WebGLSync?FUCKFUCK
+  операция fenceSync(condition: GLenum, flags: GLbitfield): WebGLSync?
 
-  операция framebufferTextureLayer(target: GLenum, attachment: GLenum, texture: WebGLTexture?FUCKFUCK, level: GLint, layer: GLint)
+  операция framebufferTextureLayer(target: GLenum, attachment: GLenum, texture: WebGLTexture?, level: GLint, layer: GLint)
 
-  операция getActiveUniformBlockName(program: WebGLProgram, uniformBlockIndex: GLuint): Текст?FUCKFUCK
+  операция getActiveUniformBlockName(program: WebGLProgram, uniformBlockIndex: GLuint): Текст?
 
   операция getActiveUniformBlockParameter(program: WebGLProgram, uniformBlockIndex: GLuint, pname: GLenum): /*(!) any */ Объект?
 
   операция getActiveUniforms(program: WebGLProgram, uniformIndices: Список<GLuint>, pname: GLenum): /*(!) any */ Объект?
 
-  операция getBufferSubData(target: GLenum, srcByteOffset: GLintptr, dstBuffer: ArrayBufferView, dstOffset: GLuint?FUCKFUCK = пусто, length: GLuint?FUCKFUCK = пусто)
+  операция getBufferSubData(target: GLenum, srcByteOffset: GLintptr, dstBuffer: ArrayBufferView, dstOffset: GLuint? = пусто, length: GLuint? = пусто)
 
   операция getFragDataLocation(program: WebGLProgram, name: Текст): GLint
 
@@ -6916,7 +6916,7 @@
 
   операция getInternalformatParameter(target: GLenum, internalformat: GLenum, pname: GLenum): /*(!) any */ Объект?
 
-  операция getQuery(target: GLenum, pname: GLenum): WebGLQuery?FUCKFUCK
+  операция getQuery(target: GLenum, pname: GLenum): WebGLQuery?
 
   операция getQueryParameter(query: WebGLQuery, pname: GLenum): /*(!) any */ Объект?
 
@@ -6924,25 +6924,25 @@
 
   операция getSyncParameter(sync: WebGLSync, pname: GLenum): /*(!) any */ Объект?
 
-  операция getTransformFeedbackVarying(program: WebGLProgram, index: GLuint): WebGLActiveInfo?FUCKFUCK
+  операция getTransformFeedbackVarying(program: WebGLProgram, index: GLuint): WebGLActiveInfo?
 
   операция getUniformBlockIndex(program: WebGLProgram, uniformBlockName: Текст): GLuint
 
-  операция getUniformIndices(program: WebGLProgram, uniformNames: Список<Текст>): Список<GLuint>?FUCKFUCK
+  операция getUniformIndices(program: WebGLProgram, uniformNames: Список<Текст>): Список<GLuint>?
 
   операция invalidateFramebuffer(target: GLenum, attachments: Список<GLenum>)
 
   операция invalidateSubFramebuffer(target: GLenum, attachments: Список<GLenum>, x: GLint, y: GLint, width: GLsizei, height: GLsizei)
 
-  операция isQuery(query: WebGLQuery?FUCKFUCK): GLboolean
+  операция isQuery(query: WebGLQuery?): GLboolean
 
-  операция isSampler(sampler: WebGLSampler?FUCKFUCK): GLboolean
+  операция isSampler(sampler: WebGLSampler?): GLboolean
 
-  операция isSync(sync: WebGLSync?FUCKFUCK): GLboolean
+  операция isSync(sync: WebGLSync?): GLboolean
 
-  операция isTransformFeedback(tf: WebGLTransformFeedback?FUCKFUCK): GLboolean
+  операция isTransformFeedback(tf: WebGLTransformFeedback?): GLboolean
 
-  операция isVertexArray(vertexArray: WebGLVertexArrayObject?FUCKFUCK): GLboolean
+  операция isVertexArray(vertexArray: WebGLVertexArrayObject?): GLboolean
 
   операция pauseTransformFeedback()
 
@@ -6960,7 +6960,7 @@
 
   операция texImage3D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, format: GLenum, type: GLenum, source: TexImageSource)
 
-  операция texImage3D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, format: GLenum, type: GLenum, srcData: ArrayBufferView?FUCKFUCK)
+  операция texImage3D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, format: GLenum, type: GLenum, srcData: ArrayBufferView?)
 
   операция texImage3D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, border: GLint, format: GLenum, type: GLenum, srcData: ArrayBufferView, srcOffset: GLuint)
 
@@ -6972,39 +6972,39 @@
 
   операция texSubImage3D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type: GLenum, source: TexImageSource)
 
-  операция texSubImage3D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type: GLenum, srcData: ArrayBufferView?FUCKFUCK, srcOffset: GLuint?FUCKFUCK = пусто)
+  операция texSubImage3D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, zoffset: GLint, width: GLsizei, height: GLsizei, depth: GLsizei, format: GLenum, type: GLenum, srcData: ArrayBufferView?, srcOffset: GLuint? = пусто)
 
   операция transformFeedbackVaryings(program: WebGLProgram, varyings: Список<Текст>, bufferMode: GLenum)
 
-  операция uniform1ui(location: WebGLUniformLocation?FUCKFUCK, v0: GLuint)
+  операция uniform1ui(location: WebGLUniformLocation?, v0: GLuint)
 
-  операция uniform1uiv(location: WebGLUniformLocation?FUCKFUCK, data: Uint32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform1uiv(location: WebGLUniformLocation?, data: Uint32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform2ui(location: WebGLUniformLocation?FUCKFUCK, v0: GLuint, v1: GLuint)
+  операция uniform2ui(location: WebGLUniformLocation?, v0: GLuint, v1: GLuint)
 
-  операция uniform2uiv(location: WebGLUniformLocation?FUCKFUCK, data: Uint32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform2uiv(location: WebGLUniformLocation?, data: Uint32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform3ui(location: WebGLUniformLocation?FUCKFUCK, v0: GLuint, v1: GLuint, v2: GLuint)
+  операция uniform3ui(location: WebGLUniformLocation?, v0: GLuint, v1: GLuint, v2: GLuint)
 
-  операция uniform3uiv(location: WebGLUniformLocation?FUCKFUCK, data: Uint32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform3uiv(location: WebGLUniformLocation?, data: Uint32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform4ui(location: WebGLUniformLocation?FUCKFUCK, v0: GLuint, v1: GLuint, v2: GLuint, v3: GLuint)
+  операция uniform4ui(location: WebGLUniformLocation?, v0: GLuint, v1: GLuint, v2: GLuint, v3: GLuint)
 
-  операция uniform4uiv(location: WebGLUniformLocation?FUCKFUCK, data: Uint32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform4uiv(location: WebGLUniformLocation?, data: Uint32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
   операция uniformBlockBinding(program: WebGLProgram, uniformBlockIndex: GLuint, uniformBlockBinding: GLuint)
 
-  операция uniformMatrix2x3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix2x3fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix2x4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix2x4fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix3x2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix3x2fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix3x4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix3x4fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix4x2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix4x2fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix4x3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix4x3fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
   операция vertexAttribDivisor(index: GLuint, divisor: GLuint)
 
@@ -7815,29 +7815,29 @@
 {
   операция bufferData(target: GLenum, size: GLsizeiptr, usage: GLenum)
 
-  операция bufferData(target: GLenum, srcData: BufferSource?FUCKFUCK, usage: GLenum)
+  операция bufferData(target: GLenum, srcData: BufferSource?, usage: GLenum)
 
-  операция bufferData(target: GLenum, srcData: ArrayBufferView, usage: GLenum, srcOffset: GLuint, length: GLuint?FUCKFUCK = пусто)
+  операция bufferData(target: GLenum, srcData: ArrayBufferView, usage: GLenum, srcOffset: GLuint, length: GLuint? = пусто)
 
   операция bufferSubData(target: GLenum, dstByteOffset: GLintptr, srcData: BufferSource)
 
-  операция bufferSubData(target: GLenum, dstByteOffset: GLintptr, srcData: ArrayBufferView, srcOffset: GLuint, length: GLuint?FUCKFUCK = пусто)
+  операция bufferSubData(target: GLenum, dstByteOffset: GLintptr, srcData: ArrayBufferView, srcOffset: GLuint, length: GLuint? = пусто)
 
   операция compressedTexImage2D(target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, border: GLint, imageSize: GLsizei, offset: GLintptr)
 
-  операция compressedTexImage2D(target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, border: GLint, srcData: ArrayBufferView, srcOffset: GLuint?FUCKFUCK = пусто, srcLengthOverride: GLuint?FUCKFUCK = пусто)
+  операция compressedTexImage2D(target: GLenum, level: GLint, internalformat: GLenum, width: GLsizei, height: GLsizei, border: GLint, srcData: ArrayBufferView, srcOffset: GLuint? = пусто, srcLengthOverride: GLuint? = пусто)
 
   операция compressedTexSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, imageSize: GLsizei, offset: GLintptr)
 
-  операция compressedTexSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, srcData: ArrayBufferView, srcOffset: GLuint?FUCKFUCK = пусто, srcLengthOverride: GLuint?FUCKFUCK = пусто)
+  операция compressedTexSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, srcData: ArrayBufferView, srcOffset: GLuint? = пусто, srcLengthOverride: GLuint? = пусто)
 
-  операция readPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type: GLenum, dstData: ArrayBufferView?FUCKFUCK)
+  операция readPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type: GLenum, dstData: ArrayBufferView?)
 
   операция readPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type: GLenum, offset: GLintptr)
 
   операция readPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type: GLenum, dstData: ArrayBufferView, dstOffset: GLuint)
 
-  операция texImage2D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, type: GLenum, pixels: ArrayBufferView?FUCKFUCK)
+  операция texImage2D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, type: GLenum, pixels: ArrayBufferView?)
 
   операция texImage2D(target: GLenum, level: GLint, internalformat: GLint, format: GLenum, type: GLenum, source: TexImageSource)
 
@@ -7847,7 +7847,7 @@
 
   операция texImage2D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, type: GLenum, srcData: ArrayBufferView, srcOffset: GLuint)
 
-  операция texSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type: GLenum, pixels: ArrayBufferView?FUCKFUCK)
+  операция texSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type: GLenum, pixels: ArrayBufferView?)
 
   операция texSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, format: GLenum, type: GLenum, source: TexImageSource)
 
@@ -7857,27 +7857,27 @@
 
   операция texSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type: GLenum, srcData: ArrayBufferView, srcOffset: GLuint)
 
-  операция uniform1fv(location: WebGLUniformLocation?FUCKFUCK, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform1fv(location: WebGLUniformLocation?, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform1iv(location: WebGLUniformLocation?FUCKFUCK, data: Int32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform1iv(location: WebGLUniformLocation?, data: Int32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform2fv(location: WebGLUniformLocation?FUCKFUCK, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform2fv(location: WebGLUniformLocation?, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform2iv(location: WebGLUniformLocation?FUCKFUCK, data: Int32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform2iv(location: WebGLUniformLocation?, data: Int32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform3fv(location: WebGLUniformLocation?FUCKFUCK, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform3fv(location: WebGLUniformLocation?, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform3iv(location: WebGLUniformLocation?FUCKFUCK, data: Int32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform3iv(location: WebGLUniformLocation?, data: Int32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform4fv(location: WebGLUniformLocation?FUCKFUCK, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform4fv(location: WebGLUniformLocation?, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniform4iv(location: WebGLUniformLocation?FUCKFUCK, data: Int32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniform4iv(location: WebGLUniformLocation?, data: Int32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix2fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix3fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 
-  операция uniformMatrix4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Float32List, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+  операция uniformMatrix4fv(location: WebGLUniformLocation?, transpose: GLboolean, data: Float32List, srcOffset: GLuint? = пусто, srcLength: GLuint? = пусто)
 }
 
 
@@ -7934,7 +7934,7 @@
 
 
 внешнее
-/*(!) var */ WebGLContextEvent: объект { prototype: WebGLContextEvent; при создании(type: Текст, eventInit: WebGLContextEventInit?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ WebGLContextEvent: объект { prototype: WebGLContextEvent; при создании(type: Текст, eventInit: WebGLContextEventInit? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -8029,13 +8029,13 @@
 
   операция bindAttribLocation(program: WebGLProgram, index: GLuint, name: Текст)
 
-  операция bindBuffer(target: GLenum, buffer: WebGLBuffer?FUCKFUCK)
+  операция bindBuffer(target: GLenum, buffer: WebGLBuffer?)
 
-  операция bindFramebuffer(target: GLenum, framebuffer: WebGLFramebuffer?FUCKFUCK)
+  операция bindFramebuffer(target: GLenum, framebuffer: WebGLFramebuffer?)
 
-  операция bindRenderbuffer(target: GLenum, renderbuffer: WebGLRenderbuffer?FUCKFUCK)
+  операция bindRenderbuffer(target: GLenum, renderbuffer: WebGLRenderbuffer?)
 
-  операция bindTexture(target: GLenum, texture: WebGLTexture?FUCKFUCK)
+  операция bindTexture(target: GLenum, texture: WebGLTexture?)
 
   операция blendColor(red: GLclampf, green: GLclampf, blue: GLclampf, alpha: GLclampf)
 
@@ -8065,31 +8065,31 @@
 
   операция copyTexSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, x: GLint, y: GLint, width: GLsizei, height: GLsizei)
 
-  операция createBuffer(): WebGLBuffer?FUCKFUCK
+  операция createBuffer(): WebGLBuffer?
 
-  операция createFramebuffer(): WebGLFramebuffer?FUCKFUCK
+  операция createFramebuffer(): WebGLFramebuffer?
 
-  операция createProgram(): WebGLProgram?FUCKFUCK
+  операция createProgram(): WebGLProgram?
 
-  операция createRenderbuffer(): WebGLRenderbuffer?FUCKFUCK
+  операция createRenderbuffer(): WebGLRenderbuffer?
 
-  операция createShader(type: GLenum): WebGLShader?FUCKFUCK
+  операция createShader(type: GLenum): WebGLShader?
 
-  операция createTexture(): WebGLTexture?FUCKFUCK
+  операция createTexture(): WebGLTexture?
 
   операция cullFace(mode: GLenum)
 
-  операция deleteBuffer(buffer: WebGLBuffer?FUCKFUCK)
+  операция deleteBuffer(buffer: WebGLBuffer?)
 
-  операция deleteFramebuffer(framebuffer: WebGLFramebuffer?FUCKFUCK)
+  операция deleteFramebuffer(framebuffer: WebGLFramebuffer?)
 
-  операция deleteProgram(program: WebGLProgram?FUCKFUCK)
+  операция deleteProgram(program: WebGLProgram?)
 
-  операция deleteRenderbuffer(renderbuffer: WebGLRenderbuffer?FUCKFUCK)
+  операция deleteRenderbuffer(renderbuffer: WebGLRenderbuffer?)
 
-  операция deleteShader(shader: WebGLShader?FUCKFUCK)
+  операция deleteShader(shader: WebGLShader?)
 
-  операция deleteTexture(texture: WebGLTexture?FUCKFUCK)
+  операция deleteTexture(texture: WebGLTexture?)
 
   операция depthFunc(func: GLenum)
 
@@ -8115,95 +8115,95 @@
 
   операция flush()
 
-  операция framebufferRenderbuffer(target: GLenum, attachment: GLenum, renderbuffertarget: GLenum, renderbuffer: WebGLRenderbuffer?FUCKFUCK)
+  операция framebufferRenderbuffer(target: GLenum, attachment: GLenum, renderbuffertarget: GLenum, renderbuffer: WebGLRenderbuffer?)
 
-  операция framebufferTexture2D(target: GLenum, attachment: GLenum, textarget: GLenum, texture: WebGLTexture?FUCKFUCK, level: GLint)
+  операция framebufferTexture2D(target: GLenum, attachment: GLenum, textarget: GLenum, texture: WebGLTexture?, level: GLint)
 
   операция frontFace(mode: GLenum)
 
   операция generateMipmap(target: GLenum)
 
-  операция getActiveAttrib(program: WebGLProgram, index: GLuint): WebGLActiveInfo?FUCKFUCK
+  операция getActiveAttrib(program: WebGLProgram, index: GLuint): WebGLActiveInfo?
 
-  операция getActiveUniform(program: WebGLProgram, index: GLuint): WebGLActiveInfo?FUCKFUCK
+  операция getActiveUniform(program: WebGLProgram, index: GLuint): WebGLActiveInfo?
 
-  операция getAttachedShaders(program: WebGLProgram): Список<WebGLShader>?FUCKFUCK
+  операция getAttachedShaders(program: WebGLProgram): Список<WebGLShader>?
 
   операция getAttribLocation(program: WebGLProgram, name: Текст): GLint
 
   операция getBufferParameter(target: GLenum, pname: GLenum): /*(!) any */ Объект?
 
-  операция getContextAttributes(): WebGLContextAttributes?FUCKFUCK
+  операция getContextAttributes(): WebGLContextAttributes?
 
   операция getError(): GLenum
 
-  операция getExtension(extensionName: "ANGLE_instanced_arrays"): ANGLE_instanced_arrays?FUCKFUCK
+  операция getExtension(extensionName: "ANGLE_instanced_arrays"): ANGLE_instanced_arrays?
 
-  операция getExtension(extensionName: "EXT_blend_minmax"): EXT_blend_minmax?FUCKFUCK
+  операция getExtension(extensionName: "EXT_blend_minmax"): EXT_blend_minmax?
 
-  операция getExtension(extensionName: "EXT_color_buffer_float"): EXT_color_buffer_float?FUCKFUCK
+  операция getExtension(extensionName: "EXT_color_buffer_float"): EXT_color_buffer_float?
 
-  операция getExtension(extensionName: "EXT_color_buffer_half_float"): EXT_color_buffer_half_float?FUCKFUCK
+  операция getExtension(extensionName: "EXT_color_buffer_half_float"): EXT_color_buffer_half_float?
 
-  операция getExtension(extensionName: "EXT_float_blend"): EXT_float_blend?FUCKFUCK
+  операция getExtension(extensionName: "EXT_float_blend"): EXT_float_blend?
 
-  операция getExtension(extensionName: "EXT_frag_depth"): EXT_frag_depth?FUCKFUCK
+  операция getExtension(extensionName: "EXT_frag_depth"): EXT_frag_depth?
 
-  операция getExtension(extensionName: "EXT_sRGB"): EXT_sRGB?FUCKFUCK
+  операция getExtension(extensionName: "EXT_sRGB"): EXT_sRGB?
 
-  операция getExtension(extensionName: "EXT_shader_texture_lod"): EXT_shader_texture_lod?FUCKFUCK
+  операция getExtension(extensionName: "EXT_shader_texture_lod"): EXT_shader_texture_lod?
 
-  операция getExtension(extensionName: "EXT_texture_compression_bptc"): EXT_texture_compression_bptc?FUCKFUCK
+  операция getExtension(extensionName: "EXT_texture_compression_bptc"): EXT_texture_compression_bptc?
 
-  операция getExtension(extensionName: "EXT_texture_compression_rgtc"): EXT_texture_compression_rgtc?FUCKFUCK
+  операция getExtension(extensionName: "EXT_texture_compression_rgtc"): EXT_texture_compression_rgtc?
 
-  операция getExtension(extensionName: "EXT_texture_filter_anisotropic"): EXT_texture_filter_anisotropic?FUCKFUCK
+  операция getExtension(extensionName: "EXT_texture_filter_anisotropic"): EXT_texture_filter_anisotropic?
 
-  операция getExtension(extensionName: "KHR_parallel_shader_compile"): KHR_parallel_shader_compile?FUCKFUCK
+  операция getExtension(extensionName: "KHR_parallel_shader_compile"): KHR_parallel_shader_compile?
 
-  операция getExtension(extensionName: "OES_element_index_uint"): OES_element_index_uint?FUCKFUCK
+  операция getExtension(extensionName: "OES_element_index_uint"): OES_element_index_uint?
 
-  операция getExtension(extensionName: "OES_fbo_render_mipmap"): OES_fbo_render_mipmap?FUCKFUCK
+  операция getExtension(extensionName: "OES_fbo_render_mipmap"): OES_fbo_render_mipmap?
 
-  операция getExtension(extensionName: "OES_standard_derivatives"): OES_standard_derivatives?FUCKFUCK
+  операция getExtension(extensionName: "OES_standard_derivatives"): OES_standard_derivatives?
 
-  операция getExtension(extensionName: "OES_texture_float"): OES_texture_float?FUCKFUCK
+  операция getExtension(extensionName: "OES_texture_float"): OES_texture_float?
 
-  операция getExtension(extensionName: "OES_texture_float_linear"): OES_texture_float_linear?FUCKFUCK
+  операция getExtension(extensionName: "OES_texture_float_linear"): OES_texture_float_linear?
 
-  операция getExtension(extensionName: "OES_texture_half_float"): OES_texture_half_float?FUCKFUCK
+  операция getExtension(extensionName: "OES_texture_half_float"): OES_texture_half_float?
 
-  операция getExtension(extensionName: "OES_texture_half_float_linear"): OES_texture_half_float_linear?FUCKFUCK
+  операция getExtension(extensionName: "OES_texture_half_float_linear"): OES_texture_half_float_linear?
 
-  операция getExtension(extensionName: "OES_vertex_array_object"): OES_vertex_array_object?FUCKFUCK
+  операция getExtension(extensionName: "OES_vertex_array_object"): OES_vertex_array_object?
 
-  операция getExtension(extensionName: "OVR_multiview2"): OVR_multiview2?FUCKFUCK
+  операция getExtension(extensionName: "OVR_multiview2"): OVR_multiview2?
 
-  операция getExtension(extensionName: "WEBGL_color_buffer_float"): WEBGL_color_buffer_float?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_color_buffer_float"): WEBGL_color_buffer_float?
 
-  операция getExtension(extensionName: "WEBGL_compressed_texture_astc"): WEBGL_compressed_texture_astc?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_compressed_texture_astc"): WEBGL_compressed_texture_astc?
 
-  операция getExtension(extensionName: "WEBGL_compressed_texture_etc"): WEBGL_compressed_texture_etc?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_compressed_texture_etc"): WEBGL_compressed_texture_etc?
 
-  операция getExtension(extensionName: "WEBGL_compressed_texture_etc1"): WEBGL_compressed_texture_etc1?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_compressed_texture_etc1"): WEBGL_compressed_texture_etc1?
 
-  операция getExtension(extensionName: "WEBGL_compressed_texture_pvrtc"): WEBGL_compressed_texture_pvrtc?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_compressed_texture_pvrtc"): WEBGL_compressed_texture_pvrtc?
 
-  операция getExtension(extensionName: "WEBGL_compressed_texture_s3tc"): WEBGL_compressed_texture_s3tc?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_compressed_texture_s3tc"): WEBGL_compressed_texture_s3tc?
 
-  операция getExtension(extensionName: "WEBGL_compressed_texture_s3tc_srgb"): WEBGL_compressed_texture_s3tc_srgb?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_compressed_texture_s3tc_srgb"): WEBGL_compressed_texture_s3tc_srgb?
 
-  операция getExtension(extensionName: "WEBGL_debug_renderer_info"): WEBGL_debug_renderer_info?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_debug_renderer_info"): WEBGL_debug_renderer_info?
 
-  операция getExtension(extensionName: "WEBGL_debug_shaders"): WEBGL_debug_shaders?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_debug_shaders"): WEBGL_debug_shaders?
 
-  операция getExtension(extensionName: "WEBGL_depth_texture"): WEBGL_depth_texture?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_depth_texture"): WEBGL_depth_texture?
 
-  операция getExtension(extensionName: "WEBGL_draw_buffers"): WEBGL_draw_buffers?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_draw_buffers"): WEBGL_draw_buffers?
 
-  операция getExtension(extensionName: "WEBGL_lose_context"): WEBGL_lose_context?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_lose_context"): WEBGL_lose_context?
 
-  операция getExtension(extensionName: "WEBGL_multi_draw"): WEBGL_multi_draw?FUCKFUCK
+  операция getExtension(extensionName: "WEBGL_multi_draw"): WEBGL_multi_draw?
 
   операция getExtension(name: Текст): /*(!) any */ Объект?
 
@@ -8211,27 +8211,27 @@
 
   операция getParameter(pname: GLenum): /*(!) any */ Объект?
 
-  операция getProgramInfoLog(program: WebGLProgram): Текст?FUCKFUCK
+  операция getProgramInfoLog(program: WebGLProgram): Текст?
 
   операция getProgramParameter(program: WebGLProgram, pname: GLenum): /*(!) any */ Объект?
 
   операция getRenderbufferParameter(target: GLenum, pname: GLenum): /*(!) any */ Объект?
 
-  операция getShaderInfoLog(shader: WebGLShader): Текст?FUCKFUCK
+  операция getShaderInfoLog(shader: WebGLShader): Текст?
 
   операция getShaderParameter(shader: WebGLShader, pname: GLenum): /*(!) any */ Объект?
 
-  операция getShaderPrecisionFormat(shadertype: GLenum, precisiontype: GLenum): WebGLShaderPrecisionFormat?FUCKFUCK
+  операция getShaderPrecisionFormat(shadertype: GLenum, precisiontype: GLenum): WebGLShaderPrecisionFormat?
 
-  операция getShaderSource(shader: WebGLShader): Текст?FUCKFUCK
+  операция getShaderSource(shader: WebGLShader): Текст?
 
-  операция getSupportedExtensions(): Список<Текст>?FUCKFUCK
+  операция getSupportedExtensions(): Список<Текст>?
 
   операция getTexParameter(target: GLenum, pname: GLenum): /*(!) any */ Объект?
 
   операция getUniform(program: WebGLProgram, location: WebGLUniformLocation): /*(!) any */ Объект?
 
-  операция getUniformLocation(program: WebGLProgram, name: Текст): WebGLUniformLocation?FUCKFUCK
+  операция getUniformLocation(program: WebGLProgram, name: Текст): WebGLUniformLocation?
 
   операция getVertexAttrib(index: GLuint, pname: GLenum): /*(!) any */ Объект?
 
@@ -8239,21 +8239,21 @@
 
   операция hint(target: GLenum, mode: GLenum)
 
-  операция isBuffer(buffer: WebGLBuffer?FUCKFUCK): GLboolean
+  операция isBuffer(buffer: WebGLBuffer?): GLboolean
 
   операция isContextLost(): ДаНет
 
   операция isEnabled(cap: GLenum): GLboolean
 
-  операция isFramebuffer(framebuffer: WebGLFramebuffer?FUCKFUCK): GLboolean
+  операция isFramebuffer(framebuffer: WebGLFramebuffer?): GLboolean
 
-  операция isProgram(program: WebGLProgram?FUCKFUCK): GLboolean
+  операция isProgram(program: WebGLProgram?): GLboolean
 
-  операция isRenderbuffer(renderbuffer: WebGLRenderbuffer?FUCKFUCK): GLboolean
+  операция isRenderbuffer(renderbuffer: WebGLRenderbuffer?): GLboolean
 
-  операция isShader(shader: WebGLShader?FUCKFUCK): GLboolean
+  операция isShader(shader: WebGLShader?): GLboolean
 
-  операция isTexture(texture: WebGLTexture?FUCKFUCK): GLboolean
+  операция isTexture(texture: WebGLTexture?): GLboolean
 
   операция lineWidth(width: GLfloat)
 
@@ -8287,23 +8287,23 @@
 
   операция texParameteri(target: GLenum, pname: GLenum, param: GLint)
 
-  операция uniform1f(location: WebGLUniformLocation?FUCKFUCK, x: GLfloat)
+  операция uniform1f(location: WebGLUniformLocation?, x: GLfloat)
 
-  операция uniform1i(location: WebGLUniformLocation?FUCKFUCK, x: GLint)
+  операция uniform1i(location: WebGLUniformLocation?, x: GLint)
 
-  операция uniform2f(location: WebGLUniformLocation?FUCKFUCK, x: GLfloat, y: GLfloat)
+  операция uniform2f(location: WebGLUniformLocation?, x: GLfloat, y: GLfloat)
 
-  операция uniform2i(location: WebGLUniformLocation?FUCKFUCK, x: GLint, y: GLint)
+  операция uniform2i(location: WebGLUniformLocation?, x: GLint, y: GLint)
 
-  операция uniform3f(location: WebGLUniformLocation?FUCKFUCK, x: GLfloat, y: GLfloat, z: GLfloat)
+  операция uniform3f(location: WebGLUniformLocation?, x: GLfloat, y: GLfloat, z: GLfloat)
 
-  операция uniform3i(location: WebGLUniformLocation?FUCKFUCK, x: GLint, y: GLint, z: GLint)
+  операция uniform3i(location: WebGLUniformLocation?, x: GLint, y: GLint, z: GLint)
 
-  операция uniform4f(location: WebGLUniformLocation?FUCKFUCK, x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat)
+  операция uniform4f(location: WebGLUniformLocation?, x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat)
 
-  операция uniform4i(location: WebGLUniformLocation?FUCKFUCK, x: GLint, y: GLint, z: GLint, w: GLint)
+  операция uniform4i(location: WebGLUniformLocation?, x: GLint, y: GLint, z: GLint, w: GLint)
 
-  операция useProgram(program: WebGLProgram?FUCKFUCK)
+  операция useProgram(program: WebGLProgram?)
 
   операция validateProgram(program: WebGLProgram)
 
@@ -9221,7 +9221,7 @@
 {
   операция bufferData(target: GLenum, size: GLsizeiptr, usage: GLenum)
 
-  операция bufferData(target: GLenum, data: BufferSource?FUCKFUCK, usage: GLenum)
+  операция bufferData(target: GLenum, data: BufferSource?, usage: GLenum)
 
   операция bufferSubData(target: GLenum, offset: GLintptr, data: BufferSource)
 
@@ -9229,37 +9229,37 @@
 
   операция compressedTexSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, data: ArrayBufferView)
 
-  операция readPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type: GLenum, pixels: ArrayBufferView?FUCKFUCK)
+  операция readPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, type: GLenum, pixels: ArrayBufferView?)
 
-  операция texImage2D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, type: GLenum, pixels: ArrayBufferView?FUCKFUCK)
+  операция texImage2D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, type: GLenum, pixels: ArrayBufferView?)
 
   операция texImage2D(target: GLenum, level: GLint, internalformat: GLint, format: GLenum, type: GLenum, source: TexImageSource)
 
-  операция texSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type: GLenum, pixels: ArrayBufferView?FUCKFUCK)
+  операция texSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, type: GLenum, pixels: ArrayBufferView?)
 
   операция texSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, format: GLenum, type: GLenum, source: TexImageSource)
 
-  операция uniform1fv(location: WebGLUniformLocation?FUCKFUCK, v: Float32List)
+  операция uniform1fv(location: WebGLUniformLocation?, v: Float32List)
 
-  операция uniform1iv(location: WebGLUniformLocation?FUCKFUCK, v: Int32List)
+  операция uniform1iv(location: WebGLUniformLocation?, v: Int32List)
 
-  операция uniform2fv(location: WebGLUniformLocation?FUCKFUCK, v: Float32List)
+  операция uniform2fv(location: WebGLUniformLocation?, v: Float32List)
 
-  операция uniform2iv(location: WebGLUniformLocation?FUCKFUCK, v: Int32List)
+  операция uniform2iv(location: WebGLUniformLocation?, v: Int32List)
 
-  операция uniform3fv(location: WebGLUniformLocation?FUCKFUCK, v: Float32List)
+  операция uniform3fv(location: WebGLUniformLocation?, v: Float32List)
 
-  операция uniform3iv(location: WebGLUniformLocation?FUCKFUCK, v: Int32List)
+  операция uniform3iv(location: WebGLUniformLocation?, v: Int32List)
 
-  операция uniform4fv(location: WebGLUniformLocation?FUCKFUCK, v: Float32List)
+  операция uniform4fv(location: WebGLUniformLocation?, v: Float32List)
 
-  операция uniform4iv(location: WebGLUniformLocation?FUCKFUCK, v: Int32List)
+  операция uniform4iv(location: WebGLUniformLocation?, v: Int32List)
 
-  операция uniformMatrix2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, value: Float32List)
+  операция uniformMatrix2fv(location: WebGLUniformLocation?, transpose: GLboolean, value: Float32List)
 
-  операция uniformMatrix3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, value: Float32List)
+  операция uniformMatrix3fv(location: WebGLUniformLocation?, transpose: GLboolean, value: Float32List)
 
-  операция uniformMatrix4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, value: Float32List)
+  операция uniformMatrix4fv(location: WebGLUniformLocation?, transpose: GLboolean, value: Float32List)
 }
 
 
@@ -9418,13 +9418,13 @@
   защищено 
   extensions: Текст
 
-  onclose: операция(this: WebSocket, ev: CloseEvent): /*(!) any */ Объект??FUCKFUCK
+  onclose: операция(this: WebSocket, ev: CloseEvent): /*(!) any */ Объект??
 
-  onerror: операция(this: WebSocket, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onerror: операция(this: WebSocket, ev: Event): /*(!) any */ Объект??
 
-  onmessage: операция(this: WebSocket, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessage: операция(this: WebSocket, ev: MessageEvent): /*(!) any */ Объект??
 
-  onopen: операция(this: WebSocket, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onopen: операция(this: WebSocket, ev: Event): /*(!) any */ Объект??
 
   защищено 
   protocol: Текст
@@ -9435,7 +9435,7 @@
   защищено 
   url: Текст
 
-  операция close(code: Число?FUCKFUCK = пусто, reason: Текст?FUCKFUCK = пусто)
+  операция close(code: Число? = пусто, reason: Текст? = пусто)
 
   операция send(data: Текст | ArrayBufferLike | Blob | ArrayBufferView)
 
@@ -9488,16 +9488,16 @@
   защищено 
   ready: Promise<пусто>
 
-  операция close(closeInfo: WebTransportCloseInfo?FUCKFUCK = пусто)
+  операция close(closeInfo: WebTransportCloseInfo? = пусто)
 
-  операция createBidirectionalStream(options: WebTransportSendStreamOptions?FUCKFUCK = пусто): Promise<WebTransportBidirectionalStream>
+  операция createBidirectionalStream(options: WebTransportSendStreamOptions? = пусто): Promise<WebTransportBidirectionalStream>
 
-  операция createUnidirectionalStream(options: WebTransportSendStreamOptions?FUCKFUCK = пусто): Promise<WritableStream>
+  операция createUnidirectionalStream(options: WebTransportSendStreamOptions? = пусто): Promise<WritableStream>
 }
 
 
 внешнее
-/*(!) var */ WebTransport: объект { prototype: WebTransport; при создании(url: Текст | URL, options: WebTransportOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ WebTransport: объект { prototype: WebTransport; при создании(url: Текст | URL, options: WebTransportOptions? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -9563,12 +9563,12 @@
   source: WebTransportErrorSource
 
   защищено 
-  streamErrorCode: Число?FUCKFUCK
+  streamErrorCode: Число?
 }
 
 
 внешнее
-/*(!) var */ WebTransportError: объект { prototype: WebTransportError; при создании(message: Текст?FUCKFUCK = пусто, options: WebTransportErrorOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ WebTransportError: объект { prototype: WebTransportError; при создании(message: Текст? = пусто, options: WebTransportErrorOptions? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -9587,7 +9587,7 @@
 
   операция focus(): Promise<WindowClient>
 
-  операция navigate(url: Текст | URL): Promise<WindowClient?FUCKFUCK>
+  операция navigate(url: Текст | URL): Promise<WindowClient?>
 }
 
 
@@ -9622,27 +9622,27 @@
 
   операция btoa(data: Текст): Текст
 
-  операция clearInterval(id: Число?FUCKFUCK)
+  операция clearInterval(id: Число?)
 
-  операция clearTimeout(id: Число?FUCKFUCK)
+  операция clearTimeout(id: Число?)
 
-  операция createImageBitmap(image: ImageBitmapSource, options: ImageBitmapOptions?FUCKFUCK = пусто): Promise<ImageBitmap>
+  операция createImageBitmap(image: ImageBitmapSource, options: ImageBitmapOptions? = пусто): Promise<ImageBitmap>
 
-  операция createImageBitmap(image: ImageBitmapSource, sx: Число, sy: Число, sw: Число, sh: Число, options: ImageBitmapOptions?FUCKFUCK = пусто): Promise<ImageBitmap>
+  операция createImageBitmap(image: ImageBitmapSource, sx: Число, sy: Число, sw: Число, sh: Число, options: ImageBitmapOptions? = пусто): Promise<ImageBitmap>
 
-  операция fetch(input: RequestInfo | URL, init: RequestInit?FUCKFUCK = пусто): Promise<Response>
+  операция fetch(input: RequestInfo | URL, init: RequestInit? = пусто): Promise<Response>
 
   операция queueMicrotask(callback: VoidFunction)
 
   операция reportError(e: /*(!) any */ Объект?)
 
   #js.МассивПараметров
-  операция setInterval(handler: TimerHandler, timeout: Число?FUCKFUCK = пусто, arguments: Список</*(!) any */ Объект?>): Число
+  операция setInterval(handler: TimerHandler, timeout: Число? = пусто, arguments: Список</*(!) any */ Объект?>): Число
 
   #js.МассивПараметров
-  операция setTimeout(handler: TimerHandler, timeout: Число?FUCKFUCK = пусто, arguments: Список</*(!) any */ Объект?>): Число
+  операция setTimeout(handler: TimerHandler, timeout: Число? = пусто, arguments: Список</*(!) any */ Объект?>): Число
 
-  операция structuredClone<T>(value: T, options: StructuredSerializeOptions?FUCKFUCK = пусто): T
+  операция structuredClone<T>(value: T, options: StructuredSerializeOptions? = пусто): T
 }
 
 
@@ -9662,13 +9662,13 @@
 
 тип Worker = интерфейс
 {
-  onmessage: операция(this: Worker, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessage: операция(this: Worker, ev: MessageEvent): /*(!) any */ Объект??
 
-  onmessageerror: операция(this: Worker, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+  onmessageerror: операция(this: Worker, ev: MessageEvent): /*(!) any */ Объект??
 
   операция postMessage(message: /*(!) any */ Объект?, transfer: Список<Transferable>)
 
-  операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions?FUCKFUCK = пусто)
+  операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions? = пусто)
 
   операция terminate()
 
@@ -9683,7 +9683,7 @@
 
 
 внешнее
-/*(!) var */ Worker: объект { prototype: Worker; при создании(scriptURL: Текст | URL, options: WorkerOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Worker: объект { prototype: Worker; при создании(scriptURL: Текст | URL, options: WorkerOptions? = пусто)/*(!) no_type */ Объект? }
 
 
 тип WorkerGlobalScopeEventMap = интерфейс
@@ -9716,17 +9716,17 @@
   защищено 
   navigator: WorkerNavigator
 
-  onerror: операция(this: WorkerGlobalScope, ev: ErrorEvent): /*(!) any */ Объект??FUCKFUCK
+  onerror: операция(this: WorkerGlobalScope, ev: ErrorEvent): /*(!) any */ Объект??
 
-  onlanguagechange: операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onlanguagechange: операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект??
 
-  onoffline: операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onoffline: операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект??
 
-  ononline: операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  ononline: операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект??
 
-  onrejectionhandled: операция(this: WorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??FUCKFUCK
+  onrejectionhandled: операция(this: WorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??
 
-  onunhandledrejection: операция(this: WorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??FUCKFUCK
+  onunhandledrejection: операция(this: WorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??
 
   защищено 
   self: /*(!) WorkerGlobalScope & typeof globalThis */ Объект?
@@ -9822,7 +9822,7 @@
   защищено 
   locked: ДаНет
 
-  операция abort(reason: /*(!) any */ Объект??FUCKFUCK = пусто): Promise<Ничего>
+  операция abort(reason: /*(!) any */ Объект?? = пусто): Promise<Ничего>
 
   операция close(): Promise<Ничего>
 
@@ -9831,7 +9831,7 @@
 
 
 внешнее
-/*(!) var */ WritableStream: объект { prototype: WritableStream; при создании(underlyingSink: UnderlyingSink<W>?FUCKFUCK = пусто, strategy: QueuingStrategy<W>?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ WritableStream: объект { prototype: WritableStream; при создании(underlyingSink: UnderlyingSink<W>? = пусто, strategy: QueuingStrategy<W>? = пусто)/*(!) no_type */ Объект? }
 
 
 /**
@@ -9845,7 +9845,7 @@
   защищено 
   signal: AbortSignal
 
-  операция error(e: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция error(e: /*(!) any */ Объект?? = пусто)
 }
 
 
@@ -9865,18 +9865,18 @@
   closed: Promise<пусто>
 
   защищено 
-  desiredSize: Число?FUCKFUCK
+  desiredSize: Число?
 
   защищено 
   ready: Promise<пусто>
 
-  операция abort(reason: /*(!) any */ Объект??FUCKFUCK = пусто): Promise<Ничего>
+  операция abort(reason: /*(!) any */ Объект?? = пусто): Promise<Ничего>
 
   операция close(): Promise<Ничего>
 
   операция releaseLock()
 
-  операция write(chunk: W?FUCKFUCK = пусто): Promise<Ничего>
+  операция write(chunk: W? = пусто): Promise<Ничего>
 }
 
 
@@ -9898,7 +9898,7 @@
 
 тип XMLHttpRequest = интерфейс
 {
-  onreadystatechange: операция(this: XMLHttpRequest, ev: Event): /*(!) any */ Объект??FUCKFUCK
+  onreadystatechange: операция(this: XMLHttpRequest, ev: Event): /*(!) any */ Объект??
 
   защищено 
   readyState: Число
@@ -9931,15 +9931,15 @@
 
   операция getAllResponseHeaders(): Текст
 
-  операция getResponseHeader(name: Текст): Текст?FUCKFUCK
+  операция getResponseHeader(name: Текст): Текст?
 
   операция open(method: Текст, url: Текст | URL)
 
-  операция open(method: Текст, url: Текст | URL, async: ДаНет, username: Текст?FUCKFUCK = пусто, password: Текст?FUCKFUCK = пусто)
+  операция open(method: Текст, url: Текст | URL, async: ДаНет, username: Текст? = пусто, password: Текст? = пусто)
 
   операция overrideMimeType(mime: Текст)
 
-  операция send(body: XMLHttpRequestBodyInit?FUCKFUCK = пусто)
+  операция send(body: XMLHttpRequestBodyInit? = пусто)
 
   операция setRequestHeader(name: Текст, value: Текст)
 
@@ -9994,19 +9994,19 @@
 
 тип XMLHttpRequestEventTarget = интерфейс
 {
-  onabort: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??FUCKFUCK
+  onabort: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
 
-  onerror: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??FUCKFUCK
+  onerror: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
 
-  onload: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??FUCKFUCK
+  onload: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
 
-  onloadend: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??FUCKFUCK
+  onloadend: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
 
-  onloadstart: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??FUCKFUCK
+  onloadstart: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
 
-  onprogress: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??FUCKFUCK
+  onprogress: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
 
-  ontimeout: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??FUCKFUCK
+  ontimeout: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
 
   операция addEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestEventTarget, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -10045,18 +10045,18 @@
 тип Console = интерфейс
 {
   #js.МассивПараметров
-  операция assert(condition: ДаНет?FUCKFUCK = пусто, data: Список</*(!) any */ Объект?>)
+  операция assert(condition: ДаНет? = пусто, data: Список</*(!) any */ Объект?>)
 
   операция clear()
 
-  операция count(label: Текст?FUCKFUCK = пусто)
+  операция count(label: Текст? = пусто)
 
-  операция countReset(label: Текст?FUCKFUCK = пусто)
+  операция countReset(label: Текст? = пусто)
 
   #js.МассивПараметров
   операция debug(data: Список</*(!) any */ Объект?>)
 
-  операция dir(item: /*(!) any */ Объект??FUCKFUCK = пусто, options: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция dir(item: /*(!) any */ Объект?? = пусто, options: /*(!) any */ Объект?? = пусто)
 
   #js.МассивПараметров
   операция dirxml(data: Список</*(!) any */ Объект?>)
@@ -10078,16 +10078,16 @@
   #js.МассивПараметров
   операция log(data: Список</*(!) any */ Объект?>)
 
-  операция table(tabularData: /*(!) any */ Объект??FUCKFUCK = пусто, properties: Список<Текст>?FUCKFUCK = пусто)
+  операция table(tabularData: /*(!) any */ Объект?? = пусто, properties: Список<Текст>? = пусто)
 
-  операция time(label: Текст?FUCKFUCK = пусто)
+  операция time(label: Текст? = пусто)
 
-  операция timeEnd(label: Текст?FUCKFUCK = пусто)
+  операция timeEnd(label: Текст? = пусто)
 
   #js.МассивПараметров
-  операция timeLog(label: Текст?FUCKFUCK = пусто, data: Список</*(!) any */ Объект?>)
+  операция timeLog(label: Текст? = пусто, data: Список</*(!) any */ Объект?>)
 
-  операция timeStamp(label: Текст?FUCKFUCK = пусто)
+  операция timeStamp(label: Текст? = пусто)
 
   #js.МассивПараметров
   операция trace(data: Список</*(!) any */ Объект?>)
@@ -10110,7 +10110,7 @@
 }
 
 
-/*(!) var */ CompileError: объект { prototype: CompileError; при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?; /*(!) (message?: string): CompileError*/ }
+/*(!) var */ CompileError: объект { prototype: CompileError; при создании(message: Текст? = пусто)/*(!) no_type */ Объект?; /*(!) (message?: string): CompileError*/ }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Global) */
@@ -10123,7 +10123,7 @@
 }
 
 
-/*(!) var */ Global: объект { prototype: Global; при создании(descriptor: GlobalDescriptor<T>, v: /*(!) ValueTypeMap[T] */ Объект??FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Global: объект { prototype: Global; при создании(descriptor: GlobalDescriptor<T>, v: /*(!) ValueTypeMap[T] */ Объект?? = пусто)/*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Instance) */
@@ -10135,7 +10135,7 @@
 }
 
 
-/*(!) var */ Instance: объект { prototype: Instance; при создании(module: Module, importObject: Imports?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Instance: объект { prototype: Instance; при создании(module: Module, importObject: Imports? = пусто)/*(!) no_type */ Объект? }
 
 
 тип LinkError = интерфейс
@@ -10144,7 +10144,7 @@
 }
 
 
-/*(!) var */ LinkError: объект { prototype: LinkError; при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?; /*(!) (message?: string): LinkError*/ }
+/*(!) var */ LinkError: объект { prototype: LinkError; при создании(message: Текст? = пусто)/*(!) no_type */ Объект?; /*(!) (message?: string): LinkError*/ }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory) */
@@ -10178,7 +10178,7 @@
 }
 
 
-/*(!) var */ RuntimeError: объект { prototype: RuntimeError; при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?; /*(!) (message?: string): RuntimeError*/ }
+/*(!) var */ RuntimeError: объект { prototype: RuntimeError; при создании(message: Текст? = пусто)/*(!) no_type */ Объект?; /*(!) (message?: string): RuntimeError*/ }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Table) */
@@ -10190,13 +10190,13 @@
 
   операция get(index: Число): /*(!) any */ Объект?
 
-  операция grow(delta: Число, value: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция grow(delta: Число, value: /*(!) any */ Объект?? = пусто): Число
 
-  операция set(index: Число, value: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция set(index: Число, value: /*(!) any */ Объект?? = пусто)
 }
 
 
-/*(!) var */ Table: объект { prototype: Table; при создании(descriptor: TableDescriptor, value: /*(!) any */ Объект??FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Table: объект { prototype: Table; при создании(descriptor: TableDescriptor, value: /*(!) any */ Объект?? = пусто)/*(!) no_type */ Объект? }
 
 
 тип GlobalDescriptor<T = ValueType> = интерфейс
@@ -10297,13 +10297,13 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiate) */
 
-операция instantiate(bytes: BufferSource, importObject: Imports?FUCKFUCK = пусто): Promise<WebAssemblyInstantiatedSource>
+операция instantiate(bytes: BufferSource, importObject: Imports? = пусто): Promise<WebAssemblyInstantiatedSource>
 
-операция instantiate(moduleObject: Module, importObject: Imports?FUCKFUCK = пусто): Promise<Instance>
+операция instantiate(moduleObject: Module, importObject: Imports? = пусто): Promise<Instance>
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiateStreaming) */
 
-операция instantiateStreaming(source: Response | PromiseLike<Response>, importObject: Imports?FUCKFUCK = пусто): Promise<WebAssemblyInstantiatedSource>
+операция instantiateStreaming(source: Response | PromiseLike<Response>, importObject: Imports? = пусто): Promise<WebAssemblyInstantiatedSource>
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/validate) */
 
@@ -10443,13 +10443,13 @@
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DedicatedWorkerGlobalScope/message_event) */
 
 внешнее
-/*(!) var */ onmessage: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+/*(!) var */ onmessage: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DedicatedWorkerGlobalScope/messageerror_event) */
 
 внешнее
-/*(!) var */ onmessageerror: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??FUCKFUCK
+/*(!) var */ onmessageerror: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
 
 
 /**
@@ -10471,7 +10471,7 @@
 операция postMessage(message: /*(!) any */ Объект?, transfer: Список<Transferable>)
 
 внешнее
-операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions?FUCKFUCK = пусто)
+операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions? = пусто)
 
 /**
 * Dispatches a synthetic event event to target and returns true if either event's cancelable attribute value is false or its preventDefault() method was not invoked, and false otherwise.
@@ -10505,33 +10505,33 @@
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/error_event) */
 
 внешнее
-/*(!) var */ onerror: операция(this: DedicatedWorkerGlobalScope, ev: ErrorEvent): /*(!) any */ Объект??FUCKFUCK
+/*(!) var */ onerror: операция(this: DedicatedWorkerGlobalScope, ev: ErrorEvent): /*(!) any */ Объект??
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/languagechange_event) */
 
 внешнее
-/*(!) var */ onlanguagechange: операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект??FUCKFUCK
+/*(!) var */ onlanguagechange: операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект??
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/offline_event) */
 
 внешнее
-/*(!) var */ onoffline: операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект??FUCKFUCK
+/*(!) var */ onoffline: операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект??
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/online_event) */
 
 внешнее
-/*(!) var */ ononline: операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект??FUCKFUCK
+/*(!) var */ ononline: операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект??
 
 
 внешнее
-/*(!) var */ onrejectionhandled: операция(this: DedicatedWorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??FUCKFUCK
+/*(!) var */ onrejectionhandled: операция(this: DedicatedWorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??
 
 
 внешнее
-/*(!) var */ onunhandledrejection: операция(this: DedicatedWorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??FUCKFUCK
+/*(!) var */ onunhandledrejection: операция(this: DedicatedWorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??
 
 
 /**
@@ -10628,25 +10628,25 @@
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/clearInterval) */
 
 внешнее
-операция clearInterval(id: Число?FUCKFUCK)
+операция clearInterval(id: Число?)
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/clearTimeout) */
 
 внешнее
-операция clearTimeout(id: Число?FUCKFUCK)
+операция clearTimeout(id: Число?)
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/createImageBitmap) */
 
 внешнее
-операция createImageBitmap(image: ImageBitmapSource, options: ImageBitmapOptions?FUCKFUCK = пусто): Promise<ImageBitmap>
+операция createImageBitmap(image: ImageBitmapSource, options: ImageBitmapOptions? = пусто): Promise<ImageBitmap>
 
 внешнее
-операция createImageBitmap(image: ImageBitmapSource, sx: Число, sy: Число, sw: Число, sh: Число, options: ImageBitmapOptions?FUCKFUCK = пусто): Promise<ImageBitmap>
+операция createImageBitmap(image: ImageBitmapSource, sx: Число, sy: Число, sw: Число, sh: Число, options: ImageBitmapOptions? = пусто): Promise<ImageBitmap>
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/fetch) */
 
 внешнее
-операция fetch(input: RequestInfo | URL, init: RequestInit?FUCKFUCK = пусто): Promise<Response>
+операция fetch(input: RequestInfo | URL, init: RequestInit? = пусто): Promise<Response>
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/queueMicrotask) */
 
@@ -10662,18 +10662,18 @@
 
 внешнее
 #js.МассивПараметров
-операция setInterval(handler: TimerHandler, timeout: Число?FUCKFUCK = пусто, arguments: Список</*(!) any */ Объект?>): Число
+операция setInterval(handler: TimerHandler, timeout: Число? = пусто, arguments: Список</*(!) any */ Объект?>): Число
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/setTimeout) */
 
 внешнее
 #js.МассивПараметров
-операция setTimeout(handler: TimerHandler, timeout: Число?FUCKFUCK = пусто, arguments: Список</*(!) any */ Объект?>): Число
+операция setTimeout(handler: TimerHandler, timeout: Число? = пусто, arguments: Список</*(!) any */ Объект?>): Число
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/structuredClone) */
 
 внешнее
-операция structuredClone<T>(value: T, options: StructuredSerializeOptions?FUCKFUCK = пусто): T
+операция structuredClone<T>(value: T, options: StructuredSerializeOptions? = пусто): T
 
 внешнее
 операция cancelAnimationFrame(handle: Число)
@@ -10769,7 +10769,7 @@
 
 тип OffscreenRenderingContext = OffscreenCanvasRenderingContext2D | ImageBitmapRenderingContext | WebGLRenderingContext | WebGL2RenderingContext
 
-тип OnErrorEventHandler = OnErrorEventHandlerNonNull?FUCKFUCK
+тип OnErrorEventHandler = OnErrorEventHandlerNonNull?
 
 тип PerformanceEntryList = Список<PerformanceEntry>
 

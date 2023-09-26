@@ -16,9 +16,9 @@
 
   операция sub(typedArray: BigInt64Array | BigUint64Array, index: Число, value: bigint): bigint
 
-  операция wait(typedArray: BigInt64Array, index: Число, value: bigint, timeout: Число?FUCKFUCK = пусто): "ok" | "not-equal" | "timed-out"
+  операция wait(typedArray: BigInt64Array, index: Число, value: bigint, timeout: Число? = пусто): "ok" | "not-equal" | "timed-out"
 
-  операция notify(typedArray: BigInt64Array, index: Число, count: Число?FUCKFUCK = пусто): Число
+  операция notify(typedArray: BigInt64Array, index: Число, count: Число? = пусто): Число
 
   операция xor(typedArray: BigInt64Array | BigUint64Array, index: Число, value: bigint): bigint
 }

@@ -63,7 +63,7 @@
 
 
 внешнее
-/*(!) var */ WScript: объект { операция Echo(s: /*(!) any */ Объект?); StdErr: TextStreamWriter; StdOut: TextStreamWriter; Arguments: объект { length: Число; операция Item(n: Число): Текст }; ScriptFullName: Текст; операция Quit(exitCode: Число?FUCKFUCK = пусто): Число; BuildVersion: Число; FullName: Текст; Interactive: ДаНет; Name: Текст; Path: Текст; ScriptName: Текст; StdIn: TextStreamReader; Version: Текст; операция ConnectObject(objEventSource: /*(!) any */ Объект?, strPrefix: Текст); операция CreateObject(strProgID: Текст, strPrefix: Текст?FUCKFUCK = пусто): /*(!) any */ Объект?; операция DisconnectObject(obj: /*(!) any */ Объект?); операция GetObject(strPathname: Текст, strProgID: Текст?FUCKFUCK = пусто, strPrefix: Текст?FUCKFUCK = пусто): /*(!) any */ Объект?; операция Sleep(intTime: Число) }
+/*(!) var */ WScript: объект { операция Echo(s: /*(!) any */ Объект?); StdErr: TextStreamWriter; StdOut: TextStreamWriter; Arguments: объект { length: Число; операция Item(n: Число): Текст }; ScriptFullName: Текст; операция Quit(exitCode: Число? = пусто): Число; BuildVersion: Число; FullName: Текст; Interactive: ДаНет; Name: Текст; Path: Текст; ScriptName: Текст; StdIn: TextStreamReader; Version: Текст; операция ConnectObject(objEventSource: /*(!) any */ Объект?, strPrefix: Текст); операция CreateObject(strProgID: Текст, strPrefix: Текст? = пусто): /*(!) any */ Объект?; операция DisconnectObject(obj: /*(!) any */ Объект?); операция GetObject(strPathname: Текст, strProgID: Текст? = пусто, strPrefix: Текст? = пусто): /*(!) any */ Объект?; операция Sleep(intTime: Число) }
 
 
 /**
@@ -129,9 +129,9 @@
   #js.МассивПараметров
   операция getItem(dimension1Index: Число, dimensionNIndexes: Список<Число>): T
 
-  операция lbound(dimension: Число?FUCKFUCK = пусто): Число
+  операция lbound(dimension: Число? = пусто): Число
 
-  операция ubound(dimension: Число?FUCKFUCK = пусто): Число
+  операция ubound(dimension: Число? = пусто): Число
 
   операция toArray(): Список<T>
 }

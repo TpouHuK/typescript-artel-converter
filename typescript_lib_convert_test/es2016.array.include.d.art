@@ -1,65 +1,65 @@
 тип Array<T> = интерфейс
 {
-  операция includes(searchElement: T, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: T, fromIndex: Число? = пусто): ДаНет
 }
 
 
 тип ReadonlyArray<T> = интерфейс
 {
-  операция includes(searchElement: T, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: T, fromIndex: Число? = пусто): ДаНет
 }
 
 
 тип Int8Array = интерфейс
 {
-  операция includes(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: Число, fromIndex: Число? = пусто): ДаНет
 }
 
 
 тип Uint8Array = интерфейс
 {
-  операция includes(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: Число, fromIndex: Число? = пусто): ДаНет
 }
 
 
 тип Uint8ClampedArray = интерфейс
 {
-  операция includes(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: Число, fromIndex: Число? = пусто): ДаНет
 }
 
 
 тип Int16Array = интерфейс
 {
-  операция includes(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: Число, fromIndex: Число? = пусто): ДаНет
 }
 
 
 тип Uint16Array = интерфейс
 {
-  операция includes(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: Число, fromIndex: Число? = пусто): ДаНет
 }
 
 
 тип Int32Array = интерфейс
 {
-  операция includes(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: Число, fromIndex: Число? = пусто): ДаНет
 }
 
 
 тип Uint32Array = интерфейс
 {
-  операция includes(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: Число, fromIndex: Число? = пусто): ДаНет
 }
 
 
 тип Float32Array = интерфейс
 {
-  операция includes(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: Число, fromIndex: Число? = пусто): ДаНет
 }
 
 
 тип Float64Array = интерфейс
 {
-  операция includes(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: Число, fromIndex: Число? = пусто): ДаНет
 }
 

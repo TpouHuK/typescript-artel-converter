@@ -30,9 +30,9 @@
   #js.МассивПараметров
   операция next(args: объект {  } | объект { _0: TNext }): IteratorResult<T, TReturn>
 
-  операция return(value: TReturn?FUCKFUCK = пусто): IteratorResult<T, TReturn>
+  операция return(value: TReturn? = пусто): IteratorResult<T, TReturn>
 
-  операция throw(e: /*(!) any */ Объект??FUCKFUCK = пусто): IteratorResult<T, TReturn>
+  операция throw(e: /*(!) any */ Объект?? = пусто): IteratorResult<T, TReturn>
 }
 
 
@@ -64,7 +64,7 @@
 {
   операция from<T>(iterable: Iterable<T> | ArrayLike<T>): Список<T>
 
-  операция from<T, U>(iterable: Iterable<T> | ArrayLike<T>, mapfn: операция(v: T, k: Число): U, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<U>
+  операция from<T, U>(iterable: Iterable<T> | ArrayLike<T>, mapfn: операция(v: T, k: Число): U, thisArg: /*(!) any */ Объект?? = пусто): Список<U>
 }
 
 
@@ -114,7 +114,7 @@
 {
   при создании()/*(!) no_type */ Объект?
 
-  при создании(iterable: Iterable</*(!) защищено */ объект { _0: K, _1: V }>?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(iterable: Iterable</*(!) защищено */ объект { _0: K, _1: V }>? = пусто)/*(!) no_type */ Объект?
 }
 
 
@@ -156,7 +156,7 @@
 
 тип SetConstructor = интерфейс
 {
-  при создании(iterable: Iterable<T>?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(iterable: Iterable<T>? = пусто)/*(!) no_type */ Объект?
 }
 
 
@@ -208,7 +208,7 @@
 {
   при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
 
-  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int8Array
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число? = пусто, thisArg: /*(!) any */ Объект?? = пусто): Int8Array
 }
 
 
@@ -228,7 +228,7 @@
 {
   при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
 
-  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8Array
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число? = пусто, thisArg: /*(!) any */ Объект?? = пусто): Uint8Array
 }
 
 
@@ -248,7 +248,7 @@
 {
   при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
 
-  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8ClampedArray
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число? = пусто, thisArg: /*(!) any */ Объект?? = пусто): Uint8ClampedArray
 }
 
 
@@ -268,7 +268,7 @@
 {
   при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
 
-  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int16Array
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число? = пусто, thisArg: /*(!) any */ Объект?? = пусто): Int16Array
 }
 
 
@@ -288,7 +288,7 @@
 {
   при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
 
-  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint16Array
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число? = пусто, thisArg: /*(!) any */ Объект?? = пусто): Uint16Array
 }
 
 
@@ -308,7 +308,7 @@
 {
   при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
 
-  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int32Array
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число? = пусто, thisArg: /*(!) any */ Объект?? = пусто): Int32Array
 }
 
 
@@ -328,7 +328,7 @@
 {
   при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
 
-  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint32Array
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число? = пусто, thisArg: /*(!) any */ Объект?? = пусто): Uint32Array
 }
 
 
@@ -348,7 +348,7 @@
 {
   при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
 
-  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float32Array
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число? = пусто, thisArg: /*(!) any */ Объект?? = пусто): Float32Array
 }
 
 
@@ -368,6 +368,6 @@
 {
   при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
 
-  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float64Array
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число? = пусто, thisArg: /*(!) any */ Объект?? = пусто): Float64Array
 }
 

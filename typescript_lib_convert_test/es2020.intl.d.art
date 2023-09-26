@@ -69,7 +69,7 @@
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 */
 
-тип LocalesArgument = UnicodeBCP47LocaleIdentifier | Locale | /*(!) защищено */ Список<UnicodeBCP47LocaleIdentifier | Locale>?FUCKFUCK
+тип LocalesArgument = UnicodeBCP47LocaleIdentifier | Locale | /*(!) защищено */ Список<UnicodeBCP47LocaleIdentifier | Locale>?
 
 /**
 * An object with some or all of properties of `options` parameter
@@ -134,7 +134,7 @@
 * [Compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat#Browser_compatibility).
 */
 
-конст RelativeTimeFormat: объект { при создании(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?; операция supportedLocalesOf(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions?FUCKFUCK = пусто): Список<UnicodeBCP47LocaleIdentifier> }
+конст RelativeTimeFormat: объект { при создании(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто)/*(!) no_type */ Объект?; операция supportedLocalesOf(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто): Список<UnicodeBCP47LocaleIdentifier> }
 
 
 тип NumberFormatOptions = интерфейс
@@ -145,13 +145,13 @@
 
   signDisplay: "auto" | "never" | "always" | "exceptZero" | пусто
 
-  unit: Текст?FUCKFUCK
+  unit: Текст?
 
   unitDisplay: "short" | "long" | "narrow" | пусто
 
-  currencyDisplay: Текст?FUCKFUCK
+  currencyDisplay: Текст?
 
-  currencySign: Текст?FUCKFUCK
+  currencySign: Текст?
 }
 
 
@@ -175,11 +175,11 @@
 
 тип DateTimeFormatOptions = интерфейс
 {
-  calendar: Текст?FUCKFUCK
+  calendar: Текст?
 
   dayPeriod: "narrow" | "short" | "long" | пусто
 
-  numberingSystem: Текст?FUCKFUCK
+  numberingSystem: Текст?
 
   dateStyle: "full" | "long" | "medium" | "short" | пусто
 
@@ -246,7 +246,7 @@
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale).
 */
 
-конст Locale: объект { при создании(tag: BCP47LanguageTag | Locale, options: LocaleOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект? }
+конст Locale: объект { при создании(tag: BCP47LanguageTag | Locale, options: LocaleOptions? = пусто)/*(!) no_type */ Объект? }
 
 
 тип DisplayNamesFallback = "code" | "none"
@@ -285,7 +285,7 @@
 
 тип DisplayNames = интерфейс
 {
-  операция of(code: Текст): Текст?FUCKFUCK
+  операция of(code: Текст): Текст?
 
   операция resolvedOptions(): ResolvedDisplayNamesOptions
 }
@@ -298,6 +298,6 @@
 * [Compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames#browser_compatibility).
 */
 
-конст DisplayNames: объект { prototype: DisplayNames; при создании(locales: LocalesArgument, options: DisplayNamesOptions)/*(!) no_type */ Объект?; операция supportedLocalesOf(locales: LocalesArgument?FUCKFUCK = пусто, options: объект { localeMatcher: RelativeTimeFormatLocaleMatcher }?FUCKFUCK = пусто): Список<BCP47LanguageTag> }
+конст DisplayNames: объект { prototype: DisplayNames; при создании(locales: LocalesArgument, options: DisplayNamesOptions)/*(!) no_type */ Объект?; операция supportedLocalesOf(locales: LocalesArgument? = пусто, options: объект { localeMatcher: RelativeTimeFormatLocaleMatcher }? = пусто): Список<BCP47LanguageTag> }
 
 }

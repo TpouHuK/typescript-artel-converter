@@ -32,7 +32,7 @@
 
 тип SuppressedErrorConstructor = интерфейс
 {
-  при создании(error: /*(!) any */ Объект?, suppressed: /*(!) any */ Объект?, message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(error: /*(!) any */ Объект?, suppressed: /*(!) any */ Объект?, message: Текст? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (error: any, suppressed: any, message?: string): SuppressedError*/
 
@@ -52,7 +52,7 @@
 
   операция dispose()
 
-  операция use<T = Disposable?FUCKFUCK>(value: T): T
+  операция use<T = Disposable?>(value: T): T
 
   операция adopt<T>(value: T, onDispose: операция(value: T)): T
 

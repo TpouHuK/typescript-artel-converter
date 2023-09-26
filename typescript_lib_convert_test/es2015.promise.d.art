@@ -3,13 +3,13 @@
   защищено 
   prototype: Promise</*(!) any */ Объект?>
 
-  при создании(executor: операция(resolve: операция(value: T | PromiseLike<T>), reject: операция(reason: /*(!) any */ Объект??FUCKFUCK = пусто)))/*(!) no_type */ Объект?
+  при создании(executor: операция(resolve: операция(value: T | PromiseLike<T>), reject: операция(reason: /*(!) any */ Объект?? = пусто)))/*(!) no_type */ Объект?
 
   операция all<T = /*(!) защищено */ Список</*(!) unknown */ Объект?> | объект {  }>(values: T): Promise</*(!) { -readonly [P in keyof T]: Awaited<T[P]>; } */ Объект?>
 
   операция race<T = /*(!) защищено */ Список</*(!) unknown */ Объект?> | объект {  }>(values: T): Promise<Awaited</*(!) T[number] */ Объект?>>
 
-  операция reject<T>(reason: /*(!) any */ Объект??FUCKFUCK = пусто): Promise<T>
+  операция reject<T>(reason: /*(!) any */ Объект?? = пусто): Promise<T>
 
   операция resolve(): Promise<Ничего>
 

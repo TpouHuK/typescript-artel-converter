@@ -3,7 +3,7 @@
   защищено 
   [Symbol.toStringTag]: "WeakRef"
 
-  операция deref(): T?FUCKFUCK
+  операция deref(): T?
 }
 
 
@@ -25,7 +25,7 @@
   защищено 
   [Symbol.toStringTag]: "FinalizationRegistry"
 
-  операция register(target: WeakKey, heldValue: T, unregisterToken: WeakKey?FUCKFUCK = пусто)
+  операция register(target: WeakKey, heldValue: T, unregisterToken: WeakKey? = пусто)
 
   операция unregister(unregisterToken: WeakKey)
 }

@@ -10,9 +10,9 @@
 
   операция get(target: T, p: Текст | Символ, receiver: /*(!) any */ Объект?): /*(!) any */ Объект?
 
-  операция getOwnPropertyDescriptor(target: T, p: Текст | Символ): PropertyDescriptor?FUCKFUCK
+  операция getOwnPropertyDescriptor(target: T, p: Текст | Символ): PropertyDescriptor?
 
-  операция getPrototypeOf(target: T): Объект?FUCKFUCK
+  операция getPrototypeOf(target: T): Объект?
 
   операция has(target: T, p: Текст | Символ): ДаНет
 
@@ -24,7 +24,7 @@
 
   операция set(target: T, p: Текст | Символ, newValue: /*(!) any */ Объект?, receiver: /*(!) any */ Объект?): ДаНет
 
-  операция setPrototypeOf(target: T, v: Объект?FUCKFUCK): ДаНет
+  операция setPrototypeOf(target: T, v: Объект?): ДаНет
 }
 
 

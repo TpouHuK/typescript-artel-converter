@@ -83,11 +83,11 @@
 
 тип ListFormatOptions = интерфейс
 {
-  localeMatcher: ListFormatLocaleMatcher?FUCKFUCK
+  localeMatcher: ListFormatLocaleMatcher?
 
-  type: ListFormatType?FUCKFUCK
+  type: ListFormatType?
 
-  style: ListFormatStyle?FUCKFUCK
+  style: ListFormatStyle?
 }
 
 
@@ -111,6 +111,6 @@
 }
 
 
-конст ListFormat: объект { prototype: ListFormat; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: ListFormatOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<ListFormatOptions, "localeMatcher">?FUCKFUCK = пусто): Список<BCP47LanguageTag> }
+конст ListFormat: объект { prototype: ListFormat; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: ListFormatOptions? = пусто)/*(!) no_type */ Объект?; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<ListFormatOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
 
 }

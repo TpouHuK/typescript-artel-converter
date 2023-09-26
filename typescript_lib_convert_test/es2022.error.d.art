@@ -12,7 +12,7 @@
 
 тип ErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто, options: ErrorOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто, options: ErrorOptions? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string, options?: ErrorOptions): Error*/
 }
@@ -20,7 +20,7 @@
 
 тип EvalErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто, options: ErrorOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто, options: ErrorOptions? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string, options?: ErrorOptions): EvalError*/
 }
@@ -28,7 +28,7 @@
 
 тип RangeErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто, options: ErrorOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто, options: ErrorOptions? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string, options?: ErrorOptions): RangeError*/
 }
@@ -36,7 +36,7 @@
 
 тип ReferenceErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто, options: ErrorOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто, options: ErrorOptions? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string, options?: ErrorOptions): ReferenceError*/
 }
@@ -44,7 +44,7 @@
 
 тип SyntaxErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто, options: ErrorOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто, options: ErrorOptions? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string, options?: ErrorOptions): SyntaxError*/
 }
@@ -52,7 +52,7 @@
 
 тип TypeErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто, options: ErrorOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто, options: ErrorOptions? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string, options?: ErrorOptions): TypeError*/
 }
@@ -60,7 +60,7 @@
 
 тип URIErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто, options: ErrorOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто, options: ErrorOptions? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string, options?: ErrorOptions): URIError*/
 }
@@ -68,7 +68,7 @@
 
 тип AggregateErrorConstructor = интерфейс
 {
-  при создании(errors: Iterable</*(!) any */ Объект?>, message: Текст?FUCKFUCK = пусто, options: ErrorOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(errors: Iterable</*(!) any */ Объект?>, message: Текст? = пусто, options: ErrorOptions? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (
         errors: Iterable<any>,

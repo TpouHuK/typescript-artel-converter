@@ -142,7 +142,7 @@
 
 тип RegExp = интерфейс
 {
-  операция [Symbol.match](string: Текст): RegExpMatchArray?FUCKFUCK
+  операция [Symbol.match](string: Текст): RegExpMatchArray?
 
   операция [Symbol.replace](string: Текст, replaceValue: Текст): Текст
 
@@ -150,7 +150,7 @@
 
   операция [Symbol.search](string: Текст): Число
 
-  операция [Symbol.split](string: Текст, limit: Число?FUCKFUCK = пусто): Список<Текст>
+  операция [Symbol.split](string: Текст, limit: Число? = пусто): Список<Текст>
 }
 
 
@@ -163,7 +163,7 @@
 
 тип String = интерфейс
 {
-  операция match(matcher: объект { операция [Symbol.match](string: Текст): RegExpMatchArray?FUCKFUCK }): RegExpMatchArray?FUCKFUCK
+  операция match(matcher: объект { операция [Symbol.match](string: Текст): RegExpMatchArray? }): RegExpMatchArray?
 
   операция replace(searchValue: объект { операция [Symbol.replace](string: Текст, replaceValue: Текст): Текст }, replaceValue: Текст): Текст
 
@@ -171,7 +171,7 @@
 
   операция search(searcher: объект { операция [Symbol.search](string: Текст): Число }): Число
 
-  операция split(splitter: объект { операция [Symbol.split](string: Текст, limit: Число?FUCKFUCK = пусто): Список<Текст> }, limit: Число?FUCKFUCK = пусто): Список<Текст>
+  операция split(splitter: объект { операция [Symbol.split](string: Текст, limit: Число? = пусто): Список<Текст> }, limit: Число? = пусто): Список<Текст>
 }
 
 

@@ -21,9 +21,9 @@
 * @param newTarget The constructor to be used as the `new.target` object.
 */
 
-операция construct<A = /*(!) защищено */ Список</*(!) any */ Объект?>, R>(target: /*(!) new (...args: A) => R */ Объект?, argumentsList: Readonly<A>, newTarget: /*(!) new (...args: any) => any */ Объект??FUCKFUCK = пусто): R
+операция construct<A = /*(!) защищено */ Список</*(!) any */ Объект?>, R>(target: /*(!) new (...args: A) => R */ Объект?, argumentsList: Readonly<A>, newTarget: /*(!) new (...args: any) => any */ Объект?? = пусто): R
 
-операция construct(target: Function, argumentsList: ArrayLike</*(!) any */ Объект?>, newTarget: Function?FUCKFUCK = пусто): /*(!) any */ Объект?
+операция construct(target: Function, argumentsList: ArrayLike</*(!) any */ Объект?>, newTarget: Function? = пусто): /*(!) any */ Объект?
 
 /**
 * Adds a property to an object, or modifies attributes of an existing property.
@@ -52,7 +52,7 @@
 *        if `target[propertyKey]` is an accessor property.
 */
 
-операция get<T = Объект, P = PropertyKey>(target: T, propertyKey: P, receiver: /*(!) unknown */ Объект??FUCKFUCK = пусто): /*(!) P extends keyof T ? T[P] : any */ Объект?
+операция get<T = Объект, P = PropertyKey>(target: T, propertyKey: P, receiver: /*(!) unknown */ Объект?? = пусто): /*(!) P extends keyof T ? T[P] : any */ Объект?
 
 /**
 * Gets the own property descriptor of the specified object.
@@ -61,14 +61,14 @@
 * @param propertyKey The property name.
 */
 
-операция getOwnPropertyDescriptor<T = Объект, P = PropertyKey>(target: T, propertyKey: P): TypedPropertyDescriptor</*(!) P extends keyof T ? T[P] : any */ Объект?>?FUCKFUCK
+операция getOwnPropertyDescriptor<T = Объект, P = PropertyKey>(target: T, propertyKey: P): TypedPropertyDescriptor</*(!) P extends keyof T ? T[P] : any */ Объект?>?
 
 /**
 * Returns the prototype of an object.
 * @param target The object that references the prototype.
 */
 
-операция getPrototypeOf(target: Объект): Объект?FUCKFUCK
+операция getPrototypeOf(target: Объект): Объект?
 
 /**
 * Equivalent to `propertyKey in target`.
@@ -109,9 +109,9 @@
 *        if `target[propertyKey]` is an accessor property.
 */
 
-операция set<T = Объект, P = PropertyKey>(target: T, propertyKey: P, value: /*(!) P extends keyof T ? T[P] : any */ Объект?, receiver: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+операция set<T = Объект, P = PropertyKey>(target: T, propertyKey: P, value: /*(!) P extends keyof T ? T[P] : any */ Объект?, receiver: /*(!) any */ Объект?? = пусто): ДаНет
 
-операция set(target: Объект, propertyKey: PropertyKey, value: /*(!) any */ Объект?, receiver: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+операция set(target: Объект, propertyKey: PropertyKey, value: /*(!) any */ Объект?, receiver: /*(!) any */ Объект?? = пусто): ДаНет
 
 /**
 * Sets the prototype of a specified object o to object proto or null.
@@ -120,5 +120,5 @@
 * @return Whether setting the prototype was successful.
 */
 
-операция setPrototypeOf(target: Объект, proto: Объект?FUCKFUCK): ДаНет
+операция setPrototypeOf(target: Объект, proto: Объект?): ДаНет
 }

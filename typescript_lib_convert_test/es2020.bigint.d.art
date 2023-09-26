@@ -36,9 +36,9 @@
 
 тип BigInt = интерфейс
 {
-  операция toString(radix: Число?FUCKFUCK = пусто): Текст
+  операция toString(radix: Число? = пусто): Текст
 
-  операция toLocaleString(locales: /*(!) Intl.LocalesArgument */ Объект??FUCKFUCK = пусто, options: BigIntToLocaleStringOptions?FUCKFUCK = пусто): Текст
+  операция toLocaleString(locales: /*(!) Intl.LocalesArgument */ Объект?? = пусто, options: BigIntToLocaleStringOptions? = пусто): Текст
 
   операция valueOf(): bigint
 
@@ -83,36 +83,36 @@
   защищено 
   byteOffset: Число
 
-  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
   операция entries(): IterableIterator<объект { _0: Число, _1: bigint }>
 
-  операция every(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция fill(value: bigint, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция fill(value: bigint, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: bigint, index: Число, array: BigInt64Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigInt64Array
+  операция filter(predicate: операция(value: bigint, index: Число, array: BigInt64Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): BigInt64Array
 
-  операция find(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): bigint?FUCKFUCK
+  операция find(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): bigint?
 
-  операция findIndex(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findIndex(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: bigint, index: Число, array: BigInt64Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: bigint, index: Число, array: BigInt64Array), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция includes(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: bigint, fromIndex: Число? = пусто): ДаНет
 
-  операция indexOf(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: bigint, fromIndex: Число? = пусто): Число
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
   операция keys(): IterableIterator<Число>
 
-  операция lastIndexOf(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: bigint, fromIndex: Число? = пусто): Число
 
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: bigint, index: Число, array: BigInt64Array): bigint, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigInt64Array
+  операция map(callbackfn: операция(value: bigint, index: Число, array: BigInt64Array): bigint, thisArg: /*(!) any */ Объект?? = пусто): BigInt64Array
 
   операция reduce(callbackfn: операция(previousValue: bigint, currentValue: bigint, currentIndex: Число, array: BigInt64Array): bigint): bigint
 
@@ -124,15 +124,15 @@
 
   операция reverse(): /*(!) this */ Объект?
 
-  операция set(array: ArrayLike<bigint>, offset: Число?FUCKFUCK = пусто)
+  операция set(array: ArrayLike<bigint>, offset: Число? = пусто)
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): BigInt64Array
+  операция slice(start: Число? = пусто, end: Число? = пусто): BigInt64Array
 
-  операция some(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: bigint, b: bigint): Число | bigint?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: bigint, b: bigint): Число | bigint? = пусто): /*(!) this */ Объект?
 
-  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): BigInt64Array
+  операция subarray(begin: Число? = пусто, end: Число? = пусто): BigInt64Array
 
   операция toLocaleString(): Текст
 
@@ -156,11 +156,11 @@
   защищено 
   prototype: BigInt64Array
 
-  при создании(length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(length: Число? = пусто)/*(!) no_type */ Объект?
 
   при создании(array: Iterable<bigint>)/*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -170,7 +170,7 @@
 
   операция from(arrayLike: ArrayLike<bigint>): BigInt64Array
 
-  операция from<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigInt64Array
+  операция from<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект?? = пусто): BigInt64Array
 }
 
 
@@ -197,36 +197,36 @@
   защищено 
   byteOffset: Число
 
-  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
   операция entries(): IterableIterator<объект { _0: Число, _1: bigint }>
 
-  операция every(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция fill(value: bigint, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция fill(value: bigint, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: bigint, index: Число, array: BigUint64Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigUint64Array
+  операция filter(predicate: операция(value: bigint, index: Число, array: BigUint64Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): BigUint64Array
 
-  операция find(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): bigint?FUCKFUCK
+  операция find(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): bigint?
 
-  операция findIndex(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findIndex(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: bigint, index: Число, array: BigUint64Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: bigint, index: Число, array: BigUint64Array), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция includes(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+  операция includes(searchElement: bigint, fromIndex: Число? = пусто): ДаНет
 
-  операция indexOf(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: bigint, fromIndex: Число? = пусто): Число
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
   операция keys(): IterableIterator<Число>
 
-  операция lastIndexOf(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: bigint, fromIndex: Число? = пусто): Число
 
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: bigint, index: Число, array: BigUint64Array): bigint, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigUint64Array
+  операция map(callbackfn: операция(value: bigint, index: Число, array: BigUint64Array): bigint, thisArg: /*(!) any */ Объект?? = пусто): BigUint64Array
 
   операция reduce(callbackfn: операция(previousValue: bigint, currentValue: bigint, currentIndex: Число, array: BigUint64Array): bigint): bigint
 
@@ -238,15 +238,15 @@
 
   операция reverse(): /*(!) this */ Объект?
 
-  операция set(array: ArrayLike<bigint>, offset: Число?FUCKFUCK = пусто)
+  операция set(array: ArrayLike<bigint>, offset: Число? = пусто)
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): BigUint64Array
+  операция slice(start: Число? = пусто, end: Число? = пусто): BigUint64Array
 
-  операция some(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: bigint, b: bigint): Число | bigint?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: bigint, b: bigint): Число | bigint? = пусто): /*(!) this */ Объект?
 
-  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): BigUint64Array
+  операция subarray(begin: Число? = пусто, end: Число? = пусто): BigUint64Array
 
   операция toLocaleString(): Текст
 
@@ -270,11 +270,11 @@
   защищено 
   prototype: BigUint64Array
 
-  при создании(length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(length: Число? = пусто)/*(!) no_type */ Объект?
 
   при создании(array: Iterable<bigint>)/*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -284,7 +284,7 @@
 
   операция from(arrayLike: ArrayLike<bigint>): BigUint64Array
 
-  операция from<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigUint64Array
+  операция from<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект?? = пусто): BigUint64Array
 }
 
 
@@ -294,13 +294,13 @@
 
 тип DataView = интерфейс
 {
-  операция getBigInt64(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): bigint
+  операция getBigInt64(byteOffset: Число, littleEndian: ДаНет? = пусто): bigint
 
-  операция getBigUint64(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): bigint
+  операция getBigUint64(byteOffset: Число, littleEndian: ДаНет? = пусто): bigint
 
-  операция setBigInt64(byteOffset: Число, value: bigint, littleEndian: ДаНет?FUCKFUCK = пусто)
+  операция setBigInt64(byteOffset: Число, value: bigint, littleEndian: ДаНет? = пусто)
 
-  операция setBigUint64(byteOffset: Число, value: bigint, littleEndian: ДаНет?FUCKFUCK = пусто)
+  операция setBigUint64(byteOffset: Число, value: bigint, littleEndian: ДаНет? = пусто)
 }
 
 

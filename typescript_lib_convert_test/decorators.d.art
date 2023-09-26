@@ -25,7 +25,7 @@
   kind: "class"
 
   защищено 
-  name: Текст?FUCKFUCK
+  name: Текст?
 
   операция addInitializer(initializer: операция(this: Class))
 

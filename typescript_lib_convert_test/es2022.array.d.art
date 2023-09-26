@@ -1,77 +1,77 @@
 тип Array<T> = интерфейс
 {
-  операция at(index: Число): T?FUCKFUCK
+  операция at(index: Число): T?
 }
 
 
 тип ReadonlyArray<T> = интерфейс
 {
-  операция at(index: Число): T?FUCKFUCK
+  операция at(index: Число): T?
 }
 
 
 тип Int8Array = интерфейс
 {
-  операция at(index: Число): Число?FUCKFUCK
+  операция at(index: Число): Число?
 }
 
 
 тип Uint8Array = интерфейс
 {
-  операция at(index: Число): Число?FUCKFUCK
+  операция at(index: Число): Число?
 }
 
 
 тип Uint8ClampedArray = интерфейс
 {
-  операция at(index: Число): Число?FUCKFUCK
+  операция at(index: Число): Число?
 }
 
 
 тип Int16Array = интерфейс
 {
-  операция at(index: Число): Число?FUCKFUCK
+  операция at(index: Число): Число?
 }
 
 
 тип Uint16Array = интерфейс
 {
-  операция at(index: Число): Число?FUCKFUCK
+  операция at(index: Число): Число?
 }
 
 
 тип Int32Array = интерфейс
 {
-  операция at(index: Число): Число?FUCKFUCK
+  операция at(index: Число): Число?
 }
 
 
 тип Uint32Array = интерфейс
 {
-  операция at(index: Число): Число?FUCKFUCK
+  операция at(index: Число): Число?
 }
 
 
 тип Float32Array = интерфейс
 {
-  операция at(index: Число): Число?FUCKFUCK
+  операция at(index: Число): Число?
 }
 
 
 тип Float64Array = интерфейс
 {
-  операция at(index: Число): Число?FUCKFUCK
+  операция at(index: Число): Число?
 }
 
 
 тип BigInt64Array = интерфейс
 {
-  операция at(index: Число): bigint?FUCKFUCK
+  операция at(index: Число): bigint?
 }
 
 
 тип BigUint64Array = интерфейс
 {
-  операция at(index: Число): bigint?FUCKFUCK
+  операция at(index: Число): bigint?
 }
 

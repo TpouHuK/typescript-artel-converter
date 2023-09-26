@@ -1,6 +1,6 @@
 тип Symbol = интерфейс
 {
   защищено 
-  description: Текст?FUCKFUCK
+  description: Текст?
 }
 

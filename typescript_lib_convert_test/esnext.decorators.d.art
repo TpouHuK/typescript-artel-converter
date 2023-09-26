@@ -11,6 +11,6 @@
 
 тип Function = интерфейс
 {
-  [Symbol.metadata]: DecoratorMetadata?FUCKFUCK
+  [Symbol.metadata]: DecoratorMetadata?
 }
 

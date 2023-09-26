@@ -33,7 +33,7 @@
 */
 
 внешнее
-операция parseInt(string: Текст, radix: Число?FUCKFUCK = пусто): Число
+операция parseInt(string: Текст, radix: Число? = пусто): Число
 
 /**
 * Converts a string to a floating-point number.
@@ -162,7 +162,7 @@
 
 тип ObjectConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект??FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект?? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (): any*/
 
@@ -173,13 +173,13 @@
 
   операция getPrototypeOf(o: /*(!) any */ Объект?): /*(!) any */ Объект?
 
-  операция getOwnPropertyDescriptor(o: /*(!) any */ Объект?, p: PropertyKey): PropertyDescriptor?FUCKFUCK
+  операция getOwnPropertyDescriptor(o: /*(!) any */ Объект?, p: PropertyKey): PropertyDescriptor?
 
   операция getOwnPropertyNames(o: /*(!) any */ Объект?): Список<Текст>
 
-  операция create(o: Объект?FUCKFUCK): /*(!) any */ Объект?
+  операция create(o: Объект?): /*(!) any */ Объект?
 
-  операция create(o: Объект?FUCKFUCK, properties: /*(!) PropertyDescriptorMap & ThisType<any> */ Объект?): /*(!) any */ Объект?
+  операция create(o: Объект?, properties: /*(!) PropertyDescriptorMap & ThisType<any> */ Объект?): /*(!) any */ Объект?
 
   операция defineProperty<T>(o: T, p: PropertyKey, attributes: /*(!) PropertyDescriptor & ThisType<any> */ Объект?): T
 
@@ -219,7 +219,7 @@
 
 тип Function = интерфейс
 {
-  операция apply(this: Function, thisArg: /*(!) any */ Объект?, argArray: /*(!) any */ Объект??FUCKFUCK = пусто): /*(!) any */ Объект?
+  операция apply(this: Function, thisArg: /*(!) any */ Объект?, argArray: /*(!) any */ Объект?? = пусто): /*(!) any */ Объект?
 
   #js.МассивПараметров
   операция call(this: Function, thisArg: /*(!) any */ Объект?, argArray: Список</*(!) any */ Объект?>): /*(!) any */ Объект?
@@ -321,13 +321,13 @@
   #js.МассивПараметров
   операция concat(strings: Список<Текст>): Текст
 
-  операция indexOf(searchString: Текст, position: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchString: Текст, position: Число? = пусто): Число
 
-  операция lastIndexOf(searchString: Текст, position: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchString: Текст, position: Число? = пусто): Число
 
   операция localeCompare(that: Текст): Число
 
-  операция match(regexp: Текст | RegExp): RegExpMatchArray?FUCKFUCK
+  операция match(regexp: Текст | RegExp): RegExpMatchArray?
 
   операция replace(searchValue: Текст | RegExp, replaceValue: Текст): Текст
 
@@ -335,11 +335,11 @@
 
   операция search(regexp: Текст | RegExp): Число
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Текст
+  операция slice(start: Число? = пусто, end: Число? = пусто): Текст
 
-  операция split(separator: Текст | RegExp, limit: Число?FUCKFUCK = пусто): Список<Текст>
+  операция split(separator: Текст | RegExp, limit: Число? = пусто): Список<Текст>
 
-  операция substring(start: Число, end: Число?FUCKFUCK = пусто): Текст
+  операция substring(start: Число, end: Число? = пусто): Текст
 
   операция toLowerCase(): Текст
 
@@ -354,7 +354,7 @@
   защищено 
   length: Число
 
-  операция substr(from: Число, length: Число?FUCKFUCK = пусто): Текст
+  операция substr(from: Число, length: Число? = пусто): Текст
 
   операция valueOf(): Текст
 
@@ -364,7 +364,7 @@
 
 тип StringConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект??FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект?? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (value?: any): string*/
 
@@ -392,7 +392,7 @@
 
 тип BooleanConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект??FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект?? = пусто)/*(!) no_type */ Объект?
 
   /*(!) <T>(value?: T): boolean*/
 
@@ -407,13 +407,13 @@
 
 тип Number = интерфейс
 {
-  операция toString(radix: Число?FUCKFUCK = пусто): Текст
+  операция toString(radix: Число? = пусто): Текст
 
-  операция toFixed(fractionDigits: Число?FUCKFUCK = пусто): Текст
+  операция toFixed(fractionDigits: Число? = пусто): Текст
 
-  операция toExponential(fractionDigits: Число?FUCKFUCK = пусто): Текст
+  операция toExponential(fractionDigits: Число? = пусто): Текст
 
-  операция toPrecision(precision: Число?FUCKFUCK = пусто): Текст
+  операция toPrecision(precision: Число? = пусто): Текст
 
   операция valueOf(): Число
 }
@@ -421,7 +421,7 @@
 
 тип NumberConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект??FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект?? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (value?: any): number*/
 
@@ -626,35 +626,35 @@
 
   операция setUTCMilliseconds(ms: Число): Число
 
-  операция setSeconds(sec: Число, ms: Число?FUCKFUCK = пусто): Число
+  операция setSeconds(sec: Число, ms: Число? = пусто): Число
 
-  операция setUTCSeconds(sec: Число, ms: Число?FUCKFUCK = пусто): Число
+  операция setUTCSeconds(sec: Число, ms: Число? = пусто): Число
 
-  операция setMinutes(min: Число, sec: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто): Число
+  операция setMinutes(min: Число, sec: Число? = пусто, ms: Число? = пусто): Число
 
-  операция setUTCMinutes(min: Число, sec: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто): Число
+  операция setUTCMinutes(min: Число, sec: Число? = пусто, ms: Число? = пусто): Число
 
-  операция setHours(hours: Число, min: Число?FUCKFUCK = пусто, sec: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто): Число
+  операция setHours(hours: Число, min: Число? = пусто, sec: Число? = пусто, ms: Число? = пусто): Число
 
-  операция setUTCHours(hours: Число, min: Число?FUCKFUCK = пусто, sec: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто): Число
+  операция setUTCHours(hours: Число, min: Число? = пусто, sec: Число? = пусто, ms: Число? = пусто): Число
 
   операция setDate(date: Число): Число
 
   операция setUTCDate(date: Число): Число
 
-  операция setMonth(month: Число, date: Число?FUCKFUCK = пусто): Число
+  операция setMonth(month: Число, date: Число? = пусто): Число
 
-  операция setUTCMonth(month: Число, date: Число?FUCKFUCK = пусто): Число
+  операция setUTCMonth(month: Число, date: Число? = пусто): Число
 
-  операция setFullYear(year: Число, month: Число?FUCKFUCK = пусто, date: Число?FUCKFUCK = пусто): Число
+  операция setFullYear(year: Число, month: Число? = пусто, date: Число? = пусто): Число
 
-  операция setUTCFullYear(year: Число, month: Число?FUCKFUCK = пусто, date: Число?FUCKFUCK = пусто): Число
+  операция setUTCFullYear(year: Число, month: Число? = пусто, date: Число? = пусто): Число
 
   операция toUTCString(): Текст
 
   операция toISOString(): Текст
 
-  операция toJSON(key: /*(!) any */ Объект??FUCKFUCK = пусто): Текст
+  операция toJSON(key: /*(!) any */ Объект?? = пусто): Текст
 }
 
 
@@ -664,7 +664,7 @@
 
   при создании(value: Число | Текст)/*(!) no_type */ Объект?
 
-  при создании(year: Число, monthIndex: Число, date: Число?FUCKFUCK = пусто, hours: Число?FUCKFUCK = пусто, minutes: Число?FUCKFUCK = пусто, seconds: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(year: Число, monthIndex: Число, date: Число? = пусто, hours: Число? = пусто, minutes: Число? = пусто, seconds: Число? = пусто, ms: Число? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (): string*/
 
@@ -673,7 +673,7 @@
 
   операция parse(s: Текст): Число
 
-  операция UTC(year: Число, monthIndex: Число, date: Число?FUCKFUCK = пусто, hours: Число?FUCKFUCK = пусто, minutes: Число?FUCKFUCK = пусто, seconds: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто): Число
+  операция UTC(year: Число, monthIndex: Число, date: Число? = пусто, hours: Число? = пусто, minutes: Число? = пусто, seconds: Число? = пусто, ms: Число? = пусто): Число
 
   операция now(): Число
 }
@@ -705,7 +705,7 @@
 
 тип RegExp = интерфейс
 {
-  операция exec(string: Текст): RegExpExecArray?FUCKFUCK
+  операция exec(string: Текст): RegExpExecArray?
 
   операция test(string: Текст): ДаНет
 
@@ -723,7 +723,7 @@
 
   lastIndex: Число
 
-  операция compile(pattern: Текст, flags: Текст?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция compile(pattern: Текст, flags: Текст? = пусто): /*(!) this */ Объект?
 }
 
 
@@ -731,7 +731,7 @@
 {
   при создании(pattern: RegExp | Текст)/*(!) no_type */ Объект?
 
-  при создании(pattern: Текст, flags: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(pattern: Текст, flags: Текст? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (pattern: RegExp | string): RegExp*/
 
@@ -796,7 +796,7 @@
 
 тип ErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string): Error*/
 
@@ -817,7 +817,7 @@
 
 тип EvalErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string): EvalError*/
 
@@ -838,7 +838,7 @@
 
 тип RangeErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string): RangeError*/
 
@@ -859,7 +859,7 @@
 
 тип ReferenceErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string): ReferenceError*/
 
@@ -880,7 +880,7 @@
 
 тип SyntaxErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string): SyntaxError*/
 
@@ -901,7 +901,7 @@
 
 тип TypeErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string): TypeError*/
 
@@ -922,7 +922,7 @@
 
 тип URIErrorConstructor = интерфейс
 {
-  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
 
   /*(!) (message?: string): URIError*/
 
@@ -937,11 +937,11 @@
 
 тип JSON = интерфейс
 {
-  операция parse(text: Текст, reviver: операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект??FUCKFUCK = пусто): /*(!) any */ Объект?
+  операция parse(text: Текст, reviver: операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект?? = пусто): /*(!) any */ Объект?
 
-  операция stringify(value: /*(!) any */ Объект?, replacer: операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект??FUCKFUCK = пусто, space: Текст | Число | пусто = пусто): Текст
+  операция stringify(value: /*(!) any */ Объект?, replacer: операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект?? = пусто, space: Текст | Число | пусто = пусто): Текст
 
-  операция stringify(value: /*(!) any */ Объект?, replacer: Список<Число | Текст>?FUCKFUCK = пусто, space: Текст | Число | пусто = пусто): Текст
+  операция stringify(value: /*(!) any */ Объект?, replacer: Список<Число | Текст>? = пусто, space: Текст | Число | пусто = пусто): Текст
 }
 
 
@@ -974,27 +974,27 @@
   #js.МассивПараметров
   операция concat(items: Список<T | ConcatArray<T>>): Список<T>
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Список<T>
+  операция slice(start: Число? = пусто, end: Число? = пусто): Список<T>
 
-  операция indexOf(searchElement: T, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: T, fromIndex: Число? = пусто): Число
 
-  операция lastIndexOf(searchElement: T, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: T, fromIndex: Число? = пусто): Число
 
-  операция every<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): /*(!) this is */ /*(!) защищено */ Список<S>
+  операция every<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): /*(!) this is */ /*(!) защищено */ Список<S>
 
-  операция every(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция some(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция forEach(callbackfn: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция map<U>(callbackfn: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): U, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<U>
+  операция map<U>(callbackfn: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): U, thisArg: /*(!) any */ Объект?? = пусто): Список<U>
 
-  операция filter<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<S>
+  операция filter<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): Список<S>
 
-  операция filter(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<T>
+  операция filter(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Список<T>
 
   операция reduce(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: /*(!) защищено */ Список<T>): T): T
 
@@ -1019,9 +1019,9 @@
 
   /*(!) readonly [n: number]: T*/
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Список<T>
+  операция slice(start: Число? = пусто, end: Число? = пусто): Список<T>
 }
 
 
@@ -1033,7 +1033,7 @@
 
   операция toLocaleString(): Текст
 
-  операция pop(): T?FUCKFUCK
+  операция pop(): T?
 
   #js.МассивПараметров
   операция push(items: Список<T>): Число
@@ -1044,17 +1044,17 @@
   #js.МассивПараметров
   операция concat(items: Список<T | ConcatArray<T>>): Список<T>
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
   операция reverse(): Список<T>
 
-  операция shift(): T?FUCKFUCK
+  операция shift(): T?
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Список<T>
+  операция slice(start: Число? = пусто, end: Число? = пусто): Список<T>
 
-  операция sort(compareFn: операция(a: T, b: T): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: T, b: T): Число? = пусто): /*(!) this */ Объект?
 
-  операция splice(start: Число, deleteCount: Число?FUCKFUCK = пусто): Список<T>
+  операция splice(start: Число, deleteCount: Число? = пусто): Список<T>
 
   #js.МассивПараметров
   операция splice(start: Число, deleteCount: Число, items: Список<T>): Список<T>
@@ -1062,23 +1062,23 @@
   #js.МассивПараметров
   операция unshift(items: Список<T>): Число
 
-  операция indexOf(searchElement: T, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: T, fromIndex: Число? = пусто): Число
 
-  операция lastIndexOf(searchElement: T, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: T, fromIndex: Число? = пусто): Число
 
-  операция every<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): /*(!) this is */ Список<S>
+  операция every<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): /*(!) this is */ Список<S>
 
-  операция every(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция some(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция forEach(callbackfn: операция(value: T, index: Число, array: Список<T>), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: T, index: Число, array: Список<T>), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция map<U>(callbackfn: операция(value: T, index: Число, array: Список<T>): U, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<U>
+  операция map<U>(callbackfn: операция(value: T, index: Число, array: Список<T>): U, thisArg: /*(!) any */ Объект?? = пусто): Список<U>
 
-  операция filter<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<S>
+  операция filter<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): Список<S>
 
-  операция filter(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<T>
+  операция filter(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Список<T>
 
   операция reduce(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: Список<T>): T): T
 
@@ -1098,7 +1098,7 @@
 
 тип ArrayConstructor = интерфейс
 {
-  при создании(arrayLength: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(arrayLength: Число? = пусто)/*(!) no_type */ Объект?
 
   при создании(arrayLength: Число)/*(!) no_type */ Объект?
 
@@ -1143,7 +1143,7 @@
 
 тип PromiseLike<T> = интерфейс
 {
-  операция then<TResult1, TResult2>(onfulfilled: операция(value: T): TResult1 | PromiseLike<TResult1>?FUCKFUCK = пусто, onrejected: операция(reason: /*(!) any */ Объект?): TResult2 | PromiseLike<TResult2>?FUCKFUCK = пусто): PromiseLike<TResult1 | TResult2>
+  операция then<TResult1, TResult2>(onfulfilled: операция(value: T): TResult1 | PromiseLike<TResult1>? = пусто, onrejected: операция(reason: /*(!) any */ Объект?): TResult2 | PromiseLike<TResult2>? = пусто): PromiseLike<TResult1 | TResult2>
 }
 
 
@@ -1153,9 +1153,9 @@
 
 тип Promise<T> = интерфейс
 {
-  операция then<TResult1, TResult2>(onfulfilled: операция(value: T): TResult1 | PromiseLike<TResult1>?FUCKFUCK = пусто, onrejected: операция(reason: /*(!) any */ Объект?): TResult2 | PromiseLike<TResult2>?FUCKFUCK = пусто): Promise<TResult1 | TResult2>
+  операция then<TResult1, TResult2>(onfulfilled: операция(value: T): TResult1 | PromiseLike<TResult1>? = пусто, onrejected: операция(reason: /*(!) any */ Объект?): TResult2 | PromiseLike<TResult2>? = пусто): Promise<TResult1 | TResult2>
 
-  операция catch<TResult>(onrejected: операция(reason: /*(!) any */ Объект?): TResult | PromiseLike<TResult>?FUCKFUCK = пусто): Promise<T | TResult>
+  операция catch<TResult>(onrejected: операция(reason: /*(!) any */ Объект?): TResult | PromiseLike<TResult>? = пусто): Promise<T | TResult>
 }
 
 
@@ -1327,7 +1327,7 @@
   защищено 
   byteLength: Число
 
-  операция slice(begin: Число, end: Число?FUCKFUCK = пусто): ArrayBuffer
+  операция slice(begin: Число, end: Число? = пусто): ArrayBuffer
 }
 
 
@@ -1379,37 +1379,37 @@
   защищено 
   byteOffset: Число
 
-  операция getFloat32(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+  операция getFloat32(byteOffset: Число, littleEndian: ДаНет? = пусто): Число
 
-  операция getFloat64(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+  операция getFloat64(byteOffset: Число, littleEndian: ДаНет? = пусто): Число
 
   операция getInt8(byteOffset: Число): Число
 
-  операция getInt16(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+  операция getInt16(byteOffset: Число, littleEndian: ДаНет? = пусто): Число
 
-  операция getInt32(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+  операция getInt32(byteOffset: Число, littleEndian: ДаНет? = пусто): Число
 
   операция getUint8(byteOffset: Число): Число
 
-  операция getUint16(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+  операция getUint16(byteOffset: Число, littleEndian: ДаНет? = пусто): Число
 
-  операция getUint32(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+  операция getUint32(byteOffset: Число, littleEndian: ДаНет? = пусто): Число
 
-  операция setFloat32(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+  операция setFloat32(byteOffset: Число, value: Число, littleEndian: ДаНет? = пусто)
 
-  операция setFloat64(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+  операция setFloat64(byteOffset: Число, value: Число, littleEndian: ДаНет? = пусто)
 
   операция setInt8(byteOffset: Число, value: Число)
 
-  операция setInt16(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+  операция setInt16(byteOffset: Число, value: Число, littleEndian: ДаНет? = пусто)
 
-  операция setInt32(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+  операция setInt32(byteOffset: Число, value: Число, littleEndian: ДаНет? = пусто)
 
   операция setUint8(byteOffset: Число, value: Число)
 
-  операция setUint16(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+  операция setUint16(byteOffset: Число, value: Число, littleEndian: ДаНет? = пусто)
 
-  операция setUint32(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+  операция setUint32(byteOffset: Число, value: Число, littleEndian: ДаНет? = пусто)
 }
 
 
@@ -1418,7 +1418,7 @@
   защищено 
   prototype: DataView
 
-  при создании(buffer: /*(!) ArrayBufferLike & { BYTES_PER_ELEMENT?: never; } */ Объект?, byteOffset: Число?FUCKFUCK = пусто, byteLength: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: /*(!) ArrayBufferLike & { BYTES_PER_ELEMENT?: never; } */ Объект?, byteOffset: Число? = пусто, byteLength: Число? = пусто)/*(!) no_type */ Объект?
 }
 
 
@@ -1445,30 +1445,30 @@
   защищено 
   byteOffset: Число
 
-  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int8Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Int8Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Int8Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция find(predicate: операция(value: Число, index: Число, obj: Int8Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int8Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int8Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int8Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int8Array), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
-  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Int8Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int8Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Int8Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Int8Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int8Array): Число): Число
 
@@ -1484,15 +1484,15 @@
 
   операция reverse(): Int8Array
 
-  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+  операция set(array: ArrayLike<Число>, offset: Число? = пусто)
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int8Array
+  операция slice(start: Число? = пусто, end: Число? = пусто): Int8Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
 
-  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int8Array
+  операция subarray(begin: Число? = пусто, end: Число? = пусто): Int8Array
 
   операция toLocaleString(): Текст
 
@@ -1513,7 +1513,7 @@
 
   при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1523,7 +1523,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Int8Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int8Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Int8Array
 }
 
 
@@ -1550,30 +1550,30 @@
   защищено 
   byteOffset: Число
 
-  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Uint8Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Uint8Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint8Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint8Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint8Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint8Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint8Array), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
-  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Uint8Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint8Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint8Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8Array): Число): Число
 
@@ -1589,15 +1589,15 @@
 
   операция reverse(): Uint8Array
 
-  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+  операция set(array: ArrayLike<Число>, offset: Число? = пусто)
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint8Array
+  операция slice(start: Число? = пусто, end: Число? = пусто): Uint8Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
 
-  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint8Array
+  операция subarray(begin: Число? = пусто, end: Число? = пусто): Uint8Array
 
   операция toLocaleString(): Текст
 
@@ -1618,7 +1618,7 @@
 
   при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1628,7 +1628,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Uint8Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint8Array
 }
 
 
@@ -1655,30 +1655,30 @@
   защищено 
   byteOffset: Число
 
-  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8ClampedArray
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Uint8ClampedArray
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Uint8ClampedArray): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint8ClampedArray): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint8ClampedArray): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint8ClampedArray): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint8ClampedArray), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint8ClampedArray), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
-  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Uint8ClampedArray): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8ClampedArray
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint8ClampedArray): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint8ClampedArray
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8ClampedArray): Число): Число
 
@@ -1694,15 +1694,15 @@
 
   операция reverse(): Uint8ClampedArray
 
-  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+  операция set(array: ArrayLike<Число>, offset: Число? = пусто)
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint8ClampedArray
+  операция slice(start: Число? = пусто, end: Число? = пусто): Uint8ClampedArray
 
-  операция some(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
 
-  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint8ClampedArray
+  операция subarray(begin: Число? = пусто, end: Число? = пусто): Uint8ClampedArray
 
   операция toLocaleString(): Текст
 
@@ -1723,7 +1723,7 @@
 
   при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1733,7 +1733,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Uint8ClampedArray
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8ClampedArray
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint8ClampedArray
 }
 
 
@@ -1760,30 +1760,30 @@
   защищено 
   byteOffset: Число
 
-  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int16Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Int16Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Int16Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция find(predicate: операция(value: Число, index: Число, obj: Int16Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int16Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int16Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int16Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int16Array), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
-  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Int16Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int16Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Int16Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Int16Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int16Array): Число): Число
 
@@ -1799,15 +1799,15 @@
 
   операция reverse(): Int16Array
 
-  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+  операция set(array: ArrayLike<Число>, offset: Число? = пусто)
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int16Array
+  операция slice(start: Число? = пусто, end: Число? = пусто): Int16Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
 
-  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int16Array
+  операция subarray(begin: Число? = пусто, end: Число? = пусто): Int16Array
 
   операция toLocaleString(): Текст
 
@@ -1828,7 +1828,7 @@
 
   при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1838,7 +1838,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Int16Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int16Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Int16Array
 }
 
 
@@ -1865,30 +1865,30 @@
   защищено 
   byteOffset: Число
 
-  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint16Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Uint16Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Uint16Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint16Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint16Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint16Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint16Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint16Array), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
-  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Uint16Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint16Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint16Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint16Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint16Array): Число): Число
 
@@ -1904,15 +1904,15 @@
 
   операция reverse(): Uint16Array
 
-  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+  операция set(array: ArrayLike<Число>, offset: Число? = пусто)
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint16Array
+  операция slice(start: Число? = пусто, end: Число? = пусто): Uint16Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
 
-  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint16Array
+  операция subarray(begin: Число? = пусто, end: Число? = пусто): Uint16Array
 
   операция toLocaleString(): Текст
 
@@ -1933,7 +1933,7 @@
 
   при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1943,7 +1943,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Uint16Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint16Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint16Array
 }
 
 
@@ -1970,30 +1970,30 @@
   защищено 
   byteOffset: Число
 
-  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int32Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Int32Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Int32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция find(predicate: операция(value: Число, index: Число, obj: Int32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int32Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int32Array), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
-  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Int32Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int32Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Int32Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Int32Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int32Array): Число): Число
 
@@ -2009,15 +2009,15 @@
 
   операция reverse(): Int32Array
 
-  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+  операция set(array: ArrayLike<Число>, offset: Число? = пусто)
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int32Array
+  операция slice(start: Число? = пусто, end: Число? = пусто): Int32Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
 
-  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int32Array
+  операция subarray(begin: Число? = пусто, end: Число? = пусто): Int32Array
 
   операция toLocaleString(): Текст
 
@@ -2038,7 +2038,7 @@
 
   при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2048,7 +2048,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Int32Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int32Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Int32Array
 }
 
 
@@ -2075,30 +2075,30 @@
   защищено 
   byteOffset: Число
 
-  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint32Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Uint32Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Uint32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint32Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint32Array), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
-  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Uint32Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint32Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint32Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint32Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint32Array): Число): Число
 
@@ -2114,15 +2114,15 @@
 
   операция reverse(): Uint32Array
 
-  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+  операция set(array: ArrayLike<Число>, offset: Число? = пусто)
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint32Array
+  операция slice(start: Число? = пусто, end: Число? = пусто): Uint32Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
 
-  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint32Array
+  операция subarray(begin: Число? = пусто, end: Число? = пусто): Uint32Array
 
   операция toLocaleString(): Текст
 
@@ -2143,7 +2143,7 @@
 
   при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2153,7 +2153,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Uint32Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint32Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint32Array
 }
 
 
@@ -2180,30 +2180,30 @@
   защищено 
   byteOffset: Число
 
-  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float32Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Float32Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Float32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция find(predicate: операция(value: Число, index: Число, obj: Float32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Float32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Float32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Float32Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Float32Array), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
-  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Float32Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float32Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Float32Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Float32Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float32Array): Число): Число
 
@@ -2219,15 +2219,15 @@
 
   операция reverse(): Float32Array
 
-  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+  операция set(array: ArrayLike<Число>, offset: Число? = пусто)
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Float32Array
+  операция slice(start: Число? = пусто, end: Число? = пусто): Float32Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
 
-  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Float32Array
+  операция subarray(begin: Число? = пусто, end: Число? = пусто): Float32Array
 
   операция toLocaleString(): Текст
 
@@ -2248,7 +2248,7 @@
 
   при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2258,7 +2258,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Float32Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float32Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Float32Array
 }
 
 
@@ -2285,30 +2285,30 @@
   защищено 
   byteOffset: Число
 
-  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float64Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Float64Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Float64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+  операция find(predicate: операция(value: Число, index: Число, obj: Float64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Float64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Float64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Float64Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Float64Array), thisArg: /*(!) any */ Объект?? = пусто)
 
-  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+  операция join(separator: Текст? = пусто): Текст
 
-  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+  операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Float64Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float64Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Float64Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Float64Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float64Array): Число): Число
 
@@ -2324,15 +2324,15 @@
 
   операция reverse(): Float64Array
 
-  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+  операция set(array: ArrayLike<Число>, offset: Число? = пусто)
 
-  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Float64Array
+  операция slice(start: Число? = пусто, end: Число? = пусто): Float64Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
 
-  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Float64Array
+  операция subarray(begin: Число? = пусто, end: Число? = пусто): Float64Array
 
   операция toLocaleString(): Текст
 
@@ -2353,7 +2353,7 @@
 
   при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2363,7 +2363,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Float64Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float64Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Float64Array
 }
 
 
@@ -2386,7 +2386,7 @@
 
   localeMatcher: "lookup" | "best fit" | пусто
 
-  numeric: ДаНет?FUCKFUCK
+  numeric: ДаНет?
 
   caseFirst: "upper" | "lower" | "false" | пусто
 
@@ -2394,7 +2394,7 @@
 
   collation: "big5han" | "compat" | "dict" | "direct" | "ducet" | "emoji" | "eor" | "gb2312" | "phonebk" | "phonetic" | "pinyin" | "reformed" | "searchjl" | "stroke" | "trad" | "unihan" | "zhuyin" | пусто
 
-  ignorePunctuation: ДаНет?FUCKFUCK
+  ignorePunctuation: ДаНет?
 }
 
 
@@ -2424,30 +2424,30 @@
 }
 
 
-/*(!) var */ Collator: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: CollatorOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: CollatorOptions): Collator*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: CollatorOptions?FUCKFUCK = пусто): Список<Текст> }
+/*(!) var */ Collator: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: CollatorOptions? = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: CollatorOptions): Collator*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: CollatorOptions? = пусто): Список<Текст> }
 
 
 тип NumberFormatOptions = интерфейс
 {
-  localeMatcher: Текст?FUCKFUCK
+  localeMatcher: Текст?
 
-  style: Текст?FUCKFUCK
+  style: Текст?
 
-  currency: Текст?FUCKFUCK
+  currency: Текст?
 
-  currencySign: Текст?FUCKFUCK
+  currencySign: Текст?
 
-  useGrouping: ДаНет?FUCKFUCK
+  useGrouping: ДаНет?
 
-  minimumIntegerDigits: Число?FUCKFUCK
+  minimumIntegerDigits: Число?
 
-  minimumFractionDigits: Число?FUCKFUCK
+  minimumFractionDigits: Число?
 
-  maximumFractionDigits: Число?FUCKFUCK
+  maximumFractionDigits: Число?
 
-  minimumSignificantDigits: Число?FUCKFUCK
+  minimumSignificantDigits: Число?
 
-  maximumSignificantDigits: Число?FUCKFUCK
+  maximumSignificantDigits: Число?
 }
 
 
@@ -2483,7 +2483,7 @@
 }
 
 
-/*(!) var */ NumberFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: NumberFormatOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: NumberFormatOptions): NumberFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: NumberFormatOptions?FUCKFUCK = пусто): Список<Текст>; защищено  prototype: NumberFormat }
+/*(!) var */ NumberFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: NumberFormatOptions? = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: NumberFormatOptions): NumberFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: NumberFormatOptions? = пусто): Список<Текст>; защищено  prototype: NumberFormat }
 
 
 тип DateTimeFormatOptions = интерфейс
@@ -2510,9 +2510,9 @@
 
   formatMatcher: "best fit" | "basic" | пусто
 
-  hour12: ДаНет?FUCKFUCK
+  hour12: ДаНет?
 
-  timeZone: Текст?FUCKFUCK
+  timeZone: Текст?
 }
 
 
@@ -2556,28 +2556,28 @@
 }
 
 
-/*(!) var */ DateTimeFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: DateTimeFormatOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: DateTimeFormatOptions): DateTimeFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: DateTimeFormatOptions?FUCKFUCK = пусто): Список<Текст>; защищено  prototype: DateTimeFormat }
+/*(!) var */ DateTimeFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: DateTimeFormatOptions? = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: DateTimeFormatOptions): DateTimeFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: DateTimeFormatOptions? = пусто): Список<Текст>; защищено  prototype: DateTimeFormat }
 
 }
 
 тип String = интерфейс
 {
-  операция localeCompare(that: Текст, locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.CollatorOptions */ Объект??FUCKFUCK = пусто): Число
+  операция localeCompare(that: Текст, locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.CollatorOptions */ Объект?? = пусто): Число
 }
 
 
 тип Number = интерфейс
 {
-  операция toLocaleString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.NumberFormatOptions */ Объект??FUCKFUCK = пусто): Текст
+  операция toLocaleString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.NumberFormatOptions */ Объект?? = пусто): Текст
 }
 
 
 тип Date = интерфейс
 {
-  операция toLocaleString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект??FUCKFUCK = пусто): Текст
+  операция toLocaleString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект?? = пусто): Текст
 
-  операция toLocaleDateString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект??FUCKFUCK = пусто): Текст
+  операция toLocaleDateString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект?? = пусто): Текст
 
-  операция toLocaleTimeString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект??FUCKFUCK = пусто): Текст
+  операция toLocaleTimeString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект?? = пусто): Текст
 }
 
