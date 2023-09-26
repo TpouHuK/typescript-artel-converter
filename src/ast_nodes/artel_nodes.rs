@@ -1,27 +1,10 @@
 use itertools::Itertools;
+use super::*;
 
 pub trait ArtelStr {
     fn artel_str(&self, ident_level: usize) -> String;
 }
 
-fn ident(ident: usize) -> &'static str {
-    // Yep, this is string of 100 spaces
-    let much_space = "                                                                                                    "; // lol
-    &much_space[0..ident]
-}
-
-fn set_ident<T: AsRef<str>>(str: T, ident_level: usize) -> String {
-    let str: &str = str.as_ref();
-    let spliter;
-    if str.contains("\r") {
-        spliter = "\r\n";
-    } else {
-        spliter = "\n";
-    }
-    str.split(spliter)
-        .map(|line| format!("{}{}", ident(ident_level), line.trim_start()))
-        .join("\n")
-}
 //#[derive(Debug)]
 //pub struct ArtelProgram(ArtelStatement);
 pub type ArtelProgram = ArtelStatements;
@@ -37,7 +20,7 @@ impl ArtelStr for ArtelStatements {
 #[derive(Debug)]
 pub enum ArtelStatement {
     LexicalDeclaration(ArtelLexicalDeclaration),
-    FunctionDeclaration(ArtelFunctionDeclaration),
+    FunctionDeclaration(FunctionDeclaration),
     ClassDeclaration(ArtelClassDeclaration),
     TypeAliasDeclaration(ArtelTypeAliasDeclaration),
     InterfaceDeclaration(ArtelInterfaceDeclaration),
@@ -59,13 +42,13 @@ impl ArtelStr for ArtelInternalModule {
     fn artel_str(&self, ident_level: usize) -> String {
         let header = format!("/*(!) {} */\n", self.name.0);
         [
-            ident(ident_level),
+            indent(ident_level),
             &header,
-            ident(ident_level),
+            indent(ident_level),
             "{\n",
             &self.statements.artel_str(ident_level),
             "\n",
-            ident(ident_level),
+            indent(ident_level),
             "}",
         ]
         .concat()
@@ -96,14 +79,14 @@ impl ArtelStr for ArtelAmbientDeclaration {
         if self.body.len() == 1 {
             format!(
                 "{ident}внешнее{global_str}\n{ident}{body}",
-                ident = ident(ident_level),
+                ident = indent(ident_level),
                 body = self.body[0].artel_str(ident_level)
             )
         } else {
             format!(
                 "{ident}внешнее{global_str}\n{ident}{{\n{body}\n{ident}}}",
                 body = self.body[0].artel_str(ident_level),
-                ident = ident(ident_level)
+                ident = indent(ident_level)
             )
         }
     }
@@ -118,12 +101,12 @@ impl ArtelStr for ArtelStatement {
             ArtelStatement::ClassDeclaration(class) => class.artel_str(ident_level),
             ArtelStatement::ExportStatement(exprt) => format!(
                 "{}внешнее\n{}",
-                ident(ident_level),
+                indent(ident_level),
                 exprt.artel_str(ident_level + 2)
             ),
             ArtelStatement::AmbientDeclaration(decl) => decl.artel_str(0),
             ArtelStatement::TypeAliasDeclaration(typealias) => typealias.artel_str(ident_level),
-            ArtelStatement::Comment(comment) => set_ident(comment, ident_level),
+            ArtelStatement::Comment(comment) => set_indent(comment, ident_level),
             ArtelStatement::LexicalDeclaration(decl) => decl.artel_str(ident_level),
             ArtelStatement::InternalModule(modul) => modul.artel_str(ident_level),
             _ => todo!("{self:?}"),
@@ -140,19 +123,19 @@ pub struct EnumDeclaration {
 impl ArtelStr for EnumDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
         let mut str = String::new();
-        str.push_str(ident(ident_level));
+        str.push_str(indent(ident_level));
         str.push_str("тип ");
         str.push_str(&self.name.0);
         str.push_str(" = вариант");
         str.push_str("\n");
-        str.push_str(ident(ident_level));
+        str.push_str(indent(ident_level));
         str.push_str("{\n");
 
         for enum_item in &self.items {
             str.push_str(&enum_item.artel_str(ident_level + 2));
             str.push_str("\n");
         }
-        str.push_str(ident(ident_level));
+        str.push_str(indent(ident_level));
         str.push_str("}");
 
         str
@@ -174,7 +157,7 @@ pub struct EnumItem {
 impl ArtelStr for EnumItem {
     fn artel_str(&self, ident_level: usize) -> String {
         let mut str = String::new();
-        str.push_str(ident(ident_level));
+        str.push_str(indent(ident_level));
         str.push_str(&self.name.0);
         if let Some(value) = &self.value {
             str.push_str(" = ");
@@ -207,308 +190,19 @@ impl ArtelStr for ArtelLexicalDeclarationType {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct ArtelIdentifier(String);
 
-impl ArtelIdentifier {
-    pub fn new<T: Into<String>>(name: T) -> Self {
-        ArtelIdentifier(name.into())
-    }
-}
-
-#[derive(Debug, Clone)]
-pub struct ArtelType(pub Vec<ArtelPrimaryType>);
-impl ArtelType {
-    fn is_nothing(&self) -> bool {
-        if let [ArtelPrimaryType::PredefinedType(ArtelPredefinedType::Void)
-        | ArtelPrimaryType::LiteralType(ArtelLiteralType::Null)
-        | ArtelPrimaryType::LiteralType(ArtelLiteralType::Undefined)] = self.0[..]
-        {
-            true
-        } else {
-            false
-        }
-    }
-
-    fn convert_return_type(&self) -> String {
-        if self.is_nothing() {
-            "".to_owned()
-        } else {
-            [": ", &self.artel_str(0)].concat()
-        }
-    }
-}
-
-impl ArtelStr for ArtelType {
-    fn artel_str(&self, _ident_level: usize) -> String {
-        assert!(!self.0.is_empty());
-        let mut str = String::new();
-        let mut first = true;
-
-        fn is_questionmark(t: &ArtelPrimaryType) -> bool {
-            if let ArtelPrimaryType::LiteralType(ArtelLiteralType::Null)
-            | ArtelPrimaryType::LiteralType(ArtelLiteralType::Undefined) = t
-            {
-                true
-            } else {
-                false
-            }
-        }
-        let empty_count = self
-            .0
-            .iter()
-            .fold(0, |c, i| is_questionmark(i) as usize + c);
-        let is_optional = (self.0.len() - empty_count == 1) && (empty_count > 0);
-
-        for r#type in &self.0 {
-            if is_optional && is_questionmark(&r#type) {
-                continue;
-            }
-            if !first {
-                str.push_str(" | ");
-            } else {
-                first = false;
-            }
-            str.push_str(&r#type.artel_str(0));
-        }
-        if is_optional {
-            str.push_str("?");
-        }
-
-        str
-    }
-}
-
-#[derive(Debug, Clone)]
-pub enum ArtelPrimaryType {
-    UnsupportedAny(String),
-    LiteralType(ArtelLiteralType),
-    PredefinedType(ArtelPredefinedType),
-    TypeReference(ArtelTypeReference),
-    ObjectType(ArtelObjectType),
-    FunctionType(Box<ArtelFunctionDeclaration>),
-    ArrayType(Box<ArtelType>),
-    ReadonlyType(Box<ArtelType>),
-    TupleType(Vec<ArtelType>),
-    PredicateType(String, Box<ArtelType>),
-    //TypeQuery, IDK, todo?
-}
-impl ArtelPrimaryType {
-    fn artel_str_tuple(tuple_type: &[ArtelType]) -> String {
-        [
-            "объект { ",
-            &tuple_type
-                .iter()
-                .enumerate()
-                .map(|(i, t)| format!("_{i}: {}", &t.artel_str(0)))
-                .join(", "),
-            " }",
-        ]
-        .concat()
-    }
-}
-
-impl ArtelStr for ArtelPrimaryType {
-    fn artel_str(&self, _ident_level: usize) -> String {
-        match self {
-            ArtelPrimaryType::UnsupportedAny(s) => format!("/*(!) {s} */ Объект?"),
-            ArtelPrimaryType::LiteralType(literal_type) => literal_type.artel_str(0),
-            ArtelPrimaryType::PredefinedType(predefined_type) => predefined_type.artel_str(0),
-            ArtelPrimaryType::TypeReference(type_reference) => type_reference.artel_str(0),
-            ArtelPrimaryType::ObjectType(object_type) => object_type.artel_str(0),
-            ArtelPrimaryType::FunctionType(fun_decl) => fun_decl.artel_str_as_functype(0),
-            ArtelPrimaryType::ArrayType(array_type) => {
-                format!("Список<{}>", array_type.artel_str(0))
-            }
-            ArtelPrimaryType::TupleType(tuple_type) => Self::artel_str_tuple(tuple_type),
-            ArtelPrimaryType::ReadonlyType(r#type) => {
-                format!("/*(!) защищено */ {}", r#type.artel_str(0))
-            }
-            ArtelPrimaryType::PredicateType(predicate, r#type) => {
-                format!("/*(!) {} is */ {}", predicate, r#type.artel_str(0))
-            }
-        }
-    }
-}
-
-/// Stuff in the `<`` >` brackets, when not specified, like <T, A>
-type ArtelGenericParams = Vec<ArtelTypeParameter>;
-
-impl ArtelStr for ArtelGenericParams {
-    fn artel_str(&self, _ident_level: usize) -> String {
-        let mut str = String::new();
-        if !self.is_empty() {
-            str.push_str("<");
-            let mut first = true;
-            for argument in self {
-                if !first {
-                    str.push_str(", ");
-                } else {
-                    first = false;
-                }
-                str.push_str(&argument.artel_str(0));
-            }
-            str.push_str(">");
-        }
-        str
-    }
-}
-
-#[derive(Debug, Clone)]
-pub enum ArtelLiteralType {
-    String(String),
-    Number(String),
-    Boolean(bool),
-    Undefined,
-    Null,
-}
-
-impl ArtelStr for ArtelLiteralType {
-    fn artel_str(&self, _ident_level: usize) -> String {
-        match self {
-            ArtelLiteralType::Undefined => "пусто".to_owned(),
-            ArtelLiteralType::Null => "пусто".to_owned(),
-            ArtelLiteralType::String(x) => format!("\"{x}\""),
-            ArtelLiteralType::Number(x) => x.clone(),
-            ArtelLiteralType::Boolean(x) => if *x { "да" } else { "нет" }.to_owned(),
-        }
-    }
-}
-
-#[derive(Debug, Clone)]
-pub enum ArtelPredefinedType {
-    Any,
-    Number,
-    Boolean,
-    String,
-    Void,
-    Object,
-    Never,
-    Unknown,
-    Symbol,
-    UniqueSymbol,
-}
-
-impl ArtelStr for ArtelPredefinedType {
-    fn artel_str(&self, _ident_level: usize) -> String {
-        match self {
-            ArtelPredefinedType::Any => "/*(!) any */ Объект?".to_owned(),
-            ArtelPredefinedType::Number => "Число".to_owned(),
-            ArtelPredefinedType::Boolean => "ДаНет".to_owned(),
-            ArtelPredefinedType::String => "Текст".to_owned(),
-            ArtelPredefinedType::Void => "Ничего".to_owned(),
-            ArtelPredefinedType::Object => "Объект".to_owned(),
-            ArtelPredefinedType::Never => "Никогда".to_owned(),
-            ArtelPredefinedType::Unknown => "/*(!) unknown */ Объект?".to_owned(),
-            ArtelPredefinedType::Symbol => "Символ".to_owned(),
-            ArtelPredefinedType::UniqueSymbol => "/*(!) unique symbol */ Объект".to_owned(),
-        }
-    }
-}
-
-impl<T> From<T> for ArtelPredefinedType
-where
-    T: AsRef<str>,
-{
-    fn from(value: T) -> Self {
-        match value.as_ref() {
-            "any" => ArtelPredefinedType::Any,
-            "number" => ArtelPredefinedType::Number,
-            "boolean" => ArtelPredefinedType::Boolean,
-            "string" => ArtelPredefinedType::String,
-            "void" => ArtelPredefinedType::Void,
-            "object" => ArtelPredefinedType::Object,
-            "never" => ArtelPredefinedType::Never,
-            "unknown" => ArtelPredefinedType::Unknown,
-            "symbol" => ArtelPredefinedType::Symbol,
-            "unique symbol" => ArtelPredefinedType::UniqueSymbol,
-            _ => unreachable!("{}", value.as_ref()),
-        }
-    }
-}
-
-#[derive(Debug, Clone)]
-pub struct ArtelTypeReference {
-    type_name: ArtelIdentifier,
-    type_arguments: Vec<ArtelType>,
-}
-
-impl ArtelStr for ArtelTypeReference {
-    fn artel_str(&self, _ident_level: usize) -> String {
-        let mut str = String::new();
-        str.push_str(&self.type_name.0);
-
-        if !self.type_arguments.is_empty() {
-            str.push_str("<");
-            let mut first = true;
-            for argument in &self.type_arguments {
-                if !first {
-                    str.push_str(", ");
-                } else {
-                    first = false;
-                }
-                str.push_str(&argument.artel_str(0));
-            }
-            str.push_str(">");
-        }
-        str
-    }
-}
-
-impl ArtelTypeReference {
-    pub fn new(type_name: ArtelIdentifier, type_arguments: Vec<ArtelType>) -> Self {
-        Self {
-            type_name,
-            type_arguments,
-        }
-    }
-}
-
-#[derive(Debug, Clone)]
-pub struct ArtelTypeParameter {
-    indentifier: ArtelIdentifier,
-    constraint: Option<ArtelType>,
-    _default: Option<ArtelType>,
-}
-
-impl ArtelStr for ArtelTypeParameter {
-    fn artel_str(&self, _ident_level: usize) -> String {
-        let mut str = String::new();
-        str.push_str(&self.indentifier.0);
-        if let Some(constraint) = &self.constraint {
-            str.push_str(" = ");
-            str.push_str(&constraint.artel_str(0));
-        }
-        // TODO default
-        str
-    }
-}
-
-impl ArtelTypeParameter {
-    pub fn new(
-        indentifier: ArtelIdentifier,
-        constraint: Option<ArtelType>,
-        default: Option<ArtelType>,
-    ) -> Self {
-        Self {
-            indentifier,
-            constraint,
-            _default: default,
-        }
-    }
-}
 
 #[derive(Debug)]
 pub struct ArtelTypeAliasDeclaration {
     alias: ArtelIdentifier,
     generic_params: ArtelGenericParams,
-    value: ArtelType,
+    value: Type,
 }
 
 impl ArtelStr for ArtelTypeAliasDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
         [
-            ident(ident_level),
+            indent(ident_level),
             "тип ",
             &self.alias.0,
             &self.generic_params.artel_str(0),
@@ -523,7 +217,7 @@ impl ArtelTypeAliasDeclaration {
     pub fn new(
         alias: ArtelIdentifier,
         generic_params: ArtelGenericParams,
-        value: ArtelType,
+        value: Type,
     ) -> Self {
         Self {
             alias,
@@ -619,11 +313,11 @@ impl ArtelStr for ClassMemberModifiers {
 }
 
 #[derive(Debug, Clone)]
-pub struct ArtelObjectType {
+pub struct ObjectType {
     body: Vec<ArtelInterfaceMember>,
 }
 
-impl ArtelStr for ArtelObjectType {
+impl ArtelStr for ObjectType {
     fn artel_str(&self, _ident_level: usize) -> String {
         [
             "объект { ",
@@ -638,7 +332,7 @@ impl ArtelStr for ArtelObjectType {
     }
 }
 
-impl ArtelObjectType {
+impl ObjectType {
     pub fn new(body: Vec<ArtelInterfaceMember>) -> Self {
         Self { body }
     }
@@ -654,12 +348,12 @@ pub enum GetterSetter {
 #[derive(Debug)]
 pub enum ArtelClassMember {
     Property((ClassMemberModifiers, ArtelProperty)),
-    Method((ClassMemberModifiers, GetterSetter, ArtelFunctionDeclaration)),
+    Method((ClassMemberModifiers, GetterSetter, FunctionDeclaration)),
 }
 
 struct PropertyAccessExpression {
     name: ArtelIdentifier,
-    r#type: ArtelType,
+    r#type: Type,
     get: bool,
     set: bool,
 }
@@ -667,17 +361,17 @@ struct PropertyAccessExpression {
 impl ArtelStr for PropertyAccessExpression {
     fn artel_str(&self, ident_level: usize) -> String {
         [
-            ident(ident_level),
+            indent(ident_level),
             &self.name.0,
             ": ",
             &self.r#type.artel_str(0),
             &if self.get {
-                ["\n", ident(ident_level + 2), "при чтении { }"].concat()
+                ["\n", indent(ident_level + 2), "при чтении { }"].concat()
             } else {
                 "".to_owned()
             },
             &if self.set {
-                ["\n", ident(ident_level + 2), "при записи { }"].concat()
+                ["\n", indent(ident_level + 2), "при записи { }"].concat()
             } else {
                 "".to_owned()
             },
@@ -737,7 +431,7 @@ impl ArtelClassMember {
 
     fn artel_str_method(
         modifiers: &ClassMemberModifiers,
-        function_declaration: &ArtelFunctionDeclaration,
+        function_declaration: &FunctionDeclaration,
         ident_level: usize,
     ) -> String {
         function_declaration.artel_str_with_modifier(modifiers.artel_str(0), ident_level)
@@ -766,7 +460,7 @@ impl ArtelStr for ArtelClassMember {
 pub struct ArtelClassDeclaration {
     name: ArtelIdentifier,
     extends: Option<(ArtelIdentifier, ArtelGenericParams)>,
-    implements: Vec<ArtelType>,
+    implements: Vec<Type>,
     is_abstract: bool,
     generic_params: ArtelGenericParams,
     body: Vec<ArtelClassMember>,
@@ -776,7 +470,7 @@ impl ArtelClassDeclaration {
     pub fn new(
         name: ArtelIdentifier,
         extends: Option<(ArtelIdentifier, ArtelGenericParams)>,
-        implements: Vec<ArtelType>,
+        implements: Vec<Type>,
         is_abstract: bool,
         generic_params: ArtelGenericParams,
         body: Vec<ArtelClassMember>,
@@ -807,7 +501,7 @@ impl ArtelClassDeclaration {
 
     fn artel_str_declaration_header(&self, ident_level: usize) -> String {
         [
-            ident(ident_level),
+            indent(ident_level),
             "тип ",
             &self.name.0,
             &self.generic_params.artel_str(0),
@@ -818,7 +512,7 @@ impl ArtelClassDeclaration {
             },
             &self.artel_str_heritage(),
             "\n",
-            ident(ident_level),
+            indent(ident_level),
             "{\n",
         ]
         .concat()
@@ -875,7 +569,7 @@ impl ArtelStr for ArtelClassDeclaration {
             &self.artel_str_declaration_header(ident_level),
             &body_str,
             "\n",
-            ident(ident_level),
+            indent(ident_level),
             "}",
         ]
         .concat()
@@ -896,7 +590,7 @@ impl ArtelLexicalDeclarationType {
 #[derive(Debug, Clone)]
 pub struct ArtelFunctionArgument {
     name: ArtelIdentifier,
-    r#type: ArtelType,
+    r#type: Type,
     default_value: Option<ArtelExpression>,
 }
 
@@ -925,7 +619,7 @@ impl ArtelStr for ArtelFunctionArgument {
 impl ArtelFunctionArgument {
     pub fn new(
         name: ArtelIdentifier,
-        r#type: ArtelType,
+        r#type: Type,
         default_value: Option<ArtelExpression>,
     ) -> Self {
         Self {
@@ -937,22 +631,22 @@ impl ArtelFunctionArgument {
 }
 
 #[derive(Debug, Clone)]
-pub struct ArtelFunctionDeclaration {
+pub struct FunctionDeclaration {
     r#async: bool,
     name: ArtelIdentifier,
     generic_params: ArtelGenericParams,
     arguments: Vec<ArtelFunctionArgument>,
-    return_type: Option<ArtelType>,
+    return_type: Option<Type>,
 }
 
-impl ArtelFunctionDeclaration {
+impl FunctionDeclaration {
     fn annotation_array_param(&self, ident_level: usize) -> String {
         let any_param_array = self
             .arguments
             .iter()
             .any(|arg| arg.name.0.starts_with("..."));
         if any_param_array {
-            [ident(ident_level), "#js.МассивПараметров\n"].concat()
+            [indent(ident_level), "#js.МассивПараметров\n"].concat()
         } else {
             String::new()
         }
@@ -960,26 +654,26 @@ impl ArtelFunctionDeclaration {
 
     fn artel_str_return_type(&self, _ident_level: usize) -> String {
         if let Some(return_type) = &self.return_type {
-            ArtelType::convert_return_type(return_type)
+            Type::convert_return_type(return_type)
         } else {
-            ArtelType(vec![ArtelPrimaryType::UnsupportedAny("no_type".into())]).artel_str(0)
+            Type(vec![PrimaryType::UnsupportedAny("no_type".into())]).artel_str(0)
         }
     }
 }
 
-impl ArtelStr for ArtelFunctionDeclaration {
+impl ArtelStr for FunctionDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
         self.artel_str_with_modifier("".to_owned(), ident_level)
     }
 }
 
-impl ArtelFunctionDeclaration {
+impl FunctionDeclaration {
     pub fn new(
         r#async: bool,
         name: ArtelIdentifier,
         generic_params: ArtelGenericParams,
         arguments: Vec<ArtelFunctionArgument>,
-        return_type: Option<ArtelType>,
+        return_type: Option<Type>,
     ) -> Self {
         Self {
             r#async,
@@ -1007,12 +701,12 @@ impl ArtelFunctionDeclaration {
         ]
         .concat();
         let modifier = (!modifier.is_empty())
-            .then(|| format!("{modifier}\n{}", ident(ident_level)))
+            .then(|| format!("{modifier}\n{}", indent(ident_level)))
             .unwrap_or_default();
 
         [
             &self.annotation_array_param(ident_level),
-            ident(ident_level),
+            indent(ident_level),
             &modifier,
             // Evil hack
             &if self.name.0 == "constructor" {
@@ -1043,14 +737,14 @@ pub struct ArtelInterfaceDeclaration {
 impl ArtelStr for ArtelInterfaceDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
         let mut str = String::new();
-        str.push_str(ident(ident_level));
+        str.push_str(indent(ident_level));
         str.push_str("тип ");
         str.push_str(&self.name.0);
         str.push_str(&self.generic_params.artel_str(0));
         str.push_str(" = интерфейс");
         str.push_str("\n");
 
-        str.push_str(ident(ident_level));
+        str.push_str(indent(ident_level));
         str.push_str("{\n");
         str.push_str(
             &self
@@ -1060,7 +754,7 @@ impl ArtelStr for ArtelInterfaceDeclaration {
                 .join("\n\n"),
         );
         str.push_str("\n");
-        str.push_str(ident(ident_level));
+        str.push_str(indent(ident_level));
         str.push_str("}\n");
         str
     }
@@ -1083,7 +777,7 @@ impl ArtelInterfaceDeclaration {
 #[derive(Debug, Clone)]
 pub enum ArtelInterfaceMember {
     Property(ArtelProperty),
-    Method(ArtelFunctionDeclaration),
+    Method(FunctionDeclaration),
     Unsupported(String),
 }
 
@@ -1092,7 +786,7 @@ impl ArtelStr for ArtelInterfaceMember {
         match self {
             ArtelInterfaceMember::Property(p) => p.artel_str(ident_level),
             ArtelInterfaceMember::Method(d) => d.artel_str(ident_level),
-            ArtelInterfaceMember::Unsupported(d) => format!("{}/*(!) {d}*/", ident(ident_level)),
+            ArtelInterfaceMember::Unsupported(d) => format!("{}/*(!) {d}*/", indent(ident_level)),
         }
     }
 }
@@ -1107,18 +801,18 @@ impl Default for ArtelAccessModifier {
 pub struct ArtelProperty {
     r#readonly: bool,
     name: ArtelIdentifier,
-    r#type: ArtelType,
+    r#type: Type,
 }
 
 impl ArtelStr for ArtelProperty {
     fn artel_str(&self, ident_level: usize) -> String {
         let mut str = String::new();
-        str.push_str(ident(ident_level));
+        str.push_str(indent(ident_level));
         let modifier = self.r#readonly.then(|| "защищено ").unwrap_or_default();
         if !modifier.is_empty() {
             str.push_str(&modifier);
             str.push_str("\n");
-            str.push_str(ident(ident_level));
+            str.push_str(indent(ident_level));
         }
         str.push_str(&self.name.0);
         str.push_str(": ");
@@ -1128,7 +822,7 @@ impl ArtelStr for ArtelProperty {
 }
 
 impl ArtelProperty {
-    pub fn new(r#readonly: bool, name: ArtelIdentifier, r#type: ArtelType) -> Self {
+    pub fn new(r#readonly: bool, name: ArtelIdentifier, r#type: Type) -> Self {
         Self {
             r#readonly,
             name,
@@ -1143,12 +837,12 @@ impl ArtelProperty {
             self.r#readonly.then(|| "защищено").unwrap_or_default(),
         ]
         .concat();
-        str.push_str(ident(ident_level));
+        str.push_str(indent(ident_level));
 
         if !modifier.is_empty() {
             str.push_str(&modifier);
             str.push_str("\n");
-            str.push_str(ident(ident_level));
+            str.push_str(indent(ident_level));
         }
         str.push_str(&self.name.0);
         str.push_str(": ");
@@ -1161,7 +855,7 @@ impl ArtelProperty {
 #[derive(Debug)]
 pub struct ArtelLexicalDeclarationMember {
     ident: ArtelIdentifier,
-    var_type: ArtelType,
+    var_type: Type,
     value: Option<String>,
 }
 
@@ -1182,7 +876,7 @@ impl ArtelStr for ArtelLexicalDeclarationMember {
 }
 
 impl ArtelLexicalDeclarationMember {
-    pub fn new(ident: ArtelIdentifier, var_type: ArtelType, value: Option<String>) -> Self {
+    pub fn new(ident: ArtelIdentifier, var_type: Type, value: Option<String>) -> Self {
         Self {
             ident,
             var_type,
@@ -1212,7 +906,7 @@ impl ArtelStr for ArtelLexicalDeclaration {
             .map(|decl| {
                 format!(
                     "{}{} {}\n",
-                    ident(ident_level),
+                    indent(ident_level),
                     self.decl_type.artel_str(0),
                     decl.artel_str(0)
                 )

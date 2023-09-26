@@ -1,6 +1,9 @@
+# Potential bugs
+- any identation beyond 100 will crash the program
+
 # CurrentTODO
-- [ ] ambient declaration doesnt render? 
-- [ ] object type
+- [x] ambient declaration doesnt render? 
+- [x] object type
 - [x] function declaration
 - [x] interface declaration: est 20 min | done in 25 min
 - [x] function type: est 10 min | done in 14 min
