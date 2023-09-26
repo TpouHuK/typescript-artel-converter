@@ -1,0 +1,373 @@
+/// <reference lib="es2015.symbol" />
+
+тип SymbolConstructor = интерфейс
+{
+  защищено 
+  iterator: /*(!) unique symbol */ Объект
+}
+
+
+тип IteratorYieldResult<TYield> = интерфейс
+{
+  done: нет
+
+  value: TYield
+}
+
+
+тип IteratorReturnResult<TReturn> = интерфейс
+{
+  done: да
+
+  value: TReturn
+}
+
+
+тип IteratorResult<T, TReturn> = IteratorYieldResult<T> | IteratorReturnResult<TReturn>
+
+тип Iterator<T, TReturn, TNext> = интерфейс
+{
+  #js.МассивПараметров
+  операция next(args: объект {  } | объект { _0: TNext }): IteratorResult<T, TReturn>
+
+  операция return(value: TReturn?FUCKFUCK = пусто): IteratorResult<T, TReturn>
+
+  операция throw(e: /*(!) any */ Объект??FUCKFUCK = пусто): IteratorResult<T, TReturn>
+}
+
+
+тип Iterable<T> = интерфейс
+{
+  операция [Symbol.iterator](): Iterator<T>
+}
+
+
+тип IterableIterator<T> = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<T>
+}
+
+
+тип Array<T> = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<T>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: T }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<T>
+}
+
+
+тип ArrayConstructor = интерфейс
+{
+  операция from<T>(iterable: Iterable<T> | ArrayLike<T>): Список<T>
+
+  операция from<T, U>(iterable: Iterable<T> | ArrayLike<T>, mapfn: операция(v: T, k: Число): U, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<U>
+}
+
+
+тип ReadonlyArray<T> = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<T>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: T }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<T>
+}
+
+
+тип IArguments = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator</*(!) any */ Объект?>
+}
+
+
+тип Map<K, V> = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<объект { _0: K, _1: V }>
+
+  операция entries(): IterableIterator<объект { _0: K, _1: V }>
+
+  операция keys(): IterableIterator<K>
+
+  операция values(): IterableIterator<V>
+}
+
+
+тип ReadonlyMap<K, V> = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<объект { _0: K, _1: V }>
+
+  операция entries(): IterableIterator<объект { _0: K, _1: V }>
+
+  операция keys(): IterableIterator<K>
+
+  операция values(): IterableIterator<V>
+}
+
+
+тип MapConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+
+  при создании(iterable: Iterable</*(!) защищено */ объект { _0: K, _1: V }>?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+}
+
+
+тип WeakMap<K = WeakKey, V> = интерфейс
+{
+
+}
+
+
+тип WeakMapConstructor = интерфейс
+{
+  при создании(iterable: Iterable</*(!) защищено */ объект { _0: K, _1: V }>)/*(!) no_type */ Объект?
+}
+
+
+тип Set<T> = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<T>
+
+  операция entries(): IterableIterator<объект { _0: T, _1: T }>
+
+  операция keys(): IterableIterator<T>
+
+  операция values(): IterableIterator<T>
+}
+
+
+тип ReadonlySet<T> = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<T>
+
+  операция entries(): IterableIterator<объект { _0: T, _1: T }>
+
+  операция keys(): IterableIterator<T>
+
+  операция values(): IterableIterator<T>
+}
+
+
+тип SetConstructor = интерфейс
+{
+  при создании(iterable: Iterable<T>?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+}
+
+
+тип WeakSet<T = WeakKey> = интерфейс
+{
+
+}
+
+
+тип WeakSetConstructor = интерфейс
+{
+  при создании(iterable: Iterable<T>)/*(!) no_type */ Объект?
+}
+
+
+тип Promise<T> = интерфейс
+{
+
+}
+
+
+тип PromiseConstructor = интерфейс
+{
+  операция all<T>(values: Iterable<T | PromiseLike<T>>): Promise<Список<Awaited<T>>>
+
+  операция race<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>
+}
+
+
+тип String = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Текст>
+}
+
+
+тип Int8Array = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Число>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: Число }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Число>
+}
+
+
+тип Int8ArrayConstructor = интерфейс
+{
+  при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
+
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int8Array
+}
+
+
+тип Uint8Array = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Число>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: Число }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Число>
+}
+
+
+тип Uint8ArrayConstructor = интерфейс
+{
+  при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
+
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8Array
+}
+
+
+тип Uint8ClampedArray = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Число>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: Число }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Число>
+}
+
+
+тип Uint8ClampedArrayConstructor = интерфейс
+{
+  при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
+
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8ClampedArray
+}
+
+
+тип Int16Array = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Число>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: Число }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Число>
+}
+
+
+тип Int16ArrayConstructor = интерфейс
+{
+  при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
+
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int16Array
+}
+
+
+тип Uint16Array = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Число>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: Число }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Число>
+}
+
+
+тип Uint16ArrayConstructor = интерфейс
+{
+  при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
+
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint16Array
+}
+
+
+тип Int32Array = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Число>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: Число }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Число>
+}
+
+
+тип Int32ArrayConstructor = интерфейс
+{
+  при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
+
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int32Array
+}
+
+
+тип Uint32Array = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Число>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: Число }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Число>
+}
+
+
+тип Uint32ArrayConstructor = интерфейс
+{
+  при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
+
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint32Array
+}
+
+
+тип Float32Array = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Число>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: Число }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Число>
+}
+
+
+тип Float32ArrayConstructor = интерфейс
+{
+  при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
+
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float32Array
+}
+
+
+тип Float64Array = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Число>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: Число }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Число>
+}
+
+
+тип Float64ArrayConstructor = интерфейс
+{
+  при создании(elements: Iterable<Число>)/*(!) no_type */ Объект?
+
+  операция from(arrayLike: Iterable<Число>, mapfn: операция(v: Число, k: Число): Число?FUCKFUCK = пусто, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float64Array
+}
+

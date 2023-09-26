@@ -1,0 +1,41 @@
+тип ProxyHandler<T = Объект> = интерфейс
+{
+  операция apply(target: T, thisArg: /*(!) any */ Объект?, argArray: Список</*(!) any */ Объект?>): /*(!) any */ Объект?
+
+  операция construct(target: T, argArray: Список</*(!) any */ Объект?>, newTarget: Function): Объект
+
+  операция defineProperty(target: T, property: Текст | Символ, attributes: PropertyDescriptor): ДаНет
+
+  операция deleteProperty(target: T, p: Текст | Символ): ДаНет
+
+  операция get(target: T, p: Текст | Символ, receiver: /*(!) any */ Объект?): /*(!) any */ Объект?
+
+  операция getOwnPropertyDescriptor(target: T, p: Текст | Символ): PropertyDescriptor?FUCKFUCK
+
+  операция getPrototypeOf(target: T): Объект?FUCKFUCK
+
+  операция has(target: T, p: Текст | Символ): ДаНет
+
+  операция isExtensible(target: T): ДаНет
+
+  операция ownKeys(target: T): ArrayLike<Текст | Символ>
+
+  операция preventExtensions(target: T): ДаНет
+
+  операция set(target: T, p: Текст | Символ, newValue: /*(!) any */ Объект?, receiver: /*(!) any */ Объект?): ДаНет
+
+  операция setPrototypeOf(target: T, v: Объект?FUCKFUCK): ДаНет
+}
+
+
+тип ProxyConstructor = интерфейс
+{
+  операция revocable<T = Объект>(target: T, handler: ProxyHandler<T>): объект { proxy: T; revoke: операция() }
+
+  при создании(target: T, handler: ProxyHandler<T>)/*(!) no_type */ Объект?
+}
+
+
+внешнее
+/*(!) var */ Proxy: ProxyConstructor
+

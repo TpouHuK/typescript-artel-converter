@@ -1,0 +1,33 @@
+/// <reference lib="es2015.symbol" />
+
+/// <reference lib="es2015.iterable" />
+
+тип SymbolConstructor = интерфейс
+{
+  защищено 
+  asyncIterator: /*(!) unique symbol */ Объект
+}
+
+
+тип AsyncIterator<T, TReturn, TNext> = интерфейс
+{
+  #js.МассивПараметров
+  операция next(args: объект {  } | объект { _0: TNext }): Promise<IteratorResult<T, TReturn>>
+
+  операция return(value: TReturn | PromiseLike<TReturn> | пусто = пусто): Promise<IteratorResult<T, TReturn>>
+
+  операция throw(e: /*(!) any */ Объект??FUCKFUCK = пусто): Promise<IteratorResult<T, TReturn>>
+}
+
+
+тип AsyncIterable<T> = интерфейс
+{
+  операция [Symbol.asyncIterator](): AsyncIterator<T>
+}
+
+
+тип AsyncIterableIterator<T> = интерфейс
+{
+  операция [Symbol.asyncIterator](): AsyncIterableIterator<T>
+}
+

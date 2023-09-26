@@ -1,0 +1,77 @@
+тип Array<T> = интерфейс
+{
+  операция at(index: Число): T?FUCKFUCK
+}
+
+
+тип ReadonlyArray<T> = интерфейс
+{
+  операция at(index: Число): T?FUCKFUCK
+}
+
+
+тип Int8Array = интерфейс
+{
+  операция at(index: Число): Число?FUCKFUCK
+}
+
+
+тип Uint8Array = интерфейс
+{
+  операция at(index: Число): Число?FUCKFUCK
+}
+
+
+тип Uint8ClampedArray = интерфейс
+{
+  операция at(index: Число): Число?FUCKFUCK
+}
+
+
+тип Int16Array = интерфейс
+{
+  операция at(index: Число): Число?FUCKFUCK
+}
+
+
+тип Uint16Array = интерфейс
+{
+  операция at(index: Число): Число?FUCKFUCK
+}
+
+
+тип Int32Array = интерфейс
+{
+  операция at(index: Число): Число?FUCKFUCK
+}
+
+
+тип Uint32Array = интерфейс
+{
+  операция at(index: Число): Число?FUCKFUCK
+}
+
+
+тип Float32Array = интерфейс
+{
+  операция at(index: Число): Число?FUCKFUCK
+}
+
+
+тип Float64Array = интерфейс
+{
+  операция at(index: Число): Число?FUCKFUCK
+}
+
+
+тип BigInt64Array = интерфейс
+{
+  операция at(index: Число): bigint?FUCKFUCK
+}
+
+
+тип BigUint64Array = интерфейс
+{
+  операция at(index: Число): bigint?FUCKFUCK
+}
+

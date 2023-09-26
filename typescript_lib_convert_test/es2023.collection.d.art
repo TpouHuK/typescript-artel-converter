@@ -1,0 +1,5 @@
+тип WeakKeyTypes = интерфейс
+{
+  symbol: Символ
+}
+

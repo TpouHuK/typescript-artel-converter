@@ -1,0 +1,220 @@
+/**
+* The decorator context types provided to class element decorators.
+*/
+
+тип ClassMemberDecoratorContext = ClassMethodDecoratorContext | ClassGetterDecoratorContext | ClassSetterDecoratorContext | ClassFieldDecoratorContext | ClassAccessorDecoratorContext
+
+/**
+* The decorator context types provided to any decorator.
+*/
+
+тип DecoratorContext = ClassDecoratorContext | ClassMemberDecoratorContext
+
+тип DecoratorMetadataObject = /*(!) Record<PropertyKey, unknown> & object */ Объект?
+
+тип DecoratorMetadata = /*(!) typeof globalThis extends { Symbol: { readonly metadata: symbol; }; } ? DecoratorMetadataObject : DecoratorMetadataObject | undefined */ Объект?
+
+/**
+* Context provided to a class decorator.
+* @template Class The type of the decorated class associated with this context.
+*/
+
+тип ClassDecoratorContext<Class = /*(!) abstract new (...args: any) => any */ Объект?> = интерфейс
+{
+  защищено 
+  kind: "class"
+
+  защищено 
+  name: Текст?FUCKFUCK
+
+  операция addInitializer(initializer: операция(this: Class))
+
+  защищено 
+  metadata: DecoratorMetadata
+}
+
+
+/**
+* Context provided to a class method decorator.
+* @template This The type on which the class element will be defined. For a static class element, this will be
+* the type of the constructor. For a non-static class element, this will be the type of the instance.
+* @template Value The type of the decorated class method.
+*/
+
+тип ClassMethodDecoratorContext<This, Value = операция(this: This, args: /*(!) any */ Объект?): /*(!) any */ Объект?> = интерфейс
+{
+  защищено 
+  kind: "method"
+
+  защищено 
+  name: Текст | Символ
+
+  защищено 
+  static: ДаНет
+
+  защищено 
+  private: ДаНет
+
+  защищено 
+  access: объект { операция has(object: This): ДаНет; операция get(object: This): Value }
+
+  операция addInitializer(initializer: операция(this: This))
+
+  защищено 
+  metadata: DecoratorMetadata
+}
+
+
+/**
+* Context provided to a class getter decorator.
+* @template This The type on which the class element will be defined. For a static class element, this will be
+* the type of the constructor. For a non-static class element, this will be the type of the instance.
+* @template Value The property type of the decorated class getter.
+*/
+
+тип ClassGetterDecoratorContext<This, Value> = интерфейс
+{
+  защищено 
+  kind: "getter"
+
+  защищено 
+  name: Текст | Символ
+
+  защищено 
+  static: ДаНет
+
+  защищено 
+  private: ДаНет
+
+  защищено 
+  access: объект { операция has(object: This): ДаНет; операция get(object: This): Value }
+
+  операция addInitializer(initializer: операция(this: This))
+
+  защищено 
+  metadata: DecoratorMetadata
+}
+
+
+/**
+* Context provided to a class setter decorator.
+* @template This The type on which the class element will be defined. For a static class element, this will be
+* the type of the constructor. For a non-static class element, this will be the type of the instance.
+* @template Value The type of the decorated class setter.
+*/
+
+тип ClassSetterDecoratorContext<This, Value> = интерфейс
+{
+  защищено 
+  kind: "setter"
+
+  защищено 
+  name: Текст | Символ
+
+  защищено 
+  static: ДаНет
+
+  защищено 
+  private: ДаНет
+
+  защищено 
+  access: объект { операция has(object: This): ДаНет; операция set(object: This, value: Value) }
+
+  операция addInitializer(initializer: операция(this: This))
+
+  защищено 
+  metadata: DecoratorMetadata
+}
+
+
+/**
+* Context provided to a class `accessor` field decorator.
+* @template This The type on which the class element will be defined. For a static class element, this will be
+* the type of the constructor. For a non-static class element, this will be the type of the instance.
+* @template Value The type of decorated class field.
+*/
+
+тип ClassAccessorDecoratorContext<This, Value> = интерфейс
+{
+  защищено 
+  kind: "accessor"
+
+  защищено 
+  name: Текст | Символ
+
+  защищено 
+  static: ДаНет
+
+  защищено 
+  private: ДаНет
+
+  защищено 
+  access: объект { операция has(object: This): ДаНет; операция get(object: This): Value; операция set(object: This, value: Value) }
+
+  операция addInitializer(initializer: операция(this: This))
+
+  защищено 
+  metadata: DecoratorMetadata
+}
+
+
+/**
+* Describes the target provided to class `accessor` field decorators.
+* @template This The `this` type to which the target applies.
+* @template Value The property type for the class `accessor` field.
+*/
+
+тип ClassAccessorDecoratorTarget<This, Value> = интерфейс
+{
+  операция get(this: This): Value
+
+  операция set(this: This, value: Value)
+}
+
+
+/**
+* Describes the allowed return value from a class `accessor` field decorator.
+* @template This The `this` type to which the target applies.
+* @template Value The property type for the class `accessor` field.
+*/
+
+тип ClassAccessorDecoratorResult<This, Value> = интерфейс
+{
+  операция get(this: This): Value
+
+  операция set(this: This, value: Value)
+
+  операция init(this: This, value: Value): Value
+}
+
+
+/**
+* Context provided to a class field decorator.
+* @template This The type on which the class element will be defined. For a static class element, this will be
+* the type of the constructor. For a non-static class element, this will be the type of the instance.
+* @template Value The type of the decorated class field.
+*/
+
+тип ClassFieldDecoratorContext<This, Value> = интерфейс
+{
+  защищено 
+  kind: "field"
+
+  защищено 
+  name: Текст | Символ
+
+  защищено 
+  static: ДаНет
+
+  защищено 
+  private: ДаНет
+
+  защищено 
+  access: объект { операция has(object: This): ДаНет; операция get(object: This): Value; операция set(object: This, value: Value) }
+
+  операция addInitializer(initializer: операция(this: This))
+
+  защищено 
+  metadata: DecoratorMetadata
+}
+

@@ -1,0 +1,135 @@
+тип Map<K, V> = интерфейс
+{
+  операция clear()
+
+  операция delete(key: K): ДаНет
+
+  операция forEach(callbackfn: операция(value: V, key: K, map: Map<K, V>), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция get(key: K): V?FUCKFUCK
+
+  операция has(key: K): ДаНет
+
+  операция set(key: K, value: V): /*(!) this */ Объект?
+
+  защищено 
+  size: Число
+}
+
+
+тип MapConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+
+  при создании(entries: /*(!) защищено */ Список</*(!) защищено */ объект { _0: K, _1: V }>?FUCKFUCK?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  prototype: Map</*(!) any */ Объект?, /*(!) any */ Объект?>
+}
+
+
+внешнее
+/*(!) var */ Map: MapConstructor
+
+
+тип ReadonlyMap<K, V> = интерфейс
+{
+  операция forEach(callbackfn: операция(value: V, key: K, map: ReadonlyMap<K, V>), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция get(key: K): V?FUCKFUCK
+
+  операция has(key: K): ДаНет
+
+  защищено 
+  size: Число
+}
+
+
+тип WeakMap<K = WeakKey, V> = интерфейс
+{
+  операция delete(key: K): ДаНет
+
+  операция get(key: K): V?FUCKFUCK
+
+  операция has(key: K): ДаНет
+
+  операция set(key: K, value: V): /*(!) this */ Объект?
+}
+
+
+тип WeakMapConstructor = интерфейс
+{
+  при создании(entries: /*(!) защищено */ Список</*(!) защищено */ объект { _0: K, _1: V }>?FUCKFUCK?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  prototype: WeakMap<WeakKey, /*(!) any */ Объект?>
+}
+
+
+внешнее
+/*(!) var */ WeakMap: WeakMapConstructor
+
+
+тип Set<T> = интерфейс
+{
+  операция add(value: T): /*(!) this */ Объект?
+
+  операция clear()
+
+  операция delete(value: T): ДаНет
+
+  операция forEach(callbackfn: операция(value: T, value2: T, set: Set<T>), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция has(value: T): ДаНет
+
+  защищено 
+  size: Число
+}
+
+
+тип SetConstructor = интерфейс
+{
+  при создании(values: /*(!) защищено */ Список<T>?FUCKFUCK?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  prototype: Set</*(!) any */ Объект?>
+}
+
+
+внешнее
+/*(!) var */ Set: SetConstructor
+
+
+тип ReadonlySet<T> = интерфейс
+{
+  операция forEach(callbackfn: операция(value: T, value2: T, set: ReadonlySet<T>), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция has(value: T): ДаНет
+
+  защищено 
+  size: Число
+}
+
+
+тип WeakSet<T = WeakKey> = интерфейс
+{
+  операция add(value: T): /*(!) this */ Объект?
+
+  операция delete(value: T): ДаНет
+
+  операция has(value: T): ДаНет
+}
+
+
+тип WeakSetConstructor = интерфейс
+{
+  при создании(values: /*(!) защищено */ Список<T>?FUCKFUCK?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  prototype: WeakSet<WeakKey>
+}
+
+
+внешнее
+/*(!) var */ WeakSet: WeakSetConstructor
+

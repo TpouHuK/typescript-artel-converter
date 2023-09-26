@@ -1,0 +1,80 @@
+внешнее
+/*(!) Intl */
+{
+// http://cldr.unicode.org/index/cldr-spec/plural-rules#TOC-Determining-Plural-Categories
+
+тип LDMLPluralRule = "zero" | "one" | "two" | "few" | "many" | "other"
+
+тип PluralRuleType = "cardinal" | "ordinal"
+
+тип PluralRulesOptions = интерфейс
+{
+  localeMatcher: "lookup" | "best fit" | пусто
+
+  type: PluralRuleType?FUCKFUCK
+
+  minimumIntegerDigits: Число?FUCKFUCK
+
+  minimumFractionDigits: Число?FUCKFUCK
+
+  maximumFractionDigits: Число?FUCKFUCK
+
+  minimumSignificantDigits: Число?FUCKFUCK
+
+  maximumSignificantDigits: Число?FUCKFUCK
+}
+
+
+тип ResolvedPluralRulesOptions = интерфейс
+{
+  locale: Текст
+
+  pluralCategories: Список<LDMLPluralRule>
+
+  type: PluralRuleType
+
+  minimumIntegerDigits: Число
+
+  minimumFractionDigits: Число
+
+  maximumFractionDigits: Число
+
+  minimumSignificantDigits: Число
+
+  maximumSignificantDigits: Число
+}
+
+
+тип PluralRules = интерфейс
+{
+  операция resolvedOptions(): ResolvedPluralRulesOptions
+
+  операция select(n: Число): LDMLPluralRule
+}
+
+
+конст PluralRules: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: PluralRulesOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: PluralRulesOptions): PluralRules*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: объект { localeMatcher: "lookup" | "best fit" }?FUCKFUCK = пусто): Список<Текст> }
+
+
+// We can only have one definition for 'type' in TypeScript, and so you can learn where the keys come from here:
+
+тип ES2018NumberFormatPartType = "literal" | "nan" | "infinity" | "percent" | "integer" | "group" | "decimal" | "fraction" | "plusSign" | "minusSign" | "percentSign" | "currency" | "code" | "symbol" | "name"
+
+тип ES2020NumberFormatPartType = "compact" | "exponentInteger" | "exponentMinusSign" | "exponentSeparator" | "unit" | "unknown"
+
+тип NumberFormatPartTypes = ES2018NumberFormatPartType | ES2020NumberFormatPartType
+
+тип NumberFormatPart = интерфейс
+{
+  type: NumberFormatPartTypes
+
+  value: Текст
+}
+
+
+тип NumberFormat = интерфейс
+{
+  операция formatToParts(number: Число | bigint | пусто = пусто): Список<NumberFormatPart>
+}
+
+}

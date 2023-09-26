@@ -1,0 +1,11 @@
+/// <reference lib="es2020.intl" />
+
+тип Date = интерфейс
+{
+  операция toLocaleString(locales: /*(!) Intl.LocalesArgument */ Объект??FUCKFUCK = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект??FUCKFUCK = пусто): Текст
+
+  операция toLocaleDateString(locales: /*(!) Intl.LocalesArgument */ Объект??FUCKFUCK = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект??FUCKFUCK = пусто): Текст
+
+  операция toLocaleTimeString(locales: /*(!) Intl.LocalesArgument */ Объект??FUCKFUCK = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект??FUCKFUCK = пусто): Текст
+}
+

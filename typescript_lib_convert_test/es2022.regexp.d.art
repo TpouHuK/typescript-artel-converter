@@ -1,0 +1,26 @@
+тип RegExpMatchArray = интерфейс
+{
+  indices: RegExpIndicesArray
+}
+
+
+тип RegExpExecArray = интерфейс
+{
+  indices: RegExpIndicesArray
+}
+
+
+тип RegExpIndicesArray = интерфейс
+{
+  groups: /*(!) {
+        [key: string]: [number, number];
+    } */ Объект?
+}
+
+
+тип RegExp = интерфейс
+{
+  защищено 
+  hasIndices: ДаНет
+}
+

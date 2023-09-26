@@ -1,0 +1,11 @@
+/////////////////////////////
+
+/// WorkerGlobalScope APIs
+
+/////////////////////////////
+
+// These are only available in a Web Worker
+
+внешнее
+#js.МассивПараметров
+операция importScripts(urls: Список<Текст>)

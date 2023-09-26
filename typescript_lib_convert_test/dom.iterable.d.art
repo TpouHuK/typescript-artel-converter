@@ -1,0 +1,83 @@
+/// <reference lib="dom" />
+
+тип DOMTokenList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Текст>
+}
+
+
+тип Headers = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<объект { _0: Текст, _1: Текст }>
+
+  операция entries(): IterableIterator<объект { _0: Текст, _1: Текст }>
+
+  операция keys(): IterableIterator<Текст>
+
+  операция values(): IterableIterator<Текст>
+}
+
+
+тип NodeList = интерфейс
+{
+  операция entries(): IterableIterator<объект { _0: Число, _1: Node }>
+
+  операция forEach(callbackfn: операция(value: Node, index: Число, listObj: NodeList), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Node>
+
+  операция [Symbol.iterator](): IterableIterator<Node>
+}
+
+
+тип NodeListOf<TNode = Node> = интерфейс
+{
+  операция entries(): IterableIterator<объект { _0: Число, _1: TNode }>
+
+  операция forEach(callbackfn: операция(value: TNode, index: Число, listObj: NodeListOf<TNode>), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<TNode>
+
+  операция [Symbol.iterator](): IterableIterator<TNode>
+}
+
+
+тип HTMLCollectionBase = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Element>
+}
+
+
+тип HTMLCollectionOf<T = Element> = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<T>
+}
+
+
+тип FormData = интерфейс
+{
+  операция entries(): IterableIterator<объект { _0: Текст, _1: Текст | File }>
+
+  операция keys(): IterableIterator<Текст>
+
+  операция values(): IterableIterator<Текст | File>
+
+  операция [Symbol.iterator](): IterableIterator<Текст | File>
+}
+
+
+тип URLSearchParams = интерфейс
+{
+  операция entries(): IterableIterator<объект { _0: Текст, _1: Текст }>
+
+  операция keys(): IterableIterator<Текст>
+
+  операция values(): IterableIterator<Текст>
+
+  операция [Symbol.iterator](): IterableIterator<объект { _0: Текст, _1: Текст }>
+}
+

@@ -1,0 +1,13 @@
+тип ObjectConstructor = интерфейс
+{
+  операция values<T>(o: /*(!) { [s: string]: T; } */ Объект? | ArrayLike<T>): Список<T>
+
+  операция values(o: объект {  }): Список</*(!) any */ Объект?>
+
+  операция entries<T>(o: /*(!) { [s: string]: T; } */ Объект? | ArrayLike<T>): Список<объект { _0: Текст, _1: T }>
+
+  операция entries(o: объект {  }): Список<объект { _0: Текст, _1: /*(!) any */ Объект? }>
+
+  операция getOwnPropertyDescriptors<T>(o: T): /*(!) { [P in keyof T]: TypedPropertyDescriptor<T[P]>; } & { [x: string]: PropertyDescriptor; } */ Объект?
+}
+

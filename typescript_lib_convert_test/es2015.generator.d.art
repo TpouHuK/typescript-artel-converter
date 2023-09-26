@@ -1,0 +1,50 @@
+/// <reference lib="es2015.iterable" />
+
+тип Generator<T, TReturn, TNext> = интерфейс
+{
+  #js.МассивПараметров
+  операция next(args: объект {  } | объект { _0: TNext }): IteratorResult<T, TReturn>
+
+  операция return(value: TReturn): IteratorResult<T, TReturn>
+
+  операция throw(e: /*(!) any */ Объект?): IteratorResult<T, TReturn>
+
+  операция [Symbol.iterator](): Generator<T, TReturn, TNext>
+}
+
+
+тип GeneratorFunction = интерфейс
+{
+  #js.МассивПараметров
+  при создании(args: Список</*(!) any */ Объект?>)/*(!) no_type */ Объект?
+
+  /*(!) (...args: any[]): Generator*/
+
+  защищено 
+  length: Число
+
+  защищено 
+  name: Текст
+
+  защищено 
+  prototype: Generator
+}
+
+
+тип GeneratorFunctionConstructor = интерфейс
+{
+  #js.МассивПараметров
+  при создании(args: Список<Текст>)/*(!) no_type */ Объект?
+
+  /*(!) (...args: string[]): GeneratorFunction*/
+
+  защищено 
+  length: Число
+
+  защищено 
+  name: Текст
+
+  защищено 
+  prototype: GeneratorFunction
+}
+

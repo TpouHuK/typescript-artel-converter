@@ -1,0 +1,563 @@
+/////////////////////////////
+
+/// Window Iterable APIs
+
+/////////////////////////////
+
+тип AudioParam = интерфейс
+{
+  операция setValueCurveAtTime(values: Iterable<Число>, startTime: Число, duration: Число): AudioParam
+}
+
+
+тип AudioParamMap = интерфейс
+{
+
+}
+
+
+тип BaseAudioContext = интерфейс
+{
+  операция createIIRFilter(feedforward: Iterable<Число>, feedback: Iterable<Число>): IIRFilterNode
+
+  операция createPeriodicWave(real: Iterable<Число>, imag: Iterable<Число>, constraints: PeriodicWaveConstraints?FUCKFUCK = пусто): PeriodicWave
+}
+
+
+тип CSSKeyframesRule = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<CSSKeyframeRule>
+}
+
+
+тип CSSNumericArray = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<CSSNumericValue>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: CSSNumericValue }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<CSSNumericValue>
+}
+
+
+тип CSSRuleList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<CSSRule>
+}
+
+
+тип CSSStyleDeclaration = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Текст>
+}
+
+
+тип CSSTransformValue = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<CSSTransformComponent>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: CSSTransformComponent }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<CSSTransformComponent>
+}
+
+
+тип CSSUnparsedValue = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<CSSUnparsedSegment>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: CSSUnparsedSegment }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<CSSUnparsedSegment>
+}
+
+
+тип Cache = интерфейс
+{
+  операция addAll(requests: Iterable<RequestInfo>): Promise<Ничего>
+}
+
+
+тип CanvasPath = интерфейс
+{
+  операция roundRect(x: Число, y: Число, w: Число, h: Число, radii: Число | DOMPointInit | Iterable<Число | DOMPointInit> | пусто = пусто)
+}
+
+
+тип CanvasPathDrawingStyles = интерфейс
+{
+  операция setLineDash(segments: Iterable<Число>)
+}
+
+
+тип DOMRectList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<DOMRect>
+}
+
+
+тип DOMStringList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Текст>
+}
+
+
+тип DOMTokenList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Текст>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: Текст }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Текст>
+}
+
+
+тип DataTransferItemList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<DataTransferItem>
+}
+
+
+тип EventCounts = интерфейс
+{
+
+}
+
+
+тип FileList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<File>
+}
+
+
+тип FontFaceSet = интерфейс
+{
+
+}
+
+
+тип FormData = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<объект { _0: Текст, _1: FormDataEntryValue }>
+
+  операция entries(): IterableIterator<объект { _0: Текст, _1: FormDataEntryValue }>
+
+  операция keys(): IterableIterator<Текст>
+
+  операция values(): IterableIterator<FormDataEntryValue>
+}
+
+
+тип HTMLAllCollection = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Element>
+}
+
+
+тип HTMLCollectionBase = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Element>
+}
+
+
+тип HTMLCollectionOf<T = Element> = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<T>
+}
+
+
+тип HTMLFormElement = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Element>
+}
+
+
+тип HTMLSelectElement = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<HTMLOptionElement>
+}
+
+
+тип Headers = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<объект { _0: Текст, _1: Текст }>
+
+  операция entries(): IterableIterator<объект { _0: Текст, _1: Текст }>
+
+  операция keys(): IterableIterator<Текст>
+
+  операция values(): IterableIterator<Текст>
+}
+
+
+тип IDBDatabase = интерфейс
+{
+  операция transaction(storeNames: Текст | Iterable<Текст>, mode: IDBTransactionMode?FUCKFUCK = пусто, options: IDBTransactionOptions?FUCKFUCK = пусто): IDBTransaction
+}
+
+
+тип IDBObjectStore = интерфейс
+{
+  операция createIndex(name: Текст, keyPath: Текст | Iterable<Текст>, options: IDBIndexParameters?FUCKFUCK = пусто): IDBIndex
+}
+
+
+тип MIDIInputMap = интерфейс
+{
+
+}
+
+
+тип MIDIOutput = интерфейс
+{
+  операция send(data: Iterable<Число>, timestamp: DOMHighResTimeStamp?FUCKFUCK = пусто)
+}
+
+
+тип MIDIOutputMap = интерфейс
+{
+
+}
+
+
+тип MediaKeyStatusMap = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<объект { _0: BufferSource, _1: MediaKeyStatus }>
+
+  операция entries(): IterableIterator<объект { _0: BufferSource, _1: MediaKeyStatus }>
+
+  операция keys(): IterableIterator<BufferSource>
+
+  операция values(): IterableIterator<MediaKeyStatus>
+}
+
+
+тип MediaList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Текст>
+}
+
+
+тип MessageEvent<T> = интерфейс
+{
+  операция initMessageEvent(type: Текст, bubbles: ДаНет?FUCKFUCK = пусто, cancelable: ДаНет?FUCKFUCK = пусто, data: /*(!) any */ Объект??FUCKFUCK = пусто, origin: Текст?FUCKFUCK = пусто, lastEventId: Текст?FUCKFUCK = пусто, source: MessageEventSource?FUCKFUCK = пусто, ports: Iterable<MessagePort>?FUCKFUCK = пусто)
+}
+
+
+тип MimeTypeArray = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<MimeType>
+}
+
+
+тип NamedNodeMap = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Attr>
+}
+
+
+тип Navigator = интерфейс
+{
+  операция requestMediaKeySystemAccess(keySystem: Текст, supportedConfigurations: Iterable<MediaKeySystemConfiguration>): Promise<MediaKeySystemAccess>
+
+  операция vibrate(pattern: Iterable<Число>): ДаНет
+}
+
+
+тип NodeList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Node>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: Node }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<Node>
+}
+
+
+тип NodeListOf<TNode = Node> = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<TNode>
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: TNode }>
+
+  операция keys(): IterableIterator<Число>
+
+  операция values(): IterableIterator<TNode>
+}
+
+
+тип Plugin = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<MimeType>
+}
+
+
+тип PluginArray = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Plugin>
+}
+
+
+тип RTCRtpTransceiver = интерфейс
+{
+  операция setCodecPreferences(codecs: Iterable<RTCRtpCodecCapability>)
+}
+
+
+тип RTCStatsReport = интерфейс
+{
+
+}
+
+
+тип SVGLengthList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<SVGLength>
+}
+
+
+тип SVGNumberList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<SVGNumber>
+}
+
+
+тип SVGPointList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<DOMPoint>
+}
+
+
+тип SVGStringList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Текст>
+}
+
+
+тип SVGTransformList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<SVGTransform>
+}
+
+
+тип SourceBufferList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<SourceBuffer>
+}
+
+
+тип SpeechRecognitionResult = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<SpeechRecognitionAlternative>
+}
+
+
+тип SpeechRecognitionResultList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<SpeechRecognitionResult>
+}
+
+
+тип StylePropertyMapReadOnly = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<объект { _0: Текст, _1: Iterable<CSSStyleValue> }>
+
+  операция entries(): IterableIterator<объект { _0: Текст, _1: Iterable<CSSStyleValue> }>
+
+  операция keys(): IterableIterator<Текст>
+
+  операция values(): IterableIterator<Iterable<CSSStyleValue>>
+}
+
+
+тип StyleSheetList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<CSSStyleSheet>
+}
+
+
+тип SubtleCrypto = интерфейс
+{
+  операция deriveKey(algorithm: AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params, baseKey: CryptoKey, derivedKeyType: AlgorithmIdentifier | AesDerivedKeyParams | HmacImportParams | HkdfParams | Pbkdf2Params, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>
+
+  операция generateKey(algorithm: RsaHashedKeyGenParams | EcKeyGenParams, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKeyPair>
+
+  операция generateKey(algorithm: AesKeyGenParams | HmacKeyGenParams | Pbkdf2Params, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>
+
+  операция generateKey(algorithm: AlgorithmIdentifier, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<CryptoKeyPair | CryptoKey>
+
+  операция importKey(format: "jwk", keyData: JsonWebKey, algorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>
+
+  операция importKey(format: Exclude<KeyFormat, "jwk">, keyData: BufferSource, algorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>
+
+  операция unwrapKey(format: KeyFormat, wrappedKey: BufferSource, unwrappingKey: CryptoKey, unwrapAlgorithm: AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams, unwrappedKeyAlgorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>
+}
+
+
+тип TextTrackCueList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<TextTrackCue>
+}
+
+
+тип TextTrackList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<TextTrack>
+}
+
+
+тип TouchList = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<Touch>
+}
+
+
+тип URLSearchParams = интерфейс
+{
+  операция [Symbol.iterator](): IterableIterator<объект { _0: Текст, _1: Текст }>
+
+  операция entries(): IterableIterator<объект { _0: Текст, _1: Текст }>
+
+  операция keys(): IterableIterator<Текст>
+
+  операция values(): IterableIterator<Текст>
+}
+
+
+тип WEBGL_draw_buffers = интерфейс
+{
+  операция drawBuffersWEBGL(buffers: Iterable<GLenum>)
+}
+
+
+тип WEBGL_multi_draw = интерфейс
+{
+  операция multiDrawArraysInstancedWEBGL(mode: GLenum, firstsList: Int32Array | Iterable<GLint>, firstsOffset: GLuint, countsList: Int32Array | Iterable<GLsizei>, countsOffset: GLuint, instanceCountsList: Int32Array | Iterable<GLsizei>, instanceCountsOffset: GLuint, drawcount: GLsizei)
+
+  операция multiDrawArraysWEBGL(mode: GLenum, firstsList: Int32Array | Iterable<GLint>, firstsOffset: GLuint, countsList: Int32Array | Iterable<GLsizei>, countsOffset: GLuint, drawcount: GLsizei)
+
+  операция multiDrawElementsInstancedWEBGL(mode: GLenum, countsList: Int32Array | Iterable<GLsizei>, countsOffset: GLuint, type: GLenum, offsetsList: Int32Array | Iterable<GLsizei>, offsetsOffset: GLuint, instanceCountsList: Int32Array | Iterable<GLsizei>, instanceCountsOffset: GLuint, drawcount: GLsizei)
+
+  операция multiDrawElementsWEBGL(mode: GLenum, countsList: Int32Array | Iterable<GLsizei>, countsOffset: GLuint, type: GLenum, offsetsList: Int32Array | Iterable<GLsizei>, offsetsOffset: GLuint, drawcount: GLsizei)
+}
+
+
+тип WebGL2RenderingContextBase = интерфейс
+{
+  операция clearBufferfv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто)
+
+  операция clearBufferiv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLint>, srcOffset: GLuint?FUCKFUCK = пусто)
+
+  операция clearBufferuiv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLuint>, srcOffset: GLuint?FUCKFUCK = пусто)
+
+  операция drawBuffers(buffers: Iterable<GLenum>)
+
+  операция getActiveUniforms(program: WebGLProgram, uniformIndices: Iterable<GLuint>, pname: GLenum): /*(!) any */ Объект?
+
+  операция getUniformIndices(program: WebGLProgram, uniformNames: Iterable<Текст>): Iterable<GLuint>?FUCKFUCK
+
+  операция invalidateFramebuffer(target: GLenum, attachments: Iterable<GLenum>)
+
+  операция invalidateSubFramebuffer(target: GLenum, attachments: Iterable<GLenum>, x: GLint, y: GLint, width: GLsizei, height: GLsizei)
+
+  операция transformFeedbackVaryings(program: WebGLProgram, varyings: Iterable<Текст>, bufferMode: GLenum)
+
+  операция uniform1uiv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLuint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniform2uiv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLuint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniform3uiv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLuint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniform4uiv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLuint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniformMatrix2x3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniformMatrix2x4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniformMatrix3x2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniformMatrix3x4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniformMatrix4x2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniformMatrix4x3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция vertexAttribI4iv(index: GLuint, values: Iterable<GLint>)
+
+  операция vertexAttribI4uiv(index: GLuint, values: Iterable<GLuint>)
+}
+
+
+тип WebGL2RenderingContextOverloads = интерфейс
+{
+  операция uniform1fv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniform1iv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniform2fv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniform2iv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniform3fv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniform3iv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniform4fv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniform4iv(location: WebGLUniformLocation?FUCKFUCK, data: Iterable<GLint>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniformMatrix2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniformMatrix3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+
+  операция uniformMatrix4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset: GLuint?FUCKFUCK = пусто, srcLength: GLuint?FUCKFUCK = пусто)
+}
+
+
+тип WebGLRenderingContextBase = интерфейс
+{
+  операция vertexAttrib1fv(index: GLuint, values: Iterable<GLfloat>)
+
+  операция vertexAttrib2fv(index: GLuint, values: Iterable<GLfloat>)
+
+  операция vertexAttrib3fv(index: GLuint, values: Iterable<GLfloat>)
+
+  операция vertexAttrib4fv(index: GLuint, values: Iterable<GLfloat>)
+}
+
+
+тип WebGLRenderingContextOverloads = интерфейс
+{
+  операция uniform1fv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLfloat>)
+
+  операция uniform1iv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLint>)
+
+  операция uniform2fv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLfloat>)
+
+  операция uniform2iv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLint>)
+
+  операция uniform3fv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLfloat>)
+
+  операция uniform3iv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLint>)
+
+  операция uniform4fv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLfloat>)
+
+  операция uniform4iv(location: WebGLUniformLocation?FUCKFUCK, v: Iterable<GLint>)
+
+  операция uniformMatrix2fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, value: Iterable<GLfloat>)
+
+  операция uniformMatrix3fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, value: Iterable<GLfloat>)
+
+  операция uniformMatrix4fv(location: WebGLUniformLocation?FUCKFUCK, transpose: GLboolean, value: Iterable<GLfloat>)
+}
+

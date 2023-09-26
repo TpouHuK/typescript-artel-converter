@@ -1,0 +1,7 @@
+тип String = интерфейс
+{
+  операция replaceAll(searchValue: Текст | RegExp, replaceValue: Текст): Текст
+
+  операция replaceAll(searchValue: Текст | RegExp, replacer: операция(substring: Текст, args: Список</*(!) any */ Объект?>): Текст): Текст
+}
+

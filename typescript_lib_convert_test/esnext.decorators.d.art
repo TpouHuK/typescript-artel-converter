@@ -1,0 +1,16 @@
+/// <reference lib="es2015.symbol" />
+
+/// <reference lib="decorators" />
+
+тип SymbolConstructor = интерфейс
+{
+  защищено 
+  metadata: /*(!) unique symbol */ Объект
+}
+
+
+тип Function = интерфейс
+{
+  [Symbol.metadata]: DecoratorMetadata?FUCKFUCK
+}
+

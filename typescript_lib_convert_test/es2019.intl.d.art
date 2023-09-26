@@ -1,0 +1,9 @@
+внешнее
+/*(!) Intl */
+{
+тип DateTimeFormatPartTypesRegistry = интерфейс
+{
+  unknown: /*(!) any */ Объект?
+}
+
+}

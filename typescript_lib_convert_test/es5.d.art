@@ -1,0 +1,2583 @@
+/// <reference lib="decorators" />
+
+/// <reference lib="decorators.legacy" />
+
+/////////////////////////////
+
+/// ECMAScript APIs
+
+/////////////////////////////
+
+внешнее
+/*(!) var */ NaN: Число
+
+
+внешнее
+/*(!) var */ Infinity: Число
+
+
+/**
+* Evaluates JavaScript code and executes it.
+* @param x A String value that contains valid JavaScript code.
+*/
+
+внешнее
+операция eval(x: Текст): /*(!) any */ Объект?
+
+/**
+* Converts a string to an integer.
+* @param string A string to convert into a number.
+* @param radix A value between 2 and 36 that specifies the base of the number in `string`.
+* If this argument is not supplied, strings with a prefix of '0x' are considered hexadecimal.
+* All other strings are considered decimal.
+*/
+
+внешнее
+операция parseInt(string: Текст, radix: Число?FUCKFUCK = пусто): Число
+
+/**
+* Converts a string to a floating-point number.
+* @param string A string that contains a floating-point number.
+*/
+
+внешнее
+операция parseFloat(string: Текст): Число
+
+/**
+* Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).
+* @param number A numeric value.
+*/
+
+внешнее
+операция isNaN(number: Число): ДаНет
+
+/**
+* Determines whether a supplied number is finite.
+* @param number Any numeric value.
+*/
+
+внешнее
+операция isFinite(number: Число): ДаНет
+
+/**
+* Gets the unencoded version of an encoded Uniform Resource Identifier (URI).
+* @param encodedURI A value representing an encoded URI.
+*/
+
+внешнее
+операция decodeURI(encodedURI: Текст): Текст
+
+/**
+* Gets the unencoded version of an encoded component of a Uniform Resource Identifier (URI).
+* @param encodedURIComponent A value representing an encoded URI component.
+*/
+
+внешнее
+операция decodeURIComponent(encodedURIComponent: Текст): Текст
+
+/**
+* Encodes a text string as a valid Uniform Resource Identifier (URI)
+* @param uri A value representing an unencoded URI.
+*/
+
+внешнее
+операция encodeURI(uri: Текст): Текст
+
+/**
+* Encodes a text string as a valid component of a Uniform Resource Identifier (URI).
+* @param uriComponent A value representing an unencoded URI component.
+*/
+
+внешнее
+операция encodeURIComponent(uriComponent: Текст | Число | ДаНет): Текст
+
+/**
+* Computes a new string in which certain characters have been replaced by a hexadecimal escape sequence.
+* @deprecated A legacy feature for browser compatibility
+* @param string A string value
+*/
+
+внешнее
+операция escape(string: Текст): Текст
+
+/**
+* Computes a new string in which hexadecimal escape sequences are replaced with the character that it represents.
+* @deprecated A legacy feature for browser compatibility
+* @param string A string value
+*/
+
+внешнее
+операция unescape(string: Текст): Текст
+
+тип Symbol = интерфейс
+{
+  операция toString(): Текст
+
+  операция valueOf(): Символ
+}
+
+
+внешнее
+тип PropertyKey = Текст | Число | Символ
+
+тип PropertyDescriptor = интерфейс
+{
+  configurable: ДаНет
+
+  enumerable: ДаНет
+
+  value: /*(!) any */ Объект?
+
+  writable: ДаНет
+
+  операция get(): /*(!) any */ Объект?
+
+  операция set(v: /*(!) any */ Объект?)
+}
+
+
+тип PropertyDescriptorMap = интерфейс
+{
+  /*(!) [key: PropertyKey]: PropertyDescriptor*/
+}
+
+
+тип Object = интерфейс
+{
+  constructor: Function
+
+  операция toString(): Текст
+
+  операция toLocaleString(): Текст
+
+  операция valueOf(): Object
+
+  операция hasOwnProperty(v: PropertyKey): ДаНет
+
+  операция isPrototypeOf(v: Object): ДаНет
+
+  операция propertyIsEnumerable(v: PropertyKey): ДаНет
+}
+
+
+тип ObjectConstructor = интерфейс
+{
+  при создании(value: /*(!) any */ Объект??FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (): any*/
+
+  /*(!) (value: any): any*/
+
+  защищено 
+  prototype: Object
+
+  операция getPrototypeOf(o: /*(!) any */ Объект?): /*(!) any */ Объект?
+
+  операция getOwnPropertyDescriptor(o: /*(!) any */ Объект?, p: PropertyKey): PropertyDescriptor?FUCKFUCK
+
+  операция getOwnPropertyNames(o: /*(!) any */ Объект?): Список<Текст>
+
+  операция create(o: Объект?FUCKFUCK): /*(!) any */ Объект?
+
+  операция create(o: Объект?FUCKFUCK, properties: /*(!) PropertyDescriptorMap & ThisType<any> */ Объект?): /*(!) any */ Объект?
+
+  операция defineProperty<T>(o: T, p: PropertyKey, attributes: /*(!) PropertyDescriptor & ThisType<any> */ Объект?): T
+
+  операция defineProperties<T>(o: T, properties: /*(!) PropertyDescriptorMap & ThisType<any> */ Объект?): T
+
+  операция seal<T>(o: T): T
+
+  операция freeze<T = Function>(f: T): T
+
+  операция freeze<T = /*(!) { [idx: string]: U | null | undefined | object; } */ Объект?, U = Текст | bigint | Число | ДаНет | Символ>(o: T): Readonly<T>
+
+  операция freeze<T>(o: T): Readonly<T>
+
+  операция preventExtensions<T>(o: T): T
+
+  операция isSealed(o: /*(!) any */ Объект?): ДаНет
+
+  операция isFrozen(o: /*(!) any */ Объект?): ДаНет
+
+  операция isExtensible(o: /*(!) any */ Объект?): ДаНет
+
+  операция keys(o: Объект): Список<Текст>
+}
+
+
+/**
+* Provides functionality common to all JavaScript objects.
+*/
+
+внешнее
+/*(!) var */ Object: ObjectConstructor
+
+
+/**
+* Creates a new function.
+*/
+
+тип Function = интерфейс
+{
+  операция apply(this: Function, thisArg: /*(!) any */ Объект?, argArray: /*(!) any */ Объект??FUCKFUCK = пусто): /*(!) any */ Объект?
+
+  #js.МассивПараметров
+  операция call(this: Function, thisArg: /*(!) any */ Объект?, argArray: Список</*(!) any */ Объект?>): /*(!) any */ Объект?
+
+  #js.МассивПараметров
+  операция bind(this: Function, thisArg: /*(!) any */ Объект?, argArray: Список</*(!) any */ Объект?>): /*(!) any */ Объект?
+
+  операция toString(): Текст
+
+  prototype: /*(!) any */ Объект?
+
+  защищено 
+  length: Число
+
+  arguments: /*(!) any */ Объект?
+
+  caller: Function
+}
+
+
+тип FunctionConstructor = интерфейс
+{
+  #js.МассивПараметров
+  при создании(args: Список<Текст>)/*(!) no_type */ Объект?
+
+  /*(!) (...args: string[]): Function*/
+
+  защищено 
+  prototype: Function
+}
+
+
+внешнее
+/*(!) var */ Function: FunctionConstructor
+
+
+/**
+* Extracts the type of the 'this' parameter of a function type, or 'unknown' if the function type has no 'this' parameter.
+*/
+
+тип ThisParameterType<T> = /*(!) T extends (this: infer U, ...args: never) => any ? U : unknown */ Объект?
+
+/**
+* Removes the 'this' parameter from a function type.
+*/
+
+тип OmitThisParameter<T> = /*(!) unknown extends ThisParameterType<T> ? T : T extends (...args: infer A) => infer R ? (...args: A) => R : T */ Объект?
+
+тип CallableFunction = интерфейс
+{
+  операция apply<T, R>(this: операция(this: T): R, thisArg: T): R
+
+  операция apply<T, A = Список</*(!) any */ Объект?>, R>(this: операция(this: T, args: A): R, thisArg: T, args: A): R
+
+  #js.МассивПараметров
+  операция call<T, A = Список</*(!) any */ Объект?>, R>(this: операция(this: T, args: A): R, thisArg: T, args: A): R
+
+  операция bind<T>(this: T, thisArg: ThisParameterType<T>): OmitThisParameter<T>
+
+  #js.МассивПараметров
+  операция bind<T, A = Список</*(!) any */ Объект?>, B = Список</*(!) any */ Объект?>, R>(this: операция(this: T, args: объект { _0: /*(!) ...A */ Объект?, _1: /*(!) ...B */ Объект? }): R, thisArg: T, args: A): операция(args: B): R
+}
+
+
+тип NewableFunction = интерфейс
+{
+  операция apply<T>(this: /*(!) new () => T */ Объект?, thisArg: T)
+
+  операция apply<T, A = Список</*(!) any */ Объект?>>(this: /*(!) new (...args: A) => T */ Объект?, thisArg: T, args: A)
+
+  #js.МассивПараметров
+  операция call<T, A = Список</*(!) any */ Объект?>>(this: /*(!) new (...args: A) => T */ Объект?, thisArg: T, args: A)
+
+  операция bind<T>(this: T, thisArg: /*(!) any */ Объект?): T
+
+  #js.МассивПараметров
+  операция bind<A = Список</*(!) any */ Объект?>, B = Список</*(!) any */ Объект?>, R>(this: /*(!) new (...args: [...A, ...B]) => R */ Объект?, thisArg: /*(!) any */ Объект?, args: A): /*(!) new (...args: B) => R */ Объект?
+}
+
+
+тип IArguments = интерфейс
+{
+  /*(!) [index: number]: any*/
+
+  length: Число
+
+  callee: Function
+}
+
+
+тип String = интерфейс
+{
+  операция toString(): Текст
+
+  операция charAt(pos: Число): Текст
+
+  операция charCodeAt(index: Число): Число
+
+  #js.МассивПараметров
+  операция concat(strings: Список<Текст>): Текст
+
+  операция indexOf(searchString: Текст, position: Число?FUCKFUCK = пусто): Число
+
+  операция lastIndexOf(searchString: Текст, position: Число?FUCKFUCK = пусто): Число
+
+  операция localeCompare(that: Текст): Число
+
+  операция match(regexp: Текст | RegExp): RegExpMatchArray?FUCKFUCK
+
+  операция replace(searchValue: Текст | RegExp, replaceValue: Текст): Текст
+
+  операция replace(searchValue: Текст | RegExp, replacer: операция(substring: Текст, args: Список</*(!) any */ Объект?>): Текст): Текст
+
+  операция search(regexp: Текст | RegExp): Число
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Текст
+
+  операция split(separator: Текст | RegExp, limit: Число?FUCKFUCK = пусто): Список<Текст>
+
+  операция substring(start: Число, end: Число?FUCKFUCK = пусто): Текст
+
+  операция toLowerCase(): Текст
+
+  операция toLocaleLowerCase(locales: Текст | Список<Текст> | пусто = пусто): Текст
+
+  операция toUpperCase(): Текст
+
+  операция toLocaleUpperCase(locales: Текст | Список<Текст> | пусто = пусто): Текст
+
+  операция trim(): Текст
+
+  защищено 
+  length: Число
+
+  операция substr(from: Число, length: Число?FUCKFUCK = пусто): Текст
+
+  операция valueOf(): Текст
+
+  /*(!) readonly [index: number]: string*/
+}
+
+
+тип StringConstructor = интерфейс
+{
+  при создании(value: /*(!) any */ Объект??FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (value?: any): string*/
+
+  защищено 
+  prototype: String
+
+  #js.МассивПараметров
+  операция fromCharCode(codes: Список<Число>): Текст
+}
+
+
+/**
+* Allows manipulation and formatting of text strings and determination and location of substrings within strings.
+*/
+
+внешнее
+/*(!) var */ String: StringConstructor
+
+
+тип Boolean = интерфейс
+{
+  операция valueOf(): ДаНет
+}
+
+
+тип BooleanConstructor = интерфейс
+{
+  при создании(value: /*(!) any */ Объект??FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) <T>(value?: T): boolean*/
+
+  защищено 
+  prototype: Boolean
+}
+
+
+внешнее
+/*(!) var */ Boolean: BooleanConstructor
+
+
+тип Number = интерфейс
+{
+  операция toString(radix: Число?FUCKFUCK = пусто): Текст
+
+  операция toFixed(fractionDigits: Число?FUCKFUCK = пусто): Текст
+
+  операция toExponential(fractionDigits: Число?FUCKFUCK = пусто): Текст
+
+  операция toPrecision(precision: Число?FUCKFUCK = пусто): Текст
+
+  операция valueOf(): Число
+}
+
+
+тип NumberConstructor = интерфейс
+{
+  при создании(value: /*(!) any */ Объект??FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (value?: any): number*/
+
+  защищено 
+  prototype: Number
+
+  защищено 
+  MAX_VALUE: Число
+
+  защищено 
+  MIN_VALUE: Число
+
+  защищено 
+  NaN: Число
+
+  защищено 
+  NEGATIVE_INFINITY: Число
+
+  защищено 
+  POSITIVE_INFINITY: Число
+}
+
+
+/** An object that represents a number of any kind. All JavaScript numbers are 64-bit floating-point numbers. */
+
+внешнее
+/*(!) var */ Number: NumberConstructor
+
+
+тип TemplateStringsArray = интерфейс
+{
+  защищено 
+  raw: /*(!) защищено */ Список<Текст>
+}
+
+
+/**
+* The type of `import.meta`.
+*
+* If you need to declare that a given property exists on `import.meta`,
+* this type may be augmented via interface merging.
+*/
+
+тип ImportMeta = интерфейс
+{
+
+}
+
+
+/**
+* The type for the optional second argument to `import()`.
+*
+* If your host environment supports additional options, this type may be
+* augmented via interface merging.
+*/
+
+тип ImportCallOptions = интерфейс
+{
+  assert: ImportAssertions
+}
+
+
+/**
+* The type for the `assert` property of the optional second argument to `import()`.
+*/
+
+тип ImportAssertions = интерфейс
+{
+  /*(!) [key: string]: string*/
+}
+
+
+тип Math = интерфейс
+{
+  защищено 
+  E: Число
+
+  защищено 
+  LN10: Число
+
+  защищено 
+  LN2: Число
+
+  защищено 
+  LOG2E: Число
+
+  защищено 
+  LOG10E: Число
+
+  защищено 
+  PI: Число
+
+  защищено 
+  SQRT1_2: Число
+
+  защищено 
+  SQRT2: Число
+
+  операция abs(x: Число): Число
+
+  операция acos(x: Число): Число
+
+  операция asin(x: Число): Число
+
+  операция atan(x: Число): Число
+
+  операция atan2(y: Число, x: Число): Число
+
+  операция ceil(x: Число): Число
+
+  операция cos(x: Число): Число
+
+  операция exp(x: Число): Число
+
+  операция floor(x: Число): Число
+
+  операция log(x: Число): Число
+
+  #js.МассивПараметров
+  операция max(values: Список<Число>): Число
+
+  #js.МассивПараметров
+  операция min(values: Список<Число>): Число
+
+  операция pow(x: Число, y: Число): Число
+
+  операция random(): Число
+
+  операция round(x: Число): Число
+
+  операция sin(x: Число): Число
+
+  операция sqrt(x: Число): Число
+
+  операция tan(x: Число): Число
+}
+
+
+/** An intrinsic object that provides basic mathematics functionality and constants. */
+
+внешнее
+/*(!) var */ Math: Math
+
+
+/** Enables basic storage and retrieval of dates and times. */
+
+тип Date = интерфейс
+{
+  операция toString(): Текст
+
+  операция toDateString(): Текст
+
+  операция toTimeString(): Текст
+
+  операция toLocaleString(): Текст
+
+  операция toLocaleDateString(): Текст
+
+  операция toLocaleTimeString(): Текст
+
+  операция valueOf(): Число
+
+  операция getTime(): Число
+
+  операция getFullYear(): Число
+
+  операция getUTCFullYear(): Число
+
+  операция getMonth(): Число
+
+  операция getUTCMonth(): Число
+
+  операция getDate(): Число
+
+  операция getUTCDate(): Число
+
+  операция getDay(): Число
+
+  операция getUTCDay(): Число
+
+  операция getHours(): Число
+
+  операция getUTCHours(): Число
+
+  операция getMinutes(): Число
+
+  операция getUTCMinutes(): Число
+
+  операция getSeconds(): Число
+
+  операция getUTCSeconds(): Число
+
+  операция getMilliseconds(): Число
+
+  операция getUTCMilliseconds(): Число
+
+  операция getTimezoneOffset(): Число
+
+  операция setTime(time: Число): Число
+
+  операция setMilliseconds(ms: Число): Число
+
+  операция setUTCMilliseconds(ms: Число): Число
+
+  операция setSeconds(sec: Число, ms: Число?FUCKFUCK = пусто): Число
+
+  операция setUTCSeconds(sec: Число, ms: Число?FUCKFUCK = пусто): Число
+
+  операция setMinutes(min: Число, sec: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто): Число
+
+  операция setUTCMinutes(min: Число, sec: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто): Число
+
+  операция setHours(hours: Число, min: Число?FUCKFUCK = пусто, sec: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто): Число
+
+  операция setUTCHours(hours: Число, min: Число?FUCKFUCK = пусто, sec: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто): Число
+
+  операция setDate(date: Число): Число
+
+  операция setUTCDate(date: Число): Число
+
+  операция setMonth(month: Число, date: Число?FUCKFUCK = пусто): Число
+
+  операция setUTCMonth(month: Число, date: Число?FUCKFUCK = пусто): Число
+
+  операция setFullYear(year: Число, month: Число?FUCKFUCK = пусто, date: Число?FUCKFUCK = пусто): Число
+
+  операция setUTCFullYear(year: Число, month: Число?FUCKFUCK = пусто, date: Число?FUCKFUCK = пусто): Число
+
+  операция toUTCString(): Текст
+
+  операция toISOString(): Текст
+
+  операция toJSON(key: /*(!) any */ Объект??FUCKFUCK = пусто): Текст
+}
+
+
+тип DateConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+
+  при создании(value: Число | Текст)/*(!) no_type */ Объект?
+
+  при создании(year: Число, monthIndex: Число, date: Число?FUCKFUCK = пусто, hours: Число?FUCKFUCK = пусто, minutes: Число?FUCKFUCK = пусто, seconds: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (): string*/
+
+  защищено 
+  prototype: Date
+
+  операция parse(s: Текст): Число
+
+  операция UTC(year: Число, monthIndex: Число, date: Число?FUCKFUCK = пусто, hours: Число?FUCKFUCK = пусто, minutes: Число?FUCKFUCK = пусто, seconds: Число?FUCKFUCK = пусто, ms: Число?FUCKFUCK = пусто): Число
+
+  операция now(): Число
+}
+
+
+внешнее
+/*(!) var */ Date: DateConstructor
+
+
+тип RegExpMatchArray = интерфейс
+{
+  index: Число
+
+  input: Текст
+
+  0: Текст
+}
+
+
+тип RegExpExecArray = интерфейс
+{
+  index: Число
+
+  input: Текст
+
+  0: Текст
+}
+
+
+тип RegExp = интерфейс
+{
+  операция exec(string: Текст): RegExpExecArray?FUCKFUCK
+
+  операция test(string: Текст): ДаНет
+
+  защищено 
+  source: Текст
+
+  защищено 
+  global: ДаНет
+
+  защищено 
+  ignoreCase: ДаНет
+
+  защищено 
+  multiline: ДаНет
+
+  lastIndex: Число
+
+  операция compile(pattern: Текст, flags: Текст?FUCKFUCK = пусто): /*(!) this */ Объект?
+}
+
+
+тип RegExpConstructor = интерфейс
+{
+  при создании(pattern: RegExp | Текст)/*(!) no_type */ Объект?
+
+  при создании(pattern: Текст, flags: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (pattern: RegExp | string): RegExp*/
+
+  /*(!) (pattern: string, flags?: string): RegExp*/
+
+  защищено 
+  "prototype": RegExp
+
+  "$1": Текст
+
+  "$2": Текст
+
+  "$3": Текст
+
+  "$4": Текст
+
+  "$5": Текст
+
+  "$6": Текст
+
+  "$7": Текст
+
+  "$8": Текст
+
+  "$9": Текст
+
+  "input": Текст
+
+  "$_": Текст
+
+  "lastMatch": Текст
+
+  "$&": Текст
+
+  "lastParen": Текст
+
+  "$+": Текст
+
+  "leftContext": Текст
+
+  "$`": Текст
+
+  "rightContext": Текст
+
+  "$'": Текст
+}
+
+
+внешнее
+/*(!) var */ RegExp: RegExpConstructor
+
+
+тип Error = интерфейс
+{
+  name: Текст
+
+  message: Текст
+
+  stack: Текст
+}
+
+
+тип ErrorConstructor = интерфейс
+{
+  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (message?: string): Error*/
+
+  защищено 
+  prototype: Error
+}
+
+
+внешнее
+/*(!) var */ Error: ErrorConstructor
+
+
+тип EvalError = интерфейс
+{
+
+}
+
+
+тип EvalErrorConstructor = интерфейс
+{
+  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (message?: string): EvalError*/
+
+  защищено 
+  prototype: EvalError
+}
+
+
+внешнее
+/*(!) var */ EvalError: EvalErrorConstructor
+
+
+тип RangeError = интерфейс
+{
+
+}
+
+
+тип RangeErrorConstructor = интерфейс
+{
+  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (message?: string): RangeError*/
+
+  защищено 
+  prototype: RangeError
+}
+
+
+внешнее
+/*(!) var */ RangeError: RangeErrorConstructor
+
+
+тип ReferenceError = интерфейс
+{
+
+}
+
+
+тип ReferenceErrorConstructor = интерфейс
+{
+  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (message?: string): ReferenceError*/
+
+  защищено 
+  prototype: ReferenceError
+}
+
+
+внешнее
+/*(!) var */ ReferenceError: ReferenceErrorConstructor
+
+
+тип SyntaxError = интерфейс
+{
+
+}
+
+
+тип SyntaxErrorConstructor = интерфейс
+{
+  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (message?: string): SyntaxError*/
+
+  защищено 
+  prototype: SyntaxError
+}
+
+
+внешнее
+/*(!) var */ SyntaxError: SyntaxErrorConstructor
+
+
+тип TypeError = интерфейс
+{
+
+}
+
+
+тип TypeErrorConstructor = интерфейс
+{
+  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (message?: string): TypeError*/
+
+  защищено 
+  prototype: TypeError
+}
+
+
+внешнее
+/*(!) var */ TypeError: TypeErrorConstructor
+
+
+тип URIError = интерфейс
+{
+
+}
+
+
+тип URIErrorConstructor = интерфейс
+{
+  при создании(message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (message?: string): URIError*/
+
+  защищено 
+  prototype: URIError
+}
+
+
+внешнее
+/*(!) var */ URIError: URIErrorConstructor
+
+
+тип JSON = интерфейс
+{
+  операция parse(text: Текст, reviver: операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект??FUCKFUCK = пусто): /*(!) any */ Объект?
+
+  операция stringify(value: /*(!) any */ Объект?, replacer: операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект??FUCKFUCK = пусто, space: Текст | Число | пусто = пусто): Текст
+
+  операция stringify(value: /*(!) any */ Объект?, replacer: Список<Число | Текст>?FUCKFUCK = пусто, space: Текст | Число | пусто = пусто): Текст
+}
+
+
+/**
+* An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
+*/
+
+внешнее
+/*(!) var */ JSON: JSON
+
+
+/////////////////////////////
+
+/// ECMAScript Array API (specially handled by compiler)
+
+/////////////////////////////
+
+тип ReadonlyArray<T> = интерфейс
+{
+  защищено 
+  length: Число
+
+  операция toString(): Текст
+
+  операция toLocaleString(): Текст
+
+  #js.МассивПараметров
+  операция concat(items: Список<ConcatArray<T>>): Список<T>
+
+  #js.МассивПараметров
+  операция concat(items: Список<T | ConcatArray<T>>): Список<T>
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Список<T>
+
+  операция indexOf(searchElement: T, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция lastIndexOf(searchElement: T, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция every<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): /*(!) this is */ /*(!) защищено */ Список<S>
+
+  операция every(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция some(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция forEach(callbackfn: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция map<U>(callbackfn: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): U, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<U>
+
+  операция filter<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<S>
+
+  операция filter(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<T>
+
+  операция reduce(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: /*(!) защищено */ Список<T>): T): T
+
+  операция reduce(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: /*(!) защищено */ Список<T>): T, initialValue: T): T
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: T, currentIndex: Число, array: /*(!) защищено */ Список<T>): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: /*(!) защищено */ Список<T>): T): T
+
+  операция reduceRight(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: /*(!) защищено */ Список<T>): T, initialValue: T): T
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: T, currentIndex: Число, array: /*(!) защищено */ Список<T>): U, initialValue: U): U
+
+  /*(!) readonly [n: number]: T*/
+}
+
+
+тип ConcatArray<T> = интерфейс
+{
+  защищено 
+  length: Число
+
+  /*(!) readonly [n: number]: T*/
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Список<T>
+}
+
+
+тип Array<T> = интерфейс
+{
+  length: Число
+
+  операция toString(): Текст
+
+  операция toLocaleString(): Текст
+
+  операция pop(): T?FUCKFUCK
+
+  #js.МассивПараметров
+  операция push(items: Список<T>): Число
+
+  #js.МассивПараметров
+  операция concat(items: Список<ConcatArray<T>>): Список<T>
+
+  #js.МассивПараметров
+  операция concat(items: Список<T | ConcatArray<T>>): Список<T>
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция reverse(): Список<T>
+
+  операция shift(): T?FUCKFUCK
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Список<T>
+
+  операция sort(compareFn: операция(a: T, b: T): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция splice(start: Число, deleteCount: Число?FUCKFUCK = пусто): Список<T>
+
+  #js.МассивПараметров
+  операция splice(start: Число, deleteCount: Число, items: Список<T>): Список<T>
+
+  #js.МассивПараметров
+  операция unshift(items: Список<T>): Число
+
+  операция indexOf(searchElement: T, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция lastIndexOf(searchElement: T, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция every<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): /*(!) this is */ Список<S>
+
+  операция every(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция some(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция forEach(callbackfn: операция(value: T, index: Число, array: Список<T>), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция map<U>(callbackfn: операция(value: T, index: Число, array: Список<T>): U, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<U>
+
+  операция filter<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<S>
+
+  операция filter(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<T>
+
+  операция reduce(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: Список<T>): T): T
+
+  операция reduce(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: Список<T>): T, initialValue: T): T
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: T, currentIndex: Число, array: Список<T>): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: Список<T>): T): T
+
+  операция reduceRight(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: Список<T>): T, initialValue: T): T
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: T, currentIndex: Число, array: Список<T>): U, initialValue: U): U
+
+  /*(!) [n: number]: T*/
+}
+
+
+тип ArrayConstructor = интерфейс
+{
+  при создании(arrayLength: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  при создании(arrayLength: Число)/*(!) no_type */ Объект?
+
+  #js.МассивПараметров
+  при создании(items: Список<T>)/*(!) no_type */ Объект?
+
+  /*(!) (arrayLength?: number): any[]*/
+
+  /*(!) <T>(arrayLength: number): T[]*/
+
+  /*(!) <T>(...items: T[]): T[]*/
+
+  операция isArray(arg: /*(!) any */ Объект?): /*(!) arg is */ Список</*(!) any */ Объект?>
+
+  защищено 
+  prototype: Список</*(!) any */ Объект?>
+}
+
+
+внешнее
+/*(!) var */ Array: ArrayConstructor
+
+
+тип TypedPropertyDescriptor<T> = интерфейс
+{
+  enumerable: ДаНет
+
+  configurable: ДаНет
+
+  writable: ДаНет
+
+  value: T
+
+  get: операция(): T
+
+  set: операция(value: T)
+}
+
+
+внешнее
+тип PromiseConstructorLike = /*(!) new <T>(executor: (resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void) => PromiseLike<T> */ Объект?
+
+тип PromiseLike<T> = интерфейс
+{
+  операция then<TResult1, TResult2>(onfulfilled: операция(value: T): TResult1 | PromiseLike<TResult1>?FUCKFUCK = пусто, onrejected: операция(reason: /*(!) any */ Объект?): TResult2 | PromiseLike<TResult2>?FUCKFUCK = пусто): PromiseLike<TResult1 | TResult2>
+}
+
+
+/**
+* Represents the completion of an asynchronous operation
+*/
+
+тип Promise<T> = интерфейс
+{
+  операция then<TResult1, TResult2>(onfulfilled: операция(value: T): TResult1 | PromiseLike<TResult1>?FUCKFUCK = пусто, onrejected: операция(reason: /*(!) any */ Объект?): TResult2 | PromiseLike<TResult2>?FUCKFUCK = пусто): Promise<TResult1 | TResult2>
+
+  операция catch<TResult>(onrejected: операция(reason: /*(!) any */ Объект?): TResult | PromiseLike<TResult>?FUCKFUCK = пусто): Promise<T | TResult>
+}
+
+
+/**
+* Recursively unwraps the "awaited type" of a type. Non-promise "thenables" should resolve to `never`. This emulates the behavior of `await`.
+*/
+
+тип Awaited<T> = /*(!) T extends null | undefined ? T : // special case for `null | undefined` when not in `--strictNullChecks` mode
+    T extends object & { then(onfulfilled: infer F, ...args: infer _): any; } ? // `await` only unwraps object types with a callable `then`. Non-object types are not unwrapped
+        F extends ((value: infer V, ...args: infer _) => any) ? // if the argument to `then` is callable, extracts the first argument
+            Awaited<V> : // recursively unwrap the value
+        never : // the argument to `then` was not callable
+    T */ Объект?
+
+// non-object or non-thenable
+
+тип ArrayLike<T> = интерфейс
+{
+  защищено 
+  length: Число
+
+  /*(!) readonly [n: number]: T*/
+}
+
+
+/**
+* Make all properties in T optional
+*/
+
+тип Partial<T> = /*(!) {
+    [P in keyof T]?: T[P];
+} */ Объект?
+
+/**
+* Make all properties in T required
+*/
+
+тип Required<T> = /*(!) {
+    [P in keyof T]-?: T[P];
+} */ Объект?
+
+/**
+* Make all properties in T readonly
+*/
+
+тип Readonly<T> = /*(!) {
+    readonly [P in keyof T]: T[P];
+} */ Объект?
+
+/**
+* From T, pick a set of properties whose keys are in the union K
+*/
+
+тип Pick<T, K = /*(!) keyof T */ Объект?> = /*(!) {
+    [P in K]: T[P];
+} */ Объект?
+
+/**
+* Construct a type with a set of properties K of type T
+*/
+
+тип Record<K = /*(!) keyof any */ Объект?, T> = /*(!) {
+    [P in K]: T;
+} */ Объект?
+
+/**
+* Exclude from T those types that are assignable to U
+*/
+
+тип Exclude<T, U> = /*(!) T extends U ? never : T */ Объект?
+
+/**
+* Extract from T those types that are assignable to U
+*/
+
+тип Extract<T, U> = /*(!) T extends U ? T : never */ Объект?
+
+/**
+* Construct a type with the properties of T except for those in type K.
+*/
+
+тип Omit<T, K = /*(!) keyof any */ Объект?> = Pick<T, Exclude</*(!) keyof T */ Объект?, K>>
+
+/**
+* Exclude null and undefined from T
+*/
+
+тип NonNullable<T> = /*(!) T & {} */ Объект?
+
+/**
+* Obtain the parameters of a function type in a tuple
+*/
+
+тип Parameters<T = операция(args: /*(!) any */ Объект?): /*(!) any */ Объект?> = /*(!) T extends (...args: infer P) => any ? P : never */ Объект?
+
+/**
+* Obtain the parameters of a constructor function type in a tuple
+*/
+
+тип ConstructorParameters<T = /*(!) abstract new (...args: any) => any */ Объект?> = /*(!) T extends abstract new (...args: infer P) => any ? P : never */ Объект?
+
+/**
+* Obtain the return type of a function type
+*/
+
+тип ReturnType<T = операция(args: /*(!) any */ Объект?): /*(!) any */ Объект?> = /*(!) T extends (...args: any) => infer R ? R : any */ Объект?
+
+/**
+* Obtain the return type of a constructor function type
+*/
+
+тип InstanceType<T = /*(!) abstract new (...args: any) => any */ Объект?> = /*(!) T extends abstract new (...args: any) => infer R ? R : any */ Объект?
+
+/**
+* Convert string literal type to uppercase
+*/
+
+тип Uppercase<S = Текст> = intrinsic
+
+/**
+* Convert string literal type to lowercase
+*/
+
+тип Lowercase<S = Текст> = intrinsic
+
+/**
+* Convert first character of string literal type to uppercase
+*/
+
+тип Capitalize<S = Текст> = intrinsic
+
+/**
+* Convert first character of string literal type to lowercase
+*/
+
+тип Uncapitalize<S = Текст> = intrinsic
+
+/**
+* Marker for contextual 'this' type
+*/
+
+тип ThisType<T> = интерфейс
+{
+
+}
+
+
+/**
+* Stores types to be used with WeakSet, WeakMap, WeakRef, and FinalizationRegistry
+*/
+
+тип WeakKeyTypes = интерфейс
+{
+  object: Объект
+}
+
+
+тип WeakKey = /*(!) WeakKeyTypes[keyof WeakKeyTypes] */ Объект?
+
+/**
+* Represents a raw buffer of binary data, which is used to store data for the
+* different typed arrays. ArrayBuffers cannot be read from or written to directly,
+* but can be passed to a typed array or DataView Object to interpret the raw
+* buffer as needed.
+*/
+
+тип ArrayBuffer = интерфейс
+{
+  защищено 
+  byteLength: Число
+
+  операция slice(begin: Число, end: Число?FUCKFUCK = пусто): ArrayBuffer
+}
+
+
+/**
+* Allowed ArrayBuffer types for the buffer of an ArrayBufferView and related Typed Arrays.
+*/
+
+тип ArrayBufferTypes = интерфейс
+{
+  ArrayBuffer: ArrayBuffer
+}
+
+
+тип ArrayBufferLike = /*(!) ArrayBufferTypes[keyof ArrayBufferTypes] */ Объект?
+
+тип ArrayBufferConstructor = интерфейс
+{
+  защищено 
+  prototype: ArrayBuffer
+
+  при создании(byteLength: Число)/*(!) no_type */ Объект?
+
+  операция isView(arg: /*(!) any */ Объект?): /*(!) arg is */ ArrayBufferView
+}
+
+
+внешнее
+/*(!) var */ ArrayBuffer: ArrayBufferConstructor
+
+
+тип ArrayBufferView = интерфейс
+{
+  buffer: ArrayBufferLike
+
+  byteLength: Число
+
+  byteOffset: Число
+}
+
+
+тип DataView = интерфейс
+{
+  защищено 
+  buffer: ArrayBuffer
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция getFloat32(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+
+  операция getFloat64(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+
+  операция getInt8(byteOffset: Число): Число
+
+  операция getInt16(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+
+  операция getInt32(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+
+  операция getUint8(byteOffset: Число): Число
+
+  операция getUint16(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+
+  операция getUint32(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): Число
+
+  операция setFloat32(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+
+  операция setFloat64(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+
+  операция setInt8(byteOffset: Число, value: Число)
+
+  операция setInt16(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+
+  операция setInt32(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+
+  операция setUint8(byteOffset: Число, value: Число)
+
+  операция setUint16(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+
+  операция setUint32(byteOffset: Число, value: Число, littleEndian: ДаНет?FUCKFUCK = пусто)
+}
+
+
+тип DataViewConstructor = интерфейс
+{
+  защищено 
+  prototype: DataView
+
+  при создании(buffer: /*(!) ArrayBufferLike & { BYTES_PER_ELEMENT?: never; } */ Объект?, byteOffset: Число?FUCKFUCK = пусто, byteLength: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+}
+
+
+внешнее
+/*(!) var */ DataView: DataViewConstructor
+
+
+/**
+* A typed array of 8-bit integer values. The contents are initialized to 0. If the requested
+* number of bytes could not be allocated an exception is raised.
+*/
+
+тип Int8Array = интерфейс
+{
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  защищено 
+  buffer: ArrayBufferLike
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция every(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция filter(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int8Array
+
+  операция find(predicate: операция(value: Число, index: Число, obj: Int8Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int8Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int8Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  защищено 
+  length: Число
+
+  операция map(callbackfn: операция(value: Число, index: Число, array: Int8Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int8Array
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int8Array): Число): Число
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int8Array): Число, initialValue: Число): Число
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Int8Array): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int8Array): Число): Число
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int8Array): Число, initialValue: Число): Число
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Int8Array): U, initialValue: U): U
+
+  операция reverse(): Int8Array
+
+  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int8Array
+
+  операция some(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int8Array
+
+  операция toLocaleString(): Текст
+
+  операция toString(): Текст
+
+  операция valueOf(): Int8Array
+
+  /*(!) [index: number]: number*/
+}
+
+
+тип Int8ArrayConstructor = интерфейс
+{
+  защищено 
+  prototype: Int8Array
+
+  при создании(length: Число)/*(!) no_type */ Объект?
+
+  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+
+  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  #js.МассивПараметров
+  операция of(items: Список<Число>): Int8Array
+
+  операция from(arrayLike: ArrayLike<Число>): Int8Array
+
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int8Array
+}
+
+
+внешнее
+/*(!) var */ Int8Array: Int8ArrayConstructor
+
+
+/**
+* A typed array of 8-bit unsigned integer values. The contents are initialized to 0. If the
+* requested number of bytes could not be allocated an exception is raised.
+*/
+
+тип Uint8Array = интерфейс
+{
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  защищено 
+  buffer: ArrayBufferLike
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция every(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8Array
+
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint8Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint8Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint8Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  защищено 
+  length: Число
+
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint8Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8Array
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8Array): Число): Число
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8Array): Число, initialValue: Число): Число
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Uint8Array): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8Array): Число): Число
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8Array): Число, initialValue: Число): Число
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Uint8Array): U, initialValue: U): U
+
+  операция reverse(): Uint8Array
+
+  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint8Array
+
+  операция some(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint8Array
+
+  операция toLocaleString(): Текст
+
+  операция toString(): Текст
+
+  операция valueOf(): Uint8Array
+
+  /*(!) [index: number]: number*/
+}
+
+
+тип Uint8ArrayConstructor = интерфейс
+{
+  защищено 
+  prototype: Uint8Array
+
+  при создании(length: Число)/*(!) no_type */ Объект?
+
+  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+
+  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  #js.МассивПараметров
+  операция of(items: Список<Число>): Uint8Array
+
+  операция from(arrayLike: ArrayLike<Число>): Uint8Array
+
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8Array
+}
+
+
+внешнее
+/*(!) var */ Uint8Array: Uint8ArrayConstructor
+
+
+/**
+* A typed array of 8-bit unsigned integer (clamped) values. The contents are initialized to 0.
+* If the requested number of bytes could not be allocated an exception is raised.
+*/
+
+тип Uint8ClampedArray = интерфейс
+{
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  защищено 
+  buffer: ArrayBufferLike
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция every(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8ClampedArray
+
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint8ClampedArray): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint8ClampedArray): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint8ClampedArray), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  защищено 
+  length: Число
+
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint8ClampedArray): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8ClampedArray
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8ClampedArray): Число): Число
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8ClampedArray): Число, initialValue: Число): Число
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Uint8ClampedArray): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8ClampedArray): Число): Число
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8ClampedArray): Число, initialValue: Число): Число
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Uint8ClampedArray): U, initialValue: U): U
+
+  операция reverse(): Uint8ClampedArray
+
+  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint8ClampedArray
+
+  операция some(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint8ClampedArray
+
+  операция toLocaleString(): Текст
+
+  операция toString(): Текст
+
+  операция valueOf(): Uint8ClampedArray
+
+  /*(!) [index: number]: number*/
+}
+
+
+тип Uint8ClampedArrayConstructor = интерфейс
+{
+  защищено 
+  prototype: Uint8ClampedArray
+
+  при создании(length: Число)/*(!) no_type */ Объект?
+
+  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+
+  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  #js.МассивПараметров
+  операция of(items: Список<Число>): Uint8ClampedArray
+
+  операция from(arrayLike: ArrayLike<Число>): Uint8ClampedArray
+
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint8ClampedArray
+}
+
+
+внешнее
+/*(!) var */ Uint8ClampedArray: Uint8ClampedArrayConstructor
+
+
+/**
+* A typed array of 16-bit signed integer values. The contents are initialized to 0. If the
+* requested number of bytes could not be allocated an exception is raised.
+*/
+
+тип Int16Array = интерфейс
+{
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  защищено 
+  buffer: ArrayBufferLike
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция every(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция filter(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int16Array
+
+  операция find(predicate: операция(value: Число, index: Число, obj: Int16Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int16Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int16Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  защищено 
+  length: Число
+
+  операция map(callbackfn: операция(value: Число, index: Число, array: Int16Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int16Array
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int16Array): Число): Число
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int16Array): Число, initialValue: Число): Число
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Int16Array): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int16Array): Число): Число
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int16Array): Число, initialValue: Число): Число
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Int16Array): U, initialValue: U): U
+
+  операция reverse(): Int16Array
+
+  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int16Array
+
+  операция some(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int16Array
+
+  операция toLocaleString(): Текст
+
+  операция toString(): Текст
+
+  операция valueOf(): Int16Array
+
+  /*(!) [index: number]: number*/
+}
+
+
+тип Int16ArrayConstructor = интерфейс
+{
+  защищено 
+  prototype: Int16Array
+
+  при создании(length: Число)/*(!) no_type */ Объект?
+
+  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+
+  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  #js.МассивПараметров
+  операция of(items: Список<Число>): Int16Array
+
+  операция from(arrayLike: ArrayLike<Число>): Int16Array
+
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int16Array
+}
+
+
+внешнее
+/*(!) var */ Int16Array: Int16ArrayConstructor
+
+
+/**
+* A typed array of 16-bit unsigned integer values. The contents are initialized to 0. If the
+* requested number of bytes could not be allocated an exception is raised.
+*/
+
+тип Uint16Array = интерфейс
+{
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  защищено 
+  buffer: ArrayBufferLike
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция every(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint16Array
+
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint16Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint16Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint16Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  защищено 
+  length: Число
+
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint16Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint16Array
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint16Array): Число): Число
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint16Array): Число, initialValue: Число): Число
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Uint16Array): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint16Array): Число): Число
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint16Array): Число, initialValue: Число): Число
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Uint16Array): U, initialValue: U): U
+
+  операция reverse(): Uint16Array
+
+  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint16Array
+
+  операция some(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint16Array
+
+  операция toLocaleString(): Текст
+
+  операция toString(): Текст
+
+  операция valueOf(): Uint16Array
+
+  /*(!) [index: number]: number*/
+}
+
+
+тип Uint16ArrayConstructor = интерфейс
+{
+  защищено 
+  prototype: Uint16Array
+
+  при создании(length: Число)/*(!) no_type */ Объект?
+
+  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+
+  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  #js.МассивПараметров
+  операция of(items: Список<Число>): Uint16Array
+
+  операция from(arrayLike: ArrayLike<Число>): Uint16Array
+
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint16Array
+}
+
+
+внешнее
+/*(!) var */ Uint16Array: Uint16ArrayConstructor
+
+
+/**
+* A typed array of 32-bit signed integer values. The contents are initialized to 0. If the
+* requested number of bytes could not be allocated an exception is raised.
+*/
+
+тип Int32Array = интерфейс
+{
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  защищено 
+  buffer: ArrayBufferLike
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция every(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция filter(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int32Array
+
+  операция find(predicate: операция(value: Число, index: Число, obj: Int32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int32Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  защищено 
+  length: Число
+
+  операция map(callbackfn: операция(value: Число, index: Число, array: Int32Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int32Array
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int32Array): Число): Число
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int32Array): Число, initialValue: Число): Число
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Int32Array): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int32Array): Число): Число
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int32Array): Число, initialValue: Число): Число
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Int32Array): U, initialValue: U): U
+
+  операция reverse(): Int32Array
+
+  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int32Array
+
+  операция some(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Int32Array
+
+  операция toLocaleString(): Текст
+
+  операция toString(): Текст
+
+  операция valueOf(): Int32Array
+
+  /*(!) [index: number]: number*/
+}
+
+
+тип Int32ArrayConstructor = интерфейс
+{
+  защищено 
+  prototype: Int32Array
+
+  при создании(length: Число)/*(!) no_type */ Объект?
+
+  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+
+  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  #js.МассивПараметров
+  операция of(items: Список<Число>): Int32Array
+
+  операция from(arrayLike: ArrayLike<Число>): Int32Array
+
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Int32Array
+}
+
+
+внешнее
+/*(!) var */ Int32Array: Int32ArrayConstructor
+
+
+/**
+* A typed array of 32-bit unsigned integer values. The contents are initialized to 0. If the
+* requested number of bytes could not be allocated an exception is raised.
+*/
+
+тип Uint32Array = интерфейс
+{
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  защищено 
+  buffer: ArrayBufferLike
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция every(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint32Array
+
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint32Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  защищено 
+  length: Число
+
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint32Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint32Array
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint32Array): Число): Число
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint32Array): Число, initialValue: Число): Число
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Uint32Array): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint32Array): Число): Число
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint32Array): Число, initialValue: Число): Число
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Uint32Array): U, initialValue: U): U
+
+  операция reverse(): Uint32Array
+
+  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint32Array
+
+  операция some(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Uint32Array
+
+  операция toLocaleString(): Текст
+
+  операция toString(): Текст
+
+  операция valueOf(): Uint32Array
+
+  /*(!) [index: number]: number*/
+}
+
+
+тип Uint32ArrayConstructor = интерфейс
+{
+  защищено 
+  prototype: Uint32Array
+
+  при создании(length: Число)/*(!) no_type */ Объект?
+
+  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+
+  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  #js.МассивПараметров
+  операция of(items: Список<Число>): Uint32Array
+
+  операция from(arrayLike: ArrayLike<Число>): Uint32Array
+
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Uint32Array
+}
+
+
+внешнее
+/*(!) var */ Uint32Array: Uint32ArrayConstructor
+
+
+/**
+* A typed array of 32-bit float values. The contents are initialized to 0. If the requested number
+* of bytes could not be allocated an exception is raised.
+*/
+
+тип Float32Array = интерфейс
+{
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  защищено 
+  buffer: ArrayBufferLike
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция every(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция filter(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float32Array
+
+  операция find(predicate: операция(value: Число, index: Число, obj: Float32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Float32Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Float32Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  защищено 
+  length: Число
+
+  операция map(callbackfn: операция(value: Число, index: Число, array: Float32Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float32Array
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float32Array): Число): Число
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float32Array): Число, initialValue: Число): Число
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Float32Array): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float32Array): Число): Число
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float32Array): Число, initialValue: Число): Число
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Float32Array): U, initialValue: U): U
+
+  операция reverse(): Float32Array
+
+  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Float32Array
+
+  операция some(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Float32Array
+
+  операция toLocaleString(): Текст
+
+  операция toString(): Текст
+
+  операция valueOf(): Float32Array
+
+  /*(!) [index: number]: number*/
+}
+
+
+тип Float32ArrayConstructor = интерфейс
+{
+  защищено 
+  prototype: Float32Array
+
+  при создании(length: Число)/*(!) no_type */ Объект?
+
+  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+
+  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  #js.МассивПараметров
+  операция of(items: Список<Число>): Float32Array
+
+  операция from(arrayLike: ArrayLike<Число>): Float32Array
+
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float32Array
+}
+
+
+внешнее
+/*(!) var */ Float32Array: Float32ArrayConstructor
+
+
+/**
+* A typed array of 64-bit float values. The contents are initialized to 0. If the requested
+* number of bytes could not be allocated an exception is raised.
+*/
+
+тип Float64Array = интерфейс
+{
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  защищено 
+  buffer: ArrayBufferLike
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция every(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция fill(value: Число, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция filter(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float64Array
+
+  операция find(predicate: операция(value: Число, index: Число, obj: Float64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Float64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Float64Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция indexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция lastIndexOf(searchElement: Число, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  защищено 
+  length: Число
+
+  операция map(callbackfn: операция(value: Число, index: Число, array: Float64Array): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float64Array
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float64Array): Число): Число
+
+  операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float64Array): Число, initialValue: Число): Число
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Float64Array): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float64Array): Число): Число
+
+  операция reduceRight(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float64Array): Число, initialValue: Число): Число
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: Число, currentIndex: Число, array: Float64Array): U, initialValue: U): U
+
+  операция reverse(): Float64Array
+
+  операция set(array: ArrayLike<Число>, offset: Число?FUCKFUCK = пусто)
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Float64Array
+
+  операция some(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция sort(compareFn: операция(a: Число, b: Число): Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): Float64Array
+
+  операция toLocaleString(): Текст
+
+  операция toString(): Текст
+
+  операция valueOf(): Float64Array
+
+  /*(!) [index: number]: number*/
+}
+
+
+тип Float64ArrayConstructor = интерфейс
+{
+  защищено 
+  prototype: Float64Array
+
+  при создании(length: Число)/*(!) no_type */ Объект?
+
+  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+
+  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  #js.МассивПараметров
+  операция of(items: Список<Число>): Float64Array
+
+  операция from(arrayLike: ArrayLike<Число>): Float64Array
+
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Float64Array
+}
+
+
+внешнее
+/*(!) var */ Float64Array: Float64ArrayConstructor
+
+
+/////////////////////////////
+
+/// ECMAScript Internationalization API
+
+/////////////////////////////
+
+внешнее
+/*(!) Intl */
+{
+тип CollatorOptions = интерфейс
+{
+  usage: "sort" | "search" | пусто
+
+  localeMatcher: "lookup" | "best fit" | пусто
+
+  numeric: ДаНет?FUCKFUCK
+
+  caseFirst: "upper" | "lower" | "false" | пусто
+
+  sensitivity: "base" | "accent" | "case" | "variant" | пусто
+
+  collation: "big5han" | "compat" | "dict" | "direct" | "ducet" | "emoji" | "eor" | "gb2312" | "phonebk" | "phonetic" | "pinyin" | "reformed" | "searchjl" | "stroke" | "trad" | "unihan" | "zhuyin" | пусто
+
+  ignorePunctuation: ДаНет?FUCKFUCK
+}
+
+
+тип ResolvedCollatorOptions = интерфейс
+{
+  locale: Текст
+
+  usage: Текст
+
+  sensitivity: Текст
+
+  ignorePunctuation: ДаНет
+
+  collation: Текст
+
+  caseFirst: Текст
+
+  numeric: ДаНет
+}
+
+
+тип Collator = интерфейс
+{
+  операция compare(x: Текст, y: Текст): Число
+
+  операция resolvedOptions(): ResolvedCollatorOptions
+}
+
+
+/*(!) var */ Collator: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: CollatorOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: CollatorOptions): Collator*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: CollatorOptions?FUCKFUCK = пусто): Список<Текст> }
+
+
+тип NumberFormatOptions = интерфейс
+{
+  localeMatcher: Текст?FUCKFUCK
+
+  style: Текст?FUCKFUCK
+
+  currency: Текст?FUCKFUCK
+
+  currencySign: Текст?FUCKFUCK
+
+  useGrouping: ДаНет?FUCKFUCK
+
+  minimumIntegerDigits: Число?FUCKFUCK
+
+  minimumFractionDigits: Число?FUCKFUCK
+
+  maximumFractionDigits: Число?FUCKFUCK
+
+  minimumSignificantDigits: Число?FUCKFUCK
+
+  maximumSignificantDigits: Число?FUCKFUCK
+}
+
+
+тип ResolvedNumberFormatOptions = интерфейс
+{
+  locale: Текст
+
+  numberingSystem: Текст
+
+  style: Текст
+
+  currency: Текст
+
+  minimumIntegerDigits: Число
+
+  minimumFractionDigits: Число
+
+  maximumFractionDigits: Число
+
+  minimumSignificantDigits: Число
+
+  maximumSignificantDigits: Число
+
+  useGrouping: ДаНет
+}
+
+
+тип NumberFormat = интерфейс
+{
+  операция format(value: Число): Текст
+
+  операция resolvedOptions(): ResolvedNumberFormatOptions
+}
+
+
+/*(!) var */ NumberFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: NumberFormatOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: NumberFormatOptions): NumberFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: NumberFormatOptions?FUCKFUCK = пусто): Список<Текст>; защищено  prototype: NumberFormat }
+
+
+тип DateTimeFormatOptions = интерфейс
+{
+  localeMatcher: "best fit" | "lookup" | пусто
+
+  weekday: "long" | "short" | "narrow" | пусто
+
+  era: "long" | "short" | "narrow" | пусто
+
+  year: "numeric" | "2-digit" | пусто
+
+  month: "numeric" | "2-digit" | "long" | "short" | "narrow" | пусто
+
+  day: "numeric" | "2-digit" | пусто
+
+  hour: "numeric" | "2-digit" | пусто
+
+  minute: "numeric" | "2-digit" | пусто
+
+  second: "numeric" | "2-digit" | пусто
+
+  timeZoneName: "short" | "long" | "shortOffset" | "longOffset" | "shortGeneric" | "longGeneric" | пусто
+
+  formatMatcher: "best fit" | "basic" | пусто
+
+  hour12: ДаНет?FUCKFUCK
+
+  timeZone: Текст?FUCKFUCK
+}
+
+
+тип ResolvedDateTimeFormatOptions = интерфейс
+{
+  locale: Текст
+
+  calendar: Текст
+
+  numberingSystem: Текст
+
+  timeZone: Текст
+
+  hour12: ДаНет
+
+  weekday: Текст
+
+  era: Текст
+
+  year: Текст
+
+  month: Текст
+
+  day: Текст
+
+  hour: Текст
+
+  minute: Текст
+
+  second: Текст
+
+  timeZoneName: Текст
+}
+
+
+тип DateTimeFormat = интерфейс
+{
+  операция format(date: Date | Число | пусто = пусто): Текст
+
+  операция resolvedOptions(): ResolvedDateTimeFormatOptions
+}
+
+
+/*(!) var */ DateTimeFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: DateTimeFormatOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: DateTimeFormatOptions): DateTimeFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: DateTimeFormatOptions?FUCKFUCK = пусто): Список<Текст>; защищено  prototype: DateTimeFormat }
+
+}
+
+тип String = интерфейс
+{
+  операция localeCompare(that: Текст, locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.CollatorOptions */ Объект??FUCKFUCK = пусто): Число
+}
+
+
+тип Number = интерфейс
+{
+  операция toLocaleString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.NumberFormatOptions */ Объект??FUCKFUCK = пусто): Текст
+}
+
+
+тип Date = интерфейс
+{
+  операция toLocaleString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект??FUCKFUCK = пусто): Текст
+
+  операция toLocaleDateString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект??FUCKFUCK = пусто): Текст
+
+  операция toLocaleTimeString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект??FUCKFUCK = пусто): Текст
+}
+

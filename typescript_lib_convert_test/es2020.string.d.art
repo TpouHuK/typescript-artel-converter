@@ -1,0 +1,7 @@
+/// <reference lib="es2015.iterable" />
+
+тип String = интерфейс
+{
+  операция matchAll(regexp: RegExp): IterableIterator<RegExpMatchArray>
+}
+

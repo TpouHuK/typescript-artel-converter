@@ -1,0 +1,16 @@
+тип SymbolConstructor = интерфейс
+{
+  защищено 
+  prototype: Symbol
+
+  /*(!) (description?: string | number): symbol*/
+
+  операция for(key: Текст): Символ
+
+  операция keyFor(sym: Символ): Текст?FUCKFUCK
+}
+
+
+внешнее
+/*(!) var */ Symbol: SymbolConstructor
+

@@ -1,0 +1,116 @@
+/// <reference lib="es2015.symbol" />
+
+тип SymbolConstructor = интерфейс
+{
+  защищено 
+  dispose: /*(!) unique symbol */ Объект
+
+  защищено 
+  asyncDispose: /*(!) unique symbol */ Объект
+}
+
+
+тип Disposable = интерфейс
+{
+  операция [Symbol.dispose]()
+}
+
+
+тип AsyncDisposable = интерфейс
+{
+  операция [Symbol.asyncDispose](): PromiseLike<Ничего>
+}
+
+
+тип SuppressedError = интерфейс
+{
+  error: /*(!) any */ Объект?
+
+  suppressed: /*(!) any */ Объект?
+}
+
+
+тип SuppressedErrorConstructor = интерфейс
+{
+  при создании(error: /*(!) any */ Объект?, suppressed: /*(!) any */ Объект?, message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (error: any, suppressed: any, message?: string): SuppressedError*/
+
+  защищено 
+  prototype: SuppressedError
+}
+
+
+внешнее
+/*(!) var */ SuppressedError: SuppressedErrorConstructor
+
+
+тип DisposableStack = интерфейс
+{
+  защищено 
+  disposed: ДаНет
+
+  операция dispose()
+
+  операция use<T = Disposable?FUCKFUCK>(value: T): T
+
+  операция adopt<T>(value: T, onDispose: операция(value: T)): T
+
+  операция defer(onDispose: операция())
+
+  операция move(): DisposableStack
+
+  операция [Symbol.dispose]()
+
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип DisposableStackConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+
+  защищено 
+  prototype: DisposableStack
+}
+
+
+внешнее
+/*(!) var */ DisposableStack: DisposableStackConstructor
+
+
+тип AsyncDisposableStack = интерфейс
+{
+  защищено 
+  disposed: ДаНет
+
+  операция disposeAsync(): Promise<Ничего>
+
+  операция use<T = AsyncDisposable | Disposable | пусто | пусто>(value: T): T
+
+  операция adopt<T>(value: T, onDisposeAsync: операция(value: T): PromiseLike<Ничего> | Ничего): T
+
+  операция defer(onDisposeAsync: операция(): PromiseLike<Ничего> | Ничего)
+
+  операция move(): AsyncDisposableStack
+
+  операция [Symbol.asyncDispose](): Promise<Ничего>
+
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип AsyncDisposableStackConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+
+  защищено 
+  prototype: AsyncDisposableStack
+}
+
+
+внешнее
+/*(!) var */ AsyncDisposableStack: AsyncDisposableStackConstructor
+

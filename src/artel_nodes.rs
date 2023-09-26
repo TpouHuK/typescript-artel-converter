@@ -9,11 +9,28 @@ fn ident(ident: usize) -> &'static str {
     let much_space = "                                                                                                    "; // lol
     &much_space[0..ident]
 }
+
+fn set_ident<T: AsRef<str>>(str: T, ident_level: usize) -> String {
+    let str: &str = str.as_ref();
+    let spliter;
+    if str.contains("\r") {
+        spliter = "\r\n";
+    } else {
+        spliter = "\n";
+    }
+    str.split(spliter).map(|line| format!("{}{}", ident(ident_level), line.trim_start())).join("\n")
+}
 //#[derive(Debug)]
 //pub struct ArtelProgram(ArtelStatement);
 pub type ArtelProgram = ArtelStatements;
 
-type ArtelStatements = Vec<ArtelStatement>;
+pub type ArtelStatements = Vec<ArtelStatement>;
+
+impl ArtelStr for ArtelStatements {
+    fn artel_str(&self, ident_level: usize) -> String {
+        self.iter().map(|s| s.artel_str(ident_level)).join("\n\n")
+    }
+}
 
 #[derive(Debug)]
 pub enum ArtelStatement {
@@ -25,20 +42,59 @@ pub enum ArtelStatement {
     EnumDeclaration(EnumDeclaration),
     ExportStatement(Box<ArtelStatement>),
     AmbientDeclaration(ArtelAmbientDeclaration),
+    InternalModule(ArtelInternalModule),
+    StatementBlock(ArtelStatements),
     Comment(String), // TODO
 }
 
 #[derive(Debug)]
-pub struct ArtelAmbientDeclaration {
+pub struct ArtelInternalModule {
     name: ArtelIdentifier,
+    statements: Vec<ArtelStatement>,
+}
+
+impl ArtelStr for ArtelInternalModule {
+    fn artel_str(&self, ident_level: usize) -> String {
+        let header = format!("/*(!) {} */\n", self.name.0);
+        [
+            ident(ident_level),
+            &header,
+            ident(ident_level),
+            "{\n",
+            &self.statements.artel_str(ident_level),
+            "\n",
+            ident(ident_level),
+            "}",
+        ].concat()
+    }
+}
+
+impl ArtelInternalModule {
+    pub fn new(name: ArtelIdentifier, statements: Vec<ArtelStatement>) -> Self { Self { name, statements } }
+}
+
+#[derive(Debug)]
+pub struct ArtelAmbientDeclaration {
+    is_global: bool,
     body: Vec<ArtelStatement>,
 }
 
 impl ArtelAmbientDeclaration {
-    pub fn new(name: ArtelIdentifier, body: Vec<ArtelStatement>) -> Self {
-        Self { name, body }
+    pub fn new(is_global: bool, body: Vec<ArtelStatement>) -> Self { Self { is_global, body } }
+
+}
+
+impl ArtelStr for ArtelAmbientDeclaration {
+    fn artel_str(&self, ident_level: usize) -> String {
+        let global_str = self.is_global.then_some(" /*(!) global */").unwrap_or("");
+        if self.body.len() == 1 {
+            format!("{ident}внешнее{global_str}\n{ident}{body}", ident=ident(ident_level), body=self.body[0].artel_str(ident_level))
+        } else {
+            format!("{ident}внешнее{global_str}\n{ident}{{\n{body}\n{ident}}}", body=self.body[0].artel_str(ident_level), ident=ident(ident_level))
+        }
     }
 }
+
 
 impl ArtelStr for ArtelStatement {
     fn artel_str(&self, ident_level: usize) -> String {
@@ -52,9 +108,11 @@ impl ArtelStr for ArtelStatement {
                 ident(ident_level),
                 exprt.artel_str(ident_level + 2)
             ),
+            ArtelStatement::AmbientDeclaration(decl) => decl.artel_str(0),
             ArtelStatement::TypeAliasDeclaration(typealias) => typealias.artel_str(ident_level),
-            ArtelStatement::Comment(comment) => format!("{}//{}", ident(ident_level), comment),
+            ArtelStatement::Comment(comment) => set_ident(comment, ident_level),
             ArtelStatement::LexicalDeclaration(decl) => decl.artel_str(ident_level),
+            ArtelStatement::InternalModule(modul) => modul.artel_str(ident_level),
             _ => todo!("{self:?}"),
         }
     }
@@ -123,6 +181,7 @@ impl EnumItem {
 pub enum ArtelLexicalDeclarationType {
     CONST,
     LET,
+    VAR,
 }
 
 impl ArtelStr for ArtelLexicalDeclarationType {
@@ -130,6 +189,7 @@ impl ArtelStr for ArtelLexicalDeclarationType {
         match self {
             Self::CONST => "конст".to_owned(),
             Self::LET => "пусть".to_owned(),
+            Self::VAR => "/*(!) var */".to_owned(),
         }
     }
 }
@@ -147,22 +207,21 @@ impl ArtelIdentifier {
 pub struct ArtelType(pub Vec<ArtelPrimaryType>);
 impl ArtelType {
     fn is_nothing(&self) -> bool {
-        if let [
-            ArtelPrimaryType::PredefinedType(ArtelPredefinedType::Void)
-            | ArtelPrimaryType::LiteralType(ArtelLiteralType::Null)
-            | ArtelPrimaryType::LiteralType(ArtelLiteralType::Undefined)
-        ] = self.0[..] {
+        if let [ArtelPrimaryType::PredefinedType(ArtelPredefinedType::Void)
+        | ArtelPrimaryType::LiteralType(ArtelLiteralType::Null)
+        | ArtelPrimaryType::LiteralType(ArtelLiteralType::Undefined)] = self.0[..]
+        {
             true
         } else {
             false
         }
     }
 
-    fn convert_return_type(return_type: &ArtelType) -> String {
-        if return_type.is_nothing() {
+    fn convert_return_type(&self) -> String {
+        if self.is_nothing() {
             "".to_owned()
         } else {
-            [": ", &return_type.artel_str(0)].concat()
+            [": ", &self.artel_str(0)].concat()
         }
     }
 }
@@ -210,7 +269,7 @@ impl ArtelStr for ArtelType {
 
 #[derive(Debug, Clone)]
 pub enum ArtelPrimaryType {
-    UnsupportedAny,
+    UnsupportedAny(String),
     LiteralType(ArtelLiteralType),
     PredefinedType(ArtelPredefinedType),
     TypeReference(ArtelTypeReference),
@@ -240,18 +299,22 @@ impl ArtelPrimaryType {
 impl ArtelStr for ArtelPrimaryType {
     fn artel_str(&self, ident_level: usize) -> String {
         match self {
-            ArtelPrimaryType::UnsupportedAny => "/*(!) any */ Объект?".to_owned(),
+            ArtelPrimaryType::UnsupportedAny(s) => format!("/*(!) {s} */ Объект?"),
             ArtelPrimaryType::LiteralType(literal_type) => literal_type.artel_str(0),
             ArtelPrimaryType::PredefinedType(predefined_type) => predefined_type.artel_str(0),
             ArtelPrimaryType::TypeReference(type_reference) => type_reference.artel_str(0),
-            ArtelPrimaryType::ObjectType(object_type) => { object_type.artel_str(0) }
+            ArtelPrimaryType::ObjectType(object_type) => object_type.artel_str(0),
             ArtelPrimaryType::FunctionType(fun_decl) => fun_decl.artel_str_as_functype(0),
             ArtelPrimaryType::ArrayType(array_type) => {
                 format!("Список<{}>", array_type.artel_str(0))
             }
             ArtelPrimaryType::TupleType(tuple_type) => Self::artel_str_tuple(tuple_type),
-            ArtelPrimaryType::ReadonlyType(r#type) => format!("/*(!) защищено */ {}", r#type.artel_str(0)),
-            ArtelPrimaryType::PredicateType(predicate, r#type) => format!("/*(!) {} is */ {}", predicate, r#type.artel_str(0)),
+            ArtelPrimaryType::ReadonlyType(r#type) => {
+                format!("/*(!) защищено */ {}", r#type.artel_str(0))
+            }
+            ArtelPrimaryType::PredicateType(predicate, r#type) => {
+                format!("/*(!) {} is */ {}", predicate, r#type.artel_str(0))
+            }
         }
     }
 }
@@ -545,21 +608,28 @@ impl ArtelStr for ClassMemberModifiers {
 
 #[derive(Debug, Clone)]
 pub struct ArtelObjectType {
-    body: Vec<ArtelProperty>,
+    body: Vec<ArtelInterfaceMember>,
 }
 
 impl ArtelStr for ArtelObjectType {
     fn artel_str(&self, ident_level: usize) -> String {
         [
             "объект { ",
-            &self.body.iter().map(|p| p.artel_str(usize::MAX)).join("; "),
+            &self
+                .body
+                .iter()
+                .map(|p| p.artel_str(0).replace("\n", " "))
+                .join("; "),
             " }",
-        ].concat()
+        ]
+        .concat()
     }
 }
 
 impl ArtelObjectType {
-    pub fn new(body: Vec<ArtelProperty>) -> Self { Self { body } }
+    pub fn new(body: Vec<ArtelInterfaceMember>) -> Self {
+        Self { body }
+    }
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -805,15 +875,8 @@ impl ArtelLexicalDeclarationType {
         match s {
             "let" => ArtelLexicalDeclarationType::LET,
             "const" => ArtelLexicalDeclarationType::CONST,
-            // `var` can happen, ignore for now, TODO later
-            _ => unreachable!("neither let or const found, maybe var? #TODO"),
-        }
-    }
-
-    pub fn to_alstr(&self) -> &str {
-        match self {
-            ArtelLexicalDeclarationType::LET => "пусть",
-            ArtelLexicalDeclarationType::CONST => "конст",
+            "var" => ArtelLexicalDeclarationType::VAR,
+            _ => unreachable!("how did we get there?"),
         }
     }
 }
@@ -887,7 +950,7 @@ impl ArtelFunctionDeclaration {
         if let Some(return_type) = &self.return_type {
             ArtelType::convert_return_type(return_type)
         } else {
-            ArtelType(vec![ArtelPrimaryType::UnsupportedAny]).artel_str(0)
+            ArtelType(vec![ArtelPrimaryType::UnsupportedAny("no_type".into())]).artel_str(0)
         }
     }
 }
@@ -920,11 +983,7 @@ impl ArtelFunctionDeclaration {
             "операция",
             &self.generic_params.artel_str(0),
             &self.arguments.artel_str(0),
-            &if let Some(return_type) = &self.return_type {
-                [": ", &return_type.artel_str(0)].concat()
-            } else {
-                "".to_owned()
-            },
+            &self.artel_str_return_type(0),
         ]
         .concat()
     }
@@ -933,8 +992,11 @@ impl ArtelFunctionDeclaration {
         let modifier = [
             &modifier,
             self.r#async.then_some("параллельная").unwrap_or(""),
-        ].concat();
-        let modifier = (!modifier.is_empty()).then(|| format!("{modifier}\n{}", ident(ident_level))).unwrap_or_default();
+        ]
+        .concat();
+        let modifier = (!modifier.is_empty())
+            .then(|| format!("{modifier}\n{}", ident(ident_level)))
+            .unwrap_or_default();
 
         [
             &self.annotation_array_param(ident_level),
@@ -978,12 +1040,8 @@ impl ArtelStr for ArtelInterfaceDeclaration {
 
         str.push_str(ident(ident_level));
         str.push_str("{\n");
-
-        for member in &self.body {
-            str.push_str(&member.artel_str(ident_level + 2));
-            str.push_str("\n\n");
-        }
-
+        str.push_str(&self.body.iter().map(|m| m.artel_str(ident_level + 2 )).join("\n\n"));
+        str.push_str("\n");
         str.push_str(ident(ident_level));
         str.push_str("}\n");
         str
@@ -1004,10 +1062,11 @@ impl ArtelInterfaceDeclaration {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum ArtelInterfaceMember {
     Property(ArtelProperty),
     Method(ArtelFunctionDeclaration),
+    Unsupported(String),
 }
 
 impl ArtelStr for ArtelInterfaceMember {
@@ -1015,6 +1074,7 @@ impl ArtelStr for ArtelInterfaceMember {
         match self {
             ArtelInterfaceMember::Property(p) => p.artel_str(ident_level),
             ArtelInterfaceMember::Method(d) => d.artel_str(ident_level),
+            ArtelInterfaceMember::Unsupported(d) => format!("{}/*(!) {d}*/", ident(ident_level)),
         }
     }
 }
@@ -1034,14 +1094,14 @@ pub struct ArtelProperty {
 
 impl ArtelStr for ArtelProperty {
     fn artel_str(&self, ident_level: usize) -> String {
-        // Dirty hack
-        if ident_level != usize::MAX {
-            return self.artel_str_with_modifier("".to_owned(), ident_level);
-        }
-
         let mut str = String::new();
+        str.push_str(ident(ident_level));
         let modifier = self.r#readonly.then(|| "защищено ").unwrap_or_default();
-        str.push_str(&modifier);
+        if !modifier.is_empty() {
+            str.push_str(&modifier);
+            str.push_str("\n");
+            str.push_str(ident(ident_level));
+        }
         str.push_str(&self.name.0);
         str.push_str(": ");
         str.push_str(&self.r#type.artel_str(0));
@@ -1060,7 +1120,11 @@ impl ArtelProperty {
 
     pub fn artel_str_with_modifier(&self, modifier: String, ident_level: usize) -> String {
         let mut str = String::new();
-        let modifier = [&modifier, self.r#readonly.then(|| "защищено").unwrap_or_default()].concat();
+        let modifier = [
+            &modifier,
+            self.r#readonly.then(|| "защищено").unwrap_or_default(),
+        ]
+        .concat();
         str.push_str(ident(ident_level));
 
         if !modifier.is_empty() {
@@ -1091,11 +1155,11 @@ impl ArtelStr for ArtelLexicalDeclarationMember {
             self.var_type.artel_str(0).as_str(),
             &if let Some(value) = &self.value {
                 format!(" /*(!) = {value} */")
-            } else 
-            {
+            } else {
                 "".to_owned()
-            }
-        ].concat()
+            },
+        ]
+        .concat()
     }
 }
 
@@ -1122,13 +1186,20 @@ impl ArtelLexicalDeclaration {
     ) -> Self {
         Self { decl_type, body }
     }
-
 }
 impl ArtelStr for ArtelLexicalDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
-        self.body.iter().map(|decl| {
-             format!("{}{} {}\n", ident(ident_level), self.decl_type.artel_str(0), decl.artel_str(0))
-        }).collect()
+        self.body
+            .iter()
+            .map(|decl| {
+                format!(
+                    "{}{} {}\n",
+                    ident(ident_level),
+                    self.decl_type.artel_str(0),
+                    decl.artel_str(0)
+                )
+            })
+            .collect()
     }
 }
 

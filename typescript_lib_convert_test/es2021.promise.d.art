@@ -1,0 +1,32 @@
+тип AggregateError = интерфейс
+{
+  errors: Список</*(!) any */ Объект?>
+}
+
+
+тип AggregateErrorConstructor = интерфейс
+{
+  при создании(errors: Iterable</*(!) any */ Объект?>, message: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (errors: Iterable<any>, message?: string): AggregateError*/
+
+  защищено 
+  prototype: AggregateError
+}
+
+
+внешнее
+/*(!) var */ AggregateError: AggregateErrorConstructor
+
+
+/**
+* Represents the completion of an asynchronous operation
+*/
+
+тип PromiseConstructor = интерфейс
+{
+  операция any<T = /*(!) защищено */ Список</*(!) unknown */ Объект?> | объект {  }>(values: T): Promise<Awaited</*(!) T[number] */ Объект?>>
+
+  операция any<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>
+}
+

@@ -1,0 +1,50 @@
+/// <reference lib="es2018.asynciterable" />
+
+тип AsyncGenerator<T, TReturn, TNext> = интерфейс
+{
+  #js.МассивПараметров
+  операция next(args: объект {  } | объект { _0: TNext }): Promise<IteratorResult<T, TReturn>>
+
+  операция return(value: TReturn | PromiseLike<TReturn>): Promise<IteratorResult<T, TReturn>>
+
+  операция throw(e: /*(!) any */ Объект?): Promise<IteratorResult<T, TReturn>>
+
+  операция [Symbol.asyncIterator](): AsyncGenerator<T, TReturn, TNext>
+}
+
+
+тип AsyncGeneratorFunction = интерфейс
+{
+  #js.МассивПараметров
+  при создании(args: Список</*(!) any */ Объект?>)/*(!) no_type */ Объект?
+
+  /*(!) (...args: any[]): AsyncGenerator*/
+
+  защищено 
+  length: Число
+
+  защищено 
+  name: Текст
+
+  защищено 
+  prototype: AsyncGenerator
+}
+
+
+тип AsyncGeneratorFunctionConstructor = интерфейс
+{
+  #js.МассивПараметров
+  при создании(args: Список<Текст>)/*(!) no_type */ Объект?
+
+  /*(!) (...args: string[]): AsyncGeneratorFunction*/
+
+  защищено 
+  length: Число
+
+  защищено 
+  name: Текст
+
+  защищено 
+  prototype: AsyncGeneratorFunction
+}
+

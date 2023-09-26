@@ -1,0 +1,9 @@
+/**
+* Represents the completion of an asynchronous operation
+*/
+
+тип Promise<T> = интерфейс
+{
+  операция finally(onfinally: операция()?FUCKFUCK = пусто): Promise<T>
+}
+

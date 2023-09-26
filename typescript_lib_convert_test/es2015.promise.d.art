@@ -1,0 +1,24 @@
+тип PromiseConstructor = интерфейс
+{
+  защищено 
+  prototype: Promise</*(!) any */ Объект?>
+
+  при создании(executor: операция(resolve: операция(value: T | PromiseLike<T>), reject: операция(reason: /*(!) any */ Объект??FUCKFUCK = пусто)))/*(!) no_type */ Объект?
+
+  операция all<T = /*(!) защищено */ Список</*(!) unknown */ Объект?> | объект {  }>(values: T): Promise</*(!) { -readonly [P in keyof T]: Awaited<T[P]>; } */ Объект?>
+
+  операция race<T = /*(!) защищено */ Список</*(!) unknown */ Объект?> | объект {  }>(values: T): Promise<Awaited</*(!) T[number] */ Объект?>>
+
+  операция reject<T>(reason: /*(!) any */ Объект??FUCKFUCK = пусто): Promise<T>
+
+  операция resolve(): Promise<Ничего>
+
+  операция resolve<T>(value: T): Promise<Awaited<T>>
+
+  операция resolve<T>(value: T | PromiseLike<T>): Promise<Awaited<T>>
+}
+
+
+внешнее
+/*(!) var */ Promise: PromiseConstructor
+

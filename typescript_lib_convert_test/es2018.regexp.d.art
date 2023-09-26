@@ -1,0 +1,22 @@
+тип RegExpMatchArray = интерфейс
+{
+  groups: /*(!) {
+        [key: string]: string;
+    } */ Объект?
+}
+
+
+тип RegExpExecArray = интерфейс
+{
+  groups: /*(!) {
+        [key: string]: string;
+    } */ Объект?
+}
+
+
+тип RegExp = интерфейс
+{
+  защищено 
+  dotAll: ДаНет
+}
+

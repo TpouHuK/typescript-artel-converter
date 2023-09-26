@@ -1,0 +1,5 @@
+тип ObjectConstructor = интерфейс
+{
+  операция hasOwn(o: Объект, v: PropertyKey): ДаНет
+}
+

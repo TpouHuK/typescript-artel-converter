@@ -1,0 +1,7 @@
+тип Atomics = интерфейс
+{
+  операция waitAsync(typedArray: Int32Array, index: Число, value: Число, timeout: Число?FUCKFUCK = пусто): объект { async: нет; value: "not-equal" | "timed-out" } | объект { async: да; value: Promise<"ok" | "timed-out"> }
+
+  операция waitAsync(typedArray: BigInt64Array, index: Число, value: bigint, timeout: Число?FUCKFUCK = пусто): объект { async: нет; value: "not-equal" | "timed-out" } | объект { async: да; value: Promise<"ok" | "timed-out"> }
+}
+

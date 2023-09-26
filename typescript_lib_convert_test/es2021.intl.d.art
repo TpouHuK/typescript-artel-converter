@@ -1,0 +1,116 @@
+внешнее
+/*(!) Intl */
+{
+тип DateTimeFormatPartTypesRegistry = интерфейс
+{
+  fractionalSecond: /*(!) any */ Объект?
+}
+
+
+тип DateTimeFormatOptions = интерфейс
+{
+  formatMatcher: "basic" | "best fit" | "best fit" | пусто
+
+  dateStyle: "full" | "long" | "medium" | "short" | пусто
+
+  timeStyle: "full" | "long" | "medium" | "short" | пусто
+
+  dayPeriod: "narrow" | "short" | "long" | пусто
+
+  fractionalSecondDigits: 1 | 2 | 3 | пусто
+}
+
+
+тип DateTimeRangeFormatPart = интерфейс
+{
+  source: "startRange" | "endRange" | "shared"
+}
+
+
+тип DateTimeFormat = интерфейс
+{
+  операция formatRange(startDate: Date | Число | bigint, endDate: Date | Число | bigint): Текст
+
+  операция formatRangeToParts(startDate: Date | Число | bigint, endDate: Date | Число | bigint): Список<DateTimeRangeFormatPart>
+}
+
+
+тип ResolvedDateTimeFormatOptions = интерфейс
+{
+  formatMatcher: "basic" | "best fit" | "best fit"
+
+  dateStyle: "full" | "long" | "medium" | "short"
+
+  timeStyle: "full" | "long" | "medium" | "short"
+
+  hourCycle: "h11" | "h12" | "h23" | "h24"
+
+  dayPeriod: "narrow" | "short" | "long"
+
+  fractionalSecondDigits: 1 | 2 | 3
+}
+
+
+/**
+* The locale matching algorithm to use.
+*
+* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
+*/
+
+тип ListFormatLocaleMatcher = "lookup" | "best fit"
+
+/**
+* The format of output message.
+*
+* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
+*/
+
+тип ListFormatType = "conjunction" | "disjunction" | "unit"
+
+/**
+* The length of the formatted message.
+*
+* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
+*/
+
+тип ListFormatStyle = "long" | "short" | "narrow"
+
+/**
+* An object with some or all properties of the `Intl.ListFormat` constructor `options` parameter.
+*
+* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
+*/
+
+тип ListFormatOptions = интерфейс
+{
+  localeMatcher: ListFormatLocaleMatcher?FUCKFUCK
+
+  type: ListFormatType?FUCKFUCK
+
+  style: ListFormatStyle?FUCKFUCK
+}
+
+
+тип ResolvedListFormatOptions = интерфейс
+{
+  locale: Текст
+
+  style: ListFormatStyle
+
+  type: ListFormatType
+}
+
+
+тип ListFormat = интерфейс
+{
+  операция format(list: Iterable<Текст>): Текст
+
+  операция formatToParts(list: Iterable<Текст>): Список<объект { type: "element" | "literal"; value: Текст }>
+
+  операция resolvedOptions(): ResolvedListFormatOptions
+}
+
+
+конст ListFormat: объект { prototype: ListFormat; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: ListFormatOptions?FUCKFUCK = пусто)/*(!) no_type */ Объект?; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<ListFormatOptions, "localeMatcher">?FUCKFUCK = пусто): Список<BCP47LanguageTag> }
+
+}

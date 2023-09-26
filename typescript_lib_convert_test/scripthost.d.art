@@ -1,0 +1,174 @@
+/////////////////////////////
+
+/// Windows Script Host APIS
+
+/////////////////////////////
+
+тип ActiveXObject = интерфейс
+{
+  при создании(s: Текст)/*(!) no_type */ Объект?
+}
+
+
+внешнее
+/*(!) var */ ActiveXObject: ActiveXObject
+
+
+тип ITextWriter = интерфейс
+{
+  операция Write(s: Текст)
+
+  операция WriteLine(s: Текст)
+
+  операция Close()
+}
+
+
+тип TextStreamBase = интерфейс
+{
+  Column: Число
+
+  Line: Число
+
+  операция Close()
+}
+
+
+тип TextStreamWriter = интерфейс
+{
+  операция Write(s: Текст)
+
+  операция WriteBlankLines(intLines: Число)
+
+  операция WriteLine(s: Текст)
+}
+
+
+тип TextStreamReader = интерфейс
+{
+  операция Read(characters: Число): Текст
+
+  операция ReadAll(): Текст
+
+  операция ReadLine(): Текст
+
+  операция Skip(characters: Число)
+
+  операция SkipLine()
+
+  AtEndOfLine: ДаНет
+
+  AtEndOfStream: ДаНет
+}
+
+
+внешнее
+/*(!) var */ WScript: объект { операция Echo(s: /*(!) any */ Объект?); StdErr: TextStreamWriter; StdOut: TextStreamWriter; Arguments: объект { length: Число; операция Item(n: Число): Текст }; ScriptFullName: Текст; операция Quit(exitCode: Число?FUCKFUCK = пусто): Число; BuildVersion: Число; FullName: Текст; Interactive: ДаНет; Name: Текст; Path: Текст; ScriptName: Текст; StdIn: TextStreamReader; Version: Текст; операция ConnectObject(objEventSource: /*(!) any */ Объект?, strPrefix: Текст); операция CreateObject(strProgID: Текст, strPrefix: Текст?FUCKFUCK = пусто): /*(!) any */ Объект?; операция DisconnectObject(obj: /*(!) any */ Объект?); операция GetObject(strPathname: Текст, strProgID: Текст?FUCKFUCK = пусто, strPrefix: Текст?FUCKFUCK = пусто): /*(!) any */ Объект?; операция Sleep(intTime: Число) }
+
+
+/**
+* WSH is an alias for WScript under Windows Script Host
+*/
+
+внешнее
+/*(!) var */ WSH: /*(!) typeof WScript */ Объект?
+
+
+/**
+* Represents an Automation SAFEARRAY
+*/
+
+внешнее
+тип SafeArray<T> = объект
+{
+  /*(!) private */ 
+  при создании()/*(!) no_type */ Объект?
+
+  /*(!) private */ 
+  SafeArray_typekey: SafeArray<T>
+}
+
+/**
+* Allows enumerating over a COM collection, which may not have indexed item access.
+*/
+
+тип Enumerator<T> = интерфейс
+{
+  операция atEnd(): ДаНет
+
+  операция item(): T
+
+  операция moveFirst()
+
+  операция moveNext()
+}
+
+
+тип EnumeratorConstructor = интерфейс
+{
+  при создании(safearray: SafeArray<T>)/*(!) no_type */ Объект?
+
+  при создании(collection: объект { операция Item(index: /*(!) any */ Объект?): T })/*(!) no_type */ Объект?
+
+  при создании(collection: /*(!) any */ Объект?)/*(!) no_type */ Объект?
+}
+
+
+внешнее
+/*(!) var */ Enumerator: EnumeratorConstructor
+
+
+/**
+* Enables reading from a COM safe array, which might have an alternate lower bound, or multiple dimensions.
+*/
+
+тип VBArray<T> = интерфейс
+{
+  операция dimensions(): Число
+
+  #js.МассивПараметров
+  операция getItem(dimension1Index: Число, dimensionNIndexes: Список<Число>): T
+
+  операция lbound(dimension: Число?FUCKFUCK = пусто): Число
+
+  операция ubound(dimension: Число?FUCKFUCK = пусто): Число
+
+  операция toArray(): Список<T>
+}
+
+
+тип VBArrayConstructor = интерфейс
+{
+  при создании(safeArray: SafeArray<T>)/*(!) no_type */ Объект?
+}
+
+
+внешнее
+/*(!) var */ VBArray: VBArrayConstructor
+
+
+/**
+* Automation date (VT_DATE)
+*/
+
+внешнее
+тип VarDate = объект
+{
+  /*(!) private */ 
+  при создании()/*(!) no_type */ Объект?
+
+  /*(!) private */ 
+  VarDate_typekey: VarDate
+}
+
+тип DateConstructor = интерфейс
+{
+  при создании(vd: VarDate)/*(!) no_type */ Объект?
+}
+
+
+тип Date = интерфейс
+{
+  getVarDate: операция(): VarDate
+}
+

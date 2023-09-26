@@ -1,0 +1,317 @@
+/// <reference lib="es2020.intl" />
+
+тип BigIntToLocaleStringOptions = интерфейс
+{
+  localeMatcher: Текст
+
+  style: Текст
+
+  numberingSystem: Текст
+
+  unit: Текст
+
+  unitDisplay: Текст
+
+  currency: Текст
+
+  currencyDisplay: Текст
+
+  useGrouping: ДаНет
+
+  minimumIntegerDigits: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21
+
+  minimumFractionDigits: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20
+
+  maximumFractionDigits: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20
+
+  minimumSignificantDigits: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21
+
+  maximumSignificantDigits: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21
+
+  notation: Текст
+
+  compactDisplay: Текст
+}
+
+
+тип BigInt = интерфейс
+{
+  операция toString(radix: Число?FUCKFUCK = пусто): Текст
+
+  операция toLocaleString(locales: /*(!) Intl.LocalesArgument */ Объект??FUCKFUCK = пусто, options: BigIntToLocaleStringOptions?FUCKFUCK = пусто): Текст
+
+  операция valueOf(): bigint
+
+  защищено 
+  [Symbol.toStringTag]: "BigInt"
+}
+
+
+тип BigIntConstructor = интерфейс
+{
+  /*(!) (value: bigint | boolean | number | string): bigint*/
+
+  защищено 
+  prototype: BigInt
+
+  операция asIntN(bits: Число, int: bigint): bigint
+
+  операция asUintN(bits: Число, int: bigint): bigint
+}
+
+
+внешнее
+/*(!) var */ BigInt: BigIntConstructor
+
+
+/**
+* A typed array of 64-bit signed integer values. The contents are initialized to 0. If the
+* requested number of bytes could not be allocated, an exception is raised.
+*/
+
+тип BigInt64Array = интерфейс
+{
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  защищено 
+  buffer: ArrayBufferLike
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: bigint }>
+
+  операция every(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция fill(value: bigint, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция filter(predicate: операция(value: bigint, index: Число, array: BigInt64Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigInt64Array
+
+  операция find(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): bigint?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция forEach(callbackfn: операция(value: bigint, index: Число, array: BigInt64Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция includes(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+
+  операция indexOf(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция keys(): IterableIterator<Число>
+
+  операция lastIndexOf(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  защищено 
+  length: Число
+
+  операция map(callbackfn: операция(value: bigint, index: Число, array: BigInt64Array): bigint, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigInt64Array
+
+  операция reduce(callbackfn: операция(previousValue: bigint, currentValue: bigint, currentIndex: Число, array: BigInt64Array): bigint): bigint
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: bigint, currentIndex: Число, array: BigInt64Array): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: bigint, currentValue: bigint, currentIndex: Число, array: BigInt64Array): bigint): bigint
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: bigint, currentIndex: Число, array: BigInt64Array): U, initialValue: U): U
+
+  операция reverse(): /*(!) this */ Объект?
+
+  операция set(array: ArrayLike<bigint>, offset: Число?FUCKFUCK = пусто)
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): BigInt64Array
+
+  операция some(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция sort(compareFn: операция(a: bigint, b: bigint): Число | bigint?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): BigInt64Array
+
+  операция toLocaleString(): Текст
+
+  операция toString(): Текст
+
+  операция valueOf(): BigInt64Array
+
+  операция values(): IterableIterator<bigint>
+
+  операция [Symbol.iterator](): IterableIterator<bigint>
+
+  защищено 
+  [Symbol.toStringTag]: "BigInt64Array"
+
+  /*(!) [index: number]: bigint*/
+}
+
+
+тип BigInt64ArrayConstructor = интерфейс
+{
+  защищено 
+  prototype: BigInt64Array
+
+  при создании(length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  при создании(array: Iterable<bigint>)/*(!) no_type */ Объект?
+
+  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  #js.МассивПараметров
+  операция of(items: Список<bigint>): BigInt64Array
+
+  операция from(arrayLike: ArrayLike<bigint>): BigInt64Array
+
+  операция from<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigInt64Array
+}
+
+
+внешнее
+/*(!) var */ BigInt64Array: BigInt64ArrayConstructor
+
+
+/**
+* A typed array of 64-bit unsigned integer values. The contents are initialized to 0. If the
+* requested number of bytes could not be allocated, an exception is raised.
+*/
+
+тип BigUint64Array = интерфейс
+{
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  защищено 
+  buffer: ArrayBufferLike
+
+  защищено 
+  byteLength: Число
+
+  защищено 
+  byteOffset: Число
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция entries(): IterableIterator<объект { _0: Число, _1: bigint }>
+
+  операция every(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция fill(value: bigint, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция filter(predicate: операция(value: bigint, index: Число, array: BigUint64Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigUint64Array
+
+  операция find(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): bigint?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция forEach(callbackfn: операция(value: bigint, index: Число, array: BigUint64Array), thisArg: /*(!) any */ Объект??FUCKFUCK = пусто)
+
+  операция includes(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): ДаНет
+
+  операция indexOf(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  операция join(separator: Текст?FUCKFUCK = пусто): Текст
+
+  операция keys(): IterableIterator<Число>
+
+  операция lastIndexOf(searchElement: bigint, fromIndex: Число?FUCKFUCK = пусто): Число
+
+  защищено 
+  length: Число
+
+  операция map(callbackfn: операция(value: bigint, index: Число, array: BigUint64Array): bigint, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigUint64Array
+
+  операция reduce(callbackfn: операция(previousValue: bigint, currentValue: bigint, currentIndex: Число, array: BigUint64Array): bigint): bigint
+
+  операция reduce<U>(callbackfn: операция(previousValue: U, currentValue: bigint, currentIndex: Число, array: BigUint64Array): U, initialValue: U): U
+
+  операция reduceRight(callbackfn: операция(previousValue: bigint, currentValue: bigint, currentIndex: Число, array: BigUint64Array): bigint): bigint
+
+  операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: bigint, currentIndex: Число, array: BigUint64Array): U, initialValue: U): U
+
+  операция reverse(): /*(!) this */ Объект?
+
+  операция set(array: ArrayLike<bigint>, offset: Число?FUCKFUCK = пусто)
+
+  операция slice(start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): BigUint64Array
+
+  операция some(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): ДаНет
+
+  операция sort(compareFn: операция(a: bigint, b: bigint): Число | bigint?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция subarray(begin: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): BigUint64Array
+
+  операция toLocaleString(): Текст
+
+  операция toString(): Текст
+
+  операция valueOf(): BigUint64Array
+
+  операция values(): IterableIterator<bigint>
+
+  операция [Symbol.iterator](): IterableIterator<bigint>
+
+  защищено 
+  [Symbol.toStringTag]: "BigUint64Array"
+
+  /*(!) [index: number]: bigint*/
+}
+
+
+тип BigUint64ArrayConstructor = интерфейс
+{
+  защищено 
+  prototype: BigUint64Array
+
+  при создании(length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  при создании(array: Iterable<bigint>)/*(!) no_type */ Объект?
+
+  при создании(buffer: ArrayBufferLike, byteOffset: Число?FUCKFUCK = пусто, length: Число?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  защищено 
+  BYTES_PER_ELEMENT: Число
+
+  #js.МассивПараметров
+  операция of(items: Список<bigint>): BigUint64Array
+
+  операция from(arrayLike: ArrayLike<bigint>): BigUint64Array
+
+  операция from<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): BigUint64Array
+}
+
+
+внешнее
+/*(!) var */ BigUint64Array: BigUint64ArrayConstructor
+
+
+тип DataView = интерфейс
+{
+  операция getBigInt64(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): bigint
+
+  операция getBigUint64(byteOffset: Число, littleEndian: ДаНет?FUCKFUCK = пусто): bigint
+
+  операция setBigInt64(byteOffset: Число, value: bigint, littleEndian: ДаНет?FUCKFUCK = пусто)
+
+  операция setBigUint64(byteOffset: Число, value: bigint, littleEndian: ДаНет?FUCKFUCK = пусто)
+}
+
+
+внешнее
+/*(!) Intl */
+{
+тип NumberFormat = интерфейс
+{
+  операция format(value: Число | bigint): Текст
+
+  операция resolvedOptions(): ResolvedNumberFormatOptions
+}
+
+}

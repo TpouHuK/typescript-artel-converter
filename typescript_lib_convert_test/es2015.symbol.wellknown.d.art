@@ -1,0 +1,281 @@
+/// <reference lib="es2015.symbol" />
+
+тип SymbolConstructor = интерфейс
+{
+  защищено 
+  hasInstance: /*(!) unique symbol */ Объект
+
+  защищено 
+  isConcatSpreadable: /*(!) unique symbol */ Объект
+
+  защищено 
+  match: /*(!) unique symbol */ Объект
+
+  защищено 
+  replace: /*(!) unique symbol */ Объект
+
+  защищено 
+  search: /*(!) unique symbol */ Объект
+
+  защищено 
+  species: /*(!) unique symbol */ Объект
+
+  защищено 
+  split: /*(!) unique symbol */ Объект
+
+  защищено 
+  toPrimitive: /*(!) unique symbol */ Объект
+
+  защищено 
+  toStringTag: /*(!) unique symbol */ Объект
+
+  защищено 
+  unscopables: /*(!) unique symbol */ Объект
+}
+
+
+тип Symbol = интерфейс
+{
+  операция [Symbol.toPrimitive](hint: Текст): Символ
+
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип Array<T> = интерфейс
+{
+  защищено 
+  [Symbol.unscopables]: /*(!) {
+        [K in keyof any[]]?: boolean;
+    } */ Объект?
+}
+
+
+тип ReadonlyArray<T> = интерфейс
+{
+  защищено 
+  [Symbol.unscopables]: объект { [K in keyof readonly any[]]: ДаНет }
+}
+
+
+тип Date = интерфейс
+{
+  операция [Symbol.toPrimitive](hint: "default"): Текст
+
+  операция [Symbol.toPrimitive](hint: "string"): Текст
+
+  операция [Symbol.toPrimitive](hint: "number"): Число
+
+  операция [Symbol.toPrimitive](hint: Текст): Текст | Число
+}
+
+
+тип Map<K, V> = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип WeakMap<K = WeakKey, V> = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип Set<T> = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип WeakSet<T = WeakKey> = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип JSON = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип Function = интерфейс
+{
+  операция [Symbol.hasInstance](value: /*(!) any */ Объект?): ДаНет
+}
+
+
+тип GeneratorFunction = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип Math = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип Promise<T> = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип PromiseConstructor = интерфейс
+{
+  защищено 
+  [Symbol.species]: PromiseConstructor
+}
+
+
+тип RegExp = интерфейс
+{
+  операция [Symbol.match](string: Текст): RegExpMatchArray?FUCKFUCK
+
+  операция [Symbol.replace](string: Текст, replaceValue: Текст): Текст
+
+  операция [Symbol.replace](string: Текст, replacer: операция(substring: Текст, args: Список</*(!) any */ Объект?>): Текст): Текст
+
+  операция [Symbol.search](string: Текст): Число
+
+  операция [Symbol.split](string: Текст, limit: Число?FUCKFUCK = пусто): Список<Текст>
+}
+
+
+тип RegExpConstructor = интерфейс
+{
+  защищено 
+  [Symbol.species]: RegExpConstructor
+}
+
+
+тип String = интерфейс
+{
+  операция match(matcher: объект { операция [Symbol.match](string: Текст): RegExpMatchArray?FUCKFUCK }): RegExpMatchArray?FUCKFUCK
+
+  операция replace(searchValue: объект { операция [Symbol.replace](string: Текст, replaceValue: Текст): Текст }, replaceValue: Текст): Текст
+
+  операция replace(searchValue: объект { операция [Symbol.replace](string: Текст, replacer: операция(substring: Текст, args: Список</*(!) any */ Объект?>): Текст): Текст }, replacer: операция(substring: Текст, args: Список</*(!) any */ Объект?>): Текст): Текст
+
+  операция search(searcher: объект { операция [Symbol.search](string: Текст): Число }): Число
+
+  операция split(splitter: объект { операция [Symbol.split](string: Текст, limit: Число?FUCKFUCK = пусто): Список<Текст> }, limit: Число?FUCKFUCK = пусто): Список<Текст>
+}
+
+
+тип ArrayBuffer = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип DataView = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: Текст
+}
+
+
+тип Int8Array = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: "Int8Array"
+}
+
+
+тип Uint8Array = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: "Uint8Array"
+}
+
+
+тип Uint8ClampedArray = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: "Uint8ClampedArray"
+}
+
+
+тип Int16Array = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: "Int16Array"
+}
+
+
+тип Uint16Array = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: "Uint16Array"
+}
+
+
+тип Int32Array = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: "Int32Array"
+}
+
+
+тип Uint32Array = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: "Uint32Array"
+}
+
+
+тип Float32Array = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: "Float32Array"
+}
+
+
+тип Float64Array = интерфейс
+{
+  защищено 
+  [Symbol.toStringTag]: "Float64Array"
+}
+
+
+тип ArrayConstructor = интерфейс
+{
+  защищено 
+  [Symbol.species]: ArrayConstructor
+}
+
+
+тип MapConstructor = интерфейс
+{
+  защищено 
+  [Symbol.species]: MapConstructor
+}
+
+
+тип SetConstructor = интерфейс
+{
+  защищено 
+  [Symbol.species]: SetConstructor
+}
+
+
+тип ArrayBufferConstructor = интерфейс
+{
+  защищено 
+  [Symbol.species]: ArrayBufferConstructor
+}
+

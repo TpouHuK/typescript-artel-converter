@@ -1,6 +1,6 @@
 use super::artel_nodes::*;
-use std::string::String;
 use itertools::Itertools;
+use std::string::String;
 use tree_sitter_c2rust::Node;
 
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
@@ -21,7 +21,7 @@ pub fn walk_tree(source: &str, node: &Node) -> ArtelProgram {
 pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
     let output = match node.kind() {
         "ambient_declaration" => Some(parse_ambient_declaration(source, node)),
-        "function_declaration" => Some(ArtelStatement::FunctionDeclaration(
+        "function_declaration" | "function_signature" => Some(ArtelStatement::FunctionDeclaration(
             parse_function_declaration(source, node),
         )),
         "class_declaration" => {
@@ -56,22 +56,42 @@ pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
         "interface_declaration" => Some(ArtelStatement::InterfaceDeclaration(parse_interface(
             source, node,
         ))),
-        #[allow(unreachable_code)]
-        "lexical_declaration" => Some(ArtelStatement::LexicalDeclaration(
+        "lexical_declaration" | "variable_declaration" => Some(ArtelStatement::LexicalDeclaration(
             parse_lexical_declaration(source, node),
         )),
-        "import_statement" | "expression_statement" | "if_statement" => None,
+        "statement_block" => Some(ArtelStatement::StatementBlock(parse_statement_block(
+            source, node,
+        ))),
+        "import_statement"  | "if_statement" => None,
+        "expression_statement" => {
+            if node.child(0).unwrap().kind() == "internal_module" {
+                    Some(parse_internal_module(source, node))
+            } else {
+                None
+            }
+        }
         _ => {
-            unimplemented!("{} is unimplemented", node.kind())
+            unimplemented!("{} is unimplemented, {:?}", node.kind(), node.utf8_text(source.as_bytes()).unwrap())
         }
     };
 
     output
 }
 
+fn parse_internal_module(source: &str, node: &Node) -> ArtelStatement {
+    let name = ArtelIdentifier::new(node.child_by_field_name("name").unwrap().utf8_text(source.as_bytes()).unwrap());
+    let body = node.child_by_field_name("body").unwrap().named_children(&mut node.walk())
+        .filter_map(|s| parse_statement(source, &s))
+        .collect();
+    ArtelStatement::InternalModule(ArtelInternalModule::new(name, body))
+}
+
 fn parse_lexical_declaration(source: &str, node: &Node) -> ArtelLexicalDeclaration {
     let decl_type = {
-        let const_or_let_str = node.child_by_field_name("kind").unwrap().kind();
+        let const_or_let_str = node
+            .child_by_field_name("kind")
+            .map(|k| k.kind())
+            .unwrap_or("var");
         ArtelLexicalDeclarationType::new(const_or_let_str)
     };
 
@@ -86,11 +106,10 @@ fn parse_lexical_declaration(source: &str, node: &Node) -> ArtelLexicalDeclarati
                 .unwrap();
             let ident = ArtelIdentifier::new(ident_str);
 
-            let var_type = decl
-                .child_by_field_name("type")
-                .map_or(ArtelType(vec![ArtelPrimaryType::UnsupportedAny]), |t| {
-                    parse_type(source, &t)
-                });
+            let var_type = decl.child_by_field_name("type").map_or(
+                ArtelType(vec![ArtelPrimaryType::UnsupportedAny("no_type".into())]),
+                |t| parse_type(source, &t),
+            );
 
             let value = {
                 match decl.child_by_field_name("value") {
@@ -105,25 +124,51 @@ fn parse_lexical_declaration(source: &str, node: &Node) -> ArtelLexicalDeclarati
     ArtelLexicalDeclaration::new(decl_type, declarations)
 }
 
+// TODO cleanup
 fn parse_ambient_declaration(source: &str, node: &Node) -> ArtelStatement {
     let mut cursor = node.walk();
-    let mut iterator = node.children(&mut cursor);
+    let mut iterator = node.named_children(&mut cursor);
 
-    let mut items = Vec::new();
-    let statement;
+    let mut is_global = false;
     loop {
         let next = iterator.next().unwrap();
-        if next.kind() == "statement_block" {
-            statement = next;
+        if next.kind() != "declare" || next.kind() != "global" {
             break;
         }
-        items.push(next.utf8_text(source.as_bytes()).unwrap());
+        if next.kind() == "global" {
+            is_global = true;
+        }
     }
-    let name = ArtelIdentifier::new(items.concat());
-    ArtelStatement::AmbientDeclaration(ArtelAmbientDeclaration::new(
-        name,
-        parse_statement_block(source, &statement),
-    ))
+
+    if node.named_child(0).unwrap().kind() == "internal_module" {
+        let internal_module = node.named_child(0).unwrap();
+        let internal_module = parse_internal_module(source, &internal_module);
+        return ArtelStatement::AmbientDeclaration(ArtelAmbientDeclaration::new(false, vec![internal_module]));
+    }
+
+    let body: Vec<_> = node
+        .named_children(&mut node.walk())
+        .filter_map(|s| match s.kind() {
+            "variable_declaration" => Some(ArtelStatement::LexicalDeclaration(
+                parse_lexical_declaration(source, &s),
+            )),
+            "function_signature" => Some(ArtelStatement::FunctionDeclaration(
+                parse_function_declaration(source, &s),
+            )),
+            "type_alias_declaration" => Some(ArtelStatement::TypeAliasDeclaration(
+                parse_type_alias_declaration(source, &s),
+            )),
+            "class_declaration" => Some(ArtelStatement::ClassDeclaration(
+                    parse_class_declaration(source, &s, false)
+                    )),
+            "lexical_declaration" => Some(ArtelStatement::LexicalDeclaration(
+                    parse_lexical_declaration(source, &s)
+                    )),
+            _ => unimplemented!("{s:?}"),
+        })
+        .collect();
+
+    ArtelStatement::AmbientDeclaration(ArtelAmbientDeclaration::new(is_global, body).into())
 }
 
 fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
@@ -167,6 +212,13 @@ fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
                 let method = parse_function_declaration(source, &element);
                 vec.push(ArtelInterfaceMember::Method(method))
             }
+            "construct_signature" => {
+                let method = parse_construct_signature(source, &element);
+                vec.push(ArtelInterfaceMember::Method(method))
+            }
+            "index_signature" | "call_signature" => vec.push(ArtelInterfaceMember::Unsupported(
+                element.utf8_text(source.as_bytes()).unwrap().to_owned(),
+            )),
             "comment" => { // TODO
             }
             _ => {
@@ -281,12 +333,11 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
                 "string" => {
                     let string_fragment = node
                         .named_child(0)
-                        .unwrap()
-                        .utf8_text(source.as_bytes())
-                        .unwrap();
+                        .map(|f| f.utf8_text(source.as_bytes()).unwrap())
+                        .unwrap_or("".into());
                     ArtelLiteralType::String(string_fragment.to_owned())
                 }
-                "number" => {
+                "number" | "unary_expression" => {
                     let number = node.utf8_text(source.as_bytes()).unwrap();
                     ArtelLiteralType::Number(number.to_owned())
                 }
@@ -295,7 +346,7 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
                 "false" => ArtelLiteralType::Boolean(false),
                 "undefined" => ArtelLiteralType::Undefined,
                 _ => {
-                    unreachable!()
+                    unreachable!("{}", node.kind())
                 }
             };
             vec.push(ArtelPrimaryType::LiteralType(r#type));
@@ -344,11 +395,8 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
                 .into(),
             ));
         }
-        "index_type_query" | "lookup_type" => vec.push(ArtelPrimaryType::UnsupportedAny),
 
-        "object_type" => {
-            vec.push(parse_object_type(source, &node))
-        }
+        "object_type" => vec.push(parse_object_type(source, &node)),
 
         "array_type" => {
             vec.push(ArtelPrimaryType::ArrayType(
@@ -361,11 +409,6 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
                 parse_type(source, &node.named_child(0).unwrap()).into(),
             ));
         }
-        "this_type" => {
-            //TODO
-            vec.push(ArtelPrimaryType::UnsupportedAny)
-        }
-
         "tuple_type" => {
             let tuple: Vec<_> = node
                 .named_children(&mut node.walk())
@@ -373,17 +416,32 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
                 .collect();
             vec.push(ArtelPrimaryType::TupleType(tuple));
         }
-        "parenthesized_type" => {
-            vec.extend(parse_type(source, &node.named_child(0).unwrap()).0)
-        }
+        "parenthesized_type" => vec.extend(parse_type(source, &node.named_child(0).unwrap()).0),
         "type_predicate" => {
-            let name = node.child_by_field_name("name").unwrap().utf8_text(source.as_bytes()).unwrap().to_owned();
+            let name = node
+                .child_by_field_name("name")
+                .unwrap()
+                .utf8_text(source.as_bytes())
+                .unwrap()
+                .to_owned();
             let r#type = parse_type(source, &node.child_by_field_name("type").unwrap());
             vec.push(ArtelPrimaryType::PredicateType(name, r#type.into()));
         }
         "type_predicate_annotation" => {
             vec.extend(parse_type(source, &node.named_child(0).unwrap()).0);
         }
+        "type_query"
+        | "template_literal_type"
+        | "nested_type_identifier"
+        | "constructor_type"
+        | "intersection_type"
+        | "index_type_query"
+        | "lookup_type"
+        | "this_type"
+        | "conditional_type"
+        | "rest_type" => vec.push(ArtelPrimaryType::UnsupportedAny(
+            node.utf8_text(source.as_bytes()).unwrap().into(),
+        )),
         _ => {
             unimplemented!("{} is not implemented: {:?}", node.kind(), node)
         }
@@ -391,25 +449,55 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<ArtelPrimaryType>) 
 }
 
 fn parse_object_type(source: &str, node: &Node) -> ArtelPrimaryType {
-    let body = node.named_children(&mut node.walk())
+    let body = node
+        .named_children(&mut node.walk())
         .filter(|n| n.kind() != "comment")
         .map(|property_signature| {
-        // Anti-support for mapped types
-        if property_signature.kind() == "index_signature" { return None }
+            // Anti-support for mapped types
+            if property_signature.kind() == "index_signature" {
+                return None;
+            }
 
-        let readonly = property_signature.child(0).unwrap().kind() == "readonly";
-        let name_str = property_signature.child_by_field_name("name").unwrap().utf8_text(source.as_bytes()).unwrap();
-        let name_ident = ArtelIdentifier::new(name_str);
-        let r#type = parse_type(source, &property_signature.child_by_field_name("type").unwrap());
-        Some(ArtelProperty::new(readonly, name_ident, r#type))
-    }).take_while_inclusive(|p| p.is_some()).collect_vec();
+            match property_signature.kind() {
+                "method_signature" => Some(ArtelInterfaceMember::Method(
+                    parse_function_declaration(source, &property_signature),
+                )),
+                "property_signature" => {
+                    let readonly = property_signature.child(0).unwrap().kind() == "readonly";
+                    let name_str = property_signature
+                        .child_by_field_name("name")
+                        .unwrap()
+                        .utf8_text(source.as_bytes())
+                        .unwrap();
+                    let name_ident = ArtelIdentifier::new(name_str);
+                    let r#type = parse_type(
+                        source,
+                        &property_signature.child_by_field_name("type").unwrap(),
+                    );
+                    Some(ArtelInterfaceMember::Property(ArtelProperty::new(
+                        readonly, name_ident, r#type,
+                    )))
+                }
+                "construct_signature" => Some(ArtelInterfaceMember::Method(
+                    parse_construct_signature(source, &property_signature),
+                )),
+                "index_signature" | "call_signature" => Some(ArtelInterfaceMember::Unsupported(
+                    property_signature.utf8_text(source.as_bytes()).unwrap().to_owned(),
+                )),
+                _ => unimplemented!("{}", property_signature.kind()),
+            }
+        })
+        .take_while_inclusive(|p| p.is_some())
+        .collect_vec();
 
     // Anti-support for mapped types
     if let Some(None) = body.last() {
-        return ArtelPrimaryType::UnsupportedAny;
+        return ArtelPrimaryType::UnsupportedAny(node.utf8_text(source.as_bytes()).unwrap().into());
     }
-    
-    ArtelPrimaryType::ObjectType(ArtelObjectType::new(body.into_iter().map(|e| e.unwrap()).collect_vec()))
+
+    ArtelPrimaryType::ObjectType(ArtelObjectType::new(
+        body.into_iter().map(|e| e.unwrap()).collect_vec(),
+    ))
 }
 
 fn parse_enum_declaration(source: &str, node: &Node) -> EnumDeclaration {
@@ -438,7 +526,7 @@ fn parse_enum_declaration(source: &str, node: &Node) -> EnumDeclaration {
                 let item_ident = ArtelIdentifier::new(item_name_str);
                 items.push(EnumItem::new(item_ident, None));
             }
-            "comment" => { }, // TODO
+            "comment" => {} // TODO
             _ => {
                 unreachable!("unexpected {} in enum", item.kind())
             }
@@ -560,8 +648,10 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
 
                 // TODO NO TYPE IS INSIDE THIS SHIT
                 //
-                let mut property_type = definition.child_by_field_name("type").map_or(ArtelType(vec![ArtelPrimaryType::UnsupportedAny]), |n|
-                                                               parse_type(source, &n));
+                let mut property_type = definition.child_by_field_name("type").map_or(
+                    ArtelType(vec![ArtelPrimaryType::UnsupportedAny("no_type".into())]),
+                    |n| parse_type(source, &n),
+                );
                 if is_optional {
                     property_type
                         .0
@@ -709,6 +799,31 @@ fn parse_return_statement(source: &str, node: &Node) -> String {
     format!("возврат {expression_str}")
 }
 
+fn parse_construct_signature(source: &str, node: &Node) -> ArtelFunctionDeclaration {
+    let r#async = node.child(0).unwrap().kind() == "async";
+    let name_ident = ArtelIdentifier::new("constructor");
+
+    let type_parameters = 'type_parameters: {
+        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+        parse_type_parameters(source, &parameters_node)
+    };
+
+    let parameters = node.child_by_field_name("parameters").unwrap();
+    let arguments = parse_formal_arguments(source, &parameters);
+
+    let return_type = 'return_type: {
+        let Some(return_type) = node.child_by_field_name("return_type") else { break 'return_type None };
+        Some(parse_type(source, &return_type))
+    };
+
+    // let body = node.child_by_field_name("body").unwrap();
+    // assert_eq!(body.kind(), "statement_block");
+    // let body_str = parse_statement_block(source, &body);
+    // no body for now
+
+    ArtelFunctionDeclaration::new(r#async, name_ident, type_parameters, arguments, return_type)
+}
+
 fn parse_function_declaration(source: &str, node: &Node) -> ArtelFunctionDeclaration {
     let r#async = node.child(0).unwrap().kind() == "async";
     let name_ident = {
@@ -754,7 +869,7 @@ fn parse_formal_arguments(source: &str, parameters: &Node) -> Vec<ArtelFunctionA
         };
 
         let mut arg_type = param.child_by_field_name("type").map_or(
-            ArtelType(vec![ArtelPrimaryType::UnsupportedAny]),
+            ArtelType(vec![ArtelPrimaryType::UnsupportedAny("no_type".into())]),
             |arg_type| parse_type(source, &arg_type),
         );
 
@@ -787,7 +902,10 @@ fn parse_statement_block(source: &str, node: &Node) -> Vec<ArtelStatement> {
 }
 
 pub fn create_artel_code(artel_program: ArtelProgram) -> String {
-    let flat_export = artel_program.into_iter().filter_map(|stmt| match stmt {
+    let flat_export = artel_program.artel_str(0);
+    flat_export
+    
+    /* let flat_export = artel_program.into_iter().filter_map(|stmt| match stmt {
         ArtelStatement::ExportStatement(stmt) => Some(*stmt),
         comment @ ArtelStatement::Comment(_) => Some(comment),
         _ => None,
@@ -801,10 +919,10 @@ pub fn create_artel_code(artel_program: ArtelProgram) -> String {
                 } else {
                     [&s.artel_str(2), "\n"].concat()
                 }
-            } )
+            })
             .collect::<Vec<String>>()
             .join("\n"),
         "\n}",
     ]
-    .concat()
+    .concat()*/
 }

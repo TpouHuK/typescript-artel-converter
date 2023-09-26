@@ -1,0 +1,7 @@
+тип String = интерфейс
+{
+  операция padStart(maxLength: Число, fillString: Текст?FUCKFUCK = пусто): Текст
+
+  операция padEnd(maxLength: Число, fillString: Текст?FUCKFUCK = пусто): Текст
+}
+

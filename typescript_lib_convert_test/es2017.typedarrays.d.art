@@ -1,0 +1,53 @@
+тип Int8ArrayConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+}
+
+
+тип Uint8ArrayConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+}
+
+
+тип Uint8ClampedArrayConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+}
+
+
+тип Int16ArrayConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+}
+
+
+тип Uint16ArrayConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+}
+
+
+тип Int32ArrayConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+}
+
+
+тип Uint32ArrayConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+}
+
+
+тип Float32ArrayConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+}
+
+
+тип Float64ArrayConstructor = интерфейс
+{
+  при создании()/*(!) no_type */ Объект?
+}
+

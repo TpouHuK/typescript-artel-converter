@@ -1,0 +1,9 @@
+/// <reference lib="es2015.iterable" />
+
+тип ObjectConstructor = интерфейс
+{
+  операция fromEntries<T>(entries: Iterable</*(!) защищено */ объект { _0: PropertyKey, _1: T }>): /*(!) { [k: string]: T; } */ Объект?
+
+  операция fromEntries(entries: Iterable</*(!) защищено */ Список</*(!) any */ Объект?>>): /*(!) any */ Объект?
+}
+

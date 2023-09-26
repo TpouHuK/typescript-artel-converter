@@ -1,0 +1,209 @@
+тип Array<T> = интерфейс
+{
+  операция find<S = T>(predicate: операция(value: T, index: Число, obj: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+
+  операция find(predicate: операция(value: T, index: Число, obj: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): T?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: T, index: Число, obj: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+
+  операция fill(value: T, start: Число?FUCKFUCK = пусто, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+
+  операция copyWithin(target: Число, start: Число, end: Число?FUCKFUCK = пусто): /*(!) this */ Объект?
+}
+
+
+тип ArrayConstructor = интерфейс
+{
+  операция from<T>(arrayLike: ArrayLike<T>): Список<T>
+
+  операция from<T, U>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): U, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Список<U>
+
+  #js.МассивПараметров
+  операция of<T>(items: Список<T>): Список<T>
+}
+
+
+тип DateConstructor = интерфейс
+{
+  при создании(value: Число | Текст | Date)/*(!) no_type */ Объект?
+}
+
+
+тип Function = интерфейс
+{
+  защищено 
+  name: Текст
+}
+
+
+тип Math = интерфейс
+{
+  операция clz32(x: Число): Число
+
+  операция imul(x: Число, y: Число): Число
+
+  операция sign(x: Число): Число
+
+  операция log10(x: Число): Число
+
+  операция log2(x: Число): Число
+
+  операция log1p(x: Число): Число
+
+  операция expm1(x: Число): Число
+
+  операция cosh(x: Число): Число
+
+  операция sinh(x: Число): Число
+
+  операция tanh(x: Число): Число
+
+  операция acosh(x: Число): Число
+
+  операция asinh(x: Число): Число
+
+  операция atanh(x: Число): Число
+
+  #js.МассивПараметров
+  операция hypot(values: Список<Число>): Число
+
+  операция trunc(x: Число): Число
+
+  операция fround(x: Число): Число
+
+  операция cbrt(x: Число): Число
+}
+
+
+тип NumberConstructor = интерфейс
+{
+  защищено 
+  EPSILON: Число
+
+  операция isFinite(number: /*(!) unknown */ Объект?): ДаНет
+
+  операция isInteger(number: /*(!) unknown */ Объект?): ДаНет
+
+  операция isNaN(number: /*(!) unknown */ Объект?): ДаНет
+
+  операция isSafeInteger(number: /*(!) unknown */ Объект?): ДаНет
+
+  защищено 
+  MAX_SAFE_INTEGER: Число
+
+  защищено 
+  MIN_SAFE_INTEGER: Число
+
+  операция parseFloat(string: Текст): Число
+
+  операция parseInt(string: Текст, radix: Число?FUCKFUCK = пусто): Число
+}
+
+
+тип ObjectConstructor = интерфейс
+{
+  операция assign<T = объект {  }, U>(target: T, source: U): /*(!) T & U */ Объект?
+
+  операция assign<T = объект {  }, U, V>(target: T, source1: U, source2: V): /*(!) T & U & V */ Объект?
+
+  операция assign<T = объект {  }, U, V, W>(target: T, source1: U, source2: V, source3: W): /*(!) T & U & V & W */ Объект?
+
+  #js.МассивПараметров
+  операция assign(target: Объект, sources: Список</*(!) any */ Объект?>): /*(!) any */ Объект?
+
+  операция getOwnPropertySymbols(o: /*(!) any */ Объект?): Список<Символ>
+
+  операция keys(o: объект {  }): Список<Текст>
+
+  операция is(value1: /*(!) any */ Объект?, value2: /*(!) any */ Объект?): ДаНет
+
+  операция setPrototypeOf(o: /*(!) any */ Объект?, proto: Объект?FUCKFUCK): /*(!) any */ Объект?
+}
+
+
+тип ReadonlyArray<T> = интерфейс
+{
+  операция find<S = T>(predicate: операция(value: T, index: Число, obj: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): S?FUCKFUCK
+
+  операция find(predicate: операция(value: T, index: Число, obj: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): T?FUCKFUCK
+
+  операция findIndex(predicate: операция(value: T, index: Число, obj: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект??FUCKFUCK = пусто): Число
+}
+
+
+тип RegExp = интерфейс
+{
+  защищено 
+  flags: Текст
+
+  защищено 
+  sticky: ДаНет
+
+  защищено 
+  unicode: ДаНет
+}
+
+
+тип RegExpConstructor = интерфейс
+{
+  при создании(pattern: RegExp | Текст, flags: Текст?FUCKFUCK = пусто)/*(!) no_type */ Объект?
+
+  /*(!) (pattern: RegExp | string, flags?: string): RegExp*/
+}
+
+
+тип String = интерфейс
+{
+  операция codePointAt(pos: Число): Число?FUCKFUCK
+
+  операция includes(searchString: Текст, position: Число?FUCKFUCK = пусто): ДаНет
+
+  операция endsWith(searchString: Текст, endPosition: Число?FUCKFUCK = пусто): ДаНет
+
+  операция normalize(form: "NFC" | "NFD" | "NFKC" | "NFKD"): Текст
+
+  операция normalize(form: Текст?FUCKFUCK = пусто): Текст
+
+  операция repeat(count: Число): Текст
+
+  операция startsWith(searchString: Текст, position: Число?FUCKFUCK = пусто): ДаНет
+
+  операция anchor(name: Текст): Текст
+
+  операция big(): Текст
+
+  операция blink(): Текст
+
+  операция bold(): Текст
+
+  операция fixed(): Текст
+
+  операция fontcolor(color: Текст): Текст
+
+  операция fontsize(size: Число): Текст
+
+  операция fontsize(size: Текст): Текст
+
+  операция italics(): Текст
+
+  операция link(url: Текст): Текст
+
+  операция small(): Текст
+
+  операция strike(): Текст
+
+  операция sub(): Текст
+
+  операция sup(): Текст
+}
+
+
+тип StringConstructor = интерфейс
+{
+  #js.МассивПараметров
+  операция fromCodePoint(codePoints: Список<Число>): Текст
+
+  #js.МассивПараметров
+  операция raw(template: объект { raw: /*(!) защищено */ Список<Текст> | ArrayLike<Текст> }, substitutions: Список</*(!) any */ Объект?>): Текст
+}
+

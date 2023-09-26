@@ -1,0 +1,16 @@
+/// <reference lib="es2015.iterable" />
+
+/// <reference lib="es2015.symbol" />
+
+тип SymbolConstructor = интерфейс
+{
+  защищено 
+  matchAll: /*(!) unique symbol */ Объект
+}
+
+
+тип RegExp = интерфейс
+{
+  операция [Symbol.matchAll](str: Текст): IterableIterator<RegExpMatchArray>
+}
+
