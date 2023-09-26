@@ -527,9 +527,9 @@ pub struct ArtelObjectType {
 impl ArtelStr for ArtelObjectType {
     fn artel_str(&self, ident_level: usize) -> String {
         [
-            "{ ",
-            &self.body.iter().map(|p| p.artel_str(usize::MAX)).join(", "),
-            "}",
+            "объект { ",
+            &self.body.iter().map(|p| p.artel_str(usize::MAX)).join("; "),
+            " }",
         ].concat()
     }
 }
