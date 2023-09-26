@@ -145,6 +145,19 @@ impl ArtelIdentifier {
 
 #[derive(Debug, Clone)]
 pub struct ArtelType(pub Vec<ArtelPrimaryType>);
+impl ArtelType {
+    fn is_nothing(&self) -> bool {
+        if let [
+            ArtelPrimaryType::PredefinedType(ArtelPredefinedType::Void)
+            | ArtelPrimaryType::LiteralType(ArtelLiteralType::Null)
+            | ArtelPrimaryType::LiteralType(ArtelLiteralType::Undefined)
+        ] = self.0[..] {
+            true
+        } else {
+            false
+        }
+    }
+}
 
 impl ArtelStr for ArtelType {
     fn artel_str(&self, ident_level: usize) -> String {
@@ -204,7 +217,7 @@ pub enum ArtelPrimaryType {
 impl ArtelPrimaryType {
     fn artel_str_tuple(tuple_type: &[ArtelType]) -> String {
         [
-            "простой объект { ",
+            "объект { ",
             &tuple_type
                 .iter()
                 .enumerate()
@@ -219,7 +232,7 @@ impl ArtelPrimaryType {
 impl ArtelStr for ArtelPrimaryType {
     fn artel_str(&self, ident_level: usize) -> String {
         match self {
-            ArtelPrimaryType::UnsupportedAny => "/*(!) any */ Объект".to_owned(),
+            ArtelPrimaryType::UnsupportedAny => "/*(!) any */ Объект?".to_owned(),
             ArtelPrimaryType::LiteralType(literal_type) => literal_type.artel_str(0),
             ArtelPrimaryType::PredefinedType(predefined_type) => predefined_type.artel_str(0),
             ArtelPrimaryType::TypeReference(type_reference) => type_reference.artel_str(0),
@@ -293,16 +306,16 @@ pub enum ArtelPredefinedType {
 }
 
 impl ArtelStr for ArtelPredefinedType {
-    fn artel_str(&self, ident_level: usize) -> String {
+    fn artel_str(&self, _ident_level: usize) -> String {
         match self {
-            ArtelPredefinedType::Any => "Объект".to_owned(),
+            ArtelPredefinedType::Any => "/*(!) any */ Объект?".to_owned(),
             ArtelPredefinedType::Number => "Число".to_owned(),
             ArtelPredefinedType::Boolean => "ДаНет".to_owned(),
             ArtelPredefinedType::String => "Текст".to_owned(),
             ArtelPredefinedType::Void => "Ничего".to_owned(),
             ArtelPredefinedType::Object => "Объект".to_owned(),
             ArtelPredefinedType::Never => "Никогда".to_owned(),
-            ArtelPredefinedType::Unknown => "/*(!) unknown */ Объект".to_owned(),
+            ArtelPredefinedType::Unknown => "/*(!) unknown */ Объект?".to_owned(),
             ArtelPredefinedType::Symbol => "Символ".to_owned(),
         }
     }
@@ -861,9 +874,13 @@ impl ArtelFunctionDeclaration {
 
     fn artel_str_return_type(&self, _ident_level: usize) -> String {
         if let Some(return_type) = &self.return_type {
-            [": ", &return_type.artel_str(0)].concat()
+            if return_type.is_nothing() {
+                "".to_owned()
+            } else {
+                [": ", &return_type.artel_str(0)].concat()
+            }
         } else {
-            "".to_owned()
+            ArtelType(vec![ArtelPrimaryType::UnsupportedAny]).artel_str(0)
         }
     }
 }
