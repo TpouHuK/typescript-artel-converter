@@ -1,0 +1,13 @@
+внешнее
+/*(!) var */ globalvar: Число
+
+
+внешнее /*(!) global */
+операция bibonina(): Число
+
+внешнее /*(!) myNamespace */
+{
+  операция namespaced_func(): Число
+
+  /*(!) var */ globalbibun: Число
+}
