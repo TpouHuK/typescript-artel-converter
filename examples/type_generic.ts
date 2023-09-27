@@ -1,1 +1,0 @@
-type myType = Array<String>

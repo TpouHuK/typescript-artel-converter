@@ -19,32 +19,39 @@ pub enum PrimaryType {
 
     /// Literal type, such as literal number or string. `1 | 2 | 3` or `"blue" | "red" | "white"`.
     /// `undefined` and `null` are also literal types.
+    ///
     /// `1`, `"hello"`, `undefined`, `null`, ...
     LiteralType(LiteralType),
 
     /// Predefined typescript types
-    /// number, string, ...
+    ///
+    /// `number`, `string`, ...
     PredefinedType(PredefinedType),
 
     /// Typename with generic parameters for it
+    ///
     /// `MyList<string>`, `A<B>`, ...
     TypeReference(TypeReference),
 
     /// Inline object type
+    ///
     /// `{ name: type, readonly prop: string, method(a?: number): number}`
     ObjectType(ObjectType),
 
-    /// (a: string) => void
+    /// `(a: string) => void`
     FunctionType(Box<FunctionDeclaration>),
 
-    /// ArrayType
+    /// Wrapper type which declares array.
+    ///
     /// SomeType[]
     ArrayType(Box<Type>),
 
-    /// readonly SomeType
+    /// Wrapper type which declares readonly property.
+    ///
+    /// `readonly SomeType`
     ReadonlyType(Box<Type>),
 
-    /// (SomeType, OtherType)
+    /// `(SomeType, OtherType)`
     TupleType(Vec<Type>),
 
     /// `SomeType is OtherType` ??? Unsupported anyway.
@@ -92,12 +99,13 @@ pub struct ObjectType {
     body: Vec<ArtelInterfaceMember>,
 }
 
-/// Stuff in the `<`` >` brackets, when not specified, like <T, A>
+/// Stuff in the `<` `>` brackets, when not specified, like <T, A>
 pub type ArtelGenericParams = Vec<ArtelTypeParameter>;
 
 impl Type {
     /// Check if type should be ommited if it's the only return type of the function,
     /// or should union with it be replaced with `?` instead.
+    ///
     /// Like `number | undefined` -> `Число?`
     pub fn is_nothing(&self) -> bool {
         if let [PrimaryType::PredefinedType(PredefinedType::Void)

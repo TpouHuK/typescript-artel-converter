@@ -1,3 +1,0 @@
-do {
-	stuff()
-} while (expression)
