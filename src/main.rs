@@ -1,6 +1,6 @@
+mod ast_nodes;
 mod convert_tree_walk;
 mod dbg_tree_walk;
-mod ast_nodes;
 
 use std::env;
 use tree_sitter_c2rust::Parser;

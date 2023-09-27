@@ -1,16 +1,104 @@
 //! Types in ast.
-//! AstType is 
-//!
-//!
+//! AstType is the main type to represen't type, which represent union of types. Union of a single
+//! type represent just a type.
 
-use itertools::Itertools;
 use super::*;
+use itertools::Itertools;
 
 /// Main sturcture for representing any type.
 /// Consists of vector containing `PrimaryType`, to represent type unions.
 #[derive(Debug, Clone)]
 pub struct Type(pub Vec<PrimaryType>);
+
+/// Single type declaration in a typescript.
+#[derive(Debug, Clone)]
+pub enum PrimaryType {
+    /// Catchall type, for everything that is unsupported. Replaced with `any` during translation.
+    /// `typeof Something``, ...
+    UnsupportedAny(String),
+
+    /// Literal type, such as literal number or string. `1 | 2 | 3` or `"blue" | "red" | "white"`.
+    /// `undefined` and `null` are also literal types.
+    /// `1`, `"hello"`, `undefined`, `null`, ...
+    LiteralType(LiteralType),
+
+    /// Predefined typescript types
+    /// number, string, ...
+    PredefinedType(PredefinedType),
+
+    /// Typename with generic parameters for it
+    /// `MyList<string>`, `A<B>`, ...
+    TypeReference(TypeReference),
+
+    /// Inline object type
+    /// `{ name: type, readonly prop: string, method(a?: number): number}`
+    ObjectType(ObjectType),
+
+    /// (a: string) => void
+    FunctionType(Box<FunctionDeclaration>),
+
+    /// ArrayType
+    /// SomeType[]
+    ArrayType(Box<Type>),
+
+    /// readonly SomeType
+    ReadonlyType(Box<Type>),
+
+    /// (SomeType, OtherType)
+    TupleType(Vec<Type>),
+
+    /// `SomeType is OtherType` ??? Unsupported anyway.
+    PredicateType(String, Box<Type>),
+}
+
+#[derive(Debug, Clone)]
+pub enum LiteralType {
+    String(String),
+    Number(String),
+    Boolean(bool),
+    Undefined,
+    Null,
+}
+
+#[derive(Debug, Clone)]
+pub enum PredefinedType {
+    Any,
+    Number,
+    Boolean,
+    String,
+    Void,
+    Object,
+    Never,
+    Unknown,
+    Symbol,
+    UniqueSymbol,
+}
+
+#[derive(Debug, Clone)]
+pub struct TypeReference {
+    type_name: ArtelIdentifier,
+    type_arguments: Vec<Type>,
+}
+
+#[derive(Debug, Clone)]
+pub struct ArtelTypeParameter {
+    indentifier: ArtelIdentifier,
+    constraint: Option<Type>,
+    _default: Option<Type>,
+}
+
+#[derive(Debug, Clone)]
+pub struct ObjectType {
+    body: Vec<ArtelInterfaceMember>,
+}
+
+/// Stuff in the `<`` >` brackets, when not specified, like <T, A>
+pub type ArtelGenericParams = Vec<ArtelTypeParameter>;
+
 impl Type {
+    /// Check if type should be ommited if it's the only return type of the function,
+    /// or should union with it be replaced with `?` instead.
+    /// Like `number | undefined` -> `Число?`
     pub fn is_nothing(&self) -> bool {
         if let [PrimaryType::PredefinedType(PredefinedType::Void)
         | PrimaryType::LiteralType(LiteralType::Null)
@@ -22,6 +110,7 @@ impl Type {
         }
     }
 
+    /// Formats return type of a function, it it's not 'empty' type, returns `: TYPE`, otherwise returns empty string.
     pub fn convert_return_type(&self) -> String {
         if self.is_nothing() {
             "".to_owned()
@@ -77,47 +166,8 @@ impl ArtelStr for Type {
     }
 }
 
-/// Single type declaration in a typescript.
-#[derive(Debug, Clone)]
-pub enum PrimaryType {
-    /// Catchall type, for everything that is unsupported. Replaced with `any` during translation.
-    /// `typeof Something``, ...
-    UnsupportedAny(String),
-
-    /// Literal type, such as literal number or string. `1 | 2 | 3` or `"blue" | "red" | "white"`.
-    /// `undefined` and `null` are also literal types.
-    /// `1`, `"hello"`, `undefined`, `null`, ...
-    LiteralType(LiteralType),
-
-    /// Predefined typescript types
-    /// number, string, ...
-    PredefinedType(PredefinedType),
-
-    /// Typename with generic parameters for it
-    /// `MyList<string>`, `A<B>`, ...
-    TypeReference(TypeReference),
-
-    /// Inline object type
-    /// `{ name: type, readonly prop: string, method(a?: number): number}`
-    ObjectType(ObjectType),
-
-    /// (a: string) => void
-    FunctionType(Box<FunctionDeclaration>),
-
-    /// ArrayType
-    /// SomeType[]
-    ArrayType(Box<Type>),
-
-    /// readonly SomeType
-    ReadonlyType(Box<Type>),
-
-    /// (SomeType, OtherType)
-    TupleType(Vec<Type>),
-    
-    /// Something is Something ??? Unsupported anyway
-    PredicateType(String, Box<Type>),
-}
 impl PrimaryType {
+    /// Formats slice of types as if they were a tuple.
     fn artel_str_tuple(tuple_type: &[Type]) -> String {
         [
             "объект { ",
@@ -155,8 +205,27 @@ impl ArtelStr for PrimaryType {
     }
 }
 
-/// Stuff in the `<`` >` brackets, when not specified, like <T, A>
-pub type ArtelGenericParams = Vec<ArtelTypeParameter>;
+impl ObjectType {
+    pub fn new(body: Vec<ArtelInterfaceMember>) -> Self {
+        Self { body }
+    }
+}
+
+impl ArtelStr for ObjectType {
+    fn artel_str(&self, _ident_level: usize) -> String {
+        [
+            "объект { ",
+            &self
+                .body
+                .iter()
+                .map(|p| p.artel_str(0).replace("\n", " "))
+                .join("; "),
+            " }",
+        ]
+        .concat()
+    }
+}
+
 
 impl ArtelStr for ArtelGenericParams {
     fn artel_str(&self, _ident_level: usize) -> String {
@@ -178,15 +247,6 @@ impl ArtelStr for ArtelGenericParams {
     }
 }
 
-#[derive(Debug, Clone)]
-pub enum LiteralType {
-    String(String),
-    Number(String),
-    Boolean(bool),
-    Undefined,
-    Null,
-}
-
 impl ArtelStr for LiteralType {
     fn artel_str(&self, _ident_level: usize) -> String {
         match self {
@@ -197,20 +257,6 @@ impl ArtelStr for LiteralType {
             LiteralType::Boolean(x) => if *x { "да" } else { "нет" }.to_owned(),
         }
     }
-}
-
-#[derive(Debug, Clone)]
-pub enum PredefinedType {
-    Any,
-    Number,
-    Boolean,
-    String,
-    Void,
-    Object,
-    Never,
-    Unknown,
-    Symbol,
-    UniqueSymbol,
 }
 
 impl ArtelStr for PredefinedType {
@@ -251,12 +297,6 @@ where
     }
 }
 
-#[derive(Debug, Clone)]
-pub struct TypeReference {
-    type_name: ArtelIdentifier,
-    type_arguments: Vec<Type>,
-}
-
 impl ArtelStr for TypeReference {
     fn artel_str(&self, _ident_level: usize) -> String {
         let mut str = String::new();
@@ -286,13 +326,6 @@ impl TypeReference {
             type_arguments,
         }
     }
-}
-
-#[derive(Debug, Clone)]
-pub struct ArtelTypeParameter {
-    indentifier: ArtelIdentifier,
-    constraint: Option<Type>,
-    _default: Option<Type>,
 }
 
 impl ArtelStr for ArtelTypeParameter {

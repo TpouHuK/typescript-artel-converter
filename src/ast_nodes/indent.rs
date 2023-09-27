@@ -1,6 +1,6 @@
 use itertools::Itertools;
 
-/// Returns static string containing `ident` number of spaces, if `ident > 100` #TODO
+/// Returns static string containing `ident_level` number of spaces, if `ident_level > 100` panics. #TODO
 pub fn indent(ident_level: usize) -> &'static str {
     // Yep, this is string of 100 spaces
     let much_space = "                                                                                                    ";

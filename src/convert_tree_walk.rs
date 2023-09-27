@@ -1,7 +1,7 @@
+use super::ast_nodes::*;
 use itertools::Itertools;
 use std::string::String;
 use tree_sitter_c2rust::Node;
-use super::ast_nodes::*;
 
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
 /// It returns sequence of statements, which is something like AST, and that can be converted into
