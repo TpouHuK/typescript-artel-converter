@@ -32,7 +32,7 @@
 
 тип SuppressedErrorConstructor = интерфейс
 {
-  при создании(error: /*(!) any */ Объект?, suppressed: /*(!) any */ Объект?, message: Текст? = пусто)/*(!) no_type */ Объект?
+  при создании(error: /*(!) any */ Объект?, suppressed: /*(!) any */ Объект?, message: Текст? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (error: any, suppressed: any, message?: string): SuppressedError*/
 
@@ -69,7 +69,7 @@
 
 тип DisposableStackConstructor = интерфейс
 {
-  при создании()/*(!) no_type */ Объект?
+  при создании(): /*(!) no_type */ Объект?
 
   защищено 
   prototype: DisposableStack
@@ -89,9 +89,9 @@
 
   операция use<T = AsyncDisposable | Disposable | пусто | пусто>(value: T): T
 
-  операция adopt<T>(value: T, onDisposeAsync: операция(value: T): PromiseLike<Ничего> | Ничего): T
+  операция adopt<T>(value: T, onDisposeAsync: операция(value: T): PromiseLike<Ничего>?): T
 
-  операция defer(onDisposeAsync: операция(): PromiseLike<Ничего> | Ничего)
+  операция defer(onDisposeAsync: операция(): PromiseLike<Ничего>?)
 
   операция move(): AsyncDisposableStack
 
@@ -104,7 +104,7 @@
 
 тип AsyncDisposableStackConstructor = интерфейс
 {
-  при создании()/*(!) no_type */ Объект?
+  при создании(): /*(!) no_type */ Объект?
 
   защищено 
   prototype: AsyncDisposableStack

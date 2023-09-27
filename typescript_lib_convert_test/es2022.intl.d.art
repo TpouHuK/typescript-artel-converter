@@ -1,66 +1,64 @@
-внешнее
-/*(!) Intl */
+внешнее /*(!) Intl */
 {
-/**
-* An object with some or all properties of the `Intl.Segmenter` constructor `options` parameter.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/Segmenter#parameters)
-*/
+  /**
+  * An object with some or all properties of the `Intl.Segmenter` constructor `options` parameter.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/Segmenter#parameters)
+  */
 
-тип SegmenterOptions = интерфейс
-{
-  localeMatcher: "best fit" | "lookup" | пусто
+  тип SegmenterOptions = интерфейс
+  {
+    localeMatcher: "best fit" | "lookup" | пусто
 
-  granularity: "grapheme" | "word" | "sentence" | пусто
-}
-
-
-тип Segmenter = интерфейс
-{
-  операция segment(input: Текст): Segments
-
-  операция resolvedOptions(): ResolvedSegmenterOptions
-}
+    granularity: "grapheme" | "word" | "sentence" | пусто
+  }
 
 
-тип ResolvedSegmenterOptions = интерфейс
-{
-  locale: Текст
+  тип Segmenter = интерфейс
+  {
+    операция segment(input: Текст): Segments
 
-  granularity: "grapheme" | "word" | "sentence"
-}
-
-
-тип Segments = интерфейс
-{
-  операция containing(codeUnitIndex: Число? = пусто): SegmentData
-
-  операция [Symbol.iterator](): IterableIterator<SegmentData>
-}
+    операция resolvedOptions(): ResolvedSegmenterOptions
+  }
 
 
-тип SegmentData = интерфейс
-{
-  segment: Текст
+  тип ResolvedSegmenterOptions = интерфейс
+  {
+    locale: Текст
 
-  index: Число
-
-  input: Текст
-
-  isWordLike: ДаНет
-}
+    granularity: "grapheme" | "word" | "sentence"
+  }
 
 
-конст Segmenter: объект { prototype: Segmenter; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: SegmenterOptions? = пусто)/*(!) no_type */ Объект?; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<SegmenterOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
+  тип Segments = интерфейс
+  {
+    операция containing(codeUnitIndex: Число? = пусто): SegmentData
+
+    операция [Symbol.iterator](): IterableIterator<SegmentData>
+  }
 
 
-/**
-* Returns a sorted array of the supported collation, calendar, currency, numbering system, timezones, and units by the implementation.
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf)
-*
-* @param key A string indicating the category of values to return.
-* @returns A sorted array of the supported values.
-*/
+  тип SegmentData = интерфейс
+  {
+    segment: Текст
 
-операция supportedValuesOf(key: "calendar" | "collation" | "currency" | "numberingSystem" | "timeZone" | "unit"): Список<Текст>
-}
+    index: Число
+
+    input: Текст
+
+    isWordLike: ДаНет
+  }
+
+
+  конст Segmenter: объект { prototype: Segmenter; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: SegmenterOptions? = пусто): /*(!) no_type */ Объект?; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<SegmenterOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
+
+
+  /**
+  * Returns a sorted array of the supported collation, calendar, currency, numbering system, timezones, and units by the implementation.
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf)
+  *
+  * @param key A string indicating the category of values to return.
+  * @returns A sorted array of the supported values.
+  */
+
+  операция supportedValuesOf(key: "calendar" | "collation" | "currency" | "numberingSystem" | "timeZone" | "unit"): Список<Текст>}

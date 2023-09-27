@@ -114,7 +114,7 @@
 
 тип MessageEvent<T> = интерфейс
 {
-  операция initMessageEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, data: /*(!) any */ Объект?? = пусто, origin: Текст? = пусто, lastEventId: Текст? = пусто, source: MessageEventSource? = пусто, ports: Iterable<MessagePort>? = пусто)
+  операция initMessageEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, data: /*(!) any */ Объект? = пусто, origin: Текст? = пусто, lastEventId: Текст? = пусто, source: MessageEventSource? = пусто, ports: Iterable<MessagePort>? = пусто)
 }
 
 

@@ -6,7 +6,7 @@
 
 тип AggregateErrorConstructor = интерфейс
 {
-  при создании(errors: Iterable</*(!) any */ Объект?>, message: Текст? = пусто)/*(!) no_type */ Объект?
+  при создании(errors: Iterable</*(!) any */ Объект?>, message: Текст? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (errors: Iterable<any>, message?: string): AggregateError*/
 
@@ -25,7 +25,7 @@
 
 тип PromiseConstructor = интерфейс
 {
-  операция any<T = /*(!) защищено */ Список</*(!) unknown */ Объект?> | объект {  }>(values: T): Promise<Awaited</*(!) T[number] */ Объект?>>
+  операция any<T = /*(!) защищено */ (Список</*(!) unknown */ Объект?> | объект {  })>(values: T): Promise<Awaited</*(!) T[number] */ Объект?>>
 
   операция any<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>
 }

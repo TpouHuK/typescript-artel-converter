@@ -22,7 +22,7 @@
 {
   операция entries(): IterableIterator<объект { _0: Число, _1: Node }>
 
-  операция forEach(callbackfn: операция(value: Node, index: Число, listObj: NodeList), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Node, index: Число, listObj: NodeList), thisArg: /*(!) any */ Объект? = пусто)
 
   операция keys(): IterableIterator<Число>
 
@@ -36,7 +36,7 @@
 {
   операция entries(): IterableIterator<объект { _0: Число, _1: TNode }>
 
-  операция forEach(callbackfn: операция(value: TNode, index: Число, listObj: NodeListOf<TNode>), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: TNode, index: Число, listObj: NodeListOf<TNode>), thisArg: /*(!) any */ Объект? = пусто)
 
   операция keys(): IterableIterator<Число>
 

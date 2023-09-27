@@ -1,116 +1,114 @@
-внешнее
-/*(!) Intl */
+внешнее /*(!) Intl */
 {
-тип DateTimeFormatPartTypesRegistry = интерфейс
-{
-  fractionalSecond: /*(!) any */ Объект?
-}
+  тип DateTimeFormatPartTypesRegistry = интерфейс
+  {
+    fractionalSecond: /*(!) any */ Объект?
+  }
 
 
-тип DateTimeFormatOptions = интерфейс
-{
-  formatMatcher: "basic" | "best fit" | "best fit" | пусто
+  тип DateTimeFormatOptions = интерфейс
+  {
+    formatMatcher: "basic" | "best fit" | "best fit" | пусто
 
-  dateStyle: "full" | "long" | "medium" | "short" | пусто
+    dateStyle: "full" | "long" | "medium" | "short" | пусто
 
-  timeStyle: "full" | "long" | "medium" | "short" | пусто
+    timeStyle: "full" | "long" | "medium" | "short" | пусто
 
-  dayPeriod: "narrow" | "short" | "long" | пусто
+    dayPeriod: "narrow" | "short" | "long" | пусто
 
-  fractionalSecondDigits: 1 | 2 | 3 | пусто
-}
-
-
-тип DateTimeRangeFormatPart = интерфейс
-{
-  source: "startRange" | "endRange" | "shared"
-}
+    fractionalSecondDigits: 1 | 2 | 3 | пусто
+  }
 
 
-тип DateTimeFormat = интерфейс
-{
-  операция formatRange(startDate: Date | Число | bigint, endDate: Date | Число | bigint): Текст
-
-  операция formatRangeToParts(startDate: Date | Число | bigint, endDate: Date | Число | bigint): Список<DateTimeRangeFormatPart>
-}
+  тип DateTimeRangeFormatPart = интерфейс
+  {
+    source: "startRange" | "endRange" | "shared"
+  }
 
 
-тип ResolvedDateTimeFormatOptions = интерфейс
-{
-  formatMatcher: "basic" | "best fit" | "best fit"
+  тип DateTimeFormat = интерфейс
+  {
+    операция formatRange(startDate: Date | Число | bigint, endDate: Date | Число | bigint): Текст
 
-  dateStyle: "full" | "long" | "medium" | "short"
-
-  timeStyle: "full" | "long" | "medium" | "short"
-
-  hourCycle: "h11" | "h12" | "h23" | "h24"
-
-  dayPeriod: "narrow" | "short" | "long"
-
-  fractionalSecondDigits: 1 | 2 | 3
-}
+    операция formatRangeToParts(startDate: Date | Число | bigint, endDate: Date | Число | bigint): Список<DateTimeRangeFormatPart>
+  }
 
 
-/**
-* The locale matching algorithm to use.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
-*/
+  тип ResolvedDateTimeFormatOptions = интерфейс
+  {
+    formatMatcher: "basic" | "best fit" | "best fit"
 
-тип ListFormatLocaleMatcher = "lookup" | "best fit"
+    dateStyle: "full" | "long" | "medium" | "short"
 
-/**
-* The format of output message.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
-*/
+    timeStyle: "full" | "long" | "medium" | "short"
 
-тип ListFormatType = "conjunction" | "disjunction" | "unit"
+    hourCycle: "h11" | "h12" | "h23" | "h24"
 
-/**
-* The length of the formatted message.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
-*/
+    dayPeriod: "narrow" | "short" | "long"
 
-тип ListFormatStyle = "long" | "short" | "narrow"
-
-/**
-* An object with some or all properties of the `Intl.ListFormat` constructor `options` parameter.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
-*/
-
-тип ListFormatOptions = интерфейс
-{
-  localeMatcher: ListFormatLocaleMatcher?
-
-  type: ListFormatType?
-
-  style: ListFormatStyle?
-}
+    fractionalSecondDigits: 1 | 2 | 3
+  }
 
 
-тип ResolvedListFormatOptions = интерфейс
-{
-  locale: Текст
+  /**
+  * The locale matching algorithm to use.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
+  */
 
-  style: ListFormatStyle
+  тип ListFormatLocaleMatcher = "lookup" | "best fit"
 
-  type: ListFormatType
-}
+  /**
+  * The format of output message.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
+  */
+
+  тип ListFormatType = "conjunction" | "disjunction" | "unit"
+
+  /**
+  * The length of the formatted message.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
+  */
+
+  тип ListFormatStyle = "long" | "short" | "narrow"
+
+  /**
+  * An object with some or all properties of the `Intl.ListFormat` constructor `options` parameter.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
+  */
+
+  тип ListFormatOptions = интерфейс
+  {
+    localeMatcher: ListFormatLocaleMatcher?
+
+    type: ListFormatType?
+
+    style: ListFormatStyle?
+  }
 
 
-тип ListFormat = интерфейс
-{
-  операция format(list: Iterable<Текст>): Текст
+  тип ResolvedListFormatOptions = интерфейс
+  {
+    locale: Текст
 
-  операция formatToParts(list: Iterable<Текст>): Список<объект { type: "element" | "literal"; value: Текст }>
+    style: ListFormatStyle
 
-  операция resolvedOptions(): ResolvedListFormatOptions
-}
+    type: ListFormatType
+  }
 
 
-конст ListFormat: объект { prototype: ListFormat; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: ListFormatOptions? = пусто)/*(!) no_type */ Объект?; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<ListFormatOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
+  тип ListFormat = интерфейс
+  {
+    операция format(list: Iterable<Текст>): Текст
 
+    операция formatToParts(list: Iterable<Текст>): Список<объект { type: "element" | "literal"; value: Текст }>
+
+    операция resolvedOptions(): ResolvedListFormatOptions
+  }
+
+
+  конст ListFormat: объект { prototype: ListFormat; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: ListFormatOptions? = пусто): /*(!) no_type */ Объект?; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<ListFormatOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
 }

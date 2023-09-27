@@ -1,11 +1,11 @@
 внешнее
-тип ClassDecorator = операция<TFunction = Function>(target: TFunction): TFunction | Ничего
+тип ClassDecorator = операция<TFunction = Function>(target: TFunction): TFunction?
 
 внешнее
 тип PropertyDecorator = операция(target: Object, propertyKey: Текст | Символ)
 
 внешнее
-тип MethodDecorator = операция<T>(target: Object, propertyKey: Текст | Символ, descriptor: TypedPropertyDescriptor<T>): TypedPropertyDescriptor<T> | Ничего
+тип MethodDecorator = операция<T>(target: Object, propertyKey: Текст | Символ, descriptor: TypedPropertyDescriptor<T>): TypedPropertyDescriptor<T>?
 
 внешнее
 тип ParameterDecorator = операция(target: Object, propertyKey: Текст | Символ | пусто, parameterIndex: Число)

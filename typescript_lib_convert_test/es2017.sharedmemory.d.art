@@ -22,7 +22,7 @@
   защищено 
   prototype: SharedArrayBuffer
 
-  при создании(byteLength: Число)/*(!) no_type */ Объект?
+  при создании(byteLength: Число): /*(!) no_type */ Объект?
 }
 
 

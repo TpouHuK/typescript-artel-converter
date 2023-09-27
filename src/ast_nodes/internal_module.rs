@@ -14,8 +14,7 @@ impl ArtelStr for ArtelInternalModule {
             &header,
             indent(ident_level),
             "{\n",
-            &self.statements.artel_str(ident_level),
-            "\n",
+            &self.statements.artel_str(ident_level+2),
             indent(ident_level),
             "}",
         ]

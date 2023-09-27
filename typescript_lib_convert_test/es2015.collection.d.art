@@ -4,7 +4,7 @@
 
   операция delete(key: K): ДаНет
 
-  операция forEach(callbackfn: операция(value: V, key: K, map: Map<K, V>), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: V, key: K, map: Map<K, V>), thisArg: /*(!) any */ Объект? = пусто)
 
   операция get(key: K): V?
 
@@ -19,9 +19,9 @@
 
 тип MapConstructor = интерфейс
 {
-  при создании()/*(!) no_type */ Объект?
+  при создании(): /*(!) no_type */ Объект?
 
-  при создании(entries: /*(!) защищено */ Список</*(!) защищено */ объект { _0: K, _1: V }>?? = пусто)/*(!) no_type */ Объект?
+  при создании(entries: /*(!) защищено */ (Список</*(!) защищено */ объект { _0: K, _1: V }>?)? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   prototype: Map</*(!) any */ Объект?, /*(!) any */ Объект?>
@@ -34,7 +34,7 @@
 
 тип ReadonlyMap<K, V> = интерфейс
 {
-  операция forEach(callbackfn: операция(value: V, key: K, map: ReadonlyMap<K, V>), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: V, key: K, map: ReadonlyMap<K, V>), thisArg: /*(!) any */ Объект? = пусто)
 
   операция get(key: K): V?
 
@@ -59,7 +59,7 @@
 
 тип WeakMapConstructor = интерфейс
 {
-  при создании(entries: /*(!) защищено */ Список</*(!) защищено */ объект { _0: K, _1: V }>?? = пусто)/*(!) no_type */ Объект?
+  при создании(entries: /*(!) защищено */ (Список</*(!) защищено */ объект { _0: K, _1: V }>?)? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   prototype: WeakMap<WeakKey, /*(!) any */ Объект?>
@@ -78,7 +78,7 @@
 
   операция delete(value: T): ДаНет
 
-  операция forEach(callbackfn: операция(value: T, value2: T, set: Set<T>), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: T, value2: T, set: Set<T>), thisArg: /*(!) any */ Объект? = пусто)
 
   операция has(value: T): ДаНет
 
@@ -89,7 +89,7 @@
 
 тип SetConstructor = интерфейс
 {
-  при создании(values: /*(!) защищено */ Список<T>?? = пусто)/*(!) no_type */ Объект?
+  при создании(values: /*(!) защищено */ (Список<T>?)? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   prototype: Set</*(!) any */ Объект?>
@@ -102,7 +102,7 @@
 
 тип ReadonlySet<T> = интерфейс
 {
-  операция forEach(callbackfn: операция(value: T, value2: T, set: ReadonlySet<T>), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: T, value2: T, set: ReadonlySet<T>), thisArg: /*(!) any */ Объект? = пусто)
 
   операция has(value: T): ДаНет
 
@@ -123,7 +123,7 @@
 
 тип WeakSetConstructor = интерфейс
 {
-  при создании(values: /*(!) защищено */ Список<T>?? = пусто)/*(!) no_type */ Объект?
+  при создании(values: /*(!) защищено */ (Список<T>?)? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   prototype: WeakSet<WeakKey>

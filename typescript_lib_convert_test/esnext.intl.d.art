@@ -1,17 +1,15 @@
-внешнее
-/*(!) Intl */
+внешнее /*(!) Intl */
 {
-тип NumberRangeFormatPart = интерфейс
-{
-  source: "startRange" | "endRange" | "shared"
-}
+  тип NumberRangeFormatPart = интерфейс
+  {
+    source: "startRange" | "endRange" | "shared"
+  }
 
 
-тип NumberFormat = интерфейс
-{
-  операция formatRange(start: Число | bigint, end: Число | bigint): Текст
+  тип NumberFormat = интерфейс
+  {
+    операция formatRange(start: Число | bigint, end: Число | bigint): Текст
 
-  операция formatRangeToParts(start: Число | bigint, end: Число | bigint): Список<NumberRangeFormatPart>
-}
-
+    операция formatRangeToParts(start: Число | bigint, end: Число | bigint): Список<NumberRangeFormatPart>
+  }
 }

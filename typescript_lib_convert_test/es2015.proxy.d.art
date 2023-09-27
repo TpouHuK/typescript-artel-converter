@@ -32,7 +32,7 @@
 {
   операция revocable<T = Объект>(target: T, handler: ProxyHandler<T>): объект { proxy: T; revoke: операция() }
 
-  при создании(target: T, handler: ProxyHandler<T>)/*(!) no_type */ Объект?
+  при создании(target: T, handler: ProxyHandler<T>): /*(!) no_type */ Объект?
 }
 
 

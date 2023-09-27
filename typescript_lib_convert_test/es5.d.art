@@ -162,7 +162,7 @@
 
 тип ObjectConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект?? = пусто)/*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (): any*/
 
@@ -219,7 +219,7 @@
 
 тип Function = интерфейс
 {
-  операция apply(this: Function, thisArg: /*(!) any */ Объект?, argArray: /*(!) any */ Объект?? = пусто): /*(!) any */ Объект?
+  операция apply(this: Function, thisArg: /*(!) any */ Объект?, argArray: /*(!) any */ Объект? = пусто): /*(!) any */ Объект?
 
   #js.МассивПараметров
   операция call(this: Function, thisArg: /*(!) any */ Объект?, argArray: Список</*(!) any */ Объект?>): /*(!) any */ Объект?
@@ -243,7 +243,7 @@
 тип FunctionConstructor = интерфейс
 {
   #js.МассивПараметров
-  при создании(args: Список<Текст>)/*(!) no_type */ Объект?
+  при создании(args: Список<Текст>): /*(!) no_type */ Объект?
 
   /*(!) (...args: string[]): Function*/
 
@@ -364,7 +364,7 @@
 
 тип StringConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект?? = пусто)/*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (value?: any): string*/
 
@@ -392,7 +392,7 @@
 
 тип BooleanConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект?? = пусто)/*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект? = пусто): /*(!) no_type */ Объект?
 
   /*(!) <T>(value?: T): boolean*/
 
@@ -421,7 +421,7 @@
 
 тип NumberConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект?? = пусто)/*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (value?: any): number*/
 
@@ -654,17 +654,17 @@
 
   операция toISOString(): Текст
 
-  операция toJSON(key: /*(!) any */ Объект?? = пусто): Текст
+  операция toJSON(key: /*(!) any */ Объект? = пусто): Текст
 }
 
 
 тип DateConstructor = интерфейс
 {
-  при создании()/*(!) no_type */ Объект?
+  при создании(): /*(!) no_type */ Объект?
 
-  при создании(value: Число | Текст)/*(!) no_type */ Объект?
+  при создании(value: Число | Текст): /*(!) no_type */ Объект?
 
-  при создании(year: Число, monthIndex: Число, date: Число? = пусто, hours: Число? = пусто, minutes: Число? = пусто, seconds: Число? = пусто, ms: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(year: Число, monthIndex: Число, date: Число? = пусто, hours: Число? = пусто, minutes: Число? = пусто, seconds: Число? = пусто, ms: Число? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (): string*/
 
@@ -729,9 +729,9 @@
 
 тип RegExpConstructor = интерфейс
 {
-  при создании(pattern: RegExp | Текст)/*(!) no_type */ Объект?
+  при создании(pattern: RegExp | Текст): /*(!) no_type */ Объект?
 
-  при создании(pattern: Текст, flags: Текст? = пусто)/*(!) no_type */ Объект?
+  при создании(pattern: Текст, flags: Текст? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (pattern: RegExp | string): RegExp*/
 
@@ -796,7 +796,7 @@
 
 тип ErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (message?: string): Error*/
 
@@ -817,7 +817,7 @@
 
 тип EvalErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (message?: string): EvalError*/
 
@@ -838,7 +838,7 @@
 
 тип RangeErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (message?: string): RangeError*/
 
@@ -859,7 +859,7 @@
 
 тип ReferenceErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (message?: string): ReferenceError*/
 
@@ -880,7 +880,7 @@
 
 тип SyntaxErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (message?: string): SyntaxError*/
 
@@ -901,7 +901,7 @@
 
 тип TypeErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (message?: string): TypeError*/
 
@@ -922,7 +922,7 @@
 
 тип URIErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто)/*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (message?: string): URIError*/
 
@@ -937,9 +937,9 @@
 
 тип JSON = интерфейс
 {
-  операция parse(text: Текст, reviver: операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект?? = пусто): /*(!) any */ Объект?
+  операция parse(text: Текст, reviver: (операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект?)? = пусто): /*(!) any */ Объект?
 
-  операция stringify(value: /*(!) any */ Объект?, replacer: операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект?? = пусто, space: Текст | Число | пусто = пусто): Текст
+  операция stringify(value: /*(!) any */ Объект?, replacer: (операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект?)? = пусто, space: Текст | Число | пусто = пусто): Текст
 
   операция stringify(value: /*(!) any */ Объект?, replacer: Список<Число | Текст>? = пусто, space: Текст | Число | пусто = пусто): Текст
 }
@@ -982,19 +982,19 @@
 
   операция lastIndexOf(searchElement: T, fromIndex: Число? = пусто): Число
 
-  операция every<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): /*(!) this is */ /*(!) защищено */ Список<S>
+  операция every<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект? = пусто): /*(!) this is */ /*(!) защищено */ Список<S>
 
-  операция every(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция every(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция some(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция some(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция forEach(callbackfn: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>), thisArg: /*(!) any */ Объект? = пусто)
 
-  операция map<U>(callbackfn: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): U, thisArg: /*(!) any */ Объект?? = пусто): Список<U>
+  операция map<U>(callbackfn: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): U, thisArg: /*(!) any */ Объект? = пусто): Список<U>
 
-  операция filter<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): Список<S>
+  операция filter<S = T>(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект? = пусто): Список<S>
 
-  операция filter(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Список<T>
+  операция filter(predicate: операция(value: T, index: Число, array: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Список<T>
 
   операция reduce(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: /*(!) защищено */ Список<T>): T): T
 
@@ -1052,7 +1052,7 @@
 
   операция slice(start: Число? = пусто, end: Число? = пусто): Список<T>
 
-  операция sort(compareFn: операция(a: T, b: T): Число? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: T, b: T): Число)? = пусто): /*(!) this */ Объект?
 
   операция splice(start: Число, deleteCount: Число? = пусто): Список<T>
 
@@ -1066,19 +1066,19 @@
 
   операция lastIndexOf(searchElement: T, fromIndex: Число? = пусто): Число
 
-  операция every<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): /*(!) this is */ Список<S>
+  операция every<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект? = пусто): /*(!) this is */ Список<S>
 
-  операция every(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция every(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция some(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция some(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция forEach(callbackfn: операция(value: T, index: Число, array: Список<T>), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: T, index: Число, array: Список<T>), thisArg: /*(!) any */ Объект? = пусто)
 
-  операция map<U>(callbackfn: операция(value: T, index: Число, array: Список<T>): U, thisArg: /*(!) any */ Объект?? = пусто): Список<U>
+  операция map<U>(callbackfn: операция(value: T, index: Число, array: Список<T>): U, thisArg: /*(!) any */ Объект? = пусто): Список<U>
 
-  операция filter<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): Список<S>
+  операция filter<S = T>(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект? = пусто): Список<S>
 
-  операция filter(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Список<T>
+  операция filter(predicate: операция(value: T, index: Число, array: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Список<T>
 
   операция reduce(callbackfn: операция(previousValue: T, currentValue: T, currentIndex: Число, array: Список<T>): T): T
 
@@ -1098,12 +1098,12 @@
 
 тип ArrayConstructor = интерфейс
 {
-  при создании(arrayLength: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(arrayLength: Число? = пусто): /*(!) no_type */ Объект?
 
-  при создании(arrayLength: Число)/*(!) no_type */ Объект?
+  при создании(arrayLength: Число): /*(!) no_type */ Объект?
 
   #js.МассивПараметров
-  при создании(items: Список<T>)/*(!) no_type */ Объект?
+  при создании(items: Список<T>): /*(!) no_type */ Объект?
 
   /*(!) (arrayLength?: number): any[]*/
 
@@ -1143,7 +1143,7 @@
 
 тип PromiseLike<T> = интерфейс
 {
-  операция then<TResult1, TResult2>(onfulfilled: операция(value: T): TResult1 | PromiseLike<TResult1>? = пусто, onrejected: операция(reason: /*(!) any */ Объект?): TResult2 | PromiseLike<TResult2>? = пусто): PromiseLike<TResult1 | TResult2>
+  операция then<TResult1, TResult2>(onfulfilled: (операция(value: T): TResult1 | PromiseLike<TResult1>)? = пусто, onrejected: (операция(reason: /*(!) any */ Объект?): TResult2 | PromiseLike<TResult2>)? = пусто): PromiseLike<TResult1 | TResult2>
 }
 
 
@@ -1153,9 +1153,9 @@
 
 тип Promise<T> = интерфейс
 {
-  операция then<TResult1, TResult2>(onfulfilled: операция(value: T): TResult1 | PromiseLike<TResult1>? = пусто, onrejected: операция(reason: /*(!) any */ Объект?): TResult2 | PromiseLike<TResult2>? = пусто): Promise<TResult1 | TResult2>
+  операция then<TResult1, TResult2>(onfulfilled: (операция(value: T): TResult1 | PromiseLike<TResult1>)? = пусто, onrejected: (операция(reason: /*(!) any */ Объект?): TResult2 | PromiseLike<TResult2>)? = пусто): Promise<TResult1 | TResult2>
 
-  операция catch<TResult>(onrejected: операция(reason: /*(!) any */ Объект?): TResult | PromiseLike<TResult>? = пусто): Promise<T | TResult>
+  операция catch<TResult>(onrejected: (операция(reason: /*(!) any */ Объект?): TResult | PromiseLike<TResult>)? = пусто): Promise<T | TResult>
 }
 
 
@@ -1348,7 +1348,7 @@
   защищено 
   prototype: ArrayBuffer
 
-  при создании(byteLength: Число)/*(!) no_type */ Объект?
+  при создании(byteLength: Число): /*(!) no_type */ Объект?
 
   операция isView(arg: /*(!) any */ Объект?): /*(!) arg is */ ArrayBufferView
 }
@@ -1418,7 +1418,7 @@
   защищено 
   prototype: DataView
 
-  при создании(buffer: /*(!) ArrayBufferLike & { BYTES_PER_ELEMENT?: never; } */ Объект?, byteOffset: Число? = пусто, byteLength: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: /*(!) ArrayBufferLike & { BYTES_PER_ELEMENT?: never; } */ Объект?, byteOffset: Число? = пусто, byteLength: Число? = пусто): /*(!) no_type */ Объект?
 }
 
 
@@ -1447,17 +1447,17 @@
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
   операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Int8Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Int8Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Int8Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
+  операция find(predicate: операция(value: Число, index: Число, obj: Int8Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int8Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int8Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int8Array), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int8Array), thisArg: /*(!) any */ Объект? = пусто)
 
   операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
@@ -1468,7 +1468,7 @@
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Int8Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Int8Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Int8Array): Число, thisArg: /*(!) any */ Объект? = пусто): Int8Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int8Array): Число): Число
 
@@ -1488,9 +1488,9 @@
 
   операция slice(start: Число? = пусто, end: Число? = пусто): Int8Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Int8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: Число, b: Число): Число)? = пусто): /*(!) this */ Объект?
 
   операция subarray(begin: Число? = пусто, end: Число? = пусто): Int8Array
 
@@ -1509,11 +1509,11 @@
   защищено 
   prototype: Int8Array
 
-  при создании(length: Число)/*(!) no_type */ Объект?
+  при создании(length: Число): /*(!) no_type */ Объект?
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1523,7 +1523,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Int8Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Int8Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int8Array
 }
 
 
@@ -1552,17 +1552,17 @@
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
   операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Uint8Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Uint8Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Uint8Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint8Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint8Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint8Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint8Array), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint8Array), thisArg: /*(!) any */ Объект? = пусто)
 
   операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
@@ -1573,7 +1573,7 @@
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Uint8Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint8Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint8Array): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8Array): Число): Число
 
@@ -1593,9 +1593,9 @@
 
   операция slice(start: Число? = пусто, end: Число? = пусто): Uint8Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Uint8Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: Число, b: Число): Число)? = пусто): /*(!) this */ Объект?
 
   операция subarray(begin: Число? = пусто, end: Число? = пусто): Uint8Array
 
@@ -1614,11 +1614,11 @@
   защищено 
   prototype: Uint8Array
 
-  при создании(length: Число)/*(!) no_type */ Объект?
+  при создании(length: Число): /*(!) no_type */ Объект?
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1628,7 +1628,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Uint8Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint8Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8Array
 }
 
 
@@ -1657,17 +1657,17 @@
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
   операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Uint8ClampedArray
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Uint8ClampedArray
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Uint8ClampedArray): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint8ClampedArray): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint8ClampedArray): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint8ClampedArray): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint8ClampedArray), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint8ClampedArray), thisArg: /*(!) any */ Объект? = пусто)
 
   операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
@@ -1678,7 +1678,7 @@
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Uint8ClampedArray): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint8ClampedArray
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint8ClampedArray): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8ClampedArray
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint8ClampedArray): Число): Число
 
@@ -1698,9 +1698,9 @@
 
   операция slice(start: Число? = пусто, end: Число? = пусто): Uint8ClampedArray
 
-  операция some(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Uint8ClampedArray): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: Число, b: Число): Число)? = пусто): /*(!) this */ Объект?
 
   операция subarray(begin: Число? = пусто, end: Число? = пусто): Uint8ClampedArray
 
@@ -1719,11 +1719,11 @@
   защищено 
   prototype: Uint8ClampedArray
 
-  при создании(length: Число)/*(!) no_type */ Объект?
+  при создании(length: Число): /*(!) no_type */ Объект?
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1733,7 +1733,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Uint8ClampedArray
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint8ClampedArray
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8ClampedArray
 }
 
 
@@ -1762,17 +1762,17 @@
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
   операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Int16Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Int16Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Int16Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
+  операция find(predicate: операция(value: Число, index: Число, obj: Int16Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int16Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int16Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int16Array), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int16Array), thisArg: /*(!) any */ Объект? = пусто)
 
   операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
@@ -1783,7 +1783,7 @@
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Int16Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Int16Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Int16Array): Число, thisArg: /*(!) any */ Объект? = пусто): Int16Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int16Array): Число): Число
 
@@ -1803,9 +1803,9 @@
 
   операция slice(start: Число? = пусто, end: Число? = пусто): Int16Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Int16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: Число, b: Число): Число)? = пусто): /*(!) this */ Объект?
 
   операция subarray(begin: Число? = пусто, end: Число? = пусто): Int16Array
 
@@ -1824,11 +1824,11 @@
   защищено 
   prototype: Int16Array
 
-  при создании(length: Число)/*(!) no_type */ Объект?
+  при создании(length: Число): /*(!) no_type */ Объект?
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1838,7 +1838,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Int16Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Int16Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int16Array
 }
 
 
@@ -1867,17 +1867,17 @@
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
   операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Uint16Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Uint16Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Uint16Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint16Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint16Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint16Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint16Array), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint16Array), thisArg: /*(!) any */ Объект? = пусто)
 
   операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
@@ -1888,7 +1888,7 @@
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Uint16Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint16Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint16Array): Число, thisArg: /*(!) any */ Объект? = пусто): Uint16Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint16Array): Число): Число
 
@@ -1908,9 +1908,9 @@
 
   операция slice(start: Число? = пусто, end: Число? = пусто): Uint16Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Uint16Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: Число, b: Число): Число)? = пусто): /*(!) this */ Объект?
 
   операция subarray(begin: Число? = пусто, end: Число? = пусто): Uint16Array
 
@@ -1929,11 +1929,11 @@
   защищено 
   prototype: Uint16Array
 
-  при создании(length: Число)/*(!) no_type */ Объект?
+  при создании(length: Число): /*(!) no_type */ Объект?
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1943,7 +1943,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Uint16Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint16Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint16Array
 }
 
 
@@ -1972,17 +1972,17 @@
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
   операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Int32Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Int32Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Int32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
+  операция find(predicate: операция(value: Число, index: Число, obj: Int32Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Int32Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int32Array), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Int32Array), thisArg: /*(!) any */ Объект? = пусто)
 
   операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
@@ -1993,7 +1993,7 @@
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Int32Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Int32Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Int32Array): Число, thisArg: /*(!) any */ Объект? = пусто): Int32Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Int32Array): Число): Число
 
@@ -2013,9 +2013,9 @@
 
   операция slice(start: Число? = пусто, end: Число? = пусто): Int32Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Int32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: Число, b: Число): Число)? = пусто): /*(!) this */ Объект?
 
   операция subarray(begin: Число? = пусто, end: Число? = пусто): Int32Array
 
@@ -2034,11 +2034,11 @@
   защищено 
   prototype: Int32Array
 
-  при создании(length: Число)/*(!) no_type */ Объект?
+  при создании(length: Число): /*(!) no_type */ Объект?
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2048,7 +2048,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Int32Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Int32Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int32Array
 }
 
 
@@ -2077,17 +2077,17 @@
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
   операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Uint32Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Uint32Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Uint32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
+  операция find(predicate: операция(value: Число, index: Число, obj: Uint32Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Uint32Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint32Array), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Uint32Array), thisArg: /*(!) any */ Объект? = пусто)
 
   операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
@@ -2098,7 +2098,7 @@
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Uint32Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint32Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Uint32Array): Число, thisArg: /*(!) any */ Объект? = пусто): Uint32Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Uint32Array): Число): Число
 
@@ -2118,9 +2118,9 @@
 
   операция slice(start: Число? = пусто, end: Число? = пусто): Uint32Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Uint32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: Число, b: Число): Число)? = пусто): /*(!) this */ Объект?
 
   операция subarray(begin: Число? = пусто, end: Число? = пусто): Uint32Array
 
@@ -2139,11 +2139,11 @@
   защищено 
   prototype: Uint32Array
 
-  при создании(length: Число)/*(!) no_type */ Объект?
+  при создании(length: Число): /*(!) no_type */ Объект?
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2153,7 +2153,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Uint32Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Uint32Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint32Array
 }
 
 
@@ -2182,17 +2182,17 @@
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
   операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Float32Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Float32Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Float32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
+  операция find(predicate: операция(value: Число, index: Число, obj: Float32Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Float32Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Float32Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Float32Array), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Float32Array), thisArg: /*(!) any */ Объект? = пусто)
 
   операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
@@ -2203,7 +2203,7 @@
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Float32Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Float32Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Float32Array): Число, thisArg: /*(!) any */ Объект? = пусто): Float32Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float32Array): Число): Число
 
@@ -2223,9 +2223,9 @@
 
   операция slice(start: Число? = пусто, end: Число? = пусто): Float32Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Float32Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: Число, b: Число): Число)? = пусто): /*(!) this */ Объект?
 
   операция subarray(begin: Число? = пусто, end: Число? = пусто): Float32Array
 
@@ -2244,11 +2244,11 @@
   защищено 
   prototype: Float32Array
 
-  при создании(length: Число)/*(!) no_type */ Объект?
+  при создании(length: Число): /*(!) no_type */ Объект?
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2258,7 +2258,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Float32Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Float32Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Float32Array
 }
 
 
@@ -2287,17 +2287,17 @@
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция every(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция every(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
   операция fill(value: Число, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
-  операция filter(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Float64Array
+  операция filter(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) any */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Float64Array
 
-  операция find(predicate: операция(value: Число, index: Число, obj: Float64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число?
+  операция find(predicate: операция(value: Число, index: Число, obj: Float64Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число?
 
-  операция findIndex(predicate: операция(value: Число, index: Число, obj: Float64Array): ДаНет, thisArg: /*(!) any */ Объект?? = пусто): Число
+  операция findIndex(predicate: операция(value: Число, index: Число, obj: Float64Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): Число
 
-  операция forEach(callbackfn: операция(value: Число, index: Число, array: Float64Array), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Число, index: Число, array: Float64Array), thisArg: /*(!) any */ Объект? = пусто)
 
   операция indexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
@@ -2308,7 +2308,7 @@
   защищено 
   length: Число
 
-  операция map(callbackfn: операция(value: Число, index: Число, array: Float64Array): Число, thisArg: /*(!) any */ Объект?? = пусто): Float64Array
+  операция map(callbackfn: операция(value: Число, index: Число, array: Float64Array): Число, thisArg: /*(!) any */ Объект? = пусто): Float64Array
 
   операция reduce(callbackfn: операция(previousValue: Число, currentValue: Число, currentIndex: Число, array: Float64Array): Число): Число
 
@@ -2328,9 +2328,9 @@
 
   операция slice(start: Число? = пусто, end: Число? = пусто): Float64Array
 
-  операция some(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): ДаНет
+  операция some(predicate: операция(value: Число, index: Число, array: Float64Array): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция sort(compareFn: операция(a: Число, b: Число): Число? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: Число, b: Число): Число)? = пусто): /*(!) this */ Объект?
 
   операция subarray(begin: Число? = пусто, end: Число? = пусто): Float64Array
 
@@ -2349,11 +2349,11 @@
   защищено 
   prototype: Float64Array
 
-  при создании(length: Число)/*(!) no_type */ Объект?
+  при создании(length: Число): /*(!) no_type */ Объект?
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike)/*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто)/*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2363,7 +2363,7 @@
 
   операция from(arrayLike: ArrayLike<Число>): Float64Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект?? = пусто): Float64Array
+  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Float64Array
 }
 
 
@@ -2377,207 +2377,205 @@
 
 /////////////////////////////
 
-внешнее
-/*(!) Intl */
+внешнее /*(!) Intl */
 {
-тип CollatorOptions = интерфейс
-{
-  usage: "sort" | "search" | пусто
+  тип CollatorOptions = интерфейс
+  {
+    usage: "sort" | "search" | пусто
 
-  localeMatcher: "lookup" | "best fit" | пусто
+    localeMatcher: "lookup" | "best fit" | пусто
 
-  numeric: ДаНет?
+    numeric: ДаНет?
 
-  caseFirst: "upper" | "lower" | "false" | пусто
+    caseFirst: "upper" | "lower" | "false" | пусто
 
-  sensitivity: "base" | "accent" | "case" | "variant" | пусто
+    sensitivity: "base" | "accent" | "case" | "variant" | пусто
 
-  collation: "big5han" | "compat" | "dict" | "direct" | "ducet" | "emoji" | "eor" | "gb2312" | "phonebk" | "phonetic" | "pinyin" | "reformed" | "searchjl" | "stroke" | "trad" | "unihan" | "zhuyin" | пусто
+    collation: "big5han" | "compat" | "dict" | "direct" | "ducet" | "emoji" | "eor" | "gb2312" | "phonebk" | "phonetic" | "pinyin" | "reformed" | "searchjl" | "stroke" | "trad" | "unihan" | "zhuyin" | пусто
 
-  ignorePunctuation: ДаНет?
-}
+    ignorePunctuation: ДаНет?
+  }
 
 
-тип ResolvedCollatorOptions = интерфейс
-{
-  locale: Текст
+  тип ResolvedCollatorOptions = интерфейс
+  {
+    locale: Текст
 
-  usage: Текст
+    usage: Текст
 
-  sensitivity: Текст
+    sensitivity: Текст
 
-  ignorePunctuation: ДаНет
+    ignorePunctuation: ДаНет
 
-  collation: Текст
+    collation: Текст
 
-  caseFirst: Текст
+    caseFirst: Текст
 
-  numeric: ДаНет
-}
+    numeric: ДаНет
+  }
 
 
-тип Collator = интерфейс
-{
-  операция compare(x: Текст, y: Текст): Число
+  тип Collator = интерфейс
+  {
+    операция compare(x: Текст, y: Текст): Число
 
-  операция resolvedOptions(): ResolvedCollatorOptions
-}
+    операция resolvedOptions(): ResolvedCollatorOptions
+  }
 
 
-/*(!) var */ Collator: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: CollatorOptions? = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: CollatorOptions): Collator*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: CollatorOptions? = пусто): Список<Текст> }
+  /*(!) var */ Collator: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: CollatorOptions? = пусто): /*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: CollatorOptions): Collator*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: CollatorOptions? = пусто): Список<Текст> }
 
 
-тип NumberFormatOptions = интерфейс
-{
-  localeMatcher: Текст?
+  тип NumberFormatOptions = интерфейс
+  {
+    localeMatcher: Текст?
 
-  style: Текст?
+    style: Текст?
 
-  currency: Текст?
+    currency: Текст?
 
-  currencySign: Текст?
+    currencySign: Текст?
 
-  useGrouping: ДаНет?
+    useGrouping: ДаНет?
 
-  minimumIntegerDigits: Число?
+    minimumIntegerDigits: Число?
 
-  minimumFractionDigits: Число?
+    minimumFractionDigits: Число?
 
-  maximumFractionDigits: Число?
+    maximumFractionDigits: Число?
 
-  minimumSignificantDigits: Число?
+    minimumSignificantDigits: Число?
 
-  maximumSignificantDigits: Число?
-}
+    maximumSignificantDigits: Число?
+  }
 
 
-тип ResolvedNumberFormatOptions = интерфейс
-{
-  locale: Текст
+  тип ResolvedNumberFormatOptions = интерфейс
+  {
+    locale: Текст
 
-  numberingSystem: Текст
+    numberingSystem: Текст
 
-  style: Текст
+    style: Текст
 
-  currency: Текст
+    currency: Текст
 
-  minimumIntegerDigits: Число
+    minimumIntegerDigits: Число
 
-  minimumFractionDigits: Число
+    minimumFractionDigits: Число
 
-  maximumFractionDigits: Число
+    maximumFractionDigits: Число
 
-  minimumSignificantDigits: Число
+    minimumSignificantDigits: Число
 
-  maximumSignificantDigits: Число
+    maximumSignificantDigits: Число
 
-  useGrouping: ДаНет
-}
+    useGrouping: ДаНет
+  }
 
 
-тип NumberFormat = интерфейс
-{
-  операция format(value: Число): Текст
+  тип NumberFormat = интерфейс
+  {
+    операция format(value: Число): Текст
 
-  операция resolvedOptions(): ResolvedNumberFormatOptions
-}
+    операция resolvedOptions(): ResolvedNumberFormatOptions
+  }
 
 
-/*(!) var */ NumberFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: NumberFormatOptions? = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: NumberFormatOptions): NumberFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: NumberFormatOptions? = пусто): Список<Текст>; защищено  prototype: NumberFormat }
+  /*(!) var */ NumberFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: NumberFormatOptions? = пусто): /*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: NumberFormatOptions): NumberFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: NumberFormatOptions? = пусто): Список<Текст>; защищено  prototype: NumberFormat }
 
 
-тип DateTimeFormatOptions = интерфейс
-{
-  localeMatcher: "best fit" | "lookup" | пусто
+  тип DateTimeFormatOptions = интерфейс
+  {
+    localeMatcher: "best fit" | "lookup" | пусто
 
-  weekday: "long" | "short" | "narrow" | пусто
+    weekday: "long" | "short" | "narrow" | пусто
 
-  era: "long" | "short" | "narrow" | пусто
+    era: "long" | "short" | "narrow" | пусто
 
-  year: "numeric" | "2-digit" | пусто
+    year: "numeric" | "2-digit" | пусто
 
-  month: "numeric" | "2-digit" | "long" | "short" | "narrow" | пусто
+    month: "numeric" | "2-digit" | "long" | "short" | "narrow" | пусто
 
-  day: "numeric" | "2-digit" | пусто
+    day: "numeric" | "2-digit" | пусто
 
-  hour: "numeric" | "2-digit" | пусто
+    hour: "numeric" | "2-digit" | пусто
 
-  minute: "numeric" | "2-digit" | пусто
+    minute: "numeric" | "2-digit" | пусто
 
-  second: "numeric" | "2-digit" | пусто
+    second: "numeric" | "2-digit" | пусто
 
-  timeZoneName: "short" | "long" | "shortOffset" | "longOffset" | "shortGeneric" | "longGeneric" | пусто
+    timeZoneName: "short" | "long" | "shortOffset" | "longOffset" | "shortGeneric" | "longGeneric" | пусто
 
-  formatMatcher: "best fit" | "basic" | пусто
+    formatMatcher: "best fit" | "basic" | пусто
 
-  hour12: ДаНет?
+    hour12: ДаНет?
 
-  timeZone: Текст?
-}
+    timeZone: Текст?
+  }
 
 
-тип ResolvedDateTimeFormatOptions = интерфейс
-{
-  locale: Текст
+  тип ResolvedDateTimeFormatOptions = интерфейс
+  {
+    locale: Текст
 
-  calendar: Текст
+    calendar: Текст
 
-  numberingSystem: Текст
+    numberingSystem: Текст
 
-  timeZone: Текст
+    timeZone: Текст
 
-  hour12: ДаНет
+    hour12: ДаНет
 
-  weekday: Текст
+    weekday: Текст
 
-  era: Текст
+    era: Текст
 
-  year: Текст
+    year: Текст
 
-  month: Текст
+    month: Текст
 
-  day: Текст
+    day: Текст
 
-  hour: Текст
+    hour: Текст
 
-  minute: Текст
+    minute: Текст
 
-  second: Текст
+    second: Текст
 
-  timeZoneName: Текст
-}
+    timeZoneName: Текст
+  }
 
 
-тип DateTimeFormat = интерфейс
-{
-  операция format(date: Date | Число | пусто = пусто): Текст
+  тип DateTimeFormat = интерфейс
+  {
+    операция format(date: Date | Число | пусто = пусто): Текст
 
-  операция resolvedOptions(): ResolvedDateTimeFormatOptions
-}
+    операция resolvedOptions(): ResolvedDateTimeFormatOptions
+  }
 
 
-/*(!) var */ DateTimeFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: DateTimeFormatOptions? = пусто)/*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: DateTimeFormatOptions): DateTimeFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: DateTimeFormatOptions? = пусто): Список<Текст>; защищено  prototype: DateTimeFormat }
-
+  /*(!) var */ DateTimeFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: DateTimeFormatOptions? = пусто): /*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: DateTimeFormatOptions): DateTimeFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: DateTimeFormatOptions? = пусто): Список<Текст>; защищено  prototype: DateTimeFormat }
 }
 
 тип String = интерфейс
 {
-  операция localeCompare(that: Текст, locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.CollatorOptions */ Объект?? = пусто): Число
+  операция localeCompare(that: Текст, locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.CollatorOptions */ Объект? = пусто): Число
 }
 
 
 тип Number = интерфейс
 {
-  операция toLocaleString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.NumberFormatOptions */ Объект?? = пусто): Текст
+  операция toLocaleString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.NumberFormatOptions */ Объект? = пусто): Текст
 }
 
 
 тип Date = интерфейс
 {
-  операция toLocaleString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект?? = пусто): Текст
+  операция toLocaleString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект? = пусто): Текст
 
-  операция toLocaleDateString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект?? = пусто): Текст
+  операция toLocaleDateString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект? = пусто): Текст
 
-  операция toLocaleTimeString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект?? = пусто): Текст
+  операция toLocaleTimeString(locales: Текст | Список<Текст> | пусто = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект? = пусто): Текст
 }
 

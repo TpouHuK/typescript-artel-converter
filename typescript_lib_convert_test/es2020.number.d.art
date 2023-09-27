@@ -2,6 +2,6 @@
 
 тип Number = интерфейс
 {
-  операция toLocaleString(locales: /*(!) Intl.LocalesArgument */ Объект?? = пусто, options: /*(!) Intl.NumberFormatOptions */ Объект?? = пусто): Текст
+  операция toLocaleString(locales: /*(!) Intl.LocalesArgument */ Объект? = пусто, options: /*(!) Intl.NumberFormatOptions */ Объект? = пусто): Текст
 }
 

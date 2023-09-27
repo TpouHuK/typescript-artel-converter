@@ -16,7 +16,7 @@
 
   операция return(value: TReturn | PromiseLike<TReturn> | пусто = пусто): Promise<IteratorResult<T, TReturn>>
 
-  операция throw(e: /*(!) any */ Объект?? = пусто): Promise<IteratorResult<T, TReturn>>
+  операция throw(e: /*(!) any */ Объект? = пусто): Promise<IteratorResult<T, TReturn>>
 }
 
 

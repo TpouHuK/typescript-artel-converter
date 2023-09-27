@@ -1,9 +1,7 @@
-внешнее
-/*(!) Intl */
+внешнее /*(!) Intl */
 {
-тип DateTimeFormatPartTypesRegistry = интерфейс
-{
-  unknown: /*(!) any */ Объект?
-}
-
+  тип DateTimeFormatPartTypesRegistry = интерфейс
+  {
+    unknown: /*(!) any */ Объект?
+  }
 }

@@ -1098,7 +1098,7 @@
 
   cancel: UnderlyingSourceCancelCallback
 
-  pull: операция(controller: ReadableByteStreamController): Ничего | PromiseLike<Ничего>
+  pull: операция(controller: ReadableByteStreamController): PromiseLike<Ничего>?
 
   start: операция(controller: ReadableByteStreamController): /*(!) any */ Объект?
 
@@ -1110,7 +1110,7 @@
 {
   cancel: UnderlyingSourceCancelCallback
 
-  pull: операция(controller: ReadableStreamDefaultController<R>): Ничего | PromiseLike<Ничего>
+  pull: операция(controller: ReadableStreamDefaultController<R>): PromiseLike<Ничего>?
 
   start: операция(controller: ReadableStreamDefaultController<R>): /*(!) any */ Объект?
 
@@ -1440,12 +1440,12 @@
   защищено 
   signal: AbortSignal
 
-  операция abort(reason: /*(!) any */ Объект?? = пусто)
+  операция abort(reason: /*(!) any */ Объект? = пусто)
 }
 
 
 внешнее
-/*(!) var */ AbortController: объект { prototype: AbortController; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ AbortController: объект { prototype: AbortController; при создании(): /*(!) no_type */ Объект? }
 
 
 тип AbortSignalEventMap = интерфейс
@@ -1465,7 +1465,7 @@
   защищено 
   aborted: ДаНет
 
-  onabort: операция(this: AbortSignal, ev: Event): /*(!) any */ Объект??
+  onabort: (операция(this: AbortSignal, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   reason: /*(!) any */ Объект?
@@ -1483,7 +1483,7 @@
 
 
 внешнее
-/*(!) var */ AbortSignal: объект { prototype: AbortSignal; при создании()/*(!) no_type */ Объект?; операция abort(reason: /*(!) any */ Объект?? = пусто): AbortSignal; операция timeout(milliseconds: Число): AbortSignal }
+/*(!) var */ AbortSignal: объект { prototype: AbortSignal; при создании(): /*(!) no_type */ Объект?; операция abort(reason: /*(!) any */ Объект? = пусто): AbortSignal; операция timeout(milliseconds: Число): AbortSignal }
 
 
 тип AbstractWorkerEventMap = интерфейс
@@ -1494,7 +1494,7 @@
 
 тип AbstractWorker = интерфейс
 {
-  onerror: операция(this: AbstractWorker, ev: ErrorEvent): /*(!) any */ Объект??
+  onerror: (операция(this: AbstractWorker, ev: ErrorEvent): /*(!) any */ Объект?)?
 
   операция addEventListener<K = /*(!) keyof AbstractWorkerEventMap */ Объект?>(type: K, listener: операция(this: AbstractWorker, ev: /*(!) AbstractWorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -1539,7 +1539,7 @@
 
 
 внешнее
-/*(!) var */ Blob: объект { prototype: Blob; при создании(blobParts: Список<BlobPart>? = пусто, options: BlobPropertyBag? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Blob: объект { prototype: Blob; при создании(blobParts: Список<BlobPart>? = пусто, options: BlobPropertyBag? = пусто): /*(!) no_type */ Объект? }
 
 
 тип Body = интерфейс
@@ -1577,9 +1577,9 @@
   защищено 
   name: Текст
 
-  onmessage: операция(this: BroadcastChannel, ev: MessageEvent): /*(!) any */ Объект??
+  onmessage: (операция(this: BroadcastChannel, ev: MessageEvent): /*(!) any */ Объект?)?
 
-  onmessageerror: операция(this: BroadcastChannel, ev: MessageEvent): /*(!) any */ Объект??
+  onmessageerror: (операция(this: BroadcastChannel, ev: MessageEvent): /*(!) any */ Объект?)?
 
   операция close()
 
@@ -1596,7 +1596,7 @@
 
 
 внешнее
-/*(!) var */ BroadcastChannel: объект { prototype: BroadcastChannel; при создании(name: Текст)/*(!) no_type */ Объект? }
+/*(!) var */ BroadcastChannel: объект { prototype: BroadcastChannel; при создании(name: Текст): /*(!) no_type */ Объект? }
 
 
 /**
@@ -1616,7 +1616,7 @@
 
 
 внешнее
-/*(!) var */ ByteLengthQueuingStrategy: объект { prototype: ByteLengthQueuingStrategy; при создании(init: QueuingStrategyInit)/*(!) no_type */ Объект? }
+/*(!) var */ ByteLengthQueuingStrategy: объект { prototype: ByteLengthQueuingStrategy; при создании(init: QueuingStrategyInit): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSImageValue) */
@@ -1628,7 +1628,7 @@
 
 
 внешнее
-/*(!) var */ CSSImageValue: объект { prototype: CSSImageValue; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ CSSImageValue: объект { prototype: CSSImageValue; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSKeywordValue) */
@@ -1640,7 +1640,7 @@
 
 
 внешнее
-/*(!) var */ CSSKeywordValue: объект { prototype: CSSKeywordValue; при создании(value: Текст)/*(!) no_type */ Объект? }
+/*(!) var */ CSSKeywordValue: объект { prototype: CSSKeywordValue; при создании(value: Текст): /*(!) no_type */ Объект? }
 
 
 тип CSSMathClamp = интерфейс
@@ -1657,7 +1657,7 @@
 
 
 внешнее
-/*(!) var */ CSSMathClamp: объект { prototype: CSSMathClamp; при создании(lower: CSSNumberish, value: CSSNumberish, upper: CSSNumberish)/*(!) no_type */ Объект? }
+/*(!) var */ CSSMathClamp: объект { prototype: CSSMathClamp; при создании(lower: CSSNumberish, value: CSSNumberish, upper: CSSNumberish): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathInvert) */
@@ -1670,7 +1670,7 @@
 
 
 внешнее
-/*(!) var */ CSSMathInvert: объект { prototype: CSSMathInvert; при создании(arg: CSSNumberish)/*(!) no_type */ Объект? }
+/*(!) var */ CSSMathInvert: объект { prototype: CSSMathInvert; при создании(arg: CSSNumberish): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathMax) */
@@ -1683,7 +1683,7 @@
 
 
 внешнее
-/*(!) var */ CSSMathMax: объект { prototype: CSSMathMax; #js.МассивПараметров при создании(args: Список<CSSNumberish>)/*(!) no_type */ Объект? }
+/*(!) var */ CSSMathMax: объект { prototype: CSSMathMax; #js.МассивПараметров при создании(args: Список<CSSNumberish>): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathMin) */
@@ -1696,7 +1696,7 @@
 
 
 внешнее
-/*(!) var */ CSSMathMin: объект { prototype: CSSMathMin; #js.МассивПараметров при создании(args: Список<CSSNumberish>)/*(!) no_type */ Объект? }
+/*(!) var */ CSSMathMin: объект { prototype: CSSMathMin; #js.МассивПараметров при создании(args: Список<CSSNumberish>): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathNegate) */
@@ -1709,7 +1709,7 @@
 
 
 внешнее
-/*(!) var */ CSSMathNegate: объект { prototype: CSSMathNegate; при создании(arg: CSSNumberish)/*(!) no_type */ Объект? }
+/*(!) var */ CSSMathNegate: объект { prototype: CSSMathNegate; при создании(arg: CSSNumberish): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathProduct) */
@@ -1722,7 +1722,7 @@
 
 
 внешнее
-/*(!) var */ CSSMathProduct: объект { prototype: CSSMathProduct; #js.МассивПараметров при создании(args: Список<CSSNumberish>)/*(!) no_type */ Объект? }
+/*(!) var */ CSSMathProduct: объект { prototype: CSSMathProduct; #js.МассивПараметров при создании(args: Список<CSSNumberish>): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathSum) */
@@ -1735,7 +1735,7 @@
 
 
 внешнее
-/*(!) var */ CSSMathSum: объект { prototype: CSSMathSum; #js.МассивПараметров при создании(args: Список<CSSNumberish>)/*(!) no_type */ Объект? }
+/*(!) var */ CSSMathSum: объект { prototype: CSSMathSum; #js.МассивПараметров при создании(args: Список<CSSNumberish>): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathValue) */
@@ -1748,7 +1748,7 @@
 
 
 внешнее
-/*(!) var */ CSSMathValue: объект { prototype: CSSMathValue; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ CSSMathValue: объект { prototype: CSSMathValue; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMatrixComponent) */
@@ -1760,7 +1760,7 @@
 
 
 внешнее
-/*(!) var */ CSSMatrixComponent: объект { prototype: CSSMatrixComponent; при создании(matrix: DOMMatrixReadOnly, options: CSSMatrixComponentOptions? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CSSMatrixComponent: объект { prototype: CSSMatrixComponent; при создании(matrix: DOMMatrixReadOnly, options: CSSMatrixComponentOptions? = пусто): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSNumericArray) */
@@ -1770,14 +1770,14 @@
   защищено 
   length: Число
 
-  операция forEach(callbackfn: операция(value: CSSNumericValue, key: Число, parent: CSSNumericArray), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: CSSNumericValue, key: Число, parent: CSSNumericArray), thisArg: /*(!) any */ Объект? = пусто)
 
   /*(!) [index: number]: CSSNumericValue*/
 }
 
 
 внешнее
-/*(!) var */ CSSNumericArray: объект { prototype: CSSNumericArray; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ CSSNumericArray: объект { prototype: CSSNumericArray; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSNumericValue) */
@@ -1815,7 +1815,7 @@
 
 
 внешнее
-/*(!) var */ CSSNumericValue: объект { prototype: CSSNumericValue; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ CSSNumericValue: объект { prototype: CSSNumericValue; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSPerspective) */
@@ -1827,7 +1827,7 @@
 
 
 внешнее
-/*(!) var */ CSSPerspective: объект { prototype: CSSPerspective; при создании(length: CSSPerspectiveValue)/*(!) no_type */ Объект? }
+/*(!) var */ CSSPerspective: объект { prototype: CSSPerspective; при создании(length: CSSPerspectiveValue): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSRotate) */
@@ -1845,7 +1845,7 @@
 
 
 внешнее
-/*(!) var */ CSSRotate: объект { prototype: CSSRotate; при создании(angle: CSSNumericValue)/*(!) no_type */ Объект?; при создании(x: CSSNumberish, y: CSSNumberish, z: CSSNumberish, angle: CSSNumericValue)/*(!) no_type */ Объект? }
+/*(!) var */ CSSRotate: объект { prototype: CSSRotate; при создании(angle: CSSNumericValue): /*(!) no_type */ Объект?; при создании(x: CSSNumberish, y: CSSNumberish, z: CSSNumberish, angle: CSSNumericValue): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSScale) */
@@ -1861,7 +1861,7 @@
 
 
 внешнее
-/*(!) var */ CSSScale: объект { prototype: CSSScale; при создании(x: CSSNumberish, y: CSSNumberish, z: CSSNumberish? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CSSScale: объект { prototype: CSSScale; при создании(x: CSSNumberish, y: CSSNumberish, z: CSSNumberish? = пусто): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSSkew) */
@@ -1875,7 +1875,7 @@
 
 
 внешнее
-/*(!) var */ CSSSkew: объект { prototype: CSSSkew; при создании(ax: CSSNumericValue, ay: CSSNumericValue)/*(!) no_type */ Объект? }
+/*(!) var */ CSSSkew: объект { prototype: CSSSkew; при создании(ax: CSSNumericValue, ay: CSSNumericValue): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSSkewX) */
@@ -1887,7 +1887,7 @@
 
 
 внешнее
-/*(!) var */ CSSSkewX: объект { prototype: CSSSkewX; при создании(ax: CSSNumericValue)/*(!) no_type */ Объект? }
+/*(!) var */ CSSSkewX: объект { prototype: CSSSkewX; при создании(ax: CSSNumericValue): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSSkewY) */
@@ -1899,7 +1899,7 @@
 
 
 внешнее
-/*(!) var */ CSSSkewY: объект { prototype: CSSSkewY; при создании(ay: CSSNumericValue)/*(!) no_type */ Объект? }
+/*(!) var */ CSSSkewY: объект { prototype: CSSSkewY; при создании(ay: CSSNumericValue): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSStyleValue) */
@@ -1911,7 +1911,7 @@
 
 
 внешнее
-/*(!) var */ CSSStyleValue: объект { prototype: CSSStyleValue; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ CSSStyleValue: объект { prototype: CSSStyleValue; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTransformComponent) */
@@ -1927,7 +1927,7 @@
 
 
 внешнее
-/*(!) var */ CSSTransformComponent: объект { prototype: CSSTransformComponent; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ CSSTransformComponent: объект { prototype: CSSTransformComponent; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTransformValue) */
@@ -1942,14 +1942,14 @@
 
   операция toMatrix(): DOMMatrix
 
-  операция forEach(callbackfn: операция(value: CSSTransformComponent, key: Число, parent: CSSTransformValue), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: CSSTransformComponent, key: Число, parent: CSSTransformValue), thisArg: /*(!) any */ Объект? = пусто)
 
   /*(!) [index: number]: CSSTransformComponent*/
 }
 
 
 внешнее
-/*(!) var */ CSSTransformValue: объект { prototype: CSSTransformValue; при создании(transforms: Список<CSSTransformComponent>)/*(!) no_type */ Объект? }
+/*(!) var */ CSSTransformValue: объект { prototype: CSSTransformValue; при создании(transforms: Список<CSSTransformComponent>): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTranslate) */
@@ -1965,7 +1965,7 @@
 
 
 внешнее
-/*(!) var */ CSSTranslate: объект { prototype: CSSTranslate; при создании(x: CSSNumericValue, y: CSSNumericValue, z: CSSNumericValue? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CSSTranslate: объект { prototype: CSSTranslate; при создании(x: CSSNumericValue, y: CSSNumericValue, z: CSSNumericValue? = пусто): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSUnitValue) */
@@ -1980,7 +1980,7 @@
 
 
 внешнее
-/*(!) var */ CSSUnitValue: объект { prototype: CSSUnitValue; при создании(value: Число, unit: Текст)/*(!) no_type */ Объект? }
+/*(!) var */ CSSUnitValue: объект { prototype: CSSUnitValue; при создании(value: Число, unit: Текст): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSUnparsedValue) */
@@ -1990,14 +1990,14 @@
   защищено 
   length: Число
 
-  операция forEach(callbackfn: операция(value: CSSUnparsedSegment, key: Число, parent: CSSUnparsedValue), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: CSSUnparsedSegment, key: Число, parent: CSSUnparsedValue), thisArg: /*(!) any */ Объект? = пусто)
 
   /*(!) [index: number]: CSSUnparsedSegment*/
 }
 
 
 внешнее
-/*(!) var */ CSSUnparsedValue: объект { prototype: CSSUnparsedValue; при создании(members: Список<CSSUnparsedSegment>)/*(!) no_type */ Объект? }
+/*(!) var */ CSSUnparsedValue: объект { prototype: CSSUnparsedValue; при создании(members: Список<CSSUnparsedSegment>): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSVariableReferenceValue) */
@@ -2012,7 +2012,7 @@
 
 
 внешнее
-/*(!) var */ CSSVariableReferenceValue: объект { prototype: CSSVariableReferenceValue; при создании(variable: Текст, fallback: CSSUnparsedValue? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CSSVariableReferenceValue: объект { prototype: CSSVariableReferenceValue; при создании(variable: Текст, fallback: CSSUnparsedValue? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -2041,7 +2041,7 @@
 
 
 внешнее
-/*(!) var */ Cache: объект { prototype: Cache; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ Cache: объект { prototype: Cache; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -2066,7 +2066,7 @@
 
 
 внешнее
-/*(!) var */ CacheStorage: объект { prototype: CacheStorage; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ CacheStorage: объект { prototype: CacheStorage; при создании(): /*(!) no_type */ Объект? }
 
 
 тип CanvasCompositing = интерфейс
@@ -2148,7 +2148,7 @@
 
 
 внешнее
-/*(!) var */ CanvasGradient: объект { prototype: CanvasGradient; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ CanvasGradient: объект { prototype: CanvasGradient; при создании(): /*(!) no_type */ Объект? }
 
 
 тип CanvasImageData = интерфейс
@@ -2228,7 +2228,7 @@
 
 
 внешнее
-/*(!) var */ CanvasPattern: объект { prototype: CanvasPattern; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ CanvasPattern: объект { prototype: CanvasPattern; при создании(): /*(!) no_type */ Объект? }
 
 
 тип CanvasRect = интерфейс
@@ -2334,7 +2334,7 @@
 
 
 внешнее
-/*(!) var */ Client: объект { prototype: Client; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ Client: объект { prototype: Client; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -2356,7 +2356,7 @@
 
 
 внешнее
-/*(!) var */ Clients: объект { prototype: Clients; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ Clients: объект { prototype: Clients; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -2379,7 +2379,7 @@
 
 
 внешнее
-/*(!) var */ CloseEvent: объект { prototype: CloseEvent; при создании(type: Текст, eventInitDict: CloseEventInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CloseEvent: объект { prototype: CloseEvent; при создании(type: Текст, eventInitDict: CloseEventInit? = пусто): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CompressionStream) */
@@ -2391,7 +2391,7 @@
 
 
 внешнее
-/*(!) var */ CompressionStream: объект { prototype: CompressionStream; при создании(format: CompressionFormat)/*(!) no_type */ Объект? }
+/*(!) var */ CompressionStream: объект { prototype: CompressionStream; при создании(format: CompressionFormat): /*(!) no_type */ Объект? }
 
 
 /**
@@ -2411,7 +2411,7 @@
 
 
 внешнее
-/*(!) var */ CountQueuingStrategy: объект { prototype: CountQueuingStrategy; при создании(init: QueuingStrategyInit)/*(!) no_type */ Объект? }
+/*(!) var */ CountQueuingStrategy: объект { prototype: CountQueuingStrategy; при создании(init: QueuingStrategyInit): /*(!) no_type */ Объект? }
 
 
 /**
@@ -2432,7 +2432,7 @@
 
 
 внешнее
-/*(!) var */ Crypto: объект { prototype: Crypto; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ Crypto: объект { prototype: Crypto; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -2459,7 +2459,7 @@
 
 
 внешнее
-/*(!) var */ CryptoKey: объект { prototype: CryptoKey; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ CryptoKey: объект { prototype: CryptoKey; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CustomEvent) */
@@ -2474,7 +2474,7 @@
 
 
 внешнее
-/*(!) var */ CustomEvent: объект { prototype: CustomEvent; при создании(type: Текст, eventInitDict: CustomEventInit<T>? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ CustomEvent: объект { prototype: CustomEvent; при создании(type: Текст, eventInitDict: CustomEventInit<T>? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -2572,7 +2572,7 @@
 
 
 внешнее
-/*(!) var */ DOMException: объект { prototype: DOMException; при создании(message: Текст? = пусто, name: Текст? = пусто)/*(!) no_type */ Объект?; защищено  INDEX_SIZE_ERR: 1; защищено  DOMSTRING_SIZE_ERR: 2; защищено  HIERARCHY_REQUEST_ERR: 3; защищено  WRONG_DOCUMENT_ERR: 4; защищено  INVALID_CHARACTER_ERR: 5; защищено  NO_DATA_ALLOWED_ERR: 6; защищено  NO_MODIFICATION_ALLOWED_ERR: 7; защищено  NOT_FOUND_ERR: 8; защищено  NOT_SUPPORTED_ERR: 9; защищено  INUSE_ATTRIBUTE_ERR: 10; защищено  INVALID_STATE_ERR: 11; защищено  SYNTAX_ERR: 12; защищено  INVALID_MODIFICATION_ERR: 13; защищено  NAMESPACE_ERR: 14; защищено  INVALID_ACCESS_ERR: 15; защищено  VALIDATION_ERR: 16; защищено  TYPE_MISMATCH_ERR: 17; защищено  SECURITY_ERR: 18; защищено  NETWORK_ERR: 19; защищено  ABORT_ERR: 20; защищено  URL_MISMATCH_ERR: 21; защищено  QUOTA_EXCEEDED_ERR: 22; защищено  TIMEOUT_ERR: 23; защищено  INVALID_NODE_TYPE_ERR: 24; защищено  DATA_CLONE_ERR: 25 }
+/*(!) var */ DOMException: объект { prototype: DOMException; при создании(message: Текст? = пусто, name: Текст? = пусто): /*(!) no_type */ Объект?; защищено  INDEX_SIZE_ERR: 1; защищено  DOMSTRING_SIZE_ERR: 2; защищено  HIERARCHY_REQUEST_ERR: 3; защищено  WRONG_DOCUMENT_ERR: 4; защищено  INVALID_CHARACTER_ERR: 5; защищено  NO_DATA_ALLOWED_ERR: 6; защищено  NO_MODIFICATION_ALLOWED_ERR: 7; защищено  NOT_FOUND_ERR: 8; защищено  NOT_SUPPORTED_ERR: 9; защищено  INUSE_ATTRIBUTE_ERR: 10; защищено  INVALID_STATE_ERR: 11; защищено  SYNTAX_ERR: 12; защищено  INVALID_MODIFICATION_ERR: 13; защищено  NAMESPACE_ERR: 14; защищено  INVALID_ACCESS_ERR: 15; защищено  VALIDATION_ERR: 16; защищено  TYPE_MISMATCH_ERR: 17; защищено  SECURITY_ERR: 18; защищено  NETWORK_ERR: 19; защищено  ABORT_ERR: 20; защищено  URL_MISMATCH_ERR: 21; защищено  QUOTA_EXCEEDED_ERR: 22; защищено  TIMEOUT_ERR: 23; защищено  INVALID_NODE_TYPE_ERR: 24; защищено  DATA_CLONE_ERR: 25 }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMMatrix) */
@@ -2648,7 +2648,7 @@
 
 
 внешнее
-/*(!) var */ DOMMatrix: объект { prototype: DOMMatrix; при создании(init: Текст | Список<Число> | пусто = пусто)/*(!) no_type */ Объект?; операция fromFloat32Array(array32: Float32Array): DOMMatrix; операция fromFloat64Array(array64: Float64Array): DOMMatrix; операция fromMatrix(other: DOMMatrixInit? = пусто): DOMMatrix }
+/*(!) var */ DOMMatrix: объект { prototype: DOMMatrix; при создании(init: Текст | Список<Число> | пусто = пусто): /*(!) no_type */ Объект?; операция fromFloat32Array(array32: Float32Array): DOMMatrix; операция fromFloat64Array(array64: Float64Array): DOMMatrix; операция fromMatrix(other: DOMMatrixInit? = пусто): DOMMatrix }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMMatrixReadOnly) */
@@ -2764,7 +2764,7 @@
 
 
 внешнее
-/*(!) var */ DOMMatrixReadOnly: объект { prototype: DOMMatrixReadOnly; при создании(init: Текст | Список<Число> | пусто = пусто)/*(!) no_type */ Объект?; операция fromFloat32Array(array32: Float32Array): DOMMatrixReadOnly; операция fromFloat64Array(array64: Float64Array): DOMMatrixReadOnly; операция fromMatrix(other: DOMMatrixInit? = пусто): DOMMatrixReadOnly }
+/*(!) var */ DOMMatrixReadOnly: объект { prototype: DOMMatrixReadOnly; при создании(init: Текст | Список<Число> | пусто = пусто): /*(!) no_type */ Объект?; операция fromFloat32Array(array32: Float32Array): DOMMatrixReadOnly; операция fromFloat64Array(array64: Float64Array): DOMMatrixReadOnly; операция fromMatrix(other: DOMMatrixInit? = пусто): DOMMatrixReadOnly }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMPoint) */
@@ -2782,7 +2782,7 @@
 
 
 внешнее
-/*(!) var */ DOMPoint: объект { prototype: DOMPoint; при создании(x: Число? = пусто, y: Число? = пусто, z: Число? = пусто, w: Число? = пусто)/*(!) no_type */ Объект?; операция fromPoint(other: DOMPointInit? = пусто): DOMPoint }
+/*(!) var */ DOMPoint: объект { prototype: DOMPoint; при создании(x: Число? = пусто, y: Число? = пусто, z: Число? = пусто, w: Число? = пусто): /*(!) no_type */ Объект?; операция fromPoint(other: DOMPointInit? = пусто): DOMPoint }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMPointReadOnly) */
@@ -2808,7 +2808,7 @@
 
 
 внешнее
-/*(!) var */ DOMPointReadOnly: объект { prototype: DOMPointReadOnly; при создании(x: Число? = пусто, y: Число? = пусто, z: Число? = пусто, w: Число? = пусто)/*(!) no_type */ Объект?; операция fromPoint(other: DOMPointInit? = пусто): DOMPointReadOnly }
+/*(!) var */ DOMPointReadOnly: объект { prototype: DOMPointReadOnly; при создании(x: Число? = пусто, y: Число? = пусто, z: Число? = пусто, w: Число? = пусто): /*(!) no_type */ Объект?; операция fromPoint(other: DOMPointInit? = пусто): DOMPointReadOnly }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMQuad) */
@@ -2834,7 +2834,7 @@
 
 
 внешнее
-/*(!) var */ DOMQuad: объект { prototype: DOMQuad; при создании(p1: DOMPointInit? = пусто, p2: DOMPointInit? = пусто, p3: DOMPointInit? = пусто, p4: DOMPointInit? = пусто)/*(!) no_type */ Объект?; операция fromQuad(other: DOMQuadInit? = пусто): DOMQuad; операция fromRect(other: DOMRectInit? = пусто): DOMQuad }
+/*(!) var */ DOMQuad: объект { prototype: DOMQuad; при создании(p1: DOMPointInit? = пусто, p2: DOMPointInit? = пусто, p3: DOMPointInit? = пусто, p4: DOMPointInit? = пусто): /*(!) no_type */ Объект?; операция fromQuad(other: DOMQuadInit? = пусто): DOMQuad; операция fromRect(other: DOMRectInit? = пусто): DOMQuad }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMRect) */
@@ -2852,7 +2852,7 @@
 
 
 внешнее
-/*(!) var */ DOMRect: объект { prototype: DOMRect; при создании(x: Число? = пусто, y: Число? = пусто, width: Число? = пусто, height: Число? = пусто)/*(!) no_type */ Объект?; операция fromRect(other: DOMRectInit? = пусто): DOMRect }
+/*(!) var */ DOMRect: объект { prototype: DOMRect; при создании(x: Число? = пусто, y: Число? = пусто, width: Число? = пусто, height: Число? = пусто): /*(!) no_type */ Объект?; операция fromRect(other: DOMRectInit? = пусто): DOMRect }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMRectReadOnly) */
@@ -2888,7 +2888,7 @@
 
 
 внешнее
-/*(!) var */ DOMRectReadOnly: объект { prototype: DOMRectReadOnly; при создании(x: Число? = пусто, y: Число? = пусто, width: Число? = пусто, height: Число? = пусто)/*(!) no_type */ Объект?; операция fromRect(other: DOMRectInit? = пусто): DOMRectReadOnly }
+/*(!) var */ DOMRectReadOnly: объект { prototype: DOMRectReadOnly; при создании(x: Число? = пусто, y: Число? = пусто, width: Число? = пусто, height: Число? = пусто): /*(!) no_type */ Объект?; операция fromRect(other: DOMRectInit? = пусто): DOMRectReadOnly }
 
 
 /**
@@ -2911,7 +2911,7 @@
 
 
 внешнее
-/*(!) var */ DOMStringList: объект { prototype: DOMStringList; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ DOMStringList: объект { prototype: DOMStringList; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DecompressionStream) */
@@ -2923,7 +2923,7 @@
 
 
 внешнее
-/*(!) var */ DecompressionStream: объект { prototype: DecompressionStream; при создании(format: CompressionFormat)/*(!) no_type */ Объект? }
+/*(!) var */ DecompressionStream: объект { prototype: DecompressionStream; при создании(format: CompressionFormat): /*(!) no_type */ Объект? }
 
 
 тип DedicatedWorkerGlobalScopeEventMap = интерфейс
@@ -2945,9 +2945,9 @@
   защищено 
   name: Текст
 
-  onmessage: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
+  onmessage: (операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект?)?
 
-  onmessageerror: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
+  onmessageerror: (операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект?)?
 
   операция close()
 
@@ -2966,7 +2966,7 @@
 
 
 внешнее
-/*(!) var */ DedicatedWorkerGlobalScope: объект { prototype: DedicatedWorkerGlobalScope; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ DedicatedWorkerGlobalScope: объект { prototype: DedicatedWorkerGlobalScope; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/EXT_blend_minmax) */
@@ -3156,7 +3156,7 @@
 
 
 внешнее
-/*(!) var */ EncodedVideoChunk: объект { prototype: EncodedVideoChunk; при создании(init: EncodedVideoChunkInit)/*(!) no_type */ Объект? }
+/*(!) var */ EncodedVideoChunk: объект { prototype: EncodedVideoChunk; при создании(init: EncodedVideoChunkInit): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3185,7 +3185,7 @@
 
 
 внешнее
-/*(!) var */ ErrorEvent: объект { prototype: ErrorEvent; при создании(type: Текст, eventInitDict: ErrorEventInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ErrorEvent: объект { prototype: ErrorEvent; при создании(type: Текст, eventInitDict: ErrorEventInit? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3258,7 +3258,7 @@
 
 
 внешнее
-/*(!) var */ Event: объект { prototype: Event; при создании(type: Текст, eventInitDict: EventInit? = пусто)/*(!) no_type */ Объект?; защищено  NONE: 0; защищено  CAPTURING_PHASE: 1; защищено  AT_TARGET: 2; защищено  BUBBLING_PHASE: 3 }
+/*(!) var */ Event: объект { prototype: Event; при создании(type: Текст, eventInitDict: EventInit? = пусто): /*(!) no_type */ Объект?; защищено  NONE: 0; защищено  CAPTURING_PHASE: 1; защищено  AT_TARGET: 2; защищено  BUBBLING_PHASE: 3 }
 
 
 тип EventListener = интерфейс
@@ -3287,11 +3287,11 @@
 
 тип EventSource = интерфейс
 {
-  onerror: операция(this: EventSource, ev: Event): /*(!) any */ Объект??
+  onerror: (операция(this: EventSource, ev: Event): /*(!) any */ Объект?)?
 
-  onmessage: операция(this: EventSource, ev: MessageEvent): /*(!) any */ Объект??
+  onmessage: (операция(this: EventSource, ev: MessageEvent): /*(!) any */ Объект?)?
 
-  onopen: операция(this: EventSource, ev: Event): /*(!) any */ Объект??
+  onopen: (операция(this: EventSource, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   readyState: Число
@@ -3328,7 +3328,7 @@
 
 
 внешнее
-/*(!) var */ EventSource: объект { prototype: EventSource; при создании(url: Текст | URL, eventSourceInitDict: EventSourceInit? = пусто)/*(!) no_type */ Объект?; защищено  CONNECTING: 0; защищено  OPEN: 1; защищено  CLOSED: 2 }
+/*(!) var */ EventSource: объект { prototype: EventSource; при создании(url: Текст | URL, eventSourceInitDict: EventSourceInit? = пусто): /*(!) no_type */ Объект?; защищено  CONNECTING: 0; защищено  OPEN: 1; защищено  CLOSED: 2 }
 
 
 /**
@@ -3348,7 +3348,7 @@
 
 
 внешнее
-/*(!) var */ EventTarget: объект { prototype: EventTarget; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ EventTarget: объект { prototype: EventTarget; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3364,7 +3364,7 @@
 
 
 внешнее
-/*(!) var */ ExtendableEvent: объект { prototype: ExtendableEvent; при создании(type: Текст, eventInitDict: ExtendableEventInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ExtendableEvent: объект { prototype: ExtendableEvent; при создании(type: Текст, eventInitDict: ExtendableEventInit? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3393,7 +3393,7 @@
 
 
 внешнее
-/*(!) var */ ExtendableMessageEvent: объект { prototype: ExtendableMessageEvent; при создании(type: Текст, eventInitDict: ExtendableMessageEventInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ExtendableMessageEvent: объект { prototype: ExtendableMessageEvent; при создании(type: Текст, eventInitDict: ExtendableMessageEventInit? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3424,7 +3424,7 @@
 
 
 внешнее
-/*(!) var */ FetchEvent: объект { prototype: FetchEvent; при создании(type: Текст, eventInitDict: FetchEventInit)/*(!) no_type */ Объект? }
+/*(!) var */ FetchEvent: объект { prototype: FetchEvent; при создании(type: Текст, eventInitDict: FetchEventInit): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3447,7 +3447,7 @@
 
 
 внешнее
-/*(!) var */ File: объект { prototype: File; при создании(fileBits: Список<BlobPart>, fileName: Текст, options: FilePropertyBag? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ File: объект { prototype: File; при создании(fileBits: Список<BlobPart>, fileName: Текст, options: FilePropertyBag? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3468,7 +3468,7 @@
 
 
 внешнее
-/*(!) var */ FileList: объект { prototype: FileList; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ FileList: объект { prototype: FileList; при создании(): /*(!) no_type */ Объект? }
 
 
 тип FileReaderEventMap = интерфейс
@@ -3498,17 +3498,17 @@
   защищено 
   error: DOMException?
 
-  onabort: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
+  onabort: (операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект?)?
 
-  onerror: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
+  onerror: (операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект?)?
 
-  onload: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
+  onload: (операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект?)?
 
-  onloadend: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
+  onloadend: (операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект?)?
 
-  onloadstart: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
+  onloadstart: (операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект?)?
 
-  onprogress: операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект??
+  onprogress: (операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект?)?
 
   защищено 
   readyState: /*(!) typeof FileReader.EMPTY */ Объект? | /*(!) typeof FileReader.LOADING */ Объект? | /*(!) typeof FileReader.DONE */ Объект?
@@ -3546,7 +3546,7 @@
 
 
 внешнее
-/*(!) var */ FileReader: объект { prototype: FileReader; при создании()/*(!) no_type */ Объект?; защищено  EMPTY: 0; защищено  LOADING: 1; защищено  DONE: 2 }
+/*(!) var */ FileReader: объект { prototype: FileReader; при создании(): /*(!) no_type */ Объект?; защищено  EMPTY: 0; защищено  LOADING: 1; защищено  DONE: 2 }
 
 
 /**
@@ -3568,7 +3568,7 @@
 
 
 внешнее
-/*(!) var */ FileReaderSync: объект { prototype: FileReaderSync; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ FileReaderSync: объект { prototype: FileReaderSync; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3593,7 +3593,7 @@
 
 
 внешнее
-/*(!) var */ FileSystemDirectoryHandle: объект { prototype: FileSystemDirectoryHandle; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ FileSystemDirectoryHandle: объект { prototype: FileSystemDirectoryHandle; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3616,7 +3616,7 @@
 
 
 внешнее
-/*(!) var */ FileSystemFileHandle: объект { prototype: FileSystemFileHandle; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ FileSystemFileHandle: объект { prototype: FileSystemFileHandle; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3638,7 +3638,7 @@
 
 
 внешнее
-/*(!) var */ FileSystemHandle: объект { prototype: FileSystemHandle; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ FileSystemHandle: объект { prototype: FileSystemHandle; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3664,7 +3664,7 @@
 
 
 внешнее
-/*(!) var */ FileSystemSyncAccessHandle: объект { prototype: FileSystemSyncAccessHandle; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ FileSystemSyncAccessHandle: объект { prototype: FileSystemSyncAccessHandle; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3684,7 +3684,7 @@
 
 
 внешнее
-/*(!) var */ FileSystemWritableFileStream: объект { prototype: FileSystemWritableFileStream; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ FileSystemWritableFileStream: объект { prototype: FileSystemWritableFileStream; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFace) */
@@ -3724,7 +3724,7 @@
 
 
 внешнее
-/*(!) var */ FontFace: объект { prototype: FontFace; при создании(family: Текст, source: Текст | BinaryData, descriptors: FontFaceDescriptors? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ FontFace: объект { prototype: FontFace; при создании(family: Текст, source: Текст | BinaryData, descriptors: FontFaceDescriptors? = пусто): /*(!) no_type */ Объект? }
 
 
 тип FontFaceSetEventMap = интерфейс
@@ -3741,11 +3741,11 @@
 
 тип FontFaceSet = интерфейс
 {
-  onloading: операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект??
+  onloading: (операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект?)?
 
-  onloadingdone: операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект??
+  onloadingdone: (операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект?)?
 
-  onloadingerror: операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект??
+  onloadingerror: (операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   ready: Promise<FontFaceSet>
@@ -3757,7 +3757,7 @@
 
   операция load(font: Текст, text: Текст? = пусто): Promise<Список<FontFace>>
 
-  операция forEach(callbackfn: операция(value: FontFace, key: FontFace, parent: FontFaceSet), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: FontFace, key: FontFace, parent: FontFaceSet), thisArg: /*(!) any */ Объект? = пусто)
 
   операция addEventListener<K = /*(!) keyof FontFaceSetEventMap */ Объект?>(type: K, listener: операция(this: FontFaceSet, ev: /*(!) FontFaceSetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -3770,7 +3770,7 @@
 
 
 внешнее
-/*(!) var */ FontFaceSet: объект { prototype: FontFaceSet; при создании(initialFaces: Список<FontFace>)/*(!) no_type */ Объект? }
+/*(!) var */ FontFaceSet: объект { prototype: FontFaceSet; при создании(initialFaces: Список<FontFace>): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSetLoadEvent) */
@@ -3783,7 +3783,7 @@
 
 
 внешнее
-/*(!) var */ FontFaceSetLoadEvent: объект { prototype: FontFaceSetLoadEvent; при создании(type: Текст, eventInitDict: FontFaceSetLoadEventInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ FontFaceSetLoadEvent: объект { prototype: FontFaceSetLoadEvent; при создании(type: Текст, eventInitDict: FontFaceSetLoadEventInit? = пусто): /*(!) no_type */ Объект? }
 
 
 тип FontFaceSource = интерфейс
@@ -3821,12 +3821,12 @@
 
   операция set(name: Текст, blobValue: Blob, filename: Текст? = пусто)
 
-  операция forEach(callbackfn: операция(value: FormDataEntryValue, key: Текст, parent: FormData), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: FormDataEntryValue, key: Текст, parent: FormData), thisArg: /*(!) any */ Объект? = пусто)
 }
 
 
 внешнее
-/*(!) var */ FormData: объект { prototype: FormData; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ FormData: объект { prototype: FormData; при создании(): /*(!) no_type */ Объект? }
 
 
 тип GenericTransformStream = интерфейс
@@ -3859,12 +3859,12 @@
 
   операция set(name: Текст, value: Текст)
 
-  операция forEach(callbackfn: операция(value: Текст, key: Текст, parent: Headers), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Текст, key: Текст, parent: Headers), thisArg: /*(!) any */ Объект? = пусто)
 }
 
 
 внешнее
-/*(!) var */ Headers: объект { prototype: Headers; при создании(init: HeadersInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Headers: объект { prototype: Headers; при создании(init: HeadersInit? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3903,7 +3903,7 @@
 
 
 внешнее
-/*(!) var */ IDBCursor: объект { prototype: IDBCursor; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ IDBCursor: объект { prototype: IDBCursor; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -3920,7 +3920,7 @@
 
 
 внешнее
-/*(!) var */ IDBCursorWithValue: объект { prototype: IDBCursorWithValue; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ IDBCursorWithValue: объект { prototype: IDBCursorWithValue; при создании(): /*(!) no_type */ Объект? }
 
 
 тип IDBDatabaseEventMap = интерфейс
@@ -3949,13 +3949,13 @@
   защищено 
   objectStoreNames: DOMStringList
 
-  onabort: операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект??
+  onabort: (операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект?)?
 
-  onclose: операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект??
+  onclose: (операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект?)?
 
-  onerror: операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект??
+  onerror: (операция(this: IDBDatabase, ev: Event): /*(!) any */ Объект?)?
 
-  onversionchange: операция(this: IDBDatabase, ev: IDBVersionChangeEvent): /*(!) any */ Объект??
+  onversionchange: (операция(this: IDBDatabase, ev: IDBVersionChangeEvent): /*(!) any */ Объект?)?
 
   защищено 
   version: Число
@@ -3979,7 +3979,7 @@
 
 
 внешнее
-/*(!) var */ IDBDatabase: объект { prototype: IDBDatabase; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ IDBDatabase: объект { prototype: IDBDatabase; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4001,7 +4001,7 @@
 
 
 внешнее
-/*(!) var */ IDBFactory: объект { prototype: IDBFactory; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ IDBFactory: объект { prototype: IDBFactory; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4043,7 +4043,7 @@
 
 
 внешнее
-/*(!) var */ IDBIndex: объект { prototype: IDBIndex; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ IDBIndex: объект { prototype: IDBIndex; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4071,7 +4071,7 @@
 
 
 внешнее
-/*(!) var */ IDBKeyRange: объект { prototype: IDBKeyRange; при создании()/*(!) no_type */ Объект?; операция bound(lower: /*(!) any */ Объект?, upper: /*(!) any */ Объект?, lowerOpen: ДаНет? = пусто, upperOpen: ДаНет? = пусто): IDBKeyRange; операция lowerBound(lower: /*(!) any */ Объект?, open: ДаНет? = пусто): IDBKeyRange; операция only(value: /*(!) any */ Объект?): IDBKeyRange; операция upperBound(upper: /*(!) any */ Объект?, open: ДаНет? = пусто): IDBKeyRange }
+/*(!) var */ IDBKeyRange: объект { prototype: IDBKeyRange; при создании(): /*(!) no_type */ Объект?; операция bound(lower: /*(!) any */ Объект?, upper: /*(!) any */ Объект?, lowerOpen: ДаНет? = пусто, upperOpen: ДаНет? = пусто): IDBKeyRange; операция lowerBound(lower: /*(!) any */ Объект?, open: ДаНет? = пусто): IDBKeyRange; операция only(value: /*(!) any */ Объект?): IDBKeyRange; операция upperBound(upper: /*(!) any */ Объект?, open: ДаНет? = пусто): IDBKeyRange }
 
 
 /**
@@ -4127,7 +4127,7 @@
 
 
 внешнее
-/*(!) var */ IDBObjectStore: объект { prototype: IDBObjectStore; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ IDBObjectStore: объект { prototype: IDBObjectStore; при создании(): /*(!) no_type */ Объект? }
 
 
 тип IDBOpenDBRequestEventMap = интерфейс
@@ -4146,9 +4146,9 @@
 
 тип IDBOpenDBRequest = интерфейс
 {
-  onblocked: операция(this: IDBOpenDBRequest, ev: IDBVersionChangeEvent): /*(!) any */ Объект??
+  onblocked: (операция(this: IDBOpenDBRequest, ev: IDBVersionChangeEvent): /*(!) any */ Объект?)?
 
-  onupgradeneeded: операция(this: IDBOpenDBRequest, ev: IDBVersionChangeEvent): /*(!) any */ Объект??
+  onupgradeneeded: (операция(this: IDBOpenDBRequest, ev: IDBVersionChangeEvent): /*(!) any */ Объект?)?
 
   операция addEventListener<K = /*(!) keyof IDBOpenDBRequestEventMap */ Объект?>(type: K, listener: операция(this: IDBOpenDBRequest, ev: /*(!) IDBOpenDBRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -4161,7 +4161,7 @@
 
 
 внешнее
-/*(!) var */ IDBOpenDBRequest: объект { prototype: IDBOpenDBRequest; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ IDBOpenDBRequest: объект { prototype: IDBOpenDBRequest; при создании(): /*(!) no_type */ Объект? }
 
 
 тип IDBRequestEventMap = интерфейс
@@ -4183,9 +4183,9 @@
   защищено 
   error: DOMException?
 
-  onerror: операция(this: IDBRequest<T>, ev: Event): /*(!) any */ Объект??
+  onerror: (операция(this: IDBRequest<T>, ev: Event): /*(!) any */ Объект?)?
 
-  onsuccess: операция(this: IDBRequest<T>, ev: Event): /*(!) any */ Объект??
+  onsuccess: (операция(this: IDBRequest<T>, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   readyState: IDBRequestReadyState
@@ -4210,7 +4210,7 @@
 
 
 внешнее
-/*(!) var */ IDBRequest: объект { prototype: IDBRequest; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ IDBRequest: объект { prototype: IDBRequest; при создании(): /*(!) no_type */ Объект? }
 
 
 тип IDBTransactionEventMap = интерфейс
@@ -4242,11 +4242,11 @@
   защищено 
   objectStoreNames: DOMStringList
 
-  onabort: операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект??
+  onabort: (операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект?)?
 
-  oncomplete: операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект??
+  oncomplete: (операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект?)?
 
-  onerror: операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект??
+  onerror: (операция(this: IDBTransaction, ev: Event): /*(!) any */ Объект?)?
 
   операция abort()
 
@@ -4265,7 +4265,7 @@
 
 
 внешнее
-/*(!) var */ IDBTransaction: объект { prototype: IDBTransaction; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ IDBTransaction: объект { prototype: IDBTransaction; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4285,7 +4285,7 @@
 
 
 внешнее
-/*(!) var */ IDBVersionChangeEvent: объект { prototype: IDBVersionChangeEvent; при создании(type: Текст, eventInitDict: IDBVersionChangeEventInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ IDBVersionChangeEvent: объект { prototype: IDBVersionChangeEvent; при создании(type: Текст, eventInitDict: IDBVersionChangeEventInit? = пусто): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ImageBitmap) */
@@ -4303,7 +4303,7 @@
 
 
 внешнее
-/*(!) var */ ImageBitmap: объект { prototype: ImageBitmap; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ ImageBitmap: объект { prototype: ImageBitmap; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ImageBitmapRenderingContext) */
@@ -4315,7 +4315,7 @@
 
 
 внешнее
-/*(!) var */ ImageBitmapRenderingContext: объект { prototype: ImageBitmapRenderingContext; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ ImageBitmapRenderingContext: объект { prototype: ImageBitmapRenderingContext; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4341,7 +4341,7 @@
 
 
 внешнее
-/*(!) var */ ImageData: объект { prototype: ImageData; при создании(sw: Число, sh: Число, settings: ImageDataSettings? = пусто)/*(!) no_type */ Объект?; при создании(data: Uint8ClampedArray, sw: Число, sh: Число? = пусто, settings: ImageDataSettings? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ImageData: объект { prototype: ImageData; при создании(sw: Число, sh: Число, settings: ImageDataSettings? = пусто): /*(!) no_type */ Объект?; при создании(data: Uint8ClampedArray, sw: Число, sh: Число? = пусто, settings: ImageDataSettings? = пусто): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/KHR_parallel_shader_compile) */
@@ -4370,7 +4370,7 @@
 
 
 внешнее
-/*(!) var */ Lock: объект { prototype: Lock; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ Lock: объект { prototype: Lock; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4390,7 +4390,7 @@
 
 
 внешнее
-/*(!) var */ LockManager: объект { prototype: LockManager; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ LockManager: объект { prototype: LockManager; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaCapabilities) */
@@ -4404,7 +4404,7 @@
 
 
 внешнее
-/*(!) var */ MediaCapabilities: объект { prototype: MediaCapabilities; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ MediaCapabilities: объект { prototype: MediaCapabilities; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4424,7 +4424,7 @@
 
 
 внешнее
-/*(!) var */ MessageChannel: объект { prototype: MessageChannel; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ MessageChannel: объект { prototype: MessageChannel; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4450,12 +4450,12 @@
   защищено 
   source: MessageEventSource?
 
-  операция initMessageEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, data: /*(!) any */ Объект?? = пусто, origin: Текст? = пусто, lastEventId: Текст? = пусто, source: MessageEventSource? = пусто, ports: Список<MessagePort>? = пусто)
+  операция initMessageEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, data: /*(!) any */ Объект? = пусто, origin: Текст? = пусто, lastEventId: Текст? = пусто, source: MessageEventSource? = пусто, ports: Список<MessagePort>? = пусто)
 }
 
 
 внешнее
-/*(!) var */ MessageEvent: объект { prototype: MessageEvent; при создании(type: Текст, eventInitDict: MessageEventInit<T>? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ MessageEvent: объект { prototype: MessageEvent; при создании(type: Текст, eventInitDict: MessageEventInit<T>? = пусто): /*(!) no_type */ Объект? }
 
 
 тип MessagePortEventMap = интерфейс
@@ -4474,9 +4474,9 @@
 
 тип MessagePort = интерфейс
 {
-  onmessage: операция(this: MessagePort, ev: MessageEvent): /*(!) any */ Объект??
+  onmessage: (операция(this: MessagePort, ev: MessageEvent): /*(!) any */ Объект?)?
 
-  onmessageerror: операция(this: MessagePort, ev: MessageEvent): /*(!) any */ Объект??
+  onmessageerror: (операция(this: MessagePort, ev: MessageEvent): /*(!) any */ Объект?)?
 
   операция close()
 
@@ -4497,7 +4497,7 @@
 
 
 внешнее
-/*(!) var */ MessagePort: объект { prototype: MessagePort; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ MessagePort: объект { prototype: MessagePort; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4519,7 +4519,7 @@
 
 
 внешнее
-/*(!) var */ NavigationPreloadManager: объект { prototype: NavigationPreloadManager; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ NavigationPreloadManager: объект { prototype: NavigationPreloadManager; при создании(): /*(!) no_type */ Объект? }
 
 
 /** Available only in secure contexts. */
@@ -4631,13 +4631,13 @@
   защищено 
   lang: Текст
 
-  onclick: операция(this: Notification, ev: Event): /*(!) any */ Объект??
+  onclick: (операция(this: Notification, ev: Event): /*(!) any */ Объект?)?
 
-  onclose: операция(this: Notification, ev: Event): /*(!) any */ Объект??
+  onclose: (операция(this: Notification, ev: Event): /*(!) any */ Объект?)?
 
-  onerror: операция(this: Notification, ev: Event): /*(!) any */ Объект??
+  onerror: (операция(this: Notification, ev: Event): /*(!) any */ Объект?)?
 
-  onshow: операция(this: Notification, ev: Event): /*(!) any */ Объект??
+  onshow: (операция(this: Notification, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   silent: ДаНет?
@@ -4661,7 +4661,7 @@
 
 
 внешнее
-/*(!) var */ Notification: объект { prototype: Notification; при создании(title: Текст, options: NotificationOptions? = пусто)/*(!) no_type */ Объект?; защищено  permission: NotificationPermission }
+/*(!) var */ Notification: объект { prototype: Notification; при создании(title: Текст, options: NotificationOptions? = пусто): /*(!) no_type */ Объект?; защищено  permission: NotificationPermission }
 
 
 /**
@@ -4681,7 +4681,7 @@
 
 
 внешнее
-/*(!) var */ NotificationEvent: объект { prototype: NotificationEvent; при создании(type: Текст, eventInitDict: NotificationEventInit)/*(!) no_type */ Объект? }
+/*(!) var */ NotificationEvent: объект { prototype: NotificationEvent; при создании(type: Текст, eventInitDict: NotificationEventInit): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/OES_draw_buffers_indexed) */
@@ -4837,23 +4837,23 @@
 {
   height: Число
 
-  oncontextlost: операция(this: OffscreenCanvas, ev: Event): /*(!) any */ Объект??
+  oncontextlost: (операция(this: OffscreenCanvas, ev: Event): /*(!) any */ Объект?)?
 
-  oncontextrestored: операция(this: OffscreenCanvas, ev: Event): /*(!) any */ Объект??
+  oncontextrestored: (операция(this: OffscreenCanvas, ev: Event): /*(!) any */ Объект?)?
 
   width: Число
 
   операция convertToBlob(options: ImageEncodeOptions? = пусто): Promise<Blob>
 
-  операция getContext(contextId: "2d", options: /*(!) any */ Объект?? = пусто): OffscreenCanvasRenderingContext2D?
+  операция getContext(contextId: "2d", options: /*(!) any */ Объект? = пусто): OffscreenCanvasRenderingContext2D?
 
-  операция getContext(contextId: "bitmaprenderer", options: /*(!) any */ Объект?? = пусто): ImageBitmapRenderingContext?
+  операция getContext(contextId: "bitmaprenderer", options: /*(!) any */ Объект? = пусто): ImageBitmapRenderingContext?
 
-  операция getContext(contextId: "webgl", options: /*(!) any */ Объект?? = пусто): WebGLRenderingContext?
+  операция getContext(contextId: "webgl", options: /*(!) any */ Объект? = пусто): WebGLRenderingContext?
 
-  операция getContext(contextId: "webgl2", options: /*(!) any */ Объект?? = пусто): WebGL2RenderingContext?
+  операция getContext(contextId: "webgl2", options: /*(!) any */ Объект? = пусто): WebGL2RenderingContext?
 
-  операция getContext(contextId: OffscreenRenderingContextId, options: /*(!) any */ Объект?? = пусто): OffscreenRenderingContext?
+  операция getContext(contextId: OffscreenRenderingContextId, options: /*(!) any */ Объект? = пусто): OffscreenRenderingContext?
 
   операция transferToImageBitmap(): ImageBitmap
 
@@ -4868,7 +4868,7 @@
 
 
 внешнее
-/*(!) var */ OffscreenCanvas: объект { prototype: OffscreenCanvas; при создании(width: Число, height: Число)/*(!) no_type */ Объект? }
+/*(!) var */ OffscreenCanvas: объект { prototype: OffscreenCanvas; при создании(width: Число, height: Число): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/OffscreenCanvasRenderingContext2D) */
@@ -4883,7 +4883,7 @@
 
 
 внешнее
-/*(!) var */ OffscreenCanvasRenderingContext2D: объект { prototype: OffscreenCanvasRenderingContext2D; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ OffscreenCanvasRenderingContext2D: объект { prototype: OffscreenCanvasRenderingContext2D; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4899,7 +4899,7 @@
 
 
 внешнее
-/*(!) var */ Path2D: объект { prototype: Path2D; при создании(path: Path2D | Текст | пусто = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Path2D: объект { prototype: Path2D; при создании(path: Path2D | Текст | пусто = пусто): /*(!) no_type */ Объект? }
 
 
 тип PerformanceEventMap = интерфейс
@@ -4916,7 +4916,7 @@
 
 тип Performance = интерфейс
 {
-  onresourcetimingbufferfull: операция(this: Performance, ev: Event): /*(!) any */ Объект??
+  onresourcetimingbufferfull: (операция(this: Performance, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   timeOrigin: DOMHighResTimeStamp
@@ -4954,7 +4954,7 @@
 
 
 внешнее
-/*(!) var */ Performance: объект { prototype: Performance; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ Performance: объект { prototype: Performance; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4982,7 +4982,7 @@
 
 
 внешнее
-/*(!) var */ PerformanceEntry: объект { prototype: PerformanceEntry; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ PerformanceEntry: объект { prototype: PerformanceEntry; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -4999,7 +4999,7 @@
 
 
 внешнее
-/*(!) var */ PerformanceMark: объект { prototype: PerformanceMark; при создании(markName: Текст, markOptions: PerformanceMarkOptions? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ PerformanceMark: объект { prototype: PerformanceMark; при создании(markName: Текст, markOptions: PerformanceMarkOptions? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -5016,7 +5016,7 @@
 
 
 внешнее
-/*(!) var */ PerformanceMeasure: объект { prototype: PerformanceMeasure; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ PerformanceMeasure: объект { prototype: PerformanceMeasure; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceObserver) */
@@ -5032,7 +5032,7 @@
 
 
 внешнее
-/*(!) var */ PerformanceObserver: объект { prototype: PerformanceObserver; при создании(callback: PerformanceObserverCallback)/*(!) no_type */ Объект?; защищено  supportedEntryTypes: ReadonlyArray<Текст> }
+/*(!) var */ PerformanceObserver: объект { prototype: PerformanceObserver; при создании(callback: PerformanceObserverCallback): /*(!) no_type */ Объект?; защищено  supportedEntryTypes: ReadonlyArray<Текст> }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceObserverEntryList) */
@@ -5048,7 +5048,7 @@
 
 
 внешнее
-/*(!) var */ PerformanceObserverEntryList: объект { prototype: PerformanceObserverEntryList; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ PerformanceObserverEntryList: объект { prototype: PerformanceObserverEntryList; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -5118,7 +5118,7 @@
 
 
 внешнее
-/*(!) var */ PerformanceResourceTiming: объект { prototype: PerformanceResourceTiming; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ PerformanceResourceTiming: объект { prototype: PerformanceResourceTiming; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceServerTiming) */
@@ -5139,7 +5139,7 @@
 
 
 внешнее
-/*(!) var */ PerformanceServerTiming: объект { prototype: PerformanceServerTiming; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ PerformanceServerTiming: объект { prototype: PerformanceServerTiming; при создании(): /*(!) no_type */ Объект? }
 
 
 тип PermissionStatusEventMap = интерфейс
@@ -5155,7 +5155,7 @@
   защищено 
   name: Текст
 
-  onchange: операция(this: PermissionStatus, ev: Event): /*(!) any */ Объект??
+  onchange: (операция(this: PermissionStatus, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   state: PermissionState
@@ -5171,7 +5171,7 @@
 
 
 внешнее
-/*(!) var */ PermissionStatus: объект { prototype: PermissionStatus; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ PermissionStatus: объект { prototype: PermissionStatus; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Permissions) */
@@ -5183,7 +5183,7 @@
 
 
 внешнее
-/*(!) var */ Permissions: объект { prototype: Permissions; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ Permissions: объект { prototype: Permissions; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -5209,7 +5209,7 @@
 
 
 внешнее
-/*(!) var */ ProgressEvent: объект { prototype: ProgressEvent; при создании(type: Текст, eventInitDict: ProgressEventInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ProgressEvent: объект { prototype: ProgressEvent; при создании(type: Текст, eventInitDict: ProgressEventInit? = пусто): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PromiseRejectionEvent) */
@@ -5225,7 +5225,7 @@
 
 
 внешнее
-/*(!) var */ PromiseRejectionEvent: объект { prototype: PromiseRejectionEvent; при создании(type: Текст, eventInitDict: PromiseRejectionEventInit)/*(!) no_type */ Объект? }
+/*(!) var */ PromiseRejectionEvent: объект { prototype: PromiseRejectionEvent; при создании(type: Текст, eventInitDict: PromiseRejectionEventInit): /*(!) no_type */ Объект? }
 
 
 /**
@@ -5243,7 +5243,7 @@
 
 
 внешнее
-/*(!) var */ PushEvent: объект { prototype: PushEvent; при создании(type: Текст, eventInitDict: PushEventInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ PushEvent: объект { prototype: PushEvent; при создании(type: Текст, eventInitDict: PushEventInit? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -5264,7 +5264,7 @@
 
 
 внешнее
-/*(!) var */ PushManager: объект { prototype: PushManager; при создании()/*(!) no_type */ Объект?; защищено  supportedContentEncodings: ReadonlyArray<Текст> }
+/*(!) var */ PushManager: объект { prototype: PushManager; при создании(): /*(!) no_type */ Объект?; защищено  supportedContentEncodings: ReadonlyArray<Текст> }
 
 
 /**
@@ -5287,7 +5287,7 @@
 
 
 внешнее
-/*(!) var */ PushMessageData: объект { prototype: PushMessageData; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ PushMessageData: объект { prototype: PushMessageData; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -5317,7 +5317,7 @@
 
 
 внешнее
-/*(!) var */ PushSubscription: объект { prototype: PushSubscription; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ PushSubscription: объект { prototype: PushSubscription; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -5337,7 +5337,7 @@
 
 
 внешнее
-/*(!) var */ PushSubscriptionOptions: объект { prototype: PushSubscriptionOptions; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ PushSubscriptionOptions: объект { prototype: PushSubscriptionOptions; при создании(): /*(!) no_type */ Объект? }
 
 
 тип RTCEncodedAudioFrame = интерфейс
@@ -5352,7 +5352,7 @@
 
 
 внешнее
-/*(!) var */ RTCEncodedAudioFrame: объект { prototype: RTCEncodedAudioFrame; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ RTCEncodedAudioFrame: объект { prototype: RTCEncodedAudioFrame; при создании(): /*(!) no_type */ Объект? }
 
 
 тип RTCEncodedVideoFrame = интерфейс
@@ -5370,7 +5370,7 @@
 
 
 внешнее
-/*(!) var */ RTCEncodedVideoFrame: объект { prototype: RTCEncodedVideoFrame; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ RTCEncodedVideoFrame: объект { prototype: RTCEncodedVideoFrame; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableByteStreamController) */
@@ -5387,12 +5387,12 @@
 
   операция enqueue(chunk: ArrayBufferView)
 
-  операция error(e: /*(!) any */ Объект?? = пусто)
+  операция error(e: /*(!) any */ Объект? = пусто)
 }
 
 
 внешнее
-/*(!) var */ ReadableByteStreamController: объект { prototype: ReadableByteStreamController; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ ReadableByteStreamController: объект { prototype: ReadableByteStreamController; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -5406,7 +5406,7 @@
   защищено 
   locked: ДаНет
 
-  операция cancel(reason: /*(!) any */ Объект?? = пусто): Promise<Ничего>
+  операция cancel(reason: /*(!) any */ Объект? = пусто): Promise<Ничего>
 
   операция getReader(options: объект { mode: "byob" }): ReadableStreamBYOBReader
 
@@ -5423,7 +5423,7 @@
 
 
 внешнее
-/*(!) var */ ReadableStream: объект { prototype: ReadableStream; при создании(underlyingSource: UnderlyingByteSource, strategy: объект { highWaterMark: Число }? = пусто)/*(!) no_type */ Объект?; при создании(underlyingSource: UnderlyingDefaultSource<R>, strategy: QueuingStrategy<R>? = пусто)/*(!) no_type */ Объект?; при создании(underlyingSource: UnderlyingSource<R>? = пусто, strategy: QueuingStrategy<R>? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ReadableStream: объект { prototype: ReadableStream; при создании(underlyingSource: UnderlyingByteSource, strategy: объект { highWaterMark: Число }? = пусто): /*(!) no_type */ Объект?; при создании(underlyingSource: UnderlyingDefaultSource<R>, strategy: QueuingStrategy<R>? = пусто): /*(!) no_type */ Объект?; при создании(underlyingSource: UnderlyingSource<R>? = пусто, strategy: QueuingStrategy<R>? = пусто): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBReader) */
@@ -5437,7 +5437,7 @@
 
 
 внешнее
-/*(!) var */ ReadableStreamBYOBReader: объект { prototype: ReadableStreamBYOBReader; при создании(stream: ReadableStream)/*(!) no_type */ Объект? }
+/*(!) var */ ReadableStreamBYOBReader: объект { prototype: ReadableStreamBYOBReader; при создании(stream: ReadableStream): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBRequest) */
@@ -5454,7 +5454,7 @@
 
 
 внешнее
-/*(!) var */ ReadableStreamBYOBRequest: объект { prototype: ReadableStreamBYOBRequest; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ ReadableStreamBYOBRequest: объект { prototype: ReadableStreamBYOBRequest; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultController) */
@@ -5468,12 +5468,12 @@
 
   операция enqueue(chunk: R? = пусто)
 
-  операция error(e: /*(!) any */ Объект?? = пусто)
+  операция error(e: /*(!) any */ Объект? = пусто)
 }
 
 
 внешнее
-/*(!) var */ ReadableStreamDefaultController: объект { prototype: ReadableStreamDefaultController; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ ReadableStreamDefaultController: объект { prototype: ReadableStreamDefaultController; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultReader) */
@@ -5487,7 +5487,7 @@
 
 
 внешнее
-/*(!) var */ ReadableStreamDefaultReader: объект { prototype: ReadableStreamDefaultReader; при создании(stream: ReadableStream<R>)/*(!) no_type */ Объект? }
+/*(!) var */ ReadableStreamDefaultReader: объект { prototype: ReadableStreamDefaultReader; при создании(stream: ReadableStream<R>): /*(!) no_type */ Объект? }
 
 
 тип ReadableStreamGenericReader = интерфейс
@@ -5495,7 +5495,7 @@
   защищено 
   closed: Promise<пусто>
 
-  операция cancel(reason: /*(!) any */ Объект?? = пусто): Promise<Ничего>
+  операция cancel(reason: /*(!) any */ Объект? = пусто): Promise<Ничего>
 }
 
 
@@ -5517,7 +5517,7 @@
 
 
 внешнее
-/*(!) var */ Report: объект { prototype: Report; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ Report: объект { prototype: Report; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReportBody) */
@@ -5529,7 +5529,7 @@
 
 
 внешнее
-/*(!) var */ ReportBody: объект { prototype: ReportBody; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ ReportBody: объект { prototype: ReportBody; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReportingObserver) */
@@ -5545,7 +5545,7 @@
 
 
 внешнее
-/*(!) var */ ReportingObserver: объект { prototype: ReportingObserver; при создании(callback: ReportingObserverCallback, options: ReportingObserverOptions? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ ReportingObserver: объект { prototype: ReportingObserver; при создании(callback: ReportingObserverCallback, options: ReportingObserverOptions? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -5600,7 +5600,7 @@
 
 
 внешнее
-/*(!) var */ Request: объект { prototype: Request; при создании(input: RequestInfo | URL, init: RequestInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Request: объект { prototype: Request; при создании(input: RequestInfo | URL, init: RequestInit? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -5637,7 +5637,7 @@
 
 
 внешнее
-/*(!) var */ Response: объект { prototype: Response; при создании(body: BodyInit? = пусто, init: ResponseInit? = пусто)/*(!) no_type */ Объект?; операция error(): Response; операция json(data: /*(!) any */ Объект?, init: ResponseInit? = пусто): Response; операция redirect(url: Текст | URL, status: Число? = пусто): Response }
+/*(!) var */ Response: объект { prototype: Response; при создании(body: BodyInit? = пусто, init: ResponseInit? = пусто): /*(!) no_type */ Объект?; операция error(): Response; операция json(data: /*(!) any */ Объект?, init: ResponseInit? = пусто): Response; операция redirect(url: Текст | URL, status: Число? = пусто): Response }
 
 
 /**
@@ -5687,7 +5687,7 @@
 
 
 внешнее
-/*(!) var */ SecurityPolicyViolationEvent: объект { prototype: SecurityPolicyViolationEvent; при создании(type: Текст, eventInitDict: SecurityPolicyViolationEventInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ SecurityPolicyViolationEvent: объект { prototype: SecurityPolicyViolationEvent; при создании(type: Текст, eventInitDict: SecurityPolicyViolationEventInit? = пусто): /*(!) no_type */ Объект? }
 
 
 тип ServiceWorkerEventMap = интерфейс
@@ -5705,7 +5705,7 @@
 
 тип ServiceWorker = интерфейс
 {
-  onstatechange: операция(this: ServiceWorker, ev: Event): /*(!) any */ Объект??
+  onstatechange: (операция(this: ServiceWorker, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   scriptURL: Текст
@@ -5728,7 +5728,7 @@
 
 
 внешнее
-/*(!) var */ ServiceWorker: объект { prototype: ServiceWorker; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ ServiceWorker: объект { prototype: ServiceWorker; при создании(): /*(!) no_type */ Объект? }
 
 
 тип ServiceWorkerContainerEventMap = интерфейс
@@ -5753,11 +5753,11 @@
   защищено 
   controller: ServiceWorker?
 
-  oncontrollerchange: операция(this: ServiceWorkerContainer, ev: Event): /*(!) any */ Объект??
+  oncontrollerchange: (операция(this: ServiceWorkerContainer, ev: Event): /*(!) any */ Объект?)?
 
-  onmessage: операция(this: ServiceWorkerContainer, ev: MessageEvent): /*(!) any */ Объект??
+  onmessage: (операция(this: ServiceWorkerContainer, ev: MessageEvent): /*(!) any */ Объект?)?
 
-  onmessageerror: операция(this: ServiceWorkerContainer, ev: MessageEvent): /*(!) any */ Объект??
+  onmessageerror: (операция(this: ServiceWorkerContainer, ev: MessageEvent): /*(!) any */ Объект?)?
 
   защищено 
   ready: Promise<ServiceWorkerRegistration>
@@ -5781,7 +5781,7 @@
 
 
 внешнее
-/*(!) var */ ServiceWorkerContainer: объект { prototype: ServiceWorkerContainer; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ ServiceWorkerContainer: объект { prototype: ServiceWorkerContainer; при создании(): /*(!) no_type */ Объект? }
 
 
 тип ServiceWorkerGlobalScopeEventMap = интерфейс
@@ -5817,23 +5817,23 @@
   защищено 
   clients: Clients
 
-  onactivate: операция(this: ServiceWorkerGlobalScope, ev: ExtendableEvent): /*(!) any */ Объект??
+  onactivate: (операция(this: ServiceWorkerGlobalScope, ev: ExtendableEvent): /*(!) any */ Объект?)?
 
-  onfetch: операция(this: ServiceWorkerGlobalScope, ev: FetchEvent): /*(!) any */ Объект??
+  onfetch: (операция(this: ServiceWorkerGlobalScope, ev: FetchEvent): /*(!) any */ Объект?)?
 
-  oninstall: операция(this: ServiceWorkerGlobalScope, ev: ExtendableEvent): /*(!) any */ Объект??
+  oninstall: (операция(this: ServiceWorkerGlobalScope, ev: ExtendableEvent): /*(!) any */ Объект?)?
 
-  onmessage: операция(this: ServiceWorkerGlobalScope, ev: ExtendableMessageEvent): /*(!) any */ Объект??
+  onmessage: (операция(this: ServiceWorkerGlobalScope, ev: ExtendableMessageEvent): /*(!) any */ Объект?)?
 
-  onmessageerror: операция(this: ServiceWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
+  onmessageerror: (операция(this: ServiceWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект?)?
 
-  onnotificationclick: операция(this: ServiceWorkerGlobalScope, ev: NotificationEvent): /*(!) any */ Объект??
+  onnotificationclick: (операция(this: ServiceWorkerGlobalScope, ev: NotificationEvent): /*(!) any */ Объект?)?
 
-  onnotificationclose: операция(this: ServiceWorkerGlobalScope, ev: NotificationEvent): /*(!) any */ Объект??
+  onnotificationclose: (операция(this: ServiceWorkerGlobalScope, ev: NotificationEvent): /*(!) any */ Объект?)?
 
-  onpush: операция(this: ServiceWorkerGlobalScope, ev: PushEvent): /*(!) any */ Объект??
+  onpush: (операция(this: ServiceWorkerGlobalScope, ev: PushEvent): /*(!) any */ Объект?)?
 
-  onpushsubscriptionchange: операция(this: ServiceWorkerGlobalScope, ev: Event): /*(!) any */ Объект??
+  onpushsubscriptionchange: (операция(this: ServiceWorkerGlobalScope, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   registration: ServiceWorkerRegistration
@@ -5854,7 +5854,7 @@
 
 
 внешнее
-/*(!) var */ ServiceWorkerGlobalScope: объект { prototype: ServiceWorkerGlobalScope; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ ServiceWorkerGlobalScope: объект { prototype: ServiceWorkerGlobalScope; при создании(): /*(!) no_type */ Объект? }
 
 
 тип ServiceWorkerRegistrationEventMap = интерфейс
@@ -5881,7 +5881,7 @@
   защищено 
   navigationPreload: NavigationPreloadManager
 
-  onupdatefound: операция(this: ServiceWorkerRegistration, ev: Event): /*(!) any */ Объект??
+  onupdatefound: (операция(this: ServiceWorkerRegistration, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   pushManager: PushManager
@@ -5914,7 +5914,7 @@
 
 
 внешнее
-/*(!) var */ ServiceWorkerRegistration: объект { prototype: ServiceWorkerRegistration; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ ServiceWorkerRegistration: объект { prototype: ServiceWorkerRegistration; при создании(): /*(!) no_type */ Объект? }
 
 
 тип SharedWorkerGlobalScopeEventMap = интерфейс
@@ -5930,7 +5930,7 @@
   защищено 
   name: Текст
 
-  onconnect: операция(this: SharedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
+  onconnect: (операция(this: SharedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект?)?
 
   операция close()
 
@@ -5945,7 +5945,7 @@
 
 
 внешнее
-/*(!) var */ SharedWorkerGlobalScope: объект { prototype: SharedWorkerGlobalScope; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ SharedWorkerGlobalScope: объект { prototype: SharedWorkerGlobalScope; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -5965,7 +5965,7 @@
 
 
 внешнее
-/*(!) var */ StorageManager: объект { prototype: StorageManager; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ StorageManager: объект { prototype: StorageManager; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/StylePropertyMapReadOnly) */
@@ -5981,12 +5981,12 @@
 
   операция has(property: Текст): ДаНет
 
-  операция forEach(callbackfn: операция(value: Список<CSSStyleValue>, key: Текст, parent: StylePropertyMapReadOnly), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Список<CSSStyleValue>, key: Текст, parent: StylePropertyMapReadOnly), thisArg: /*(!) any */ Объект? = пусто)
 }
 
 
 внешнее
-/*(!) var */ StylePropertyMapReadOnly: объект { prototype: StylePropertyMapReadOnly; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ StylePropertyMapReadOnly: объект { prototype: StylePropertyMapReadOnly; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -6037,7 +6037,7 @@
 
 
 внешнее
-/*(!) var */ SubtleCrypto: объект { prototype: SubtleCrypto; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ SubtleCrypto: объект { prototype: SubtleCrypto; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -6053,7 +6053,7 @@
 
 
 внешнее
-/*(!) var */ TextDecoder: объект { prototype: TextDecoder; при создании(label: Текст? = пусто, options: TextDecoderOptions? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ TextDecoder: объект { prototype: TextDecoder; при создании(label: Текст? = пусто, options: TextDecoderOptions? = пусто): /*(!) no_type */ Объект? }
 
 
 тип TextDecoderCommon = интерфейс
@@ -6082,7 +6082,7 @@
 
 
 внешнее
-/*(!) var */ TextDecoderStream: объект { prototype: TextDecoderStream; при создании(label: Текст? = пусто, options: TextDecoderOptions? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ TextDecoderStream: объект { prototype: TextDecoderStream; при создании(label: Текст? = пусто, options: TextDecoderOptions? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -6100,7 +6100,7 @@
 
 
 внешнее
-/*(!) var */ TextEncoder: объект { prototype: TextEncoder; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ TextEncoder: объект { prototype: TextEncoder; при создании(): /*(!) no_type */ Объект? }
 
 
 тип TextEncoderCommon = интерфейс
@@ -6123,7 +6123,7 @@
 
 
 внешнее
-/*(!) var */ TextEncoderStream: объект { prototype: TextEncoderStream; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ TextEncoderStream: объект { prototype: TextEncoderStream; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -6158,7 +6158,7 @@
 
 
 внешнее
-/*(!) var */ TextMetrics: объект { prototype: TextMetrics; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ TextMetrics: объект { prototype: TextMetrics; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/TransformStream) */
@@ -6174,7 +6174,7 @@
 
 
 внешнее
-/*(!) var */ TransformStream: объект { prototype: TransformStream; при создании(transformer: Transformer<I, O>? = пусто, writableStrategy: QueuingStrategy<I>? = пусто, readableStrategy: QueuingStrategy<O>? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ TransformStream: объект { prototype: TransformStream; при создании(transformer: Transformer<I, O>? = пусто, writableStrategy: QueuingStrategy<I>? = пусто, readableStrategy: QueuingStrategy<O>? = пусто): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/TransformStreamDefaultController) */
@@ -6186,14 +6186,14 @@
 
   операция enqueue(chunk: O? = пусто)
 
-  операция error(reason: /*(!) any */ Объект?? = пусто)
+  операция error(reason: /*(!) any */ Объект? = пусто)
 
   операция terminate()
 }
 
 
 внешнее
-/*(!) var */ TransformStreamDefaultController: объект { prototype: TransformStreamDefaultController; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ TransformStreamDefaultController: объект { prototype: TransformStreamDefaultController; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -6237,7 +6237,7 @@
 
 
 внешнее
-/*(!) var */ URL: объект { prototype: URL; при создании(url: Текст | URL, base: Текст | URL | пусто = пусто)/*(!) no_type */ Объект?; операция canParse(url: Текст | URL, base: Текст? = пусто): ДаНет; операция createObjectURL(obj: Blob): Текст; операция revokeObjectURL(url: Текст) }
+/*(!) var */ URL: объект { prototype: URL; при создании(url: Текст | URL, base: Текст | URL | пусто = пусто): /*(!) no_type */ Объект?; операция canParse(url: Текст | URL, base: Текст? = пусто): ДаНет; операция createObjectURL(obj: Blob): Текст; операция revokeObjectURL(url: Текст) }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/URLSearchParams) */
@@ -6263,12 +6263,12 @@
 
   операция toString(): Текст
 
-  операция forEach(callbackfn: операция(value: Текст, key: Текст, parent: URLSearchParams), thisArg: /*(!) any */ Объект?? = пусто)
+  операция forEach(callbackfn: операция(value: Текст, key: Текст, parent: URLSearchParams), thisArg: /*(!) any */ Объект? = пусто)
 }
 
 
 внешнее
-/*(!) var */ URLSearchParams: объект { prototype: URLSearchParams; при создании(init: Список<Список<Текст>> | Record<Текст, Текст> | Текст | URLSearchParams | пусто = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ URLSearchParams: объект { prototype: URLSearchParams; при создании(init: Список<Список<Текст>> | Record<Текст, Текст> | Текст | URLSearchParams | пусто = пусто): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/VideoColorSpace) */
@@ -6292,7 +6292,7 @@
 
 
 внешнее
-/*(!) var */ VideoColorSpace: объект { prototype: VideoColorSpace; при создании(init: VideoColorSpaceInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ VideoColorSpace: объект { prototype: VideoColorSpace; при создании(init: VideoColorSpaceInit? = пусто): /*(!) no_type */ Объект? }
 
 
 тип VideoDecoderEventMap = интерфейс
@@ -6312,7 +6312,7 @@
   защищено 
   decodeQueueSize: Число
 
-  ondequeue: операция(this: VideoDecoder, ev: Event): /*(!) any */ Объект??
+  ondequeue: (операция(this: VideoDecoder, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   state: CodecState
@@ -6338,7 +6338,7 @@
 
 
 внешнее
-/*(!) var */ VideoDecoder: объект { prototype: VideoDecoder; при создании(init: VideoDecoderInit)/*(!) no_type */ Объект?; операция isConfigSupported(config: VideoDecoderConfig): Promise<VideoDecoderSupport> }
+/*(!) var */ VideoDecoder: объект { prototype: VideoDecoder; при создании(init: VideoDecoderInit): /*(!) no_type */ Объект?; операция isConfigSupported(config: VideoDecoderConfig): Promise<VideoDecoderSupport> }
 
 
 тип VideoEncoderEventMap = интерфейс
@@ -6358,7 +6358,7 @@
   защищено 
   encodeQueueSize: Число
 
-  ondequeue: операция(this: VideoEncoder, ev: Event): /*(!) any */ Объект??
+  ondequeue: (операция(this: VideoEncoder, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   state: CodecState
@@ -6384,7 +6384,7 @@
 
 
 внешнее
-/*(!) var */ VideoEncoder: объект { prototype: VideoEncoder; при создании(init: VideoEncoderInit)/*(!) no_type */ Объект?; операция isConfigSupported(config: VideoEncoderConfig): Promise<VideoEncoderSupport> }
+/*(!) var */ VideoEncoder: объект { prototype: VideoEncoder; при создании(init: VideoEncoderInit): /*(!) no_type */ Объект?; операция isConfigSupported(config: VideoEncoderConfig): Promise<VideoEncoderSupport> }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/VideoFrame) */
@@ -6432,7 +6432,7 @@
 
 
 внешнее
-/*(!) var */ VideoFrame: объект { prototype: VideoFrame; при создании(image: CanvasImageSource, init: VideoFrameInit? = пусто)/*(!) no_type */ Объект?; при создании(data: BufferSource, init: VideoFrameBufferInit)/*(!) no_type */ Объект? }
+/*(!) var */ VideoFrame: объект { prototype: VideoFrame; при создании(image: CanvasImageSource, init: VideoFrameInit? = пусто): /*(!) no_type */ Объект?; при создании(data: BufferSource, init: VideoFrameBufferInit): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_color_buffer_float) */
@@ -6825,7 +6825,7 @@
 
 
 внешнее
-/*(!) var */ WebGL2RenderingContext: объект { prototype: WebGL2RenderingContext; при создании()/*(!) no_type */ Объект?; защищено  READ_BUFFER: 0x0C02; защищено  UNPACK_ROW_LENGTH: 0x0CF2; защищено  UNPACK_SKIP_ROWS: 0x0CF3; защищено  UNPACK_SKIP_PIXELS: 0x0CF4; защищено  PACK_ROW_LENGTH: 0x0D02; защищено  PACK_SKIP_ROWS: 0x0D03; защищено  PACK_SKIP_PIXELS: 0x0D04; защищено  COLOR: 0x1800; защищено  DEPTH: 0x1801; защищено  STENCIL: 0x1802; защищено  RED: 0x1903; защищено  RGB8: 0x8051; защищено  RGBA8: 0x8058; защищено  RGB10_A2: 0x8059; защищено  TEXTURE_BINDING_3D: 0x806A; защищено  UNPACK_SKIP_IMAGES: 0x806D; защищено  UNPACK_IMAGE_HEIGHT: 0x806E; защищено  TEXTURE_3D: 0x806F; защищено  TEXTURE_WRAP_R: 0x8072; защищено  MAX_3D_TEXTURE_SIZE: 0x8073; защищено  UNSIGNED_INT_2_10_10_10_REV: 0x8368; защищено  MAX_ELEMENTS_VERTICES: 0x80E8; защищено  MAX_ELEMENTS_INDICES: 0x80E9; защищено  TEXTURE_MIN_LOD: 0x813A; защищено  TEXTURE_MAX_LOD: 0x813B; защищено  TEXTURE_BASE_LEVEL: 0x813C; защищено  TEXTURE_MAX_LEVEL: 0x813D; защищено  MIN: 0x8007; защищено  MAX: 0x8008; защищено  DEPTH_COMPONENT24: 0x81A6; защищено  MAX_TEXTURE_LOD_BIAS: 0x84FD; защищено  TEXTURE_COMPARE_MODE: 0x884C; защищено  TEXTURE_COMPARE_FUNC: 0x884D; защищено  CURRENT_QUERY: 0x8865; защищено  QUERY_RESULT: 0x8866; защищено  QUERY_RESULT_AVAILABLE: 0x8867; защищено  STREAM_READ: 0x88E1; защищено  STREAM_COPY: 0x88E2; защищено  STATIC_READ: 0x88E5; защищено  STATIC_COPY: 0x88E6; защищено  DYNAMIC_READ: 0x88E9; защищено  DYNAMIC_COPY: 0x88EA; защищено  MAX_DRAW_BUFFERS: 0x8824; защищено  DRAW_BUFFER0: 0x8825; защищено  DRAW_BUFFER1: 0x8826; защищено  DRAW_BUFFER2: 0x8827; защищено  DRAW_BUFFER3: 0x8828; защищено  DRAW_BUFFER4: 0x8829; защищено  DRAW_BUFFER5: 0x882A; защищено  DRAW_BUFFER6: 0x882B; защищено  DRAW_BUFFER7: 0x882C; защищено  DRAW_BUFFER8: 0x882D; защищено  DRAW_BUFFER9: 0x882E; защищено  DRAW_BUFFER10: 0x882F; защищено  DRAW_BUFFER11: 0x8830; защищено  DRAW_BUFFER12: 0x8831; защищено  DRAW_BUFFER13: 0x8832; защищено  DRAW_BUFFER14: 0x8833; защищено  DRAW_BUFFER15: 0x8834; защищено  MAX_FRAGMENT_UNIFORM_COMPONENTS: 0x8B49; защищено  MAX_VERTEX_UNIFORM_COMPONENTS: 0x8B4A; защищено  SAMPLER_3D: 0x8B5F; защищено  SAMPLER_2D_SHADOW: 0x8B62; защищено  FRAGMENT_SHADER_DERIVATIVE_HINT: 0x8B8B; защищено  PIXEL_PACK_BUFFER: 0x88EB; защищено  PIXEL_UNPACK_BUFFER: 0x88EC; защищено  PIXEL_PACK_BUFFER_BINDING: 0x88ED; защищено  PIXEL_UNPACK_BUFFER_BINDING: 0x88EF; защищено  FLOAT_MAT2x3: 0x8B65; защищено  FLOAT_MAT2x4: 0x8B66; защищено  FLOAT_MAT3x2: 0x8B67; защищено  FLOAT_MAT3x4: 0x8B68; защищено  FLOAT_MAT4x2: 0x8B69; защищено  FLOAT_MAT4x3: 0x8B6A; защищено  SRGB: 0x8C40; защищено  SRGB8: 0x8C41; защищено  SRGB8_ALPHA8: 0x8C43; защищено  COMPARE_REF_TO_TEXTURE: 0x884E; защищено  RGBA32F: 0x8814; защищено  RGB32F: 0x8815; защищено  RGBA16F: 0x881A; защищено  RGB16F: 0x881B; защищено  VERTEX_ATTRIB_ARRAY_INTEGER: 0x88FD; защищено  MAX_ARRAY_TEXTURE_LAYERS: 0x88FF; защищено  MIN_PROGRAM_TEXEL_OFFSET: 0x8904; защищено  MAX_PROGRAM_TEXEL_OFFSET: 0x8905; защищено  MAX_VARYING_COMPONENTS: 0x8B4B; защищено  TEXTURE_2D_ARRAY: 0x8C1A; защищено  TEXTURE_BINDING_2D_ARRAY: 0x8C1D; защищено  R11F_G11F_B10F: 0x8C3A; защищено  UNSIGNED_INT_10F_11F_11F_REV: 0x8C3B; защищено  RGB9_E5: 0x8C3D; защищено  UNSIGNED_INT_5_9_9_9_REV: 0x8C3E; защищено  TRANSFORM_FEEDBACK_BUFFER_MODE: 0x8C7F; защищено  MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS: 0x8C80; защищено  TRANSFORM_FEEDBACK_VARYINGS: 0x8C83; защищено  TRANSFORM_FEEDBACK_BUFFER_START: 0x8C84; защищено  TRANSFORM_FEEDBACK_BUFFER_SIZE: 0x8C85; защищено  TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN: 0x8C88; защищено  RASTERIZER_DISCARD: 0x8C89; защищено  MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS: 0x8C8A; защищено  MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS: 0x8C8B; защищено  INTERLEAVED_ATTRIBS: 0x8C8C; защищено  SEPARATE_ATTRIBS: 0x8C8D; защищено  TRANSFORM_FEEDBACK_BUFFER: 0x8C8E; защищено  TRANSFORM_FEEDBACK_BUFFER_BINDING: 0x8C8F; защищено  RGBA32UI: 0x8D70; защищено  RGB32UI: 0x8D71; защищено  RGBA16UI: 0x8D76; защищено  RGB16UI: 0x8D77; защищено  RGBA8UI: 0x8D7C; защищено  RGB8UI: 0x8D7D; защищено  RGBA32I: 0x8D82; защищено  RGB32I: 0x8D83; защищено  RGBA16I: 0x8D88; защищено  RGB16I: 0x8D89; защищено  RGBA8I: 0x8D8E; защищено  RGB8I: 0x8D8F; защищено  RED_INTEGER: 0x8D94; защищено  RGB_INTEGER: 0x8D98; защищено  RGBA_INTEGER: 0x8D99; защищено  SAMPLER_2D_ARRAY: 0x8DC1; защищено  SAMPLER_2D_ARRAY_SHADOW: 0x8DC4; защищено  SAMPLER_CUBE_SHADOW: 0x8DC5; защищено  UNSIGNED_INT_VEC2: 0x8DC6; защищено  UNSIGNED_INT_VEC3: 0x8DC7; защищено  UNSIGNED_INT_VEC4: 0x8DC8; защищено  INT_SAMPLER_2D: 0x8DCA; защищено  INT_SAMPLER_3D: 0x8DCB; защищено  INT_SAMPLER_CUBE: 0x8DCC; защищено  INT_SAMPLER_2D_ARRAY: 0x8DCF; защищено  UNSIGNED_INT_SAMPLER_2D: 0x8DD2; защищено  UNSIGNED_INT_SAMPLER_3D: 0x8DD3; защищено  UNSIGNED_INT_SAMPLER_CUBE: 0x8DD4; защищено  UNSIGNED_INT_SAMPLER_2D_ARRAY: 0x8DD7; защищено  DEPTH_COMPONENT32F: 0x8CAC; защищено  DEPTH32F_STENCIL8: 0x8CAD; защищено  FLOAT_32_UNSIGNED_INT_24_8_REV: 0x8DAD; защищено  FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING: 0x8210; защищено  FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE: 0x8211; защищено  FRAMEBUFFER_ATTACHMENT_RED_SIZE: 0x8212; защищено  FRAMEBUFFER_ATTACHMENT_GREEN_SIZE: 0x8213; защищено  FRAMEBUFFER_ATTACHMENT_BLUE_SIZE: 0x8214; защищено  FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE: 0x8215; защищено  FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE: 0x8216; защищено  FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE: 0x8217; защищено  FRAMEBUFFER_DEFAULT: 0x8218; защищено  UNSIGNED_INT_24_8: 0x84FA; защищено  DEPTH24_STENCIL8: 0x88F0; защищено  UNSIGNED_NORMALIZED: 0x8C17; защищено  DRAW_FRAMEBUFFER_BINDING: 0x8CA6; защищено  READ_FRAMEBUFFER: 0x8CA8; защищено  DRAW_FRAMEBUFFER: 0x8CA9; защищено  READ_FRAMEBUFFER_BINDING: 0x8CAA; защищено  RENDERBUFFER_SAMPLES: 0x8CAB; защищено  FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER: 0x8CD4; защищено  MAX_COLOR_ATTACHMENTS: 0x8CDF; защищено  COLOR_ATTACHMENT1: 0x8CE1; защищено  COLOR_ATTACHMENT2: 0x8CE2; защищено  COLOR_ATTACHMENT3: 0x8CE3; защищено  COLOR_ATTACHMENT4: 0x8CE4; защищено  COLOR_ATTACHMENT5: 0x8CE5; защищено  COLOR_ATTACHMENT6: 0x8CE6; защищено  COLOR_ATTACHMENT7: 0x8CE7; защищено  COLOR_ATTACHMENT8: 0x8CE8; защищено  COLOR_ATTACHMENT9: 0x8CE9; защищено  COLOR_ATTACHMENT10: 0x8CEA; защищено  COLOR_ATTACHMENT11: 0x8CEB; защищено  COLOR_ATTACHMENT12: 0x8CEC; защищено  COLOR_ATTACHMENT13: 0x8CED; защищено  COLOR_ATTACHMENT14: 0x8CEE; защищено  COLOR_ATTACHMENT15: 0x8CEF; защищено  FRAMEBUFFER_INCOMPLETE_MULTISAMPLE: 0x8D56; защищено  MAX_SAMPLES: 0x8D57; защищено  HALF_FLOAT: 0x140B; защищено  RG: 0x8227; защищено  RG_INTEGER: 0x8228; защищено  R8: 0x8229; защищено  RG8: 0x822B; защищено  R16F: 0x822D; защищено  R32F: 0x822E; защищено  RG16F: 0x822F; защищено  RG32F: 0x8230; защищено  R8I: 0x8231; защищено  R8UI: 0x8232; защищено  R16I: 0x8233; защищено  R16UI: 0x8234; защищено  R32I: 0x8235; защищено  R32UI: 0x8236; защищено  RG8I: 0x8237; защищено  RG8UI: 0x8238; защищено  RG16I: 0x8239; защищено  RG16UI: 0x823A; защищено  RG32I: 0x823B; защищено  RG32UI: 0x823C; защищено  VERTEX_ARRAY_BINDING: 0x85B5; защищено  R8_SNORM: 0x8F94; защищено  RG8_SNORM: 0x8F95; защищено  RGB8_SNORM: 0x8F96; защищено  RGBA8_SNORM: 0x8F97; защищено  SIGNED_NORMALIZED: 0x8F9C; защищено  COPY_READ_BUFFER: 0x8F36; защищено  COPY_WRITE_BUFFER: 0x8F37; защищено  COPY_READ_BUFFER_BINDING: 0x8F36; защищено  COPY_WRITE_BUFFER_BINDING: 0x8F37; защищено  UNIFORM_BUFFER: 0x8A11; защищено  UNIFORM_BUFFER_BINDING: 0x8A28; защищено  UNIFORM_BUFFER_START: 0x8A29; защищено  UNIFORM_BUFFER_SIZE: 0x8A2A; защищено  MAX_VERTEX_UNIFORM_BLOCKS: 0x8A2B; защищено  MAX_FRAGMENT_UNIFORM_BLOCKS: 0x8A2D; защищено  MAX_COMBINED_UNIFORM_BLOCKS: 0x8A2E; защищено  MAX_UNIFORM_BUFFER_BINDINGS: 0x8A2F; защищено  MAX_UNIFORM_BLOCK_SIZE: 0x8A30; защищено  MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS: 0x8A31; защищено  MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS: 0x8A33; защищено  UNIFORM_BUFFER_OFFSET_ALIGNMENT: 0x8A34; защищено  ACTIVE_UNIFORM_BLOCKS: 0x8A36; защищено  UNIFORM_TYPE: 0x8A37; защищено  UNIFORM_SIZE: 0x8A38; защищено  UNIFORM_BLOCK_INDEX: 0x8A3A; защищено  UNIFORM_OFFSET: 0x8A3B; защищено  UNIFORM_ARRAY_STRIDE: 0x8A3C; защищено  UNIFORM_MATRIX_STRIDE: 0x8A3D; защищено  UNIFORM_IS_ROW_MAJOR: 0x8A3E; защищено  UNIFORM_BLOCK_BINDING: 0x8A3F; защищено  UNIFORM_BLOCK_DATA_SIZE: 0x8A40; защищено  UNIFORM_BLOCK_ACTIVE_UNIFORMS: 0x8A42; защищено  UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES: 0x8A43; защищено  UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER: 0x8A44; защищено  UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER: 0x8A46; защищено  INVALID_INDEX: 0xFFFFFFFF; защищено  MAX_VERTEX_OUTPUT_COMPONENTS: 0x9122; защищено  MAX_FRAGMENT_INPUT_COMPONENTS: 0x9125; защищено  MAX_SERVER_WAIT_TIMEOUT: 0x9111; защищено  OBJECT_TYPE: 0x9112; защищено  SYNC_CONDITION: 0x9113; защищено  SYNC_STATUS: 0x9114; защищено  SYNC_FLAGS: 0x9115; защищено  SYNC_FENCE: 0x9116; защищено  SYNC_GPU_COMMANDS_COMPLETE: 0x9117; защищено  UNSIGNALED: 0x9118; защищено  SIGNALED: 0x9119; защищено  ALREADY_SIGNALED: 0x911A; защищено  TIMEOUT_EXPIRED: 0x911B; защищено  CONDITION_SATISFIED: 0x911C; защищено  WAIT_FAILED: 0x911D; защищено  SYNC_FLUSH_COMMANDS_BIT: 0x00000001; защищено  VERTEX_ATTRIB_ARRAY_DIVISOR: 0x88FE; защищено  ANY_SAMPLES_PASSED: 0x8C2F; защищено  ANY_SAMPLES_PASSED_CONSERVATIVE: 0x8D6A; защищено  SAMPLER_BINDING: 0x8919; защищено  RGB10_A2UI: 0x906F; защищено  INT_2_10_10_10_REV: 0x8D9F; защищено  TRANSFORM_FEEDBACK: 0x8E22; защищено  TRANSFORM_FEEDBACK_PAUSED: 0x8E23; защищено  TRANSFORM_FEEDBACK_ACTIVE: 0x8E24; защищено  TRANSFORM_FEEDBACK_BINDING: 0x8E25; защищено  TEXTURE_IMMUTABLE_FORMAT: 0x912F; защищено  MAX_ELEMENT_INDEX: 0x8D6B; защищено  TEXTURE_IMMUTABLE_LEVELS: 0x82DF; защищено  TIMEOUT_IGNORED: -1; защищено  MAX_CLIENT_WAIT_TIMEOUT_WEBGL: 0x9247; защищено  DEPTH_BUFFER_BIT: 0x00000100; защищено  STENCIL_BUFFER_BIT: 0x00000400; защищено  COLOR_BUFFER_BIT: 0x00004000; защищено  POINTS: 0x0000; защищено  LINES: 0x0001; защищено  LINE_LOOP: 0x0002; защищено  LINE_STRIP: 0x0003; защищено  TRIANGLES: 0x0004; защищено  TRIANGLE_STRIP: 0x0005; защищено  TRIANGLE_FAN: 0x0006; защищено  ZERO: 0; защищено  ONE: 1; защищено  SRC_COLOR: 0x0300; защищено  ONE_MINUS_SRC_COLOR: 0x0301; защищено  SRC_ALPHA: 0x0302; защищено  ONE_MINUS_SRC_ALPHA: 0x0303; защищено  DST_ALPHA: 0x0304; защищено  ONE_MINUS_DST_ALPHA: 0x0305; защищено  DST_COLOR: 0x0306; защищено  ONE_MINUS_DST_COLOR: 0x0307; защищено  SRC_ALPHA_SATURATE: 0x0308; защищено  FUNC_ADD: 0x8006; защищено  BLEND_EQUATION: 0x8009; защищено  BLEND_EQUATION_RGB: 0x8009; защищено  BLEND_EQUATION_ALPHA: 0x883D; защищено  FUNC_SUBTRACT: 0x800A; защищено  FUNC_REVERSE_SUBTRACT: 0x800B; защищено  BLEND_DST_RGB: 0x80C8; защищено  BLEND_SRC_RGB: 0x80C9; защищено  BLEND_DST_ALPHA: 0x80CA; защищено  BLEND_SRC_ALPHA: 0x80CB; защищено  CONSTANT_COLOR: 0x8001; защищено  ONE_MINUS_CONSTANT_COLOR: 0x8002; защищено  CONSTANT_ALPHA: 0x8003; защищено  ONE_MINUS_CONSTANT_ALPHA: 0x8004; защищено  BLEND_COLOR: 0x8005; защищено  ARRAY_BUFFER: 0x8892; защищено  ELEMENT_ARRAY_BUFFER: 0x8893; защищено  ARRAY_BUFFER_BINDING: 0x8894; защищено  ELEMENT_ARRAY_BUFFER_BINDING: 0x8895; защищено  STREAM_DRAW: 0x88E0; защищено  STATIC_DRAW: 0x88E4; защищено  DYNAMIC_DRAW: 0x88E8; защищено  BUFFER_SIZE: 0x8764; защищено  BUFFER_USAGE: 0x8765; защищено  CURRENT_VERTEX_ATTRIB: 0x8626; защищено  FRONT: 0x0404; защищено  BACK: 0x0405; защищено  FRONT_AND_BACK: 0x0408; защищено  CULL_FACE: 0x0B44; защищено  BLEND: 0x0BE2; защищено  DITHER: 0x0BD0; защищено  STENCIL_TEST: 0x0B90; защищено  DEPTH_TEST: 0x0B71; защищено  SCISSOR_TEST: 0x0C11; защищено  POLYGON_OFFSET_FILL: 0x8037; защищено  SAMPLE_ALPHA_TO_COVERAGE: 0x809E; защищено  SAMPLE_COVERAGE: 0x80A0; защищено  NO_ERROR: 0; защищено  INVALID_ENUM: 0x0500; защищено  INVALID_VALUE: 0x0501; защищено  INVALID_OPERATION: 0x0502; защищено  OUT_OF_MEMORY: 0x0505; защищено  CW: 0x0900; защищено  CCW: 0x0901; защищено  LINE_WIDTH: 0x0B21; защищено  ALIASED_POINT_SIZE_RANGE: 0x846D; защищено  ALIASED_LINE_WIDTH_RANGE: 0x846E; защищено  CULL_FACE_MODE: 0x0B45; защищено  FRONT_FACE: 0x0B46; защищено  DEPTH_RANGE: 0x0B70; защищено  DEPTH_WRITEMASK: 0x0B72; защищено  DEPTH_CLEAR_VALUE: 0x0B73; защищено  DEPTH_FUNC: 0x0B74; защищено  STENCIL_CLEAR_VALUE: 0x0B91; защищено  STENCIL_FUNC: 0x0B92; защищено  STENCIL_FAIL: 0x0B94; защищено  STENCIL_PASS_DEPTH_FAIL: 0x0B95; защищено  STENCIL_PASS_DEPTH_PASS: 0x0B96; защищено  STENCIL_REF: 0x0B97; защищено  STENCIL_VALUE_MASK: 0x0B93; защищено  STENCIL_WRITEMASK: 0x0B98; защищено  STENCIL_BACK_FUNC: 0x8800; защищено  STENCIL_BACK_FAIL: 0x8801; защищено  STENCIL_BACK_PASS_DEPTH_FAIL: 0x8802; защищено  STENCIL_BACK_PASS_DEPTH_PASS: 0x8803; защищено  STENCIL_BACK_REF: 0x8CA3; защищено  STENCIL_BACK_VALUE_MASK: 0x8CA4; защищено  STENCIL_BACK_WRITEMASK: 0x8CA5; защищено  VIEWPORT: 0x0BA2; защищено  SCISSOR_BOX: 0x0C10; защищено  COLOR_CLEAR_VALUE: 0x0C22; защищено  COLOR_WRITEMASK: 0x0C23; защищено  UNPACK_ALIGNMENT: 0x0CF5; защищено  PACK_ALIGNMENT: 0x0D05; защищено  MAX_TEXTURE_SIZE: 0x0D33; защищено  MAX_VIEWPORT_DIMS: 0x0D3A; защищено  SUBPIXEL_BITS: 0x0D50; защищено  RED_BITS: 0x0D52; защищено  GREEN_BITS: 0x0D53; защищено  BLUE_BITS: 0x0D54; защищено  ALPHA_BITS: 0x0D55; защищено  DEPTH_BITS: 0x0D56; защищено  STENCIL_BITS: 0x0D57; защищено  POLYGON_OFFSET_UNITS: 0x2A00; защищено  POLYGON_OFFSET_FACTOR: 0x8038; защищено  TEXTURE_BINDING_2D: 0x8069; защищено  SAMPLE_BUFFERS: 0x80A8; защищено  SAMPLES: 0x80A9; защищено  SAMPLE_COVERAGE_VALUE: 0x80AA; защищено  SAMPLE_COVERAGE_INVERT: 0x80AB; защищено  COMPRESSED_TEXTURE_FORMATS: 0x86A3; защищено  DONT_CARE: 0x1100; защищено  FASTEST: 0x1101; защищено  NICEST: 0x1102; защищено  GENERATE_MIPMAP_HINT: 0x8192; защищено  BYTE: 0x1400; защищено  UNSIGNED_BYTE: 0x1401; защищено  SHORT: 0x1402; защищено  UNSIGNED_SHORT: 0x1403; защищено  INT: 0x1404; защищено  UNSIGNED_INT: 0x1405; защищено  FLOAT: 0x1406; защищено  DEPTH_COMPONENT: 0x1902; защищено  ALPHA: 0x1906; защищено  RGB: 0x1907; защищено  RGBA: 0x1908; защищено  LUMINANCE: 0x1909; защищено  LUMINANCE_ALPHA: 0x190A; защищено  UNSIGNED_SHORT_4_4_4_4: 0x8033; защищено  UNSIGNED_SHORT_5_5_5_1: 0x8034; защищено  UNSIGNED_SHORT_5_6_5: 0x8363; защищено  FRAGMENT_SHADER: 0x8B30; защищено  VERTEX_SHADER: 0x8B31; защищено  MAX_VERTEX_ATTRIBS: 0x8869; защищено  MAX_VERTEX_UNIFORM_VECTORS: 0x8DFB; защищено  MAX_VARYING_VECTORS: 0x8DFC; защищено  MAX_COMBINED_TEXTURE_IMAGE_UNITS: 0x8B4D; защищено  MAX_VERTEX_TEXTURE_IMAGE_UNITS: 0x8B4C; защищено  MAX_TEXTURE_IMAGE_UNITS: 0x8872; защищено  MAX_FRAGMENT_UNIFORM_VECTORS: 0x8DFD; защищено  SHADER_TYPE: 0x8B4F; защищено  DELETE_STATUS: 0x8B80; защищено  LINK_STATUS: 0x8B82; защищено  VALIDATE_STATUS: 0x8B83; защищено  ATTACHED_SHADERS: 0x8B85; защищено  ACTIVE_UNIFORMS: 0x8B86; защищено  ACTIVE_ATTRIBUTES: 0x8B89; защищено  SHADING_LANGUAGE_VERSION: 0x8B8C; защищено  CURRENT_PROGRAM: 0x8B8D; защищено  NEVER: 0x0200; защищено  LESS: 0x0201; защищено  EQUAL: 0x0202; защищено  LEQUAL: 0x0203; защищено  GREATER: 0x0204; защищено  NOTEQUAL: 0x0205; защищено  GEQUAL: 0x0206; защищено  ALWAYS: 0x0207; защищено  KEEP: 0x1E00; защищено  REPLACE: 0x1E01; защищено  INCR: 0x1E02; защищено  DECR: 0x1E03; защищено  INVERT: 0x150A; защищено  INCR_WRAP: 0x8507; защищено  DECR_WRAP: 0x8508; защищено  VENDOR: 0x1F00; защищено  RENDERER: 0x1F01; защищено  VERSION: 0x1F02; защищено  NEAREST: 0x2600; защищено  LINEAR: 0x2601; защищено  NEAREST_MIPMAP_NEAREST: 0x2700; защищено  LINEAR_MIPMAP_NEAREST: 0x2701; защищено  NEAREST_MIPMAP_LINEAR: 0x2702; защищено  LINEAR_MIPMAP_LINEAR: 0x2703; защищено  TEXTURE_MAG_FILTER: 0x2800; защищено  TEXTURE_MIN_FILTER: 0x2801; защищено  TEXTURE_WRAP_S: 0x2802; защищено  TEXTURE_WRAP_T: 0x2803; защищено  TEXTURE_2D: 0x0DE1; защищено  TEXTURE: 0x1702; защищено  TEXTURE_CUBE_MAP: 0x8513; защищено  TEXTURE_BINDING_CUBE_MAP: 0x8514; защищено  TEXTURE_CUBE_MAP_POSITIVE_X: 0x8515; защищено  TEXTURE_CUBE_MAP_NEGATIVE_X: 0x8516; защищено  TEXTURE_CUBE_MAP_POSITIVE_Y: 0x8517; защищено  TEXTURE_CUBE_MAP_NEGATIVE_Y: 0x8518; защищено  TEXTURE_CUBE_MAP_POSITIVE_Z: 0x8519; защищено  TEXTURE_CUBE_MAP_NEGATIVE_Z: 0x851A; защищено  MAX_CUBE_MAP_TEXTURE_SIZE: 0x851C; защищено  TEXTURE0: 0x84C0; защищено  TEXTURE1: 0x84C1; защищено  TEXTURE2: 0x84C2; защищено  TEXTURE3: 0x84C3; защищено  TEXTURE4: 0x84C4; защищено  TEXTURE5: 0x84C5; защищено  TEXTURE6: 0x84C6; защищено  TEXTURE7: 0x84C7; защищено  TEXTURE8: 0x84C8; защищено  TEXTURE9: 0x84C9; защищено  TEXTURE10: 0x84CA; защищено  TEXTURE11: 0x84CB; защищено  TEXTURE12: 0x84CC; защищено  TEXTURE13: 0x84CD; защищено  TEXTURE14: 0x84CE; защищено  TEXTURE15: 0x84CF; защищено  TEXTURE16: 0x84D0; защищено  TEXTURE17: 0x84D1; защищено  TEXTURE18: 0x84D2; защищено  TEXTURE19: 0x84D3; защищено  TEXTURE20: 0x84D4; защищено  TEXTURE21: 0x84D5; защищено  TEXTURE22: 0x84D6; защищено  TEXTURE23: 0x84D7; защищено  TEXTURE24: 0x84D8; защищено  TEXTURE25: 0x84D9; защищено  TEXTURE26: 0x84DA; защищено  TEXTURE27: 0x84DB; защищено  TEXTURE28: 0x84DC; защищено  TEXTURE29: 0x84DD; защищено  TEXTURE30: 0x84DE; защищено  TEXTURE31: 0x84DF; защищено  ACTIVE_TEXTURE: 0x84E0; защищено  REPEAT: 0x2901; защищено  CLAMP_TO_EDGE: 0x812F; защищено  MIRRORED_REPEAT: 0x8370; защищено  FLOAT_VEC2: 0x8B50; защищено  FLOAT_VEC3: 0x8B51; защищено  FLOAT_VEC4: 0x8B52; защищено  INT_VEC2: 0x8B53; защищено  INT_VEC3: 0x8B54; защищено  INT_VEC4: 0x8B55; защищено  BOOL: 0x8B56; защищено  BOOL_VEC2: 0x8B57; защищено  BOOL_VEC3: 0x8B58; защищено  BOOL_VEC4: 0x8B59; защищено  FLOAT_MAT2: 0x8B5A; защищено  FLOAT_MAT3: 0x8B5B; защищено  FLOAT_MAT4: 0x8B5C; защищено  SAMPLER_2D: 0x8B5E; защищено  SAMPLER_CUBE: 0x8B60; защищено  VERTEX_ATTRIB_ARRAY_ENABLED: 0x8622; защищено  VERTEX_ATTRIB_ARRAY_SIZE: 0x8623; защищено  VERTEX_ATTRIB_ARRAY_STRIDE: 0x8624; защищено  VERTEX_ATTRIB_ARRAY_TYPE: 0x8625; защищено  VERTEX_ATTRIB_ARRAY_NORMALIZED: 0x886A; защищено  VERTEX_ATTRIB_ARRAY_POINTER: 0x8645; защищено  VERTEX_ATTRIB_ARRAY_BUFFER_BINDING: 0x889F; защищено  IMPLEMENTATION_COLOR_READ_TYPE: 0x8B9A; защищено  IMPLEMENTATION_COLOR_READ_FORMAT: 0x8B9B; защищено  COMPILE_STATUS: 0x8B81; защищено  LOW_FLOAT: 0x8DF0; защищено  MEDIUM_FLOAT: 0x8DF1; защищено  HIGH_FLOAT: 0x8DF2; защищено  LOW_INT: 0x8DF3; защищено  MEDIUM_INT: 0x8DF4; защищено  HIGH_INT: 0x8DF5; защищено  FRAMEBUFFER: 0x8D40; защищено  RENDERBUFFER: 0x8D41; защищено  RGBA4: 0x8056; защищено  RGB5_A1: 0x8057; защищено  RGB565: 0x8D62; защищено  DEPTH_COMPONENT16: 0x81A5; защищено  STENCIL_INDEX8: 0x8D48; защищено  DEPTH_STENCIL: 0x84F9; защищено  RENDERBUFFER_WIDTH: 0x8D42; защищено  RENDERBUFFER_HEIGHT: 0x8D43; защищено  RENDERBUFFER_INTERNAL_FORMAT: 0x8D44; защищено  RENDERBUFFER_RED_SIZE: 0x8D50; защищено  RENDERBUFFER_GREEN_SIZE: 0x8D51; защищено  RENDERBUFFER_BLUE_SIZE: 0x8D52; защищено  RENDERBUFFER_ALPHA_SIZE: 0x8D53; защищено  RENDERBUFFER_DEPTH_SIZE: 0x8D54; защищено  RENDERBUFFER_STENCIL_SIZE: 0x8D55; защищено  FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE: 0x8CD0; защищено  FRAMEBUFFER_ATTACHMENT_OBJECT_NAME: 0x8CD1; защищено  FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL: 0x8CD2; защищено  FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE: 0x8CD3; защищено  COLOR_ATTACHMENT0: 0x8CE0; защищено  DEPTH_ATTACHMENT: 0x8D00; защищено  STENCIL_ATTACHMENT: 0x8D20; защищено  DEPTH_STENCIL_ATTACHMENT: 0x821A; защищено  NONE: 0; защищено  FRAMEBUFFER_COMPLETE: 0x8CD5; защищено  FRAMEBUFFER_INCOMPLETE_ATTACHMENT: 0x8CD6; защищено  FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT: 0x8CD7; защищено  FRAMEBUFFER_INCOMPLETE_DIMENSIONS: 0x8CD9; защищено  FRAMEBUFFER_UNSUPPORTED: 0x8CDD; защищено  FRAMEBUFFER_BINDING: 0x8CA6; защищено  RENDERBUFFER_BINDING: 0x8CA7; защищено  MAX_RENDERBUFFER_SIZE: 0x84E8; защищено  INVALID_FRAMEBUFFER_OPERATION: 0x0506; защищено  UNPACK_FLIP_Y_WEBGL: 0x9240; защищено  UNPACK_PREMULTIPLY_ALPHA_WEBGL: 0x9241; защищено  CONTEXT_LOST_WEBGL: 0x9242; защищено  UNPACK_COLORSPACE_CONVERSION_WEBGL: 0x9243; защищено  BROWSER_DEFAULT_WEBGL: 0x9244 }
+/*(!) var */ WebGL2RenderingContext: объект { prototype: WebGL2RenderingContext; при создании(): /*(!) no_type */ Объект?; защищено  READ_BUFFER: 0x0C02; защищено  UNPACK_ROW_LENGTH: 0x0CF2; защищено  UNPACK_SKIP_ROWS: 0x0CF3; защищено  UNPACK_SKIP_PIXELS: 0x0CF4; защищено  PACK_ROW_LENGTH: 0x0D02; защищено  PACK_SKIP_ROWS: 0x0D03; защищено  PACK_SKIP_PIXELS: 0x0D04; защищено  COLOR: 0x1800; защищено  DEPTH: 0x1801; защищено  STENCIL: 0x1802; защищено  RED: 0x1903; защищено  RGB8: 0x8051; защищено  RGBA8: 0x8058; защищено  RGB10_A2: 0x8059; защищено  TEXTURE_BINDING_3D: 0x806A; защищено  UNPACK_SKIP_IMAGES: 0x806D; защищено  UNPACK_IMAGE_HEIGHT: 0x806E; защищено  TEXTURE_3D: 0x806F; защищено  TEXTURE_WRAP_R: 0x8072; защищено  MAX_3D_TEXTURE_SIZE: 0x8073; защищено  UNSIGNED_INT_2_10_10_10_REV: 0x8368; защищено  MAX_ELEMENTS_VERTICES: 0x80E8; защищено  MAX_ELEMENTS_INDICES: 0x80E9; защищено  TEXTURE_MIN_LOD: 0x813A; защищено  TEXTURE_MAX_LOD: 0x813B; защищено  TEXTURE_BASE_LEVEL: 0x813C; защищено  TEXTURE_MAX_LEVEL: 0x813D; защищено  MIN: 0x8007; защищено  MAX: 0x8008; защищено  DEPTH_COMPONENT24: 0x81A6; защищено  MAX_TEXTURE_LOD_BIAS: 0x84FD; защищено  TEXTURE_COMPARE_MODE: 0x884C; защищено  TEXTURE_COMPARE_FUNC: 0x884D; защищено  CURRENT_QUERY: 0x8865; защищено  QUERY_RESULT: 0x8866; защищено  QUERY_RESULT_AVAILABLE: 0x8867; защищено  STREAM_READ: 0x88E1; защищено  STREAM_COPY: 0x88E2; защищено  STATIC_READ: 0x88E5; защищено  STATIC_COPY: 0x88E6; защищено  DYNAMIC_READ: 0x88E9; защищено  DYNAMIC_COPY: 0x88EA; защищено  MAX_DRAW_BUFFERS: 0x8824; защищено  DRAW_BUFFER0: 0x8825; защищено  DRAW_BUFFER1: 0x8826; защищено  DRAW_BUFFER2: 0x8827; защищено  DRAW_BUFFER3: 0x8828; защищено  DRAW_BUFFER4: 0x8829; защищено  DRAW_BUFFER5: 0x882A; защищено  DRAW_BUFFER6: 0x882B; защищено  DRAW_BUFFER7: 0x882C; защищено  DRAW_BUFFER8: 0x882D; защищено  DRAW_BUFFER9: 0x882E; защищено  DRAW_BUFFER10: 0x882F; защищено  DRAW_BUFFER11: 0x8830; защищено  DRAW_BUFFER12: 0x8831; защищено  DRAW_BUFFER13: 0x8832; защищено  DRAW_BUFFER14: 0x8833; защищено  DRAW_BUFFER15: 0x8834; защищено  MAX_FRAGMENT_UNIFORM_COMPONENTS: 0x8B49; защищено  MAX_VERTEX_UNIFORM_COMPONENTS: 0x8B4A; защищено  SAMPLER_3D: 0x8B5F; защищено  SAMPLER_2D_SHADOW: 0x8B62; защищено  FRAGMENT_SHADER_DERIVATIVE_HINT: 0x8B8B; защищено  PIXEL_PACK_BUFFER: 0x88EB; защищено  PIXEL_UNPACK_BUFFER: 0x88EC; защищено  PIXEL_PACK_BUFFER_BINDING: 0x88ED; защищено  PIXEL_UNPACK_BUFFER_BINDING: 0x88EF; защищено  FLOAT_MAT2x3: 0x8B65; защищено  FLOAT_MAT2x4: 0x8B66; защищено  FLOAT_MAT3x2: 0x8B67; защищено  FLOAT_MAT3x4: 0x8B68; защищено  FLOAT_MAT4x2: 0x8B69; защищено  FLOAT_MAT4x3: 0x8B6A; защищено  SRGB: 0x8C40; защищено  SRGB8: 0x8C41; защищено  SRGB8_ALPHA8: 0x8C43; защищено  COMPARE_REF_TO_TEXTURE: 0x884E; защищено  RGBA32F: 0x8814; защищено  RGB32F: 0x8815; защищено  RGBA16F: 0x881A; защищено  RGB16F: 0x881B; защищено  VERTEX_ATTRIB_ARRAY_INTEGER: 0x88FD; защищено  MAX_ARRAY_TEXTURE_LAYERS: 0x88FF; защищено  MIN_PROGRAM_TEXEL_OFFSET: 0x8904; защищено  MAX_PROGRAM_TEXEL_OFFSET: 0x8905; защищено  MAX_VARYING_COMPONENTS: 0x8B4B; защищено  TEXTURE_2D_ARRAY: 0x8C1A; защищено  TEXTURE_BINDING_2D_ARRAY: 0x8C1D; защищено  R11F_G11F_B10F: 0x8C3A; защищено  UNSIGNED_INT_10F_11F_11F_REV: 0x8C3B; защищено  RGB9_E5: 0x8C3D; защищено  UNSIGNED_INT_5_9_9_9_REV: 0x8C3E; защищено  TRANSFORM_FEEDBACK_BUFFER_MODE: 0x8C7F; защищено  MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS: 0x8C80; защищено  TRANSFORM_FEEDBACK_VARYINGS: 0x8C83; защищено  TRANSFORM_FEEDBACK_BUFFER_START: 0x8C84; защищено  TRANSFORM_FEEDBACK_BUFFER_SIZE: 0x8C85; защищено  TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN: 0x8C88; защищено  RASTERIZER_DISCARD: 0x8C89; защищено  MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS: 0x8C8A; защищено  MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS: 0x8C8B; защищено  INTERLEAVED_ATTRIBS: 0x8C8C; защищено  SEPARATE_ATTRIBS: 0x8C8D; защищено  TRANSFORM_FEEDBACK_BUFFER: 0x8C8E; защищено  TRANSFORM_FEEDBACK_BUFFER_BINDING: 0x8C8F; защищено  RGBA32UI: 0x8D70; защищено  RGB32UI: 0x8D71; защищено  RGBA16UI: 0x8D76; защищено  RGB16UI: 0x8D77; защищено  RGBA8UI: 0x8D7C; защищено  RGB8UI: 0x8D7D; защищено  RGBA32I: 0x8D82; защищено  RGB32I: 0x8D83; защищено  RGBA16I: 0x8D88; защищено  RGB16I: 0x8D89; защищено  RGBA8I: 0x8D8E; защищено  RGB8I: 0x8D8F; защищено  RED_INTEGER: 0x8D94; защищено  RGB_INTEGER: 0x8D98; защищено  RGBA_INTEGER: 0x8D99; защищено  SAMPLER_2D_ARRAY: 0x8DC1; защищено  SAMPLER_2D_ARRAY_SHADOW: 0x8DC4; защищено  SAMPLER_CUBE_SHADOW: 0x8DC5; защищено  UNSIGNED_INT_VEC2: 0x8DC6; защищено  UNSIGNED_INT_VEC3: 0x8DC7; защищено  UNSIGNED_INT_VEC4: 0x8DC8; защищено  INT_SAMPLER_2D: 0x8DCA; защищено  INT_SAMPLER_3D: 0x8DCB; защищено  INT_SAMPLER_CUBE: 0x8DCC; защищено  INT_SAMPLER_2D_ARRAY: 0x8DCF; защищено  UNSIGNED_INT_SAMPLER_2D: 0x8DD2; защищено  UNSIGNED_INT_SAMPLER_3D: 0x8DD3; защищено  UNSIGNED_INT_SAMPLER_CUBE: 0x8DD4; защищено  UNSIGNED_INT_SAMPLER_2D_ARRAY: 0x8DD7; защищено  DEPTH_COMPONENT32F: 0x8CAC; защищено  DEPTH32F_STENCIL8: 0x8CAD; защищено  FLOAT_32_UNSIGNED_INT_24_8_REV: 0x8DAD; защищено  FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING: 0x8210; защищено  FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE: 0x8211; защищено  FRAMEBUFFER_ATTACHMENT_RED_SIZE: 0x8212; защищено  FRAMEBUFFER_ATTACHMENT_GREEN_SIZE: 0x8213; защищено  FRAMEBUFFER_ATTACHMENT_BLUE_SIZE: 0x8214; защищено  FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE: 0x8215; защищено  FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE: 0x8216; защищено  FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE: 0x8217; защищено  FRAMEBUFFER_DEFAULT: 0x8218; защищено  UNSIGNED_INT_24_8: 0x84FA; защищено  DEPTH24_STENCIL8: 0x88F0; защищено  UNSIGNED_NORMALIZED: 0x8C17; защищено  DRAW_FRAMEBUFFER_BINDING: 0x8CA6; защищено  READ_FRAMEBUFFER: 0x8CA8; защищено  DRAW_FRAMEBUFFER: 0x8CA9; защищено  READ_FRAMEBUFFER_BINDING: 0x8CAA; защищено  RENDERBUFFER_SAMPLES: 0x8CAB; защищено  FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER: 0x8CD4; защищено  MAX_COLOR_ATTACHMENTS: 0x8CDF; защищено  COLOR_ATTACHMENT1: 0x8CE1; защищено  COLOR_ATTACHMENT2: 0x8CE2; защищено  COLOR_ATTACHMENT3: 0x8CE3; защищено  COLOR_ATTACHMENT4: 0x8CE4; защищено  COLOR_ATTACHMENT5: 0x8CE5; защищено  COLOR_ATTACHMENT6: 0x8CE6; защищено  COLOR_ATTACHMENT7: 0x8CE7; защищено  COLOR_ATTACHMENT8: 0x8CE8; защищено  COLOR_ATTACHMENT9: 0x8CE9; защищено  COLOR_ATTACHMENT10: 0x8CEA; защищено  COLOR_ATTACHMENT11: 0x8CEB; защищено  COLOR_ATTACHMENT12: 0x8CEC; защищено  COLOR_ATTACHMENT13: 0x8CED; защищено  COLOR_ATTACHMENT14: 0x8CEE; защищено  COLOR_ATTACHMENT15: 0x8CEF; защищено  FRAMEBUFFER_INCOMPLETE_MULTISAMPLE: 0x8D56; защищено  MAX_SAMPLES: 0x8D57; защищено  HALF_FLOAT: 0x140B; защищено  RG: 0x8227; защищено  RG_INTEGER: 0x8228; защищено  R8: 0x8229; защищено  RG8: 0x822B; защищено  R16F: 0x822D; защищено  R32F: 0x822E; защищено  RG16F: 0x822F; защищено  RG32F: 0x8230; защищено  R8I: 0x8231; защищено  R8UI: 0x8232; защищено  R16I: 0x8233; защищено  R16UI: 0x8234; защищено  R32I: 0x8235; защищено  R32UI: 0x8236; защищено  RG8I: 0x8237; защищено  RG8UI: 0x8238; защищено  RG16I: 0x8239; защищено  RG16UI: 0x823A; защищено  RG32I: 0x823B; защищено  RG32UI: 0x823C; защищено  VERTEX_ARRAY_BINDING: 0x85B5; защищено  R8_SNORM: 0x8F94; защищено  RG8_SNORM: 0x8F95; защищено  RGB8_SNORM: 0x8F96; защищено  RGBA8_SNORM: 0x8F97; защищено  SIGNED_NORMALIZED: 0x8F9C; защищено  COPY_READ_BUFFER: 0x8F36; защищено  COPY_WRITE_BUFFER: 0x8F37; защищено  COPY_READ_BUFFER_BINDING: 0x8F36; защищено  COPY_WRITE_BUFFER_BINDING: 0x8F37; защищено  UNIFORM_BUFFER: 0x8A11; защищено  UNIFORM_BUFFER_BINDING: 0x8A28; защищено  UNIFORM_BUFFER_START: 0x8A29; защищено  UNIFORM_BUFFER_SIZE: 0x8A2A; защищено  MAX_VERTEX_UNIFORM_BLOCKS: 0x8A2B; защищено  MAX_FRAGMENT_UNIFORM_BLOCKS: 0x8A2D; защищено  MAX_COMBINED_UNIFORM_BLOCKS: 0x8A2E; защищено  MAX_UNIFORM_BUFFER_BINDINGS: 0x8A2F; защищено  MAX_UNIFORM_BLOCK_SIZE: 0x8A30; защищено  MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS: 0x8A31; защищено  MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS: 0x8A33; защищено  UNIFORM_BUFFER_OFFSET_ALIGNMENT: 0x8A34; защищено  ACTIVE_UNIFORM_BLOCKS: 0x8A36; защищено  UNIFORM_TYPE: 0x8A37; защищено  UNIFORM_SIZE: 0x8A38; защищено  UNIFORM_BLOCK_INDEX: 0x8A3A; защищено  UNIFORM_OFFSET: 0x8A3B; защищено  UNIFORM_ARRAY_STRIDE: 0x8A3C; защищено  UNIFORM_MATRIX_STRIDE: 0x8A3D; защищено  UNIFORM_IS_ROW_MAJOR: 0x8A3E; защищено  UNIFORM_BLOCK_BINDING: 0x8A3F; защищено  UNIFORM_BLOCK_DATA_SIZE: 0x8A40; защищено  UNIFORM_BLOCK_ACTIVE_UNIFORMS: 0x8A42; защищено  UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES: 0x8A43; защищено  UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER: 0x8A44; защищено  UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER: 0x8A46; защищено  INVALID_INDEX: 0xFFFFFFFF; защищено  MAX_VERTEX_OUTPUT_COMPONENTS: 0x9122; защищено  MAX_FRAGMENT_INPUT_COMPONENTS: 0x9125; защищено  MAX_SERVER_WAIT_TIMEOUT: 0x9111; защищено  OBJECT_TYPE: 0x9112; защищено  SYNC_CONDITION: 0x9113; защищено  SYNC_STATUS: 0x9114; защищено  SYNC_FLAGS: 0x9115; защищено  SYNC_FENCE: 0x9116; защищено  SYNC_GPU_COMMANDS_COMPLETE: 0x9117; защищено  UNSIGNALED: 0x9118; защищено  SIGNALED: 0x9119; защищено  ALREADY_SIGNALED: 0x911A; защищено  TIMEOUT_EXPIRED: 0x911B; защищено  CONDITION_SATISFIED: 0x911C; защищено  WAIT_FAILED: 0x911D; защищено  SYNC_FLUSH_COMMANDS_BIT: 0x00000001; защищено  VERTEX_ATTRIB_ARRAY_DIVISOR: 0x88FE; защищено  ANY_SAMPLES_PASSED: 0x8C2F; защищено  ANY_SAMPLES_PASSED_CONSERVATIVE: 0x8D6A; защищено  SAMPLER_BINDING: 0x8919; защищено  RGB10_A2UI: 0x906F; защищено  INT_2_10_10_10_REV: 0x8D9F; защищено  TRANSFORM_FEEDBACK: 0x8E22; защищено  TRANSFORM_FEEDBACK_PAUSED: 0x8E23; защищено  TRANSFORM_FEEDBACK_ACTIVE: 0x8E24; защищено  TRANSFORM_FEEDBACK_BINDING: 0x8E25; защищено  TEXTURE_IMMUTABLE_FORMAT: 0x912F; защищено  MAX_ELEMENT_INDEX: 0x8D6B; защищено  TEXTURE_IMMUTABLE_LEVELS: 0x82DF; защищено  TIMEOUT_IGNORED: -1; защищено  MAX_CLIENT_WAIT_TIMEOUT_WEBGL: 0x9247; защищено  DEPTH_BUFFER_BIT: 0x00000100; защищено  STENCIL_BUFFER_BIT: 0x00000400; защищено  COLOR_BUFFER_BIT: 0x00004000; защищено  POINTS: 0x0000; защищено  LINES: 0x0001; защищено  LINE_LOOP: 0x0002; защищено  LINE_STRIP: 0x0003; защищено  TRIANGLES: 0x0004; защищено  TRIANGLE_STRIP: 0x0005; защищено  TRIANGLE_FAN: 0x0006; защищено  ZERO: 0; защищено  ONE: 1; защищено  SRC_COLOR: 0x0300; защищено  ONE_MINUS_SRC_COLOR: 0x0301; защищено  SRC_ALPHA: 0x0302; защищено  ONE_MINUS_SRC_ALPHA: 0x0303; защищено  DST_ALPHA: 0x0304; защищено  ONE_MINUS_DST_ALPHA: 0x0305; защищено  DST_COLOR: 0x0306; защищено  ONE_MINUS_DST_COLOR: 0x0307; защищено  SRC_ALPHA_SATURATE: 0x0308; защищено  FUNC_ADD: 0x8006; защищено  BLEND_EQUATION: 0x8009; защищено  BLEND_EQUATION_RGB: 0x8009; защищено  BLEND_EQUATION_ALPHA: 0x883D; защищено  FUNC_SUBTRACT: 0x800A; защищено  FUNC_REVERSE_SUBTRACT: 0x800B; защищено  BLEND_DST_RGB: 0x80C8; защищено  BLEND_SRC_RGB: 0x80C9; защищено  BLEND_DST_ALPHA: 0x80CA; защищено  BLEND_SRC_ALPHA: 0x80CB; защищено  CONSTANT_COLOR: 0x8001; защищено  ONE_MINUS_CONSTANT_COLOR: 0x8002; защищено  CONSTANT_ALPHA: 0x8003; защищено  ONE_MINUS_CONSTANT_ALPHA: 0x8004; защищено  BLEND_COLOR: 0x8005; защищено  ARRAY_BUFFER: 0x8892; защищено  ELEMENT_ARRAY_BUFFER: 0x8893; защищено  ARRAY_BUFFER_BINDING: 0x8894; защищено  ELEMENT_ARRAY_BUFFER_BINDING: 0x8895; защищено  STREAM_DRAW: 0x88E0; защищено  STATIC_DRAW: 0x88E4; защищено  DYNAMIC_DRAW: 0x88E8; защищено  BUFFER_SIZE: 0x8764; защищено  BUFFER_USAGE: 0x8765; защищено  CURRENT_VERTEX_ATTRIB: 0x8626; защищено  FRONT: 0x0404; защищено  BACK: 0x0405; защищено  FRONT_AND_BACK: 0x0408; защищено  CULL_FACE: 0x0B44; защищено  BLEND: 0x0BE2; защищено  DITHER: 0x0BD0; защищено  STENCIL_TEST: 0x0B90; защищено  DEPTH_TEST: 0x0B71; защищено  SCISSOR_TEST: 0x0C11; защищено  POLYGON_OFFSET_FILL: 0x8037; защищено  SAMPLE_ALPHA_TO_COVERAGE: 0x809E; защищено  SAMPLE_COVERAGE: 0x80A0; защищено  NO_ERROR: 0; защищено  INVALID_ENUM: 0x0500; защищено  INVALID_VALUE: 0x0501; защищено  INVALID_OPERATION: 0x0502; защищено  OUT_OF_MEMORY: 0x0505; защищено  CW: 0x0900; защищено  CCW: 0x0901; защищено  LINE_WIDTH: 0x0B21; защищено  ALIASED_POINT_SIZE_RANGE: 0x846D; защищено  ALIASED_LINE_WIDTH_RANGE: 0x846E; защищено  CULL_FACE_MODE: 0x0B45; защищено  FRONT_FACE: 0x0B46; защищено  DEPTH_RANGE: 0x0B70; защищено  DEPTH_WRITEMASK: 0x0B72; защищено  DEPTH_CLEAR_VALUE: 0x0B73; защищено  DEPTH_FUNC: 0x0B74; защищено  STENCIL_CLEAR_VALUE: 0x0B91; защищено  STENCIL_FUNC: 0x0B92; защищено  STENCIL_FAIL: 0x0B94; защищено  STENCIL_PASS_DEPTH_FAIL: 0x0B95; защищено  STENCIL_PASS_DEPTH_PASS: 0x0B96; защищено  STENCIL_REF: 0x0B97; защищено  STENCIL_VALUE_MASK: 0x0B93; защищено  STENCIL_WRITEMASK: 0x0B98; защищено  STENCIL_BACK_FUNC: 0x8800; защищено  STENCIL_BACK_FAIL: 0x8801; защищено  STENCIL_BACK_PASS_DEPTH_FAIL: 0x8802; защищено  STENCIL_BACK_PASS_DEPTH_PASS: 0x8803; защищено  STENCIL_BACK_REF: 0x8CA3; защищено  STENCIL_BACK_VALUE_MASK: 0x8CA4; защищено  STENCIL_BACK_WRITEMASK: 0x8CA5; защищено  VIEWPORT: 0x0BA2; защищено  SCISSOR_BOX: 0x0C10; защищено  COLOR_CLEAR_VALUE: 0x0C22; защищено  COLOR_WRITEMASK: 0x0C23; защищено  UNPACK_ALIGNMENT: 0x0CF5; защищено  PACK_ALIGNMENT: 0x0D05; защищено  MAX_TEXTURE_SIZE: 0x0D33; защищено  MAX_VIEWPORT_DIMS: 0x0D3A; защищено  SUBPIXEL_BITS: 0x0D50; защищено  RED_BITS: 0x0D52; защищено  GREEN_BITS: 0x0D53; защищено  BLUE_BITS: 0x0D54; защищено  ALPHA_BITS: 0x0D55; защищено  DEPTH_BITS: 0x0D56; защищено  STENCIL_BITS: 0x0D57; защищено  POLYGON_OFFSET_UNITS: 0x2A00; защищено  POLYGON_OFFSET_FACTOR: 0x8038; защищено  TEXTURE_BINDING_2D: 0x8069; защищено  SAMPLE_BUFFERS: 0x80A8; защищено  SAMPLES: 0x80A9; защищено  SAMPLE_COVERAGE_VALUE: 0x80AA; защищено  SAMPLE_COVERAGE_INVERT: 0x80AB; защищено  COMPRESSED_TEXTURE_FORMATS: 0x86A3; защищено  DONT_CARE: 0x1100; защищено  FASTEST: 0x1101; защищено  NICEST: 0x1102; защищено  GENERATE_MIPMAP_HINT: 0x8192; защищено  BYTE: 0x1400; защищено  UNSIGNED_BYTE: 0x1401; защищено  SHORT: 0x1402; защищено  UNSIGNED_SHORT: 0x1403; защищено  INT: 0x1404; защищено  UNSIGNED_INT: 0x1405; защищено  FLOAT: 0x1406; защищено  DEPTH_COMPONENT: 0x1902; защищено  ALPHA: 0x1906; защищено  RGB: 0x1907; защищено  RGBA: 0x1908; защищено  LUMINANCE: 0x1909; защищено  LUMINANCE_ALPHA: 0x190A; защищено  UNSIGNED_SHORT_4_4_4_4: 0x8033; защищено  UNSIGNED_SHORT_5_5_5_1: 0x8034; защищено  UNSIGNED_SHORT_5_6_5: 0x8363; защищено  FRAGMENT_SHADER: 0x8B30; защищено  VERTEX_SHADER: 0x8B31; защищено  MAX_VERTEX_ATTRIBS: 0x8869; защищено  MAX_VERTEX_UNIFORM_VECTORS: 0x8DFB; защищено  MAX_VARYING_VECTORS: 0x8DFC; защищено  MAX_COMBINED_TEXTURE_IMAGE_UNITS: 0x8B4D; защищено  MAX_VERTEX_TEXTURE_IMAGE_UNITS: 0x8B4C; защищено  MAX_TEXTURE_IMAGE_UNITS: 0x8872; защищено  MAX_FRAGMENT_UNIFORM_VECTORS: 0x8DFD; защищено  SHADER_TYPE: 0x8B4F; защищено  DELETE_STATUS: 0x8B80; защищено  LINK_STATUS: 0x8B82; защищено  VALIDATE_STATUS: 0x8B83; защищено  ATTACHED_SHADERS: 0x8B85; защищено  ACTIVE_UNIFORMS: 0x8B86; защищено  ACTIVE_ATTRIBUTES: 0x8B89; защищено  SHADING_LANGUAGE_VERSION: 0x8B8C; защищено  CURRENT_PROGRAM: 0x8B8D; защищено  NEVER: 0x0200; защищено  LESS: 0x0201; защищено  EQUAL: 0x0202; защищено  LEQUAL: 0x0203; защищено  GREATER: 0x0204; защищено  NOTEQUAL: 0x0205; защищено  GEQUAL: 0x0206; защищено  ALWAYS: 0x0207; защищено  KEEP: 0x1E00; защищено  REPLACE: 0x1E01; защищено  INCR: 0x1E02; защищено  DECR: 0x1E03; защищено  INVERT: 0x150A; защищено  INCR_WRAP: 0x8507; защищено  DECR_WRAP: 0x8508; защищено  VENDOR: 0x1F00; защищено  RENDERER: 0x1F01; защищено  VERSION: 0x1F02; защищено  NEAREST: 0x2600; защищено  LINEAR: 0x2601; защищено  NEAREST_MIPMAP_NEAREST: 0x2700; защищено  LINEAR_MIPMAP_NEAREST: 0x2701; защищено  NEAREST_MIPMAP_LINEAR: 0x2702; защищено  LINEAR_MIPMAP_LINEAR: 0x2703; защищено  TEXTURE_MAG_FILTER: 0x2800; защищено  TEXTURE_MIN_FILTER: 0x2801; защищено  TEXTURE_WRAP_S: 0x2802; защищено  TEXTURE_WRAP_T: 0x2803; защищено  TEXTURE_2D: 0x0DE1; защищено  TEXTURE: 0x1702; защищено  TEXTURE_CUBE_MAP: 0x8513; защищено  TEXTURE_BINDING_CUBE_MAP: 0x8514; защищено  TEXTURE_CUBE_MAP_POSITIVE_X: 0x8515; защищено  TEXTURE_CUBE_MAP_NEGATIVE_X: 0x8516; защищено  TEXTURE_CUBE_MAP_POSITIVE_Y: 0x8517; защищено  TEXTURE_CUBE_MAP_NEGATIVE_Y: 0x8518; защищено  TEXTURE_CUBE_MAP_POSITIVE_Z: 0x8519; защищено  TEXTURE_CUBE_MAP_NEGATIVE_Z: 0x851A; защищено  MAX_CUBE_MAP_TEXTURE_SIZE: 0x851C; защищено  TEXTURE0: 0x84C0; защищено  TEXTURE1: 0x84C1; защищено  TEXTURE2: 0x84C2; защищено  TEXTURE3: 0x84C3; защищено  TEXTURE4: 0x84C4; защищено  TEXTURE5: 0x84C5; защищено  TEXTURE6: 0x84C6; защищено  TEXTURE7: 0x84C7; защищено  TEXTURE8: 0x84C8; защищено  TEXTURE9: 0x84C9; защищено  TEXTURE10: 0x84CA; защищено  TEXTURE11: 0x84CB; защищено  TEXTURE12: 0x84CC; защищено  TEXTURE13: 0x84CD; защищено  TEXTURE14: 0x84CE; защищено  TEXTURE15: 0x84CF; защищено  TEXTURE16: 0x84D0; защищено  TEXTURE17: 0x84D1; защищено  TEXTURE18: 0x84D2; защищено  TEXTURE19: 0x84D3; защищено  TEXTURE20: 0x84D4; защищено  TEXTURE21: 0x84D5; защищено  TEXTURE22: 0x84D6; защищено  TEXTURE23: 0x84D7; защищено  TEXTURE24: 0x84D8; защищено  TEXTURE25: 0x84D9; защищено  TEXTURE26: 0x84DA; защищено  TEXTURE27: 0x84DB; защищено  TEXTURE28: 0x84DC; защищено  TEXTURE29: 0x84DD; защищено  TEXTURE30: 0x84DE; защищено  TEXTURE31: 0x84DF; защищено  ACTIVE_TEXTURE: 0x84E0; защищено  REPEAT: 0x2901; защищено  CLAMP_TO_EDGE: 0x812F; защищено  MIRRORED_REPEAT: 0x8370; защищено  FLOAT_VEC2: 0x8B50; защищено  FLOAT_VEC3: 0x8B51; защищено  FLOAT_VEC4: 0x8B52; защищено  INT_VEC2: 0x8B53; защищено  INT_VEC3: 0x8B54; защищено  INT_VEC4: 0x8B55; защищено  BOOL: 0x8B56; защищено  BOOL_VEC2: 0x8B57; защищено  BOOL_VEC3: 0x8B58; защищено  BOOL_VEC4: 0x8B59; защищено  FLOAT_MAT2: 0x8B5A; защищено  FLOAT_MAT3: 0x8B5B; защищено  FLOAT_MAT4: 0x8B5C; защищено  SAMPLER_2D: 0x8B5E; защищено  SAMPLER_CUBE: 0x8B60; защищено  VERTEX_ATTRIB_ARRAY_ENABLED: 0x8622; защищено  VERTEX_ATTRIB_ARRAY_SIZE: 0x8623; защищено  VERTEX_ATTRIB_ARRAY_STRIDE: 0x8624; защищено  VERTEX_ATTRIB_ARRAY_TYPE: 0x8625; защищено  VERTEX_ATTRIB_ARRAY_NORMALIZED: 0x886A; защищено  VERTEX_ATTRIB_ARRAY_POINTER: 0x8645; защищено  VERTEX_ATTRIB_ARRAY_BUFFER_BINDING: 0x889F; защищено  IMPLEMENTATION_COLOR_READ_TYPE: 0x8B9A; защищено  IMPLEMENTATION_COLOR_READ_FORMAT: 0x8B9B; защищено  COMPILE_STATUS: 0x8B81; защищено  LOW_FLOAT: 0x8DF0; защищено  MEDIUM_FLOAT: 0x8DF1; защищено  HIGH_FLOAT: 0x8DF2; защищено  LOW_INT: 0x8DF3; защищено  MEDIUM_INT: 0x8DF4; защищено  HIGH_INT: 0x8DF5; защищено  FRAMEBUFFER: 0x8D40; защищено  RENDERBUFFER: 0x8D41; защищено  RGBA4: 0x8056; защищено  RGB5_A1: 0x8057; защищено  RGB565: 0x8D62; защищено  DEPTH_COMPONENT16: 0x81A5; защищено  STENCIL_INDEX8: 0x8D48; защищено  DEPTH_STENCIL: 0x84F9; защищено  RENDERBUFFER_WIDTH: 0x8D42; защищено  RENDERBUFFER_HEIGHT: 0x8D43; защищено  RENDERBUFFER_INTERNAL_FORMAT: 0x8D44; защищено  RENDERBUFFER_RED_SIZE: 0x8D50; защищено  RENDERBUFFER_GREEN_SIZE: 0x8D51; защищено  RENDERBUFFER_BLUE_SIZE: 0x8D52; защищено  RENDERBUFFER_ALPHA_SIZE: 0x8D53; защищено  RENDERBUFFER_DEPTH_SIZE: 0x8D54; защищено  RENDERBUFFER_STENCIL_SIZE: 0x8D55; защищено  FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE: 0x8CD0; защищено  FRAMEBUFFER_ATTACHMENT_OBJECT_NAME: 0x8CD1; защищено  FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL: 0x8CD2; защищено  FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE: 0x8CD3; защищено  COLOR_ATTACHMENT0: 0x8CE0; защищено  DEPTH_ATTACHMENT: 0x8D00; защищено  STENCIL_ATTACHMENT: 0x8D20; защищено  DEPTH_STENCIL_ATTACHMENT: 0x821A; защищено  NONE: 0; защищено  FRAMEBUFFER_COMPLETE: 0x8CD5; защищено  FRAMEBUFFER_INCOMPLETE_ATTACHMENT: 0x8CD6; защищено  FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT: 0x8CD7; защищено  FRAMEBUFFER_INCOMPLETE_DIMENSIONS: 0x8CD9; защищено  FRAMEBUFFER_UNSUPPORTED: 0x8CDD; защищено  FRAMEBUFFER_BINDING: 0x8CA6; защищено  RENDERBUFFER_BINDING: 0x8CA7; защищено  MAX_RENDERBUFFER_SIZE: 0x84E8; защищено  INVALID_FRAMEBUFFER_OPERATION: 0x0506; защищено  UNPACK_FLIP_Y_WEBGL: 0x9240; защищено  UNPACK_PREMULTIPLY_ALPHA_WEBGL: 0x9241; защищено  CONTEXT_LOST_WEBGL: 0x9242; защищено  UNPACK_COLORSPACE_CONVERSION_WEBGL: 0x9243; защищено  BROWSER_DEFAULT_WEBGL: 0x9244 }
 
 
 тип WebGL2RenderingContextBase = интерфейс
@@ -7901,7 +7901,7 @@
 
 
 внешнее
-/*(!) var */ WebGLActiveInfo: объект { prototype: WebGLActiveInfo; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLActiveInfo: объект { prototype: WebGLActiveInfo; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -7917,7 +7917,7 @@
 
 
 внешнее
-/*(!) var */ WebGLBuffer: объект { prototype: WebGLBuffer; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLBuffer: объект { prototype: WebGLBuffer; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -7934,7 +7934,7 @@
 
 
 внешнее
-/*(!) var */ WebGLContextEvent: объект { prototype: WebGLContextEvent; при создании(type: Текст, eventInit: WebGLContextEventInit? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ WebGLContextEvent: объект { prototype: WebGLContextEvent; при создании(type: Текст, eventInit: WebGLContextEventInit? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -7950,7 +7950,7 @@
 
 
 внешнее
-/*(!) var */ WebGLFramebuffer: объект { prototype: WebGLFramebuffer; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLFramebuffer: объект { prototype: WebGLFramebuffer; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -7966,7 +7966,7 @@
 
 
 внешнее
-/*(!) var */ WebGLProgram: объект { prototype: WebGLProgram; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLProgram: объект { prototype: WebGLProgram; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLQuery) */
@@ -7978,7 +7978,7 @@
 
 
 внешнее
-/*(!) var */ WebGLQuery: объект { prototype: WebGLQuery; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLQuery: объект { prototype: WebGLQuery; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -7994,7 +7994,7 @@
 
 
 внешнее
-/*(!) var */ WebGLRenderbuffer: объект { prototype: WebGLRenderbuffer; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLRenderbuffer: объект { prototype: WebGLRenderbuffer; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -8010,7 +8010,7 @@
 
 
 внешнее
-/*(!) var */ WebGLRenderingContext: объект { prototype: WebGLRenderingContext; при создании()/*(!) no_type */ Объект?; защищено  DEPTH_BUFFER_BIT: 0x00000100; защищено  STENCIL_BUFFER_BIT: 0x00000400; защищено  COLOR_BUFFER_BIT: 0x00004000; защищено  POINTS: 0x0000; защищено  LINES: 0x0001; защищено  LINE_LOOP: 0x0002; защищено  LINE_STRIP: 0x0003; защищено  TRIANGLES: 0x0004; защищено  TRIANGLE_STRIP: 0x0005; защищено  TRIANGLE_FAN: 0x0006; защищено  ZERO: 0; защищено  ONE: 1; защищено  SRC_COLOR: 0x0300; защищено  ONE_MINUS_SRC_COLOR: 0x0301; защищено  SRC_ALPHA: 0x0302; защищено  ONE_MINUS_SRC_ALPHA: 0x0303; защищено  DST_ALPHA: 0x0304; защищено  ONE_MINUS_DST_ALPHA: 0x0305; защищено  DST_COLOR: 0x0306; защищено  ONE_MINUS_DST_COLOR: 0x0307; защищено  SRC_ALPHA_SATURATE: 0x0308; защищено  FUNC_ADD: 0x8006; защищено  BLEND_EQUATION: 0x8009; защищено  BLEND_EQUATION_RGB: 0x8009; защищено  BLEND_EQUATION_ALPHA: 0x883D; защищено  FUNC_SUBTRACT: 0x800A; защищено  FUNC_REVERSE_SUBTRACT: 0x800B; защищено  BLEND_DST_RGB: 0x80C8; защищено  BLEND_SRC_RGB: 0x80C9; защищено  BLEND_DST_ALPHA: 0x80CA; защищено  BLEND_SRC_ALPHA: 0x80CB; защищено  CONSTANT_COLOR: 0x8001; защищено  ONE_MINUS_CONSTANT_COLOR: 0x8002; защищено  CONSTANT_ALPHA: 0x8003; защищено  ONE_MINUS_CONSTANT_ALPHA: 0x8004; защищено  BLEND_COLOR: 0x8005; защищено  ARRAY_BUFFER: 0x8892; защищено  ELEMENT_ARRAY_BUFFER: 0x8893; защищено  ARRAY_BUFFER_BINDING: 0x8894; защищено  ELEMENT_ARRAY_BUFFER_BINDING: 0x8895; защищено  STREAM_DRAW: 0x88E0; защищено  STATIC_DRAW: 0x88E4; защищено  DYNAMIC_DRAW: 0x88E8; защищено  BUFFER_SIZE: 0x8764; защищено  BUFFER_USAGE: 0x8765; защищено  CURRENT_VERTEX_ATTRIB: 0x8626; защищено  FRONT: 0x0404; защищено  BACK: 0x0405; защищено  FRONT_AND_BACK: 0x0408; защищено  CULL_FACE: 0x0B44; защищено  BLEND: 0x0BE2; защищено  DITHER: 0x0BD0; защищено  STENCIL_TEST: 0x0B90; защищено  DEPTH_TEST: 0x0B71; защищено  SCISSOR_TEST: 0x0C11; защищено  POLYGON_OFFSET_FILL: 0x8037; защищено  SAMPLE_ALPHA_TO_COVERAGE: 0x809E; защищено  SAMPLE_COVERAGE: 0x80A0; защищено  NO_ERROR: 0; защищено  INVALID_ENUM: 0x0500; защищено  INVALID_VALUE: 0x0501; защищено  INVALID_OPERATION: 0x0502; защищено  OUT_OF_MEMORY: 0x0505; защищено  CW: 0x0900; защищено  CCW: 0x0901; защищено  LINE_WIDTH: 0x0B21; защищено  ALIASED_POINT_SIZE_RANGE: 0x846D; защищено  ALIASED_LINE_WIDTH_RANGE: 0x846E; защищено  CULL_FACE_MODE: 0x0B45; защищено  FRONT_FACE: 0x0B46; защищено  DEPTH_RANGE: 0x0B70; защищено  DEPTH_WRITEMASK: 0x0B72; защищено  DEPTH_CLEAR_VALUE: 0x0B73; защищено  DEPTH_FUNC: 0x0B74; защищено  STENCIL_CLEAR_VALUE: 0x0B91; защищено  STENCIL_FUNC: 0x0B92; защищено  STENCIL_FAIL: 0x0B94; защищено  STENCIL_PASS_DEPTH_FAIL: 0x0B95; защищено  STENCIL_PASS_DEPTH_PASS: 0x0B96; защищено  STENCIL_REF: 0x0B97; защищено  STENCIL_VALUE_MASK: 0x0B93; защищено  STENCIL_WRITEMASK: 0x0B98; защищено  STENCIL_BACK_FUNC: 0x8800; защищено  STENCIL_BACK_FAIL: 0x8801; защищено  STENCIL_BACK_PASS_DEPTH_FAIL: 0x8802; защищено  STENCIL_BACK_PASS_DEPTH_PASS: 0x8803; защищено  STENCIL_BACK_REF: 0x8CA3; защищено  STENCIL_BACK_VALUE_MASK: 0x8CA4; защищено  STENCIL_BACK_WRITEMASK: 0x8CA5; защищено  VIEWPORT: 0x0BA2; защищено  SCISSOR_BOX: 0x0C10; защищено  COLOR_CLEAR_VALUE: 0x0C22; защищено  COLOR_WRITEMASK: 0x0C23; защищено  UNPACK_ALIGNMENT: 0x0CF5; защищено  PACK_ALIGNMENT: 0x0D05; защищено  MAX_TEXTURE_SIZE: 0x0D33; защищено  MAX_VIEWPORT_DIMS: 0x0D3A; защищено  SUBPIXEL_BITS: 0x0D50; защищено  RED_BITS: 0x0D52; защищено  GREEN_BITS: 0x0D53; защищено  BLUE_BITS: 0x0D54; защищено  ALPHA_BITS: 0x0D55; защищено  DEPTH_BITS: 0x0D56; защищено  STENCIL_BITS: 0x0D57; защищено  POLYGON_OFFSET_UNITS: 0x2A00; защищено  POLYGON_OFFSET_FACTOR: 0x8038; защищено  TEXTURE_BINDING_2D: 0x8069; защищено  SAMPLE_BUFFERS: 0x80A8; защищено  SAMPLES: 0x80A9; защищено  SAMPLE_COVERAGE_VALUE: 0x80AA; защищено  SAMPLE_COVERAGE_INVERT: 0x80AB; защищено  COMPRESSED_TEXTURE_FORMATS: 0x86A3; защищено  DONT_CARE: 0x1100; защищено  FASTEST: 0x1101; защищено  NICEST: 0x1102; защищено  GENERATE_MIPMAP_HINT: 0x8192; защищено  BYTE: 0x1400; защищено  UNSIGNED_BYTE: 0x1401; защищено  SHORT: 0x1402; защищено  UNSIGNED_SHORT: 0x1403; защищено  INT: 0x1404; защищено  UNSIGNED_INT: 0x1405; защищено  FLOAT: 0x1406; защищено  DEPTH_COMPONENT: 0x1902; защищено  ALPHA: 0x1906; защищено  RGB: 0x1907; защищено  RGBA: 0x1908; защищено  LUMINANCE: 0x1909; защищено  LUMINANCE_ALPHA: 0x190A; защищено  UNSIGNED_SHORT_4_4_4_4: 0x8033; защищено  UNSIGNED_SHORT_5_5_5_1: 0x8034; защищено  UNSIGNED_SHORT_5_6_5: 0x8363; защищено  FRAGMENT_SHADER: 0x8B30; защищено  VERTEX_SHADER: 0x8B31; защищено  MAX_VERTEX_ATTRIBS: 0x8869; защищено  MAX_VERTEX_UNIFORM_VECTORS: 0x8DFB; защищено  MAX_VARYING_VECTORS: 0x8DFC; защищено  MAX_COMBINED_TEXTURE_IMAGE_UNITS: 0x8B4D; защищено  MAX_VERTEX_TEXTURE_IMAGE_UNITS: 0x8B4C; защищено  MAX_TEXTURE_IMAGE_UNITS: 0x8872; защищено  MAX_FRAGMENT_UNIFORM_VECTORS: 0x8DFD; защищено  SHADER_TYPE: 0x8B4F; защищено  DELETE_STATUS: 0x8B80; защищено  LINK_STATUS: 0x8B82; защищено  VALIDATE_STATUS: 0x8B83; защищено  ATTACHED_SHADERS: 0x8B85; защищено  ACTIVE_UNIFORMS: 0x8B86; защищено  ACTIVE_ATTRIBUTES: 0x8B89; защищено  SHADING_LANGUAGE_VERSION: 0x8B8C; защищено  CURRENT_PROGRAM: 0x8B8D; защищено  NEVER: 0x0200; защищено  LESS: 0x0201; защищено  EQUAL: 0x0202; защищено  LEQUAL: 0x0203; защищено  GREATER: 0x0204; защищено  NOTEQUAL: 0x0205; защищено  GEQUAL: 0x0206; защищено  ALWAYS: 0x0207; защищено  KEEP: 0x1E00; защищено  REPLACE: 0x1E01; защищено  INCR: 0x1E02; защищено  DECR: 0x1E03; защищено  INVERT: 0x150A; защищено  INCR_WRAP: 0x8507; защищено  DECR_WRAP: 0x8508; защищено  VENDOR: 0x1F00; защищено  RENDERER: 0x1F01; защищено  VERSION: 0x1F02; защищено  NEAREST: 0x2600; защищено  LINEAR: 0x2601; защищено  NEAREST_MIPMAP_NEAREST: 0x2700; защищено  LINEAR_MIPMAP_NEAREST: 0x2701; защищено  NEAREST_MIPMAP_LINEAR: 0x2702; защищено  LINEAR_MIPMAP_LINEAR: 0x2703; защищено  TEXTURE_MAG_FILTER: 0x2800; защищено  TEXTURE_MIN_FILTER: 0x2801; защищено  TEXTURE_WRAP_S: 0x2802; защищено  TEXTURE_WRAP_T: 0x2803; защищено  TEXTURE_2D: 0x0DE1; защищено  TEXTURE: 0x1702; защищено  TEXTURE_CUBE_MAP: 0x8513; защищено  TEXTURE_BINDING_CUBE_MAP: 0x8514; защищено  TEXTURE_CUBE_MAP_POSITIVE_X: 0x8515; защищено  TEXTURE_CUBE_MAP_NEGATIVE_X: 0x8516; защищено  TEXTURE_CUBE_MAP_POSITIVE_Y: 0x8517; защищено  TEXTURE_CUBE_MAP_NEGATIVE_Y: 0x8518; защищено  TEXTURE_CUBE_MAP_POSITIVE_Z: 0x8519; защищено  TEXTURE_CUBE_MAP_NEGATIVE_Z: 0x851A; защищено  MAX_CUBE_MAP_TEXTURE_SIZE: 0x851C; защищено  TEXTURE0: 0x84C0; защищено  TEXTURE1: 0x84C1; защищено  TEXTURE2: 0x84C2; защищено  TEXTURE3: 0x84C3; защищено  TEXTURE4: 0x84C4; защищено  TEXTURE5: 0x84C5; защищено  TEXTURE6: 0x84C6; защищено  TEXTURE7: 0x84C7; защищено  TEXTURE8: 0x84C8; защищено  TEXTURE9: 0x84C9; защищено  TEXTURE10: 0x84CA; защищено  TEXTURE11: 0x84CB; защищено  TEXTURE12: 0x84CC; защищено  TEXTURE13: 0x84CD; защищено  TEXTURE14: 0x84CE; защищено  TEXTURE15: 0x84CF; защищено  TEXTURE16: 0x84D0; защищено  TEXTURE17: 0x84D1; защищено  TEXTURE18: 0x84D2; защищено  TEXTURE19: 0x84D3; защищено  TEXTURE20: 0x84D4; защищено  TEXTURE21: 0x84D5; защищено  TEXTURE22: 0x84D6; защищено  TEXTURE23: 0x84D7; защищено  TEXTURE24: 0x84D8; защищено  TEXTURE25: 0x84D9; защищено  TEXTURE26: 0x84DA; защищено  TEXTURE27: 0x84DB; защищено  TEXTURE28: 0x84DC; защищено  TEXTURE29: 0x84DD; защищено  TEXTURE30: 0x84DE; защищено  TEXTURE31: 0x84DF; защищено  ACTIVE_TEXTURE: 0x84E0; защищено  REPEAT: 0x2901; защищено  CLAMP_TO_EDGE: 0x812F; защищено  MIRRORED_REPEAT: 0x8370; защищено  FLOAT_VEC2: 0x8B50; защищено  FLOAT_VEC3: 0x8B51; защищено  FLOAT_VEC4: 0x8B52; защищено  INT_VEC2: 0x8B53; защищено  INT_VEC3: 0x8B54; защищено  INT_VEC4: 0x8B55; защищено  BOOL: 0x8B56; защищено  BOOL_VEC2: 0x8B57; защищено  BOOL_VEC3: 0x8B58; защищено  BOOL_VEC4: 0x8B59; защищено  FLOAT_MAT2: 0x8B5A; защищено  FLOAT_MAT3: 0x8B5B; защищено  FLOAT_MAT4: 0x8B5C; защищено  SAMPLER_2D: 0x8B5E; защищено  SAMPLER_CUBE: 0x8B60; защищено  VERTEX_ATTRIB_ARRAY_ENABLED: 0x8622; защищено  VERTEX_ATTRIB_ARRAY_SIZE: 0x8623; защищено  VERTEX_ATTRIB_ARRAY_STRIDE: 0x8624; защищено  VERTEX_ATTRIB_ARRAY_TYPE: 0x8625; защищено  VERTEX_ATTRIB_ARRAY_NORMALIZED: 0x886A; защищено  VERTEX_ATTRIB_ARRAY_POINTER: 0x8645; защищено  VERTEX_ATTRIB_ARRAY_BUFFER_BINDING: 0x889F; защищено  IMPLEMENTATION_COLOR_READ_TYPE: 0x8B9A; защищено  IMPLEMENTATION_COLOR_READ_FORMAT: 0x8B9B; защищено  COMPILE_STATUS: 0x8B81; защищено  LOW_FLOAT: 0x8DF0; защищено  MEDIUM_FLOAT: 0x8DF1; защищено  HIGH_FLOAT: 0x8DF2; защищено  LOW_INT: 0x8DF3; защищено  MEDIUM_INT: 0x8DF4; защищено  HIGH_INT: 0x8DF5; защищено  FRAMEBUFFER: 0x8D40; защищено  RENDERBUFFER: 0x8D41; защищено  RGBA4: 0x8056; защищено  RGB5_A1: 0x8057; защищено  RGB565: 0x8D62; защищено  DEPTH_COMPONENT16: 0x81A5; защищено  STENCIL_INDEX8: 0x8D48; защищено  DEPTH_STENCIL: 0x84F9; защищено  RENDERBUFFER_WIDTH: 0x8D42; защищено  RENDERBUFFER_HEIGHT: 0x8D43; защищено  RENDERBUFFER_INTERNAL_FORMAT: 0x8D44; защищено  RENDERBUFFER_RED_SIZE: 0x8D50; защищено  RENDERBUFFER_GREEN_SIZE: 0x8D51; защищено  RENDERBUFFER_BLUE_SIZE: 0x8D52; защищено  RENDERBUFFER_ALPHA_SIZE: 0x8D53; защищено  RENDERBUFFER_DEPTH_SIZE: 0x8D54; защищено  RENDERBUFFER_STENCIL_SIZE: 0x8D55; защищено  FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE: 0x8CD0; защищено  FRAMEBUFFER_ATTACHMENT_OBJECT_NAME: 0x8CD1; защищено  FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL: 0x8CD2; защищено  FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE: 0x8CD3; защищено  COLOR_ATTACHMENT0: 0x8CE0; защищено  DEPTH_ATTACHMENT: 0x8D00; защищено  STENCIL_ATTACHMENT: 0x8D20; защищено  DEPTH_STENCIL_ATTACHMENT: 0x821A; защищено  NONE: 0; защищено  FRAMEBUFFER_COMPLETE: 0x8CD5; защищено  FRAMEBUFFER_INCOMPLETE_ATTACHMENT: 0x8CD6; защищено  FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT: 0x8CD7; защищено  FRAMEBUFFER_INCOMPLETE_DIMENSIONS: 0x8CD9; защищено  FRAMEBUFFER_UNSUPPORTED: 0x8CDD; защищено  FRAMEBUFFER_BINDING: 0x8CA6; защищено  RENDERBUFFER_BINDING: 0x8CA7; защищено  MAX_RENDERBUFFER_SIZE: 0x84E8; защищено  INVALID_FRAMEBUFFER_OPERATION: 0x0506; защищено  UNPACK_FLIP_Y_WEBGL: 0x9240; защищено  UNPACK_PREMULTIPLY_ALPHA_WEBGL: 0x9241; защищено  CONTEXT_LOST_WEBGL: 0x9242; защищено  UNPACK_COLORSPACE_CONVERSION_WEBGL: 0x9243; защищено  BROWSER_DEFAULT_WEBGL: 0x9244 }
+/*(!) var */ WebGLRenderingContext: объект { prototype: WebGLRenderingContext; при создании(): /*(!) no_type */ Объект?; защищено  DEPTH_BUFFER_BIT: 0x00000100; защищено  STENCIL_BUFFER_BIT: 0x00000400; защищено  COLOR_BUFFER_BIT: 0x00004000; защищено  POINTS: 0x0000; защищено  LINES: 0x0001; защищено  LINE_LOOP: 0x0002; защищено  LINE_STRIP: 0x0003; защищено  TRIANGLES: 0x0004; защищено  TRIANGLE_STRIP: 0x0005; защищено  TRIANGLE_FAN: 0x0006; защищено  ZERO: 0; защищено  ONE: 1; защищено  SRC_COLOR: 0x0300; защищено  ONE_MINUS_SRC_COLOR: 0x0301; защищено  SRC_ALPHA: 0x0302; защищено  ONE_MINUS_SRC_ALPHA: 0x0303; защищено  DST_ALPHA: 0x0304; защищено  ONE_MINUS_DST_ALPHA: 0x0305; защищено  DST_COLOR: 0x0306; защищено  ONE_MINUS_DST_COLOR: 0x0307; защищено  SRC_ALPHA_SATURATE: 0x0308; защищено  FUNC_ADD: 0x8006; защищено  BLEND_EQUATION: 0x8009; защищено  BLEND_EQUATION_RGB: 0x8009; защищено  BLEND_EQUATION_ALPHA: 0x883D; защищено  FUNC_SUBTRACT: 0x800A; защищено  FUNC_REVERSE_SUBTRACT: 0x800B; защищено  BLEND_DST_RGB: 0x80C8; защищено  BLEND_SRC_RGB: 0x80C9; защищено  BLEND_DST_ALPHA: 0x80CA; защищено  BLEND_SRC_ALPHA: 0x80CB; защищено  CONSTANT_COLOR: 0x8001; защищено  ONE_MINUS_CONSTANT_COLOR: 0x8002; защищено  CONSTANT_ALPHA: 0x8003; защищено  ONE_MINUS_CONSTANT_ALPHA: 0x8004; защищено  BLEND_COLOR: 0x8005; защищено  ARRAY_BUFFER: 0x8892; защищено  ELEMENT_ARRAY_BUFFER: 0x8893; защищено  ARRAY_BUFFER_BINDING: 0x8894; защищено  ELEMENT_ARRAY_BUFFER_BINDING: 0x8895; защищено  STREAM_DRAW: 0x88E0; защищено  STATIC_DRAW: 0x88E4; защищено  DYNAMIC_DRAW: 0x88E8; защищено  BUFFER_SIZE: 0x8764; защищено  BUFFER_USAGE: 0x8765; защищено  CURRENT_VERTEX_ATTRIB: 0x8626; защищено  FRONT: 0x0404; защищено  BACK: 0x0405; защищено  FRONT_AND_BACK: 0x0408; защищено  CULL_FACE: 0x0B44; защищено  BLEND: 0x0BE2; защищено  DITHER: 0x0BD0; защищено  STENCIL_TEST: 0x0B90; защищено  DEPTH_TEST: 0x0B71; защищено  SCISSOR_TEST: 0x0C11; защищено  POLYGON_OFFSET_FILL: 0x8037; защищено  SAMPLE_ALPHA_TO_COVERAGE: 0x809E; защищено  SAMPLE_COVERAGE: 0x80A0; защищено  NO_ERROR: 0; защищено  INVALID_ENUM: 0x0500; защищено  INVALID_VALUE: 0x0501; защищено  INVALID_OPERATION: 0x0502; защищено  OUT_OF_MEMORY: 0x0505; защищено  CW: 0x0900; защищено  CCW: 0x0901; защищено  LINE_WIDTH: 0x0B21; защищено  ALIASED_POINT_SIZE_RANGE: 0x846D; защищено  ALIASED_LINE_WIDTH_RANGE: 0x846E; защищено  CULL_FACE_MODE: 0x0B45; защищено  FRONT_FACE: 0x0B46; защищено  DEPTH_RANGE: 0x0B70; защищено  DEPTH_WRITEMASK: 0x0B72; защищено  DEPTH_CLEAR_VALUE: 0x0B73; защищено  DEPTH_FUNC: 0x0B74; защищено  STENCIL_CLEAR_VALUE: 0x0B91; защищено  STENCIL_FUNC: 0x0B92; защищено  STENCIL_FAIL: 0x0B94; защищено  STENCIL_PASS_DEPTH_FAIL: 0x0B95; защищено  STENCIL_PASS_DEPTH_PASS: 0x0B96; защищено  STENCIL_REF: 0x0B97; защищено  STENCIL_VALUE_MASK: 0x0B93; защищено  STENCIL_WRITEMASK: 0x0B98; защищено  STENCIL_BACK_FUNC: 0x8800; защищено  STENCIL_BACK_FAIL: 0x8801; защищено  STENCIL_BACK_PASS_DEPTH_FAIL: 0x8802; защищено  STENCIL_BACK_PASS_DEPTH_PASS: 0x8803; защищено  STENCIL_BACK_REF: 0x8CA3; защищено  STENCIL_BACK_VALUE_MASK: 0x8CA4; защищено  STENCIL_BACK_WRITEMASK: 0x8CA5; защищено  VIEWPORT: 0x0BA2; защищено  SCISSOR_BOX: 0x0C10; защищено  COLOR_CLEAR_VALUE: 0x0C22; защищено  COLOR_WRITEMASK: 0x0C23; защищено  UNPACK_ALIGNMENT: 0x0CF5; защищено  PACK_ALIGNMENT: 0x0D05; защищено  MAX_TEXTURE_SIZE: 0x0D33; защищено  MAX_VIEWPORT_DIMS: 0x0D3A; защищено  SUBPIXEL_BITS: 0x0D50; защищено  RED_BITS: 0x0D52; защищено  GREEN_BITS: 0x0D53; защищено  BLUE_BITS: 0x0D54; защищено  ALPHA_BITS: 0x0D55; защищено  DEPTH_BITS: 0x0D56; защищено  STENCIL_BITS: 0x0D57; защищено  POLYGON_OFFSET_UNITS: 0x2A00; защищено  POLYGON_OFFSET_FACTOR: 0x8038; защищено  TEXTURE_BINDING_2D: 0x8069; защищено  SAMPLE_BUFFERS: 0x80A8; защищено  SAMPLES: 0x80A9; защищено  SAMPLE_COVERAGE_VALUE: 0x80AA; защищено  SAMPLE_COVERAGE_INVERT: 0x80AB; защищено  COMPRESSED_TEXTURE_FORMATS: 0x86A3; защищено  DONT_CARE: 0x1100; защищено  FASTEST: 0x1101; защищено  NICEST: 0x1102; защищено  GENERATE_MIPMAP_HINT: 0x8192; защищено  BYTE: 0x1400; защищено  UNSIGNED_BYTE: 0x1401; защищено  SHORT: 0x1402; защищено  UNSIGNED_SHORT: 0x1403; защищено  INT: 0x1404; защищено  UNSIGNED_INT: 0x1405; защищено  FLOAT: 0x1406; защищено  DEPTH_COMPONENT: 0x1902; защищено  ALPHA: 0x1906; защищено  RGB: 0x1907; защищено  RGBA: 0x1908; защищено  LUMINANCE: 0x1909; защищено  LUMINANCE_ALPHA: 0x190A; защищено  UNSIGNED_SHORT_4_4_4_4: 0x8033; защищено  UNSIGNED_SHORT_5_5_5_1: 0x8034; защищено  UNSIGNED_SHORT_5_6_5: 0x8363; защищено  FRAGMENT_SHADER: 0x8B30; защищено  VERTEX_SHADER: 0x8B31; защищено  MAX_VERTEX_ATTRIBS: 0x8869; защищено  MAX_VERTEX_UNIFORM_VECTORS: 0x8DFB; защищено  MAX_VARYING_VECTORS: 0x8DFC; защищено  MAX_COMBINED_TEXTURE_IMAGE_UNITS: 0x8B4D; защищено  MAX_VERTEX_TEXTURE_IMAGE_UNITS: 0x8B4C; защищено  MAX_TEXTURE_IMAGE_UNITS: 0x8872; защищено  MAX_FRAGMENT_UNIFORM_VECTORS: 0x8DFD; защищено  SHADER_TYPE: 0x8B4F; защищено  DELETE_STATUS: 0x8B80; защищено  LINK_STATUS: 0x8B82; защищено  VALIDATE_STATUS: 0x8B83; защищено  ATTACHED_SHADERS: 0x8B85; защищено  ACTIVE_UNIFORMS: 0x8B86; защищено  ACTIVE_ATTRIBUTES: 0x8B89; защищено  SHADING_LANGUAGE_VERSION: 0x8B8C; защищено  CURRENT_PROGRAM: 0x8B8D; защищено  NEVER: 0x0200; защищено  LESS: 0x0201; защищено  EQUAL: 0x0202; защищено  LEQUAL: 0x0203; защищено  GREATER: 0x0204; защищено  NOTEQUAL: 0x0205; защищено  GEQUAL: 0x0206; защищено  ALWAYS: 0x0207; защищено  KEEP: 0x1E00; защищено  REPLACE: 0x1E01; защищено  INCR: 0x1E02; защищено  DECR: 0x1E03; защищено  INVERT: 0x150A; защищено  INCR_WRAP: 0x8507; защищено  DECR_WRAP: 0x8508; защищено  VENDOR: 0x1F00; защищено  RENDERER: 0x1F01; защищено  VERSION: 0x1F02; защищено  NEAREST: 0x2600; защищено  LINEAR: 0x2601; защищено  NEAREST_MIPMAP_NEAREST: 0x2700; защищено  LINEAR_MIPMAP_NEAREST: 0x2701; защищено  NEAREST_MIPMAP_LINEAR: 0x2702; защищено  LINEAR_MIPMAP_LINEAR: 0x2703; защищено  TEXTURE_MAG_FILTER: 0x2800; защищено  TEXTURE_MIN_FILTER: 0x2801; защищено  TEXTURE_WRAP_S: 0x2802; защищено  TEXTURE_WRAP_T: 0x2803; защищено  TEXTURE_2D: 0x0DE1; защищено  TEXTURE: 0x1702; защищено  TEXTURE_CUBE_MAP: 0x8513; защищено  TEXTURE_BINDING_CUBE_MAP: 0x8514; защищено  TEXTURE_CUBE_MAP_POSITIVE_X: 0x8515; защищено  TEXTURE_CUBE_MAP_NEGATIVE_X: 0x8516; защищено  TEXTURE_CUBE_MAP_POSITIVE_Y: 0x8517; защищено  TEXTURE_CUBE_MAP_NEGATIVE_Y: 0x8518; защищено  TEXTURE_CUBE_MAP_POSITIVE_Z: 0x8519; защищено  TEXTURE_CUBE_MAP_NEGATIVE_Z: 0x851A; защищено  MAX_CUBE_MAP_TEXTURE_SIZE: 0x851C; защищено  TEXTURE0: 0x84C0; защищено  TEXTURE1: 0x84C1; защищено  TEXTURE2: 0x84C2; защищено  TEXTURE3: 0x84C3; защищено  TEXTURE4: 0x84C4; защищено  TEXTURE5: 0x84C5; защищено  TEXTURE6: 0x84C6; защищено  TEXTURE7: 0x84C7; защищено  TEXTURE8: 0x84C8; защищено  TEXTURE9: 0x84C9; защищено  TEXTURE10: 0x84CA; защищено  TEXTURE11: 0x84CB; защищено  TEXTURE12: 0x84CC; защищено  TEXTURE13: 0x84CD; защищено  TEXTURE14: 0x84CE; защищено  TEXTURE15: 0x84CF; защищено  TEXTURE16: 0x84D0; защищено  TEXTURE17: 0x84D1; защищено  TEXTURE18: 0x84D2; защищено  TEXTURE19: 0x84D3; защищено  TEXTURE20: 0x84D4; защищено  TEXTURE21: 0x84D5; защищено  TEXTURE22: 0x84D6; защищено  TEXTURE23: 0x84D7; защищено  TEXTURE24: 0x84D8; защищено  TEXTURE25: 0x84D9; защищено  TEXTURE26: 0x84DA; защищено  TEXTURE27: 0x84DB; защищено  TEXTURE28: 0x84DC; защищено  TEXTURE29: 0x84DD; защищено  TEXTURE30: 0x84DE; защищено  TEXTURE31: 0x84DF; защищено  ACTIVE_TEXTURE: 0x84E0; защищено  REPEAT: 0x2901; защищено  CLAMP_TO_EDGE: 0x812F; защищено  MIRRORED_REPEAT: 0x8370; защищено  FLOAT_VEC2: 0x8B50; защищено  FLOAT_VEC3: 0x8B51; защищено  FLOAT_VEC4: 0x8B52; защищено  INT_VEC2: 0x8B53; защищено  INT_VEC3: 0x8B54; защищено  INT_VEC4: 0x8B55; защищено  BOOL: 0x8B56; защищено  BOOL_VEC2: 0x8B57; защищено  BOOL_VEC3: 0x8B58; защищено  BOOL_VEC4: 0x8B59; защищено  FLOAT_MAT2: 0x8B5A; защищено  FLOAT_MAT3: 0x8B5B; защищено  FLOAT_MAT4: 0x8B5C; защищено  SAMPLER_2D: 0x8B5E; защищено  SAMPLER_CUBE: 0x8B60; защищено  VERTEX_ATTRIB_ARRAY_ENABLED: 0x8622; защищено  VERTEX_ATTRIB_ARRAY_SIZE: 0x8623; защищено  VERTEX_ATTRIB_ARRAY_STRIDE: 0x8624; защищено  VERTEX_ATTRIB_ARRAY_TYPE: 0x8625; защищено  VERTEX_ATTRIB_ARRAY_NORMALIZED: 0x886A; защищено  VERTEX_ATTRIB_ARRAY_POINTER: 0x8645; защищено  VERTEX_ATTRIB_ARRAY_BUFFER_BINDING: 0x889F; защищено  IMPLEMENTATION_COLOR_READ_TYPE: 0x8B9A; защищено  IMPLEMENTATION_COLOR_READ_FORMAT: 0x8B9B; защищено  COMPILE_STATUS: 0x8B81; защищено  LOW_FLOAT: 0x8DF0; защищено  MEDIUM_FLOAT: 0x8DF1; защищено  HIGH_FLOAT: 0x8DF2; защищено  LOW_INT: 0x8DF3; защищено  MEDIUM_INT: 0x8DF4; защищено  HIGH_INT: 0x8DF5; защищено  FRAMEBUFFER: 0x8D40; защищено  RENDERBUFFER: 0x8D41; защищено  RGBA4: 0x8056; защищено  RGB5_A1: 0x8057; защищено  RGB565: 0x8D62; защищено  DEPTH_COMPONENT16: 0x81A5; защищено  STENCIL_INDEX8: 0x8D48; защищено  DEPTH_STENCIL: 0x84F9; защищено  RENDERBUFFER_WIDTH: 0x8D42; защищено  RENDERBUFFER_HEIGHT: 0x8D43; защищено  RENDERBUFFER_INTERNAL_FORMAT: 0x8D44; защищено  RENDERBUFFER_RED_SIZE: 0x8D50; защищено  RENDERBUFFER_GREEN_SIZE: 0x8D51; защищено  RENDERBUFFER_BLUE_SIZE: 0x8D52; защищено  RENDERBUFFER_ALPHA_SIZE: 0x8D53; защищено  RENDERBUFFER_DEPTH_SIZE: 0x8D54; защищено  RENDERBUFFER_STENCIL_SIZE: 0x8D55; защищено  FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE: 0x8CD0; защищено  FRAMEBUFFER_ATTACHMENT_OBJECT_NAME: 0x8CD1; защищено  FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL: 0x8CD2; защищено  FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE: 0x8CD3; защищено  COLOR_ATTACHMENT0: 0x8CE0; защищено  DEPTH_ATTACHMENT: 0x8D00; защищено  STENCIL_ATTACHMENT: 0x8D20; защищено  DEPTH_STENCIL_ATTACHMENT: 0x821A; защищено  NONE: 0; защищено  FRAMEBUFFER_COMPLETE: 0x8CD5; защищено  FRAMEBUFFER_INCOMPLETE_ATTACHMENT: 0x8CD6; защищено  FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT: 0x8CD7; защищено  FRAMEBUFFER_INCOMPLETE_DIMENSIONS: 0x8CD9; защищено  FRAMEBUFFER_UNSUPPORTED: 0x8CDD; защищено  FRAMEBUFFER_BINDING: 0x8CA6; защищено  RENDERBUFFER_BINDING: 0x8CA7; защищено  MAX_RENDERBUFFER_SIZE: 0x84E8; защищено  INVALID_FRAMEBUFFER_OPERATION: 0x0506; защищено  UNPACK_FLIP_Y_WEBGL: 0x9240; защищено  UNPACK_PREMULTIPLY_ALPHA_WEBGL: 0x9241; защищено  CONTEXT_LOST_WEBGL: 0x9242; защищено  UNPACK_COLORSPACE_CONVERSION_WEBGL: 0x9243; защищено  BROWSER_DEFAULT_WEBGL: 0x9244 }
 
 
 тип WebGLRenderingContextBase = интерфейс
@@ -9272,7 +9272,7 @@
 
 
 внешнее
-/*(!) var */ WebGLSampler: объект { prototype: WebGLSampler; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLSampler: объект { prototype: WebGLSampler; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9288,7 +9288,7 @@
 
 
 внешнее
-/*(!) var */ WebGLShader: объект { prototype: WebGLShader; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLShader: объект { prototype: WebGLShader; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9311,7 +9311,7 @@
 
 
 внешнее
-/*(!) var */ WebGLShaderPrecisionFormat: объект { prototype: WebGLShaderPrecisionFormat; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLShaderPrecisionFormat: объект { prototype: WebGLShaderPrecisionFormat; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLSync) */
@@ -9323,7 +9323,7 @@
 
 
 внешнее
-/*(!) var */ WebGLSync: объект { prototype: WebGLSync; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLSync: объект { prototype: WebGLSync; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9339,7 +9339,7 @@
 
 
 внешнее
-/*(!) var */ WebGLTexture: объект { prototype: WebGLTexture; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLTexture: объект { prototype: WebGLTexture; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLTransformFeedback) */
@@ -9351,7 +9351,7 @@
 
 
 внешнее
-/*(!) var */ WebGLTransformFeedback: объект { prototype: WebGLTransformFeedback; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLTransformFeedback: объект { prototype: WebGLTransformFeedback; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9367,7 +9367,7 @@
 
 
 внешнее
-/*(!) var */ WebGLUniformLocation: объект { prototype: WebGLUniformLocation; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLUniformLocation: объект { prototype: WebGLUniformLocation; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLVertexArrayObject) */
@@ -9379,7 +9379,7 @@
 
 
 внешнее
-/*(!) var */ WebGLVertexArrayObject: объект { prototype: WebGLVertexArrayObject; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebGLVertexArrayObject: объект { prototype: WebGLVertexArrayObject; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLVertexArrayObjectOES) */
@@ -9418,13 +9418,13 @@
   защищено 
   extensions: Текст
 
-  onclose: операция(this: WebSocket, ev: CloseEvent): /*(!) any */ Объект??
+  onclose: (операция(this: WebSocket, ev: CloseEvent): /*(!) any */ Объект?)?
 
-  onerror: операция(this: WebSocket, ev: Event): /*(!) any */ Объект??
+  onerror: (операция(this: WebSocket, ev: Event): /*(!) any */ Объект?)?
 
-  onmessage: операция(this: WebSocket, ev: MessageEvent): /*(!) any */ Объект??
+  onmessage: (операция(this: WebSocket, ev: MessageEvent): /*(!) any */ Объект?)?
 
-  onopen: операция(this: WebSocket, ev: Event): /*(!) any */ Объект??
+  onopen: (операция(this: WebSocket, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   protocol: Текст
@@ -9462,7 +9462,7 @@
 
 
 внешнее
-/*(!) var */ WebSocket: объект { prototype: WebSocket; при создании(url: Текст | URL, protocols: Текст | Список<Текст> | пусто = пусто)/*(!) no_type */ Объект?; защищено  CONNECTING: 0; защищено  OPEN: 1; защищено  CLOSING: 2; защищено  CLOSED: 3 }
+/*(!) var */ WebSocket: объект { prototype: WebSocket; при создании(url: Текст | URL, protocols: Текст | Список<Текст> | пусто = пусто): /*(!) no_type */ Объект?; защищено  CONNECTING: 0; защищено  OPEN: 1; защищено  CLOSING: 2; защищено  CLOSED: 3 }
 
 
 /**
@@ -9497,7 +9497,7 @@
 
 
 внешнее
-/*(!) var */ WebTransport: объект { prototype: WebTransport; при создании(url: Текст | URL, options: WebTransportOptions? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ WebTransport: объект { prototype: WebTransport; при создании(url: Текст | URL, options: WebTransportOptions? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9517,7 +9517,7 @@
 
 
 внешнее
-/*(!) var */ WebTransportBidirectionalStream: объект { prototype: WebTransportBidirectionalStream; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebTransportBidirectionalStream: объект { prototype: WebTransportBidirectionalStream; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9548,7 +9548,7 @@
 
 
 внешнее
-/*(!) var */ WebTransportDatagramDuplexStream: объект { prototype: WebTransportDatagramDuplexStream; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WebTransportDatagramDuplexStream: объект { prototype: WebTransportDatagramDuplexStream; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9568,7 +9568,7 @@
 
 
 внешнее
-/*(!) var */ WebTransportError: объект { prototype: WebTransportError; при создании(message: Текст? = пусто, options: WebTransportErrorOptions? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ WebTransportError: объект { prototype: WebTransportError; при создании(message: Текст? = пусто, options: WebTransportErrorOptions? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9592,7 +9592,7 @@
 
 
 внешнее
-/*(!) var */ WindowClient: объект { prototype: WindowClient; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WindowClient: объект { prototype: WindowClient; при создании(): /*(!) no_type */ Объект? }
 
 
 тип WindowOrWorkerGlobalScope = интерфейс
@@ -9662,9 +9662,9 @@
 
 тип Worker = интерфейс
 {
-  onmessage: операция(this: Worker, ev: MessageEvent): /*(!) any */ Объект??
+  onmessage: (операция(this: Worker, ev: MessageEvent): /*(!) any */ Объект?)?
 
-  onmessageerror: операция(this: Worker, ev: MessageEvent): /*(!) any */ Объект??
+  onmessageerror: (операция(this: Worker, ev: MessageEvent): /*(!) any */ Объект?)?
 
   операция postMessage(message: /*(!) any */ Объект?, transfer: Список<Transferable>)
 
@@ -9683,7 +9683,7 @@
 
 
 внешнее
-/*(!) var */ Worker: объект { prototype: Worker; при создании(scriptURL: Текст | URL, options: WorkerOptions? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ Worker: объект { prototype: Worker; при создании(scriptURL: Текст | URL, options: WorkerOptions? = пусто): /*(!) no_type */ Объект? }
 
 
 тип WorkerGlobalScopeEventMap = интерфейс
@@ -9716,17 +9716,17 @@
   защищено 
   navigator: WorkerNavigator
 
-  onerror: операция(this: WorkerGlobalScope, ev: ErrorEvent): /*(!) any */ Объект??
+  onerror: (операция(this: WorkerGlobalScope, ev: ErrorEvent): /*(!) any */ Объект?)?
 
-  onlanguagechange: операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект??
+  onlanguagechange: (операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект?)?
 
-  onoffline: операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект??
+  onoffline: (операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект?)?
 
-  ononline: операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект??
+  ononline: (операция(this: WorkerGlobalScope, ev: Event): /*(!) any */ Объект?)?
 
-  onrejectionhandled: операция(this: WorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??
+  onrejectionhandled: (операция(this: WorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект?)?
 
-  onunhandledrejection: операция(this: WorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??
+  onunhandledrejection: (операция(this: WorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект?)?
 
   защищено 
   self: /*(!) WorkerGlobalScope & typeof globalThis */ Объект?
@@ -9745,7 +9745,7 @@
 
 
 внешнее
-/*(!) var */ WorkerGlobalScope: объект { prototype: WorkerGlobalScope; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WorkerGlobalScope: объект { prototype: WorkerGlobalScope; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9788,7 +9788,7 @@
 
 
 внешнее
-/*(!) var */ WorkerLocation: объект { prototype: WorkerLocation; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WorkerLocation: объект { prototype: WorkerLocation; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9808,7 +9808,7 @@
 
 
 внешнее
-/*(!) var */ WorkerNavigator: объект { prototype: WorkerNavigator; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WorkerNavigator: объект { prototype: WorkerNavigator; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9822,7 +9822,7 @@
   защищено 
   locked: ДаНет
 
-  операция abort(reason: /*(!) any */ Объект?? = пусто): Promise<Ничего>
+  операция abort(reason: /*(!) any */ Объект? = пусто): Promise<Ничего>
 
   операция close(): Promise<Ничего>
 
@@ -9831,7 +9831,7 @@
 
 
 внешнее
-/*(!) var */ WritableStream: объект { prototype: WritableStream; при создании(underlyingSink: UnderlyingSink<W>? = пусто, strategy: QueuingStrategy<W>? = пусто)/*(!) no_type */ Объект? }
+/*(!) var */ WritableStream: объект { prototype: WritableStream; при создании(underlyingSink: UnderlyingSink<W>? = пусто, strategy: QueuingStrategy<W>? = пусто): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9845,12 +9845,12 @@
   защищено 
   signal: AbortSignal
 
-  операция error(e: /*(!) any */ Объект?? = пусто)
+  операция error(e: /*(!) any */ Объект? = пусто)
 }
 
 
 внешнее
-/*(!) var */ WritableStreamDefaultController: объект { prototype: WritableStreamDefaultController; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ WritableStreamDefaultController: объект { prototype: WritableStreamDefaultController; при создании(): /*(!) no_type */ Объект? }
 
 
 /**
@@ -9870,7 +9870,7 @@
   защищено 
   ready: Promise<пусто>
 
-  операция abort(reason: /*(!) any */ Объект?? = пусто): Promise<Ничего>
+  операция abort(reason: /*(!) any */ Объект? = пусто): Promise<Ничего>
 
   операция close(): Promise<Ничего>
 
@@ -9881,7 +9881,7 @@
 
 
 внешнее
-/*(!) var */ WritableStreamDefaultWriter: объект { prototype: WritableStreamDefaultWriter; при создании(stream: WritableStream<W>)/*(!) no_type */ Объект? }
+/*(!) var */ WritableStreamDefaultWriter: объект { prototype: WritableStreamDefaultWriter; при создании(stream: WritableStream<W>): /*(!) no_type */ Объект? }
 
 
 тип XMLHttpRequestEventMap = интерфейс
@@ -9898,7 +9898,7 @@
 
 тип XMLHttpRequest = интерфейс
 {
-  onreadystatechange: операция(this: XMLHttpRequest, ev: Event): /*(!) any */ Объект??
+  onreadystatechange: (операция(this: XMLHttpRequest, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   readyState: Число
@@ -9969,7 +9969,7 @@
 
 
 внешнее
-/*(!) var */ XMLHttpRequest: объект { prototype: XMLHttpRequest; при создании()/*(!) no_type */ Объект?; защищено  UNSENT: 0; защищено  OPENED: 1; защищено  HEADERS_RECEIVED: 2; защищено  LOADING: 3; защищено  DONE: 4 }
+/*(!) var */ XMLHttpRequest: объект { prototype: XMLHttpRequest; при создании(): /*(!) no_type */ Объект?; защищено  UNSENT: 0; защищено  OPENED: 1; защищено  HEADERS_RECEIVED: 2; защищено  LOADING: 3; защищено  DONE: 4 }
 
 
 тип XMLHttpRequestEventTargetEventMap = интерфейс
@@ -9994,19 +9994,19 @@
 
 тип XMLHttpRequestEventTarget = интерфейс
 {
-  onabort: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
+  onabort: (операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект?)?
 
-  onerror: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
+  onerror: (операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект?)?
 
-  onload: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
+  onload: (операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект?)?
 
-  onloadend: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
+  onloadend: (операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект?)?
 
-  onloadstart: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
+  onloadstart: (операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект?)?
 
-  onprogress: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
+  onprogress: (операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект?)?
 
-  ontimeout: операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект??
+  ontimeout: (операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект?)?
 
   операция addEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestEventTarget, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -10019,7 +10019,7 @@
 
 
 внешнее
-/*(!) var */ XMLHttpRequestEventTarget: объект { prototype: XMLHttpRequestEventTarget; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ XMLHttpRequestEventTarget: объект { prototype: XMLHttpRequestEventTarget; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/XMLHttpRequestUpload) */
@@ -10037,7 +10037,7 @@
 
 
 внешнее
-/*(!) var */ XMLHttpRequestUpload: объект { prototype: XMLHttpRequestUpload; при создании()/*(!) no_type */ Объект? }
+/*(!) var */ XMLHttpRequestUpload: объект { prototype: XMLHttpRequestUpload; при создании(): /*(!) no_type */ Объект? }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/console) */
@@ -10056,7 +10056,7 @@
   #js.МассивПараметров
   операция debug(data: Список</*(!) any */ Объект?>)
 
-  операция dir(item: /*(!) any */ Объект?? = пусто, options: /*(!) any */ Объект?? = пусто)
+  операция dir(item: /*(!) any */ Объект? = пусто, options: /*(!) any */ Объект? = пусто)
 
   #js.МассивПараметров
   операция dirxml(data: Список</*(!) any */ Объект?>)
@@ -10078,7 +10078,7 @@
   #js.МассивПараметров
   операция log(data: Список</*(!) any */ Объект?>)
 
-  операция table(tabularData: /*(!) any */ Объект?? = пусто, properties: Список<Текст>? = пусто)
+  операция table(tabularData: /*(!) any */ Объект? = пусто, properties: Список<Текст>? = пусто)
 
   операция time(label: Текст? = пусто)
 
@@ -10101,214 +10101,212 @@
 /*(!) var */ console: Console
 
 
-внешнее
-/*(!) WebAssembly */
+внешнее /*(!) WebAssembly */
 {
-тип CompileError = интерфейс
-{
+  тип CompileError = интерфейс
+  {
 
-}
+  }
 
 
-/*(!) var */ CompileError: объект { prototype: CompileError; при создании(message: Текст? = пусто)/*(!) no_type */ Объект?; /*(!) (message?: string): CompileError*/ }
+  /*(!) var */ CompileError: объект { prototype: CompileError; при создании(message: Текст? = пусто): /*(!) no_type */ Объект?; /*(!) (message?: string): CompileError*/ }
 
 
-/** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Global) */
+  /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Global) */
 
-тип Global<T = ValueType> = интерфейс
-{
-  value: /*(!) ValueTypeMap[T] */ Объект?
+  тип Global<T = ValueType> = интерфейс
+  {
+    value: /*(!) ValueTypeMap[T] */ Объект?
 
-  операция valueOf(): /*(!) ValueTypeMap[T] */ Объект?
-}
+    операция valueOf(): /*(!) ValueTypeMap[T] */ Объект?
+  }
 
 
-/*(!) var */ Global: объект { prototype: Global; при создании(descriptor: GlobalDescriptor<T>, v: /*(!) ValueTypeMap[T] */ Объект?? = пусто)/*(!) no_type */ Объект? }
+  /*(!) var */ Global: объект { prototype: Global; при создании(descriptor: GlobalDescriptor<T>, v: /*(!) ValueTypeMap[T] */ Объект? = пусто): /*(!) no_type */ Объект? }
 
 
-/** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Instance) */
+  /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Instance) */
 
-тип Instance = интерфейс
-{
-  защищено 
-  exports: Exports
-}
+  тип Instance = интерфейс
+  {
+    защищено 
+    exports: Exports
+  }
 
 
-/*(!) var */ Instance: объект { prototype: Instance; при создании(module: Module, importObject: Imports? = пусто)/*(!) no_type */ Объект? }
+  /*(!) var */ Instance: объект { prototype: Instance; при создании(module: Module, importObject: Imports? = пусто): /*(!) no_type */ Объект? }
 
 
-тип LinkError = интерфейс
-{
+  тип LinkError = интерфейс
+  {
 
-}
+  }
 
 
-/*(!) var */ LinkError: объект { prototype: LinkError; при создании(message: Текст? = пусто)/*(!) no_type */ Объект?; /*(!) (message?: string): LinkError*/ }
+  /*(!) var */ LinkError: объект { prototype: LinkError; при создании(message: Текст? = пусто): /*(!) no_type */ Объект?; /*(!) (message?: string): LinkError*/ }
 
 
-/** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory) */
+  /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory) */
 
-тип Memory = интерфейс
-{
-  защищено 
-  buffer: ArrayBuffer
+  тип Memory = интерфейс
+  {
+    защищено 
+    buffer: ArrayBuffer
 
-  операция grow(delta: Число): Число
-}
+    операция grow(delta: Число): Число
+  }
 
 
-/*(!) var */ Memory: объект { prototype: Memory; при создании(descriptor: MemoryDescriptor)/*(!) no_type */ Объект? }
+  /*(!) var */ Memory: объект { prototype: Memory; при создании(descriptor: MemoryDescriptor): /*(!) no_type */ Объект? }
 
 
-/** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module) */
+  /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module) */
 
-тип Module = интерфейс
-{
+  тип Module = интерфейс
+  {
 
-}
+  }
 
 
-/*(!) var */ Module: объект { prototype: Module; при создании(bytes: BufferSource)/*(!) no_type */ Объект?; операция customSections(moduleObject: Module, sectionName: Текст): Список<ArrayBuffer>; операция exports(moduleObject: Module): Список<ModuleExportDescriptor>; операция imports(moduleObject: Module): Список<ModuleImportDescriptor> }
+  /*(!) var */ Module: объект { prototype: Module; при создании(bytes: BufferSource): /*(!) no_type */ Объект?; операция customSections(moduleObject: Module, sectionName: Текст): Список<ArrayBuffer>; операция exports(moduleObject: Module): Список<ModuleExportDescriptor>; операция imports(moduleObject: Module): Список<ModuleImportDescriptor> }
 
 
-тип RuntimeError = интерфейс
-{
+  тип RuntimeError = интерфейс
+  {
 
-}
+  }
 
 
-/*(!) var */ RuntimeError: объект { prototype: RuntimeError; при создании(message: Текст? = пусто)/*(!) no_type */ Объект?; /*(!) (message?: string): RuntimeError*/ }
+  /*(!) var */ RuntimeError: объект { prototype: RuntimeError; при создании(message: Текст? = пусто): /*(!) no_type */ Объект?; /*(!) (message?: string): RuntimeError*/ }
 
 
-/** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Table) */
+  /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Table) */
 
-тип Table = интерфейс
-{
-  защищено 
-  length: Число
+  тип Table = интерфейс
+  {
+    защищено 
+    length: Число
 
-  операция get(index: Число): /*(!) any */ Объект?
+    операция get(index: Число): /*(!) any */ Объект?
 
-  операция grow(delta: Число, value: /*(!) any */ Объект?? = пусто): Число
+    операция grow(delta: Число, value: /*(!) any */ Объект? = пусто): Число
 
-  операция set(index: Число, value: /*(!) any */ Объект?? = пусто)
-}
+    операция set(index: Число, value: /*(!) any */ Объект? = пусто)
+  }
 
 
-/*(!) var */ Table: объект { prototype: Table; при создании(descriptor: TableDescriptor, value: /*(!) any */ Объект?? = пусто)/*(!) no_type */ Объект? }
+  /*(!) var */ Table: объект { prototype: Table; при создании(descriptor: TableDescriptor, value: /*(!) any */ Объект? = пусто): /*(!) no_type */ Объект? }
 
 
-тип GlobalDescriptor<T = ValueType> = интерфейс
-{
-  mutable: ДаНет
+  тип GlobalDescriptor<T = ValueType> = интерфейс
+  {
+    mutable: ДаНет
 
-  value: T
-}
+    value: T
+  }
 
 
-тип MemoryDescriptor = интерфейс
-{
-  initial: Число
+  тип MemoryDescriptor = интерфейс
+  {
+    initial: Число
 
-  maximum: Число
+    maximum: Число
 
-  shared: ДаНет
-}
+    shared: ДаНет
+  }
 
 
-тип ModuleExportDescriptor = интерфейс
-{
-  kind: ImportExportKind
+  тип ModuleExportDescriptor = интерфейс
+  {
+    kind: ImportExportKind
 
-  name: Текст
-}
+    name: Текст
+  }
 
 
-тип ModuleImportDescriptor = интерфейс
-{
-  kind: ImportExportKind
+  тип ModuleImportDescriptor = интерфейс
+  {
+    kind: ImportExportKind
 
-  module: Текст
+    module: Текст
 
-  name: Текст
-}
+    name: Текст
+  }
 
 
-тип TableDescriptor = интерфейс
-{
-  element: TableKind
+  тип TableDescriptor = интерфейс
+  {
+    element: TableKind
 
-  initial: Число
+    initial: Число
 
-  maximum: Число
-}
+    maximum: Число
+  }
 
 
-тип ValueTypeMap = интерфейс
-{
-  anyfunc: Function
+  тип ValueTypeMap = интерфейс
+  {
+    anyfunc: Function
 
-  externref: /*(!) any */ Объект?
+    externref: /*(!) any */ Объект?
 
-  f32: Число
+    f32: Число
 
-  f64: Число
+    f64: Число
 
-  i32: Число
+    i32: Число
 
-  i64: bigint
+    i64: bigint
 
-  v128: Никогда
-}
+    v128: Никогда
+  }
 
 
-тип WebAssemblyInstantiatedSource = интерфейс
-{
-  instance: Instance
+  тип WebAssemblyInstantiatedSource = интерфейс
+  {
+    instance: Instance
 
-  module: Module
-}
+    module: Module
+  }
 
 
-тип ImportExportKind = "function" | "global" | "memory" | "table"
+  тип ImportExportKind = "function" | "global" | "memory" | "table"
 
-тип TableKind = "anyfunc" | "externref"
+  тип TableKind = "anyfunc" | "externref"
 
-тип ExportValue = Function | Global | Memory | Table
+  тип ExportValue = Function | Global | Memory | Table
 
-тип Exports = Record<Текст, ExportValue>
+  тип Exports = Record<Текст, ExportValue>
 
-тип ImportValue = ExportValue | Число
+  тип ImportValue = ExportValue | Число
 
-тип Imports = Record<Текст, ModuleImports>
+  тип Imports = Record<Текст, ModuleImports>
 
-тип ModuleImports = Record<Текст, ImportValue>
+  тип ModuleImports = Record<Текст, ImportValue>
 
-тип ValueType = /*(!) keyof ValueTypeMap */ Объект?
+  тип ValueType = /*(!) keyof ValueTypeMap */ Объект?
 
-/** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compile) */
+  /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compile) */
 
-операция compile(bytes: BufferSource): Promise<Module>
+  операция compile(bytes: BufferSource): Promise<Module>
 
-/** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compileStreaming) */
+  /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compileStreaming) */
 
-операция compileStreaming(source: Response | PromiseLike<Response>): Promise<Module>
+  операция compileStreaming(source: Response | PromiseLike<Response>): Promise<Module>
 
-/** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiate) */
+  /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiate) */
 
-операция instantiate(bytes: BufferSource, importObject: Imports? = пусто): Promise<WebAssemblyInstantiatedSource>
+  операция instantiate(bytes: BufferSource, importObject: Imports? = пусто): Promise<WebAssemblyInstantiatedSource>
 
-операция instantiate(moduleObject: Module, importObject: Imports? = пусто): Promise<Instance>
+  операция instantiate(moduleObject: Module, importObject: Imports? = пусто): Promise<Instance>
 
-/** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiateStreaming) */
+  /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiateStreaming) */
 
-операция instantiateStreaming(source: Response | PromiseLike<Response>, importObject: Imports? = пусто): Promise<WebAssemblyInstantiatedSource>
+  операция instantiateStreaming(source: Response | PromiseLike<Response>, importObject: Imports? = пусто): Promise<WebAssemblyInstantiatedSource>
 
-/** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/validate) */
+  /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/validate) */
 
-операция validate(bytes: BufferSource): ДаНет
-}
+  операция validate(bytes: BufferSource): ДаНет}
 
 тип EncodedVideoChunkOutputCallback = интерфейс
 {
@@ -10443,13 +10441,13 @@
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DedicatedWorkerGlobalScope/message_event) */
 
 внешнее
-/*(!) var */ onmessage: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
+/*(!) var */ onmessage: (операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект?)?
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DedicatedWorkerGlobalScope/messageerror_event) */
 
 внешнее
-/*(!) var */ onmessageerror: операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект??
+/*(!) var */ onmessageerror: (операция(this: DedicatedWorkerGlobalScope, ev: MessageEvent): /*(!) any */ Объект?)?
 
 
 /**
@@ -10505,33 +10503,33 @@
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/error_event) */
 
 внешнее
-/*(!) var */ onerror: операция(this: DedicatedWorkerGlobalScope, ev: ErrorEvent): /*(!) any */ Объект??
+/*(!) var */ onerror: (операция(this: DedicatedWorkerGlobalScope, ev: ErrorEvent): /*(!) any */ Объект?)?
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/languagechange_event) */
 
 внешнее
-/*(!) var */ onlanguagechange: операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект??
+/*(!) var */ onlanguagechange: (операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект?)?
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/offline_event) */
 
 внешнее
-/*(!) var */ onoffline: операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект??
+/*(!) var */ onoffline: (операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект?)?
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/online_event) */
 
 внешнее
-/*(!) var */ ononline: операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект??
+/*(!) var */ ononline: (операция(this: DedicatedWorkerGlobalScope, ev: Event): /*(!) any */ Объект?)?
 
 
 внешнее
-/*(!) var */ onrejectionhandled: операция(this: DedicatedWorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??
+/*(!) var */ onrejectionhandled: (операция(this: DedicatedWorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект?)?
 
 
 внешнее
-/*(!) var */ onunhandledrejection: операция(this: DedicatedWorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект??
+/*(!) var */ onunhandledrejection: (операция(this: DedicatedWorkerGlobalScope, ev: PromiseRejectionEvent): /*(!) any */ Объект?)?
 
 
 /**

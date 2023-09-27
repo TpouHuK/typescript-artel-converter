@@ -1,10 +1,10 @@
 тип Array<T> = интерфейс
 {
-  операция find<S = T>(predicate: операция(value: T, index: Число, obj: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
+  операция find<S = T>(predicate: операция(value: T, index: Число, obj: Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект? = пусто): S?
 
-  операция find(predicate: операция(value: T, index: Число, obj: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): T?
+  операция find(predicate: операция(value: T, index: Число, obj: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): T?
 
-  операция findIndex(predicate: операция(value: T, index: Число, obj: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
+  операция findIndex(predicate: операция(value: T, index: Число, obj: Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Число
 
   операция fill(value: T, start: Число? = пусто, end: Число? = пусто): /*(!) this */ Объект?
 
@@ -16,7 +16,7 @@
 {
   операция from<T>(arrayLike: ArrayLike<T>): Список<T>
 
-  операция from<T, U>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): U, thisArg: /*(!) any */ Объект?? = пусто): Список<U>
+  операция from<T, U>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): U, thisArg: /*(!) any */ Объект? = пусто): Список<U>
 
   #js.МассивПараметров
   операция of<T>(items: Список<T>): Список<T>
@@ -25,7 +25,7 @@
 
 тип DateConstructor = интерфейс
 {
-  при создании(value: Число | Текст | Date)/*(!) no_type */ Объект?
+  при создании(value: Число | Текст | Date): /*(!) no_type */ Объект?
 }
 
 
@@ -123,11 +123,11 @@
 
 тип ReadonlyArray<T> = интерфейс
 {
-  операция find<S = T>(predicate: операция(value: T, index: Число, obj: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект?? = пусто): S?
+  операция find<S = T>(predicate: операция(value: T, index: Число, obj: /*(!) защищено */ Список<T>): /*(!) value is */ S, thisArg: /*(!) any */ Объект? = пусто): S?
 
-  операция find(predicate: операция(value: T, index: Число, obj: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): T?
+  операция find(predicate: операция(value: T, index: Число, obj: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): T?
 
-  операция findIndex(predicate: операция(value: T, index: Число, obj: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект?? = пусто): Число
+  операция findIndex(predicate: операция(value: T, index: Число, obj: /*(!) защищено */ Список<T>): /*(!) unknown */ Объект?, thisArg: /*(!) any */ Объект? = пусто): Число
 }
 
 
@@ -146,7 +146,7 @@
 
 тип RegExpConstructor = интерфейс
 {
-  при создании(pattern: RegExp | Текст, flags: Текст? = пусто)/*(!) no_type */ Объект?
+  при создании(pattern: RegExp | Текст, flags: Текст? = пусто): /*(!) no_type */ Объект?
 
   /*(!) (pattern: RegExp | string, flags?: string): RegExp*/
 }
@@ -204,6 +204,6 @@
   операция fromCodePoint(codePoints: Список<Число>): Текст
 
   #js.МассивПараметров
-  операция raw(template: объект { raw: /*(!) защищено */ Список<Текст> | ArrayLike<Текст> }, substitutions: Список</*(!) any */ Объект?>): Текст
+  операция raw(template: объект { raw: /*(!) защищено */ (Список<Текст> | ArrayLike<Текст>) }, substitutions: Список</*(!) any */ Объект?>): Текст
 }
 

@@ -1,303 +1,301 @@
 /// <reference lib="es2018.intl" />
 
-внешнее
-/*(!) Intl */
+внешнее /*(!) Intl */
 {
-/**
-* [Unicode BCP 47 Locale Identifiers](https://unicode.org/reports/tr35/#Unicode_Language_and_Locale_Identifiers) definition.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
-*/
+  /**
+  * [Unicode BCP 47 Locale Identifiers](https://unicode.org/reports/tr35/#Unicode_Language_and_Locale_Identifiers) definition.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  */
 
-тип UnicodeBCP47LocaleIdentifier = Текст
+  тип UnicodeBCP47LocaleIdentifier = Текст
 
-/**
-* Unit to use in the relative time internationalized message.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/format#Parameters).
-*/
-
-тип RelativeTimeFormatUnit = "year" | "years" | "quarter" | "quarters" | "month" | "months" | "week" | "weeks" | "day" | "days" | "hour" | "hours" | "minute" | "minutes" | "second" | "seconds"
+  /**
+  * Unit to use in the relative time internationalized message.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/format#Parameters).
+  */
+
+  тип RelativeTimeFormatUnit = "year" | "years" | "quarter" | "quarters" | "month" | "months" | "week" | "weeks" | "day" | "days" | "hour" | "hours" | "minute" | "minutes" | "second" | "seconds"
 
-/**
-* Value of the `unit` property in objects returned by
-* `Intl.RelativeTimeFormat.prototype.formatToParts()`. `formatToParts` and
-* `format` methods accept either singular or plural unit names as input,
-* but `formatToParts` only outputs singular (e.g. "day") not plural (e.g.
-* "days").
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts#Using_formatToParts).
-*/
+  /**
+  * Value of the `unit` property in objects returned by
+  * `Intl.RelativeTimeFormat.prototype.formatToParts()`. `formatToParts` and
+  * `format` methods accept either singular or plural unit names as input,
+  * but `formatToParts` only outputs singular (e.g. "day") not plural (e.g.
+  * "days").
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts#Using_formatToParts).
+  */
 
-тип RelativeTimeFormatUnitSingular = "year" | "quarter" | "month" | "week" | "day" | "hour" | "minute" | "second"
+  тип RelativeTimeFormatUnitSingular = "year" | "quarter" | "month" | "week" | "day" | "hour" | "minute" | "second"
 
-/**
-* The locale matching algorithm to use.
-*
-* [MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_negotiation).
-*/
+  /**
+  * The locale matching algorithm to use.
+  *
+  * [MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_negotiation).
+  */
 
-тип RelativeTimeFormatLocaleMatcher = "lookup" | "best fit"
+  тип RelativeTimeFormatLocaleMatcher = "lookup" | "best fit"
 
-/**
-* The format of output message.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#Parameters).
-*/
+  /**
+  * The format of output message.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#Parameters).
+  */
 
-тип RelativeTimeFormatNumeric = "always" | "auto"
+  тип RelativeTimeFormatNumeric = "always" | "auto"
 
-/**
-* The length of the internationalized message.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#Parameters).
-*/
+  /**
+  * The length of the internationalized message.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#Parameters).
+  */
 
-тип RelativeTimeFormatStyle = "long" | "short" | "narrow"
+  тип RelativeTimeFormatStyle = "long" | "short" | "narrow"
 
-/**
-* [BCP 47 language tag](http://tools.ietf.org/html/rfc5646) definition.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
-*/
+  /**
+  * [BCP 47 language tag](http://tools.ietf.org/html/rfc5646) definition.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  */
 
-тип BCP47LanguageTag = Текст
+  тип BCP47LanguageTag = Текст
 
-/**
-* The locale(s) to use
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
-*/
+  /**
+  * The locale(s) to use
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  */
 
-тип LocalesArgument = UnicodeBCP47LocaleIdentifier | Locale | /*(!) защищено */ Список<UnicodeBCP47LocaleIdentifier | Locale>?
+  тип LocalesArgument = UnicodeBCP47LocaleIdentifier | Locale | /*(!) защищено */ (Список<UnicodeBCP47LocaleIdentifier | Locale>?)
 
-/**
-* An object with some or all of properties of `options` parameter
-* of `Intl.RelativeTimeFormat` constructor.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#Parameters).
-*/
+  /**
+  * An object with some or all of properties of `options` parameter
+  * of `Intl.RelativeTimeFormat` constructor.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#Parameters).
+  */
 
-тип RelativeTimeFormatOptions = интерфейс
-{
-  localeMatcher: RelativeTimeFormatLocaleMatcher
+  тип RelativeTimeFormatOptions = интерфейс
+  {
+    localeMatcher: RelativeTimeFormatLocaleMatcher
 
-  numeric: RelativeTimeFormatNumeric
+    numeric: RelativeTimeFormatNumeric
 
-  style: RelativeTimeFormatStyle
-}
+    style: RelativeTimeFormatStyle
+  }
 
 
-/**
-* An object with properties reflecting the locale
-* and formatting options computed during initialization
-* of the `Intl.RelativeTimeFormat` object
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#Description).
-*/
+  /**
+  * An object with properties reflecting the locale
+  * and formatting options computed during initialization
+  * of the `Intl.RelativeTimeFormat` object
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#Description).
+  */
 
-тип ResolvedRelativeTimeFormatOptions = интерфейс
-{
-  locale: UnicodeBCP47LocaleIdentifier
+  тип ResolvedRelativeTimeFormatOptions = интерфейс
+  {
+    locale: UnicodeBCP47LocaleIdentifier
 
-  style: RelativeTimeFormatStyle
+    style: RelativeTimeFormatStyle
 
-  numeric: RelativeTimeFormatNumeric
+    numeric: RelativeTimeFormatNumeric
 
-  numberingSystem: Текст
-}
+    numberingSystem: Текст
+  }
 
 
-/**
-* An object representing the relative time format in parts
-* that can be used for custom locale-aware formatting.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts#Using_formatToParts).
-*/
+  /**
+  * An object representing the relative time format in parts
+  * that can be used for custom locale-aware formatting.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts#Using_formatToParts).
+  */
 
-тип RelativeTimeFormatPart = объект { type: "literal"; value: Текст } | объект { type: Exclude<NumberFormatPartTypes, "literal">; value: Текст; unit: RelativeTimeFormatUnitSingular }
+  тип RelativeTimeFormatPart = объект { type: "literal"; value: Текст } | объект { type: Exclude<NumberFormatPartTypes, "literal">; value: Текст; unit: RelativeTimeFormatUnitSingular }
 
-тип RelativeTimeFormat = интерфейс
-{
-  операция format(value: Число, unit: RelativeTimeFormatUnit): Текст
+  тип RelativeTimeFormat = интерфейс
+  {
+    операция format(value: Число, unit: RelativeTimeFormatUnit): Текст
 
-  операция formatToParts(value: Число, unit: RelativeTimeFormatUnit): Список<RelativeTimeFormatPart>
+    операция formatToParts(value: Число, unit: RelativeTimeFormatUnit): Список<RelativeTimeFormatPart>
 
-  операция resolvedOptions(): ResolvedRelativeTimeFormatOptions
-}
+    операция resolvedOptions(): ResolvedRelativeTimeFormatOptions
+  }
 
 
-/**
-* The [`Intl.RelativeTimeFormat`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat)
-* object is a constructor for objects that enable language-sensitive relative time formatting.
-*
-* [Compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat#Browser_compatibility).
-*/
+  /**
+  * The [`Intl.RelativeTimeFormat`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat)
+  * object is a constructor for objects that enable language-sensitive relative time formatting.
+  *
+  * [Compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat#Browser_compatibility).
+  */
 
-конст RelativeTimeFormat: объект { при создании(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто)/*(!) no_type */ Объект?; операция supportedLocalesOf(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто): Список<UnicodeBCP47LocaleIdentifier> }
+  конст RelativeTimeFormat: объект { при создании(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто): /*(!) no_type */ Объект?; операция supportedLocalesOf(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто): Список<UnicodeBCP47LocaleIdentifier> }
 
 
-тип NumberFormatOptions = интерфейс
-{
-  compactDisplay: "short" | "long" | пусто
+  тип NumberFormatOptions = интерфейс
+  {
+    compactDisplay: "short" | "long" | пусто
 
-  notation: "standard" | "scientific" | "engineering" | "compact" | пусто
+    notation: "standard" | "scientific" | "engineering" | "compact" | пусто
 
-  signDisplay: "auto" | "never" | "always" | "exceptZero" | пусто
+    signDisplay: "auto" | "never" | "always" | "exceptZero" | пусто
 
-  unit: Текст?
+    unit: Текст?
 
-  unitDisplay: "short" | "long" | "narrow" | пусто
+    unitDisplay: "short" | "long" | "narrow" | пусто
 
-  currencyDisplay: Текст?
+    currencyDisplay: Текст?
 
-  currencySign: Текст?
-}
+    currencySign: Текст?
+  }
 
 
-тип ResolvedNumberFormatOptions = интерфейс
-{
-  compactDisplay: "short" | "long"
+  тип ResolvedNumberFormatOptions = интерфейс
+  {
+    compactDisplay: "short" | "long"
 
-  notation: "standard" | "scientific" | "engineering" | "compact"
+    notation: "standard" | "scientific" | "engineering" | "compact"
 
-  signDisplay: "auto" | "never" | "always" | "exceptZero"
+    signDisplay: "auto" | "never" | "always" | "exceptZero"
 
-  unit: Текст
+    unit: Текст
 
-  unitDisplay: "short" | "long" | "narrow"
+    unitDisplay: "short" | "long" | "narrow"
 
-  currencyDisplay: Текст
+    currencyDisplay: Текст
 
-  currencySign: Текст
-}
+    currencySign: Текст
+  }
 
 
-тип DateTimeFormatOptions = интерфейс
-{
-  calendar: Текст?
+  тип DateTimeFormatOptions = интерфейс
+  {
+    calendar: Текст?
 
-  dayPeriod: "narrow" | "short" | "long" | пусто
+    dayPeriod: "narrow" | "short" | "long" | пусто
 
-  numberingSystem: Текст?
+    numberingSystem: Текст?
 
-  dateStyle: "full" | "long" | "medium" | "short" | пусто
+    dateStyle: "full" | "long" | "medium" | "short" | пусто
 
-  timeStyle: "full" | "long" | "medium" | "short" | пусто
+    timeStyle: "full" | "long" | "medium" | "short" | пусто
 
-  hourCycle: "h11" | "h12" | "h23" | "h24" | пусто
-}
+    hourCycle: "h11" | "h12" | "h23" | "h24" | пусто
+  }
 
 
-тип LocaleHourCycleKey = "h12" | "h23" | "h11" | "h24"
+  тип LocaleHourCycleKey = "h12" | "h23" | "h11" | "h24"
 
-тип LocaleCollationCaseFirst = "upper" | "lower" | "false"
+  тип LocaleCollationCaseFirst = "upper" | "lower" | "false"
 
-тип LocaleOptions = интерфейс
-{
-  baseName: Текст
+  тип LocaleOptions = интерфейс
+  {
+    baseName: Текст
 
-  calendar: Текст
+    calendar: Текст
 
-  caseFirst: LocaleCollationCaseFirst
+    caseFirst: LocaleCollationCaseFirst
 
-  collation: Текст
+    collation: Текст
 
-  hourCycle: LocaleHourCycleKey
+    hourCycle: LocaleHourCycleKey
 
-  language: Текст
+    language: Текст
 
-  numberingSystem: Текст
+    numberingSystem: Текст
 
-  numeric: ДаНет
+    numeric: ДаНет
 
-  region: Текст
+    region: Текст
 
-  script: Текст
-}
+    script: Текст
+  }
 
 
-тип Locale = интерфейс
-{
-  baseName: Текст
+  тип Locale = интерфейс
+  {
+    baseName: Текст
 
-  language: Текст
+    language: Текст
 
-  операция maximize(): Locale
+    операция maximize(): Locale
 
-  операция minimize(): Locale
+    операция minimize(): Locale
 
-  операция toString(): BCP47LanguageTag
-}
+    операция toString(): BCP47LanguageTag
+  }
 
 
-/**
-* Constructor creates [Intl.Locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)
-* objects
-*
-* @param tag - A string with a [BCP 47 language tag](http://tools.ietf.org/html/rfc5646).
-*  For the general form and interpretation of the locales argument,
-*  see the [`Intl` page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
-*
-* @param options - An [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#Parameters) with some or all of options of the locale.
-*
-* @returns [Intl.Locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale) object.
-*
-* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale).
-*/
+  /**
+  * Constructor creates [Intl.Locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)
+  * objects
+  *
+  * @param tag - A string with a [BCP 47 language tag](http://tools.ietf.org/html/rfc5646).
+  *  For the general form and interpretation of the locales argument,
+  *  see the [`Intl` page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation).
+  *
+  * @param options - An [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#Parameters) with some or all of options of the locale.
+  *
+  * @returns [Intl.Locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale) object.
+  *
+  * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale).
+  */
 
-конст Locale: объект { при создании(tag: BCP47LanguageTag | Locale, options: LocaleOptions? = пусто)/*(!) no_type */ Объект? }
+  конст Locale: объект { при создании(tag: BCP47LanguageTag | Locale, options: LocaleOptions? = пусто): /*(!) no_type */ Объект? }
 
 
-тип DisplayNamesFallback = "code" | "none"
+  тип DisplayNamesFallback = "code" | "none"
 
-тип DisplayNamesType = "language" | "region" | "script" | "calendar" | "dateTimeField" | "currency"
+  тип DisplayNamesType = "language" | "region" | "script" | "calendar" | "dateTimeField" | "currency"
 
-тип DisplayNamesLanguageDisplay = "dialect" | "standard"
+  тип DisplayNamesLanguageDisplay = "dialect" | "standard"
 
-тип DisplayNamesOptions = интерфейс
-{
-  localeMatcher: RelativeTimeFormatLocaleMatcher
+  тип DisplayNamesOptions = интерфейс
+  {
+    localeMatcher: RelativeTimeFormatLocaleMatcher
 
-  style: RelativeTimeFormatStyle
+    style: RelativeTimeFormatStyle
 
-  type: DisplayNamesType
+    type: DisplayNamesType
 
-  languageDisplay: DisplayNamesLanguageDisplay
+    languageDisplay: DisplayNamesLanguageDisplay
 
-  fallback: DisplayNamesFallback
-}
+    fallback: DisplayNamesFallback
+  }
 
 
-тип ResolvedDisplayNamesOptions = интерфейс
-{
-  locale: UnicodeBCP47LocaleIdentifier
+  тип ResolvedDisplayNamesOptions = интерфейс
+  {
+    locale: UnicodeBCP47LocaleIdentifier
 
-  style: RelativeTimeFormatStyle
+    style: RelativeTimeFormatStyle
 
-  type: DisplayNamesType
+    type: DisplayNamesType
 
-  fallback: DisplayNamesFallback
+    fallback: DisplayNamesFallback
 
-  languageDisplay: DisplayNamesLanguageDisplay
-}
+    languageDisplay: DisplayNamesLanguageDisplay
+  }
 
 
-тип DisplayNames = интерфейс
-{
-  операция of(code: Текст): Текст?
+  тип DisplayNames = интерфейс
+  {
+    операция of(code: Текст): Текст?
 
-  операция resolvedOptions(): ResolvedDisplayNamesOptions
-}
+    операция resolvedOptions(): ResolvedDisplayNamesOptions
+  }
 
 
-/**
-* The [`Intl.DisplayNames()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames)
-* object enables the consistent translation of language, region and script display names.
-*
-* [Compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames#browser_compatibility).
-*/
+  /**
+  * The [`Intl.DisplayNames()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames)
+  * object enables the consistent translation of language, region and script display names.
+  *
+  * [Compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames#browser_compatibility).
+  */
 
-конст DisplayNames: объект { prototype: DisplayNames; при создании(locales: LocalesArgument, options: DisplayNamesOptions)/*(!) no_type */ Объект?; операция supportedLocalesOf(locales: LocalesArgument? = пусто, options: объект { localeMatcher: RelativeTimeFormatLocaleMatcher }? = пусто): Список<BCP47LanguageTag> }
-
+  конст DisplayNames: объект { prototype: DisplayNames; при создании(locales: LocalesArgument, options: DisplayNamesOptions): /*(!) no_type */ Объект?; операция supportedLocalesOf(locales: LocalesArgument? = пусто, options: объект { localeMatcher: RelativeTimeFormatLocaleMatcher }? = пусто): Список<BCP47LanguageTag> }
 }

@@ -139,12 +139,12 @@ fn parse_lexical_declaration(source: &str, node: &Node) -> ArtelLexicalDeclarati
 // TODO cleanup
 fn parse_ambient_declaration(source: &str, node: &Node) -> ArtelStatement {
     let mut cursor = node.walk();
-    let mut iterator = node.named_children(&mut cursor);
+    let mut iterator = node.children(&mut cursor);
 
     let mut is_global = false;
     loop {
         let next = iterator.next().unwrap();
-        if next.kind() != "declare" || next.kind() != "global" {
+        if next.kind() != "declare" && next.kind() != "global" {
             break;
         }
         if next.kind() == "global" {
@@ -161,27 +161,30 @@ fn parse_ambient_declaration(source: &str, node: &Node) -> ArtelStatement {
         ));
     }
 
-    let body: Vec<_> = node
-        .named_children(&mut node.walk())
-        .filter_map(|s| match s.kind() {
-            "variable_declaration" => Some(ArtelStatement::LexicalDeclaration(
-                parse_lexical_declaration(source, &s),
-            )),
-            "function_signature" => Some(ArtelStatement::FunctionDeclaration(
-                parse_function_declaration(source, &s),
-            )),
-            "type_alias_declaration" => Some(ArtelStatement::TypeAliasDeclaration(
-                parse_type_alias_declaration(source, &s),
-            )),
-            "class_declaration" => Some(ArtelStatement::ClassDeclaration(parse_class_declaration(
-                source, &s, false,
-            ))),
-            "lexical_declaration" => Some(ArtelStatement::LexicalDeclaration(
-                parse_lexical_declaration(source, &s),
-            )),
-            _ => unimplemented!("{s:?}"),
-        })
-        .collect();
+    assert!(node.named_child_count() == 1);
+    let decl_body = node.named_child(0).unwrap();
+
+    let body = match decl_body.kind() {
+            "variable_declaration" => vec![ArtelStatement::LexicalDeclaration(
+                parse_lexical_declaration(source, &decl_body),
+            )],
+            "function_signature" => vec![ArtelStatement::FunctionDeclaration(
+                parse_function_declaration(source, &decl_body),
+            )],
+            "type_alias_declaration" => vec![ArtelStatement::TypeAliasDeclaration(
+                parse_type_alias_declaration(source, &decl_body),
+            )],
+            "class_declaration" => vec![ArtelStatement::ClassDeclaration(parse_class_declaration(
+                source, &decl_body, false,
+            ))],
+            "lexical_declaration" => vec![ArtelStatement::LexicalDeclaration(
+                parse_lexical_declaration(source, &decl_body),
+            )],
+            "statement_block" => {
+                parse_statement_block(source, &decl_body)
+            }
+            _ => unimplemented!("{:?}", decl_body.kind()),
+    };
 
     ArtelStatement::AmbientDeclaration(ArtelAmbientDeclaration::new(is_global, body).into())
 }

@@ -1,45 +1,43 @@
-внешнее
-/*(!) Intl */
+внешнее /*(!) Intl */
 {
-тип DateTimeFormatPartTypesRegistry = интерфейс
-{
-  day: /*(!) any */ Объект?
+  тип DateTimeFormatPartTypesRegistry = интерфейс
+  {
+    day: /*(!) any */ Объект?
 
-  dayPeriod: /*(!) any */ Объект?
+    dayPeriod: /*(!) any */ Объект?
 
-  era: /*(!) any */ Объект?
+    era: /*(!) any */ Объект?
 
-  hour: /*(!) any */ Объект?
+    hour: /*(!) any */ Объект?
 
-  literal: /*(!) any */ Объект?
+    literal: /*(!) any */ Объект?
 
-  minute: /*(!) any */ Объект?
+    minute: /*(!) any */ Объект?
 
-  month: /*(!) any */ Объект?
+    month: /*(!) any */ Объект?
 
-  second: /*(!) any */ Объект?
+    second: /*(!) any */ Объект?
 
-  timeZoneName: /*(!) any */ Объект?
+    timeZoneName: /*(!) any */ Объект?
 
-  weekday: /*(!) any */ Объект?
+    weekday: /*(!) any */ Объект?
 
-  year: /*(!) any */ Объект?
-}
-
-
-тип DateTimeFormatPartTypes = /*(!) keyof DateTimeFormatPartTypesRegistry */ Объект?
-
-тип DateTimeFormatPart = интерфейс
-{
-  type: DateTimeFormatPartTypes
-
-  value: Текст
-}
+    year: /*(!) any */ Объект?
+  }
 
 
-тип DateTimeFormat = интерфейс
-{
-  операция formatToParts(date: Date | Число | пусто = пусто): Список<DateTimeFormatPart>
-}
+  тип DateTimeFormatPartTypes = /*(!) keyof DateTimeFormatPartTypesRegistry */ Объект?
 
+  тип DateTimeFormatPart = интерфейс
+  {
+    type: DateTimeFormatPartTypes
+
+    value: Текст
+  }
+
+
+  тип DateTimeFormat = интерфейс
+  {
+    операция formatToParts(date: Date | Число | пусто = пусто): Список<DateTimeFormatPart>
+  }
 }

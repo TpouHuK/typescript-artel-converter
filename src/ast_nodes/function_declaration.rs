@@ -33,9 +33,9 @@ impl FunctionDeclaration {
 
     pub fn artel_str_return_type(&self, _ident_level: usize) -> String {
         if let Some(return_type) = &self.return_type {
-            Type::convert_return_type(return_type)
+            return_type.convert_return_type()
         } else {
-            Type(vec![PrimaryType::UnsupportedAny("no_type".into())]).artel_str(0)
+            Type(vec![PrimaryType::UnsupportedAny("no_type".into())]).convert_return_type()
         }
     }
 }

@@ -54,7 +54,7 @@ pub enum PrimaryType {
     /// `(SomeType, OtherType)`
     TupleType(Vec<Type>),
 
-    /// `SomeType is OtherType` ??? Unsupported anyway.
+    /// `SomeType is OtherType` ??? no idea lol
     PredicateType(String, Box<Type>),
 }
 
@@ -110,7 +110,7 @@ impl Type {
     pub fn is_nothing(&self) -> bool {
         if let [PrimaryType::PredefinedType(PredefinedType::Void)
         | PrimaryType::LiteralType(LiteralType::Null)
-        | PrimaryType::LiteralType(LiteralType::Undefined)] = self.0[..]
+        /*| PrimaryType::LiteralType(LiteralType::Undefined)*/] = self.0[..]
         {
             true
         } else {
@@ -155,6 +155,7 @@ impl ArtelStr for Type {
 
         let is_optional = (self.0.len() - empty_count == 1) && (empty_count > 0);
 
+        let mut that_one_type = None;
         for r#type in &self.0 {
             if is_optional && is_questionmark(&r#type) {
                 continue;
@@ -164,10 +165,18 @@ impl ArtelStr for Type {
             } else {
                 first = false;
             }
+            that_one_type = Some(r#type);
             str.push_str(&r#type.artel_str(0));
         }
-        if is_optional {
-            str.push_str("?");
+        
+        // can be just unwrap, idk
+        if is_optional && !that_one_type.map(|t| t.is_questionmark_bydefault()).unwrap_or_default() {
+            if !that_one_type.map(|t|t.can_be_anottated_to_left()).unwrap_or_default() {
+                str.insert(0, '(');
+                str.push_str(")?");
+            } else {
+                str.push_str("?");
+            }
         }
 
         str
@@ -188,6 +197,31 @@ impl PrimaryType {
         ]
         .concat()
     }
+
+    /// Check if type is translated to optional without any way to change it, like `?`
+    pub fn is_questionmark_bydefault(&self) -> bool {
+        if let PrimaryType::UnsupportedAny(_)
+        | PrimaryType::PredefinedType(PredefinedType::Any)
+        | PrimaryType::PredefinedType(PredefinedType::Unknown) = self
+        {
+            true
+        } else {
+            false
+        }
+    }
+
+    /// Funny story, when functional type is the last type of type expression
+    /// then you can't put `?` after it, cause it'll be maybe confused with 
+    /// `?` to the last argument, or `[]` is also usupported
+    pub fn can_be_anottated_to_left(&self) -> bool {
+        if let PrimaryType::FunctionType(_) = self
+        {
+            false
+        } else {
+            true
+        }
+    }
+
 }
 
 impl ArtelStr for PrimaryType {
@@ -203,8 +237,12 @@ impl ArtelStr for PrimaryType {
                 format!("Список<{}>", array_type.artel_str(0))
             }
             PrimaryType::TupleType(tuple_type) => Self::artel_str_tuple(tuple_type),
-            PrimaryType::ReadonlyType(r#type) => {
-                format!("/*(!) защищено */ {}", r#type.artel_str(0))
+            PrimaryType::ReadonlyType(rtype) => {
+                if rtype.0.len() > 1 {
+                    format!("/*(!) защищено */ ({})", rtype.artel_str(0))
+                } else {
+                    format!("/*(!) защищено */ {}", rtype.artel_str(0))
+                }
             }
             PrimaryType::PredicateType(predicate, r#type) => {
                 format!("/*(!) {} is */ {}", predicate, r#type.artel_str(0))

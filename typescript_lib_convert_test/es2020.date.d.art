@@ -2,10 +2,10 @@
 
 тип Date = интерфейс
 {
-  операция toLocaleString(locales: /*(!) Intl.LocalesArgument */ Объект?? = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект?? = пусто): Текст
+  операция toLocaleString(locales: /*(!) Intl.LocalesArgument */ Объект? = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект? = пусто): Текст
 
-  операция toLocaleDateString(locales: /*(!) Intl.LocalesArgument */ Объект?? = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект?? = пусто): Текст
+  операция toLocaleDateString(locales: /*(!) Intl.LocalesArgument */ Объект? = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект? = пусто): Текст
 
-  операция toLocaleTimeString(locales: /*(!) Intl.LocalesArgument */ Объект?? = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект?? = пусто): Текст
+  операция toLocaleTimeString(locales: /*(!) Intl.LocalesArgument */ Объект? = пусто, options: /*(!) Intl.DateTimeFormatOptions */ Объект? = пусто): Текст
 }
 
