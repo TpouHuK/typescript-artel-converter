@@ -826,7 +826,7 @@ fn parse_construct_signature(source: &str, node: &Node) -> FunctionDeclaration {
     let arguments = parse_formal_arguments(source, &parameters);
 
     let return_type = 'return_type: {
-        let Some(return_type) = node.child_by_field_name("return_type") else { break 'return_type None };
+        let Some(return_type) = node.child_by_field_name("type") else { break 'return_type None };
         Some(parse_type(source, &return_type))
     };
 

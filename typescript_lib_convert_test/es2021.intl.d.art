@@ -110,5 +110,5 @@
   }
 
 
-  конст ListFormat: объект { prototype: ListFormat; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: ListFormatOptions? = пусто): /*(!) no_type */ Объект?; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<ListFormatOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
+  конст ListFormat: объект { prototype: ListFormat; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: ListFormatOptions? = пусто): ListFormat; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<ListFormatOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
 }

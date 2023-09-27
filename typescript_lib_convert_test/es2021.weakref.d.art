@@ -12,7 +12,7 @@
   защищено 
   prototype: WeakRef</*(!) any */ Объект?>
 
-  при создании(target: T): /*(!) no_type */ Объект?
+  при создании(target: T): WeakRef<T>
 }
 
 
@@ -36,7 +36,7 @@
   защищено 
   prototype: FinalizationRegistry</*(!) any */ Объект?>
 
-  при создании(cleanupCallback: операция(heldValue: T)): /*(!) no_type */ Объект?
+  при создании(cleanupCallback: операция(heldValue: T)): FinalizationRegistry<T>
 }
 
 

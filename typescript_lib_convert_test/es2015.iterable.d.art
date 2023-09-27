@@ -112,9 +112,9 @@
 
 тип MapConstructor = интерфейс
 {
-  при создании(): /*(!) no_type */ Объект?
+  при создании(): Map</*(!) any */ Объект?, /*(!) any */ Объект?>
 
-  при создании(iterable: Iterable</*(!) защищено */ объект { _0: K, _1: V }>? = пусто): /*(!) no_type */ Объект?
+  при создании(iterable: Iterable</*(!) защищено */ объект { _0: K, _1: V }>? = пусто): Map<K, V>
 }
 
 
@@ -126,7 +126,7 @@
 
 тип WeakMapConstructor = интерфейс
 {
-  при создании(iterable: Iterable</*(!) защищено */ объект { _0: K, _1: V }>): /*(!) no_type */ Объект?
+  при создании(iterable: Iterable</*(!) защищено */ объект { _0: K, _1: V }>): WeakMap<K, V>
 }
 
 
@@ -156,7 +156,7 @@
 
 тип SetConstructor = интерфейс
 {
-  при создании(iterable: Iterable<T>? = пусто): /*(!) no_type */ Объект?
+  при создании(iterable: Iterable<T>? = пусто): Set<T>
 }
 
 
@@ -168,7 +168,7 @@
 
 тип WeakSetConstructor = интерфейс
 {
-  при создании(iterable: Iterable<T>): /*(!) no_type */ Объект?
+  при создании(iterable: Iterable<T>): WeakSet<T>
 }
 
 
@@ -206,7 +206,7 @@
 
 тип Int8ArrayConstructor = интерфейс
 {
-  при создании(elements: Iterable<Число>): /*(!) no_type */ Объект?
+  при создании(elements: Iterable<Число>): Int8Array
 
   операция from(arrayLike: Iterable<Число>, mapfn: (операция(v: Число, k: Число): Число)? = пусто, thisArg: /*(!) any */ Объект? = пусто): Int8Array
 }
@@ -226,7 +226,7 @@
 
 тип Uint8ArrayConstructor = интерфейс
 {
-  при создании(elements: Iterable<Число>): /*(!) no_type */ Объект?
+  при создании(elements: Iterable<Число>): Uint8Array
 
   операция from(arrayLike: Iterable<Число>, mapfn: (операция(v: Число, k: Число): Число)? = пусто, thisArg: /*(!) any */ Объект? = пусто): Uint8Array
 }
@@ -246,7 +246,7 @@
 
 тип Uint8ClampedArrayConstructor = интерфейс
 {
-  при создании(elements: Iterable<Число>): /*(!) no_type */ Объект?
+  при создании(elements: Iterable<Число>): Uint8ClampedArray
 
   операция from(arrayLike: Iterable<Число>, mapfn: (операция(v: Число, k: Число): Число)? = пусто, thisArg: /*(!) any */ Объект? = пусто): Uint8ClampedArray
 }
@@ -266,7 +266,7 @@
 
 тип Int16ArrayConstructor = интерфейс
 {
-  при создании(elements: Iterable<Число>): /*(!) no_type */ Объект?
+  при создании(elements: Iterable<Число>): Int16Array
 
   операция from(arrayLike: Iterable<Число>, mapfn: (операция(v: Число, k: Число): Число)? = пусто, thisArg: /*(!) any */ Объект? = пусто): Int16Array
 }
@@ -286,7 +286,7 @@
 
 тип Uint16ArrayConstructor = интерфейс
 {
-  при создании(elements: Iterable<Число>): /*(!) no_type */ Объект?
+  при создании(elements: Iterable<Число>): Uint16Array
 
   операция from(arrayLike: Iterable<Число>, mapfn: (операция(v: Число, k: Число): Число)? = пусто, thisArg: /*(!) any */ Объект? = пусто): Uint16Array
 }
@@ -306,7 +306,7 @@
 
 тип Int32ArrayConstructor = интерфейс
 {
-  при создании(elements: Iterable<Число>): /*(!) no_type */ Объект?
+  при создании(elements: Iterable<Число>): Int32Array
 
   операция from(arrayLike: Iterable<Число>, mapfn: (операция(v: Число, k: Число): Число)? = пусто, thisArg: /*(!) any */ Объект? = пусто): Int32Array
 }
@@ -326,7 +326,7 @@
 
 тип Uint32ArrayConstructor = интерфейс
 {
-  при создании(elements: Iterable<Число>): /*(!) no_type */ Объект?
+  при создании(elements: Iterable<Число>): Uint32Array
 
   операция from(arrayLike: Iterable<Число>, mapfn: (операция(v: Число, k: Число): Число)? = пусто, thisArg: /*(!) any */ Объект? = пусто): Uint32Array
 }
@@ -346,7 +346,7 @@
 
 тип Float32ArrayConstructor = интерфейс
 {
-  при создании(elements: Iterable<Число>): /*(!) no_type */ Объект?
+  при создании(elements: Iterable<Число>): Float32Array
 
   операция from(arrayLike: Iterable<Число>, mapfn: (операция(v: Число, k: Число): Число)? = пусто, thisArg: /*(!) any */ Объект? = пусто): Float32Array
 }
@@ -366,7 +366,7 @@
 
 тип Float64ArrayConstructor = интерфейс
 {
-  при создании(elements: Iterable<Число>): /*(!) no_type */ Объект?
+  при создании(elements: Iterable<Число>): Float64Array
 
   операция from(arrayLike: Iterable<Число>, mapfn: (операция(v: Число, k: Число): Число)? = пусто, thisArg: /*(!) any */ Объект? = пусто): Float64Array
 }

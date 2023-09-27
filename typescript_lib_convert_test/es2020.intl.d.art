@@ -133,7 +133,7 @@
   * [Compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat#Browser_compatibility).
   */
 
-  конст RelativeTimeFormat: объект { при создании(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто): /*(!) no_type */ Объект?; операция supportedLocalesOf(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто): Список<UnicodeBCP47LocaleIdentifier> }
+  конст RelativeTimeFormat: объект { при создании(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто): RelativeTimeFormat; операция supportedLocalesOf(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто): Список<UnicodeBCP47LocaleIdentifier> }
 
 
   тип NumberFormatOptions = интерфейс
@@ -245,7 +245,7 @@
   * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale).
   */
 
-  конст Locale: объект { при создании(tag: BCP47LanguageTag | Locale, options: LocaleOptions? = пусто): /*(!) no_type */ Объект? }
+  конст Locale: объект { при создании(tag: BCP47LanguageTag | Locale, options: LocaleOptions? = пусто): Locale }
 
 
   тип DisplayNamesFallback = "code" | "none"
@@ -297,5 +297,5 @@
   * [Compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames#browser_compatibility).
   */
 
-  конст DisplayNames: объект { prototype: DisplayNames; при создании(locales: LocalesArgument, options: DisplayNamesOptions): /*(!) no_type */ Объект?; операция supportedLocalesOf(locales: LocalesArgument? = пусто, options: объект { localeMatcher: RelativeTimeFormatLocaleMatcher }? = пусто): Список<BCP47LanguageTag> }
+  конст DisplayNames: объект { prototype: DisplayNames; при создании(locales: LocalesArgument, options: DisplayNamesOptions): DisplayNames; операция supportedLocalesOf(locales: LocalesArgument? = пусто, options: объект { localeMatcher: RelativeTimeFormatLocaleMatcher }? = пусто): Список<BCP47LanguageTag> }
 }

@@ -50,7 +50,7 @@
   }
 
 
-  конст Segmenter: объект { prototype: Segmenter; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: SegmenterOptions? = пусто): /*(!) no_type */ Объект?; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<SegmenterOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
+  конст Segmenter: объект { prototype: Segmenter; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: SegmenterOptions? = пусто): Segmenter; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<SegmenterOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
 
 
   /**

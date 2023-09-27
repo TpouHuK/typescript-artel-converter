@@ -25,7 +25,7 @@
 
 тип DateConstructor = интерфейс
 {
-  при создании(value: Число | Текст | Date): /*(!) no_type */ Объект?
+  при создании(value: Число | Текст | Date): Date
 }
 
 
@@ -146,7 +146,7 @@
 
 тип RegExpConstructor = интерфейс
 {
-  при создании(pattern: RegExp | Текст, flags: Текст? = пусто): /*(!) no_type */ Объект?
+  при создании(pattern: RegExp | Текст, flags: Текст? = пусто): RegExp
 
   /*(!) (pattern: RegExp | string, flags?: string): RegExp*/
 }

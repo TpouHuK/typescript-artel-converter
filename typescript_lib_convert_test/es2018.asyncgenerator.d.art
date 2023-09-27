@@ -16,7 +16,7 @@
 тип AsyncGeneratorFunction = интерфейс
 {
   #js.МассивПараметров
-  при создании(args: Список</*(!) any */ Объект?>): /*(!) no_type */ Объект?
+  при создании(args: Список</*(!) any */ Объект?>): AsyncGenerator
 
   /*(!) (...args: any[]): AsyncGenerator*/
 
@@ -34,7 +34,7 @@
 тип AsyncGeneratorFunctionConstructor = интерфейс
 {
   #js.МассивПараметров
-  при создании(args: Список<Текст>): /*(!) no_type */ Объект?
+  при создании(args: Список<Текст>): AsyncGeneratorFunction
 
   /*(!) (...args: string[]): AsyncGeneratorFunction*/
 

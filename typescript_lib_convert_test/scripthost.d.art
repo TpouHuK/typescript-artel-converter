@@ -6,7 +6,7 @@
 
 тип ActiveXObject = интерфейс
 {
-  при создании(s: Текст): /*(!) no_type */ Объект?
+  при создании(s: Текст): /*(!) any */ Объект?
 }
 
 
@@ -106,11 +106,11 @@
 
 тип EnumeratorConstructor = интерфейс
 {
-  при создании(safearray: SafeArray<T>): /*(!) no_type */ Объект?
+  при создании(safearray: SafeArray<T>): Enumerator<T>
 
-  при создании(collection: объект { операция Item(index: /*(!) any */ Объект?): T }): /*(!) no_type */ Объект?
+  при создании(collection: объект { операция Item(index: /*(!) any */ Объект?): T }): Enumerator<T>
 
-  при создании(collection: /*(!) any */ Объект?): /*(!) no_type */ Объект?
+  при создании(collection: /*(!) any */ Объект?): Enumerator<T>
 }
 
 
@@ -139,7 +139,7 @@
 
 тип VBArrayConstructor = интерфейс
 {
-  при создании(safeArray: SafeArray<T>): /*(!) no_type */ Объект?
+  при создании(safeArray: SafeArray<T>): VBArray<T>
 }
 
 
@@ -163,7 +163,7 @@
 
 тип DateConstructor = интерфейс
 {
-  при создании(vd: VarDate): /*(!) no_type */ Объект?
+  при создании(vd: VarDate): Date
 }
 
 

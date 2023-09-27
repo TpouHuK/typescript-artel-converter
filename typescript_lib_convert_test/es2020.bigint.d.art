@@ -156,11 +156,11 @@
   защищено 
   prototype: BigInt64Array
 
-  при создании(length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(length: Число? = пусто): BigInt64Array
 
-  при создании(array: Iterable<bigint>): /*(!) no_type */ Объект?
+  при создании(array: Iterable<bigint>): BigInt64Array
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): BigInt64Array
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -270,11 +270,11 @@
   защищено 
   prototype: BigUint64Array
 
-  при создании(length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(length: Число? = пусто): BigUint64Array
 
-  при создании(array: Iterable<bigint>): /*(!) no_type */ Объект?
+  при создании(array: Iterable<bigint>): BigUint64Array
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): BigUint64Array
 
   защищено 
   BYTES_PER_ELEMENT: Число

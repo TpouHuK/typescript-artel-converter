@@ -52,7 +52,7 @@
   }
 
 
-  конст PluralRules: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: PluralRulesOptions? = пусто): /*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: PluralRulesOptions): PluralRules*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: объект { localeMatcher: "lookup" | "best fit" }? = пусто): Список<Текст> }
+  конст PluralRules: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: PluralRulesOptions? = пусто): PluralRules; /*(!) (locales?: string | string[], options?: PluralRulesOptions): PluralRules*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: объект { localeMatcher: "lookup" | "best fit" }? = пусто): Список<Текст> }
 
 
   // We can only have one definition for 'type' in TypeScript, and so you can learn where the keys come from here:

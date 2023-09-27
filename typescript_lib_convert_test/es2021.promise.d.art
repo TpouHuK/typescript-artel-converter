@@ -6,7 +6,7 @@
 
 тип AggregateErrorConstructor = интерфейс
 {
-  при создании(errors: Iterable</*(!) any */ Объект?>, message: Текст? = пусто): /*(!) no_type */ Объект?
+  при создании(errors: Iterable</*(!) any */ Объект?>, message: Текст? = пусто): AggregateError
 
   /*(!) (errors: Iterable<any>, message?: string): AggregateError*/
 

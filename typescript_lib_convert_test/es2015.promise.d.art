@@ -3,7 +3,7 @@
   защищено 
   prototype: Promise</*(!) any */ Объект?>
 
-  при создании(executor: операция(resolve: операция(value: T | PromiseLike<T>), reject: операция(reason: /*(!) any */ Объект? = пусто))): /*(!) no_type */ Объект?
+  при создании(executor: операция(resolve: операция(value: T | PromiseLike<T>), reject: операция(reason: /*(!) any */ Объект? = пусто))): Promise<T>
 
   операция all<T = /*(!) защищено */ (Список</*(!) unknown */ Объект?> | объект {  })>(values: T): Promise</*(!) { -readonly [P in keyof T]: Awaited<T[P]>; } */ Объект?>
 

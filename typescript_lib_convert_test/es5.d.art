@@ -162,7 +162,7 @@
 
 тип ObjectConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект? = пусто): /*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект? = пусто): Object
 
   /*(!) (): any*/
 
@@ -243,7 +243,7 @@
 тип FunctionConstructor = интерфейс
 {
   #js.МассивПараметров
-  при создании(args: Список<Текст>): /*(!) no_type */ Объект?
+  при создании(args: Список<Текст>): Function
 
   /*(!) (...args: string[]): Function*/
 
@@ -364,7 +364,7 @@
 
 тип StringConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект? = пусто): /*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект? = пусто): String
 
   /*(!) (value?: any): string*/
 
@@ -392,7 +392,7 @@
 
 тип BooleanConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект? = пусто): /*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект? = пусто): Boolean
 
   /*(!) <T>(value?: T): boolean*/
 
@@ -421,7 +421,7 @@
 
 тип NumberConstructor = интерфейс
 {
-  при создании(value: /*(!) any */ Объект? = пусто): /*(!) no_type */ Объект?
+  при создании(value: /*(!) any */ Объект? = пусто): Number
 
   /*(!) (value?: any): number*/
 
@@ -660,11 +660,11 @@
 
 тип DateConstructor = интерфейс
 {
-  при создании(): /*(!) no_type */ Объект?
+  при создании(): Date
 
-  при создании(value: Число | Текст): /*(!) no_type */ Объект?
+  при создании(value: Число | Текст): Date
 
-  при создании(year: Число, monthIndex: Число, date: Число? = пусто, hours: Число? = пусто, minutes: Число? = пусто, seconds: Число? = пусто, ms: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(year: Число, monthIndex: Число, date: Число? = пусто, hours: Число? = пусто, minutes: Число? = пусто, seconds: Число? = пусто, ms: Число? = пусто): Date
 
   /*(!) (): string*/
 
@@ -729,9 +729,9 @@
 
 тип RegExpConstructor = интерфейс
 {
-  при создании(pattern: RegExp | Текст): /*(!) no_type */ Объект?
+  при создании(pattern: RegExp | Текст): RegExp
 
-  при создании(pattern: Текст, flags: Текст? = пусто): /*(!) no_type */ Объект?
+  при создании(pattern: Текст, flags: Текст? = пусто): RegExp
 
   /*(!) (pattern: RegExp | string): RegExp*/
 
@@ -796,7 +796,7 @@
 
 тип ErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): Error
 
   /*(!) (message?: string): Error*/
 
@@ -817,7 +817,7 @@
 
 тип EvalErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): EvalError
 
   /*(!) (message?: string): EvalError*/
 
@@ -838,7 +838,7 @@
 
 тип RangeErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): RangeError
 
   /*(!) (message?: string): RangeError*/
 
@@ -859,7 +859,7 @@
 
 тип ReferenceErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): ReferenceError
 
   /*(!) (message?: string): ReferenceError*/
 
@@ -880,7 +880,7 @@
 
 тип SyntaxErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): SyntaxError
 
   /*(!) (message?: string): SyntaxError*/
 
@@ -901,7 +901,7 @@
 
 тип TypeErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): TypeError
 
   /*(!) (message?: string): TypeError*/
 
@@ -922,7 +922,7 @@
 
 тип URIErrorConstructor = интерфейс
 {
-  при создании(message: Текст? = пусто): /*(!) no_type */ Объект?
+  при создании(message: Текст? = пусто): URIError
 
   /*(!) (message?: string): URIError*/
 
@@ -1098,12 +1098,12 @@
 
 тип ArrayConstructor = интерфейс
 {
-  при создании(arrayLength: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(arrayLength: Число? = пусто): Список</*(!) any */ Объект?>
 
-  при создании(arrayLength: Число): /*(!) no_type */ Объект?
+  при создании(arrayLength: Число): Список<T>
 
   #js.МассивПараметров
-  при создании(items: Список<T>): /*(!) no_type */ Объект?
+  при создании(items: Список<T>): Список<T>
 
   /*(!) (arrayLength?: number): any[]*/
 
@@ -1348,7 +1348,7 @@
   защищено 
   prototype: ArrayBuffer
 
-  при создании(byteLength: Число): /*(!) no_type */ Объект?
+  при создании(byteLength: Число): ArrayBuffer
 
   операция isView(arg: /*(!) any */ Объект?): /*(!) arg is */ ArrayBufferView
 }
@@ -1418,7 +1418,7 @@
   защищено 
   prototype: DataView
 
-  при создании(buffer: /*(!) ArrayBufferLike & { BYTES_PER_ELEMENT?: never; } */ Объект?, byteOffset: Число? = пусто, byteLength: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: /*(!) ArrayBufferLike & { BYTES_PER_ELEMENT?: never; } */ Объект?, byteOffset: Число? = пусто, byteLength: Число? = пусто): DataView
 }
 
 
@@ -1509,11 +1509,11 @@
   защищено 
   prototype: Int8Array
 
-  при создании(length: Число): /*(!) no_type */ Объект?
+  при создании(length: Число): Int8Array
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): Int8Array
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Int8Array
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1614,11 +1614,11 @@
   защищено 
   prototype: Uint8Array
 
-  при создании(length: Число): /*(!) no_type */ Объект?
+  при создании(length: Число): Uint8Array
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): Uint8Array
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Uint8Array
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1719,11 +1719,11 @@
   защищено 
   prototype: Uint8ClampedArray
 
-  при создании(length: Число): /*(!) no_type */ Объект?
+  при создании(length: Число): Uint8ClampedArray
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): Uint8ClampedArray
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Uint8ClampedArray
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1824,11 +1824,11 @@
   защищено 
   prototype: Int16Array
 
-  при создании(length: Число): /*(!) no_type */ Объект?
+  при создании(length: Число): Int16Array
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): Int16Array
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Int16Array
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -1929,11 +1929,11 @@
   защищено 
   prototype: Uint16Array
 
-  при создании(length: Число): /*(!) no_type */ Объект?
+  при создании(length: Число): Uint16Array
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): Uint16Array
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Uint16Array
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2034,11 +2034,11 @@
   защищено 
   prototype: Int32Array
 
-  при создании(length: Число): /*(!) no_type */ Объект?
+  при создании(length: Число): Int32Array
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): Int32Array
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Int32Array
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2139,11 +2139,11 @@
   защищено 
   prototype: Uint32Array
 
-  при создании(length: Число): /*(!) no_type */ Объект?
+  при создании(length: Число): Uint32Array
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): Uint32Array
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Uint32Array
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2244,11 +2244,11 @@
   защищено 
   prototype: Float32Array
 
-  при создании(length: Число): /*(!) no_type */ Объект?
+  при создании(length: Число): Float32Array
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): Float32Array
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Float32Array
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2349,11 +2349,11 @@
   защищено 
   prototype: Float64Array
 
-  при создании(length: Число): /*(!) no_type */ Объект?
+  при создании(length: Число): Float64Array
 
-  при создании(array: ArrayLike<Число> | ArrayBufferLike): /*(!) no_type */ Объект?
+  при создании(array: ArrayLike<Число> | ArrayBufferLike): Float64Array
 
-  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): /*(!) no_type */ Объект?
+  при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Float64Array
 
   защищено 
   BYTES_PER_ELEMENT: Число
@@ -2423,7 +2423,7 @@
   }
 
 
-  /*(!) var */ Collator: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: CollatorOptions? = пусто): /*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: CollatorOptions): Collator*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: CollatorOptions? = пусто): Список<Текст> }
+  /*(!) var */ Collator: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: CollatorOptions? = пусто): Collator; /*(!) (locales?: string | string[], options?: CollatorOptions): Collator*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: CollatorOptions? = пусто): Список<Текст> }
 
 
   тип NumberFormatOptions = интерфейс
@@ -2482,7 +2482,7 @@
   }
 
 
-  /*(!) var */ NumberFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: NumberFormatOptions? = пусто): /*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: NumberFormatOptions): NumberFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: NumberFormatOptions? = пусто): Список<Текст>; защищено  prototype: NumberFormat }
+  /*(!) var */ NumberFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: NumberFormatOptions? = пусто): NumberFormat; /*(!) (locales?: string | string[], options?: NumberFormatOptions): NumberFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: NumberFormatOptions? = пусто): Список<Текст>; защищено  prototype: NumberFormat }
 
 
   тип DateTimeFormatOptions = интерфейс
@@ -2555,7 +2555,7 @@
   }
 
 
-  /*(!) var */ DateTimeFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: DateTimeFormatOptions? = пусто): /*(!) no_type */ Объект?; /*(!) (locales?: string | string[], options?: DateTimeFormatOptions): DateTimeFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: DateTimeFormatOptions? = пусто): Список<Текст>; защищено  prototype: DateTimeFormat }
+  /*(!) var */ DateTimeFormat: объект { при создании(locales: Текст | Список<Текст> | пусто = пусто, options: DateTimeFormatOptions? = пусто): DateTimeFormat; /*(!) (locales?: string | string[], options?: DateTimeFormatOptions): DateTimeFormat*/; операция supportedLocalesOf(locales: Текст | Список<Текст>, options: DateTimeFormatOptions? = пусто): Список<Текст>; защищено  prototype: DateTimeFormat }
 }
 
 тип String = интерфейс
