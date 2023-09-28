@@ -4,7 +4,7 @@
 
 /////////////////////////////
 
-тип AddEventListenerOptions = интерфейс
+тип AddEventListenerOptions = интерфейс на основе EventListenerOptions
 {
   once: ДаНет
 
@@ -14,13 +14,13 @@
 }
 
 
-тип AesCbcParams = интерфейс
+тип AesCbcParams = интерфейс на основе Algorithm
 {
   iv: BufferSource
 }
 
 
-тип AesCtrParams = интерфейс
+тип AesCtrParams = интерфейс на основе Algorithm
 {
   counter: BufferSource
 
@@ -28,13 +28,13 @@
 }
 
 
-тип AesDerivedKeyParams = интерфейс
+тип AesDerivedKeyParams = интерфейс на основе Algorithm
 {
   length: Число
 }
 
 
-тип AesGcmParams = интерфейс
+тип AesGcmParams = интерфейс на основе Algorithm
 {
   additionalData: BufferSource
 
@@ -44,13 +44,13 @@
 }
 
 
-тип AesKeyAlgorithm = интерфейс
+тип AesKeyAlgorithm = интерфейс на основе KeyAlgorithm
 {
   length: Число
 }
 
 
-тип AesKeyGenParams = интерфейс
+тип AesKeyGenParams = интерфейс на основе Algorithm
 {
   length: Число
 }
@@ -62,7 +62,7 @@
 }
 
 
-тип AnalyserOptions = интерфейс
+тип AnalyserOptions = интерфейс на основе AudioNodeOptions
 {
   fftSize: Число
 
@@ -74,7 +74,7 @@
 }
 
 
-тип AnimationEventInit = интерфейс
+тип AnimationEventInit = интерфейс на основе EventInit
 {
   animationName: Текст
 
@@ -84,7 +84,7 @@
 }
 
 
-тип AnimationPlaybackEventInit = интерфейс
+тип AnimationPlaybackEventInit = интерфейс на основе EventInit
 {
   currentTime: CSSNumberish?
 
@@ -156,7 +156,7 @@
 }
 
 
-тип AudioProcessingEventInit = интерфейс
+тип AudioProcessingEventInit = интерфейс на основе EventInit
 {
   inputBuffer: AudioBuffer
 
@@ -174,7 +174,7 @@
 }
 
 
-тип AudioWorkletNodeOptions = интерфейс
+тип AudioWorkletNodeOptions = интерфейс на основе AudioNodeOptions
 {
   numberOfInputs: Число
 
@@ -226,7 +226,7 @@
 }
 
 
-тип BiquadFilterOptions = интерфейс
+тип BiquadFilterOptions = интерфейс на основе AudioNodeOptions
 {
   Q: Число
 
@@ -314,13 +314,13 @@
 }
 
 
-тип ChannelMergerOptions = интерфейс
+тип ChannelMergerOptions = интерфейс на основе AudioNodeOptions
 {
   numberOfInputs: Число
 }
 
 
-тип ChannelSplitterOptions = интерфейс
+тип ChannelSplitterOptions = интерфейс на основе AudioNodeOptions
 {
   numberOfOutputs: Число
 }
@@ -342,7 +342,7 @@
 }
 
 
-тип ClipboardEventInit = интерфейс
+тип ClipboardEventInit = интерфейс на основе EventInit
 {
   clipboardData: DataTransfer?
 }
@@ -354,7 +354,7 @@
 }
 
 
-тип CloseEventInit = интерфейс
+тип CloseEventInit = интерфейс на основе EventInit
 {
   code: Число
 
@@ -364,13 +364,13 @@
 }
 
 
-тип CompositionEventInit = интерфейс
+тип CompositionEventInit = интерфейс на основе UIEventInit
 {
   data: Текст
 }
 
 
-тип ComputedEffectTiming = интерфейс
+тип ComputedEffectTiming = интерфейс на основе EffectTiming
 {
   activeDuration: CSSNumberish
 
@@ -422,7 +422,7 @@
 }
 
 
-тип ConstrainDoubleRange = интерфейс
+тип ConstrainDoubleRange = интерфейс на основе DoubleRange
 {
   exact: Число
 
@@ -430,7 +430,7 @@
 }
 
 
-тип ConstrainULongRange = интерфейс
+тип ConstrainULongRange = интерфейс на основе ULongRange
 {
   exact: Число
 
@@ -438,7 +438,7 @@
 }
 
 
-тип ConvolverOptions = интерфейс
+тип ConvolverOptions = интерфейс на основе AudioNodeOptions
 {
   buffer: AudioBuffer?
 
@@ -478,7 +478,7 @@
 }
 
 
-тип CustomEventInit<T> = интерфейс
+тип CustomEventInit<T> = интерфейс на основе EventInit
 {
   detail: T
 }
@@ -512,7 +512,7 @@
 }
 
 
-тип DOMMatrixInit = интерфейс
+тип DOMMatrixInit = интерфейс на основе DOMMatrix2DInit
 {
   is2D: ДаНет
 
@@ -574,7 +574,7 @@
 }
 
 
-тип DelayOptions = интерфейс
+тип DelayOptions = интерфейс на основе AudioNodeOptions
 {
   delayTime: Число
 
@@ -592,7 +592,7 @@
 }
 
 
-тип DeviceMotionEventInit = интерфейс
+тип DeviceMotionEventInit = интерфейс на основе EventInit
 {
   acceleration: DeviceMotionEventAccelerationInit
 
@@ -614,7 +614,7 @@
 }
 
 
-тип DeviceOrientationEventInit = интерфейс
+тип DeviceOrientationEventInit = интерфейс на основе EventInit
 {
   absolute: ДаНет
 
@@ -648,13 +648,13 @@
 }
 
 
-тип DragEventInit = интерфейс
+тип DragEventInit = интерфейс на основе MouseEventInit
 {
   dataTransfer: DataTransfer?
 }
 
 
-тип DynamicsCompressorOptions = интерфейс
+тип DynamicsCompressorOptions = интерфейс на основе AudioNodeOptions
 {
   attack: Число
 
@@ -668,31 +668,31 @@
 }
 
 
-тип EcKeyAlgorithm = интерфейс
+тип EcKeyAlgorithm = интерфейс на основе KeyAlgorithm
 {
   namedCurve: NamedCurve
 }
 
 
-тип EcKeyGenParams = интерфейс
+тип EcKeyGenParams = интерфейс на основе Algorithm
 {
   namedCurve: NamedCurve
 }
 
 
-тип EcKeyImportParams = интерфейс
+тип EcKeyImportParams = интерфейс на основе Algorithm
 {
   namedCurve: NamedCurve
 }
 
 
-тип EcdhKeyDeriveParams = интерфейс
+тип EcdhKeyDeriveParams = интерфейс на основе Algorithm
 {
   public: CryptoKey
 }
 
 
-тип EcdsaParams = интерфейс
+тип EcdsaParams = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 }
@@ -750,7 +750,7 @@
 }
 
 
-тип ErrorEventInit = интерфейс
+тип ErrorEventInit = интерфейс на основе EventInit
 {
   colno: Число
 
@@ -780,7 +780,7 @@
 }
 
 
-тип EventModifierInit = интерфейс
+тип EventModifierInit = интерфейс на основе UIEventInit
 {
   altKey: ДаНет
 
@@ -818,7 +818,7 @@
 }
 
 
-тип FilePropertyBag = интерфейс
+тип FilePropertyBag = интерфейс на основе BlobPropertyBag
 {
   lastModified: Число
 }
@@ -856,7 +856,7 @@
 }
 
 
-тип FocusEventInit = интерфейс
+тип FocusEventInit = интерфейс на основе UIEventInit
 {
   relatedTarget: EventTarget?
 }
@@ -892,13 +892,13 @@
 }
 
 
-тип FontFaceSetLoadEventInit = интерфейс
+тип FontFaceSetLoadEventInit = интерфейс на основе EventInit
 {
   fontfaces: Список<FontFace>
 }
 
 
-тип FormDataEventInit = интерфейс
+тип FormDataEventInit = интерфейс на основе EventInit
 {
   formData: FormData
 }
@@ -910,7 +910,7 @@
 }
 
 
-тип GainOptions = интерфейс
+тип GainOptions = интерфейс на основе AudioNodeOptions
 {
   gain: Число
 }
@@ -928,7 +928,7 @@
 }
 
 
-тип GamepadEventInit = интерфейс
+тип GamepadEventInit = интерфейс на основе EventInit
 {
   gamepad: Gamepad
 }
@@ -952,7 +952,7 @@
 }
 
 
-тип HashChangeEventInit = интерфейс
+тип HashChangeEventInit = интерфейс на основе EventInit
 {
   newURL: Текст
 
@@ -960,7 +960,7 @@
 }
 
 
-тип HkdfParams = интерфейс
+тип HkdfParams = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 
@@ -970,7 +970,7 @@
 }
 
 
-тип HmacImportParams = интерфейс
+тип HmacImportParams = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 
@@ -978,7 +978,7 @@
 }
 
 
-тип HmacKeyAlgorithm = интерфейс
+тип HmacKeyAlgorithm = интерфейс на основе KeyAlgorithm
 {
   hash: KeyAlgorithm
 
@@ -986,7 +986,7 @@
 }
 
 
-тип HmacKeyGenParams = интерфейс
+тип HmacKeyGenParams = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 
@@ -1024,7 +1024,7 @@
 }
 
 
-тип IDBVersionChangeEventInit = интерфейс
+тип IDBVersionChangeEventInit = интерфейс на основе EventInit
 {
   newVersion: Число?
 
@@ -1032,7 +1032,7 @@
 }
 
 
-тип IIRFilterOptions = интерфейс
+тип IIRFilterOptions = интерфейс на основе AudioNodeOptions
 {
   feedback: Список<Число>
 
@@ -1088,7 +1088,7 @@
 }
 
 
-тип InputEventInit = интерфейс
+тип InputEventInit = интерфейс на основе UIEventInit
 {
   data: Текст?
 
@@ -1176,7 +1176,7 @@
 }
 
 
-тип KeyboardEventInit = интерфейс
+тип KeyboardEventInit = интерфейс на основе EventModifierInit
 {
   charCode: Число
 
@@ -1206,7 +1206,7 @@
 }
 
 
-тип KeyframeAnimationOptions = интерфейс
+тип KeyframeAnimationOptions = интерфейс на основе KeyframeEffectOptions
 {
   id: Текст
 
@@ -1214,7 +1214,7 @@
 }
 
 
-тип KeyframeEffectOptions = интерфейс
+тип KeyframeEffectOptions = интерфейс на основе EffectTiming
 {
   composite: CompositeOperation
 
@@ -1254,13 +1254,13 @@
 }
 
 
-тип MIDIConnectionEventInit = интерфейс
+тип MIDIConnectionEventInit = интерфейс на основе EventInit
 {
   port: MIDIPort
 }
 
 
-тип MIDIMessageEventInit = интерфейс
+тип MIDIMessageEventInit = интерфейс на основе EventInit
 {
   data: Uint8Array
 }
@@ -1274,13 +1274,13 @@
 }
 
 
-тип MediaCapabilitiesDecodingInfo = интерфейс
+тип MediaCapabilitiesDecodingInfo = интерфейс на основе MediaCapabilitiesInfo
 {
   configuration: MediaDecodingConfiguration
 }
 
 
-тип MediaCapabilitiesEncodingInfo = интерфейс
+тип MediaCapabilitiesEncodingInfo = интерфейс на основе MediaCapabilitiesInfo
 {
   configuration: MediaEncodingConfiguration
 }
@@ -1304,7 +1304,7 @@
 }
 
 
-тип MediaDecodingConfiguration = интерфейс
+тип MediaDecodingConfiguration = интерфейс на основе MediaConfiguration
 {
   type: MediaDecodingType
 }
@@ -1316,13 +1316,13 @@
 }
 
 
-тип MediaEncodingConfiguration = интерфейс
+тип MediaEncodingConfiguration = интерфейс на основе MediaConfiguration
 {
   type: MediaEncodingType
 }
 
 
-тип MediaEncryptedEventInit = интерфейс
+тип MediaEncryptedEventInit = интерфейс на основе EventInit
 {
   initData: ArrayBuffer?
 
@@ -1340,7 +1340,7 @@
 }
 
 
-тип MediaKeyMessageEventInit = интерфейс
+тип MediaKeyMessageEventInit = интерфейс на основе EventInit
 {
   message: ArrayBuffer
 
@@ -1398,7 +1398,7 @@
 }
 
 
-тип MediaQueryListEventInit = интерфейс
+тип MediaQueryListEventInit = интерфейс на основе EventInit
 {
   matches: ДаНет
 
@@ -1448,7 +1448,7 @@
 }
 
 
-тип MediaStreamTrackEventInit = интерфейс
+тип MediaStreamTrackEventInit = интерфейс на основе EventInit
 {
   track: MediaStreamTrack
 }
@@ -1518,7 +1518,7 @@
 }
 
 
-тип MediaTrackConstraints = интерфейс
+тип MediaTrackConstraints = интерфейс на основе MediaTrackConstraintSet
 {
   advanced: Список<MediaTrackConstraintSet>
 }
@@ -1588,7 +1588,7 @@
 }
 
 
-тип MessageEventInit<T> = интерфейс
+тип MessageEventInit<T> = интерфейс на основе EventInit
 {
   data: T
 
@@ -1602,7 +1602,7 @@
 }
 
 
-тип MouseEventInit = интерфейс
+тип MouseEventInit = интерфейс на основе EventModifierInit
 {
   button: Число
 
@@ -1624,7 +1624,7 @@
 }
 
 
-тип MultiCacheQueryOptions = интерфейс
+тип MultiCacheQueryOptions = интерфейс на основе CacheQueryOptions
 {
   cacheName: Текст
 }
@@ -1698,7 +1698,7 @@
 }
 
 
-тип OfflineAudioCompletionEventInit = интерфейс
+тип OfflineAudioCompletionEventInit = интерфейс на основе EventInit
 {
   renderedBuffer: AudioBuffer
 }
@@ -1736,7 +1736,7 @@
 }
 
 
-тип OscillatorOptions = интерфейс
+тип OscillatorOptions = интерфейс на основе AudioNodeOptions
 {
   detune: Число
 
@@ -1748,13 +1748,13 @@
 }
 
 
-тип PageTransitionEventInit = интерфейс
+тип PageTransitionEventInit = интерфейс на основе EventInit
 {
   persisted: ДаНет
 }
 
 
-тип PannerOptions = интерфейс
+тип PannerOptions = интерфейс на основе AudioNodeOptions
 {
   coneInnerAngle: Число
 
@@ -1802,7 +1802,7 @@
 }
 
 
-тип PaymentDetailsInit = интерфейс
+тип PaymentDetailsInit = интерфейс на основе PaymentDetailsBase
 {
   id: Текст
 
@@ -1822,7 +1822,7 @@
 }
 
 
-тип PaymentDetailsUpdate = интерфейс
+тип PaymentDetailsUpdate = интерфейс на основе PaymentDetailsBase
 {
   paymentMethodErrors: /*(!) any */ Объект?
 
@@ -1840,7 +1840,7 @@
 }
 
 
-тип PaymentMethodChangeEventInit = интерфейс
+тип PaymentMethodChangeEventInit = интерфейс на основе PaymentRequestUpdateEventInit
 {
   methodDetails: /*(!) any */ Объект?
 
@@ -1856,7 +1856,7 @@
 }
 
 
-тип PaymentRequestUpdateEventInit = интерфейс
+тип PaymentRequestUpdateEventInit = интерфейс на основе EventInit
 {
 
 }
@@ -1870,7 +1870,7 @@
 }
 
 
-тип Pbkdf2Params = интерфейс
+тип Pbkdf2Params = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 
@@ -1916,7 +1916,7 @@
 }
 
 
-тип PeriodicWaveOptions = интерфейс
+тип PeriodicWaveOptions = интерфейс на основе PeriodicWaveConstraints
 {
   imag: Список<Число> | Float32Array
 
@@ -1930,7 +1930,7 @@
 }
 
 
-тип PictureInPictureEventInit = интерфейс
+тип PictureInPictureEventInit = интерфейс на основе EventInit
 {
   pictureInPictureWindow: PictureInPictureWindow
 }
@@ -1944,7 +1944,7 @@
 }
 
 
-тип PointerEventInit = интерфейс
+тип PointerEventInit = интерфейс на основе MouseEventInit
 {
   coalescedEvents: Список<PointerEvent>
 
@@ -1972,7 +1972,7 @@
 }
 
 
-тип PopStateEventInit = интерфейс
+тип PopStateEventInit = интерфейс на основе EventInit
 {
   state: /*(!) any */ Объект?
 }
@@ -1988,7 +1988,7 @@
 }
 
 
-тип ProgressEventInit = интерфейс
+тип ProgressEventInit = интерфейс на основе EventInit
 {
   lengthComputable: ДаНет
 
@@ -1998,7 +1998,7 @@
 }
 
 
-тип PromiseRejectionEventInit = интерфейс
+тип PromiseRejectionEventInit = интерфейс на основе EventInit
 {
   promise: Promise</*(!) any */ Объект?>
 
@@ -2092,13 +2092,13 @@
 }
 
 
-тип PublicKeyCredentialRpEntity = интерфейс
+тип PublicKeyCredentialRpEntity = интерфейс на основе PublicKeyCredentialEntity
 {
   id: Текст
 }
 
 
-тип PublicKeyCredentialUserEntity = интерфейс
+тип PublicKeyCredentialUserEntity = интерфейс на основе PublicKeyCredentialEntity
 {
   displayName: Текст
 
@@ -2138,7 +2138,7 @@
 }
 
 
-тип RTCAnswerOptions = интерфейс
+тип RTCAnswerOptions = интерфейс на основе RTCOfferAnswerOptions
 {
 
 }
@@ -2166,13 +2166,13 @@
 }
 
 
-тип RTCDTMFToneChangeEventInit = интерфейс
+тип RTCDTMFToneChangeEventInit = интерфейс на основе EventInit
 {
   tone: Текст
 }
 
 
-тип RTCDataChannelEventInit = интерфейс
+тип RTCDataChannelEventInit = интерфейс на основе EventInit
 {
   channel: RTCDataChannel
 }
@@ -2228,7 +2228,7 @@
 }
 
 
-тип RTCErrorEventInit = интерфейс
+тип RTCErrorEventInit = интерфейс на основе EventInit
 {
   error: RTCError
 }
@@ -2270,7 +2270,7 @@
 }
 
 
-тип RTCIceCandidatePairStats = интерфейс
+тип RTCIceCandidatePairStats = интерфейс на основе RTCStats
 {
   availableIncomingBitrate: Число
 
@@ -2318,7 +2318,7 @@
 }
 
 
-тип RTCInboundRtpStreamStats = интерфейс
+тип RTCInboundRtpStreamStats = интерфейс на основе RTCReceivedRtpStreamStats
 {
   audioLevel: Число
 
@@ -2412,7 +2412,7 @@
 }
 
 
-тип RTCOfferOptions = интерфейс
+тип RTCOfferOptions = интерфейс на основе RTCOfferAnswerOptions
 {
   iceRestart: ДаНет
 
@@ -2422,7 +2422,7 @@
 }
 
 
-тип RTCOutboundRtpStreamStats = интерфейс
+тип RTCOutboundRtpStreamStats = интерфейс на основе RTCSentRtpStreamStats
 {
   firCount: Число
 
@@ -2470,7 +2470,7 @@
 }
 
 
-тип RTCPeerConnectionIceErrorEventInit = интерфейс
+тип RTCPeerConnectionIceErrorEventInit = интерфейс на основе EventInit
 {
   address: Текст?
 
@@ -2484,7 +2484,7 @@
 }
 
 
-тип RTCPeerConnectionIceEventInit = интерфейс
+тип RTCPeerConnectionIceEventInit = интерфейс на основе EventInit
 {
   candidate: RTCIceCandidate?
 
@@ -2492,7 +2492,7 @@
 }
 
 
-тип RTCReceivedRtpStreamStats = интерфейс
+тип RTCReceivedRtpStreamStats = интерфейс на основе RTCRtpStreamStats
 {
   jitter: Число
 
@@ -2530,13 +2530,13 @@
 }
 
 
-тип RTCRtpCodecCapability = интерфейс
+тип RTCRtpCodecCapability = интерфейс на основе RTCRtpCodec
 {
 
 }
 
 
-тип RTCRtpCodecParameters = интерфейс
+тип RTCRtpCodecParameters = интерфейс на основе RTCRtpCodec
 {
   payloadType: Число
 }
@@ -2560,7 +2560,7 @@
 }
 
 
-тип RTCRtpEncodingParameters = интерфейс
+тип RTCRtpEncodingParameters = интерфейс на основе RTCRtpCodingParameters
 {
   active: ДаНет
 
@@ -2602,13 +2602,13 @@
 }
 
 
-тип RTCRtpReceiveParameters = интерфейс
+тип RTCRtpReceiveParameters = интерфейс на основе RTCRtpParameters
 {
 
 }
 
 
-тип RTCRtpSendParameters = интерфейс
+тип RTCRtpSendParameters = интерфейс на основе RTCRtpParameters
 {
   degradationPreference: RTCDegradationPreference
 
@@ -2618,7 +2618,7 @@
 }
 
 
-тип RTCRtpStreamStats = интерфейс
+тип RTCRtpStreamStats = интерфейс на основе RTCStats
 {
   codecId: Текст
 
@@ -2630,7 +2630,7 @@
 }
 
 
-тип RTCRtpSynchronizationSource = интерфейс
+тип RTCRtpSynchronizationSource = интерфейс на основе RTCRtpContributingSource
 {
 
 }
@@ -2646,7 +2646,7 @@
 }
 
 
-тип RTCSentRtpStreamStats = интерфейс
+тип RTCSentRtpStreamStats = интерфейс на основе RTCRtpStreamStats
 {
   bytesSent: Число
 
@@ -2672,7 +2672,7 @@
 }
 
 
-тип RTCTrackEventInit = интерфейс
+тип RTCTrackEventInit = интерфейс на основе EventInit
 {
   receiver: RTCRtpReceiver
 
@@ -2684,7 +2684,7 @@
 }
 
 
-тип RTCTransportStats = интерфейс
+тип RTCTransportStats = интерфейс на основе RTCStats
 {
   bytesReceived: Число
 
@@ -2800,25 +2800,25 @@
 }
 
 
-тип RsaHashedImportParams = интерфейс
+тип RsaHashedImportParams = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 }
 
 
-тип RsaHashedKeyAlgorithm = интерфейс
+тип RsaHashedKeyAlgorithm = интерфейс на основе RsaKeyAlgorithm
 {
   hash: KeyAlgorithm
 }
 
 
-тип RsaHashedKeyGenParams = интерфейс
+тип RsaHashedKeyGenParams = интерфейс на основе RsaKeyGenParams
 {
   hash: HashAlgorithmIdentifier
 }
 
 
-тип RsaKeyAlgorithm = интерфейс
+тип RsaKeyAlgorithm = интерфейс на основе KeyAlgorithm
 {
   modulusLength: Число
 
@@ -2826,7 +2826,7 @@
 }
 
 
-тип RsaKeyGenParams = интерфейс
+тип RsaKeyGenParams = интерфейс на основе Algorithm
 {
   modulusLength: Число
 
@@ -2834,7 +2834,7 @@
 }
 
 
-тип RsaOaepParams = интерфейс
+тип RsaOaepParams = интерфейс на основе Algorithm
 {
   label: BufferSource
 }
@@ -2850,7 +2850,7 @@
 }
 
 
-тип RsaPssParams = интерфейс
+тип RsaPssParams = интерфейс на основе Algorithm
 {
   saltLength: Число
 }
@@ -2868,7 +2868,7 @@
 }
 
 
-тип ScrollIntoViewOptions = интерфейс
+тип ScrollIntoViewOptions = интерфейс на основе ScrollOptions
 {
   block: ScrollLogicalPosition
 
@@ -2882,7 +2882,7 @@
 }
 
 
-тип ScrollToOptions = интерфейс
+тип ScrollToOptions = интерфейс на основе ScrollOptions
 {
   left: Число
 
@@ -2890,7 +2890,7 @@
 }
 
 
-тип SecurityPolicyViolationEventInit = интерфейс
+тип SecurityPolicyViolationEventInit = интерфейс на основе EventInit
 {
   blockedURI: Текст
 
@@ -2940,13 +2940,13 @@
 }
 
 
-тип SpeechSynthesisErrorEventInit = интерфейс
+тип SpeechSynthesisErrorEventInit = интерфейс на основе SpeechSynthesisEventInit
 {
   error: SpeechSynthesisErrorCode
 }
 
 
-тип SpeechSynthesisEventInit = интерфейс
+тип SpeechSynthesisEventInit = интерфейс на основе EventInit
 {
   charIndex: Число
 
@@ -2972,7 +2972,7 @@
 }
 
 
-тип StereoPannerOptions = интерфейс
+тип StereoPannerOptions = интерфейс на основе AudioNodeOptions
 {
   pan: Число
 }
@@ -2986,7 +2986,7 @@
 }
 
 
-тип StorageEventInit = интерфейс
+тип StorageEventInit = интерфейс на основе EventInit
 {
   key: Текст?
 
@@ -3018,7 +3018,7 @@
 }
 
 
-тип SubmitEventInit = интерфейс
+тип SubmitEventInit = интерфейс на основе EventInit
 {
   submitter: HTMLElement?
 }
@@ -3046,7 +3046,7 @@
 }
 
 
-тип ToggleEventInit = интерфейс
+тип ToggleEventInit = интерфейс на основе EventInit
 {
   newState: Текст
 
@@ -3054,7 +3054,7 @@
 }
 
 
-тип TouchEventInit = интерфейс
+тип TouchEventInit = интерфейс на основе EventModifierInit
 {
   changedTouches: Список<Touch>
 
@@ -3098,7 +3098,7 @@
 }
 
 
-тип TrackEventInit = интерфейс
+тип TrackEventInit = интерфейс на основе EventInit
 {
   track: TextTrack?
 }
@@ -3118,7 +3118,7 @@
 }
 
 
-тип TransitionEventInit = интерфейс
+тип TransitionEventInit = интерфейс на основе EventInit
 {
   elapsedTime: Число
 
@@ -3128,7 +3128,7 @@
 }
 
 
-тип UIEventInit = интерфейс
+тип UIEventInit = интерфейс на основе EventInit
 {
   detail: Число
 
@@ -3420,7 +3420,7 @@
 }
 
 
-тип WaveShaperOptions = интерфейс
+тип WaveShaperOptions = интерфейс на основе AudioNodeOptions
 {
   curve: Список<Число> | Float32Array
 
@@ -3450,7 +3450,7 @@
 }
 
 
-тип WebGLContextEventInit = интерфейс
+тип WebGLContextEventInit = интерфейс на основе EventInit
 {
   statusMessage: Текст
 }
@@ -3498,7 +3498,7 @@
 }
 
 
-тип WheelEventInit = интерфейс
+тип WheelEventInit = интерфейс на основе MouseEventInit
 {
   deltaMode: Число
 
@@ -3510,7 +3510,7 @@
 }
 
 
-тип WindowPostMessageOptions = интерфейс
+тип WindowPostMessageOptions = интерфейс на основе StructuredSerializeOptions
 {
   targetOrigin: Текст
 }
@@ -3682,7 +3682,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AbortSignal)
 */
 
-тип AbortSignal = интерфейс
+тип AbortSignal = интерфейс на основе EventTarget
 {
   защищено 
   aborted: ДаНет
@@ -3759,7 +3759,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AnalyserNode)
 */
 
-тип AnalyserNode = интерфейс
+тип AnalyserNode = интерфейс на основе AudioNode
 {
   fftSize: Число
 
@@ -3806,7 +3806,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Animation) */
 
-тип Animation = интерфейс
+тип Animation = интерфейс на основе EventTarget
 {
   currentTime: CSSNumberish?
 
@@ -3893,7 +3893,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AnimationEvent)
 */
 
-тип AnimationEvent = интерфейс
+тип AnimationEvent = интерфейс на основе Event
 {
   защищено 
   animationName: Текст
@@ -3920,7 +3920,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/AnimationPlaybackEvent) */
 
-тип AnimationPlaybackEvent = интерфейс
+тип AnimationPlaybackEvent = интерфейс на основе Event
 {
   защищено 
   currentTime: CSSNumberish?
@@ -3953,7 +3953,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Attr)
 */
 
-тип Attr = интерфейс
+тип Attr = интерфейс на основе Node
 {
   защищено 
   localName: Текст
@@ -4022,7 +4022,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioBufferSourceNode)
 */
 
-тип AudioBufferSourceNode = интерфейс
+тип AudioBufferSourceNode = интерфейс на основе AudioScheduledSourceNode
 {
   buffer: AudioBuffer?
 
@@ -4060,7 +4060,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioContext)
 */
 
-тип AudioContext = интерфейс
+тип AudioContext = интерфейс на основе BaseAudioContext
 {
   защищено 
   baseLatency: Число
@@ -4102,7 +4102,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioDestinationNode)
 */
 
-тип AudioDestinationNode = интерфейс
+тип AudioDestinationNode = интерфейс на основе AudioNode
 {
   защищено 
   maxChannelCount: Число
@@ -4164,7 +4164,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioNode)
 */
 
-тип AudioNode = интерфейс
+тип AudioNode = интерфейс на основе EventTarget
 {
   channelCount: Число
 
@@ -4265,7 +4265,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioProcessingEvent)
 */
 
-тип AudioProcessingEvent = интерфейс
+тип AudioProcessingEvent = интерфейс на основе Event
 {
   защищено 
   inputBuffer: AudioBuffer
@@ -4292,7 +4292,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioScheduledSourceNode) */
 
-тип AudioScheduledSourceNode = интерфейс
+тип AudioScheduledSourceNode = интерфейс на основе AudioNode
 {
   onended: (операция(this: AudioScheduledSourceNode, ev: Event): /*(!) any */ Объект?)?
 
@@ -4320,7 +4320,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioWorklet)
 */
 
-тип AudioWorklet = интерфейс
+тип AudioWorklet = интерфейс на основе Worklet
 {
 
 }
@@ -4342,7 +4342,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioWorkletNode)
 */
 
-тип AudioWorkletNode = интерфейс
+тип AudioWorkletNode = интерфейс на основе AudioNode
 {
   onprocessorerror: (операция(this: AudioWorkletNode, ev: Event): /*(!) any */ Объект?)?
 
@@ -4372,7 +4372,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AuthenticatorAssertionResponse)
 */
 
-тип AuthenticatorAssertionResponse = интерфейс
+тип AuthenticatorAssertionResponse = интерфейс на основе AuthenticatorResponse
 {
   защищено 
   authenticatorData: ArrayBuffer
@@ -4395,7 +4395,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AuthenticatorAttestationResponse)
 */
 
-тип AuthenticatorAttestationResponse = интерфейс
+тип AuthenticatorAttestationResponse = интерфейс на основе AuthenticatorResponse
 {
   защищено 
   attestationObject: ArrayBuffer
@@ -4452,7 +4452,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/BaseAudioContext) */
 
-тип BaseAudioContext = интерфейс
+тип BaseAudioContext = интерфейс на основе EventTarget
 {
   защищено 
   audioWorklet: AudioWorklet
@@ -4532,7 +4532,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/BeforeUnloadEvent)
 */
 
-тип BeforeUnloadEvent = интерфейс
+тип BeforeUnloadEvent = интерфейс на основе Event
 {
   returnValue: /*(!) any */ Объект?
 }
@@ -4548,7 +4548,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/BiquadFilterNode)
 */
 
-тип BiquadFilterNode = интерфейс
+тип BiquadFilterNode = интерфейс на основе AudioNode
 {
   защищено 
   Q: AudioParam
@@ -4602,7 +4602,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/BlobEvent) */
 
-тип BlobEvent = интерфейс
+тип BlobEvent = интерфейс на основе Event
 {
   защищено 
   data: Blob
@@ -4646,7 +4646,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/BroadcastChannel) */
 
-тип BroadcastChannel = интерфейс
+тип BroadcastChannel = интерфейс на основе EventTarget
 {
   защищено 
   name: Текст
@@ -4679,7 +4679,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ByteLengthQueuingStrategy)
 */
 
-тип ByteLengthQueuingStrategy = интерфейс
+тип ByteLengthQueuingStrategy = интерфейс на основе QueuingStrategy<ArrayBufferView>
 {
   защищено 
   highWaterMark: Число
@@ -4699,7 +4699,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CDATASection)
 */
 
-тип CDATASection = интерфейс
+тип CDATASection = интерфейс на основе Text
 {
 
 }
@@ -4711,7 +4711,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSAnimation) */
 
-тип CSSAnimation = интерфейс
+тип CSSAnimation = интерфейс на основе Animation
 {
   защищено 
   animationName: Текст
@@ -4736,7 +4736,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSConditionRule)
 */
 
-тип CSSConditionRule = интерфейс
+тип CSSConditionRule = интерфейс на основе CSSGroupingRule
 {
   защищено 
   conditionText: Текст
@@ -4749,7 +4749,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSContainerRule) */
 
-тип CSSContainerRule = интерфейс
+тип CSSContainerRule = интерфейс на основе CSSConditionRule
 {
   защищено 
   containerName: Текст
@@ -4765,7 +4765,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSCounterStyleRule) */
 
-тип CSSCounterStyleRule = интерфейс
+тип CSSCounterStyleRule = интерфейс на основе CSSRule
 {
   additiveSymbols: Текст
 
@@ -4797,7 +4797,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSFontFaceRule) */
 
-тип CSSFontFaceRule = интерфейс
+тип CSSFontFaceRule = интерфейс на основе CSSRule
 {
   защищено 
   style: CSSStyleDeclaration
@@ -4810,7 +4810,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSFontFeatureValuesRule) */
 
-тип CSSFontFeatureValuesRule = интерфейс
+тип CSSFontFeatureValuesRule = интерфейс на основе CSSRule
 {
   fontFamily: Текст
 }
@@ -4822,7 +4822,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSFontPaletteValuesRule) */
 
-тип CSSFontPaletteValuesRule = интерфейс
+тип CSSFontPaletteValuesRule = интерфейс на основе CSSRule
 {
   защищено 
   basePalette: Текст
@@ -4848,7 +4848,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSGroupingRule)
 */
 
-тип CSSGroupingRule = интерфейс
+тип CSSGroupingRule = интерфейс на основе CSSRule
 {
   защищено 
   cssRules: CSSRuleList
@@ -4865,7 +4865,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSImageValue) */
 
-тип CSSImageValue = интерфейс
+тип CSSImageValue = интерфейс на основе CSSStyleValue
 {
 
 }
@@ -4877,7 +4877,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSImportRule) */
 
-тип CSSImportRule = интерфейс
+тип CSSImportRule = интерфейс на основе CSSRule
 {
   защищено 
   href: Текст
@@ -4903,7 +4903,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSKeyframeRule)
 */
 
-тип CSSKeyframeRule = интерфейс
+тип CSSKeyframeRule = интерфейс на основе CSSRule
 {
   keyText: Текст
 
@@ -4922,7 +4922,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSKeyframesRule)
 */
 
-тип CSSKeyframesRule = интерфейс
+тип CSSKeyframesRule = интерфейс на основе CSSRule
 {
   защищено 
   cssRules: CSSRuleList
@@ -4948,7 +4948,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSKeywordValue) */
 
-тип CSSKeywordValue = интерфейс
+тип CSSKeywordValue = интерфейс на основе CSSStyleValue
 {
   value: Текст
 }
@@ -4960,7 +4960,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSLayerBlockRule) */
 
-тип CSSLayerBlockRule = интерфейс
+тип CSSLayerBlockRule = интерфейс на основе CSSGroupingRule
 {
   защищено 
   name: Текст
@@ -4973,7 +4973,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSLayerStatementRule) */
 
-тип CSSLayerStatementRule = интерфейс
+тип CSSLayerStatementRule = интерфейс на основе CSSRule
 {
   защищено 
   nameList: ReadonlyArray<Текст>
@@ -4984,7 +4984,7 @@
 /*(!) var */ CSSLayerStatementRule: объект { prototype: CSSLayerStatementRule; при создании(): CSSLayerStatementRule }
 
 
-тип CSSMathClamp = интерфейс
+тип CSSMathClamp = интерфейс на основе CSSMathValue
 {
   защищено 
   lower: CSSNumericValue
@@ -5003,7 +5003,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathInvert) */
 
-тип CSSMathInvert = интерфейс
+тип CSSMathInvert = интерфейс на основе CSSMathValue
 {
   защищено 
   value: CSSNumericValue
@@ -5016,7 +5016,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathMax) */
 
-тип CSSMathMax = интерфейс
+тип CSSMathMax = интерфейс на основе CSSMathValue
 {
   защищено 
   values: CSSNumericArray
@@ -5029,7 +5029,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathMin) */
 
-тип CSSMathMin = интерфейс
+тип CSSMathMin = интерфейс на основе CSSMathValue
 {
   защищено 
   values: CSSNumericArray
@@ -5042,7 +5042,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathNegate) */
 
-тип CSSMathNegate = интерфейс
+тип CSSMathNegate = интерфейс на основе CSSMathValue
 {
   защищено 
   value: CSSNumericValue
@@ -5055,7 +5055,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathProduct) */
 
-тип CSSMathProduct = интерфейс
+тип CSSMathProduct = интерфейс на основе CSSMathValue
 {
   защищено 
   values: CSSNumericArray
@@ -5068,7 +5068,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathSum) */
 
-тип CSSMathSum = интерфейс
+тип CSSMathSum = интерфейс на основе CSSMathValue
 {
   защищено 
   values: CSSNumericArray
@@ -5081,7 +5081,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathValue) */
 
-тип CSSMathValue = интерфейс
+тип CSSMathValue = интерфейс на основе CSSNumericValue
 {
   защищено 
   operator: CSSMathOperator
@@ -5094,7 +5094,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMatrixComponent) */
 
-тип CSSMatrixComponent = интерфейс
+тип CSSMatrixComponent = интерфейс на основе CSSTransformComponent
 {
   matrix: DOMMatrix
 }
@@ -5110,7 +5110,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMediaRule)
 */
 
-тип CSSMediaRule = интерфейс
+тип CSSMediaRule = интерфейс на основе CSSConditionRule
 {
   защищено 
   media: MediaList
@@ -5127,7 +5127,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSNamespaceRule)
 */
 
-тип CSSNamespaceRule = интерфейс
+тип CSSNamespaceRule = интерфейс на основе CSSRule
 {
   защищено 
   namespaceURI: Текст
@@ -5160,7 +5160,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSNumericValue) */
 
-тип CSSNumericValue = интерфейс
+тип CSSNumericValue = интерфейс на основе CSSStyleValue
 {
   #js.МассивПараметров
   операция add(values: Список<CSSNumberish>): CSSNumericValue
@@ -5202,7 +5202,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSPageRule)
 */
 
-тип CSSPageRule = интерфейс
+тип CSSPageRule = интерфейс на основе CSSGroupingRule
 {
   selectorText: Текст
 
@@ -5217,7 +5217,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSPerspective) */
 
-тип CSSPerspective = интерфейс
+тип CSSPerspective = интерфейс на основе CSSTransformComponent
 {
   length: CSSPerspectiveValue
 }
@@ -5229,7 +5229,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSPropertyRule) */
 
-тип CSSPropertyRule = интерфейс
+тип CSSPropertyRule = интерфейс на основе CSSRule
 {
   защищено 
   inherits: ДаНет
@@ -5251,7 +5251,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSRotate) */
 
-тип CSSRotate = интерфейс
+тип CSSRotate = интерфейс на основе CSSTransformComponent
 {
   angle: CSSNumericValue
 
@@ -5345,7 +5345,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSScale) */
 
-тип CSSScale = интерфейс
+тип CSSScale = интерфейс на основе CSSTransformComponent
 {
   x: CSSNumberish
 
@@ -5361,7 +5361,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSSkew) */
 
-тип CSSSkew = интерфейс
+тип CSSSkew = интерфейс на основе CSSTransformComponent
 {
   ax: CSSNumericValue
 
@@ -5375,7 +5375,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSSkewX) */
 
-тип CSSSkewX = интерфейс
+тип CSSSkewX = интерфейс на основе CSSTransformComponent
 {
   ax: CSSNumericValue
 }
@@ -5387,7 +5387,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSSkewY) */
 
-тип CSSSkewY = интерфейс
+тип CSSSkewY = интерфейс на основе CSSTransformComponent
 {
   ay: CSSNumericValue
 }
@@ -6385,7 +6385,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSStyleRule)
 */
 
-тип CSSStyleRule = интерфейс
+тип CSSStyleRule = интерфейс на основе CSSRule
 {
   защищено 
   cssRules: CSSRuleList
@@ -6414,7 +6414,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSStyleSheet)
 */
 
-тип CSSStyleSheet = интерфейс
+тип CSSStyleSheet = интерфейс на основе StyleSheet
 {
   защищено 
   cssRules: CSSRuleList
@@ -6461,7 +6461,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSSupportsRule)
 */
 
-тип CSSSupportsRule = интерфейс
+тип CSSSupportsRule = интерфейс на основе CSSConditionRule
 {
 
 }
@@ -6489,7 +6489,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTransformValue) */
 
-тип CSSTransformValue = интерфейс
+тип CSSTransformValue = интерфейс на основе CSSStyleValue
 {
   защищено 
   is2D: ДаНет
@@ -6511,7 +6511,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTransition) */
 
-тип CSSTransition = интерфейс
+тип CSSTransition = интерфейс на основе Animation
 {
   защищено 
   transitionProperty: Текст
@@ -6532,7 +6532,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTranslate) */
 
-тип CSSTranslate = интерфейс
+тип CSSTranslate = интерфейс на основе CSSTransformComponent
 {
   x: CSSNumericValue
 
@@ -6548,7 +6548,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSUnitValue) */
 
-тип CSSUnitValue = интерфейс
+тип CSSUnitValue = интерфейс на основе CSSNumericValue
 {
   защищено 
   unit: Текст
@@ -6563,7 +6563,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSUnparsedValue) */
 
-тип CSSUnparsedValue = интерфейс
+тип CSSUnparsedValue = интерфейс на основе CSSStyleValue
 {
   защищено 
   length: Число
@@ -6649,7 +6649,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasCaptureMediaStreamTrack) */
 
-тип CanvasCaptureMediaStreamTrack = интерфейс
+тип CanvasCaptureMediaStreamTrack = интерфейс на основе MediaStreamTrack
 {
   защищено 
   canvas: HTMLCanvasElement
@@ -6848,7 +6848,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D)
 */
 
-тип CanvasRenderingContext2D = интерфейс
+тип CanvasRenderingContext2D = интерфейс на основе CanvasCompositing, CanvasDrawImage, CanvasDrawPath, CanvasFillStrokeStyles, CanvasFilters, CanvasImageData, CanvasImageSmoothing, CanvasPath, CanvasPathDrawingStyles, CanvasRect, CanvasShadowStyles, CanvasState, CanvasText, CanvasTextDrawingStyles, CanvasTransform, CanvasUserInterface
 {
   защищено 
   canvas: HTMLCanvasElement
@@ -6941,7 +6941,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ChannelMergerNode)
 */
 
-тип ChannelMergerNode = интерфейс
+тип ChannelMergerNode = интерфейс на основе AudioNode
 {
 
 }
@@ -6957,7 +6957,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ChannelSplitterNode)
 */
 
-тип ChannelSplitterNode = интерфейс
+тип ChannelSplitterNode = интерфейс на основе AudioNode
 {
 
 }
@@ -6973,7 +6973,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CharacterData)
 */
 
-тип CharacterData = интерфейс
+тип CharacterData = интерфейс на основе Node, ChildNode, NonDocumentTypeChildNode
 {
   data: Текст
 
@@ -6999,7 +6999,7 @@
 /*(!) var */ CharacterData: объект { prototype: CharacterData; при создании(): CharacterData }
 
 
-тип ChildNode = интерфейс
+тип ChildNode = интерфейс на основе Node
 {
   #js.МассивПараметров
   операция after(nodes: Список<Node | Текст>)
@@ -7016,7 +7016,7 @@
 
 /** @deprecated */
 
-тип ClientRect = интерфейс
+тип ClientRect = интерфейс на основе DOMRect
 {
 
 }
@@ -7028,7 +7028,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Clipboard)
 */
 
-тип Clipboard = интерфейс
+тип Clipboard = интерфейс на основе EventTarget
 {
   операция read(): Promise<ClipboardItems>
 
@@ -7050,7 +7050,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ClipboardEvent)
 */
 
-тип ClipboardEvent = интерфейс
+тип ClipboardEvent = интерфейс на основе Event
 {
   защищено 
   clipboardData: DataTransfer?
@@ -7086,7 +7086,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CloseEvent)
 */
 
-тип CloseEvent = интерфейс
+тип CloseEvent = интерфейс на основе Event
 {
   защищено 
   code: Число
@@ -7109,7 +7109,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Comment)
 */
 
-тип Comment = интерфейс
+тип Comment = интерфейс на основе CharacterData
 {
 
 }
@@ -7125,7 +7125,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CompositionEvent)
 */
 
-тип CompositionEvent = интерфейс
+тип CompositionEvent = интерфейс на основе UIEvent
 {
   защищено 
   data: Текст
@@ -7140,7 +7140,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CompressionStream) */
 
-тип CompressionStream = интерфейс
+тип CompressionStream = интерфейс на основе GenericTransformStream
 {
 
 }
@@ -7152,7 +7152,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ConstantSourceNode) */
 
-тип ConstantSourceNode = интерфейс
+тип ConstantSourceNode = интерфейс на основе AudioScheduledSourceNode
 {
   защищено 
   offset: AudioParam
@@ -7177,7 +7177,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ConvolverNode)
 */
 
-тип ConvolverNode = интерфейс
+тип ConvolverNode = интерфейс на основе AudioNode
 {
   buffer: AudioBuffer?
 
@@ -7195,7 +7195,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CountQueuingStrategy)
 */
 
-тип CountQueuingStrategy = интерфейс
+тип CountQueuingStrategy = интерфейс на основе QueuingStrategy
 {
   защищено 
   highWaterMark: Число
@@ -7319,7 +7319,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CustomEvent) */
 
-тип CustomEvent<T> = интерфейс
+тип CustomEvent<T> = интерфейс на основе Event
 {
   защищено 
   detail: T
@@ -7338,7 +7338,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMException)
 */
 
-тип DOMException = интерфейс
+тип DOMException = интерфейс на основе Error
 {
   защищено 
   code: Число
@@ -7455,7 +7455,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMMatrix) */
 
-тип DOMMatrix = интерфейс
+тип DOMMatrix = интерфейс на основе DOMMatrixReadOnly
 {
   a: Число
 
@@ -7679,7 +7679,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMPoint) */
 
-тип DOMPoint = интерфейс
+тип DOMPoint = интерфейс на основе DOMPointReadOnly
 {
   w: Число
 
@@ -7755,7 +7755,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMRect) */
 
-тип DOMRect = интерфейс
+тип DOMRect = интерфейс на основе DOMRectReadOnly
 {
   height: Число
 
@@ -7998,7 +7998,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DecompressionStream) */
 
-тип DecompressionStream = интерфейс
+тип DecompressionStream = интерфейс на основе GenericTransformStream
 {
 
 }
@@ -8014,7 +8014,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DelayNode)
 */
 
-тип DelayNode = интерфейс
+тип DelayNode = интерфейс на основе AudioNode
 {
   защищено 
   delayTime: AudioParam
@@ -8032,7 +8032,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DeviceMotionEvent)
 */
 
-тип DeviceMotionEvent = интерфейс
+тип DeviceMotionEvent = интерфейс на основе Event
 {
   защищено 
   acceleration: DeviceMotionEventAcceleration?
@@ -8097,7 +8097,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DeviceOrientationEvent)
 */
 
-тип DeviceOrientationEvent = интерфейс
+тип DeviceOrientationEvent = интерфейс на основе Event
 {
   защищено 
   absolute: ДаНет
@@ -8117,7 +8117,7 @@
 /*(!) var */ DeviceOrientationEvent: объект { prototype: DeviceOrientationEvent; при создании(type: Текст, eventInitDict: DeviceOrientationEventInit? = пусто): DeviceOrientationEvent }
 
 
-тип DocumentEventMap = интерфейс
+тип DocumentEventMap = интерфейс на основе GlobalEventHandlersEventMap
 {
   "DOMContentLoaded": Event
 
@@ -8141,7 +8141,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Document)
 */
 
-тип Document = интерфейс
+тип Document = интерфейс на основе Node, DocumentOrShadowRoot, FontFaceSource, GlobalEventHandlers, NonElementParentNode, ParentNode, XPathEvaluatorBase
 {
   защищено 
   URL: Текст
@@ -8543,7 +8543,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DocumentFragment)
 */
 
-тип DocumentFragment = интерфейс
+тип DocumentFragment = интерфейс на основе Node, NonElementParentNode, ParentNode
 {
   защищено 
   ownerDocument: Document
@@ -8585,7 +8585,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DocumentTimeline) */
 
-тип DocumentTimeline = интерфейс
+тип DocumentTimeline = интерфейс на основе AnimationTimeline
 {
 
 }
@@ -8601,7 +8601,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DocumentType)
 */
 
-тип DocumentType = интерфейс
+тип DocumentType = интерфейс на основе Node, ChildNode
 {
   защищено 
   name: Текст
@@ -8627,7 +8627,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DragEvent)
 */
 
-тип DragEvent = интерфейс
+тип DragEvent = интерфейс на основе MouseEvent
 {
   защищено 
   dataTransfer: DataTransfer?
@@ -8644,7 +8644,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DynamicsCompressorNode)
 */
 
-тип DynamicsCompressorNode = интерфейс
+тип DynamicsCompressorNode = интерфейс на основе AudioNode
 {
   защищено 
   attack: AudioParam
@@ -8850,7 +8850,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element)
 */
 
-тип Element = интерфейс
+тип Element = интерфейс на основе Node, ARIAMixin, Animatable, ChildNode, InnerHTML, NonDocumentTypeChildNode, ParentNode, Slottable
 {
   защищено 
   attributes: NamedNodeMap
@@ -9056,7 +9056,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ElementInternals) */
 
-тип ElementInternals = интерфейс
+тип ElementInternals = интерфейс на основе ARIAMixin
 {
   защищено 
   form: HTMLFormElement?
@@ -9120,7 +9120,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ErrorEvent)
 */
 
-тип ErrorEvent = интерфейс
+тип ErrorEvent = интерфейс на основе Event
 {
   защищено 
   colno: Число
@@ -9252,7 +9252,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource) */
 
-тип EventSource = интерфейс
+тип EventSource = интерфейс на основе EventTarget
 {
   onerror: (операция(this: EventSource, ev: Event): /*(!) any */ Объект?)?
 
@@ -9344,7 +9344,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/File)
 */
 
-тип File = интерфейс
+тип File = интерфейс на основе Blob
 {
   защищено 
   lastModified: Число
@@ -9404,7 +9404,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader)
 */
 
-тип FileReader = интерфейс
+тип FileReader = интерфейс на основе EventTarget
 {
   защищено 
   error: DOMException?
@@ -9478,7 +9478,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryEntry) */
 
-тип FileSystemDirectoryEntry = интерфейс
+тип FileSystemDirectoryEntry = интерфейс на основе FileSystemEntry
 {
   операция createReader(): FileSystemDirectoryReader
 
@@ -9498,7 +9498,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle)
 */
 
-тип FileSystemDirectoryHandle = интерфейс
+тип FileSystemDirectoryHandle = интерфейс на основе FileSystemHandle
 {
   защищено 
   kind: "directory"
@@ -9558,7 +9558,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemFileEntry) */
 
-тип FileSystemFileEntry = интерфейс
+тип FileSystemFileEntry = интерфейс на основе FileSystemEntry
 {
   операция file(successCallback: FileCallback, errorCallback: ErrorCallback? = пусто)
 }
@@ -9574,7 +9574,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle)
 */
 
-тип FileSystemFileHandle = интерфейс
+тип FileSystemFileHandle = интерфейс на основе FileSystemHandle
 {
   защищено 
   kind: "file"
@@ -9617,7 +9617,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemWritableFileStream)
 */
 
-тип FileSystemWritableFileStream = интерфейс
+тип FileSystemWritableFileStream = интерфейс на основе WritableStream
 {
   операция seek(position: Число): Promise<Ничего>
 
@@ -9637,7 +9637,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FocusEvent)
 */
 
-тип FocusEvent = интерфейс
+тип FocusEvent = интерфейс на основе UIEvent
 {
   защищено 
   relatedTarget: EventTarget?
@@ -9700,7 +9700,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet) */
 
-тип FontFaceSet = интерфейс
+тип FontFaceSet = интерфейс на основе EventTarget
 {
   onloading: (операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект?)?
 
@@ -9736,7 +9736,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSetLoadEvent) */
 
-тип FontFaceSetLoadEvent = интерфейс
+тип FontFaceSetLoadEvent = интерфейс на основе Event
 {
   защищено 
   fontfaces: ReadonlyArray<FontFace>
@@ -9792,7 +9792,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FormDataEvent) */
 
-тип FormDataEvent = интерфейс
+тип FormDataEvent = интерфейс на основе Event
 {
   защищено 
   formData: FormData
@@ -9809,7 +9809,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GainNode)
 */
 
-тип GainNode = интерфейс
+тип GainNode = интерфейс на основе AudioNode
 {
   защищено 
   gain: AudioParam
@@ -9893,7 +9893,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GamepadEvent)
 */
 
-тип GamepadEvent = интерфейс
+тип GamepadEvent = интерфейс на основе Event
 {
   защищено 
   gamepad: Gamepad
@@ -10466,7 +10466,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAnchorElement)
 */
 
-тип HTMLAnchorElement = интерфейс
+тип HTMLAnchorElement = интерфейс на основе HTMLElement, HTMLHyperlinkElementUtils
 {
   charset: Текст
 
@@ -10517,7 +10517,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAreaElement)
 */
 
-тип HTMLAreaElement = интерфейс
+тип HTMLAreaElement = интерфейс на основе HTMLElement, HTMLHyperlinkElementUtils
 {
   alt: Текст
 
@@ -10560,7 +10560,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLAudioElement)
 */
 
-тип HTMLAudioElement = интерфейс
+тип HTMLAudioElement = интерфейс на основе HTMLMediaElement
 {
   операция addEventListener<K = /*(!) keyof HTMLMediaElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLAudioElement, ev: /*(!) HTMLMediaElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -10582,7 +10582,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLBRElement)
 */
 
-тип HTMLBRElement = интерфейс
+тип HTMLBRElement = интерфейс на основе HTMLElement
 {
   clear: Текст
 
@@ -10606,7 +10606,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLBaseElement)
 */
 
-тип HTMLBaseElement = интерфейс
+тип HTMLBaseElement = интерфейс на основе HTMLElement
 {
   href: Текст
 
@@ -10626,7 +10626,7 @@
 /*(!) var */ HTMLBaseElement: объект { prototype: HTMLBaseElement; при создании(): HTMLBaseElement }
 
 
-тип HTMLBodyElementEventMap = интерфейс
+тип HTMLBodyElementEventMap = интерфейс на основе HTMLElementEventMap, WindowEventHandlersEventMap
 {
 
 }
@@ -10638,7 +10638,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLBodyElement)
 */
 
-тип HTMLBodyElement = интерфейс
+тип HTMLBodyElement = интерфейс на основе HTMLElement, WindowEventHandlers
 {
   aLink: Текст
 
@@ -10672,7 +10672,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLButtonElement)
 */
 
-тип HTMLButtonElement = интерфейс
+тип HTMLButtonElement = интерфейс на основе HTMLElement, PopoverInvokerElement
 {
   disabled: ДаНет
 
@@ -10733,7 +10733,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLCanvasElement)
 */
 
-тип HTMLCanvasElement = интерфейс
+тип HTMLCanvasElement = интерфейс на основе HTMLElement
 {
   height: Число
 
@@ -10788,7 +10788,7 @@
 }
 
 
-тип HTMLCollection = интерфейс
+тип HTMLCollection = интерфейс на основе HTMLCollectionBase
 {
   операция namedItem(name: Текст): Element?
 }
@@ -10798,7 +10798,7 @@
 /*(!) var */ HTMLCollection: объект { prototype: HTMLCollection; при создании(): HTMLCollection }
 
 
-тип HTMLCollectionOf<T = Element> = интерфейс
+тип HTMLCollectionOf<T = Element> = интерфейс на основе HTMLCollectionBase
 {
   операция item(index: Число): T?
 
@@ -10814,7 +10814,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLDListElement)
 */
 
-тип HTMLDListElement = интерфейс
+тип HTMLDListElement = интерфейс на основе HTMLElement
 {
   compact: ДаНет
 
@@ -10838,7 +10838,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLDataElement)
 */
 
-тип HTMLDataElement = интерфейс
+тип HTMLDataElement = интерфейс на основе HTMLElement
 {
   value: Текст
 
@@ -10862,7 +10862,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLDataListElement)
 */
 
-тип HTMLDataListElement = интерфейс
+тип HTMLDataListElement = интерфейс на основе HTMLElement
 {
   защищено 
   options: HTMLCollectionOf<HTMLOptionElement>
@@ -10883,7 +10883,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLDetailsElement) */
 
-тип HTMLDetailsElement = интерфейс
+тип HTMLDetailsElement = интерфейс на основе HTMLElement
 {
   open: ДаНет
 
@@ -10903,7 +10903,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLDialogElement) */
 
-тип HTMLDialogElement = интерфейс
+тип HTMLDialogElement = интерфейс на основе HTMLElement
 {
   open: ДаНет
 
@@ -10931,7 +10931,7 @@
 
 /** @deprecated */
 
-тип HTMLDirectoryElement = интерфейс
+тип HTMLDirectoryElement = интерфейс на основе HTMLElement
 {
   compact: ДаНет
 
@@ -10957,7 +10957,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLDivElement)
 */
 
-тип HTMLDivElement = интерфейс
+тип HTMLDivElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -10977,7 +10977,7 @@
 
 /** @deprecated use Document */
 
-тип HTMLDocument = интерфейс
+тип HTMLDocument = интерфейс на основе Document
 {
   операция addEventListener<K = /*(!) keyof DocumentEventMap */ Объект?>(type: K, listener: операция(this: HTMLDocument, ev: /*(!) DocumentEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -10995,7 +10995,7 @@
 /*(!) var */ HTMLDocument: объект { prototype: HTMLDocument; при создании(): HTMLDocument }
 
 
-тип HTMLElementEventMap = интерфейс
+тип HTMLElementEventMap = интерфейс на основе ElementEventMap, GlobalEventHandlersEventMap
 {
 
 }
@@ -11007,7 +11007,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement)
 */
 
-тип HTMLElement = интерфейс
+тип HTMLElement = интерфейс на основе Element, ElementCSSInlineStyle, ElementContentEditable, GlobalEventHandlers, HTMLOrSVGElement
 {
   accessKey: Текст
 
@@ -11083,7 +11083,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLEmbedElement)
 */
 
-тип HTMLEmbedElement = интерфейс
+тип HTMLEmbedElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -11119,7 +11119,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLFieldSetElement)
 */
 
-тип HTMLFieldSetElement = интерфейс
+тип HTMLFieldSetElement = интерфейс на основе HTMLElement
 {
   disabled: ДаНет
 
@@ -11170,7 +11170,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLFontElement)
 */
 
-тип HTMLFontElement = интерфейс
+тип HTMLFontElement = интерфейс на основе HTMLElement
 {
   color: Текст
 
@@ -11200,7 +11200,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLFormControlsCollection)
 */
 
-тип HTMLFormControlsCollection = интерфейс
+тип HTMLFormControlsCollection = интерфейс на основе HTMLCollectionBase
 {
   операция namedItem(name: Текст): RadioNodeList | Element | пусто
 }
@@ -11216,7 +11216,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLFormElement)
 */
 
-тип HTMLFormElement = интерфейс
+тип HTMLFormElement = интерфейс на основе HTMLElement
 {
   acceptCharset: Текст
 
@@ -11281,7 +11281,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLFrameElement)
 */
 
-тип HTMLFrameElement = интерфейс
+тип HTMLFrameElement = интерфейс на основе HTMLElement
 {
   защищено 
   contentDocument: Document?
@@ -11321,7 +11321,7 @@
 /*(!) var */ HTMLFrameElement: объект { prototype: HTMLFrameElement; при создании(): HTMLFrameElement }
 
 
-тип HTMLFrameSetElementEventMap = интерфейс
+тип HTMLFrameSetElementEventMap = интерфейс на основе HTMLElementEventMap, WindowEventHandlersEventMap
 {
 
 }
@@ -11334,7 +11334,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLFrameSetElement)
 */
 
-тип HTMLFrameSetElement = интерфейс
+тип HTMLFrameSetElement = интерфейс на основе HTMLElement, WindowEventHandlers
 {
   cols: Текст
 
@@ -11362,7 +11362,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLHRElement)
 */
 
-тип HTMLHRElement = интерфейс
+тип HTMLHRElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -11394,7 +11394,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLHeadElement)
 */
 
-тип HTMLHeadElement = интерфейс
+тип HTMLHeadElement = интерфейс на основе HTMLElement
 {
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLHeadElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -11416,7 +11416,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLHeadingElement)
 */
 
-тип HTMLHeadingElement = интерфейс
+тип HTMLHeadingElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -11440,7 +11440,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLHtmlElement)
 */
 
-тип HTMLHtmlElement = интерфейс
+тип HTMLHtmlElement = интерфейс на основе HTMLElement
 {
   version: Текст
 
@@ -11493,7 +11493,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLIFrameElement)
 */
 
-тип HTMLIFrameElement = интерфейс
+тип HTMLIFrameElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -11556,7 +11556,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLImageElement)
 */
 
-тип HTMLImageElement = интерфейс
+тип HTMLImageElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -11636,7 +11636,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLInputElement)
 */
 
-тип HTMLInputElement = интерфейс
+тип HTMLInputElement = интерфейс на основе HTMLElement, PopoverInvokerElement
 {
   accept: Текст
 
@@ -11781,7 +11781,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLLIElement)
 */
 
-тип HTMLLIElement = интерфейс
+тип HTMLLIElement = интерфейс на основе HTMLElement
 {
   type: Текст
 
@@ -11807,7 +11807,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLLabelElement)
 */
 
-тип HTMLLabelElement = интерфейс
+тип HTMLLabelElement = интерфейс на основе HTMLElement
 {
   защищено 
   control: HTMLElement?
@@ -11837,7 +11837,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLLegendElement)
 */
 
-тип HTMLLegendElement = интерфейс
+тип HTMLLegendElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -11864,7 +11864,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLLinkElement)
 */
 
-тип HTMLLinkElement = интерфейс
+тип HTMLLinkElement = интерфейс на основе HTMLElement, LinkStyle
 {
   as: Текст
 
@@ -11922,7 +11922,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLMapElement)
 */
 
-тип HTMLMapElement = интерфейс
+тип HTMLMapElement = интерфейс на основе HTMLElement
 {
   защищено 
   areas: HTMLCollection
@@ -11950,7 +11950,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLMarqueeElement)
 */
 
-тип HTMLMarqueeElement = интерфейс
+тип HTMLMarqueeElement = интерфейс на основе HTMLElement
 {
   behavior: Текст
 
@@ -11994,7 +11994,7 @@
 /*(!) var */ HTMLMarqueeElement: объект { prototype: HTMLMarqueeElement; при создании(): HTMLMarqueeElement }
 
 
-тип HTMLMediaElementEventMap = интерфейс
+тип HTMLMediaElementEventMap = интерфейс на основе HTMLElementEventMap
 {
   "encrypted": MediaEncryptedEvent
 
@@ -12008,7 +12008,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement)
 */
 
-тип HTMLMediaElement = интерфейс
+тип HTMLMediaElement = интерфейс на основе HTMLElement
 {
   autoplay: ДаНет
 
@@ -12143,7 +12143,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLMenuElement) */
 
-тип HTMLMenuElement = интерфейс
+тип HTMLMenuElement = интерфейс на основе HTMLElement
 {
   compact: ДаНет
 
@@ -12167,7 +12167,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLMetaElement)
 */
 
-тип HTMLMetaElement = интерфейс
+тип HTMLMetaElement = интерфейс на основе HTMLElement
 {
   content: Текст
 
@@ -12199,7 +12199,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLMeterElement)
 */
 
-тип HTMLMeterElement = интерфейс
+тип HTMLMeterElement = интерфейс на основе HTMLElement
 {
   high: Число
 
@@ -12236,7 +12236,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLModElement)
 */
 
-тип HTMLModElement = интерфейс
+тип HTMLModElement = интерфейс на основе HTMLElement
 {
   cite: Текст
 
@@ -12262,7 +12262,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLOListElement)
 */
 
-тип HTMLOListElement = интерфейс
+тип HTMLOListElement = интерфейс на основе HTMLElement
 {
   compact: ДаНет
 
@@ -12292,7 +12292,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLObjectElement)
 */
 
-тип HTMLObjectElement = интерфейс
+тип HTMLObjectElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -12372,7 +12372,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLOptGroupElement)
 */
 
-тип HTMLOptGroupElement = интерфейс
+тип HTMLOptGroupElement = интерфейс на основе HTMLElement
 {
   disabled: ДаНет
 
@@ -12398,7 +12398,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLOptionElement)
 */
 
-тип HTMLOptionElement = интерфейс
+тип HTMLOptionElement = интерфейс на основе HTMLElement
 {
   defaultSelected: ДаНет
 
@@ -12438,7 +12438,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLOptionsCollection)
 */
 
-тип HTMLOptionsCollection = интерфейс
+тип HTMLOptionsCollection = интерфейс на основе HTMLCollectionOf<HTMLOptionElement>
 {
   length: Число
 
@@ -12477,7 +12477,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLOutputElement)
 */
 
-тип HTMLOutputElement = интерфейс
+тип HTMLOutputElement = интерфейс на основе HTMLElement
 {
   defaultValue: Текст
 
@@ -12532,7 +12532,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLParagraphElement)
 */
 
-тип HTMLParagraphElement = интерфейс
+тип HTMLParagraphElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -12557,7 +12557,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLParamElement)
 */
 
-тип HTMLParamElement = интерфейс
+тип HTMLParamElement = интерфейс на основе HTMLElement
 {
   name: Текст
 
@@ -12589,7 +12589,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLPictureElement)
 */
 
-тип HTMLPictureElement = интерфейс
+тип HTMLPictureElement = интерфейс на основе HTMLElement
 {
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLPictureElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -12611,7 +12611,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLPreElement)
 */
 
-тип HTMLPreElement = интерфейс
+тип HTMLPreElement = интерфейс на основе HTMLElement
 {
   width: Число
 
@@ -12635,7 +12635,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLProgressElement)
 */
 
-тип HTMLProgressElement = интерфейс
+тип HTMLProgressElement = интерфейс на основе HTMLElement
 {
   защищено 
   labels: NodeListOf<HTMLLabelElement>
@@ -12667,7 +12667,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLQuoteElement)
 */
 
-тип HTMLQuoteElement = интерфейс
+тип HTMLQuoteElement = интерфейс на основе HTMLElement
 {
   cite: Текст
 
@@ -12691,7 +12691,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLScriptElement)
 */
 
-тип HTMLScriptElement = интерфейс
+тип HTMLScriptElement = интерфейс на основе HTMLElement
 {
   async: ДаНет
 
@@ -12737,7 +12737,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLSelectElement)
 */
 
-тип HTMLSelectElement = интерфейс
+тип HTMLSelectElement = интерфейс на основе HTMLElement
 {
   autocomplete: AutoFill
 
@@ -12815,7 +12815,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLSlotElement) */
 
-тип HTMLSlotElement = интерфейс
+тип HTMLSlotElement = интерфейс на основе HTMLElement
 {
   name: Текст
 
@@ -12846,7 +12846,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLSourceElement)
 */
 
-тип HTMLSourceElement = интерфейс
+тип HTMLSourceElement = интерфейс на основе HTMLElement
 {
   height: Число
 
@@ -12882,7 +12882,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLSpanElement)
 */
 
-тип HTMLSpanElement = интерфейс
+тип HTMLSpanElement = интерфейс на основе HTMLElement
 {
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLSpanElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -12904,7 +12904,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLStyleElement)
 */
 
-тип HTMLStyleElement = интерфейс
+тип HTMLStyleElement = интерфейс на основе HTMLElement, LinkStyle
 {
   disabled: ДаНет
 
@@ -12932,7 +12932,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTableCaptionElement)
 */
 
-тип HTMLTableCaptionElement = интерфейс
+тип HTMLTableCaptionElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -12956,7 +12956,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTableCellElement)
 */
 
-тип HTMLTableCellElement = интерфейс
+тип HTMLTableCellElement = интерфейс на основе HTMLElement
 {
   abbr: Текст
 
@@ -13009,7 +13009,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTableColElement)
 */
 
-тип HTMLTableColElement = интерфейс
+тип HTMLTableColElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -13039,7 +13039,7 @@
 
 /** @deprecated prefer HTMLTableCellElement */
 
-тип HTMLTableDataCellElement = интерфейс
+тип HTMLTableDataCellElement = интерфейс на основе HTMLTableCellElement
 {
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableDataCellElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -13057,7 +13057,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTableElement)
 */
 
-тип HTMLTableElement = интерфейс
+тип HTMLTableElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -13123,7 +13123,7 @@
 
 /** @deprecated prefer HTMLTableCellElement */
 
-тип HTMLTableHeaderCellElement = интерфейс
+тип HTMLTableHeaderCellElement = интерфейс на основе HTMLTableCellElement
 {
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableHeaderCellElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -13141,7 +13141,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTableRowElement)
 */
 
-тип HTMLTableRowElement = интерфейс
+тип HTMLTableRowElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -13186,7 +13186,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTableSectionElement)
 */
 
-тип HTMLTableSectionElement = интерфейс
+тип HTMLTableSectionElement = интерфейс на основе HTMLElement
 {
   align: Текст
 
@@ -13223,7 +13223,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTemplateElement)
 */
 
-тип HTMLTemplateElement = интерфейс
+тип HTMLTemplateElement = интерфейс на основе HTMLElement
 {
   защищено 
   content: DocumentFragment
@@ -13248,7 +13248,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTextAreaElement)
 */
 
-тип HTMLTextAreaElement = интерфейс
+тип HTMLTextAreaElement = интерфейс на основе HTMLElement
 {
   autocomplete: AutoFill
 
@@ -13339,7 +13339,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTimeElement)
 */
 
-тип HTMLTimeElement = интерфейс
+тип HTMLTimeElement = интерфейс на основе HTMLElement
 {
   dateTime: Текст
 
@@ -13363,7 +13363,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTitleElement)
 */
 
-тип HTMLTitleElement = интерфейс
+тип HTMLTitleElement = интерфейс на основе HTMLElement
 {
   text: Текст
 
@@ -13387,7 +13387,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLTrackElement)
 */
 
-тип HTMLTrackElement = интерфейс
+тип HTMLTrackElement = интерфейс на основе HTMLElement
 {
   default: ДаНет
 
@@ -13437,7 +13437,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLUListElement)
 */
 
-тип HTMLUListElement = интерфейс
+тип HTMLUListElement = интерфейс на основе HTMLElement
 {
   compact: ДаНет
 
@@ -13463,7 +13463,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLUnknownElement)
 */
 
-тип HTMLUnknownElement = интерфейс
+тип HTMLUnknownElement = интерфейс на основе HTMLElement
 {
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLUnknownElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -13479,7 +13479,7 @@
 /*(!) var */ HTMLUnknownElement: объект { prototype: HTMLUnknownElement; при создании(): HTMLUnknownElement }
 
 
-тип HTMLVideoElementEventMap = интерфейс
+тип HTMLVideoElementEventMap = интерфейс на основе HTMLMediaElementEventMap
 {
   "enterpictureinpicture": Event
 
@@ -13493,7 +13493,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLVideoElement)
 */
 
-тип HTMLVideoElement = интерфейс
+тип HTMLVideoElement = интерфейс на основе HTMLMediaElement
 {
   disablePictureInPicture: ДаНет
 
@@ -13543,7 +13543,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HashChangeEvent)
 */
 
-тип HashChangeEvent = интерфейс
+тип HashChangeEvent = интерфейс на основе Event
 {
   защищено 
   newURL: Текст
@@ -13662,7 +13662,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBCursorWithValue)
 */
 
-тип IDBCursorWithValue = интерфейс
+тип IDBCursorWithValue = интерфейс на основе IDBCursor
 {
   защищено 
   value: /*(!) any */ Объект?
@@ -13691,7 +13691,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBDatabase)
 */
 
-тип IDBDatabase = интерфейс
+тип IDBDatabase = интерфейс на основе EventTarget
 {
   защищено 
   name: Текст
@@ -13880,7 +13880,7 @@
 /*(!) var */ IDBObjectStore: объект { prototype: IDBObjectStore; при создании(): IDBObjectStore }
 
 
-тип IDBOpenDBRequestEventMap = интерфейс
+тип IDBOpenDBRequestEventMap = интерфейс на основе IDBRequestEventMap
 {
   "blocked": IDBVersionChangeEvent
 
@@ -13894,7 +13894,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBOpenDBRequest)
 */
 
-тип IDBOpenDBRequest = интерфейс
+тип IDBOpenDBRequest = интерфейс на основе IDBRequest<IDBDatabase>
 {
   onblocked: (операция(this: IDBOpenDBRequest, ev: IDBVersionChangeEvent): /*(!) any */ Объект?)?
 
@@ -13928,7 +13928,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBRequest)
 */
 
-тип IDBRequest<T> = интерфейс
+тип IDBRequest<T> = интерфейс на основе EventTarget
 {
   защищено 
   error: DOMException?
@@ -13975,7 +13975,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBTransaction) */
 
-тип IDBTransaction = интерфейс
+тип IDBTransaction = интерфейс на основе EventTarget
 {
   защищено 
   db: IDBDatabase
@@ -14024,7 +14024,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBVersionChangeEvent)
 */
 
-тип IDBVersionChangeEvent = интерфейс
+тип IDBVersionChangeEvent = интерфейс на основе Event
 {
   защищено 
   newVersion: Число?
@@ -14044,7 +14044,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IIRFilterNode)
 */
 
-тип IIRFilterNode = интерфейс
+тип IIRFilterNode = интерфейс на основе AudioNode
 {
   операция getFrequencyResponse(frequencyHz: Float32Array, magResponse: Float32Array, phaseResponse: Float32Array)
 }
@@ -14140,7 +14140,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/InputDeviceInfo)
 */
 
-тип InputDeviceInfo = интерфейс
+тип InputDeviceInfo = интерфейс на основе MediaDeviceInfo
 {
   операция getCapabilities(): MediaTrackCapabilities
 }
@@ -14152,7 +14152,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/InputEvent) */
 
-тип InputEvent = интерфейс
+тип InputEvent = интерфейс на основе UIEvent
 {
   защищено 
   data: Текст?
@@ -14255,7 +14255,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent)
 */
 
-тип KeyboardEvent = интерфейс
+тип KeyboardEvent = интерфейс на основе UIEvent
 {
   защищено 
   altKey: ДаНет
@@ -14314,7 +14314,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyframeEffect) */
 
-тип KeyframeEffect = интерфейс
+тип KeyframeEffect = интерфейс на основе AnimationEffect
 {
   composite: CompositeOperation
 
@@ -14437,7 +14437,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MIDIAccess)
 */
 
-тип MIDIAccess = интерфейс
+тип MIDIAccess = интерфейс на основе EventTarget
 {
   защищено 
   inputs: MIDIInputMap
@@ -14470,7 +14470,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MIDIConnectionEvent)
 */
 
-тип MIDIConnectionEvent = интерфейс
+тип MIDIConnectionEvent = интерфейс на основе Event
 {
   защищено 
   port: MIDIPort
@@ -14481,7 +14481,7 @@
 /*(!) var */ MIDIConnectionEvent: объект { prototype: MIDIConnectionEvent; при создании(type: Текст, eventInitDict: MIDIConnectionEventInit? = пусто): MIDIConnectionEvent }
 
 
-тип MIDIInputEventMap = интерфейс
+тип MIDIInputEventMap = интерфейс на основе MIDIPortEventMap
 {
   "midimessage": Event
 }
@@ -14493,7 +14493,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MIDIInput)
 */
 
-тип MIDIInput = интерфейс
+тип MIDIInput = интерфейс на основе MIDIPort
 {
   onmidimessage: (операция(this: MIDIInput, ev: Event): /*(!) any */ Объект?)?
 
@@ -14533,7 +14533,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MIDIMessageEvent)
 */
 
-тип MIDIMessageEvent = интерфейс
+тип MIDIMessageEvent = интерфейс на основе Event
 {
   защищено 
   data: Uint8Array
@@ -14550,7 +14550,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MIDIOutput)
 */
 
-тип MIDIOutput = интерфейс
+тип MIDIOutput = интерфейс на основе MIDIPort
 {
   операция send(data: Список<Число>, timestamp: DOMHighResTimeStamp? = пусто)
 
@@ -14596,7 +14596,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MIDIPort)
 */
 
-тип MIDIPort = интерфейс
+тип MIDIPort = интерфейс на основе EventTarget
 {
   защищено 
   connection: MIDIPortConnectionState
@@ -14639,7 +14639,7 @@
 /*(!) var */ MIDIPort: объект { prototype: MIDIPort; при создании(): MIDIPort }
 
 
-тип MathMLElementEventMap = интерфейс
+тип MathMLElementEventMap = интерфейс на основе ElementEventMap, GlobalEventHandlersEventMap
 {
 
 }
@@ -14647,7 +14647,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/MathMLElement) */
 
-тип MathMLElement = интерфейс
+тип MathMLElement = интерфейс на основе Element, ElementCSSInlineStyle, GlobalEventHandlers, HTMLOrSVGElement
 {
   операция addEventListener<K = /*(!) keyof MathMLElementEventMap */ Объект?>(type: K, listener: операция(this: MathMLElement, ev: /*(!) MathMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -14719,7 +14719,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaDevices)
 */
 
-тип MediaDevices = интерфейс
+тип MediaDevices = интерфейс на основе EventTarget
 {
   ondevicechange: (операция(this: MediaDevices, ev: Event): /*(!) any */ Объект?)?
 
@@ -14751,7 +14751,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaElementAudioSourceNode)
 */
 
-тип MediaElementAudioSourceNode = интерфейс
+тип MediaElementAudioSourceNode = интерфейс на основе AudioNode
 {
   защищено 
   mediaElement: HTMLMediaElement
@@ -14764,7 +14764,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaEncryptedEvent) */
 
-тип MediaEncryptedEvent = интерфейс
+тип MediaEncryptedEvent = интерфейс на основе Event
 {
   защищено 
   initData: ArrayBuffer?
@@ -14817,7 +14817,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeyMessageEvent)
 */
 
-тип MediaKeyMessageEvent = интерфейс
+тип MediaKeyMessageEvent = интерфейс на основе Event
 {
   защищено 
   message: ArrayBuffer
@@ -14846,7 +14846,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaKeySession)
 */
 
-тип MediaKeySession = интерфейс
+тип MediaKeySession = интерфейс на основе EventTarget
 {
   защищено 
   closed: Promise<MediaKeySessionClosedReason>
@@ -15008,7 +15008,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaQueryList)
 */
 
-тип MediaQueryList = интерфейс
+тип MediaQueryList = интерфейс на основе EventTarget
 {
   защищено 
   matches: ДаНет
@@ -15038,7 +15038,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaQueryListEvent) */
 
-тип MediaQueryListEvent = интерфейс
+тип MediaQueryListEvent = интерфейс на основе Event
 {
   защищено 
   matches: ДаНет
@@ -15070,7 +15070,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaRecorder) */
 
-тип MediaRecorder = интерфейс
+тип MediaRecorder = интерфейс на основе EventTarget
 {
   защищено 
   audioBitsPerSecond: Число
@@ -15157,7 +15157,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaSource)
 */
 
-тип MediaSource = интерфейс
+тип MediaSource = интерфейс на основе EventTarget
 {
   защищено 
   activeSourceBuffers: SourceBufferList
@@ -15214,7 +15214,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaStream)
 */
 
-тип MediaStream = интерфейс
+тип MediaStream = интерфейс на основе EventTarget
 {
   защищено 
   active: ДаНет
@@ -15256,7 +15256,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaStreamAudioDestinationNode) */
 
-тип MediaStreamAudioDestinationNode = интерфейс
+тип MediaStreamAudioDestinationNode = интерфейс на основе AudioNode
 {
   защищено 
   stream: MediaStream
@@ -15273,7 +15273,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaStreamAudioSourceNode)
 */
 
-тип MediaStreamAudioSourceNode = интерфейс
+тип MediaStreamAudioSourceNode = интерфейс на основе AudioNode
 {
   защищено 
   mediaStream: MediaStream
@@ -15300,7 +15300,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaStreamTrack)
 */
 
-тип MediaStreamTrack = интерфейс
+тип MediaStreamTrack = интерфейс на основе EventTarget
 {
   contentHint: Текст
 
@@ -15359,7 +15359,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MediaStreamTrackEvent)
 */
 
-тип MediaStreamTrackEvent = интерфейс
+тип MediaStreamTrackEvent = интерфейс на основе Event
 {
   защищено 
   track: MediaStreamTrack
@@ -15396,7 +15396,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessageEvent)
 */
 
-тип MessageEvent<T> = интерфейс
+тип MessageEvent<T> = интерфейс на основе Event
 {
   защищено 
   data: T
@@ -15435,7 +15435,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort)
 */
 
-тип MessagePort = интерфейс
+тип MessagePort = интерфейс на основе EventTarget
 {
   onmessage: (операция(this: MessagePort, ev: MessageEvent): /*(!) any */ Объект?)?
 
@@ -15524,7 +15524,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MouseEvent)
 */
 
-тип MouseEvent = интерфейс
+тип MouseEvent = интерфейс на основе UIEvent
 {
   защищено 
   altKey: ДаНет
@@ -15600,7 +15600,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MutationEvent)
 */
 
-тип MutationEvent = интерфейс
+тип MutationEvent = интерфейс на основе Event
 {
   защищено 
   attrChange: Число
@@ -15758,7 +15758,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator)
 */
 
-тип Navigator = интерфейс
+тип Navigator = интерфейс на основе NavigatorAutomationInformation, NavigatorBadge, NavigatorConcurrentHardware, NavigatorContentUtils, NavigatorCookies, NavigatorID, NavigatorLanguage, NavigatorLocks, NavigatorOnLine, NavigatorPlugins, NavigatorStorage
 {
   защищено 
   clipboard: Clipboard
@@ -15940,7 +15940,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Node)
 */
 
-тип Node = интерфейс
+тип Node = интерфейс на основе EventTarget
 {
   защищено 
   baseURI: Текст
@@ -16130,7 +16130,7 @@
 /*(!) var */ NodeList: объект { prototype: NodeList; при создании(): NodeList }
 
 
-тип NodeListOf<TNode = Node> = интерфейс
+тип NodeListOf<TNode = Node> = интерфейс на основе NodeList
 {
   операция item(index: Число): TNode
 
@@ -16174,7 +16174,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Notification)
 */
 
-тип Notification = интерфейс
+тип Notification = интерфейс на основе EventTarget
 {
   защищено 
   body: Текст
@@ -16369,7 +16369,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioCompletionEvent)
 */
 
-тип OfflineAudioCompletionEvent = интерфейс
+тип OfflineAudioCompletionEvent = интерфейс на основе Event
 {
   защищено 
   renderedBuffer: AudioBuffer
@@ -16380,7 +16380,7 @@
 /*(!) var */ OfflineAudioCompletionEvent: объект { prototype: OfflineAudioCompletionEvent; при создании(type: Текст, eventInitDict: OfflineAudioCompletionEventInit): OfflineAudioCompletionEvent }
 
 
-тип OfflineAudioContextEventMap = интерфейс
+тип OfflineAudioContextEventMap = интерфейс на основе BaseAudioContextEventMap
 {
   "complete": OfflineAudioCompletionEvent
 }
@@ -16392,7 +16392,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OfflineAudioContext)
 */
 
-тип OfflineAudioContext = интерфейс
+тип OfflineAudioContext = интерфейс на основе BaseAudioContext
 {
   защищено 
   length: Число
@@ -16429,7 +16429,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/OffscreenCanvas) */
 
-тип OffscreenCanvas = интерфейс
+тип OffscreenCanvas = интерфейс на основе EventTarget
 {
   height: Число
 
@@ -16469,7 +16469,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/OffscreenCanvasRenderingContext2D) */
 
-тип OffscreenCanvasRenderingContext2D = интерфейс
+тип OffscreenCanvasRenderingContext2D = интерфейс на основе CanvasCompositing, CanvasDrawImage, CanvasDrawPath, CanvasFillStrokeStyles, CanvasFilters, CanvasImageData, CanvasImageSmoothing, CanvasPath, CanvasPathDrawingStyles, CanvasRect, CanvasShadowStyles, CanvasState, CanvasText, CanvasTextDrawingStyles, CanvasTransform
 {
   защищено 
   canvas: OffscreenCanvas
@@ -16488,7 +16488,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/OscillatorNode)
 */
 
-тип OscillatorNode = интерфейс
+тип OscillatorNode = интерфейс на основе AudioScheduledSourceNode
 {
   защищено 
   detune: AudioParam
@@ -16516,7 +16516,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/OverconstrainedError) */
 
-тип OverconstrainedError = интерфейс
+тип OverconstrainedError = интерфейс на основе Error
 {
   защищено 
   constraint: Текст
@@ -16533,7 +16533,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PageTransitionEvent)
 */
 
-тип PageTransitionEvent = интерфейс
+тип PageTransitionEvent = интерфейс на основе Event
 {
   защищено 
   persisted: ДаНет
@@ -16550,7 +16550,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PannerNode)
 */
 
-тип PannerNode = интерфейс
+тип PannerNode = интерфейс на основе AudioNode
 {
   coneInnerAngle: Число
 
@@ -16596,7 +16596,7 @@
 /*(!) var */ PannerNode: объект { prototype: PannerNode; при создании(context: BaseAudioContext, options: PannerOptions? = пусто): PannerNode }
 
 
-тип ParentNode = интерфейс
+тип ParentNode = интерфейс на основе Node
 {
   защищено 
   childElementCount: Число
@@ -16647,7 +16647,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Path2D)
 */
 
-тип Path2D = интерфейс
+тип Path2D = интерфейс на основе CanvasPath
 {
   операция addPath(path: Path2D, transform: DOMMatrix2DInit? = пусто)
 }
@@ -16663,7 +16663,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentMethodChangeEvent)
 */
 
-тип PaymentMethodChangeEvent = интерфейс
+тип PaymentMethodChangeEvent = интерфейс на основе PaymentRequestUpdateEvent
 {
   защищено 
   methodDetails: /*(!) any */ Объект?
@@ -16690,7 +16690,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequest)
 */
 
-тип PaymentRequest = интерфейс
+тип PaymentRequest = интерфейс на основе EventTarget
 {
   защищено 
   id: Текст
@@ -16724,7 +16724,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentRequestUpdateEvent)
 */
 
-тип PaymentRequestUpdateEvent = интерфейс
+тип PaymentRequestUpdateEvent = интерфейс на основе Event
 {
   операция updateWith(detailsPromise: PaymentDetailsUpdate | PromiseLike<PaymentDetailsUpdate>)
 }
@@ -16741,7 +16741,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PaymentResponse)
 */
 
-тип PaymentResponse = интерфейс
+тип PaymentResponse = интерфейс на основе EventTarget
 {
   защищено 
   details: /*(!) any */ Объект?
@@ -16776,7 +16776,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Performance)
 */
 
-тип Performance = интерфейс
+тип Performance = интерфейс на основе EventTarget
 {
   защищено 
   eventCounts: EventCounts
@@ -16858,7 +16858,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceEventTiming) */
 
-тип PerformanceEventTiming = интерфейс
+тип PerformanceEventTiming = интерфейс на основе PerformanceEntry
 {
   защищено 
   cancelable: ДаНет
@@ -16886,7 +16886,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceMark)
 */
 
-тип PerformanceMark = интерфейс
+тип PerformanceMark = интерфейс на основе PerformanceEntry
 {
   защищено 
   detail: /*(!) any */ Объект?
@@ -16903,7 +16903,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceMeasure)
 */
 
-тип PerformanceMeasure = интерфейс
+тип PerformanceMeasure = интерфейс на основе PerformanceEntry
 {
   защищено 
   detail: /*(!) any */ Объект?
@@ -16957,7 +16957,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceNavigationTiming)
 */
 
-тип PerformanceNavigationTiming = интерфейс
+тип PerformanceNavigationTiming = интерфейс на основе PerformanceResourceTiming
 {
   защищено 
   domComplete: DOMHighResTimeStamp
@@ -17031,7 +17031,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformancePaintTiming) */
 
-тип PerformancePaintTiming = интерфейс
+тип PerformancePaintTiming = интерфейс на основе PerformanceEntry
 {
 
 }
@@ -17047,7 +17047,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceResourceTiming)
 */
 
-тип PerformanceResourceTiming = интерфейс
+тип PerformanceResourceTiming = интерфейс на основе PerformanceEntry
 {
   защищено 
   connectEnd: DOMHighResTimeStamp
@@ -17238,7 +17238,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PermissionStatus) */
 
-тип PermissionStatus = интерфейс
+тип PermissionStatus = интерфейс на основе EventTarget
 {
   защищено 
   name: Текст
@@ -17276,7 +17276,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PictureInPictureEvent) */
 
-тип PictureInPictureEvent = интерфейс
+тип PictureInPictureEvent = интерфейс на основе Event
 {
   защищено 
   pictureInPictureWindow: PictureInPictureWindow
@@ -17295,7 +17295,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PictureInPictureWindow) */
 
-тип PictureInPictureWindow = интерфейс
+тип PictureInPictureWindow = интерфейс на основе EventTarget
 {
   защищено 
   height: Число
@@ -17388,7 +17388,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PointerEvent)
 */
 
-тип PointerEvent = интерфейс
+тип PointerEvent = интерфейс на основе MouseEvent
 {
   защищено 
   height: Число
@@ -17436,7 +17436,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PopStateEvent)
 */
 
-тип PopStateEvent = интерфейс
+тип PopStateEvent = интерфейс на основе Event
 {
   защищено 
   state: /*(!) any */ Объект?
@@ -17461,7 +17461,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ProcessingInstruction)
 */
 
-тип ProcessingInstruction = интерфейс
+тип ProcessingInstruction = интерфейс на основе CharacterData, LinkStyle
 {
   защищено 
   ownerDocument: Document
@@ -17481,7 +17481,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ProgressEvent)
 */
 
-тип ProgressEvent<T = EventTarget> = интерфейс
+тип ProgressEvent<T = EventTarget> = интерфейс на основе Event
 {
   защищено 
   lengthComputable: ДаНет
@@ -17503,7 +17503,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PromiseRejectionEvent) */
 
-тип PromiseRejectionEvent = интерфейс
+тип PromiseRejectionEvent = интерфейс на основе Event
 {
   защищено 
   promise: Promise</*(!) any */ Объект?>
@@ -17523,7 +17523,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PublicKeyCredential)
 */
 
-тип PublicKeyCredential = интерфейс
+тип PublicKeyCredential = интерфейс на основе Credential
 {
   защищено 
   authenticatorAttachment: Текст?
@@ -17636,7 +17636,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCDTMFSender) */
 
-тип RTCDTMFSender = интерфейс
+тип RTCDTMFSender = интерфейс на основе EventTarget
 {
   защищено 
   canInsertDTMF: ДаНет
@@ -17668,7 +17668,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCDTMFToneChangeEvent)
 */
 
-тип RTCDTMFToneChangeEvent = интерфейс
+тип RTCDTMFToneChangeEvent = интерфейс на основе Event
 {
   защищено 
   tone: Текст
@@ -17697,7 +17697,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCDataChannel) */
 
-тип RTCDataChannel = интерфейс
+тип RTCDataChannel = интерфейс на основе EventTarget
 {
   binaryType: BinaryType
 
@@ -17768,7 +17768,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCDataChannelEvent) */
 
-тип RTCDataChannelEvent = интерфейс
+тип RTCDataChannelEvent = интерфейс на основе Event
 {
   защищено 
   channel: RTCDataChannel
@@ -17789,7 +17789,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCDtlsTransport) */
 
-тип RTCDtlsTransport = интерфейс
+тип RTCDtlsTransport = интерфейс на основе EventTarget
 {
   защищено 
   iceTransport: RTCIceTransport
@@ -17852,7 +17852,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCError) */
 
-тип RTCError = интерфейс
+тип RTCError = интерфейс на основе DOMException
 {
   защищено 
   errorDetail: RTCErrorDetailType
@@ -17877,7 +17877,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCErrorEvent) */
 
-тип RTCErrorEvent = интерфейс
+тип RTCErrorEvent = интерфейс на основе Event
 {
   защищено 
   error: RTCError
@@ -17962,7 +17962,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCIceTransport)
 */
 
-тип RTCIceTransport = интерфейс
+тип RTCIceTransport = интерфейс на основе EventTarget
 {
   защищено 
   gatheringState: RTCIceGathererState
@@ -18020,7 +18020,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnection)
 */
 
-тип RTCPeerConnection = интерфейс
+тип RTCPeerConnection = интерфейс на основе EventTarget
 {
   защищено 
   canTrickleIceCandidates: ДаНет?
@@ -18137,7 +18137,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnectionIceErrorEvent) */
 
-тип RTCPeerConnectionIceErrorEvent = интерфейс
+тип RTCPeerConnectionIceErrorEvent = интерфейс на основе Event
 {
   защищено 
   address: Текст?
@@ -18166,7 +18166,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCPeerConnectionIceEvent)
 */
 
-тип RTCPeerConnectionIceEvent = интерфейс
+тип RTCPeerConnectionIceEvent = интерфейс на основе Event
 {
   защищено 
   candidate: RTCIceCandidate?
@@ -18275,7 +18275,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCSctpTransport) */
 
-тип RTCSctpTransport = интерфейс
+тип RTCSctpTransport = интерфейс на основе EventTarget
 {
   защищено 
   maxChannels: Число?
@@ -18341,7 +18341,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCTrackEvent) */
 
-тип RTCTrackEvent = интерфейс
+тип RTCTrackEvent = интерфейс на основе Event
 {
   защищено 
   receiver: RTCRtpReceiver
@@ -18363,7 +18363,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/RadioNodeList) */
 
-тип RadioNodeList = интерфейс
+тип RadioNodeList = интерфейс на основе NodeList
 {
   value: Текст
 }
@@ -18379,7 +18379,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Range)
 */
 
-тип Range = интерфейс
+тип Range = интерфейс на основе AbstractRange
 {
   защищено 
   commonAncestorContainer: Node
@@ -18505,7 +18505,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBReader) */
 
-тип ReadableStreamBYOBReader = интерфейс
+тип ReadableStreamBYOBReader = интерфейс на основе ReadableStreamGenericReader
 {
   операция read<T = ArrayBufferView>(view: T): Promise<ReadableStreamReadResult<T>>
 
@@ -18555,7 +18555,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultReader) */
 
-тип ReadableStreamDefaultReader<R> = интерфейс
+тип ReadableStreamDefaultReader<R> = интерфейс на основе ReadableStreamGenericReader
 {
   операция read(): Promise<ReadableStreamReadResult<R>>
 
@@ -18588,7 +18588,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/RemotePlayback) */
 
-тип RemotePlayback = интерфейс
+тип RemotePlayback = интерфейс на основе EventTarget
 {
   onconnect: (операция(this: RemotePlayback, ev: Event): /*(!) any */ Объект?)?
 
@@ -18674,7 +18674,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Request)
 */
 
-тип Request = интерфейс
+тип Request = интерфейс на основе Body
 {
   защищено 
   cache: RequestCache
@@ -18786,7 +18786,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Response)
 */
 
-тип Response = интерфейс
+тип Response = интерфейс на основе Body
 {
   защищено 
   headers: Headers
@@ -18823,7 +18823,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGAElement)
 */
 
-тип SVGAElement = интерфейс
+тип SVGAElement = интерфейс на основе SVGGraphicsElement, SVGURIReference
 {
   rel: Текст
 
@@ -18891,7 +18891,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGAnimateElement) */
 
-тип SVGAnimateElement = интерфейс
+тип SVGAnimateElement = интерфейс на основе SVGAnimationElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGAnimateElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -18909,7 +18909,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGAnimateMotionElement) */
 
-тип SVGAnimateMotionElement = интерфейс
+тип SVGAnimateMotionElement = интерфейс на основе SVGAnimationElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGAnimateMotionElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -18927,7 +18927,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGAnimateTransformElement) */
 
-тип SVGAnimateTransformElement = интерфейс
+тип SVGAnimateTransformElement = интерфейс на основе SVGAnimationElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGAnimateTransformElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -19190,7 +19190,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGAnimationElement) */
 
-тип SVGAnimationElement = интерфейс
+тип SVGAnimationElement = интерфейс на основе SVGElement, SVGTests
 {
   защищено 
   targetElement: SVGElement?
@@ -19229,7 +19229,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGCircleElement)
 */
 
-тип SVGCircleElement = интерфейс
+тип SVGCircleElement = интерфейс на основе SVGGeometryElement
 {
   защищено 
   cx: SVGAnimatedLength
@@ -19260,7 +19260,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGClipPathElement)
 */
 
-тип SVGClipPathElement = интерфейс
+тип SVGClipPathElement = интерфейс на основе SVGElement
 {
   защищено 
   clipPathUnits: SVGAnimatedEnumeration
@@ -19288,7 +19288,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGComponentTransferFunctionElement)
 */
 
-тип SVGComponentTransferFunctionElement = интерфейс
+тип SVGComponentTransferFunctionElement = интерфейс на основе SVGElement
 {
   защищено 
   amplitude: SVGAnimatedNumber
@@ -19349,7 +19349,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGDefsElement)
 */
 
-тип SVGDefsElement = интерфейс
+тип SVGDefsElement = интерфейс на основе SVGGraphicsElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGDefsElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -19371,7 +19371,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGDescElement)
 */
 
-тип SVGDescElement = интерфейс
+тип SVGDescElement = интерфейс на основе SVGElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGDescElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -19387,7 +19387,7 @@
 /*(!) var */ SVGDescElement: объект { prototype: SVGDescElement; при создании(): SVGDescElement }
 
 
-тип SVGElementEventMap = интерфейс
+тип SVGElementEventMap = интерфейс на основе ElementEventMap, GlobalEventHandlersEventMap
 {
 
 }
@@ -19399,7 +19399,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGElement)
 */
 
-тип SVGElement = интерфейс
+тип SVGElement = интерфейс на основе Element, ElementCSSInlineStyle, GlobalEventHandlers, HTMLOrSVGElement
 {
   защищено 
   className: /*(!) any */ Объект?
@@ -19430,7 +19430,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGEllipseElement)
 */
 
-тип SVGEllipseElement = интерфейс
+тип SVGEllipseElement = интерфейс на основе SVGGeometryElement
 {
   защищено 
   cx: SVGAnimatedLength
@@ -19464,7 +19464,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEBlendElement)
 */
 
-тип SVGFEBlendElement = интерфейс
+тип SVGFEBlendElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   in1: SVGAnimatedString
@@ -19546,7 +19546,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEColorMatrixElement)
 */
 
-тип SVGFEColorMatrixElement = интерфейс
+тип SVGFEColorMatrixElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   in1: SVGAnimatedString
@@ -19592,7 +19592,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEComponentTransferElement)
 */
 
-тип SVGFEComponentTransferElement = интерфейс
+тип SVGFEComponentTransferElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   in1: SVGAnimatedString
@@ -19617,7 +19617,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFECompositeElement)
 */
 
-тип SVGFECompositeElement = интерфейс
+тип SVGFECompositeElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   in1: SVGAnimatedString
@@ -19681,7 +19681,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEConvolveMatrixElement)
 */
 
-тип SVGFEConvolveMatrixElement = интерфейс
+тип SVGFEConvolveMatrixElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   bias: SVGAnimatedNumber
@@ -19751,7 +19751,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEDiffuseLightingElement)
 */
 
-тип SVGFEDiffuseLightingElement = интерфейс
+тип SVGFEDiffuseLightingElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   diffuseConstant: SVGAnimatedNumber
@@ -19788,7 +19788,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEDisplacementMapElement)
 */
 
-тип SVGFEDisplacementMapElement = интерфейс
+тип SVGFEDisplacementMapElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   in1: SVGAnimatedString
@@ -19840,7 +19840,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEDistantLightElement)
 */
 
-тип SVGFEDistantLightElement = интерфейс
+тип SVGFEDistantLightElement = интерфейс на основе SVGElement
 {
   защищено 
   azimuth: SVGAnimatedNumber
@@ -19864,7 +19864,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEDropShadowElement) */
 
-тип SVGFEDropShadowElement = интерфейс
+тип SVGFEDropShadowElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   dx: SVGAnimatedNumber
@@ -19903,7 +19903,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEFloodElement)
 */
 
-тип SVGFEFloodElement = интерфейс
+тип SVGFEFloodElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGFEFloodElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -19925,7 +19925,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEFuncAElement)
 */
 
-тип SVGFEFuncAElement = интерфейс
+тип SVGFEFuncAElement = интерфейс на основе SVGComponentTransferFunctionElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGFEFuncAElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -19947,7 +19947,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEFuncBElement)
 */
 
-тип SVGFEFuncBElement = интерфейс
+тип SVGFEFuncBElement = интерфейс на основе SVGComponentTransferFunctionElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGFEFuncBElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -19969,7 +19969,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEFuncGElement)
 */
 
-тип SVGFEFuncGElement = интерфейс
+тип SVGFEFuncGElement = интерфейс на основе SVGComponentTransferFunctionElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGFEFuncGElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -19991,7 +19991,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEFuncRElement)
 */
 
-тип SVGFEFuncRElement = интерфейс
+тип SVGFEFuncRElement = интерфейс на основе SVGComponentTransferFunctionElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGFEFuncRElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -20013,7 +20013,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEGaussianBlurElement)
 */
 
-тип SVGFEGaussianBlurElement = интерфейс
+тип SVGFEGaussianBlurElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   in1: SVGAnimatedString
@@ -20046,7 +20046,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEImageElement)
 */
 
-тип SVGFEImageElement = интерфейс
+тип SVGFEImageElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes, SVGURIReference
 {
   защищено 
   preserveAspectRatio: SVGAnimatedPreserveAspectRatio
@@ -20071,7 +20071,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEMergeElement)
 */
 
-тип SVGFEMergeElement = интерфейс
+тип SVGFEMergeElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGFEMergeElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -20093,7 +20093,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEMergeNodeElement)
 */
 
-тип SVGFEMergeNodeElement = интерфейс
+тип SVGFEMergeNodeElement = интерфейс на основе SVGElement
 {
   защищено 
   in1: SVGAnimatedString
@@ -20118,7 +20118,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEMorphologyElement)
 */
 
-тип SVGFEMorphologyElement = интерфейс
+тип SVGFEMorphologyElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   in1: SVGAnimatedString
@@ -20161,7 +20161,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEOffsetElement)
 */
 
-тип SVGFEOffsetElement = интерфейс
+тип SVGFEOffsetElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   dx: SVGAnimatedNumber
@@ -20192,7 +20192,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFEPointLightElement)
 */
 
-тип SVGFEPointLightElement = интерфейс
+тип SVGFEPointLightElement = интерфейс на основе SVGElement
 {
   защищено 
   x: SVGAnimatedNumber
@@ -20223,7 +20223,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFESpecularLightingElement)
 */
 
-тип SVGFESpecularLightingElement = интерфейс
+тип SVGFESpecularLightingElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   in1: SVGAnimatedString
@@ -20263,7 +20263,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFESpotLightElement)
 */
 
-тип SVGFESpotLightElement = интерфейс
+тип SVGFESpotLightElement = интерфейс на основе SVGElement
 {
   защищено 
   limitingConeAngle: SVGAnimatedNumber
@@ -20309,7 +20309,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFETileElement)
 */
 
-тип SVGFETileElement = интерфейс
+тип SVGFETileElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   in1: SVGAnimatedString
@@ -20334,7 +20334,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFETurbulenceElement)
 */
 
-тип SVGFETurbulenceElement = интерфейс
+тип SVGFETurbulenceElement = интерфейс на основе SVGElement, SVGFilterPrimitiveStandardAttributes
 {
   защищено 
   baseFrequencyX: SVGAnimatedNumber
@@ -20392,7 +20392,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGFilterElement)
 */
 
-тип SVGFilterElement = интерфейс
+тип SVGFilterElement = интерфейс на основе SVGElement, SVGURIReference
 {
   защищено 
   filterUnits: SVGAnimatedEnumeration
@@ -20461,7 +20461,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGForeignObjectElement)
 */
 
-тип SVGForeignObjectElement = интерфейс
+тип SVGForeignObjectElement = интерфейс на основе SVGGraphicsElement
 {
   защищено 
   height: SVGAnimatedLength
@@ -20495,7 +20495,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGGElement)
 */
 
-тип SVGGElement = интерфейс
+тип SVGGElement = интерфейс на основе SVGGraphicsElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGGElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -20513,7 +20513,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGGeometryElement) */
 
-тип SVGGeometryElement = интерфейс
+тип SVGGeometryElement = интерфейс на основе SVGGraphicsElement
 {
   защищено 
   pathLength: SVGAnimatedNumber
@@ -20546,7 +20546,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGGradientElement)
 */
 
-тип SVGGradientElement = интерфейс
+тип SVGGradientElement = интерфейс на основе SVGElement, SVGURIReference
 {
   защищено 
   gradientTransform: SVGAnimatedTransformList
@@ -20589,7 +20589,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGGraphicsElement)
 */
 
-тип SVGGraphicsElement = интерфейс
+тип SVGGraphicsElement = интерфейс на основе SVGElement, SVGTests
 {
   защищено 
   transform: SVGAnimatedTransformList
@@ -20620,7 +20620,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGImageElement)
 */
 
-тип SVGImageElement = интерфейс
+тип SVGImageElement = интерфейс на основе SVGGraphicsElement, SVGURIReference
 {
   защищено 
   height: SVGAnimatedLength
@@ -20753,7 +20753,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGLineElement)
 */
 
-тип SVGLineElement = интерфейс
+тип SVGLineElement = интерфейс на основе SVGGeometryElement
 {
   защищено 
   x1: SVGAnimatedLength
@@ -20787,7 +20787,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGLinearGradientElement)
 */
 
-тип SVGLinearGradientElement = интерфейс
+тип SVGLinearGradientElement = интерфейс на основе SVGGradientElement
 {
   защищено 
   x1: SVGAnimatedLength
@@ -20817,7 +20817,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGMPathElement) */
 
-тип SVGMPathElement = интерфейс
+тип SVGMPathElement = интерфейс на основе SVGElement, SVGURIReference
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGMPathElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -20835,7 +20835,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGMarkerElement) */
 
-тип SVGMarkerElement = интерфейс
+тип SVGMarkerElement = интерфейс на основе SVGElement, SVGFitToViewBox
 {
   защищено 
   markerHeight: SVGAnimatedLength
@@ -20900,7 +20900,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGMaskElement)
 */
 
-тип SVGMaskElement = интерфейс
+тип SVGMaskElement = интерфейс на основе SVGElement
 {
   защищено 
   height: SVGAnimatedLength
@@ -20940,7 +20940,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGMetadataElement)
 */
 
-тип SVGMetadataElement = интерфейс
+тип SVGMetadataElement = интерфейс на основе SVGElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGMetadataElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21014,7 +21014,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGPathElement)
 */
 
-тип SVGPathElement = интерфейс
+тип SVGPathElement = интерфейс на основе SVGGeometryElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGPathElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21036,7 +21036,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGPatternElement)
 */
 
-тип SVGPatternElement = интерфейс
+тип SVGPatternElement = интерфейс на основе SVGElement, SVGFitToViewBox, SVGURIReference
 {
   защищено 
   height: SVGAnimatedLength
@@ -21111,7 +21111,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGPolygonElement)
 */
 
-тип SVGPolygonElement = интерфейс
+тип SVGPolygonElement = интерфейс на основе SVGGeometryElement, SVGAnimatedPoints
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGPolygonElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21133,7 +21133,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGPolylineElement)
 */
 
-тип SVGPolylineElement = интерфейс
+тип SVGPolylineElement = интерфейс на основе SVGGeometryElement, SVGAnimatedPoints
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGPolylineElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21215,7 +21215,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGRadialGradientElement)
 */
 
-тип SVGRadialGradientElement = интерфейс
+тип SVGRadialGradientElement = интерфейс на основе SVGGradientElement
 {
   защищено 
   cx: SVGAnimatedLength
@@ -21255,7 +21255,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGRectElement)
 */
 
-тип SVGRectElement = интерфейс
+тип SVGRectElement = интерфейс на основе SVGGeometryElement
 {
   защищено 
   height: SVGAnimatedLength
@@ -21289,7 +21289,7 @@
 /*(!) var */ SVGRectElement: объект { prototype: SVGRectElement; при создании(): SVGRectElement }
 
 
-тип SVGSVGElementEventMap = интерфейс
+тип SVGSVGElementEventMap = интерфейс на основе SVGElementEventMap, WindowEventHandlersEventMap
 {
 
 }
@@ -21301,7 +21301,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGSVGElement)
 */
 
-тип SVGSVGElement = интерфейс
+тип SVGSVGElement = интерфейс на основе SVGGraphicsElement, SVGFitToViewBox, WindowEventHandlers
 {
   currentScale: Число
 
@@ -21386,7 +21386,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGScriptElement)
 */
 
-тип SVGScriptElement = интерфейс
+тип SVGScriptElement = интерфейс на основе SVGElement, SVGURIReference
 {
   type: Текст
 
@@ -21406,7 +21406,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGSetElement) */
 
-тип SVGSetElement = интерфейс
+тип SVGSetElement = интерфейс на основе SVGAnimationElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGSetElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21428,7 +21428,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGStopElement)
 */
 
-тип SVGStopElement = интерфейс
+тип SVGStopElement = интерфейс на основе SVGElement
 {
   защищено 
   offset: SVGAnimatedNumber
@@ -21489,7 +21489,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGStyleElement)
 */
 
-тип SVGStyleElement = интерфейс
+тип SVGStyleElement = интерфейс на основе SVGElement, LinkStyle
 {
   disabled: ДаНет
 
@@ -21519,7 +21519,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGSwitchElement)
 */
 
-тип SVGSwitchElement = интерфейс
+тип SVGSwitchElement = интерфейс на основе SVGGraphicsElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGSwitchElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21541,7 +21541,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGSymbolElement)
 */
 
-тип SVGSymbolElement = интерфейс
+тип SVGSymbolElement = интерфейс на основе SVGElement, SVGFitToViewBox
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGSymbolElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21563,7 +21563,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGTSpanElement)
 */
 
-тип SVGTSpanElement = интерфейс
+тип SVGTSpanElement = интерфейс на основе SVGTextPositioningElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGTSpanElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21595,7 +21595,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGTextContentElement)
 */
 
-тип SVGTextContentElement = интерфейс
+тип SVGTextContentElement = интерфейс на основе SVGGraphicsElement
 {
   защищено 
   lengthAdjust: SVGAnimatedEnumeration
@@ -21650,7 +21650,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGTextElement)
 */
 
-тип SVGTextElement = интерфейс
+тип SVGTextElement = интерфейс на основе SVGTextPositioningElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGTextElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21672,7 +21672,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGTextPathElement)
 */
 
-тип SVGTextPathElement = интерфейс
+тип SVGTextPathElement = интерфейс на основе SVGTextContentElement, SVGURIReference
 {
   защищено 
   method: SVGAnimatedEnumeration
@@ -21721,7 +21721,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGTextPositioningElement)
 */
 
-тип SVGTextPositioningElement = интерфейс
+тип SVGTextPositioningElement = интерфейс на основе SVGTextContentElement
 {
   защищено 
   dx: SVGAnimatedLengthList
@@ -21758,7 +21758,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGTitleElement)
 */
 
-тип SVGTitleElement = интерфейс
+тип SVGTitleElement = интерфейс на основе SVGElement
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGTitleElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21906,7 +21906,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGUseElement)
 */
 
-тип SVGUseElement = интерфейс
+тип SVGUseElement = интерфейс на основе SVGGraphicsElement, SVGURIReference
 {
   защищено 
   height: SVGAnimatedLength
@@ -21940,7 +21940,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SVGViewElement)
 */
 
-тип SVGViewElement = интерфейс
+тип SVGViewElement = интерфейс на основе SVGElement, SVGFitToViewBox
 {
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGViewElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21999,7 +21999,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ScreenOrientation) */
 
-тип ScreenOrientation = интерфейс
+тип ScreenOrientation = интерфейс на основе EventTarget
 {
   защищено 
   angle: Число
@@ -22038,7 +22038,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ScriptProcessorNode)
 */
 
-тип ScriptProcessorNode = интерфейс
+тип ScriptProcessorNode = интерфейс на основе AudioNode
 {
   защищено 
   bufferSize: Число
@@ -22067,7 +22067,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SecurityPolicyViolationEvent)
 */
 
-тип SecurityPolicyViolationEvent = интерфейс
+тип SecurityPolicyViolationEvent = интерфейс на основе Event
 {
   защищено 
   blockedURI: Текст
@@ -22178,7 +22178,7 @@
 /*(!) var */ Selection: объект { prototype: Selection; при создании(): Selection }
 
 
-тип ServiceWorkerEventMap = интерфейс
+тип ServiceWorkerEventMap = интерфейс на основе AbstractWorkerEventMap
 {
   "statechange": Event
 }
@@ -22191,7 +22191,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorker)
 */
 
-тип ServiceWorker = интерфейс
+тип ServiceWorker = интерфейс на основе EventTarget, AbstractWorker
 {
   onstatechange: (операция(this: ServiceWorker, ev: Event): /*(!) any */ Объект?)?
 
@@ -22236,7 +22236,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer)
 */
 
-тип ServiceWorkerContainer = интерфейс
+тип ServiceWorkerContainer = интерфейс на основе EventTarget
 {
   защищено 
   controller: ServiceWorker?
@@ -22285,7 +22285,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration)
 */
 
-тип ServiceWorkerRegistration = интерфейс
+тип ServiceWorkerRegistration = интерфейс на основе EventTarget
 {
   защищено 
   active: ServiceWorker?
@@ -22340,7 +22340,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ShadowRoot) */
 
-тип ShadowRoot = интерфейс
+тип ShadowRoot = интерфейс на основе DocumentFragment, DocumentOrShadowRoot, InnerHTML
 {
   защищено 
   delegatesFocus: ДаНет
@@ -22372,7 +22372,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SharedWorker) */
 
-тип SharedWorker = интерфейс
+тип SharedWorker = интерфейс на основе EventTarget, AbstractWorker
 {
   защищено 
   port: MessagePort
@@ -22418,7 +22418,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SourceBuffer)
 */
 
-тип SourceBuffer = интерфейс
+тип SourceBuffer = интерфейс на основе EventTarget
 {
   appendWindowEnd: Число
 
@@ -22480,7 +22480,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SourceBufferList)
 */
 
-тип SourceBufferList = интерфейс
+тип SourceBufferList = интерфейс на основе EventTarget
 {
   защищено 
   length: Число
@@ -22570,7 +22570,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SpeechSynthesis)
 */
 
-тип SpeechSynthesis = интерфейс
+тип SpeechSynthesis = интерфейс на основе EventTarget
 {
   onvoiceschanged: (операция(this: SpeechSynthesis, ev: Event): /*(!) any */ Объект?)?
 
@@ -22609,7 +22609,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SpeechSynthesisErrorEvent) */
 
-тип SpeechSynthesisErrorEvent = интерфейс
+тип SpeechSynthesisErrorEvent = интерфейс на основе SpeechSynthesisEvent
 {
   защищено 
   error: SpeechSynthesisErrorCode
@@ -22626,7 +22626,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SpeechSynthesisEvent)
 */
 
-тип SpeechSynthesisEvent = интерфейс
+тип SpeechSynthesisEvent = интерфейс на основе Event
 {
   защищено 
   charIndex: Число
@@ -22673,7 +22673,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SpeechSynthesisUtterance)
 */
 
-тип SpeechSynthesisUtterance = интерфейс
+тип SpeechSynthesisUtterance = интерфейс на основе EventTarget
 {
   lang: Текст
 
@@ -22746,7 +22746,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/StaticRange) */
 
-тип StaticRange = интерфейс
+тип StaticRange = интерфейс на основе AbstractRange
 {
 
 }
@@ -22762,7 +22762,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/StereoPannerNode)
 */
 
-тип StereoPannerNode = интерфейс
+тип StereoPannerNode = интерфейс на основе AudioNode
 {
   защищено 
   pan: AudioParam
@@ -22808,7 +22808,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/StorageEvent)
 */
 
-тип StorageEvent = интерфейс
+тип StorageEvent = интерфейс на основе Event
 {
   защищено 
   key: Текст?
@@ -22867,7 +22867,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/StylePropertyMap) */
 
-тип StylePropertyMap = интерфейс
+тип StylePropertyMap = интерфейс на основе StylePropertyMapReadOnly
 {
   #js.МассивПараметров
   операция append(property: Текст, values: Список<CSSStyleValue | Текст>)
@@ -22963,7 +22963,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SubmitEvent) */
 
-тип SubmitEvent = интерфейс
+тип SubmitEvent = интерфейс на основе Event
 {
   защищено 
   submitter: HTMLElement?
@@ -23031,7 +23031,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Text)
 */
 
-тип Text = интерфейс
+тип Text = интерфейс на основе CharacterData, Slottable
 {
   защищено 
   wholeText: Текст
@@ -23050,7 +23050,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TextDecoder)
 */
 
-тип TextDecoder = интерфейс
+тип TextDecoder = интерфейс на основе TextDecoderCommon
 {
   операция decode(input: AllowSharedBufferSource? = пусто, options: TextDecodeOptions? = пусто): Текст
 }
@@ -23075,7 +23075,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/TextDecoderStream) */
 
-тип TextDecoderStream = интерфейс
+тип TextDecoderStream = интерфейс на основе GenericTransformStream, TextDecoderCommon
 {
   защищено 
   readable: ReadableStream<Текст>
@@ -23095,7 +23095,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TextEncoder)
 */
 
-тип TextEncoder = интерфейс
+тип TextEncoder = интерфейс на основе TextEncoderCommon
 {
   операция encode(input: Текст? = пусто): Uint8Array
 
@@ -23116,7 +23116,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/TextEncoderStream) */
 
-тип TextEncoderStream = интерфейс
+тип TextEncoderStream = интерфейс на основе GenericTransformStream, TextEncoderCommon
 {
   защищено 
   readable: ReadableStream<Uint8Array>
@@ -23177,7 +23177,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TextTrack)
 */
 
-тип TextTrack = интерфейс
+тип TextTrack = интерфейс на основе EventTarget
 {
   защищено 
   activeCues: TextTrackCueList?
@@ -23236,7 +23236,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TextTrackCue)
 */
 
-тип TextTrackCue = интерфейс
+тип TextTrackCue = интерфейс на основе EventTarget
 {
   endTime: Число
 
@@ -23296,7 +23296,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/TextTrackList) */
 
-тип TextTrackList = интерфейс
+тип TextTrackList = интерфейс на основе EventTarget
 {
   защищено 
   length: Число
@@ -23348,7 +23348,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ToggleEvent) */
 
-тип ToggleEvent = интерфейс
+тип ToggleEvent = интерфейс на основе Event
 {
   защищено 
   newState: Текст
@@ -23418,7 +23418,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TouchEvent)
 */
 
-тип TouchEvent = интерфейс
+тип TouchEvent = интерфейс на основе UIEvent
 {
   защищено 
   altKey: ДаНет
@@ -23474,7 +23474,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TrackEvent)
 */
 
-тип TrackEvent = интерфейс
+тип TrackEvent = интерфейс на основе Event
 {
   защищено 
   track: TextTrack?
@@ -23526,7 +23526,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TransitionEvent)
 */
 
-тип TransitionEvent = интерфейс
+тип TransitionEvent = интерфейс на основе Event
 {
   защищено 
   elapsedTime: Число
@@ -23588,7 +23588,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/UIEvent)
 */
 
-тип UIEvent = интерфейс
+тип UIEvent = интерфейс на основе Event
 {
   защищено 
   detail: Число
@@ -23706,7 +23706,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/VTTCue) */
 
-тип VTTCue = интерфейс
+тип VTTCue = интерфейс на основе TextTrackCue
 {
   align: AlignSetting
 
@@ -23853,7 +23853,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/VideoDecoder)
 */
 
-тип VideoDecoder = интерфейс
+тип VideoDecoder = интерфейс на основе EventTarget
 {
   защищено 
   decodeQueueSize: Число
@@ -23899,7 +23899,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/VideoEncoder)
 */
 
-тип VideoEncoder = интерфейс
+тип VideoEncoder = интерфейс на основе EventTarget
 {
   защищено 
   encodeQueueSize: Число
@@ -24017,7 +24017,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/VisualViewport) */
 
-тип VisualViewport = интерфейс
+тип VisualViewport = интерфейс на основе EventTarget
 {
   защищено 
   height: Число
@@ -24467,7 +24467,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WakeLockSentinel)
 */
 
-тип WakeLockSentinel = интерфейс
+тип WakeLockSentinel = интерфейс на основе EventTarget
 {
   onrelease: (операция(this: WakeLockSentinel, ev: Event): /*(!) any */ Объект?)?
 
@@ -24499,7 +24499,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WaveShaperNode)
 */
 
-тип WaveShaperNode = интерфейс
+тип WaveShaperNode = интерфейс на основе AudioNode
 {
   curve: Float32Array?
 
@@ -24513,7 +24513,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext) */
 
-тип WebGL2RenderingContext = интерфейс
+тип WebGL2RenderingContext = интерфейс на основе WebGL2RenderingContextBase, WebGL2RenderingContextOverloads, WebGLRenderingContextBase
 {
 
 }
@@ -25621,7 +25621,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLContextEvent)
 */
 
-тип WebGLContextEvent = интерфейс
+тип WebGLContextEvent = интерфейс на основе Event
 {
   защищено 
   statusMessage: Текст
@@ -25698,7 +25698,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext)
 */
 
-тип WebGLRenderingContext = интерфейс
+тип WebGLRenderingContext = интерфейс на основе WebGLRenderingContextBase, WebGLRenderingContextOverloads
 {
 
 }
@@ -27106,7 +27106,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebSocket)
 */
 
-тип WebSocket = интерфейс
+тип WebSocket = интерфейс на основе EventTarget
 {
   binaryType: BinaryType
 
@@ -27255,7 +27255,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebTransportError)
 */
 
-тип WebTransportError = интерфейс
+тип WebTransportError = интерфейс на основе DOMException
 {
   защищено 
   source: WebTransportErrorSource
@@ -27275,7 +27275,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WheelEvent)
 */
 
-тип WheelEvent = интерфейс
+тип WheelEvent = интерфейс на основе MouseEvent
 {
   защищено 
   deltaMode: Число
@@ -27304,7 +27304,7 @@
 /*(!) var */ WheelEvent: объект { prototype: WheelEvent; при создании(type: Текст, eventInitDict: WheelEventInit? = пусто): WheelEvent; защищено  DOM_DELTA_PIXEL: 0x00; защищено  DOM_DELTA_LINE: 0x01; защищено  DOM_DELTA_PAGE: 0x02 }
 
 
-тип WindowEventMap = интерфейс
+тип WindowEventMap = интерфейс на основе GlobalEventHandlersEventMap, WindowEventHandlersEventMap
 {
   "DOMContentLoaded": Event
 
@@ -27326,7 +27326,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window)
 */
 
-тип Window = интерфейс
+тип Window = интерфейс на основе EventTarget, AnimationFrameProvider, GlobalEventHandlers, WindowEventHandlers, WindowLocalStorage, WindowOrWorkerGlobalScope, WindowSessionStorage
 {
   защищено 
   clientInformation: Navigator
@@ -27683,7 +27683,7 @@
 }
 
 
-тип WorkerEventMap = интерфейс
+тип WorkerEventMap = интерфейс на основе AbstractWorkerEventMap
 {
   "message": MessageEvent
 
@@ -27697,7 +27697,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Worker)
 */
 
-тип Worker = интерфейс
+тип Worker = интерфейс на основе EventTarget, AbstractWorker
 {
   onmessage: (операция(this: Worker, ev: MessageEvent): /*(!) any */ Объект?)?
 
@@ -27818,7 +27818,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XMLDocument)
 */
 
-тип XMLDocument = интерфейс
+тип XMLDocument = интерфейс на основе Document
 {
   операция addEventListener<K = /*(!) keyof DocumentEventMap */ Объект?>(type: K, listener: операция(this: XMLDocument, ev: /*(!) DocumentEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -27834,7 +27834,7 @@
 /*(!) var */ XMLDocument: объект { prototype: XMLDocument; при создании(): XMLDocument }
 
 
-тип XMLHttpRequestEventMap = интерфейс
+тип XMLHttpRequestEventMap = интерфейс на основе XMLHttpRequestEventTargetEventMap
 {
   "readystatechange": Event
 }
@@ -27846,7 +27846,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest)
 */
 
-тип XMLHttpRequest = интерфейс
+тип XMLHttpRequest = интерфейс на основе XMLHttpRequestEventTarget
 {
   onreadystatechange: (операция(this: XMLHttpRequest, ev: Event): /*(!) any */ Объект?)?
 
@@ -27945,7 +27945,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/XMLHttpRequestEventTarget) */
 
-тип XMLHttpRequestEventTarget = интерфейс
+тип XMLHttpRequestEventTarget = интерфейс на основе EventTarget
 {
   onabort: (операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект?)?
 
@@ -27977,7 +27977,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/XMLHttpRequestUpload) */
 
-тип XMLHttpRequestUpload = интерфейс
+тип XMLHttpRequestUpload = интерфейс на основе XMLHttpRequestEventTarget
 {
   операция addEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestUpload, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -28015,7 +28015,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XPathEvaluator)
 */
 
-тип XPathEvaluator = интерфейс
+тип XPathEvaluator = интерфейс на основе XPathEvaluatorBase
 {
 
 }
@@ -28447,7 +28447,7 @@
 
 внешнее /*(!) WebAssembly */
 {
-  тип CompileError = интерфейс
+  тип CompileError = интерфейс на основе Error
   {
 
   }
@@ -28481,7 +28481,7 @@
   /*(!) var */ Instance: объект { prototype: Instance; при создании(module: Module, importObject: Imports? = пусто): Instance }
 
 
-  тип LinkError = интерфейс
+  тип LinkError = интерфейс на основе Error
   {
 
   }
@@ -28515,7 +28515,7 @@
   /*(!) var */ Module: объект { prototype: Module; при создании(bytes: BufferSource): Module; операция customSections(moduleObject: Module, sectionName: Текст): Список<ArrayBuffer>; операция exports(moduleObject: Module): Список<ModuleExportDescriptor>; операция imports(moduleObject: Module): Список<ModuleImportDescriptor> }
 
 
-  тип RuntimeError = интерфейс
+  тип RuntimeError = интерфейс на основе Error
   {
 
   }

@@ -83,24 +83,24 @@ pub enum PredefinedType {
 
 #[derive(Debug, Clone)]
 pub struct TypeReference {
-    type_name: ArtelIdentifier,
+    type_name: Identifier,
     type_arguments: Vec<Type>,
 }
 
 #[derive(Debug, Clone)]
-pub struct ArtelTypeParameter {
-    indentifier: ArtelIdentifier,
+pub struct TypeParameter {
+    indentifier: Identifier,
     constraint: Option<Type>,
     _default: Option<Type>,
 }
 
 #[derive(Debug, Clone)]
 pub struct ObjectType {
-    body: Vec<ArtelInterfaceMember>,
+    body: Vec<InterfaceMember>,
 }
 
 /// Stuff in the `<` `>` brackets, when not specified, like <T, A>
-pub type ArtelGenericParams = Vec<ArtelTypeParameter>;
+pub type GenericParams = Vec<TypeParameter>;
 
 impl Type {
     /// Check if type should be ommited if it's the only return type of the function,
@@ -168,10 +168,17 @@ impl ArtelStr for Type {
             that_one_type = Some(r#type);
             str.push_str(&r#type.artel_str(0));
         }
-        
+
         // can be just unwrap, idk
-        if is_optional && !that_one_type.map(|t| t.is_questionmark_bydefault()).unwrap_or_default() {
-            if !that_one_type.map(|t|t.can_be_anottated_to_left()).unwrap_or_default() {
+        if is_optional
+            && !that_one_type
+                .map(|t| t.is_questionmark_bydefault())
+                .unwrap_or_default()
+        {
+            if !that_one_type
+                .map(|t| t.can_be_anottated_to_left())
+                .unwrap_or_default()
+            {
                 str.insert(0, '(');
                 str.push_str(")?");
             } else {
@@ -211,17 +218,15 @@ impl PrimaryType {
     }
 
     /// Funny story, when functional type is the last type of type expression
-    /// then you can't put `?` after it, cause it'll be maybe confused with 
+    /// then you can't put `?` after it, cause it'll be maybe confused with
     /// `?` to the last argument, or `[]` is also usupported
     pub fn can_be_anottated_to_left(&self) -> bool {
-        if let PrimaryType::FunctionType(_) = self
-        {
+        if let PrimaryType::FunctionType(_) = self {
             false
         } else {
             true
         }
     }
-
 }
 
 impl ArtelStr for PrimaryType {
@@ -252,7 +257,7 @@ impl ArtelStr for PrimaryType {
 }
 
 impl ObjectType {
-    pub fn new(body: Vec<ArtelInterfaceMember>) -> Self {
+    pub fn new(body: Vec<InterfaceMember>) -> Self {
         Self { body }
     }
 }
@@ -272,8 +277,7 @@ impl ArtelStr for ObjectType {
     }
 }
 
-
-impl ArtelStr for ArtelGenericParams {
+impl ArtelStr for GenericParams {
     fn artel_str(&self, _ident_level: usize) -> String {
         let mut str = String::new();
         if !self.is_empty() {
@@ -366,7 +370,7 @@ impl ArtelStr for TypeReference {
 }
 
 impl TypeReference {
-    pub fn new(type_name: ArtelIdentifier, type_arguments: Vec<Type>) -> Self {
+    pub fn new(type_name: Identifier, type_arguments: Vec<Type>) -> Self {
         Self {
             type_name,
             type_arguments,
@@ -374,7 +378,7 @@ impl TypeReference {
     }
 }
 
-impl ArtelStr for ArtelTypeParameter {
+impl ArtelStr for TypeParameter {
     fn artel_str(&self, _ident_level: usize) -> String {
         let mut str = String::new();
         str.push_str(&self.indentifier.0);
@@ -387,9 +391,9 @@ impl ArtelStr for ArtelTypeParameter {
     }
 }
 
-impl ArtelTypeParameter {
+impl TypeParameter {
     pub fn new(
-        indentifier: ArtelIdentifier,
+        indentifier: Identifier,
         constraint: Option<Type>,
         default: Option<Type>,
     ) -> Self {

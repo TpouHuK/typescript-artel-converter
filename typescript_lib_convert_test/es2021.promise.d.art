@@ -1,4 +1,4 @@
-тип AggregateError = интерфейс
+тип AggregateError = интерфейс на основе Error
 {
   errors: Список</*(!) any */ Объект?>
 }

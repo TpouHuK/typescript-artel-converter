@@ -26,7 +26,7 @@
 }
 
 
-тип AsyncIterableIterator<T> = интерфейс
+тип AsyncIterableIterator<T> = интерфейс на основе AsyncIterator<T>
 {
   операция [Symbol.asyncIterator](): AsyncIterableIterator<T>
 }

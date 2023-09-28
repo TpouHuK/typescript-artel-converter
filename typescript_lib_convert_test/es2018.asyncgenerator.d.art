@@ -1,6 +1,6 @@
 /// <reference lib="es2018.asynciterable" />
 
-тип AsyncGenerator<T, TReturn, TNext> = интерфейс
+тип AsyncGenerator<T, TReturn, TNext> = интерфейс на основе AsyncIterator<T, TReturn, TNext>
 {
   #js.МассивПараметров
   операция next(args: объект {  } | объект { _0: TNext }): Promise<IteratorResult<T, TReturn>>

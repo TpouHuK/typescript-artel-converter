@@ -15,7 +15,7 @@ pub enum ArtelLexicalDeclarationType {
 
 #[derive(Debug)]
 pub struct ArtelLexicalDeclarationMember {
-    ident: ArtelIdentifier,
+    ident: Identifier,
     var_type: Type,
     value: Option<String>,
 }
@@ -31,13 +31,11 @@ impl ArtelLexicalDeclarationType {
     }
 }
 
-
 impl Default for ArtelAccessModifier {
     fn default() -> Self {
         Self::Default
     }
 }
-
 
 impl ArtelStr for ArtelLexicalDeclarationMember {
     fn artel_str(&self, _ident_level: usize) -> String {
@@ -56,7 +54,7 @@ impl ArtelStr for ArtelLexicalDeclarationMember {
 }
 
 impl ArtelLexicalDeclarationMember {
-    pub fn new(ident: ArtelIdentifier, var_type: Type, value: Option<String>) -> Self {
+    pub fn new(ident: Identifier, var_type: Type, value: Option<String>) -> Self {
         Self {
             ident,
             var_type,
@@ -64,7 +62,6 @@ impl ArtelLexicalDeclarationMember {
         }
     }
 }
-
 
 impl ArtelLexicalDeclaration {
     pub fn new(

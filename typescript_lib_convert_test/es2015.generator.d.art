@@ -1,6 +1,6 @@
 /// <reference lib="es2015.iterable" />
 
-тип Generator<T, TReturn, TNext> = интерфейс
+тип Generator<T, TReturn, TNext> = интерфейс на основе Iterator<T, TReturn, TNext>
 {
   #js.МассивПараметров
   операция next(args: объект {  } | объект { _0: TNext }): IteratorResult<T, TReturn>

@@ -70,7 +70,7 @@
 }
 
 
-тип FontFaceSet = интерфейс
+тип FontFaceSet = интерфейс на основе Set<FontFace>
 {
 
 }

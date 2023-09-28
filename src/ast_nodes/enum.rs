@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug)]
 pub struct EnumDeclaration {
-    name: ArtelIdentifier,
+    name: Identifier,
     items: Vec<EnumItem>,
 }
 
@@ -29,14 +29,14 @@ impl ArtelStr for EnumDeclaration {
 }
 
 impl EnumDeclaration {
-    pub fn new(name: ArtelIdentifier, items: Vec<EnumItem>) -> Self {
+    pub fn new(name: Identifier, items: Vec<EnumItem>) -> Self {
         Self { name, items }
     }
 }
 
 #[derive(Debug)]
 pub struct EnumItem {
-    name: ArtelIdentifier,
+    name: Identifier,
     value: Option<String>, // TODO
 }
 
@@ -54,7 +54,7 @@ impl ArtelStr for EnumItem {
 }
 
 impl EnumItem {
-    pub fn new(name: ArtelIdentifier, value: Option<String>) -> Self {
+    pub fn new(name: Identifier, value: Option<String>) -> Self {
         Self { name, value }
     }
 }

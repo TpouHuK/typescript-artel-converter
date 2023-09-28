@@ -4,11 +4,11 @@ pub use super::*;
 
 #[derive(Debug)]
 pub struct ArtelClassDeclaration {
-    name: ArtelIdentifier,
-    extends: Option<(ArtelIdentifier, ArtelGenericParams)>,
+    name: Identifier,
+    extends: Option<(Identifier, GenericParams)>,
     implements: Vec<Type>,
     is_abstract: bool,
-    generic_params: ArtelGenericParams,
+    generic_params: GenericParams,
     body: Vec<ArtelClassMember>,
 }
 
@@ -19,7 +19,7 @@ pub enum ArtelClassMember {
 }
 
 struct PropertyAccessExpression {
-    name: ArtelIdentifier,
+    name: Identifier,
     r#type: Type,
     get: bool,
     set: bool,
@@ -55,11 +55,11 @@ pub enum ArtelModifier {
 
 impl ArtelClassDeclaration {
     pub fn new(
-        name: ArtelIdentifier,
-        extends: Option<(ArtelIdentifier, ArtelGenericParams)>,
+        name: Identifier,
+        extends: Option<(Identifier, GenericParams)>,
         implements: Vec<Type>,
         is_abstract: bool,
-        generic_params: ArtelGenericParams,
+        generic_params: GenericParams,
         body: Vec<ArtelClassMember>,
     ) -> Self {
         Self {

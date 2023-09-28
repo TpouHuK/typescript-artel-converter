@@ -20,7 +20,7 @@
   }
 
 
-  тип DateTimeRangeFormatPart = интерфейс
+  тип DateTimeRangeFormatPart = интерфейс на основе DateTimeFormatPart
   {
     source: "startRange" | "endRange" | "shared"
   }

@@ -2,8 +2,8 @@ use super::*;
 
 #[derive(Debug)]
 pub struct ArtelTypeAliasDeclaration {
-    alias: ArtelIdentifier,
-    generic_params: ArtelGenericParams,
+    alias: Identifier,
+    generic_params: GenericParams,
     value: Type,
 }
 
@@ -22,7 +22,7 @@ impl ArtelStr for ArtelTypeAliasDeclaration {
 }
 
 impl ArtelTypeAliasDeclaration {
-    pub fn new(alias: ArtelIdentifier, generic_params: ArtelGenericParams, value: Type) -> Self {
+    pub fn new(alias: Identifier, generic_params: GenericParams, value: Type) -> Self {
         Self {
             alias,
             generic_params,

@@ -34,7 +34,7 @@
 }
 
 
-тип TextStreamWriter = интерфейс
+тип TextStreamWriter = интерфейс на основе TextStreamBase
 {
   операция Write(s: Текст)
 
@@ -44,7 +44,7 @@
 }
 
 
-тип TextStreamReader = интерфейс
+тип TextStreamReader = интерфейс на основе TextStreamBase
 {
   операция Read(characters: Число): Текст
 

@@ -5,15 +5,15 @@ pub use super::*;
 #[derive(Debug, Clone)]
 pub struct FunctionDeclaration {
     r#async: bool,
-    pub name: ArtelIdentifier,
-    generic_params: ArtelGenericParams,
+    pub name: Identifier,
+    generic_params: GenericParams,
     pub arguments: Vec<ArtelFunctionArgument>,
     pub return_type: Option<Type>,
 }
 
 #[derive(Debug, Clone)]
 pub struct ArtelFunctionArgument {
-    name: ArtelIdentifier,
+    name: Identifier,
     pub r#type: Type,
     default_value: Option<ArtelExpression>,
 }
@@ -49,8 +49,8 @@ impl ArtelStr for FunctionDeclaration {
 impl FunctionDeclaration {
     pub fn new(
         r#async: bool,
-        name: ArtelIdentifier,
-        generic_params: ArtelGenericParams,
+        name: Identifier,
+        generic_params: GenericParams,
         arguments: Vec<ArtelFunctionArgument>,
         return_type: Option<Type>,
     ) -> Self {
@@ -108,7 +108,7 @@ impl ArtelStr for Vec<ArtelFunctionArgument> {
 
 impl ArtelFunctionArgument {
     pub fn new(
-        name: ArtelIdentifier,
+        name: Identifier,
         r#type: Type,
         default_value: Option<ArtelExpression>,
     ) -> Self {

@@ -4,7 +4,7 @@
 
 /////////////////////////////
 
-тип AddEventListenerOptions = интерфейс
+тип AddEventListenerOptions = интерфейс на основе EventListenerOptions
 {
   once: ДаНет
 
@@ -14,13 +14,13 @@
 }
 
 
-тип AesCbcParams = интерфейс
+тип AesCbcParams = интерфейс на основе Algorithm
 {
   iv: BufferSource
 }
 
 
-тип AesCtrParams = интерфейс
+тип AesCtrParams = интерфейс на основе Algorithm
 {
   counter: BufferSource
 
@@ -28,13 +28,13 @@
 }
 
 
-тип AesDerivedKeyParams = интерфейс
+тип AesDerivedKeyParams = интерфейс на основе Algorithm
 {
   length: Число
 }
 
 
-тип AesGcmParams = интерфейс
+тип AesGcmParams = интерфейс на основе Algorithm
 {
   additionalData: BufferSource
 
@@ -44,13 +44,13 @@
 }
 
 
-тип AesKeyAlgorithm = интерфейс
+тип AesKeyAlgorithm = интерфейс на основе KeyAlgorithm
 {
   length: Число
 }
 
 
-тип AesKeyGenParams = интерфейс
+тип AesKeyGenParams = интерфейс на основе Algorithm
 {
   length: Число
 }
@@ -134,7 +134,7 @@
 }
 
 
-тип CloseEventInit = интерфейс
+тип CloseEventInit = интерфейс на основе EventInit
 {
   code: Число
 
@@ -152,7 +152,7 @@
 }
 
 
-тип CustomEventInit<T> = интерфейс
+тип CustomEventInit<T> = интерфейс на основе EventInit
 {
   detail: T
 }
@@ -186,7 +186,7 @@
 }
 
 
-тип DOMMatrixInit = интерфейс
+тип DOMMatrixInit = интерфейс на основе DOMMatrix2DInit
 {
   is2D: ДаНет
 
@@ -248,25 +248,25 @@
 }
 
 
-тип EcKeyGenParams = интерфейс
+тип EcKeyGenParams = интерфейс на основе Algorithm
 {
   namedCurve: NamedCurve
 }
 
 
-тип EcKeyImportParams = интерфейс
+тип EcKeyImportParams = интерфейс на основе Algorithm
 {
   namedCurve: NamedCurve
 }
 
 
-тип EcdhKeyDeriveParams = интерфейс
+тип EcdhKeyDeriveParams = интерфейс на основе Algorithm
 {
   public: CryptoKey
 }
 
 
-тип EcdsaParams = интерфейс
+тип EcdsaParams = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 }
@@ -290,7 +290,7 @@
 }
 
 
-тип ErrorEventInit = интерфейс
+тип ErrorEventInit = интерфейс на основе EventInit
 {
   colno: Число
 
@@ -326,13 +326,13 @@
 }
 
 
-тип ExtendableEventInit = интерфейс
+тип ExtendableEventInit = интерфейс на основе EventInit
 {
 
 }
 
 
-тип ExtendableMessageEventInit = интерфейс
+тип ExtendableMessageEventInit = интерфейс на основе ExtendableEventInit
 {
   data: /*(!) any */ Объект?
 
@@ -346,7 +346,7 @@
 }
 
 
-тип FetchEventInit = интерфейс
+тип FetchEventInit = интерфейс на основе ExtendableEventInit
 {
   clientId: Текст
 
@@ -362,7 +362,7 @@
 }
 
 
-тип FilePropertyBag = интерфейс
+тип FilePropertyBag = интерфейс на основе BlobPropertyBag
 {
   lastModified: Число
 }
@@ -422,7 +422,7 @@
 }
 
 
-тип FontFaceSetLoadEventInit = интерфейс
+тип FontFaceSetLoadEventInit = интерфейс на основе EventInit
 {
   fontfaces: Список<FontFace>
 }
@@ -434,7 +434,7 @@
 }
 
 
-тип HkdfParams = интерфейс
+тип HkdfParams = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 
@@ -444,7 +444,7 @@
 }
 
 
-тип HmacImportParams = интерфейс
+тип HmacImportParams = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 
@@ -452,7 +452,7 @@
 }
 
 
-тип HmacKeyGenParams = интерфейс
+тип HmacKeyGenParams = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 
@@ -490,7 +490,7 @@
 }
 
 
-тип IDBVersionChangeEventInit = интерфейс
+тип IDBVersionChangeEventInit = интерфейс на основе EventInit
 {
   newVersion: Число?
 
@@ -616,13 +616,13 @@
 }
 
 
-тип MediaCapabilitiesDecodingInfo = интерфейс
+тип MediaCapabilitiesDecodingInfo = интерфейс на основе MediaCapabilitiesInfo
 {
   configuration: MediaDecodingConfiguration
 }
 
 
-тип MediaCapabilitiesEncodingInfo = интерфейс
+тип MediaCapabilitiesEncodingInfo = интерфейс на основе MediaCapabilitiesInfo
 {
   configuration: MediaEncodingConfiguration
 }
@@ -646,19 +646,19 @@
 }
 
 
-тип MediaDecodingConfiguration = интерфейс
+тип MediaDecodingConfiguration = интерфейс на основе MediaConfiguration
 {
   type: MediaDecodingType
 }
 
 
-тип MediaEncodingConfiguration = интерфейс
+тип MediaEncodingConfiguration = интерфейс на основе MediaConfiguration
 {
   type: MediaEncodingType
 }
 
 
-тип MessageEventInit<T> = интерфейс
+тип MessageEventInit<T> = интерфейс на основе EventInit
 {
   data: T
 
@@ -672,7 +672,7 @@
 }
 
 
-тип MultiCacheQueryOptions = интерфейс
+тип MultiCacheQueryOptions = интерфейс на основе CacheQueryOptions
 {
   cacheName: Текст
 }
@@ -696,7 +696,7 @@
 }
 
 
-тип NotificationEventInit = интерфейс
+тип NotificationEventInit = интерфейс на основе ExtendableEventInit
 {
   action: Текст
 
@@ -736,7 +736,7 @@
 }
 
 
-тип Pbkdf2Params = интерфейс
+тип Pbkdf2Params = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 
@@ -790,7 +790,7 @@
 }
 
 
-тип ProgressEventInit = интерфейс
+тип ProgressEventInit = интерфейс на основе EventInit
 {
   lengthComputable: ДаНет
 
@@ -800,7 +800,7 @@
 }
 
 
-тип PromiseRejectionEventInit = интерфейс
+тип PromiseRejectionEventInit = интерфейс на основе EventInit
 {
   promise: Promise</*(!) any */ Объект?>
 
@@ -808,7 +808,7 @@
 }
 
 
-тип PushEventInit = интерфейс
+тип PushEventInit = интерфейс на основе ExtendableEventInit
 {
   data: PushMessageDataInit
 }
@@ -960,19 +960,19 @@
 }
 
 
-тип RsaHashedImportParams = интерфейс
+тип RsaHashedImportParams = интерфейс на основе Algorithm
 {
   hash: HashAlgorithmIdentifier
 }
 
 
-тип RsaHashedKeyGenParams = интерфейс
+тип RsaHashedKeyGenParams = интерфейс на основе RsaKeyGenParams
 {
   hash: HashAlgorithmIdentifier
 }
 
 
-тип RsaKeyGenParams = интерфейс
+тип RsaKeyGenParams = интерфейс на основе Algorithm
 {
   modulusLength: Число
 
@@ -980,7 +980,7 @@
 }
 
 
-тип RsaOaepParams = интерфейс
+тип RsaOaepParams = интерфейс на основе Algorithm
 {
   label: BufferSource
 }
@@ -996,13 +996,13 @@
 }
 
 
-тип RsaPssParams = интерфейс
+тип RsaPssParams = интерфейс на основе Algorithm
 {
   saltLength: Число
 }
 
 
-тип SecurityPolicyViolationEventInit = интерфейс
+тип SecurityPolicyViolationEventInit = интерфейс на основе EventInit
 {
   blockedURI: Текст
 
@@ -1340,7 +1340,7 @@
 }
 
 
-тип WebGLContextEventInit = интерфейс
+тип WebGLContextEventInit = интерфейс на основе EventInit
 {
   statusMessage: Текст
 }
@@ -1460,7 +1460,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AbortSignal)
 */
 
-тип AbortSignal = интерфейс
+тип AbortSignal = интерфейс на основе EventTarget
 {
   защищено 
   aborted: ДаНет
@@ -1572,7 +1572,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/BroadcastChannel) */
 
-тип BroadcastChannel = интерфейс
+тип BroadcastChannel = интерфейс на основе EventTarget
 {
   защищено 
   name: Текст
@@ -1605,7 +1605,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ByteLengthQueuingStrategy)
 */
 
-тип ByteLengthQueuingStrategy = интерфейс
+тип ByteLengthQueuingStrategy = интерфейс на основе QueuingStrategy<ArrayBufferView>
 {
   защищено 
   highWaterMark: Число
@@ -1621,7 +1621,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSImageValue) */
 
-тип CSSImageValue = интерфейс
+тип CSSImageValue = интерфейс на основе CSSStyleValue
 {
 
 }
@@ -1633,7 +1633,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSKeywordValue) */
 
-тип CSSKeywordValue = интерфейс
+тип CSSKeywordValue = интерфейс на основе CSSStyleValue
 {
   value: Текст
 }
@@ -1643,7 +1643,7 @@
 /*(!) var */ CSSKeywordValue: объект { prototype: CSSKeywordValue; при создании(value: Текст): CSSKeywordValue }
 
 
-тип CSSMathClamp = интерфейс
+тип CSSMathClamp = интерфейс на основе CSSMathValue
 {
   защищено 
   lower: CSSNumericValue
@@ -1662,7 +1662,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathInvert) */
 
-тип CSSMathInvert = интерфейс
+тип CSSMathInvert = интерфейс на основе CSSMathValue
 {
   защищено 
   value: CSSNumericValue
@@ -1675,7 +1675,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathMax) */
 
-тип CSSMathMax = интерфейс
+тип CSSMathMax = интерфейс на основе CSSMathValue
 {
   защищено 
   values: CSSNumericArray
@@ -1688,7 +1688,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathMin) */
 
-тип CSSMathMin = интерфейс
+тип CSSMathMin = интерфейс на основе CSSMathValue
 {
   защищено 
   values: CSSNumericArray
@@ -1701,7 +1701,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathNegate) */
 
-тип CSSMathNegate = интерфейс
+тип CSSMathNegate = интерфейс на основе CSSMathValue
 {
   защищено 
   value: CSSNumericValue
@@ -1714,7 +1714,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathProduct) */
 
-тип CSSMathProduct = интерфейс
+тип CSSMathProduct = интерфейс на основе CSSMathValue
 {
   защищено 
   values: CSSNumericArray
@@ -1727,7 +1727,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathSum) */
 
-тип CSSMathSum = интерфейс
+тип CSSMathSum = интерфейс на основе CSSMathValue
 {
   защищено 
   values: CSSNumericArray
@@ -1740,7 +1740,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMathValue) */
 
-тип CSSMathValue = интерфейс
+тип CSSMathValue = интерфейс на основе CSSNumericValue
 {
   защищено 
   operator: CSSMathOperator
@@ -1753,7 +1753,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSMatrixComponent) */
 
-тип CSSMatrixComponent = интерфейс
+тип CSSMatrixComponent = интерфейс на основе CSSTransformComponent
 {
   matrix: DOMMatrix
 }
@@ -1782,7 +1782,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSNumericValue) */
 
-тип CSSNumericValue = интерфейс
+тип CSSNumericValue = интерфейс на основе CSSStyleValue
 {
   #js.МассивПараметров
   операция add(values: Список<CSSNumberish>): CSSNumericValue
@@ -1820,7 +1820,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSPerspective) */
 
-тип CSSPerspective = интерфейс
+тип CSSPerspective = интерфейс на основе CSSTransformComponent
 {
   length: CSSPerspectiveValue
 }
@@ -1832,7 +1832,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSRotate) */
 
-тип CSSRotate = интерфейс
+тип CSSRotate = интерфейс на основе CSSTransformComponent
 {
   angle: CSSNumericValue
 
@@ -1850,7 +1850,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSScale) */
 
-тип CSSScale = интерфейс
+тип CSSScale = интерфейс на основе CSSTransformComponent
 {
   x: CSSNumberish
 
@@ -1866,7 +1866,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSSkew) */
 
-тип CSSSkew = интерфейс
+тип CSSSkew = интерфейс на основе CSSTransformComponent
 {
   ax: CSSNumericValue
 
@@ -1880,7 +1880,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSSkewX) */
 
-тип CSSSkewX = интерфейс
+тип CSSSkewX = интерфейс на основе CSSTransformComponent
 {
   ax: CSSNumericValue
 }
@@ -1892,7 +1892,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSSkewY) */
 
-тип CSSSkewY = интерфейс
+тип CSSSkewY = интерфейс на основе CSSTransformComponent
 {
   ay: CSSNumericValue
 }
@@ -1932,7 +1932,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTransformValue) */
 
-тип CSSTransformValue = интерфейс
+тип CSSTransformValue = интерфейс на основе CSSStyleValue
 {
   защищено 
   is2D: ДаНет
@@ -1954,7 +1954,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSTranslate) */
 
-тип CSSTranslate = интерфейс
+тип CSSTranslate = интерфейс на основе CSSTransformComponent
 {
   x: CSSNumericValue
 
@@ -1970,7 +1970,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSUnitValue) */
 
-тип CSSUnitValue = интерфейс
+тип CSSUnitValue = интерфейс на основе CSSNumericValue
 {
   защищено 
   unit: Текст
@@ -1985,7 +1985,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CSSUnparsedValue) */
 
-тип CSSUnparsedValue = интерфейс
+тип CSSUnparsedValue = интерфейс на основе CSSStyleValue
 {
   защищено 
   length: Число
@@ -2365,7 +2365,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CloseEvent)
 */
 
-тип CloseEvent = интерфейс
+тип CloseEvent = интерфейс на основе Event
 {
   защищено 
   code: Число
@@ -2384,7 +2384,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CompressionStream) */
 
-тип CompressionStream = интерфейс
+тип CompressionStream = интерфейс на основе GenericTransformStream
 {
 
 }
@@ -2400,7 +2400,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CountQueuingStrategy)
 */
 
-тип CountQueuingStrategy = интерфейс
+тип CountQueuingStrategy = интерфейс на основе QueuingStrategy
 {
   защищено 
   highWaterMark: Число
@@ -2464,7 +2464,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CustomEvent) */
 
-тип CustomEvent<T> = интерфейс
+тип CustomEvent<T> = интерфейс на основе Event
 {
   защищено 
   detail: T
@@ -2483,7 +2483,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMException)
 */
 
-тип DOMException = интерфейс
+тип DOMException = интерфейс на основе Error
 {
   защищено 
   code: Число
@@ -2577,7 +2577,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMMatrix) */
 
-тип DOMMatrix = интерфейс
+тип DOMMatrix = интерфейс на основе DOMMatrixReadOnly
 {
   a: Число
 
@@ -2769,7 +2769,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMPoint) */
 
-тип DOMPoint = интерфейс
+тип DOMPoint = интерфейс на основе DOMPointReadOnly
 {
   w: Число
 
@@ -2839,7 +2839,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMRect) */
 
-тип DOMRect = интерфейс
+тип DOMRect = интерфейс на основе DOMRectReadOnly
 {
   height: Число
 
@@ -2916,7 +2916,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DecompressionStream) */
 
-тип DecompressionStream = интерфейс
+тип DecompressionStream = интерфейс на основе GenericTransformStream
 {
 
 }
@@ -2926,7 +2926,7 @@
 /*(!) var */ DecompressionStream: объект { prototype: DecompressionStream; при создании(format: CompressionFormat): DecompressionStream }
 
 
-тип DedicatedWorkerGlobalScopeEventMap = интерфейс
+тип DedicatedWorkerGlobalScopeEventMap = интерфейс на основе WorkerGlobalScopeEventMap
 {
   "message": MessageEvent
 
@@ -2940,7 +2940,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/DedicatedWorkerGlobalScope)
 */
 
-тип DedicatedWorkerGlobalScope = интерфейс
+тип DedicatedWorkerGlobalScope = интерфейс на основе WorkerGlobalScope, AnimationFrameProvider
 {
   защищено 
   name: Текст
@@ -3165,7 +3165,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ErrorEvent)
 */
 
-тип ErrorEvent = интерфейс
+тип ErrorEvent = интерфейс на основе Event
 {
   защищено 
   colno: Число
@@ -3285,7 +3285,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/EventSource) */
 
-тип EventSource = интерфейс
+тип EventSource = интерфейс на основе EventTarget
 {
   onerror: (операция(this: EventSource, ev: Event): /*(!) any */ Объект?)?
 
@@ -3357,7 +3357,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ExtendableEvent)
 */
 
-тип ExtendableEvent = интерфейс
+тип ExtendableEvent = интерфейс на основе Event
 {
   операция waitUntil(f: Promise</*(!) any */ Объект?>)
 }
@@ -3373,7 +3373,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ExtendableMessageEvent)
 */
 
-тип ExtendableMessageEvent = интерфейс
+тип ExtendableMessageEvent = интерфейс на основе ExtendableEvent
 {
   защищено 
   data: /*(!) any */ Объект?
@@ -3402,7 +3402,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FetchEvent)
 */
 
-тип FetchEvent = интерфейс
+тип FetchEvent = интерфейс на основе ExtendableEvent
 {
   защищено 
   clientId: Текст
@@ -3433,7 +3433,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/File)
 */
 
-тип File = интерфейс
+тип File = интерфейс на основе Blob
 {
   защищено 
   lastModified: Число
@@ -3493,7 +3493,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileReader)
 */
 
-тип FileReader = интерфейс
+тип FileReader = интерфейс на основе EventTarget
 {
   защищено 
   error: DOMException?
@@ -3577,7 +3577,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemDirectoryHandle)
 */
 
-тип FileSystemDirectoryHandle = интерфейс
+тип FileSystemDirectoryHandle = интерфейс на основе FileSystemHandle
 {
   защищено 
   kind: "directory"
@@ -3602,7 +3602,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemFileHandle)
 */
 
-тип FileSystemFileHandle = интерфейс
+тип FileSystemFileHandle = интерфейс на основе FileSystemHandle
 {
   защищено 
   kind: "file"
@@ -3673,7 +3673,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/FileSystemWritableFileStream)
 */
 
-тип FileSystemWritableFileStream = интерфейс
+тип FileSystemWritableFileStream = интерфейс на основе WritableStream
 {
   операция seek(position: Число): Promise<Ничего>
 
@@ -3739,7 +3739,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSet) */
 
-тип FontFaceSet = интерфейс
+тип FontFaceSet = интерфейс на основе EventTarget
 {
   onloading: (операция(this: FontFaceSet, ev: Event): /*(!) any */ Объект?)?
 
@@ -3775,7 +3775,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/FontFaceSetLoadEvent) */
 
-тип FontFaceSetLoadEvent = интерфейс
+тип FontFaceSetLoadEvent = интерфейс на основе Event
 {
   защищено 
   fontfaces: ReadonlyArray<FontFace>
@@ -3912,7 +3912,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBCursorWithValue)
 */
 
-тип IDBCursorWithValue = интерфейс
+тип IDBCursorWithValue = интерфейс на основе IDBCursor
 {
   защищено 
   value: /*(!) any */ Объект?
@@ -3941,7 +3941,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBDatabase)
 */
 
-тип IDBDatabase = интерфейс
+тип IDBDatabase = интерфейс на основе EventTarget
 {
   защищено 
   name: Текст
@@ -4130,7 +4130,7 @@
 /*(!) var */ IDBObjectStore: объект { prototype: IDBObjectStore; при создании(): IDBObjectStore }
 
 
-тип IDBOpenDBRequestEventMap = интерфейс
+тип IDBOpenDBRequestEventMap = интерфейс на основе IDBRequestEventMap
 {
   "blocked": IDBVersionChangeEvent
 
@@ -4144,7 +4144,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBOpenDBRequest)
 */
 
-тип IDBOpenDBRequest = интерфейс
+тип IDBOpenDBRequest = интерфейс на основе IDBRequest<IDBDatabase>
 {
   onblocked: (операция(this: IDBOpenDBRequest, ev: IDBVersionChangeEvent): /*(!) any */ Объект?)?
 
@@ -4178,7 +4178,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBRequest)
 */
 
-тип IDBRequest<T> = интерфейс
+тип IDBRequest<T> = интерфейс на основе EventTarget
 {
   защищено 
   error: DOMException?
@@ -4225,7 +4225,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBTransaction) */
 
-тип IDBTransaction = интерфейс
+тип IDBTransaction = интерфейс на основе EventTarget
 {
   защищено 
   db: IDBDatabase
@@ -4274,7 +4274,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBVersionChangeEvent)
 */
 
-тип IDBVersionChangeEvent = интерфейс
+тип IDBVersionChangeEvent = интерфейс на основе Event
 {
   защищено 
   newVersion: Число?
@@ -4433,7 +4433,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessageEvent)
 */
 
-тип MessageEvent<T> = интерфейс
+тип MessageEvent<T> = интерфейс на основе Event
 {
   защищено 
   data: T
@@ -4472,7 +4472,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MessagePort)
 */
 
-тип MessagePort = интерфейс
+тип MessagePort = интерфейс на основе EventTarget
 {
   onmessage: (операция(this: MessagePort, ev: MessageEvent): /*(!) any */ Объект?)?
 
@@ -4614,7 +4614,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Notification)
 */
 
-тип Notification = интерфейс
+тип Notification = интерфейс на основе EventTarget
 {
   защищено 
   body: Текст
@@ -4670,7 +4670,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/NotificationEvent)
 */
 
-тип NotificationEvent = интерфейс
+тип NotificationEvent = интерфейс на основе ExtendableEvent
 {
   защищено 
   action: Текст
@@ -4833,7 +4833,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/OffscreenCanvas) */
 
-тип OffscreenCanvas = интерфейс
+тип OffscreenCanvas = интерфейс на основе EventTarget
 {
   height: Число
 
@@ -4873,7 +4873,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/OffscreenCanvasRenderingContext2D) */
 
-тип OffscreenCanvasRenderingContext2D = интерфейс
+тип OffscreenCanvasRenderingContext2D = интерфейс на основе CanvasCompositing, CanvasDrawImage, CanvasDrawPath, CanvasFillStrokeStyles, CanvasFilters, CanvasImageData, CanvasImageSmoothing, CanvasPath, CanvasPathDrawingStyles, CanvasRect, CanvasShadowStyles, CanvasState, CanvasText, CanvasTextDrawingStyles, CanvasTransform
 {
   защищено 
   canvas: OffscreenCanvas
@@ -4892,7 +4892,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Path2D)
 */
 
-тип Path2D = интерфейс
+тип Path2D = интерфейс на основе CanvasPath
 {
   операция addPath(path: Path2D, transform: DOMMatrix2DInit? = пусто)
 }
@@ -4914,7 +4914,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Performance)
 */
 
-тип Performance = интерфейс
+тип Performance = интерфейс на основе EventTarget
 {
   onresourcetimingbufferfull: (операция(this: Performance, ev: Event): /*(!) any */ Объект?)?
 
@@ -4991,7 +4991,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceMark)
 */
 
-тип PerformanceMark = интерфейс
+тип PerformanceMark = интерфейс на основе PerformanceEntry
 {
   защищено 
   detail: /*(!) any */ Объект?
@@ -5008,7 +5008,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceMeasure)
 */
 
-тип PerformanceMeasure = интерфейс
+тип PerformanceMeasure = интерфейс на основе PerformanceEntry
 {
   защищено 
   detail: /*(!) any */ Объект?
@@ -5057,7 +5057,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceResourceTiming)
 */
 
-тип PerformanceResourceTiming = интерфейс
+тип PerformanceResourceTiming = интерфейс на основе PerformanceEntry
 {
   защищено 
   connectEnd: DOMHighResTimeStamp
@@ -5150,7 +5150,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PermissionStatus) */
 
-тип PermissionStatus = интерфейс
+тип PermissionStatus = интерфейс на основе EventTarget
 {
   защищено 
   name: Текст
@@ -5192,7 +5192,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ProgressEvent)
 */
 
-тип ProgressEvent<T = EventTarget> = интерфейс
+тип ProgressEvent<T = EventTarget> = интерфейс на основе Event
 {
   защищено 
   lengthComputable: ДаНет
@@ -5214,7 +5214,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/PromiseRejectionEvent) */
 
-тип PromiseRejectionEvent = интерфейс
+тип PromiseRejectionEvent = интерфейс на основе Event
 {
   защищено 
   promise: Promise</*(!) any */ Объект?>
@@ -5235,7 +5235,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PushEvent)
 */
 
-тип PushEvent = интерфейс
+тип PushEvent = интерфейс на основе ExtendableEvent
 {
   защищено 
   data: PushMessageData?
@@ -5428,7 +5428,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBReader) */
 
-тип ReadableStreamBYOBReader = интерфейс
+тип ReadableStreamBYOBReader = интерфейс на основе ReadableStreamGenericReader
 {
   операция read<T = ArrayBufferView>(view: T): Promise<ReadableStreamReadResult<T>>
 
@@ -5478,7 +5478,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamDefaultReader) */
 
-тип ReadableStreamDefaultReader<R> = интерфейс
+тип ReadableStreamDefaultReader<R> = интерфейс на основе ReadableStreamGenericReader
 {
   операция read(): Promise<ReadableStreamReadResult<R>>
 
@@ -5554,7 +5554,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Request)
 */
 
-тип Request = интерфейс
+тип Request = интерфейс на основе Body
 {
   защищено 
   cache: RequestCache
@@ -5609,7 +5609,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Response)
 */
 
-тип Response = интерфейс
+тип Response = интерфейс на основе Body
 {
   защищено 
   headers: Headers
@@ -5646,7 +5646,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SecurityPolicyViolationEvent)
 */
 
-тип SecurityPolicyViolationEvent = интерфейс
+тип SecurityPolicyViolationEvent = интерфейс на основе Event
 {
   защищено 
   blockedURI: Текст
@@ -5690,7 +5690,7 @@
 /*(!) var */ SecurityPolicyViolationEvent: объект { prototype: SecurityPolicyViolationEvent; при создании(type: Текст, eventInitDict: SecurityPolicyViolationEventInit? = пусто): SecurityPolicyViolationEvent }
 
 
-тип ServiceWorkerEventMap = интерфейс
+тип ServiceWorkerEventMap = интерфейс на основе AbstractWorkerEventMap
 {
   "statechange": Event
 }
@@ -5703,7 +5703,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorker)
 */
 
-тип ServiceWorker = интерфейс
+тип ServiceWorker = интерфейс на основе EventTarget, AbstractWorker
 {
   onstatechange: (операция(this: ServiceWorker, ev: Event): /*(!) any */ Объект?)?
 
@@ -5748,7 +5748,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer)
 */
 
-тип ServiceWorkerContainer = интерфейс
+тип ServiceWorkerContainer = интерфейс на основе EventTarget
 {
   защищено 
   controller: ServiceWorker?
@@ -5784,7 +5784,7 @@
 /*(!) var */ ServiceWorkerContainer: объект { prototype: ServiceWorkerContainer; при создании(): ServiceWorkerContainer }
 
 
-тип ServiceWorkerGlobalScopeEventMap = интерфейс
+тип ServiceWorkerGlobalScopeEventMap = интерфейс на основе WorkerGlobalScopeEventMap
 {
   "activate": ExtendableEvent
 
@@ -5812,7 +5812,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorkerGlobalScope)
 */
 
-тип ServiceWorkerGlobalScope = интерфейс
+тип ServiceWorkerGlobalScope = интерфейс на основе WorkerGlobalScope
 {
   защищено 
   clients: Clients
@@ -5870,7 +5870,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration)
 */
 
-тип ServiceWorkerRegistration = интерфейс
+тип ServiceWorkerRegistration = интерфейс на основе EventTarget
 {
   защищено 
   active: ServiceWorker?
@@ -5917,7 +5917,7 @@
 /*(!) var */ ServiceWorkerRegistration: объект { prototype: ServiceWorkerRegistration; при создании(): ServiceWorkerRegistration }
 
 
-тип SharedWorkerGlobalScopeEventMap = интерфейс
+тип SharedWorkerGlobalScopeEventMap = интерфейс на основе WorkerGlobalScopeEventMap
 {
   "connect": MessageEvent
 }
@@ -5925,7 +5925,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/SharedWorkerGlobalScope) */
 
-тип SharedWorkerGlobalScope = интерфейс
+тип SharedWorkerGlobalScope = интерфейс на основе WorkerGlobalScope
 {
   защищено 
   name: Текст
@@ -6046,7 +6046,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TextDecoder)
 */
 
-тип TextDecoder = интерфейс
+тип TextDecoder = интерфейс на основе TextDecoderCommon
 {
   операция decode(input: AllowSharedBufferSource? = пусто, options: TextDecodeOptions? = пусто): Текст
 }
@@ -6071,7 +6071,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/TextDecoderStream) */
 
-тип TextDecoderStream = интерфейс
+тип TextDecoderStream = интерфейс на основе GenericTransformStream, TextDecoderCommon
 {
   защищено 
   readable: ReadableStream<Текст>
@@ -6091,7 +6091,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/TextEncoder)
 */
 
-тип TextEncoder = интерфейс
+тип TextEncoder = интерфейс на основе TextEncoderCommon
 {
   операция encode(input: Текст? = пусто): Uint8Array
 
@@ -6112,7 +6112,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/TextEncoderStream) */
 
-тип TextEncoderStream = интерфейс
+тип TextEncoderStream = интерфейс на основе GenericTransformStream, TextEncoderCommon
 {
   защищено 
   readable: ReadableStream<Uint8Array>
@@ -6307,7 +6307,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/VideoDecoder)
 */
 
-тип VideoDecoder = интерфейс
+тип VideoDecoder = интерфейс на основе EventTarget
 {
   защищено 
   decodeQueueSize: Число
@@ -6353,7 +6353,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/VideoEncoder)
 */
 
-тип VideoEncoder = интерфейс
+тип VideoEncoder = интерфейс на основе EventTarget
 {
   защищено 
   encodeQueueSize: Число
@@ -6818,7 +6818,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext) */
 
-тип WebGL2RenderingContext = интерфейс
+тип WebGL2RenderingContext = интерфейс на основе WebGL2RenderingContextBase, WebGL2RenderingContextOverloads, WebGLRenderingContextBase
 {
 
 }
@@ -7926,7 +7926,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLContextEvent)
 */
 
-тип WebGLContextEvent = интерфейс
+тип WebGLContextEvent = интерфейс на основе Event
 {
   защищено 
   statusMessage: Текст
@@ -8003,7 +8003,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext)
 */
 
-тип WebGLRenderingContext = интерфейс
+тип WebGLRenderingContext = интерфейс на основе WebGLRenderingContextBase, WebGLRenderingContextOverloads
 {
 
 }
@@ -9408,7 +9408,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebSocket)
 */
 
-тип WebSocket = интерфейс
+тип WebSocket = интерфейс на основе EventTarget
 {
   binaryType: BinaryType
 
@@ -9557,7 +9557,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebTransportError)
 */
 
-тип WebTransportError = интерфейс
+тип WebTransportError = интерфейс на основе DOMException
 {
   защищено 
   source: WebTransportErrorSource
@@ -9577,7 +9577,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WindowClient)
 */
 
-тип WindowClient = интерфейс
+тип WindowClient = интерфейс на основе Client
 {
   защищено 
   focused: ДаНет
@@ -9646,7 +9646,7 @@
 }
 
 
-тип WorkerEventMap = интерфейс
+тип WorkerEventMap = интерфейс на основе AbstractWorkerEventMap
 {
   "message": MessageEvent
 
@@ -9660,7 +9660,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Worker)
 */
 
-тип Worker = интерфейс
+тип Worker = интерфейс на основе EventTarget, AbstractWorker
 {
   onmessage: (операция(this: Worker, ev: MessageEvent): /*(!) any */ Объект?)?
 
@@ -9708,7 +9708,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope)
 */
 
-тип WorkerGlobalScope = интерфейс
+тип WorkerGlobalScope = интерфейс на основе EventTarget, FontFaceSource, WindowOrWorkerGlobalScope
 {
   защищено 
   location: WorkerLocation
@@ -9797,7 +9797,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WorkerNavigator)
 */
 
-тип WorkerNavigator = интерфейс
+тип WorkerNavigator = интерфейс на основе NavigatorBadge, NavigatorConcurrentHardware, NavigatorID, NavigatorLanguage, NavigatorLocks, NavigatorOnLine, NavigatorStorage
 {
   защищено 
   mediaCapabilities: MediaCapabilities
@@ -9884,7 +9884,7 @@
 /*(!) var */ WritableStreamDefaultWriter: объект { prototype: WritableStreamDefaultWriter; при создании(stream: WritableStream<W>): WritableStreamDefaultWriter<W> }
 
 
-тип XMLHttpRequestEventMap = интерфейс
+тип XMLHttpRequestEventMap = интерфейс на основе XMLHttpRequestEventTargetEventMap
 {
   "readystatechange": Event
 }
@@ -9896,7 +9896,7 @@
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest)
 */
 
-тип XMLHttpRequest = интерфейс
+тип XMLHttpRequest = интерфейс на основе XMLHttpRequestEventTarget
 {
   onreadystatechange: (операция(this: XMLHttpRequest, ev: Event): /*(!) any */ Объект?)?
 
@@ -9992,7 +9992,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/XMLHttpRequestEventTarget) */
 
-тип XMLHttpRequestEventTarget = интерфейс
+тип XMLHttpRequestEventTarget = интерфейс на основе EventTarget
 {
   onabort: (операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект?)?
 
@@ -10024,7 +10024,7 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/XMLHttpRequestUpload) */
 
-тип XMLHttpRequestUpload = интерфейс
+тип XMLHttpRequestUpload = интерфейс на основе XMLHttpRequestEventTarget
 {
   операция addEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestUpload, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -10103,7 +10103,7 @@
 
 внешнее /*(!) WebAssembly */
 {
-  тип CompileError = интерфейс
+  тип CompileError = интерфейс на основе Error
   {
 
   }
@@ -10137,7 +10137,7 @@
   /*(!) var */ Instance: объект { prototype: Instance; при создании(module: Module, importObject: Imports? = пусто): Instance }
 
 
-  тип LinkError = интерфейс
+  тип LinkError = интерфейс на основе Error
   {
 
   }
@@ -10171,7 +10171,7 @@
   /*(!) var */ Module: объект { prototype: Module; при создании(bytes: BufferSource): Module; операция customSections(moduleObject: Module, sectionName: Текст): Список<ArrayBuffer>; операция exports(moduleObject: Module): Список<ModuleExportDescriptor>; операция imports(moduleObject: Module): Список<ModuleImportDescriptor> }
 
 
-  тип RuntimeError = интерфейс
+  тип RuntimeError = интерфейс на основе Error
   {
 
   }

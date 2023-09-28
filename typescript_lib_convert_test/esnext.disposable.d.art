@@ -22,7 +22,7 @@
 }
 
 
-тип SuppressedError = интерфейс
+тип SuppressedError = интерфейс на основе Error
 {
   error: /*(!) any */ Объект?
 
@@ -30,7 +30,7 @@
 }
 
 
-тип SuppressedErrorConstructor = интерфейс
+тип SuppressedErrorConstructor = интерфейс на основе ErrorConstructor
 {
   при создании(error: /*(!) any */ Объект?, suppressed: /*(!) any */ Объект?, message: Текст? = пусто): SuppressedError
 

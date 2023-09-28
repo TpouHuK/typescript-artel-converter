@@ -4,10 +4,16 @@ pub use super::*;
 
 #[derive(Debug)]
 pub struct ArtelInterfaceDeclaration {
-    name: ArtelIdentifier,
-    generic_params: ArtelGenericParams,
-    body: Vec<ArtelInterfaceMember>,
+    name: Identifier,
+    generic_params: GenericParams,
+    extends: Vec<TypeReference>,
+    body: Vec<InterfaceMember>,
 }
+
+impl ArtelInterfaceDeclaration {
+    pub fn new(name: Identifier, generic_params: GenericParams, extends: Vec<TypeReference>, body: Vec<InterfaceMember>) -> Self { Self { name, generic_params, extends, body } }
+}
+
 
 impl ArtelStr for ArtelInterfaceDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
@@ -17,6 +23,10 @@ impl ArtelStr for ArtelInterfaceDeclaration {
         str.push_str(&self.name.0);
         str.push_str(&self.generic_params.artel_str(0));
         str.push_str(" = интерфейс");
+        if !self.extends.is_empty() {
+            str.push_str(" на основе ");
+            str.push_str(&self.extends.iter().map(|t| t.artel_str(0)).join(", "));
+        }
         str.push_str("\n");
 
         str.push_str(indent(ident_level));
@@ -35,33 +45,19 @@ impl ArtelStr for ArtelInterfaceDeclaration {
     }
 }
 
-impl ArtelInterfaceDeclaration {
-    pub fn new(
-        name: ArtelIdentifier,
-        generic_params: ArtelGenericParams,
-        body: Vec<ArtelInterfaceMember>,
-    ) -> Self {
-        Self {
-            name,
-            generic_params,
-            body,
-        }
-    }
-}
-
 #[derive(Debug, Clone)]
-pub enum ArtelInterfaceMember {
+pub enum InterfaceMember {
     Property(ArtelProperty),
     Method(FunctionDeclaration),
     Unsupported(String),
 }
 
-impl ArtelStr for ArtelInterfaceMember {
+impl ArtelStr for InterfaceMember {
     fn artel_str(&self, ident_level: usize) -> String {
         match self {
-            ArtelInterfaceMember::Property(p) => p.artel_str(ident_level),
-            ArtelInterfaceMember::Method(d) => d.artel_str(ident_level),
-            ArtelInterfaceMember::Unsupported(d) => format!("{}/*(!) {d}*/", indent(ident_level)),
+            InterfaceMember::Property(p) => p.artel_str(ident_level),
+            InterfaceMember::Method(d) => d.artel_str(ident_level),
+            InterfaceMember::Unsupported(d) => format!("{}/*(!) {d}*/", indent(ident_level)),
         }
     }
 }

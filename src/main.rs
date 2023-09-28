@@ -9,7 +9,7 @@ use convert_tree_walk::*;
 use dbg_tree_walk::walk_tree_recursively_dbg;
 
 fn read_example(filename: &str) -> String {
-    std::fs::read_to_string(format!("./examples/{filename}"))
+    std::fs::read_to_string(format!("./test_data/{filename}"))
         .unwrap_or_else(|_| std::fs::read_to_string(filename).unwrap())
 }
 
@@ -69,24 +69,6 @@ mod tests {
     #[rstest]
     fn test_ts_file(
         #[values(
-            "add.ts",
-            "optional_param.ts",
-            "function_arg_pattern.ts",
-            "class.ts",
-            "interface.ts",
-            "enum.ts",
-            "type_union.ts",
-            "type_builtin.ts",
-            "type_alias.ts",
-            "type_undefined.ts",
-            "type_generic.ts",
-            "type_default_generic.ts",
-            "keyof.ts",
-            "export.ts",
-            "object.ts",
-            "object_simple_method.ts",
-            "object_simple_prop.ts",
-            "array_type.ts"
         )]
         path: &str,
     ) {

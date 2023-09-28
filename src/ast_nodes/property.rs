@@ -3,7 +3,7 @@ pub use super::*;
 #[derive(Debug, Clone)]
 pub struct ArtelProperty {
     r#readonly: bool,
-    name: ArtelIdentifier,
+    name: Identifier,
     r#type: Type,
 }
 
@@ -25,7 +25,7 @@ impl ArtelStr for ArtelProperty {
 }
 
 impl ArtelProperty {
-    pub fn new(r#readonly: bool, name: ArtelIdentifier, r#type: Type) -> Self {
+    pub fn new(r#readonly: bool, name: Identifier, r#type: Type) -> Self {
         Self {
             r#readonly,
             name,

@@ -268,7 +268,7 @@
 
 тип OmitThisParameter<T> = /*(!) unknown extends ThisParameterType<T> ? T : T extends (...args: infer A) => infer R ? (...args: A) => R : T */ Объект?
 
-тип CallableFunction = интерфейс
+тип CallableFunction = интерфейс на основе Function
 {
   операция apply<T, R>(this: операция(this: T): R, thisArg: T): R
 
@@ -284,7 +284,7 @@
 }
 
 
-тип NewableFunction = интерфейс
+тип NewableFunction = интерфейс на основе Function
 {
   операция apply<T>(this: /*(!) new () => T */ Объект?, thisArg: T)
 
@@ -451,7 +451,7 @@
 /*(!) var */ Number: NumberConstructor
 
 
-тип TemplateStringsArray = интерфейс
+тип TemplateStringsArray = интерфейс на основе ReadonlyArray<Текст>
 {
   защищено 
   raw: /*(!) защищено */ Список<Текст>
@@ -683,7 +683,7 @@
 /*(!) var */ Date: DateConstructor
 
 
-тип RegExpMatchArray = интерфейс
+тип RegExpMatchArray = интерфейс на основе Array<Текст>
 {
   index: Число
 
@@ -693,7 +693,7 @@
 }
 
 
-тип RegExpExecArray = интерфейс
+тип RegExpExecArray = интерфейс на основе Array<Текст>
 {
   index: Число
 
@@ -809,13 +809,13 @@
 /*(!) var */ Error: ErrorConstructor
 
 
-тип EvalError = интерфейс
+тип EvalError = интерфейс на основе Error
 {
 
 }
 
 
-тип EvalErrorConstructor = интерфейс
+тип EvalErrorConstructor = интерфейс на основе ErrorConstructor
 {
   при создании(message: Текст? = пусто): EvalError
 
@@ -830,13 +830,13 @@
 /*(!) var */ EvalError: EvalErrorConstructor
 
 
-тип RangeError = интерфейс
+тип RangeError = интерфейс на основе Error
 {
 
 }
 
 
-тип RangeErrorConstructor = интерфейс
+тип RangeErrorConstructor = интерфейс на основе ErrorConstructor
 {
   при создании(message: Текст? = пусто): RangeError
 
@@ -851,13 +851,13 @@
 /*(!) var */ RangeError: RangeErrorConstructor
 
 
-тип ReferenceError = интерфейс
+тип ReferenceError = интерфейс на основе Error
 {
 
 }
 
 
-тип ReferenceErrorConstructor = интерфейс
+тип ReferenceErrorConstructor = интерфейс на основе ErrorConstructor
 {
   при создании(message: Текст? = пусто): ReferenceError
 
@@ -872,13 +872,13 @@
 /*(!) var */ ReferenceError: ReferenceErrorConstructor
 
 
-тип SyntaxError = интерфейс
+тип SyntaxError = интерфейс на основе Error
 {
 
 }
 
 
-тип SyntaxErrorConstructor = интерфейс
+тип SyntaxErrorConstructor = интерфейс на основе ErrorConstructor
 {
   при создании(message: Текст? = пусто): SyntaxError
 
@@ -893,13 +893,13 @@
 /*(!) var */ SyntaxError: SyntaxErrorConstructor
 
 
-тип TypeError = интерфейс
+тип TypeError = интерфейс на основе Error
 {
 
 }
 
 
-тип TypeErrorConstructor = интерфейс
+тип TypeErrorConstructor = интерфейс на основе ErrorConstructor
 {
   при создании(message: Текст? = пусто): TypeError
 
@@ -914,13 +914,13 @@
 /*(!) var */ TypeError: TypeErrorConstructor
 
 
-тип URIError = интерфейс
+тип URIError = интерфейс на основе Error
 {
 
 }
 
 
-тип URIErrorConstructor = интерфейс
+тип URIErrorConstructor = интерфейс на основе ErrorConstructor
 {
   при создании(message: Текст? = пусто): URIError
 

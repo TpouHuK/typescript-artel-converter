@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug)]
 pub struct ArtelInternalModule {
-    name: ArtelIdentifier,
+    name: Identifier,
     statements: Vec<ArtelStatement>,
 }
 
@@ -14,7 +14,7 @@ impl ArtelStr for ArtelInternalModule {
             &header,
             indent(ident_level),
             "{\n",
-            &self.statements.artel_str(ident_level+2),
+            &self.statements.artel_str(ident_level + 2),
             indent(ident_level),
             "}",
         ]
@@ -23,7 +23,7 @@ impl ArtelStr for ArtelInternalModule {
 }
 
 impl ArtelInternalModule {
-    pub fn new(name: ArtelIdentifier, statements: Vec<ArtelStatement>) -> Self {
+    pub fn new(name: Identifier, statements: Vec<ArtelStatement>) -> Self {
         Self { name, statements }
     }
 }

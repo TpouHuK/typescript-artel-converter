@@ -1,6 +1,6 @@
 внешнее /*(!) Intl */
 {
-  тип NumberRangeFormatPart = интерфейс
+  тип NumberRangeFormatPart = интерфейс на основе NumberFormatPart
   {
     source: "startRange" | "endRange" | "shared"
   }
