@@ -2,14 +2,14 @@
 {
   тип NumberRangeFormatPart = интерфейс на основе NumberFormatPart
   {
-    source: "startRange" | "endRange" | "shared"
+    source: Объект? /*(!)"startRange" | "endRange" | "shared"*/
   }
 
 
   тип NumberFormat = интерфейс
   {
-    операция formatRange(start: Число | bigint, end: Число | bigint): Текст
+    операция formatRange(start: Объект? /*(!)Число | bigint*/, end: Объект? /*(!)Число | bigint*/): Текст
 
-    операция formatRangeToParts(start: Число | bigint, end: Число | bigint): Список<NumberRangeFormatPart>
+    операция formatRangeToParts(start: Объект? /*(!)Число | bigint*/, end: Объект? /*(!)Число | bigint*/): Список<NumberRangeFormatPart>
   }
 }

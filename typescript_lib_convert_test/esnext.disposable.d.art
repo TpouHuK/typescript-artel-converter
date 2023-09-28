@@ -87,7 +87,7 @@
 
   операция disposeAsync(): Promise<Ничего>
 
-  операция use<T = AsyncDisposable | Disposable | пусто | пусто>(value: T): T
+  операция use<T = Объект? /*(!)AsyncDisposable | Disposable | пусто | пусто*/>(value: T): T
 
   операция adopt<T>(value: T, onDisposeAsync: операция(value: T): PromiseLike<Ничего>?): T
 

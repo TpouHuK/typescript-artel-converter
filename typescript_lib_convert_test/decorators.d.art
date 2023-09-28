@@ -2,13 +2,13 @@
 * The decorator context types provided to class element decorators.
 */
 
-тип ClassMemberDecoratorContext = ClassMethodDecoratorContext | ClassGetterDecoratorContext | ClassSetterDecoratorContext | ClassFieldDecoratorContext | ClassAccessorDecoratorContext
+тип ClassMemberDecoratorContext = Объект? /*(!)ClassMethodDecoratorContext | ClassGetterDecoratorContext | ClassSetterDecoratorContext | ClassFieldDecoratorContext | ClassAccessorDecoratorContext*/
 
 /**
 * The decorator context types provided to any decorator.
 */
 
-тип DecoratorContext = ClassDecoratorContext | ClassMemberDecoratorContext
+тип DecoratorContext = Объект? /*(!)ClassDecoratorContext | ClassMemberDecoratorContext*/
 
 тип DecoratorMetadataObject = /*(!) Record<PropertyKey, unknown> & object */ Объект?
 
@@ -47,7 +47,7 @@
   kind: "method"
 
   защищено 
-  name: Текст | Символ
+  name: Объект? /*(!)Текст | Символ*/
 
   защищено 
   static: ДаНет
@@ -78,7 +78,7 @@
   kind: "getter"
 
   защищено 
-  name: Текст | Символ
+  name: Объект? /*(!)Текст | Символ*/
 
   защищено 
   static: ДаНет
@@ -109,7 +109,7 @@
   kind: "setter"
 
   защищено 
-  name: Текст | Символ
+  name: Объект? /*(!)Текст | Символ*/
 
   защищено 
   static: ДаНет
@@ -140,7 +140,7 @@
   kind: "accessor"
 
   защищено 
-  name: Текст | Символ
+  name: Объект? /*(!)Текст | Символ*/
 
   защищено 
   static: ДаНет
@@ -201,7 +201,7 @@
   kind: "field"
 
   защищено 
-  name: Текст | Символ
+  name: Объект? /*(!)Текст | Символ*/
 
   защищено 
   static: ДаНет

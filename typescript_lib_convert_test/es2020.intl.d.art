@@ -16,7 +16,7 @@
   * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/format#Parameters).
   */
 
-  тип RelativeTimeFormatUnit = "year" | "years" | "quarter" | "quarters" | "month" | "months" | "week" | "weeks" | "day" | "days" | "hour" | "hours" | "minute" | "minutes" | "second" | "seconds"
+  тип RelativeTimeFormatUnit = Объект? /*(!)"year" | "years" | "quarter" | "quarters" | "month" | "months" | "week" | "weeks" | "day" | "days" | "hour" | "hours" | "minute" | "minutes" | "second" | "seconds"*/
 
   /**
   * Value of the `unit` property in objects returned by
@@ -28,7 +28,7 @@
   * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts#Using_formatToParts).
   */
 
-  тип RelativeTimeFormatUnitSingular = "year" | "quarter" | "month" | "week" | "day" | "hour" | "minute" | "second"
+  тип RelativeTimeFormatUnitSingular = Объект? /*(!)"year" | "quarter" | "month" | "week" | "day" | "hour" | "minute" | "second"*/
 
   /**
   * The locale matching algorithm to use.
@@ -36,7 +36,7 @@
   * [MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_negotiation).
   */
 
-  тип RelativeTimeFormatLocaleMatcher = "lookup" | "best fit"
+  тип RelativeTimeFormatLocaleMatcher = Объект? /*(!)"lookup" | "best fit"*/
 
   /**
   * The format of output message.
@@ -44,7 +44,7 @@
   * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#Parameters).
   */
 
-  тип RelativeTimeFormatNumeric = "always" | "auto"
+  тип RelativeTimeFormatNumeric = Объект? /*(!)"always" | "auto"*/
 
   /**
   * The length of the internationalized message.
@@ -52,7 +52,7 @@
   * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#Parameters).
   */
 
-  тип RelativeTimeFormatStyle = "long" | "short" | "narrow"
+  тип RelativeTimeFormatStyle = Объект? /*(!)"long" | "short" | "narrow"*/
 
   /**
   * [BCP 47 language tag](http://tools.ietf.org/html/rfc5646) definition.
@@ -68,7 +68,7 @@
   * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
   */
 
-  тип LocalesArgument = UnicodeBCP47LocaleIdentifier | Locale | /*(!) защищено */ (Список<UnicodeBCP47LocaleIdentifier | Locale>?)
+  тип LocalesArgument = Объект? /*(!)UnicodeBCP47LocaleIdentifier | Locale | /*(!) защищено */ (Список<Объект? /*(!)UnicodeBCP47LocaleIdentifier | Locale*/>?)*/
 
   /**
   * An object with some or all of properties of `options` parameter
@@ -114,7 +114,7 @@
   * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts#Using_formatToParts).
   */
 
-  тип RelativeTimeFormatPart = объект { type: "literal"; value: Текст } | объект { type: Exclude<NumberFormatPartTypes, "literal">; value: Текст; unit: RelativeTimeFormatUnitSingular }
+  тип RelativeTimeFormatPart = Объект? /*(!)объект { type: "literal"; value: Текст } | объект { type: Exclude<NumberFormatPartTypes, "literal">; value: Текст; unit: RelativeTimeFormatUnitSingular }*/
 
   тип RelativeTimeFormat = интерфейс
   {
@@ -133,20 +133,20 @@
   * [Compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat#Browser_compatibility).
   */
 
-  конст RelativeTimeFormat: объект { при создании(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто): RelativeTimeFormat; операция supportedLocalesOf(locales: UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто = пусто, options: RelativeTimeFormatOptions? = пусто): Список<UnicodeBCP47LocaleIdentifier> }
+  конст RelativeTimeFormat: объект { при создании(locales: Объект? /*(!)UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто*/ = пусто, options: RelativeTimeFormatOptions? = пусто): RelativeTimeFormat; операция supportedLocalesOf(locales: Объект? /*(!)UnicodeBCP47LocaleIdentifier | Список<UnicodeBCP47LocaleIdentifier> | пусто*/ = пусто, options: RelativeTimeFormatOptions? = пусто): Список<UnicodeBCP47LocaleIdentifier> }
 
 
   тип NumberFormatOptions = интерфейс
   {
-    compactDisplay: "short" | "long" | пусто
+    compactDisplay: Объект? /*(!)"short" | "long" | пусто*/
 
-    notation: "standard" | "scientific" | "engineering" | "compact" | пусто
+    notation: Объект? /*(!)"standard" | "scientific" | "engineering" | "compact" | пусто*/
 
-    signDisplay: "auto" | "never" | "always" | "exceptZero" | пусто
+    signDisplay: Объект? /*(!)"auto" | "never" | "always" | "exceptZero" | пусто*/
 
     unit: Текст?
 
-    unitDisplay: "short" | "long" | "narrow" | пусто
+    unitDisplay: Объект? /*(!)"short" | "long" | "narrow" | пусто*/
 
     currencyDisplay: Текст?
 
@@ -156,15 +156,15 @@
 
   тип ResolvedNumberFormatOptions = интерфейс
   {
-    compactDisplay: "short" | "long"
+    compactDisplay: Объект? /*(!)"short" | "long"*/
 
-    notation: "standard" | "scientific" | "engineering" | "compact"
+    notation: Объект? /*(!)"standard" | "scientific" | "engineering" | "compact"*/
 
-    signDisplay: "auto" | "never" | "always" | "exceptZero"
+    signDisplay: Объект? /*(!)"auto" | "never" | "always" | "exceptZero"*/
 
     unit: Текст
 
-    unitDisplay: "short" | "long" | "narrow"
+    unitDisplay: Объект? /*(!)"short" | "long" | "narrow"*/
 
     currencyDisplay: Текст
 
@@ -176,21 +176,21 @@
   {
     calendar: Текст?
 
-    dayPeriod: "narrow" | "short" | "long" | пусто
+    dayPeriod: Объект? /*(!)"narrow" | "short" | "long" | пусто*/
 
     numberingSystem: Текст?
 
-    dateStyle: "full" | "long" | "medium" | "short" | пусто
+    dateStyle: Объект? /*(!)"full" | "long" | "medium" | "short" | пусто*/
 
-    timeStyle: "full" | "long" | "medium" | "short" | пусто
+    timeStyle: Объект? /*(!)"full" | "long" | "medium" | "short" | пусто*/
 
-    hourCycle: "h11" | "h12" | "h23" | "h24" | пусто
+    hourCycle: Объект? /*(!)"h11" | "h12" | "h23" | "h24" | пусто*/
   }
 
 
-  тип LocaleHourCycleKey = "h12" | "h23" | "h11" | "h24"
+  тип LocaleHourCycleKey = Объект? /*(!)"h12" | "h23" | "h11" | "h24"*/
 
-  тип LocaleCollationCaseFirst = "upper" | "lower" | "false"
+  тип LocaleCollationCaseFirst = Объект? /*(!)"upper" | "lower" | "false"*/
 
   тип LocaleOptions = интерфейс
   {
@@ -245,14 +245,14 @@
   * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale).
   */
 
-  конст Locale: объект { при создании(tag: BCP47LanguageTag | Locale, options: LocaleOptions? = пусто): Locale }
+  конст Locale: объект { при создании(tag: Объект? /*(!)BCP47LanguageTag | Locale*/, options: LocaleOptions? = пусто): Locale }
 
 
-  тип DisplayNamesFallback = "code" | "none"
+  тип DisplayNamesFallback = Объект? /*(!)"code" | "none"*/
 
-  тип DisplayNamesType = "language" | "region" | "script" | "calendar" | "dateTimeField" | "currency"
+  тип DisplayNamesType = Объект? /*(!)"language" | "region" | "script" | "calendar" | "dateTimeField" | "currency"*/
 
-  тип DisplayNamesLanguageDisplay = "dialect" | "standard"
+  тип DisplayNamesLanguageDisplay = Объект? /*(!)"dialect" | "standard"*/
 
   тип DisplayNamesOptions = интерфейс
   {

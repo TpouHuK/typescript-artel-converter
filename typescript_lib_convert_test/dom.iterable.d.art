@@ -60,13 +60,13 @@
 
 тип FormData = интерфейс
 {
-  операция entries(): IterableIterator<объект { _0: Текст, _1: Текст | File }>
+  операция entries(): IterableIterator<объект { _0: Текст, _1: Объект? /*(!)Текст | File*/ }>
 
   операция keys(): IterableIterator<Текст>
 
-  операция values(): IterableIterator<Текст | File>
+  операция values(): IterableIterator<Объект? /*(!)Текст | File*/>
 
-  операция [Symbol.iterator](): IterableIterator<Текст | File>
+  операция [Symbol.iterator](): IterableIterator<Объект? /*(!)Текст | File*/>
 }
 
 

@@ -18,15 +18,15 @@
 
   useGrouping: ДаНет
 
-  minimumIntegerDigits: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21
+  minimumIntegerDigits: Объект? /*(!)1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21*/
 
-  minimumFractionDigits: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20
+  minimumFractionDigits: Объект? /*(!)0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20*/
 
-  maximumFractionDigits: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20
+  maximumFractionDigits: Объект? /*(!)0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20*/
 
-  minimumSignificantDigits: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21
+  minimumSignificantDigits: Объект? /*(!)1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21*/
 
-  maximumSignificantDigits: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21
+  maximumSignificantDigits: Объект? /*(!)1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21*/
 
   notation: Текст
 
@@ -130,7 +130,7 @@
 
   операция some(predicate: операция(value: bigint, index: Число, array: BigInt64Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция sort(compareFn: (операция(a: bigint, b: bigint): Число | bigint)? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: bigint, b: bigint): Объект? /*(!)Число | bigint*/)? = пусто): /*(!) this */ Объект?
 
   операция subarray(begin: Число? = пусто, end: Число? = пусто): BigInt64Array
 
@@ -244,7 +244,7 @@
 
   операция some(predicate: операция(value: bigint, index: Число, array: BigUint64Array): ДаНет, thisArg: /*(!) any */ Объект? = пусто): ДаНет
 
-  операция sort(compareFn: (операция(a: bigint, b: bigint): Число | bigint)? = пусто): /*(!) this */ Объект?
+  операция sort(compareFn: (операция(a: bigint, b: bigint): Объект? /*(!)Число | bigint*/)? = пусто): /*(!) this */ Объект?
 
   операция subarray(begin: Число? = пусто, end: Число? = пусто): BigUint64Array
 
@@ -308,7 +308,7 @@
 {
   тип NumberFormat = интерфейс
   {
-    операция format(value: Число | bigint): Текст
+    операция format(value: Объект? /*(!)Число | bigint*/): Текст
 
     операция resolvedOptions(): ResolvedNumberFormatOptions
   }

@@ -86,7 +86,7 @@
 
 тип CanvasPath = интерфейс
 {
-  операция roundRect(x: Число, y: Число, w: Число, h: Число, radii: Число | DOMPointInit | Iterable<Число | DOMPointInit> | пусто = пусто)
+  операция roundRect(x: Число, y: Число, w: Число, h: Число, radii: Объект? /*(!)Число | DOMPointInit | Iterable<Объект? /*(!)Число | DOMPointInit*/> | пусто*/ = пусто)
 }
 
 
@@ -200,13 +200,13 @@
 
 тип IDBDatabase = интерфейс
 {
-  операция transaction(storeNames: Текст | Iterable<Текст>, mode: IDBTransactionMode? = пусто, options: IDBTransactionOptions? = пусто): IDBTransaction
+  операция transaction(storeNames: Объект? /*(!)Текст | Iterable<Текст>*/, mode: IDBTransactionMode? = пусто, options: IDBTransactionOptions? = пусто): IDBTransaction
 }
 
 
 тип IDBObjectStore = интерфейс
 {
-  операция createIndex(name: Текст, keyPath: Текст | Iterable<Текст>, options: IDBIndexParameters? = пусто): IDBIndex
+  операция createIndex(name: Текст, keyPath: Объект? /*(!)Текст | Iterable<Текст>*/, options: IDBIndexParameters? = пусто): IDBIndex
 }
 
 
@@ -388,19 +388,19 @@
 
 тип SubtleCrypto = интерфейс
 {
-  операция deriveKey(algorithm: AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params, baseKey: CryptoKey, derivedKeyType: AlgorithmIdentifier | AesDerivedKeyParams | HmacImportParams | HkdfParams | Pbkdf2Params, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>
+  операция deriveKey(algorithm: Объект? /*(!)AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params*/, baseKey: CryptoKey, derivedKeyType: Объект? /*(!)AlgorithmIdentifier | AesDerivedKeyParams | HmacImportParams | HkdfParams | Pbkdf2Params*/, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>
 
-  операция generateKey(algorithm: RsaHashedKeyGenParams | EcKeyGenParams, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKeyPair>
+  операция generateKey(algorithm: Объект? /*(!)RsaHashedKeyGenParams | EcKeyGenParams*/, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKeyPair>
 
-  операция generateKey(algorithm: AesKeyGenParams | HmacKeyGenParams | Pbkdf2Params, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>
+  операция generateKey(algorithm: Объект? /*(!)AesKeyGenParams | HmacKeyGenParams | Pbkdf2Params*/, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>
 
-  операция generateKey(algorithm: AlgorithmIdentifier, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<CryptoKeyPair | CryptoKey>
+  операция generateKey(algorithm: AlgorithmIdentifier, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<Объект? /*(!)CryptoKeyPair | CryptoKey*/>
 
-  операция importKey(format: "jwk", keyData: JsonWebKey, algorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>
+  операция importKey(format: "jwk", keyData: JsonWebKey, algorithm: Объект? /*(!)AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm*/, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>
 
-  операция importKey(format: Exclude<KeyFormat, "jwk">, keyData: BufferSource, algorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>
+  операция importKey(format: Exclude<KeyFormat, "jwk">, keyData: BufferSource, algorithm: Объект? /*(!)AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm*/, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>
 
-  операция unwrapKey(format: KeyFormat, wrappedKey: BufferSource, unwrappingKey: CryptoKey, unwrapAlgorithm: AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams, unwrappedKeyAlgorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>
+  операция unwrapKey(format: KeyFormat, wrappedKey: BufferSource, unwrappingKey: CryptoKey, unwrapAlgorithm: Объект? /*(!)AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams*/, unwrappedKeyAlgorithm: Объект? /*(!)AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm*/, extractable: ДаНет, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>
 }
 
 
@@ -442,13 +442,13 @@
 
 тип WEBGL_multi_draw = интерфейс
 {
-  операция multiDrawArraysInstancedWEBGL(mode: GLenum, firstsList: Int32Array | Iterable<GLint>, firstsOffset: GLuint, countsList: Int32Array | Iterable<GLsizei>, countsOffset: GLuint, instanceCountsList: Int32Array | Iterable<GLsizei>, instanceCountsOffset: GLuint, drawcount: GLsizei)
+  операция multiDrawArraysInstancedWEBGL(mode: GLenum, firstsList: Объект? /*(!)Int32Array | Iterable<GLint>*/, firstsOffset: GLuint, countsList: Объект? /*(!)Int32Array | Iterable<GLsizei>*/, countsOffset: GLuint, instanceCountsList: Объект? /*(!)Int32Array | Iterable<GLsizei>*/, instanceCountsOffset: GLuint, drawcount: GLsizei)
 
-  операция multiDrawArraysWEBGL(mode: GLenum, firstsList: Int32Array | Iterable<GLint>, firstsOffset: GLuint, countsList: Int32Array | Iterable<GLsizei>, countsOffset: GLuint, drawcount: GLsizei)
+  операция multiDrawArraysWEBGL(mode: GLenum, firstsList: Объект? /*(!)Int32Array | Iterable<GLint>*/, firstsOffset: GLuint, countsList: Объект? /*(!)Int32Array | Iterable<GLsizei>*/, countsOffset: GLuint, drawcount: GLsizei)
 
-  операция multiDrawElementsInstancedWEBGL(mode: GLenum, countsList: Int32Array | Iterable<GLsizei>, countsOffset: GLuint, type: GLenum, offsetsList: Int32Array | Iterable<GLsizei>, offsetsOffset: GLuint, instanceCountsList: Int32Array | Iterable<GLsizei>, instanceCountsOffset: GLuint, drawcount: GLsizei)
+  операция multiDrawElementsInstancedWEBGL(mode: GLenum, countsList: Объект? /*(!)Int32Array | Iterable<GLsizei>*/, countsOffset: GLuint, type: GLenum, offsetsList: Объект? /*(!)Int32Array | Iterable<GLsizei>*/, offsetsOffset: GLuint, instanceCountsList: Объект? /*(!)Int32Array | Iterable<GLsizei>*/, instanceCountsOffset: GLuint, drawcount: GLsizei)
 
-  операция multiDrawElementsWEBGL(mode: GLenum, countsList: Int32Array | Iterable<GLsizei>, countsOffset: GLuint, type: GLenum, offsetsList: Int32Array | Iterable<GLsizei>, offsetsOffset: GLuint, drawcount: GLsizei)
+  операция multiDrawElementsWEBGL(mode: GLenum, countsList: Объект? /*(!)Int32Array | Iterable<GLsizei>*/, countsOffset: GLuint, type: GLenum, offsetsList: Объект? /*(!)Int32Array | Iterable<GLsizei>*/, offsetsOffset: GLuint, drawcount: GLsizei)
 }
 
 

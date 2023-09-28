@@ -8,45 +8,45 @@
 
   тип DateTimeFormatOptions = интерфейс
   {
-    formatMatcher: "basic" | "best fit" | "best fit" | пусто
+    formatMatcher: Объект? /*(!)"basic" | "best fit" | "best fit" | пусто*/
 
-    dateStyle: "full" | "long" | "medium" | "short" | пусто
+    dateStyle: Объект? /*(!)"full" | "long" | "medium" | "short" | пусто*/
 
-    timeStyle: "full" | "long" | "medium" | "short" | пусто
+    timeStyle: Объект? /*(!)"full" | "long" | "medium" | "short" | пусто*/
 
-    dayPeriod: "narrow" | "short" | "long" | пусто
+    dayPeriod: Объект? /*(!)"narrow" | "short" | "long" | пусто*/
 
-    fractionalSecondDigits: 1 | 2 | 3 | пусто
+    fractionalSecondDigits: Объект? /*(!)1 | 2 | 3 | пусто*/
   }
 
 
   тип DateTimeRangeFormatPart = интерфейс на основе DateTimeFormatPart
   {
-    source: "startRange" | "endRange" | "shared"
+    source: Объект? /*(!)"startRange" | "endRange" | "shared"*/
   }
 
 
   тип DateTimeFormat = интерфейс
   {
-    операция formatRange(startDate: Date | Число | bigint, endDate: Date | Число | bigint): Текст
+    операция formatRange(startDate: Объект? /*(!)Date | Число | bigint*/, endDate: Объект? /*(!)Date | Число | bigint*/): Текст
 
-    операция formatRangeToParts(startDate: Date | Число | bigint, endDate: Date | Число | bigint): Список<DateTimeRangeFormatPart>
+    операция formatRangeToParts(startDate: Объект? /*(!)Date | Число | bigint*/, endDate: Объект? /*(!)Date | Число | bigint*/): Список<DateTimeRangeFormatPart>
   }
 
 
   тип ResolvedDateTimeFormatOptions = интерфейс
   {
-    formatMatcher: "basic" | "best fit" | "best fit"
+    formatMatcher: Объект? /*(!)"basic" | "best fit" | "best fit"*/
 
-    dateStyle: "full" | "long" | "medium" | "short"
+    dateStyle: Объект? /*(!)"full" | "long" | "medium" | "short"*/
 
-    timeStyle: "full" | "long" | "medium" | "short"
+    timeStyle: Объект? /*(!)"full" | "long" | "medium" | "short"*/
 
-    hourCycle: "h11" | "h12" | "h23" | "h24"
+    hourCycle: Объект? /*(!)"h11" | "h12" | "h23" | "h24"*/
 
-    dayPeriod: "narrow" | "short" | "long"
+    dayPeriod: Объект? /*(!)"narrow" | "short" | "long"*/
 
-    fractionalSecondDigits: 1 | 2 | 3
+    fractionalSecondDigits: Объект? /*(!)1 | 2 | 3*/
   }
 
 
@@ -56,7 +56,7 @@
   * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
   */
 
-  тип ListFormatLocaleMatcher = "lookup" | "best fit"
+  тип ListFormatLocaleMatcher = Объект? /*(!)"lookup" | "best fit"*/
 
   /**
   * The format of output message.
@@ -64,7 +64,7 @@
   * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
   */
 
-  тип ListFormatType = "conjunction" | "disjunction" | "unit"
+  тип ListFormatType = Объект? /*(!)"conjunction" | "disjunction" | "unit"*/
 
   /**
   * The length of the formatted message.
@@ -72,7 +72,7 @@
   * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/ListFormat#parameters).
   */
 
-  тип ListFormatStyle = "long" | "short" | "narrow"
+  тип ListFormatStyle = Объект? /*(!)"long" | "short" | "narrow"*/
 
   /**
   * An object with some or all properties of the `Intl.ListFormat` constructor `options` parameter.
@@ -104,11 +104,11 @@
   {
     операция format(list: Iterable<Текст>): Текст
 
-    операция formatToParts(list: Iterable<Текст>): Список<объект { type: "element" | "literal"; value: Текст }>
+    операция formatToParts(list: Iterable<Текст>): Список<объект { type: Объект? /*(!)"element" | "literal"*/; value: Текст }>
 
     операция resolvedOptions(): ResolvedListFormatOptions
   }
 
 
-  конст ListFormat: объект { prototype: ListFormat; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: ListFormatOptions? = пусто): ListFormat; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<ListFormatOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
+  конст ListFormat: объект { prototype: ListFormat; при создании(locales: Объект? /*(!)BCP47LanguageTag | Список<BCP47LanguageTag> | пусто*/ = пусто, options: ListFormatOptions? = пусто): ListFormat; операция supportedLocalesOf(locales: Объект? /*(!)BCP47LanguageTag | Список<BCP47LanguageTag>*/, options: Pick<ListFormatOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
 }

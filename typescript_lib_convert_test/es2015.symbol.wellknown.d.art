@@ -67,7 +67,7 @@
 
   операция [Symbol.toPrimitive](hint: "number"): Число
 
-  операция [Symbol.toPrimitive](hint: Текст): Текст | Число
+  операция [Symbol.toPrimitive](hint: Текст): Объект? /*(!)Текст | Число*/
 }
 
 

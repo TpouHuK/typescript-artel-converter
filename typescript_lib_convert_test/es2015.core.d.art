@@ -25,7 +25,7 @@
 
 тип DateConstructor = интерфейс
 {
-  при создании(value: Число | Текст | Date): Date
+  при создании(value: Объект? /*(!)Число | Текст | Date*/): Date
 }
 
 
@@ -146,7 +146,7 @@
 
 тип RegExpConstructor = интерфейс
 {
-  при создании(pattern: RegExp | Текст, flags: Текст? = пусто): RegExp
+  при создании(pattern: Объект? /*(!)RegExp | Текст*/, flags: Текст? = пусто): RegExp
 
   /*(!) (pattern: RegExp | string, flags?: string): RegExp*/
 }
@@ -164,6 +164,6 @@
   операция fromCodePoint(codePoints: Список<Число>): Текст
 
   #js.МассивПараметров
-  операция raw(template: объект { raw: /*(!) защищено */ (Список<Текст> | ArrayLike<Текст>) }, substitutions: Список</*(!) any */ Объект?>): Текст
+  операция raw(template: объект { raw: /*(!) защищено */ (Объект? /*(!)Список<Текст> | ArrayLike<Текст>*/) }, substitutions: Список</*(!) any */ Объект?>): Текст
 }
 

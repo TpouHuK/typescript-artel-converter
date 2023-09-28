@@ -90,7 +90,7 @@
   * @param target Object that contains the own properties.
   */
 
-  операция ownKeys(target: Объект): Список<Текст | Символ>
+  операция ownKeys(target: Объект): Список<Объект? /*(!)Текст | Символ*/>
 
   /**
   * Prevents the addition of new properties to an object.

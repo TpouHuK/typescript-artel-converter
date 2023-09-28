@@ -6,7 +6,7 @@
 
 тип ReadonlyArray<T> = интерфейс
 {
-  операция flatMap<U, This>(callback: операция(this: This, value: T, index: Число, array: Список<T>): U | ReadonlyArray<U>, thisArg: This? = пусто): Список<U>
+  операция flatMap<U, This>(callback: операция(this: This, value: T, index: Число, array: Список<T>): Объект? /*(!)U | ReadonlyArray<U>*/, thisArg: This? = пусто): Список<U>
 
   операция flat<A, D = Число>(this: A, depth: D? = пусто): Список<FlatArray<A, D>>
 }
@@ -14,7 +14,7 @@
 
 тип Array<T> = интерфейс
 {
-  операция flatMap<U, This>(callback: операция(this: This, value: T, index: Число, array: Список<T>): U | ReadonlyArray<U>, thisArg: This? = пусто): Список<U>
+  операция flatMap<U, This>(callback: операция(this: This, value: T, index: Число, array: Список<T>): Объект? /*(!)U | ReadonlyArray<U>*/, thisArg: This? = пусто): Список<U>
 
   операция flat<A, D = Число>(this: A, depth: D? = пусто): Список<FlatArray<A, D>>
 }

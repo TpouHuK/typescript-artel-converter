@@ -8,9 +8,9 @@
 
   тип SegmenterOptions = интерфейс
   {
-    localeMatcher: "best fit" | "lookup" | пусто
+    localeMatcher: Объект? /*(!)"best fit" | "lookup" | пусто*/
 
-    granularity: "grapheme" | "word" | "sentence" | пусто
+    granularity: Объект? /*(!)"grapheme" | "word" | "sentence" | пусто*/
   }
 
 
@@ -26,7 +26,7 @@
   {
     locale: Текст
 
-    granularity: "grapheme" | "word" | "sentence"
+    granularity: Объект? /*(!)"grapheme" | "word" | "sentence"*/
   }
 
 
@@ -50,7 +50,7 @@
   }
 
 
-  конст Segmenter: объект { prototype: Segmenter; при создании(locales: BCP47LanguageTag | Список<BCP47LanguageTag> | пусто = пусто, options: SegmenterOptions? = пусто): Segmenter; операция supportedLocalesOf(locales: BCP47LanguageTag | Список<BCP47LanguageTag>, options: Pick<SegmenterOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
+  конст Segmenter: объект { prototype: Segmenter; при создании(locales: Объект? /*(!)BCP47LanguageTag | Список<BCP47LanguageTag> | пусто*/ = пусто, options: SegmenterOptions? = пусто): Segmenter; операция supportedLocalesOf(locales: Объект? /*(!)BCP47LanguageTag | Список<BCP47LanguageTag>*/, options: Pick<SegmenterOptions, "localeMatcher">? = пусто): Список<BCP47LanguageTag> }
 
 
   /**
@@ -61,4 +61,4 @@
   * @returns A sorted array of the supported values.
   */
 
-  операция supportedValuesOf(key: "calendar" | "collation" | "currency" | "numberingSystem" | "timeZone" | "unit"): Список<Текст>}
+  операция supportedValuesOf(key: Объект? /*(!)"calendar" | "collation" | "currency" | "numberingSystem" | "timeZone" | "unit"*/): Список<Текст>}

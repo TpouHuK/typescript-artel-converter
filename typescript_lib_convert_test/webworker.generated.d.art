@@ -342,7 +342,7 @@
 
   ports: Список<MessagePort>
 
-  source: Client | ServiceWorker | MessagePort | пусто
+  source: Объект? /*(!)Client | ServiceWorker | MessagePort | пусто*/
 }
 
 
@@ -480,7 +480,7 @@
 {
   autoIncrement: ДаНет
 
-  keyPath: Текст | Список<Текст> | пусто
+  keyPath: Объект? /*(!)Текст | Список<Текст> | пусто*/
 }
 
 
@@ -760,9 +760,9 @@
 
   duration: DOMHighResTimeStamp
 
-  end: Текст | DOMHighResTimeStamp
+  end: Объект? /*(!)Текст | DOMHighResTimeStamp*/
 
-  start: Текст | DOMHighResTimeStamp
+  start: Объект? /*(!)Текст | DOMHighResTimeStamp*/
 }
 
 
@@ -826,7 +826,7 @@
 
 тип PushSubscriptionOptionsInit = интерфейс
 {
-  applicationServerKey: BufferSource | Текст | пусто
+  applicationServerKey: Объект? /*(!)BufferSource | Текст | пусто*/
 
   userVisibleOnly: ДаНет
 }
@@ -1400,7 +1400,7 @@
 
 тип WriteParams = интерфейс
 {
-  data: BufferSource | Blob | Текст | пусто
+  data: Объект? /*(!)BufferSource | Blob | Текст | пусто*/
 
   position: Число?
 
@@ -1472,13 +1472,13 @@
 
   операция throwIfAborted()
 
-  операция addEventListener<K = /*(!) keyof AbortSignalEventMap */ Объект?>(type: K, listener: операция(this: AbortSignal, ev: /*(!) AbortSignalEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof AbortSignalEventMap */ Объект?>(type: K, listener: операция(this: AbortSignal, ev: /*(!) AbortSignalEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof AbortSignalEventMap */ Объект?>(type: K, listener: операция(this: AbortSignal, ev: /*(!) AbortSignalEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof AbortSignalEventMap */ Объект?>(type: K, listener: операция(this: AbortSignal, ev: /*(!) AbortSignalEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -1496,13 +1496,13 @@
 {
   onerror: (операция(this: AbstractWorker, ev: ErrorEvent): /*(!) any */ Объект?)?
 
-  операция addEventListener<K = /*(!) keyof AbstractWorkerEventMap */ Объект?>(type: K, listener: операция(this: AbstractWorker, ev: /*(!) AbstractWorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof AbstractWorkerEventMap */ Объект?>(type: K, listener: операция(this: AbstractWorker, ev: /*(!) AbstractWorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof AbstractWorkerEventMap */ Объект?>(type: K, listener: операция(this: AbstractWorker, ev: /*(!) AbstractWorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof AbstractWorkerEventMap */ Объект?>(type: K, listener: операция(this: AbstractWorker, ev: /*(!) AbstractWorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -1585,13 +1585,13 @@
 
   операция postMessage(message: /*(!) any */ Объект?)
 
-  операция addEventListener<K = /*(!) keyof BroadcastChannelEventMap */ Объект?>(type: K, listener: операция(this: BroadcastChannel, ev: /*(!) BroadcastChannelEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof BroadcastChannelEventMap */ Объект?>(type: K, listener: операция(this: BroadcastChannel, ev: /*(!) BroadcastChannelEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof BroadcastChannelEventMap */ Объект?>(type: K, listener: операция(this: BroadcastChannel, ev: /*(!) BroadcastChannelEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof BroadcastChannelEventMap */ Объект?>(type: K, listener: операция(this: BroadcastChannel, ev: /*(!) BroadcastChannelEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -2024,19 +2024,19 @@
 
 тип Cache = интерфейс
 {
-  операция add(request: RequestInfo | URL): Promise<Ничего>
+  операция add(request: Объект? /*(!)RequestInfo | URL*/): Promise<Ничего>
 
   операция addAll(requests: Список<RequestInfo>): Promise<Ничего>
 
-  операция delete(request: RequestInfo | URL, options: CacheQueryOptions? = пусто): Promise<ДаНет>
+  операция delete(request: Объект? /*(!)RequestInfo | URL*/, options: CacheQueryOptions? = пусто): Promise<ДаНет>
 
-  операция keys(request: RequestInfo | URL | пусто = пусто, options: CacheQueryOptions? = пусто): Promise<ReadonlyArray<Request>>
+  операция keys(request: Объект? /*(!)RequestInfo | URL | пусто*/ = пусто, options: CacheQueryOptions? = пусто): Promise<ReadonlyArray<Request>>
 
-  операция match(request: RequestInfo | URL, options: CacheQueryOptions? = пусто): Promise<Response?>
+  операция match(request: Объект? /*(!)RequestInfo | URL*/, options: CacheQueryOptions? = пусто): Promise<Response?>
 
-  операция matchAll(request: RequestInfo | URL | пусто = пусто, options: CacheQueryOptions? = пусто): Promise<ReadonlyArray<Response>>
+  операция matchAll(request: Объект? /*(!)RequestInfo | URL | пусто*/ = пусто, options: CacheQueryOptions? = пусто): Promise<ReadonlyArray<Response>>
 
-  операция put(request: RequestInfo | URL, response: Response): Promise<Ничего>
+  операция put(request: Объект? /*(!)RequestInfo | URL*/, response: Response): Promise<Ничего>
 }
 
 
@@ -2059,7 +2059,7 @@
 
   операция keys(): Promise<Список<Текст>>
 
-  операция match(request: RequestInfo | URL, options: MultiCacheQueryOptions? = пусто): Promise<Response?>
+  операция match(request: Объект? /*(!)RequestInfo | URL*/, options: MultiCacheQueryOptions? = пусто): Promise<Response?>
 
   операция open(cacheName: Текст): Promise<Cache>
 }
@@ -2115,9 +2115,9 @@
 
 тип CanvasFillStrokeStyles = интерфейс
 {
-  fillStyle: Текст | CanvasGradient | CanvasPattern
+  fillStyle: Объект? /*(!)Текст | CanvasGradient | CanvasPattern*/
 
-  strokeStyle: Текст | CanvasGradient | CanvasPattern
+  strokeStyle: Объект? /*(!)Текст | CanvasGradient | CanvasPattern*/
 
   операция createConicGradient(startAngle: Число, x: Число, y: Число): CanvasGradient
 
@@ -2193,7 +2193,7 @@
 
   операция rect(x: Число, y: Число, w: Число, h: Число)
 
-  операция roundRect(x: Число, y: Число, w: Число, h: Число, radii: Число | DOMPointInit | Список<Число | DOMPointInit> | пусто = пусто)
+  операция roundRect(x: Число, y: Число, w: Число, h: Число, radii: Объект? /*(!)Число | DOMPointInit | Список<Объект? /*(!)Число | DOMPointInit*/> | пусто*/ = пусто)
 }
 
 
@@ -2351,7 +2351,7 @@
 
   операция matchAll<T = ClientQueryOptions>(options: T? = пусто): Promise<ReadonlyArray</*(!) T["type"] extends "window" ? WindowClient : Client */ Объект?>>
 
-  операция openWindow(url: Текст | URL): Promise<WindowClient?>
+  операция openWindow(url: Объект? /*(!)Текст | URL*/): Promise<WindowClient?>
 }
 
 
@@ -2636,7 +2636,7 @@
 
 
 внешнее
-/*(!) var */ DOMMatrix: объект { prototype: DOMMatrix; при создании(init: Текст | Список<Число> | пусто = пусто): DOMMatrix; операция fromFloat32Array(array32: Float32Array): DOMMatrix; операция fromFloat64Array(array64: Float64Array): DOMMatrix; операция fromMatrix(other: DOMMatrixInit? = пусто): DOMMatrix }
+/*(!) var */ DOMMatrix: объект { prototype: DOMMatrix; при создании(init: Объект? /*(!)Текст | Список<Число> | пусто*/ = пусто): DOMMatrix; операция fromFloat32Array(array32: Float32Array): DOMMatrix; операция fromFloat64Array(array64: Float64Array): DOMMatrix; операция fromMatrix(other: DOMMatrixInit? = пусто): DOMMatrix }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMMatrixReadOnly) */
@@ -2648,7 +2648,7 @@
 
 
 внешнее
-/*(!) var */ DOMMatrixReadOnly: объект { prototype: DOMMatrixReadOnly; при создании(init: Текст | Список<Число> | пусто = пусто): DOMMatrixReadOnly; операция fromFloat32Array(array32: Float32Array): DOMMatrixReadOnly; операция fromFloat64Array(array64: Float64Array): DOMMatrixReadOnly; операция fromMatrix(other: DOMMatrixInit? = пусто): DOMMatrixReadOnly }
+/*(!) var */ DOMMatrixReadOnly: объект { prototype: DOMMatrixReadOnly; при создании(init: Объект? /*(!)Текст | Список<Число> | пусто*/ = пусто): DOMMatrixReadOnly; операция fromFloat32Array(array32: Float32Array): DOMMatrixReadOnly; операция fromFloat64Array(array64: Float64Array): DOMMatrixReadOnly; операция fromMatrix(other: DOMMatrixInit? = пусто): DOMMatrixReadOnly }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/DOMPoint) */
@@ -2839,13 +2839,13 @@
 
   операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions? = пусто)
 
-  операция addEventListener<K = /*(!) keyof DedicatedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: DedicatedWorkerGlobalScope, ev: /*(!) DedicatedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof DedicatedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: DedicatedWorkerGlobalScope, ev: /*(!) DedicatedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof DedicatedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: DedicatedWorkerGlobalScope, ev: /*(!) DedicatedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof DedicatedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: DedicatedWorkerGlobalScope, ev: /*(!) DedicatedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -3150,22 +3150,22 @@
   защищено 
   CLOSED: 2
 
-  операция addEventListener<K = /*(!) keyof EventSourceEventMap */ Объект?>(type: K, listener: операция(this: EventSource, ev: /*(!) EventSourceEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof EventSourceEventMap */ Объект?>(type: K, listener: операция(this: EventSource, ev: /*(!) EventSourceEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: операция(this: EventSource, event: MessageEvent): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: операция(this: EventSource, event: MessageEvent): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof EventSourceEventMap */ Объект?>(type: K, listener: операция(this: EventSource, ev: /*(!) EventSourceEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof EventSourceEventMap */ Объект?>(type: K, listener: операция(this: EventSource, ev: /*(!) EventSourceEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: операция(this: EventSource, event: MessageEvent): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: операция(this: EventSource, event: MessageEvent): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
 внешнее
-/*(!) var */ EventSource: объект { prototype: EventSource; при создании(url: Текст | URL, eventSourceInitDict: EventSourceInit? = пусто): EventSource; защищено  CONNECTING: 0; защищено  OPEN: 1; защищено  CLOSED: 2 }
+/*(!) var */ EventSource: объект { prototype: EventSource; при создании(url: Объект? /*(!)Текст | URL*/, eventSourceInitDict: EventSourceInit? = пусто): EventSource; защищено  CONNECTING: 0; защищено  OPEN: 1; защищено  CLOSED: 2 }
 
 
 /**
@@ -3176,11 +3176,11 @@
 
 тип EventTarget = интерфейс
 {
-  операция addEventListener(type: Текст, callback: EventListenerOrEventListenerObject?, options: AddEventListenerOptions | ДаНет | пусто = пусто)
+  операция addEventListener(type: Текст, callback: EventListenerOrEventListenerObject?, options: Объект? /*(!)AddEventListenerOptions | ДаНет | пусто*/ = пусто)
 
   операция dispatchEvent(event: Event): ДаНет
 
-  операция removeEventListener(type: Текст, callback: EventListenerOrEventListenerObject?, options: EventListenerOptions | ДаНет | пусто = пусто)
+  операция removeEventListener(type: Текст, callback: EventListenerOrEventListenerObject?, options: Объект? /*(!)EventListenerOptions | ДаНет | пусто*/ = пусто)
 }
 
 
@@ -3225,7 +3225,7 @@
   ports: ReadonlyArray<MessagePort>
 
   защищено 
-  source: Client | ServiceWorker | MessagePort | пусто
+  source: Объект? /*(!)Client | ServiceWorker | MessagePort | пусто*/
 }
 
 
@@ -3256,7 +3256,7 @@
   защищено 
   resultingClientId: Текст
 
-  операция respondWith(r: Response | PromiseLike<Response>)
+  операция respondWith(r: Объект? /*(!)Response | PromiseLike<Response>*/)
 }
 
 
@@ -3348,10 +3348,10 @@
   onprogress: (операция(this: FileReader, ev: ProgressEvent<FileReader>): /*(!) any */ Объект?)?
 
   защищено 
-  readyState: /*(!) typeof FileReader.EMPTY */ Объект? | /*(!) typeof FileReader.LOADING */ Объект? | /*(!) typeof FileReader.DONE */ Объект?
+  readyState: Объект? /*(!)/*(!) typeof FileReader.EMPTY */ Объект? | /*(!) typeof FileReader.LOADING */ Объект? | /*(!) typeof FileReader.DONE */ Объект?*/
 
   защищено 
-  result: Текст | ArrayBuffer | пусто
+  result: Объект? /*(!)Текст | ArrayBuffer | пусто*/
 
   операция abort()
 
@@ -3372,13 +3372,13 @@
   защищено 
   DONE: 2
 
-  операция addEventListener<K = /*(!) keyof FileReaderEventMap */ Объект?>(type: K, listener: операция(this: FileReader, ev: /*(!) FileReaderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof FileReaderEventMap */ Объект?>(type: K, listener: операция(this: FileReader, ev: /*(!) FileReaderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof FileReaderEventMap */ Объект?>(type: K, listener: операция(this: FileReader, ev: /*(!) FileReaderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof FileReaderEventMap */ Объект?>(type: K, listener: операция(this: FileReader, ev: /*(!) FileReaderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -3555,7 +3555,7 @@
 
 
 внешнее
-/*(!) var */ FontFace: объект { prototype: FontFace; при создании(family: Текст, source: Текст | BinaryData, descriptors: FontFaceDescriptors? = пусто): FontFace }
+/*(!) var */ FontFace: объект { prototype: FontFace; при создании(family: Текст, source: Объект? /*(!)Текст | BinaryData*/, descriptors: FontFaceDescriptors? = пусто): FontFace }
 
 
 тип FontFaceSetEventMap = интерфейс
@@ -3590,13 +3590,13 @@
 
   операция forEach(callbackfn: операция(value: FontFace, key: FontFace, parent: FontFaceSet), thisArg: /*(!) any */ Объект? = пусто)
 
-  операция addEventListener<K = /*(!) keyof FontFaceSetEventMap */ Объект?>(type: K, listener: операция(this: FontFaceSet, ev: /*(!) FontFaceSetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof FontFaceSetEventMap */ Объект?>(type: K, listener: операция(this: FontFaceSet, ev: /*(!) FontFaceSetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof FontFaceSetEventMap */ Объект?>(type: K, listener: операция(this: FontFaceSet, ev: /*(!) FontFaceSetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof FontFaceSetEventMap */ Объект?>(type: K, listener: операция(this: FontFaceSet, ev: /*(!) FontFaceSetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -3632,7 +3632,7 @@
 
 тип FormData = интерфейс
 {
-  операция append(name: Текст, value: Текст | Blob)
+  операция append(name: Текст, value: Объект? /*(!)Текст | Blob*/)
 
   операция append(name: Текст, value: Текст)
 
@@ -3646,7 +3646,7 @@
 
   операция has(name: Текст): ДаНет
 
-  операция set(name: Текст, value: Текст | Blob)
+  операция set(name: Текст, value: Объект? /*(!)Текст | Blob*/)
 
   операция set(name: Текст, value: Текст)
 
@@ -3719,7 +3719,7 @@
   request: IDBRequest
 
   защищено 
-  source: IDBObjectStore | IDBIndex
+  source: Объект? /*(!)IDBObjectStore | IDBIndex*/
 
   операция advance(count: Число)
 
@@ -3797,15 +3797,15 @@
 
   операция deleteObjectStore(name: Текст)
 
-  операция transaction(storeNames: Текст | Список<Текст>, mode: IDBTransactionMode? = пусто, options: IDBTransactionOptions? = пусто): IDBTransaction
+  операция transaction(storeNames: Объект? /*(!)Текст | Список<Текст>*/, mode: IDBTransactionMode? = пусто, options: IDBTransactionOptions? = пусто): IDBTransaction
 
-  операция addEventListener<K = /*(!) keyof IDBDatabaseEventMap */ Объект?>(type: K, listener: операция(this: IDBDatabase, ev: /*(!) IDBDatabaseEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof IDBDatabaseEventMap */ Объект?>(type: K, listener: операция(this: IDBDatabase, ev: /*(!) IDBDatabaseEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof IDBDatabaseEventMap */ Объект?>(type: K, listener: операция(this: IDBDatabase, ev: /*(!) IDBDatabaseEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof IDBDatabaseEventMap */ Объект?>(type: K, listener: операция(this: IDBDatabase, ev: /*(!) IDBDatabaseEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -3844,7 +3844,7 @@
 тип IDBIndex = интерфейс
 {
   защищено 
-  keyPath: Текст | Список<Текст>
+  keyPath: Объект? /*(!)Текст | Список<Текст>*/
 
   защищено 
   multiEntry: ДаНет
@@ -3857,19 +3857,19 @@
   защищено 
   unique: ДаНет
 
-  операция count(query: IDBValidKey | IDBKeyRange | пусто = пусто): IDBRequest<Число>
+  операция count(query: Объект? /*(!)IDBValidKey | IDBKeyRange | пусто*/ = пусто): IDBRequest<Число>
 
-  операция get(query: IDBValidKey | IDBKeyRange): IDBRequest</*(!) any */ Объект?>
+  операция get(query: Объект? /*(!)IDBValidKey | IDBKeyRange*/): IDBRequest</*(!) any */ Объект?>
 
-  операция getAll(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число? = пусто): IDBRequest<Список</*(!) any */ Объект?>>
+  операция getAll(query: Объект? /*(!)IDBValidKey | IDBKeyRange | пусто | пусто*/ = пусто, count: Число? = пусто): IDBRequest<Список</*(!) any */ Объект?>>
 
-  операция getAllKeys(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число? = пусто): IDBRequest<Список<IDBValidKey>>
+  операция getAllKeys(query: Объект? /*(!)IDBValidKey | IDBKeyRange | пусто | пусто*/ = пусто, count: Число? = пусто): IDBRequest<Список<IDBValidKey>>
 
-  операция getKey(query: IDBValidKey | IDBKeyRange): IDBRequest<IDBValidKey?>
+  операция getKey(query: Объект? /*(!)IDBValidKey | IDBKeyRange*/): IDBRequest<IDBValidKey?>
 
-  операция openCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursorWithValue?>
+  операция openCursor(query: Объект? /*(!)IDBValidKey | IDBKeyRange | пусто | пусто*/ = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursorWithValue?>
 
-  операция openKeyCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursor?>
+  операция openKeyCursor(query: Объект? /*(!)IDBValidKey | IDBKeyRange | пусто | пусто*/ = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursor?>
 }
 
 
@@ -3920,7 +3920,7 @@
   indexNames: DOMStringList
 
   защищено 
-  keyPath: Текст | Список<Текст>
+  keyPath: Объект? /*(!)Текст | Список<Текст>*/
 
   name: Текст
 
@@ -3931,27 +3931,27 @@
 
   операция clear(): IDBRequest<пусто>
 
-  операция count(query: IDBValidKey | IDBKeyRange | пусто = пусто): IDBRequest<Число>
+  операция count(query: Объект? /*(!)IDBValidKey | IDBKeyRange | пусто*/ = пусто): IDBRequest<Число>
 
-  операция createIndex(name: Текст, keyPath: Текст | Список<Текст>, options: IDBIndexParameters? = пусто): IDBIndex
+  операция createIndex(name: Текст, keyPath: Объект? /*(!)Текст | Список<Текст>*/, options: IDBIndexParameters? = пусто): IDBIndex
 
-  операция delete(query: IDBValidKey | IDBKeyRange): IDBRequest<пусто>
+  операция delete(query: Объект? /*(!)IDBValidKey | IDBKeyRange*/): IDBRequest<пусто>
 
   операция deleteIndex(name: Текст)
 
-  операция get(query: IDBValidKey | IDBKeyRange): IDBRequest</*(!) any */ Объект?>
+  операция get(query: Объект? /*(!)IDBValidKey | IDBKeyRange*/): IDBRequest</*(!) any */ Объект?>
 
-  операция getAll(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число? = пусто): IDBRequest<Список</*(!) any */ Объект?>>
+  операция getAll(query: Объект? /*(!)IDBValidKey | IDBKeyRange | пусто | пусто*/ = пусто, count: Число? = пусто): IDBRequest<Список</*(!) any */ Объект?>>
 
-  операция getAllKeys(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, count: Число? = пусто): IDBRequest<Список<IDBValidKey>>
+  операция getAllKeys(query: Объект? /*(!)IDBValidKey | IDBKeyRange | пусто | пусто*/ = пусто, count: Число? = пусто): IDBRequest<Список<IDBValidKey>>
 
-  операция getKey(query: IDBValidKey | IDBKeyRange): IDBRequest<IDBValidKey?>
+  операция getKey(query: Объект? /*(!)IDBValidKey | IDBKeyRange*/): IDBRequest<IDBValidKey?>
 
   операция index(name: Текст): IDBIndex
 
-  операция openCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursorWithValue?>
+  операция openCursor(query: Объект? /*(!)IDBValidKey | IDBKeyRange | пусто | пусто*/ = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursorWithValue?>
 
-  операция openKeyCursor(query: IDBValidKey | IDBKeyRange | пусто | пусто = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursor?>
+  операция openKeyCursor(query: Объект? /*(!)IDBValidKey | IDBKeyRange | пусто | пусто*/ = пусто, direction: IDBCursorDirection? = пусто): IDBRequest<IDBCursor?>
 
   операция put(value: /*(!) any */ Объект?, key: IDBValidKey? = пусто): IDBRequest<IDBValidKey>
 }
@@ -3981,13 +3981,13 @@
 
   onupgradeneeded: (операция(this: IDBOpenDBRequest, ev: IDBVersionChangeEvent): /*(!) any */ Объект?)?
 
-  операция addEventListener<K = /*(!) keyof IDBOpenDBRequestEventMap */ Объект?>(type: K, listener: операция(this: IDBOpenDBRequest, ev: /*(!) IDBOpenDBRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof IDBOpenDBRequestEventMap */ Объект?>(type: K, listener: операция(this: IDBOpenDBRequest, ev: /*(!) IDBOpenDBRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof IDBOpenDBRequestEventMap */ Объект?>(type: K, listener: операция(this: IDBOpenDBRequest, ev: /*(!) IDBOpenDBRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof IDBOpenDBRequestEventMap */ Объект?>(type: K, listener: операция(this: IDBOpenDBRequest, ev: /*(!) IDBOpenDBRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -4025,18 +4025,18 @@
   result: T
 
   защищено 
-  source: IDBObjectStore | IDBIndex | IDBCursor
+  source: Объект? /*(!)IDBObjectStore | IDBIndex | IDBCursor*/
 
   защищено 
   transaction: IDBTransaction?
 
-  операция addEventListener<K = /*(!) keyof IDBRequestEventMap */ Объект?>(type: K, listener: операция(this: IDBRequest<T>, ev: /*(!) IDBRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof IDBRequestEventMap */ Объект?>(type: K, listener: операция(this: IDBRequest<T>, ev: /*(!) IDBRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof IDBRequestEventMap */ Объект?>(type: K, listener: операция(this: IDBRequest<T>, ev: /*(!) IDBRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof IDBRequestEventMap */ Объект?>(type: K, listener: операция(this: IDBRequest<T>, ev: /*(!) IDBRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -4085,13 +4085,13 @@
 
   операция objectStore(name: Текст): IDBObjectStore
 
-  операция addEventListener<K = /*(!) keyof IDBTransactionEventMap */ Объект?>(type: K, listener: операция(this: IDBTransaction, ev: /*(!) IDBTransactionEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof IDBTransactionEventMap */ Объект?>(type: K, listener: операция(this: IDBTransaction, ev: /*(!) IDBTransactionEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof IDBTransactionEventMap */ Объект?>(type: K, listener: операция(this: IDBTransaction, ev: /*(!) IDBTransactionEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof IDBTransactionEventMap */ Объект?>(type: K, listener: операция(this: IDBTransaction, ev: /*(!) IDBTransactionEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -4302,13 +4302,13 @@
 
   операция start()
 
-  операция addEventListener<K = /*(!) keyof MessagePortEventMap */ Объект?>(type: K, listener: операция(this: MessagePort, ev: /*(!) MessagePortEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof MessagePortEventMap */ Объект?>(type: K, listener: операция(this: MessagePort, ev: /*(!) MessagePortEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof MessagePortEventMap */ Объект?>(type: K, listener: операция(this: MessagePort, ev: /*(!) MessagePortEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof MessagePortEventMap */ Объект?>(type: K, listener: операция(this: MessagePort, ev: /*(!) MessagePortEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -4450,13 +4450,13 @@
 
   операция close()
 
-  операция addEventListener<K = /*(!) keyof NotificationEventMap */ Объект?>(type: K, listener: операция(this: Notification, ev: /*(!) NotificationEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof NotificationEventMap */ Объект?>(type: K, listener: операция(this: Notification, ev: /*(!) NotificationEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof NotificationEventMap */ Объект?>(type: K, listener: операция(this: Notification, ev: /*(!) NotificationEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof NotificationEventMap */ Объект?>(type: K, listener: операция(this: Notification, ev: /*(!) NotificationEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -4657,13 +4657,13 @@
 
   операция transferToImageBitmap(): ImageBitmap
 
-  операция addEventListener<K = /*(!) keyof OffscreenCanvasEventMap */ Объект?>(type: K, listener: операция(this: OffscreenCanvas, ev: /*(!) OffscreenCanvasEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof OffscreenCanvasEventMap */ Объект?>(type: K, listener: операция(this: OffscreenCanvas, ev: /*(!) OffscreenCanvasEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof OffscreenCanvasEventMap */ Объект?>(type: K, listener: операция(this: OffscreenCanvas, ev: /*(!) OffscreenCanvasEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof OffscreenCanvasEventMap */ Объект?>(type: K, listener: операция(this: OffscreenCanvas, ev: /*(!) OffscreenCanvasEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -4699,7 +4699,7 @@
 
 
 внешнее
-/*(!) var */ Path2D: объект { prototype: Path2D; при создании(path: Path2D | Текст | пусто = пусто): Path2D }
+/*(!) var */ Path2D: объект { prototype: Path2D; при создании(path: Объект? /*(!)Path2D | Текст | пусто*/ = пусто): Path2D }
 
 
 тип PerformanceEventMap = интерфейс
@@ -4735,7 +4735,7 @@
 
   операция mark(markName: Текст, markOptions: PerformanceMarkOptions? = пусто): PerformanceMark
 
-  операция measure(measureName: Текст, startOrMeasureOptions: Текст | PerformanceMeasureOptions | пусто = пусто, endMark: Текст? = пусто): PerformanceMeasure
+  операция measure(measureName: Текст, startOrMeasureOptions: Объект? /*(!)Текст | PerformanceMeasureOptions | пусто*/ = пусто, endMark: Текст? = пусто): PerformanceMeasure
 
   операция now(): DOMHighResTimeStamp
 
@@ -4743,13 +4743,13 @@
 
   операция toJSON(): /*(!) any */ Объект?
 
-  операция addEventListener<K = /*(!) keyof PerformanceEventMap */ Объект?>(type: K, listener: операция(this: Performance, ev: /*(!) PerformanceEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof PerformanceEventMap */ Объект?>(type: K, listener: операция(this: Performance, ev: /*(!) PerformanceEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof PerformanceEventMap */ Объект?>(type: K, listener: операция(this: Performance, ev: /*(!) PerformanceEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof PerformanceEventMap */ Объект?>(type: K, listener: операция(this: Performance, ev: /*(!) PerformanceEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -4960,13 +4960,13 @@
   защищено 
   state: PermissionState
 
-  операция addEventListener<K = /*(!) keyof PermissionStatusEventMap */ Объект?>(type: K, listener: операция(this: PermissionStatus, ev: /*(!) PermissionStatusEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof PermissionStatusEventMap */ Объект?>(type: K, listener: операция(this: PermissionStatus, ev: /*(!) PermissionStatusEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof PermissionStatusEventMap */ Объект?>(type: K, listener: операция(this: PermissionStatus, ev: /*(!) PermissionStatusEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof PermissionStatusEventMap */ Объект?>(type: K, listener: операция(this: PermissionStatus, ev: /*(!) PermissionStatusEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -5400,7 +5400,7 @@
 
 
 внешнее
-/*(!) var */ Request: объект { prototype: Request; при создании(input: RequestInfo | URL, init: RequestInit? = пусто): Request }
+/*(!) var */ Request: объект { prototype: Request; при создании(input: Объект? /*(!)RequestInfo | URL*/, init: RequestInit? = пусто): Request }
 
 
 /**
@@ -5437,7 +5437,7 @@
 
 
 внешнее
-/*(!) var */ Response: объект { prototype: Response; при создании(body: BodyInit? = пусто, init: ResponseInit? = пусто): Response; операция error(): Response; операция json(data: /*(!) any */ Объект?, init: ResponseInit? = пусто): Response; операция redirect(url: Текст | URL, status: Число? = пусто): Response }
+/*(!) var */ Response: объект { prototype: Response; при создании(body: BodyInit? = пусто, init: ResponseInit? = пусто): Response; операция error(): Response; операция json(data: /*(!) any */ Объект?, init: ResponseInit? = пусто): Response; операция redirect(url: Объект? /*(!)Текст | URL*/, status: Число? = пусто): Response }
 
 
 /**
@@ -5517,13 +5517,13 @@
 
   операция postMessage(message: /*(!) any */ Объект?, options: StructuredSerializeOptions? = пусто)
 
-  операция addEventListener<K = /*(!) keyof ServiceWorkerEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorker, ev: /*(!) ServiceWorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof ServiceWorkerEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorker, ev: /*(!) ServiceWorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof ServiceWorkerEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorker, ev: /*(!) ServiceWorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof ServiceWorkerEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorker, ev: /*(!) ServiceWorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -5562,21 +5562,21 @@
   защищено 
   ready: Promise<ServiceWorkerRegistration>
 
-  операция getRegistration(clientURL: Текст | URL | пусто = пусто): Promise<ServiceWorkerRegistration?>
+  операция getRegistration(clientURL: Объект? /*(!)Текст | URL | пусто*/ = пусто): Promise<ServiceWorkerRegistration?>
 
   операция getRegistrations(): Promise<ReadonlyArray<ServiceWorkerRegistration>>
 
-  операция register(scriptURL: Текст | URL, options: RegistrationOptions? = пусто): Promise<ServiceWorkerRegistration>
+  операция register(scriptURL: Объект? /*(!)Текст | URL*/, options: RegistrationOptions? = пусто): Promise<ServiceWorkerRegistration>
 
   операция startMessages()
 
-  операция addEventListener<K = /*(!) keyof ServiceWorkerContainerEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerContainer, ev: /*(!) ServiceWorkerContainerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof ServiceWorkerContainerEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerContainer, ev: /*(!) ServiceWorkerContainerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof ServiceWorkerContainerEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerContainer, ev: /*(!) ServiceWorkerContainerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof ServiceWorkerContainerEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerContainer, ev: /*(!) ServiceWorkerContainerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -5643,13 +5643,13 @@
 
   операция skipWaiting(): Promise<Ничего>
 
-  операция addEventListener<K = /*(!) keyof ServiceWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerGlobalScope, ev: /*(!) ServiceWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof ServiceWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerGlobalScope, ev: /*(!) ServiceWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof ServiceWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerGlobalScope, ev: /*(!) ServiceWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof ServiceWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerGlobalScope, ev: /*(!) ServiceWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -5703,13 +5703,13 @@
 
   операция update(): Promise<Ничего>
 
-  операция addEventListener<K = /*(!) keyof ServiceWorkerRegistrationEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerRegistration, ev: /*(!) ServiceWorkerRegistrationEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof ServiceWorkerRegistrationEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerRegistration, ev: /*(!) ServiceWorkerRegistrationEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof ServiceWorkerRegistrationEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerRegistration, ev: /*(!) ServiceWorkerRegistrationEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof ServiceWorkerRegistrationEventMap */ Объект?>(type: K, listener: операция(this: ServiceWorkerRegistration, ev: /*(!) ServiceWorkerRegistrationEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -5734,13 +5734,13 @@
 
   операция close()
 
-  операция addEventListener<K = /*(!) keyof SharedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: SharedWorkerGlobalScope, ev: /*(!) SharedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof SharedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: SharedWorkerGlobalScope, ev: /*(!) SharedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof SharedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: SharedWorkerGlobalScope, ev: /*(!) SharedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof SharedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: SharedWorkerGlobalScope, ev: /*(!) SharedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -5798,41 +5798,41 @@
 
 тип SubtleCrypto = интерфейс
 {
-  операция decrypt(algorithm: AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams, key: CryptoKey, data: BufferSource): Promise<ArrayBuffer>
+  операция decrypt(algorithm: Объект? /*(!)AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams*/, key: CryptoKey, data: BufferSource): Promise<ArrayBuffer>
 
-  операция deriveBits(algorithm: AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params, baseKey: CryptoKey, length: Число): Promise<ArrayBuffer>
+  операция deriveBits(algorithm: Объект? /*(!)AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params*/, baseKey: CryptoKey, length: Число): Promise<ArrayBuffer>
 
-  операция deriveKey(algorithm: AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params, baseKey: CryptoKey, derivedKeyType: AlgorithmIdentifier | AesDerivedKeyParams | HmacImportParams | HkdfParams | Pbkdf2Params, extractable: ДаНет, keyUsages: Список<KeyUsage>): Promise<CryptoKey>
+  операция deriveKey(algorithm: Объект? /*(!)AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params*/, baseKey: CryptoKey, derivedKeyType: Объект? /*(!)AlgorithmIdentifier | AesDerivedKeyParams | HmacImportParams | HkdfParams | Pbkdf2Params*/, extractable: ДаНет, keyUsages: Список<KeyUsage>): Promise<CryptoKey>
 
   операция digest(algorithm: AlgorithmIdentifier, data: BufferSource): Promise<ArrayBuffer>
 
-  операция encrypt(algorithm: AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams, key: CryptoKey, data: BufferSource): Promise<ArrayBuffer>
+  операция encrypt(algorithm: Объект? /*(!)AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams*/, key: CryptoKey, data: BufferSource): Promise<ArrayBuffer>
 
   операция exportKey(format: "jwk", key: CryptoKey): Promise<JsonWebKey>
 
   операция exportKey(format: Exclude<KeyFormat, "jwk">, key: CryptoKey): Promise<ArrayBuffer>
 
-  операция exportKey(format: KeyFormat, key: CryptoKey): Promise<ArrayBuffer | JsonWebKey>
+  операция exportKey(format: KeyFormat, key: CryptoKey): Promise<Объект? /*(!)ArrayBuffer | JsonWebKey*/>
 
-  операция generateKey(algorithm: "Ed25519", extractable: ДаНет, keyUsages: ReadonlyArray<"sign" | "verify">): Promise<CryptoKeyPair>
+  операция generateKey(algorithm: "Ed25519", extractable: ДаНет, keyUsages: ReadonlyArray<Объект? /*(!)"sign" | "verify"*/>): Promise<CryptoKeyPair>
 
-  операция generateKey(algorithm: RsaHashedKeyGenParams | EcKeyGenParams, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKeyPair>
+  операция generateKey(algorithm: Объект? /*(!)RsaHashedKeyGenParams | EcKeyGenParams*/, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKeyPair>
 
-  операция generateKey(algorithm: AesKeyGenParams | HmacKeyGenParams | Pbkdf2Params, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>
+  операция generateKey(algorithm: Объект? /*(!)AesKeyGenParams | HmacKeyGenParams | Pbkdf2Params*/, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>
 
-  операция generateKey(algorithm: AlgorithmIdentifier, extractable: ДаНет, keyUsages: Список<KeyUsage>): Promise<CryptoKeyPair | CryptoKey>
+  операция generateKey(algorithm: AlgorithmIdentifier, extractable: ДаНет, keyUsages: Список<KeyUsage>): Promise<Объект? /*(!)CryptoKeyPair | CryptoKey*/>
 
-  операция importKey(format: "jwk", keyData: JsonWebKey, algorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>
+  операция importKey(format: "jwk", keyData: JsonWebKey, algorithm: Объект? /*(!)AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm*/, extractable: ДаНет, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>
 
-  операция importKey(format: Exclude<KeyFormat, "jwk">, keyData: BufferSource, algorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: ДаНет, keyUsages: Список<KeyUsage>): Promise<CryptoKey>
+  операция importKey(format: Exclude<KeyFormat, "jwk">, keyData: BufferSource, algorithm: Объект? /*(!)AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm*/, extractable: ДаНет, keyUsages: Список<KeyUsage>): Promise<CryptoKey>
 
-  операция sign(algorithm: AlgorithmIdentifier | RsaPssParams | EcdsaParams, key: CryptoKey, data: BufferSource): Promise<ArrayBuffer>
+  операция sign(algorithm: Объект? /*(!)AlgorithmIdentifier | RsaPssParams | EcdsaParams*/, key: CryptoKey, data: BufferSource): Promise<ArrayBuffer>
 
-  операция unwrapKey(format: KeyFormat, wrappedKey: BufferSource, unwrappingKey: CryptoKey, unwrapAlgorithm: AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams, unwrappedKeyAlgorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: ДаНет, keyUsages: Список<KeyUsage>): Promise<CryptoKey>
+  операция unwrapKey(format: KeyFormat, wrappedKey: BufferSource, unwrappingKey: CryptoKey, unwrapAlgorithm: Объект? /*(!)AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams*/, unwrappedKeyAlgorithm: Объект? /*(!)AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm*/, extractable: ДаНет, keyUsages: Список<KeyUsage>): Promise<CryptoKey>
 
-  операция verify(algorithm: AlgorithmIdentifier | RsaPssParams | EcdsaParams, key: CryptoKey, signature: BufferSource, data: BufferSource): Promise<ДаНет>
+  операция verify(algorithm: Объект? /*(!)AlgorithmIdentifier | RsaPssParams | EcdsaParams*/, key: CryptoKey, signature: BufferSource, data: BufferSource): Promise<ДаНет>
 
-  операция wrapKey(format: KeyFormat, key: CryptoKey, wrappingKey: CryptoKey, wrapAlgorithm: AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams): Promise<ArrayBuffer>
+  операция wrapKey(format: KeyFormat, key: CryptoKey, wrappingKey: CryptoKey, wrapAlgorithm: Объект? /*(!)AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams*/): Promise<ArrayBuffer>
 }
 
 
@@ -6037,7 +6037,7 @@
 
 
 внешнее
-/*(!) var */ URL: объект { prototype: URL; при создании(url: Текст | URL, base: Текст | URL | пусто = пусто): URL; операция canParse(url: Текст | URL, base: Текст? = пусто): ДаНет; операция createObjectURL(obj: Blob): Текст; операция revokeObjectURL(url: Текст) }
+/*(!) var */ URL: объект { prototype: URL; при создании(url: Объект? /*(!)Текст | URL*/, base: Объект? /*(!)Текст | URL | пусто*/ = пусто): URL; операция canParse(url: Объект? /*(!)Текст | URL*/, base: Текст? = пусто): ДаНет; операция createObjectURL(obj: Blob): Текст; операция revokeObjectURL(url: Текст) }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/URLSearchParams) */
@@ -6068,7 +6068,7 @@
 
 
 внешнее
-/*(!) var */ URLSearchParams: объект { prototype: URLSearchParams; при создании(init: Список<Список<Текст>> | Record<Текст, Текст> | Текст | URLSearchParams | пусто = пусто): URLSearchParams }
+/*(!) var */ URLSearchParams: объект { prototype: URLSearchParams; при создании(init: Объект? /*(!)Список<Список<Текст>> | Record<Текст, Текст> | Текст | URLSearchParams | пусто*/ = пусто): URLSearchParams }
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/VideoColorSpace) */
@@ -6127,13 +6127,13 @@
 
   операция reset()
 
-  операция addEventListener<K = /*(!) keyof VideoDecoderEventMap */ Объект?>(type: K, listener: операция(this: VideoDecoder, ev: /*(!) VideoDecoderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof VideoDecoderEventMap */ Объект?>(type: K, listener: операция(this: VideoDecoder, ev: /*(!) VideoDecoderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof VideoDecoderEventMap */ Объект?>(type: K, listener: операция(this: VideoDecoder, ev: /*(!) VideoDecoderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof VideoDecoderEventMap */ Объект?>(type: K, listener: операция(this: VideoDecoder, ev: /*(!) VideoDecoderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -6173,13 +6173,13 @@
 
   операция reset()
 
-  операция addEventListener<K = /*(!) keyof VideoEncoderEventMap */ Объект?>(type: K, listener: операция(this: VideoEncoder, ev: /*(!) VideoEncoderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof VideoEncoderEventMap */ Объект?>(type: K, listener: операция(this: VideoEncoder, ev: /*(!) VideoEncoderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof VideoEncoderEventMap */ Объект?>(type: K, listener: операция(this: VideoEncoder, ev: /*(!) VideoEncoderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof VideoEncoderEventMap */ Объект?>(type: K, listener: операция(this: VideoEncoder, ev: /*(!) VideoEncoderEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -6606,13 +6606,13 @@
 
 тип WEBGL_multi_draw = интерфейс
 {
-  операция multiDrawArraysInstancedWEBGL(mode: GLenum, firstsList: Int32Array | Список<GLint>, firstsOffset: GLuint, countsList: Int32Array | Список<GLsizei>, countsOffset: GLuint, instanceCountsList: Int32Array | Список<GLsizei>, instanceCountsOffset: GLuint, drawcount: GLsizei)
+  операция multiDrawArraysInstancedWEBGL(mode: GLenum, firstsList: Объект? /*(!)Int32Array | Список<GLint>*/, firstsOffset: GLuint, countsList: Объект? /*(!)Int32Array | Список<GLsizei>*/, countsOffset: GLuint, instanceCountsList: Объект? /*(!)Int32Array | Список<GLsizei>*/, instanceCountsOffset: GLuint, drawcount: GLsizei)
 
-  операция multiDrawArraysWEBGL(mode: GLenum, firstsList: Int32Array | Список<GLint>, firstsOffset: GLuint, countsList: Int32Array | Список<GLsizei>, countsOffset: GLuint, drawcount: GLsizei)
+  операция multiDrawArraysWEBGL(mode: GLenum, firstsList: Объект? /*(!)Int32Array | Список<GLint>*/, firstsOffset: GLuint, countsList: Объект? /*(!)Int32Array | Список<GLsizei>*/, countsOffset: GLuint, drawcount: GLsizei)
 
-  операция multiDrawElementsInstancedWEBGL(mode: GLenum, countsList: Int32Array | Список<GLsizei>, countsOffset: GLuint, type: GLenum, offsetsList: Int32Array | Список<GLsizei>, offsetsOffset: GLuint, instanceCountsList: Int32Array | Список<GLsizei>, instanceCountsOffset: GLuint, drawcount: GLsizei)
+  операция multiDrawElementsInstancedWEBGL(mode: GLenum, countsList: Объект? /*(!)Int32Array | Список<GLsizei>*/, countsOffset: GLuint, type: GLenum, offsetsList: Объект? /*(!)Int32Array | Список<GLsizei>*/, offsetsOffset: GLuint, instanceCountsList: Объект? /*(!)Int32Array | Список<GLsizei>*/, instanceCountsOffset: GLuint, drawcount: GLsizei)
 
-  операция multiDrawElementsWEBGL(mode: GLenum, countsList: Int32Array | Список<GLsizei>, countsOffset: GLuint, type: GLenum, offsetsList: Int32Array | Список<GLsizei>, offsetsOffset: GLuint, drawcount: GLsizei)
+  операция multiDrawElementsWEBGL(mode: GLenum, countsList: Объект? /*(!)Int32Array | Список<GLsizei>*/, countsOffset: GLuint, type: GLenum, offsetsList: Объект? /*(!)Int32Array | Список<GLsizei>*/, offsetsOffset: GLuint, drawcount: GLsizei)
 }
 
 
@@ -8059,7 +8059,7 @@
 
   операция linkProgram(program: WebGLProgram)
 
-  операция pixelStorei(pname: GLenum, param: GLint | GLboolean)
+  операция pixelStorei(pname: GLenum, param: Объект? /*(!)GLint | GLboolean*/)
 
   операция polygonOffset(factor: GLfloat, units: GLfloat)
 
@@ -9237,7 +9237,7 @@
 
   операция close(code: Число? = пусто, reason: Текст? = пусто)
 
-  операция send(data: Текст | ArrayBufferLike | Blob | ArrayBufferView)
+  операция send(data: Объект? /*(!)Текст | ArrayBufferLike | Blob | ArrayBufferView*/)
 
   защищено 
   CONNECTING: 0
@@ -9251,18 +9251,18 @@
   защищено 
   CLOSED: 3
 
-  операция addEventListener<K = /*(!) keyof WebSocketEventMap */ Объект?>(type: K, listener: операция(this: WebSocket, ev: /*(!) WebSocketEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof WebSocketEventMap */ Объект?>(type: K, listener: операция(this: WebSocket, ev: /*(!) WebSocketEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof WebSocketEventMap */ Объект?>(type: K, listener: операция(this: WebSocket, ev: /*(!) WebSocketEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof WebSocketEventMap */ Объект?>(type: K, listener: операция(this: WebSocket, ev: /*(!) WebSocketEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
 внешнее
-/*(!) var */ WebSocket: объект { prototype: WebSocket; при создании(url: Текст | URL, protocols: Текст | Список<Текст> | пусто = пусто): WebSocket; защищено  CONNECTING: 0; защищено  OPEN: 1; защищено  CLOSING: 2; защищено  CLOSED: 3 }
+/*(!) var */ WebSocket: объект { prototype: WebSocket; при создании(url: Объект? /*(!)Текст | URL*/, protocols: Объект? /*(!)Текст | Список<Текст> | пусто*/ = пусто): WebSocket; защищено  CONNECTING: 0; защищено  OPEN: 1; защищено  CLOSING: 2; защищено  CLOSED: 3 }
 
 
 /**
@@ -9297,7 +9297,7 @@
 
 
 внешнее
-/*(!) var */ WebTransport: объект { prototype: WebTransport; при создании(url: Текст | URL, options: WebTransportOptions? = пусто): WebTransport }
+/*(!) var */ WebTransport: объект { prototype: WebTransport; при создании(url: Объект? /*(!)Текст | URL*/, options: WebTransportOptions? = пусто): WebTransport }
 
 
 /**
@@ -9387,7 +9387,7 @@
 
   операция focus(): Promise<WindowClient>
 
-  операция navigate(url: Текст | URL): Promise<WindowClient?>
+  операция navigate(url: Объект? /*(!)Текст | URL*/): Promise<WindowClient?>
 }
 
 
@@ -9430,7 +9430,7 @@
 
   операция createImageBitmap(image: ImageBitmapSource, sx: Число, sy: Число, sw: Число, sh: Число, options: ImageBitmapOptions? = пусто): Promise<ImageBitmap>
 
-  операция fetch(input: RequestInfo | URL, init: RequestInit? = пусто): Promise<Response>
+  операция fetch(input: Объект? /*(!)RequestInfo | URL*/, init: RequestInit? = пусто): Promise<Response>
 
   операция queueMicrotask(callback: VoidFunction)
 
@@ -9472,18 +9472,18 @@
 
   операция terminate()
 
-  операция addEventListener<K = /*(!) keyof WorkerEventMap */ Объект?>(type: K, listener: операция(this: Worker, ev: /*(!) WorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof WorkerEventMap */ Объект?>(type: K, listener: операция(this: Worker, ev: /*(!) WorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof WorkerEventMap */ Объект?>(type: K, listener: операция(this: Worker, ev: /*(!) WorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof WorkerEventMap */ Объект?>(type: K, listener: операция(this: Worker, ev: /*(!) WorkerEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
 внешнее
-/*(!) var */ Worker: объект { prototype: Worker; при создании(scriptURL: Текст | URL, options: WorkerOptions? = пусто): Worker }
+/*(!) var */ Worker: объект { prototype: Worker; при создании(scriptURL: Объект? /*(!)Текст | URL*/, options: WorkerOptions? = пусто): Worker }
 
 
 тип WorkerGlobalScopeEventMap = интерфейс
@@ -9532,15 +9532,15 @@
   self: /*(!) WorkerGlobalScope & typeof globalThis */ Объект?
 
   #js.МассивПараметров
-  операция importScripts(urls: Список<Текст | URL>)
+  операция importScripts(urls: Список<Объект? /*(!)Текст | URL*/>)
 
-  операция addEventListener<K = /*(!) keyof WorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: WorkerGlobalScope, ev: /*(!) WorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof WorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: WorkerGlobalScope, ev: /*(!) WorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof WorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: WorkerGlobalScope, ev: /*(!) WorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof WorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: WorkerGlobalScope, ev: /*(!) WorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -9733,9 +9733,9 @@
 
   операция getResponseHeader(name: Текст): Текст?
 
-  операция open(method: Текст, url: Текст | URL)
+  операция open(method: Текст, url: Объект? /*(!)Текст | URL*/)
 
-  операция open(method: Текст, url: Текст | URL, async: ДаНет, username: Текст? = пусто, password: Текст? = пусто)
+  операция open(method: Текст, url: Объект? /*(!)Текст | URL*/, async: ДаНет, username: Текст? = пусто, password: Текст? = пусто)
 
   операция overrideMimeType(mime: Текст)
 
@@ -9758,13 +9758,13 @@
   защищено 
   DONE: 4
 
-  операция addEventListener<K = /*(!) keyof XMLHttpRequestEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequest, ev: /*(!) XMLHttpRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof XMLHttpRequestEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequest, ev: /*(!) XMLHttpRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof XMLHttpRequestEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequest, ev: /*(!) XMLHttpRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof XMLHttpRequestEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequest, ev: /*(!) XMLHttpRequestEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -9808,13 +9808,13 @@
 
   ontimeout: (операция(this: XMLHttpRequest, ev: ProgressEvent): /*(!) any */ Объект?)?
 
-  операция addEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestEventTarget, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestEventTarget, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestEventTarget, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestEventTarget, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -9826,13 +9826,13 @@
 
 тип XMLHttpRequestUpload = интерфейс на основе XMLHttpRequestEventTarget
 {
-  операция addEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestUpload, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestUpload, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestUpload, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener<K = /*(!) keyof XMLHttpRequestEventTargetEventMap */ Объект?>(type: K, listener: операция(this: XMLHttpRequestUpload, ev: /*(!) XMLHttpRequestEventTargetEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 }
 
 
@@ -10070,15 +10070,15 @@
   }
 
 
-  тип ImportExportKind = "function" | "global" | "memory" | "table"
+  тип ImportExportKind = Объект? /*(!)"function" | "global" | "memory" | "table"*/
 
-  тип TableKind = "anyfunc" | "externref"
+  тип TableKind = Объект? /*(!)"anyfunc" | "externref"*/
 
-  тип ExportValue = Function | Global | Memory | Table
+  тип ExportValue = Объект? /*(!)Function | Global | Memory | Table*/
 
   тип Exports = Record<Текст, ExportValue>
 
-  тип ImportValue = ExportValue | Число
+  тип ImportValue = Объект? /*(!)ExportValue | Число*/
 
   тип Imports = Record<Текст, ModuleImports>
 
@@ -10092,7 +10092,7 @@
 
   /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/compileStreaming) */
 
-  операция compileStreaming(source: Response | PromiseLike<Response>): Promise<Module>
+  операция compileStreaming(source: Объект? /*(!)Response | PromiseLike<Response>*/): Promise<Module>
 
   /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiate) */
 
@@ -10102,7 +10102,7 @@
 
   /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiateStreaming) */
 
-  операция instantiateStreaming(source: Response | PromiseLike<Response>, importObject: Imports? = пусто): Promise<WebAssemblyInstantiatedSource>
+  операция instantiateStreaming(source: Объект? /*(!)Response | PromiseLike<Response>*/, importObject: Imports? = пусто): Promise<WebAssemblyInstantiatedSource>
 
   /** [MDN Reference](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/validate) */
 
@@ -10350,7 +10350,7 @@
 
 внешнее
 #js.МассивПараметров
-операция importScripts(urls: Список<Текст | URL>)
+операция importScripts(urls: Список<Объект? /*(!)Текст | URL*/>)
 
 /**
 * Dispatches a synthetic event event to target and returns true if either event's cancelable attribute value is false or its preventDefault() method was not invoked, and false otherwise.
@@ -10444,7 +10444,7 @@
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/fetch) */
 
 внешнее
-операция fetch(input: RequestInfo | URL, init: RequestInit? = пусто): Promise<Response>
+операция fetch(input: Объект? /*(!)RequestInfo | URL*/, init: RequestInit? = пусто): Promise<Response>
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/queueMicrotask) */
 
@@ -10480,52 +10480,52 @@
 операция requestAnimationFrame(callback: FrameRequestCallback): Число
 
 внешнее
-операция addEventListener<K = /*(!) keyof DedicatedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: DedicatedWorkerGlobalScope, ev: /*(!) DedicatedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+операция addEventListener<K = /*(!) keyof DedicatedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: DedicatedWorkerGlobalScope, ev: /*(!) DedicatedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
 внешнее
-операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
+операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | AddEventListenerOptions | пусто*/ = пусто)
 
 внешнее
-операция removeEventListener<K = /*(!) keyof DedicatedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: DedicatedWorkerGlobalScope, ev: /*(!) DedicatedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
+операция removeEventListener<K = /*(!) keyof DedicatedWorkerGlobalScopeEventMap */ Объект?>(type: K, listener: операция(this: DedicatedWorkerGlobalScope, ev: /*(!) DedicatedWorkerGlobalScopeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
 внешнее
-операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
+операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: Объект? /*(!)ДаНет | EventListenerOptions | пусто*/ = пусто)
 
-тип AlgorithmIdentifier = Algorithm | Текст
+тип AlgorithmIdentifier = Объект? /*(!)Algorithm | Текст*/
 
-тип AllowSharedBufferSource = ArrayBuffer | ArrayBufferView
+тип AllowSharedBufferSource = Объект? /*(!)ArrayBuffer | ArrayBufferView*/
 
 тип BigInteger = Uint8Array
 
-тип BinaryData = ArrayBuffer | ArrayBufferView
+тип BinaryData = Объект? /*(!)ArrayBuffer | ArrayBufferView*/
 
-тип BlobPart = BufferSource | Blob | Текст
+тип BlobPart = Объект? /*(!)BufferSource | Blob | Текст*/
 
-тип BodyInit = ReadableStream | XMLHttpRequestBodyInit
+тип BodyInit = Объект? /*(!)ReadableStream | XMLHttpRequestBodyInit*/
 
-тип BufferSource = ArrayBufferView | ArrayBuffer
+тип BufferSource = Объект? /*(!)ArrayBufferView | ArrayBuffer*/
 
-тип CSSKeywordish = Текст | CSSKeywordValue
+тип CSSKeywordish = Объект? /*(!)Текст | CSSKeywordValue*/
 
-тип CSSNumberish = Число | CSSNumericValue
+тип CSSNumberish = Объект? /*(!)Число | CSSNumericValue*/
 
-тип CSSPerspectiveValue = CSSNumericValue | CSSKeywordish
+тип CSSPerspectiveValue = Объект? /*(!)CSSNumericValue | CSSKeywordish*/
 
-тип CSSUnparsedSegment = Текст | CSSVariableReferenceValue
+тип CSSUnparsedSegment = Объект? /*(!)Текст | CSSVariableReferenceValue*/
 
-тип CanvasImageSource = ImageBitmap | OffscreenCanvas | VideoFrame
+тип CanvasImageSource = Объект? /*(!)ImageBitmap | OffscreenCanvas | VideoFrame*/
 
 тип DOMHighResTimeStamp = Число
 
 тип EpochTimeStamp = Число
 
-тип EventListenerOrEventListenerObject = EventListener | EventListenerObject
+тип EventListenerOrEventListenerObject = Объект? /*(!)EventListener | EventListenerObject*/
 
-тип FileSystemWriteChunkType = BufferSource | Blob | Текст | WriteParams
+тип FileSystemWriteChunkType = Объект? /*(!)BufferSource | Blob | Текст | WriteParams*/
 
-тип Float32List = Float32Array | Список<GLfloat>
+тип Float32List = Объект? /*(!)Float32Array | Список<GLfloat>*/
 
-тип FormDataEntryValue = File | Текст
+тип FormDataEntryValue = Объект? /*(!)File | Текст*/
 
 тип GLbitfield = Число
 
@@ -10553,200 +10553,200 @@
 
 тип HashAlgorithmIdentifier = AlgorithmIdentifier
 
-тип HeadersInit = Список<объект { _0: Текст, _1: Текст }> | Record<Текст, Текст> | Headers
+тип HeadersInit = Объект? /*(!)Список<объект { _0: Текст, _1: Текст }> | Record<Текст, Текст> | Headers*/
 
-тип IDBValidKey = Число | Текст | Date | BufferSource | Список<IDBValidKey>
+тип IDBValidKey = Объект? /*(!)Число | Текст | Date | BufferSource | Список<IDBValidKey>*/
 
-тип ImageBitmapSource = CanvasImageSource | Blob | ImageData
+тип ImageBitmapSource = Объект? /*(!)CanvasImageSource | Blob | ImageData*/
 
-тип Int32List = Int32Array | Список<GLint>
+тип Int32List = Объект? /*(!)Int32Array | Список<GLint>*/
 
-тип MessageEventSource = MessagePort | ServiceWorker
+тип MessageEventSource = Объект? /*(!)MessagePort | ServiceWorker*/
 
 тип NamedCurve = Текст
 
-тип OffscreenRenderingContext = OffscreenCanvasRenderingContext2D | ImageBitmapRenderingContext | WebGLRenderingContext | WebGL2RenderingContext
+тип OffscreenRenderingContext = Объект? /*(!)OffscreenCanvasRenderingContext2D | ImageBitmapRenderingContext | WebGLRenderingContext | WebGL2RenderingContext*/
 
 тип OnErrorEventHandler = OnErrorEventHandlerNonNull?
 
 тип PerformanceEntryList = Список<PerformanceEntry>
 
-тип PushMessageDataInit = BufferSource | Текст
+тип PushMessageDataInit = Объект? /*(!)BufferSource | Текст*/
 
-тип ReadableStreamController<T> = ReadableStreamDefaultController<T> | ReadableByteStreamController
+тип ReadableStreamController<T> = Объект? /*(!)ReadableStreamDefaultController<T> | ReadableByteStreamController*/
 
-тип ReadableStreamReadResult<T> = ReadableStreamReadValueResult<T> | ReadableStreamReadDoneResult<T>
+тип ReadableStreamReadResult<T> = Объект? /*(!)ReadableStreamReadValueResult<T> | ReadableStreamReadDoneResult<T>*/
 
-тип ReadableStreamReader<T> = ReadableStreamDefaultReader<T> | ReadableStreamBYOBReader
+тип ReadableStreamReader<T> = Объект? /*(!)ReadableStreamDefaultReader<T> | ReadableStreamBYOBReader*/
 
 тип ReportList = Список<Report>
 
-тип RequestInfo = Request | Текст
+тип RequestInfo = Объект? /*(!)Request | Текст*/
 
-тип TexImageSource = ImageBitmap | ImageData | OffscreenCanvas | VideoFrame
+тип TexImageSource = Объект? /*(!)ImageBitmap | ImageData | OffscreenCanvas | VideoFrame*/
 
-тип TimerHandler = Текст | Function
+тип TimerHandler = Объект? /*(!)Текст | Function*/
 
-тип Transferable = OffscreenCanvas | ImageBitmap | MessagePort | ReadableStream | WritableStream | TransformStream | VideoFrame | ArrayBuffer
+тип Transferable = Объект? /*(!)OffscreenCanvas | ImageBitmap | MessagePort | ReadableStream | WritableStream | TransformStream | VideoFrame | ArrayBuffer*/
 
-тип Uint32List = Uint32Array | Список<GLuint>
+тип Uint32List = Объект? /*(!)Uint32Array | Список<GLuint>*/
 
-тип VibratePattern = Число | Список<Число>
+тип VibratePattern = Объект? /*(!)Число | Список<Число>*/
 
-тип XMLHttpRequestBodyInit = Blob | BufferSource | FormData | URLSearchParams | Текст
+тип XMLHttpRequestBodyInit = Объект? /*(!)Blob | BufferSource | FormData | URLSearchParams | Текст*/
 
-тип AlphaOption = "discard" | "keep"
+тип AlphaOption = Объект? /*(!)"discard" | "keep"*/
 
-тип AvcBitstreamFormat = "annexb" | "avc"
+тип AvcBitstreamFormat = Объект? /*(!)"annexb" | "avc"*/
 
-тип BinaryType = "arraybuffer" | "blob"
+тип BinaryType = Объект? /*(!)"arraybuffer" | "blob"*/
 
-тип CSSMathOperator = "clamp" | "invert" | "max" | "min" | "negate" | "product" | "sum"
+тип CSSMathOperator = Объект? /*(!)"clamp" | "invert" | "max" | "min" | "negate" | "product" | "sum"*/
 
-тип CSSNumericBaseType = "angle" | "flex" | "frequency" | "length" | "percent" | "resolution" | "time"
+тип CSSNumericBaseType = Объект? /*(!)"angle" | "flex" | "frequency" | "length" | "percent" | "resolution" | "time"*/
 
-тип CanvasDirection = "inherit" | "ltr" | "rtl"
+тип CanvasDirection = Объект? /*(!)"inherit" | "ltr" | "rtl"*/
 
-тип CanvasFillRule = "evenodd" | "nonzero"
+тип CanvasFillRule = Объект? /*(!)"evenodd" | "nonzero"*/
 
-тип CanvasFontKerning = "auto" | "none" | "normal"
+тип CanvasFontKerning = Объект? /*(!)"auto" | "none" | "normal"*/
 
-тип CanvasFontStretch = "condensed" | "expanded" | "extra-condensed" | "extra-expanded" | "normal" | "semi-condensed" | "semi-expanded" | "ultra-condensed" | "ultra-expanded"
+тип CanvasFontStretch = Объект? /*(!)"condensed" | "expanded" | "extra-condensed" | "extra-expanded" | "normal" | "semi-condensed" | "semi-expanded" | "ultra-condensed" | "ultra-expanded"*/
 
-тип CanvasFontVariantCaps = "all-petite-caps" | "all-small-caps" | "normal" | "petite-caps" | "small-caps" | "titling-caps" | "unicase"
+тип CanvasFontVariantCaps = Объект? /*(!)"all-petite-caps" | "all-small-caps" | "normal" | "petite-caps" | "small-caps" | "titling-caps" | "unicase"*/
 
-тип CanvasLineCap = "butt" | "round" | "square"
+тип CanvasLineCap = Объект? /*(!)"butt" | "round" | "square"*/
 
-тип CanvasLineJoin = "bevel" | "miter" | "round"
+тип CanvasLineJoin = Объект? /*(!)"bevel" | "miter" | "round"*/
 
-тип CanvasTextAlign = "center" | "end" | "left" | "right" | "start"
+тип CanvasTextAlign = Объект? /*(!)"center" | "end" | "left" | "right" | "start"*/
 
-тип CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top"
+тип CanvasTextBaseline = Объект? /*(!)"alphabetic" | "bottom" | "hanging" | "ideographic" | "middle" | "top"*/
 
-тип CanvasTextRendering = "auto" | "geometricPrecision" | "optimizeLegibility" | "optimizeSpeed"
+тип CanvasTextRendering = Объект? /*(!)"auto" | "geometricPrecision" | "optimizeLegibility" | "optimizeSpeed"*/
 
-тип ClientTypes = "all" | "sharedworker" | "window" | "worker"
+тип ClientTypes = Объект? /*(!)"all" | "sharedworker" | "window" | "worker"*/
 
-тип CodecState = "closed" | "configured" | "unconfigured"
+тип CodecState = Объект? /*(!)"closed" | "configured" | "unconfigured"*/
 
-тип ColorGamut = "p3" | "rec2020" | "srgb"
+тип ColorGamut = Объект? /*(!)"p3" | "rec2020" | "srgb"*/
 
-тип ColorSpaceConversion = "default" | "none"
+тип ColorSpaceConversion = Объект? /*(!)"default" | "none"*/
 
-тип CompressionFormat = "deflate" | "deflate-raw" | "gzip"
+тип CompressionFormat = Объект? /*(!)"deflate" | "deflate-raw" | "gzip"*/
 
-тип DocumentVisibilityState = "hidden" | "visible"
+тип DocumentVisibilityState = Объект? /*(!)"hidden" | "visible"*/
 
-тип EncodedVideoChunkType = "delta" | "key"
+тип EncodedVideoChunkType = Объект? /*(!)"delta" | "key"*/
 
-тип EndingType = "native" | "transparent"
+тип EndingType = Объект? /*(!)"native" | "transparent"*/
 
-тип FileSystemHandleKind = "directory" | "file"
+тип FileSystemHandleKind = Объект? /*(!)"directory" | "file"*/
 
-тип FontDisplay = "auto" | "block" | "fallback" | "optional" | "swap"
+тип FontDisplay = Объект? /*(!)"auto" | "block" | "fallback" | "optional" | "swap"*/
 
-тип FontFaceLoadStatus = "error" | "loaded" | "loading" | "unloaded"
+тип FontFaceLoadStatus = Объект? /*(!)"error" | "loaded" | "loading" | "unloaded"*/
 
-тип FontFaceSetLoadStatus = "loaded" | "loading"
+тип FontFaceSetLoadStatus = Объект? /*(!)"loaded" | "loading"*/
 
-тип FrameType = "auxiliary" | "nested" | "none" | "top-level"
+тип FrameType = Объект? /*(!)"auxiliary" | "nested" | "none" | "top-level"*/
 
-тип GlobalCompositeOperation = "color" | "color-burn" | "color-dodge" | "copy" | "darken" | "destination-atop" | "destination-in" | "destination-out" | "destination-over" | "difference" | "exclusion" | "hard-light" | "hue" | "lighten" | "lighter" | "luminosity" | "multiply" | "overlay" | "saturation" | "screen" | "soft-light" | "source-atop" | "source-in" | "source-out" | "source-over" | "xor"
+тип GlobalCompositeOperation = Объект? /*(!)"color" | "color-burn" | "color-dodge" | "copy" | "darken" | "destination-atop" | "destination-in" | "destination-out" | "destination-over" | "difference" | "exclusion" | "hard-light" | "hue" | "lighten" | "lighter" | "luminosity" | "multiply" | "overlay" | "saturation" | "screen" | "soft-light" | "source-atop" | "source-in" | "source-out" | "source-over" | "xor"*/
 
-тип HardwareAcceleration = "no-preference" | "prefer-hardware" | "prefer-software"
+тип HardwareAcceleration = Объект? /*(!)"no-preference" | "prefer-hardware" | "prefer-software"*/
 
-тип HdrMetadataType = "smpteSt2086" | "smpteSt2094-10" | "smpteSt2094-40"
+тип HdrMetadataType = Объект? /*(!)"smpteSt2086" | "smpteSt2094-10" | "smpteSt2094-40"*/
 
-тип IDBCursorDirection = "next" | "nextunique" | "prev" | "prevunique"
+тип IDBCursorDirection = Объект? /*(!)"next" | "nextunique" | "prev" | "prevunique"*/
 
-тип IDBRequestReadyState = "done" | "pending"
+тип IDBRequestReadyState = Объект? /*(!)"done" | "pending"*/
 
-тип IDBTransactionDurability = "default" | "relaxed" | "strict"
+тип IDBTransactionDurability = Объект? /*(!)"default" | "relaxed" | "strict"*/
 
-тип IDBTransactionMode = "readonly" | "readwrite" | "versionchange"
+тип IDBTransactionMode = Объект? /*(!)"readonly" | "readwrite" | "versionchange"*/
 
-тип ImageOrientation = "flipY" | "from-image" | "none"
+тип ImageOrientation = Объект? /*(!)"flipY" | "from-image" | "none"*/
 
-тип ImageSmoothingQuality = "high" | "low" | "medium"
+тип ImageSmoothingQuality = Объект? /*(!)"high" | "low" | "medium"*/
 
-тип KeyFormat = "jwk" | "pkcs8" | "raw" | "spki"
+тип KeyFormat = Объект? /*(!)"jwk" | "pkcs8" | "raw" | "spki"*/
 
-тип KeyType = "private" | "public" | "secret"
+тип KeyType = Объект? /*(!)"private" | "public" | "secret"*/
 
-тип KeyUsage = "decrypt" | "deriveBits" | "deriveKey" | "encrypt" | "sign" | "unwrapKey" | "verify" | "wrapKey"
+тип KeyUsage = Объект? /*(!)"decrypt" | "deriveBits" | "deriveKey" | "encrypt" | "sign" | "unwrapKey" | "verify" | "wrapKey"*/
 
-тип LatencyMode = "quality" | "realtime"
+тип LatencyMode = Объект? /*(!)"quality" | "realtime"*/
 
-тип LockMode = "exclusive" | "shared"
+тип LockMode = Объект? /*(!)"exclusive" | "shared"*/
 
-тип MediaDecodingType = "file" | "media-source" | "webrtc"
+тип MediaDecodingType = Объект? /*(!)"file" | "media-source" | "webrtc"*/
 
-тип MediaEncodingType = "record" | "webrtc"
+тип MediaEncodingType = Объект? /*(!)"record" | "webrtc"*/
 
-тип NotificationDirection = "auto" | "ltr" | "rtl"
+тип NotificationDirection = Объект? /*(!)"auto" | "ltr" | "rtl"*/
 
-тип NotificationPermission = "default" | "denied" | "granted"
+тип NotificationPermission = Объект? /*(!)"default" | "denied" | "granted"*/
 
-тип OffscreenRenderingContextId = "2d" | "bitmaprenderer" | "webgl" | "webgl2" | "webgpu"
+тип OffscreenRenderingContextId = Объект? /*(!)"2d" | "bitmaprenderer" | "webgl" | "webgl2" | "webgpu"*/
 
-тип PermissionName = "geolocation" | "notifications" | "persistent-storage" | "push" | "screen-wake-lock" | "xr-spatial-tracking"
+тип PermissionName = Объект? /*(!)"geolocation" | "notifications" | "persistent-storage" | "push" | "screen-wake-lock" | "xr-spatial-tracking"*/
 
-тип PermissionState = "denied" | "granted" | "prompt"
+тип PermissionState = Объект? /*(!)"denied" | "granted" | "prompt"*/
 
-тип PredefinedColorSpace = "display-p3" | "srgb"
+тип PredefinedColorSpace = Объект? /*(!)"display-p3" | "srgb"*/
 
-тип PremultiplyAlpha = "default" | "none" | "premultiply"
+тип PremultiplyAlpha = Объект? /*(!)"default" | "none" | "premultiply"*/
 
-тип PushEncryptionKeyName = "auth" | "p256dh"
+тип PushEncryptionKeyName = Объект? /*(!)"auth" | "p256dh"*/
 
-тип RTCEncodedVideoFrameType = "delta" | "empty" | "key"
+тип RTCEncodedVideoFrameType = Объект? /*(!)"delta" | "empty" | "key"*/
 
 тип ReadableStreamReaderMode = "byob"
 
 тип ReadableStreamType = "bytes"
 
-тип ReferrerPolicy = "" | "no-referrer" | "no-referrer-when-downgrade" | "origin" | "origin-when-cross-origin" | "same-origin" | "strict-origin" | "strict-origin-when-cross-origin" | "unsafe-url"
+тип ReferrerPolicy = Объект? /*(!)"" | "no-referrer" | "no-referrer-when-downgrade" | "origin" | "origin-when-cross-origin" | "same-origin" | "strict-origin" | "strict-origin-when-cross-origin" | "unsafe-url"*/
 
-тип RequestCache = "default" | "force-cache" | "no-cache" | "no-store" | "only-if-cached" | "reload"
+тип RequestCache = Объект? /*(!)"default" | "force-cache" | "no-cache" | "no-store" | "only-if-cached" | "reload"*/
 
-тип RequestCredentials = "include" | "omit" | "same-origin"
+тип RequestCredentials = Объект? /*(!)"include" | "omit" | "same-origin"*/
 
-тип RequestDestination = "" | "audio" | "audioworklet" | "document" | "embed" | "font" | "frame" | "iframe" | "image" | "manifest" | "object" | "paintworklet" | "report" | "script" | "sharedworker" | "style" | "track" | "video" | "worker" | "xslt"
+тип RequestDestination = Объект? /*(!)"" | "audio" | "audioworklet" | "document" | "embed" | "font" | "frame" | "iframe" | "image" | "manifest" | "object" | "paintworklet" | "report" | "script" | "sharedworker" | "style" | "track" | "video" | "worker" | "xslt"*/
 
-тип RequestMode = "cors" | "navigate" | "no-cors" | "same-origin"
+тип RequestMode = Объект? /*(!)"cors" | "navigate" | "no-cors" | "same-origin"*/
 
-тип RequestRedirect = "error" | "follow" | "manual"
+тип RequestRedirect = Объект? /*(!)"error" | "follow" | "manual"*/
 
-тип ResizeQuality = "high" | "low" | "medium" | "pixelated"
+тип ResizeQuality = Объект? /*(!)"high" | "low" | "medium" | "pixelated"*/
 
-тип ResponseType = "basic" | "cors" | "default" | "error" | "opaque" | "opaqueredirect"
+тип ResponseType = Объект? /*(!)"basic" | "cors" | "default" | "error" | "opaque" | "opaqueredirect"*/
 
-тип SecurityPolicyViolationEventDisposition = "enforce" | "report"
+тип SecurityPolicyViolationEventDisposition = Объект? /*(!)"enforce" | "report"*/
 
-тип ServiceWorkerState = "activated" | "activating" | "installed" | "installing" | "parsed" | "redundant"
+тип ServiceWorkerState = Объект? /*(!)"activated" | "activating" | "installed" | "installing" | "parsed" | "redundant"*/
 
-тип ServiceWorkerUpdateViaCache = "all" | "imports" | "none"
+тип ServiceWorkerUpdateViaCache = Объект? /*(!)"all" | "imports" | "none"*/
 
-тип TransferFunction = "hlg" | "pq" | "srgb"
+тип TransferFunction = Объект? /*(!)"hlg" | "pq" | "srgb"*/
 
-тип VideoColorPrimaries = "bt470bg" | "bt709" | "smpte170m"
+тип VideoColorPrimaries = Объект? /*(!)"bt470bg" | "bt709" | "smpte170m"*/
 
-тип VideoEncoderBitrateMode = "constant" | "quantizer" | "variable"
+тип VideoEncoderBitrateMode = Объект? /*(!)"constant" | "quantizer" | "variable"*/
 
-тип VideoMatrixCoefficients = "bt470bg" | "bt709" | "rgb" | "smpte170m"
+тип VideoMatrixCoefficients = Объект? /*(!)"bt470bg" | "bt709" | "rgb" | "smpte170m"*/
 
-тип VideoPixelFormat = "BGRA" | "BGRX" | "I420" | "I420A" | "I422" | "I444" | "NV12" | "RGBA" | "RGBX"
+тип VideoPixelFormat = Объект? /*(!)"BGRA" | "BGRX" | "I420" | "I420A" | "I422" | "I444" | "NV12" | "RGBA" | "RGBX"*/
 
-тип VideoTransferCharacteristics = "bt709" | "iec61966-2-1" | "smpte170m"
+тип VideoTransferCharacteristics = Объект? /*(!)"bt709" | "iec61966-2-1" | "smpte170m"*/
 
-тип WebGLPowerPreference = "default" | "high-performance" | "low-power"
+тип WebGLPowerPreference = Объект? /*(!)"default" | "high-performance" | "low-power"*/
 
-тип WebTransportCongestionControl = "default" | "low-latency" | "throughput"
+тип WebTransportCongestionControl = Объект? /*(!)"default" | "low-latency" | "throughput"*/
 
-тип WebTransportErrorSource = "session" | "stream"
+тип WebTransportErrorSource = Объект? /*(!)"session" | "stream"*/
 
-тип WorkerType = "classic" | "module"
+тип WorkerType = Объект? /*(!)"classic" | "module"*/
 
-тип WriteCommandType = "seek" | "truncate" | "write"
+тип WriteCommandType = Объект? /*(!)"seek" | "truncate" | "write"*/
 
-тип XMLHttpRequestResponseType = "" | "arraybuffer" | "blob" | "document" | "json" | "text"
+тип XMLHttpRequestResponseType = Объект? /*(!)"" | "arraybuffer" | "blob" | "document" | "json" | "text"*/

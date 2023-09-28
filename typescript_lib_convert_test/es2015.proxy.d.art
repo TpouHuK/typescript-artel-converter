@@ -4,25 +4,25 @@
 
   операция construct(target: T, argArray: Список</*(!) any */ Объект?>, newTarget: Function): Объект
 
-  операция defineProperty(target: T, property: Текст | Символ, attributes: PropertyDescriptor): ДаНет
+  операция defineProperty(target: T, property: Объект? /*(!)Текст | Символ*/, attributes: PropertyDescriptor): ДаНет
 
-  операция deleteProperty(target: T, p: Текст | Символ): ДаНет
+  операция deleteProperty(target: T, p: Объект? /*(!)Текст | Символ*/): ДаНет
 
-  операция get(target: T, p: Текст | Символ, receiver: /*(!) any */ Объект?): /*(!) any */ Объект?
+  операция get(target: T, p: Объект? /*(!)Текст | Символ*/, receiver: /*(!) any */ Объект?): /*(!) any */ Объект?
 
-  операция getOwnPropertyDescriptor(target: T, p: Текст | Символ): PropertyDescriptor?
+  операция getOwnPropertyDescriptor(target: T, p: Объект? /*(!)Текст | Символ*/): PropertyDescriptor?
 
   операция getPrototypeOf(target: T): Объект?
 
-  операция has(target: T, p: Текст | Символ): ДаНет
+  операция has(target: T, p: Объект? /*(!)Текст | Символ*/): ДаНет
 
   операция isExtensible(target: T): ДаНет
 
-  операция ownKeys(target: T): ArrayLike<Текст | Символ>
+  операция ownKeys(target: T): ArrayLike<Объект? /*(!)Текст | Символ*/>
 
   операция preventExtensions(target: T): ДаНет
 
-  операция set(target: T, p: Текст | Символ, newValue: /*(!) any */ Объект?, receiver: /*(!) any */ Объект?): ДаНет
+  операция set(target: T, p: Объект? /*(!)Текст | Символ*/, newValue: /*(!) any */ Объект?, receiver: /*(!) any */ Объект?): ДаНет
 
   операция setPrototypeOf(target: T, v: Объект?): ДаНет
 }

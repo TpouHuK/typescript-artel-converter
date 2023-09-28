@@ -14,12 +14,12 @@
 }
 
 
-тип PromiseSettledResult<T> = PromiseFulfilledResult<T> | PromiseRejectedResult
+тип PromiseSettledResult<T> = Объект? /*(!)PromiseFulfilledResult<T> | PromiseRejectedResult*/
 
 тип PromiseConstructor = интерфейс
 {
-  операция allSettled<T = /*(!) защищено */ (Список</*(!) unknown */ Объект?> | объект {  })>(values: T): Promise</*(!) { -readonly [P in keyof T]: PromiseSettledResult<Awaited<T[P]>>; } */ Объект?>
+  операция allSettled<T = /*(!) защищено */ (Объект? /*(!)Список</*(!) unknown */ Объект?> | объект {  }*/)>(values: T): Promise</*(!) { -readonly [P in keyof T]: PromiseSettledResult<Awaited<T[P]>>; } */ Объект?>
 
-  операция allSettled<T>(values: Iterable<T | PromiseLike<T>>): Promise<Список<PromiseSettledResult<Awaited<T>>>>
+  операция allSettled<T>(values: Iterable<Объект? /*(!)T | PromiseLike<T>*/>): Promise<Список<PromiseSettledResult<Awaited<T>>>>
 }
 

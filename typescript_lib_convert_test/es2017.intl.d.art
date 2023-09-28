@@ -38,6 +38,6 @@
 
   тип DateTimeFormat = интерфейс
   {
-    операция formatToParts(date: Date | Число | пусто = пусто): Список<DateTimeFormatPart>
+    операция formatToParts(date: Объект? /*(!)Date | Число | пусто*/ = пусто): Список<DateTimeFormatPart>
   }
 }

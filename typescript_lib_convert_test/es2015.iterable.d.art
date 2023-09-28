@@ -23,12 +23,12 @@
 }
 
 
-тип IteratorResult<T, TReturn> = IteratorYieldResult<T> | IteratorReturnResult<TReturn>
+тип IteratorResult<T, TReturn> = Объект? /*(!)IteratorYieldResult<T> | IteratorReturnResult<TReturn>*/
 
 тип Iterator<T, TReturn, TNext> = интерфейс
 {
   #js.МассивПараметров
-  операция next(args: объект {  } | объект { _0: TNext }): IteratorResult<T, TReturn>
+  операция next(args: Объект? /*(!)объект {  } | объект { _0: TNext }*/): IteratorResult<T, TReturn>
 
   операция return(value: TReturn? = пусто): IteratorResult<T, TReturn>
 
@@ -62,9 +62,9 @@
 
 тип ArrayConstructor = интерфейс
 {
-  операция from<T>(iterable: Iterable<T> | ArrayLike<T>): Список<T>
+  операция from<T>(iterable: Объект? /*(!)Iterable<T> | ArrayLike<T>*/): Список<T>
 
-  операция from<T, U>(iterable: Iterable<T> | ArrayLike<T>, mapfn: операция(v: T, k: Число): U, thisArg: /*(!) any */ Объект? = пусто): Список<U>
+  операция from<T, U>(iterable: Объект? /*(!)Iterable<T> | ArrayLike<T>*/, mapfn: операция(v: T, k: Число): U, thisArg: /*(!) any */ Объект? = пусто): Список<U>
 }
 
 
@@ -180,9 +180,9 @@
 
 тип PromiseConstructor = интерфейс
 {
-  операция all<T>(values: Iterable<T | PromiseLike<T>>): Promise<Список<Awaited<T>>>
+  операция all<T>(values: Iterable<Объект? /*(!)T | PromiseLike<T>*/>): Promise<Список<Awaited<T>>>
 
-  операция race<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>
+  операция race<T>(values: Iterable<Объект? /*(!)T | PromiseLike<T>*/>): Promise<Awaited<T>>
 }
 
 

@@ -25,8 +25,8 @@
 
 тип PromiseConstructor = интерфейс
 {
-  операция any<T = /*(!) защищено */ (Список</*(!) unknown */ Объект?> | объект {  })>(values: T): Promise<Awaited</*(!) T[number] */ Объект?>>
+  операция any<T = /*(!) защищено */ (Объект? /*(!)Список</*(!) unknown */ Объект?> | объект {  }*/)>(values: T): Promise<Awaited</*(!) T[number] */ Объект?>>
 
-  операция any<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>
+  операция any<T>(values: Iterable<Объект? /*(!)T | PromiseLike<T>*/>): Promise<Awaited<T>>
 }
 

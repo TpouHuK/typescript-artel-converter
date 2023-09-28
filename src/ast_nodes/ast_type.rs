@@ -186,7 +186,12 @@ impl ArtelStr for Type {
             }
         }
 
-        str
+        // TEMPORARY NO UNION TYPE
+        if self.0.len() > 1 && !is_optional {
+            format!("Объект? /*(!){str}*/")
+        } else {
+            str
+        }
     }
 }
 

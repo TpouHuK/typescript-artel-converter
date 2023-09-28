@@ -1,25 +1,25 @@
 тип Atomics = интерфейс
 {
-  операция add(typedArray: BigInt64Array | BigUint64Array, index: Число, value: bigint): bigint
+  операция add(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 
-  операция and(typedArray: BigInt64Array | BigUint64Array, index: Число, value: bigint): bigint
+  операция and(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 
-  операция compareExchange(typedArray: BigInt64Array | BigUint64Array, index: Число, expectedValue: bigint, replacementValue: bigint): bigint
+  операция compareExchange(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, expectedValue: bigint, replacementValue: bigint): bigint
 
-  операция exchange(typedArray: BigInt64Array | BigUint64Array, index: Число, value: bigint): bigint
+  операция exchange(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 
-  операция load(typedArray: BigInt64Array | BigUint64Array, index: Число): bigint
+  операция load(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число): bigint
 
-  операция or(typedArray: BigInt64Array | BigUint64Array, index: Число, value: bigint): bigint
+  операция or(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 
-  операция store(typedArray: BigInt64Array | BigUint64Array, index: Число, value: bigint): bigint
+  операция store(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 
-  операция sub(typedArray: BigInt64Array | BigUint64Array, index: Число, value: bigint): bigint
+  операция sub(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 
-  операция wait(typedArray: BigInt64Array, index: Число, value: bigint, timeout: Число? = пусто): "ok" | "not-equal" | "timed-out"
+  операция wait(typedArray: BigInt64Array, index: Число, value: bigint, timeout: Число? = пусто): Объект? /*(!)"ok" | "not-equal" | "timed-out"*/
 
   операция notify(typedArray: BigInt64Array, index: Число, count: Число? = пусто): Число
 
-  операция xor(typedArray: BigInt64Array | BigUint64Array, index: Число, value: bigint): bigint
+  операция xor(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 }
 
