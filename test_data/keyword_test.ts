@@ -1,0 +1,1 @@
+type operation = finally;
