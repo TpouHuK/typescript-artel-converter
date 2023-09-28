@@ -3,18 +3,30 @@ use itertools::Itertools;
 use std::string::String;
 use tree_sitter_c2rust::Node;
 
+const IGNORE_DEPRECATED: bool = true;
+
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
 /// It returns sequence of statements, which is something like AST, and that can be converted into
 /// Artel API defitions directly.
 pub fn walk_tree(source: &str, node: &Node) -> ArtelProgram {
     let mut statements = Vec::new();
 
+    let mut is_deprecated = false;
     for child in node.named_children(&mut node.walk()) {
+        if is_deprecated {
+            is_deprecated = false;
+            continue;
+        }
         if let Some(stmt) = parse_statement(source, &child) {
+            if let ArtelStatement::Comment(comment) = &stmt {
+                if comment.contains("@deprecated") && IGNORE_DEPRECATED {
+                    is_deprecated = true;
+                    continue;
+                }
+            }
             statements.push(stmt);
         }
     }
-
     statements
 }
 
@@ -89,12 +101,10 @@ fn parse_internal_module(source: &str, node: &Node) -> ArtelStatement {
             .utf8_text(source.as_bytes())
             .unwrap(),
     );
-    let body = node
+
+    let body = walk_tree(source, &node
         .child_by_field_name("body")
-        .unwrap()
-        .named_children(&mut node.walk())
-        .filter_map(|s| parse_statement(source, &s))
-        .collect();
+        .unwrap());
     ArtelStatement::InternalModule(ArtelInternalModule::new(name, body))
 }
 
@@ -202,10 +212,15 @@ fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
         parse_type_parameters(source, &parameters_node)
     };
 
-
     let mut vec = Vec::new();
     let body = node.child_by_field_name("body").unwrap();
+
+    let mut is_deprecated = false;
     for element in body.named_children(&mut body.walk()) {
+        if is_deprecated && IGNORE_DEPRECATED {
+            is_deprecated = false;
+            continue;
+        }
         match element.kind() {
             "property_signature" => {
                 let property_name = element
@@ -237,6 +252,9 @@ fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
                 element.utf8_text(source.as_bytes()).unwrap().to_owned(),
             )),
             "comment" => { // TODO
+                if node.utf8_text(source.as_bytes()).unwrap().contains("@deprecated") {
+                    is_deprecated = true;
+                }
             }
             _ => {
                 unimplemented!("{}", element.kind())
@@ -631,7 +649,13 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
     let mut cursor = body.walk();
 
     let mut definitions = Vec::new();
+
+    let mut is_deprecated = false;
     for definition in body.named_children(&mut cursor) {
+        if is_deprecated {
+            is_deprecated = false;
+            continue;
+        }
         match definition.kind() {
             "public_field_definition" => {
                 let mut modifiers_cursor = definition.walk();
@@ -717,7 +741,11 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
                 let method = parse_method_definition(source, &definition);
                 definitions.push(method);
             }
-            "comment" | "decorator" => {}
+            "comment" | "decorator" => {
+                if node.utf8_text(source.as_bytes()).unwrap().contains("@deprecated") {
+                    is_deprecated = true;
+                }
+            }
             _ => {
                 unimplemented!("{} is not implemented in a class body", definition.kind())
             }
@@ -922,9 +950,7 @@ fn parse_formal_arguments(source: &str, parameters: &Node) -> Vec<ArtelFunctionA
 }
 
 fn parse_statement_block(source: &str, node: &Node) -> Vec<ArtelStatement> {
-    node.named_children(&mut node.walk())
-        .filter_map(|s| parse_statement(source, &s))
-        .collect()
+    walk_tree(source, node)
 }
 
 pub fn create_artel_code(artel_program: ArtelProgram) -> String {

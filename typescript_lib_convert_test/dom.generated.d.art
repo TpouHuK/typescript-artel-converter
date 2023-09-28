@@ -1178,15 +1178,11 @@
 
 тип KeyboardEventInit = интерфейс на основе EventModifierInit
 {
-  charCode: Число
-
   code: Текст
 
   isComposing: ДаНет
 
   key: Текст
-
-  keyCode: Число
 
   location: Число
 
@@ -3133,8 +3129,6 @@
   detail: Число
 
   view: Window?
-
-  which: Число
 }
 
 
@@ -3956,27 +3950,7 @@
 тип Attr = интерфейс на основе Node
 {
   защищено 
-  localName: Текст
-
-  защищено 
-  name: Текст
-
-  защищено 
-  namespaceURI: Текст?
-
-  защищено 
   ownerDocument: Document
-
-  защищено 
-  ownerElement: Element?
-
-  защищено 
-  prefix: Текст?
-
-  защищено 
-  specified: ДаНет
-
-  value: Текст
 }
 
 
@@ -4121,36 +4095,7 @@
 
 тип AudioListener = интерфейс
 {
-  защищено 
-  forwardX: AudioParam
 
-  защищено 
-  forwardY: AudioParam
-
-  защищено 
-  forwardZ: AudioParam
-
-  защищено 
-  positionX: AudioParam
-
-  защищено 
-  positionY: AudioParam
-
-  защищено 
-  positionZ: AudioParam
-
-  защищено 
-  upX: AudioParam
-
-  защищено 
-  upY: AudioParam
-
-  защищено 
-  upZ: AudioParam
-
-  операция setOrientation(x: Число, y: Число, z: Число, xUp: Число, yUp: Число, zUp: Число)
-
-  операция setPosition(x: Число, y: Число, z: Число)
 }
 
 
@@ -4256,32 +4201,6 @@
 
 внешнее
 /*(!) var */ AudioParamMap: объект { prototype: AudioParamMap; при создании(): AudioParamMap }
-
-
-/**
-* The Web Audio API events that occur when a ScriptProcessorNode input buffer is ready to be processed.
-* @deprecated As of the August 29 2014 Web Audio API spec publication, this feature has been marked as deprecated, and is soon to be replaced by AudioWorklet.
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioProcessingEvent)
-*/
-
-тип AudioProcessingEvent = интерфейс на основе Event
-{
-  защищено 
-  inputBuffer: AudioBuffer
-
-  защищено 
-  outputBuffer: AudioBuffer
-
-  защищено 
-  playbackTime: Число
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ AudioProcessingEvent: объект { prototype: AudioProcessingEvent; при создании(type: Текст, eventInitDict: AudioProcessingEventInit): AudioProcessingEvent }
 
 
 тип AudioScheduledSourceNodeEventMap = интерфейс
@@ -4454,64 +4373,6 @@
 
 тип BaseAudioContext = интерфейс на основе EventTarget
 {
-  защищено 
-  audioWorklet: AudioWorklet
-
-  защищено 
-  currentTime: Число
-
-  защищено 
-  destination: AudioDestinationNode
-
-  защищено 
-  listener: AudioListener
-
-  onstatechange: (операция(this: BaseAudioContext, ev: Event): /*(!) any */ Объект?)?
-
-  защищено 
-  sampleRate: Число
-
-  защищено 
-  state: AudioContextState
-
-  операция createAnalyser(): AnalyserNode
-
-  операция createBiquadFilter(): BiquadFilterNode
-
-  операция createBuffer(numberOfChannels: Число, length: Число, sampleRate: Число): AudioBuffer
-
-  операция createBufferSource(): AudioBufferSourceNode
-
-  операция createChannelMerger(numberOfInputs: Число? = пусто): ChannelMergerNode
-
-  операция createChannelSplitter(numberOfOutputs: Число? = пусто): ChannelSplitterNode
-
-  операция createConstantSource(): ConstantSourceNode
-
-  операция createConvolver(): ConvolverNode
-
-  операция createDelay(maxDelayTime: Число? = пусто): DelayNode
-
-  операция createDynamicsCompressor(): DynamicsCompressorNode
-
-  операция createGain(): GainNode
-
-  операция createIIRFilter(feedforward: Список<Число>, feedback: Список<Число>): IIRFilterNode
-
-  операция createOscillator(): OscillatorNode
-
-  операция createPanner(): PannerNode
-
-  операция createPeriodicWave(real: Список<Число> | Float32Array, imag: Список<Число> | Float32Array, constraints: PeriodicWaveConstraints? = пусто): PeriodicWave
-
-  операция createScriptProcessor(bufferSize: Число? = пусто, numberOfInputChannels: Число? = пусто, numberOfOutputChannels: Число? = пусто): ScriptProcessorNode
-
-  операция createStereoPanner(): StereoPannerNode
-
-  операция createWaveShaper(): WaveShaperNode
-
-  операция decodeAudioData(audioData: ArrayBuffer, successCallback: DecodeSuccessCallback? = пусто, errorCallback: DecodeErrorCallback? = пусто): Promise<AudioBuffer>
-
   операция addEventListener<K = /*(!) keyof BaseAudioContextEventMap */ Объект?>(type: K, listener: операция(this: BaseAudioContext, ev: /*(!) BaseAudioContextEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -5275,17 +5136,6 @@
 
 тип CSSRule = интерфейс
 {
-  cssText: Текст
-
-  защищено 
-  parentRule: CSSRule?
-
-  защищено 
-  parentStyleSheet: CSSStyleSheet?
-
-  защищено 
-  type: Число
-
   защищено 
   STYLE_RULE: 1
 
@@ -5405,287 +5255,17 @@
 
 тип CSSStyleDeclaration = интерфейс
 {
-  accentColor: Текст
-
-  alignContent: Текст
-
-  alignItems: Текст
-
-  alignSelf: Текст
-
   alignmentBaseline: Текст
-
-  all: Текст
-
-  animation: Текст
-
-  animationComposition: Текст
-
-  animationDelay: Текст
-
-  animationDirection: Текст
-
-  animationDuration: Текст
-
-  animationFillMode: Текст
-
-  animationIterationCount: Текст
-
-  animationName: Текст
-
-  animationPlayState: Текст
-
-  animationTimingFunction: Текст
-
-  appearance: Текст
-
-  aspectRatio: Текст
-
-  backdropFilter: Текст
-
-  backfaceVisibility: Текст
-
-  background: Текст
-
-  backgroundAttachment: Текст
-
-  backgroundBlendMode: Текст
-
-  backgroundClip: Текст
-
-  backgroundColor: Текст
-
-  backgroundImage: Текст
-
-  backgroundOrigin: Текст
-
-  backgroundPosition: Текст
-
-  backgroundPositionX: Текст
-
-  backgroundPositionY: Текст
-
-  backgroundRepeat: Текст
-
-  backgroundSize: Текст
 
   baselineShift: Текст
 
-  blockSize: Текст
-
-  border: Текст
-
-  borderBlock: Текст
-
-  borderBlockColor: Текст
-
-  borderBlockEnd: Текст
-
-  borderBlockEndColor: Текст
-
-  borderBlockEndStyle: Текст
-
-  borderBlockEndWidth: Текст
-
-  borderBlockStart: Текст
-
-  borderBlockStartColor: Текст
-
-  borderBlockStartStyle: Текст
-
-  borderBlockStartWidth: Текст
-
-  borderBlockStyle: Текст
-
-  borderBlockWidth: Текст
-
-  borderBottom: Текст
-
-  borderBottomColor: Текст
-
-  borderBottomLeftRadius: Текст
-
-  borderBottomRightRadius: Текст
-
-  borderBottomStyle: Текст
-
-  borderBottomWidth: Текст
-
-  borderCollapse: Текст
-
-  borderColor: Текст
-
-  borderEndEndRadius: Текст
-
-  borderEndStartRadius: Текст
-
-  borderImage: Текст
-
-  borderImageOutset: Текст
-
-  borderImageRepeat: Текст
-
-  borderImageSlice: Текст
-
-  borderImageSource: Текст
-
-  borderImageWidth: Текст
-
-  borderInline: Текст
-
-  borderInlineColor: Текст
-
-  borderInlineEnd: Текст
-
-  borderInlineEndColor: Текст
-
-  borderInlineEndStyle: Текст
-
-  borderInlineEndWidth: Текст
-
-  borderInlineStart: Текст
-
-  borderInlineStartColor: Текст
-
-  borderInlineStartStyle: Текст
-
-  borderInlineStartWidth: Текст
-
-  borderInlineStyle: Текст
-
-  borderInlineWidth: Текст
-
-  borderLeft: Текст
-
-  borderLeftColor: Текст
-
-  borderLeftStyle: Текст
-
-  borderLeftWidth: Текст
-
-  borderRadius: Текст
-
-  borderRight: Текст
-
-  borderRightColor: Текст
-
-  borderRightStyle: Текст
-
-  borderRightWidth: Текст
-
-  borderSpacing: Текст
-
-  borderStartEndRadius: Текст
-
-  borderStartStartRadius: Текст
-
-  borderStyle: Текст
-
-  borderTop: Текст
-
-  borderTopColor: Текст
-
-  borderTopLeftRadius: Текст
-
-  borderTopRightRadius: Текст
-
-  borderTopStyle: Текст
-
-  borderTopWidth: Текст
-
-  borderWidth: Текст
-
-  bottom: Текст
-
-  boxShadow: Текст
-
-  boxSizing: Текст
-
-  breakAfter: Текст
-
-  breakBefore: Текст
-
-  breakInside: Текст
-
-  captionSide: Текст
-
-  caretColor: Текст
-
-  clear: Текст
-
-  clip: Текст
-
-  clipPath: Текст
-
   clipRule: Текст
-
-  color: Текст
 
   colorInterpolation: Текст
 
   colorInterpolationFilters: Текст
 
-  colorScheme: Текст
-
-  columnCount: Текст
-
-  columnFill: Текст
-
-  columnGap: Текст
-
-  columnRule: Текст
-
-  columnRuleColor: Текст
-
-  columnRuleStyle: Текст
-
-  columnRuleWidth: Текст
-
-  columnSpan: Текст
-
-  columnWidth: Текст
-
-  columns: Текст
-
-  contain: Текст
-
-  containIntrinsicBlockSize: Текст
-
-  containIntrinsicHeight: Текст
-
-  containIntrinsicInlineSize: Текст
-
-  containIntrinsicSize: Текст
-
-  containIntrinsicWidth: Текст
-
-  container: Текст
-
-  containerName: Текст
-
-  containerType: Текст
-
-  content: Текст
-
-  counterIncrement: Текст
-
-  counterReset: Текст
-
-  counterSet: Текст
-
-  cssFloat: Текст
-
-  cssText: Текст
-
-  cursor: Текст
-
-  direction: Текст
-
-  display: Текст
-
   dominantBaseline: Текст
-
-  emptyCells: Текст
 
   fill: Текст
 
@@ -5693,190 +5273,11 @@
 
   fillRule: Текст
 
-  filter: Текст
-
-  flex: Текст
-
-  flexBasis: Текст
-
-  flexDirection: Текст
-
-  flexFlow: Текст
-
-  flexGrow: Текст
-
-  flexShrink: Текст
-
-  flexWrap: Текст
-
-  float: Текст
-
   floodColor: Текст
 
   floodOpacity: Текст
 
-  font: Текст
-
-  fontFamily: Текст
-
-  fontFeatureSettings: Текст
-
-  fontKerning: Текст
-
-  fontOpticalSizing: Текст
-
-  fontPalette: Текст
-
-  fontSize: Текст
-
-  fontSizeAdjust: Текст
-
-  fontStretch: Текст
-
-  fontStyle: Текст
-
-  fontSynthesis: Текст
-
-  fontSynthesisSmallCaps: Текст
-
-  fontSynthesisStyle: Текст
-
-  fontSynthesisWeight: Текст
-
-  fontVariant: Текст
-
-  fontVariantAlternates: Текст
-
-  fontVariantCaps: Текст
-
-  fontVariantEastAsian: Текст
-
-  fontVariantLigatures: Текст
-
-  fontVariantNumeric: Текст
-
-  fontVariantPosition: Текст
-
-  fontVariationSettings: Текст
-
-  fontWeight: Текст
-
-  forcedColorAdjust: Текст
-
-  gap: Текст
-
-  grid: Текст
-
-  gridArea: Текст
-
-  gridAutoColumns: Текст
-
-  gridAutoFlow: Текст
-
-  gridAutoRows: Текст
-
-  gridColumn: Текст
-
-  gridColumnEnd: Текст
-
-  gridColumnGap: Текст
-
-  gridColumnStart: Текст
-
-  gridGap: Текст
-
-  gridRow: Текст
-
-  gridRowEnd: Текст
-
-  gridRowGap: Текст
-
-  gridRowStart: Текст
-
-  gridTemplate: Текст
-
-  gridTemplateAreas: Текст
-
-  gridTemplateColumns: Текст
-
-  gridTemplateRows: Текст
-
-  height: Текст
-
-  hyphenateCharacter: Текст
-
-  hyphens: Текст
-
-  imageOrientation: Текст
-
-  imageRendering: Текст
-
-  inlineSize: Текст
-
-  inset: Текст
-
-  insetBlock: Текст
-
-  insetBlockEnd: Текст
-
-  insetBlockStart: Текст
-
-  insetInline: Текст
-
-  insetInlineEnd: Текст
-
-  insetInlineStart: Текст
-
-  isolation: Текст
-
-  justifyContent: Текст
-
-  justifyItems: Текст
-
-  justifySelf: Текст
-
-  left: Текст
-
-  защищено 
-  length: Число
-
-  letterSpacing: Текст
-
   lightingColor: Текст
-
-  lineBreak: Текст
-
-  lineHeight: Текст
-
-  listStyle: Текст
-
-  listStyleImage: Текст
-
-  listStylePosition: Текст
-
-  listStyleType: Текст
-
-  margin: Текст
-
-  marginBlock: Текст
-
-  marginBlockEnd: Текст
-
-  marginBlockStart: Текст
-
-  marginBottom: Текст
-
-  marginInline: Текст
-
-  marginInlineEnd: Текст
-
-  marginInlineStart: Текст
-
-  marginLeft: Текст
-
-  marginRight: Текст
-
-  marginTop: Текст
 
   marker: Текст
 
@@ -5885,221 +5286,6 @@
   markerMid: Текст
 
   markerStart: Текст
-
-  mask: Текст
-
-  maskClip: Текст
-
-  maskComposite: Текст
-
-  maskImage: Текст
-
-  maskMode: Текст
-
-  maskOrigin: Текст
-
-  maskPosition: Текст
-
-  maskRepeat: Текст
-
-  maskSize: Текст
-
-  maskType: Текст
-
-  mathStyle: Текст
-
-  maxBlockSize: Текст
-
-  maxHeight: Текст
-
-  maxInlineSize: Текст
-
-  maxWidth: Текст
-
-  minBlockSize: Текст
-
-  minHeight: Текст
-
-  minInlineSize: Текст
-
-  minWidth: Текст
-
-  mixBlendMode: Текст
-
-  objectFit: Текст
-
-  objectPosition: Текст
-
-  offset: Текст
-
-  offsetDistance: Текст
-
-  offsetPath: Текст
-
-  offsetRotate: Текст
-
-  opacity: Текст
-
-  order: Текст
-
-  orphans: Текст
-
-  outline: Текст
-
-  outlineColor: Текст
-
-  outlineOffset: Текст
-
-  outlineStyle: Текст
-
-  outlineWidth: Текст
-
-  overflow: Текст
-
-  overflowAnchor: Текст
-
-  overflowClipMargin: Текст
-
-  overflowWrap: Текст
-
-  overflowX: Текст
-
-  overflowY: Текст
-
-  overscrollBehavior: Текст
-
-  overscrollBehaviorBlock: Текст
-
-  overscrollBehaviorInline: Текст
-
-  overscrollBehaviorX: Текст
-
-  overscrollBehaviorY: Текст
-
-  padding: Текст
-
-  paddingBlock: Текст
-
-  paddingBlockEnd: Текст
-
-  paddingBlockStart: Текст
-
-  paddingBottom: Текст
-
-  paddingInline: Текст
-
-  paddingInlineEnd: Текст
-
-  paddingInlineStart: Текст
-
-  paddingLeft: Текст
-
-  paddingRight: Текст
-
-  paddingTop: Текст
-
-  page: Текст
-
-  pageBreakAfter: Текст
-
-  pageBreakBefore: Текст
-
-  pageBreakInside: Текст
-
-  paintOrder: Текст
-
-  защищено 
-  parentRule: CSSRule?
-
-  perspective: Текст
-
-  perspectiveOrigin: Текст
-
-  placeContent: Текст
-
-  placeItems: Текст
-
-  placeSelf: Текст
-
-  pointerEvents: Текст
-
-  position: Текст
-
-  printColorAdjust: Текст
-
-  quotes: Текст
-
-  resize: Текст
-
-  right: Текст
-
-  rotate: Текст
-
-  rowGap: Текст
-
-  rubyPosition: Текст
-
-  scale: Текст
-
-  scrollBehavior: Текст
-
-  scrollMargin: Текст
-
-  scrollMarginBlock: Текст
-
-  scrollMarginBlockEnd: Текст
-
-  scrollMarginBlockStart: Текст
-
-  scrollMarginBottom: Текст
-
-  scrollMarginInline: Текст
-
-  scrollMarginInlineEnd: Текст
-
-  scrollMarginInlineStart: Текст
-
-  scrollMarginLeft: Текст
-
-  scrollMarginRight: Текст
-
-  scrollMarginTop: Текст
-
-  scrollPadding: Текст
-
-  scrollPaddingBlock: Текст
-
-  scrollPaddingBlockEnd: Текст
-
-  scrollPaddingBlockStart: Текст
-
-  scrollPaddingBottom: Текст
-
-  scrollPaddingInline: Текст
-
-  scrollPaddingInlineEnd: Текст
-
-  scrollPaddingInlineStart: Текст
-
-  scrollPaddingLeft: Текст
-
-  scrollPaddingRight: Текст
-
-  scrollPaddingTop: Текст
-
-  scrollSnapAlign: Текст
-
-  scrollSnapStop: Текст
-
-  scrollSnapType: Текст
-
-  scrollbarGutter: Текст
-
-  shapeImageThreshold: Текст
-
-  shapeMargin: Текст
-
-  shapeOutside: Текст
 
   shapeRendering: Текст
 
@@ -6123,253 +5309,7 @@
 
   strokeWidth: Текст
 
-  tabSize: Текст
-
-  tableLayout: Текст
-
-  textAlign: Текст
-
-  textAlignLast: Текст
-
   textAnchor: Текст
-
-  textCombineUpright: Текст
-
-  textDecoration: Текст
-
-  textDecorationColor: Текст
-
-  textDecorationLine: Текст
-
-  textDecorationSkipInk: Текст
-
-  textDecorationStyle: Текст
-
-  textDecorationThickness: Текст
-
-  textEmphasis: Текст
-
-  textEmphasisColor: Текст
-
-  textEmphasisPosition: Текст
-
-  textEmphasisStyle: Текст
-
-  textIndent: Текст
-
-  textOrientation: Текст
-
-  textOverflow: Текст
-
-  textRendering: Текст
-
-  textShadow: Текст
-
-  textTransform: Текст
-
-  textUnderlineOffset: Текст
-
-  textUnderlinePosition: Текст
-
-  top: Текст
-
-  touchAction: Текст
-
-  transform: Текст
-
-  transformBox: Текст
-
-  transformOrigin: Текст
-
-  transformStyle: Текст
-
-  transition: Текст
-
-  transitionDelay: Текст
-
-  transitionDuration: Текст
-
-  transitionProperty: Текст
-
-  transitionTimingFunction: Текст
-
-  translate: Текст
-
-  unicodeBidi: Текст
-
-  userSelect: Текст
-
-  verticalAlign: Текст
-
-  visibility: Текст
-
-  webkitAlignContent: Текст
-
-  webkitAlignItems: Текст
-
-  webkitAlignSelf: Текст
-
-  webkitAnimation: Текст
-
-  webkitAnimationDelay: Текст
-
-  webkitAnimationDirection: Текст
-
-  webkitAnimationDuration: Текст
-
-  webkitAnimationFillMode: Текст
-
-  webkitAnimationIterationCount: Текст
-
-  webkitAnimationName: Текст
-
-  webkitAnimationPlayState: Текст
-
-  webkitAnimationTimingFunction: Текст
-
-  webkitAppearance: Текст
-
-  webkitBackfaceVisibility: Текст
-
-  webkitBackgroundClip: Текст
-
-  webkitBackgroundOrigin: Текст
-
-  webkitBackgroundSize: Текст
-
-  webkitBorderBottomLeftRadius: Текст
-
-  webkitBorderBottomRightRadius: Текст
-
-  webkitBorderRadius: Текст
-
-  webkitBorderTopLeftRadius: Текст
-
-  webkitBorderTopRightRadius: Текст
-
-  webkitBoxAlign: Текст
-
-  webkitBoxFlex: Текст
-
-  webkitBoxOrdinalGroup: Текст
-
-  webkitBoxOrient: Текст
-
-  webkitBoxPack: Текст
-
-  webkitBoxShadow: Текст
-
-  webkitBoxSizing: Текст
-
-  webkitFilter: Текст
-
-  webkitFlex: Текст
-
-  webkitFlexBasis: Текст
-
-  webkitFlexDirection: Текст
-
-  webkitFlexFlow: Текст
-
-  webkitFlexGrow: Текст
-
-  webkitFlexShrink: Текст
-
-  webkitFlexWrap: Текст
-
-  webkitJustifyContent: Текст
-
-  webkitLineClamp: Текст
-
-  webkitMask: Текст
-
-  webkitMaskBoxImage: Текст
-
-  webkitMaskBoxImageOutset: Текст
-
-  webkitMaskBoxImageRepeat: Текст
-
-  webkitMaskBoxImageSlice: Текст
-
-  webkitMaskBoxImageSource: Текст
-
-  webkitMaskBoxImageWidth: Текст
-
-  webkitMaskClip: Текст
-
-  webkitMaskComposite: Текст
-
-  webkitMaskImage: Текст
-
-  webkitMaskOrigin: Текст
-
-  webkitMaskPosition: Текст
-
-  webkitMaskRepeat: Текст
-
-  webkitMaskSize: Текст
-
-  webkitOrder: Текст
-
-  webkitPerspective: Текст
-
-  webkitPerspectiveOrigin: Текст
-
-  webkitTextFillColor: Текст
-
-  webkitTextSizeAdjust: Текст
-
-  webkitTextStroke: Текст
-
-  webkitTextStrokeColor: Текст
-
-  webkitTextStrokeWidth: Текст
-
-  webkitTransform: Текст
-
-  webkitTransformOrigin: Текст
-
-  webkitTransformStyle: Текст
-
-  webkitTransition: Текст
-
-  webkitTransitionDelay: Текст
-
-  webkitTransitionDuration: Текст
-
-  webkitTransitionProperty: Текст
-
-  webkitTransitionTimingFunction: Текст
-
-  webkitUserSelect: Текст
-
-  whiteSpace: Текст
-
-  widows: Текст
-
-  width: Текст
-
-  willChange: Текст
-
-  wordBreak: Текст
-
-  wordSpacing: Текст
-
-  wordWrap: Текст
-
-  writingMode: Текст
-
-  zIndex: Текст
-
-  операция getPropertyPriority(property: Текст): Текст
-
-  операция getPropertyValue(property: Текст): Текст
-
-  операция item(index: Число): Текст
-
-  операция removeProperty(property: Текст): Текст
-
-  операция setProperty(property: Текст, value: Текст?, priority: Текст? = пусто)
 
   /*(!) [index: number]: string*/
 }
@@ -6416,26 +5356,7 @@
 
 тип CSSStyleSheet = интерфейс на основе StyleSheet
 {
-  защищено 
-  cssRules: CSSRuleList
 
-  защищено 
-  ownerRule: CSSRule?
-
-  защищено 
-  rules: CSSRuleList
-
-  операция addRule(selector: Текст? = пусто, style: Текст? = пусто, index: Число? = пусто): Число
-
-  операция deleteRule(index: Число)
-
-  операция insertRule(rule: Текст, index: Число? = пусто): Число
-
-  операция removeRule(index: Число? = пусто)
-
-  операция replace(text: Текст): Promise<CSSStyleSheet>
-
-  операция replaceSync(text: Текст)
 }
 
 
@@ -7014,14 +5935,6 @@
 }
 
 
-/** @deprecated */
-
-тип ClientRect = интерфейс на основе DOMRect
-{
-
-}
-
-
 /**
 * Available only in secure contexts.
 *
@@ -7127,10 +6040,7 @@
 
 тип CompositionEvent = интерфейс на основе UIEvent
 {
-  защищено 
-  data: Текст
 
-  операция initCompositionEvent(typeArg: Текст, bubblesArg: ДаНет? = пусто, cancelableArg: ДаНет? = пусто, viewArg: WindowProxy? = пусто, dataArg: Текст? = пусто)
 }
 
 
@@ -7321,10 +6231,7 @@
 
 тип CustomEvent<T> = интерфейс на основе Event
 {
-  защищено 
-  detail: T
 
-  операция initCustomEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, detail: T? = пусто)
 }
 
 
@@ -7340,15 +6247,6 @@
 
 тип DOMException = интерфейс на основе Error
 {
-  защищено 
-  code: Число
-
-  защищено 
-  message: Текст
-
-  защищено 
-  name: Текст
-
   защищено 
   INDEX_SIZE_ERR: 1
 
@@ -7438,14 +6336,7 @@
 
 тип DOMImplementation = интерфейс
 {
-  операция createDocument(namespace: Текст?, qualifiedName: Текст?, doctype: DocumentType? = пусто): XMLDocument
 
-  операция createDocumentType(qualifiedName: Текст, publicId: Текст, systemId: Текст): DocumentType
-
-  операция createHTMLDocument(title: Текст? = пусто): Document
-
-  #js.МассивПараметров
-  операция hasFeature(args: Список</*(!) any */ Объект?>): да
 }
 
 
@@ -7547,111 +6438,7 @@
 
 тип DOMMatrixReadOnly = интерфейс
 {
-  защищено 
-  a: Число
-
-  защищено 
-  b: Число
-
-  защищено 
-  c: Число
-
-  защищено 
-  d: Число
-
-  защищено 
-  e: Число
-
-  защищено 
-  f: Число
-
-  защищено 
-  is2D: ДаНет
-
-  защищено 
-  isIdentity: ДаНет
-
-  защищено 
-  m11: Число
-
-  защищено 
-  m12: Число
-
-  защищено 
-  m13: Число
-
-  защищено 
-  m14: Число
-
-  защищено 
-  m21: Число
-
-  защищено 
-  m22: Число
-
-  защищено 
-  m23: Число
-
-  защищено 
-  m24: Число
-
-  защищено 
-  m31: Число
-
-  защищено 
-  m32: Число
-
-  защищено 
-  m33: Число
-
-  защищено 
-  m34: Число
-
-  защищено 
-  m41: Число
-
-  защищено 
-  m42: Число
-
-  защищено 
-  m43: Число
-
-  защищено 
-  m44: Число
-
-  операция flipX(): DOMMatrix
-
-  операция flipY(): DOMMatrix
-
-  операция inverse(): DOMMatrix
-
-  операция multiply(other: DOMMatrixInit? = пусто): DOMMatrix
-
-  операция rotate(rotX: Число? = пусто, rotY: Число? = пусто, rotZ: Число? = пусто): DOMMatrix
-
-  операция rotateAxisAngle(x: Число? = пусто, y: Число? = пусто, z: Число? = пусто, angle: Число? = пусто): DOMMatrix
-
-  операция rotateFromVector(x: Число? = пусто, y: Число? = пусто): DOMMatrix
-
-  операция scale(scaleX: Число? = пусто, scaleY: Число? = пусто, scaleZ: Число? = пусто, originX: Число? = пусто, originY: Число? = пусто, originZ: Число? = пусто): DOMMatrix
-
-  операция scale3d(scale: Число? = пусто, originX: Число? = пусто, originY: Число? = пусто, originZ: Число? = пусто): DOMMatrix
-
-  операция scaleNonUniform(scaleX: Число? = пусто, scaleY: Число? = пусто): DOMMatrix
-
-  операция skewX(sx: Число? = пусто): DOMMatrix
-
-  операция skewY(sy: Число? = пусто): DOMMatrix
-
-  операция toFloat32Array(): Float32Array
-
-  операция toFloat64Array(): Float64Array
-
   операция toJSON(): /*(!) any */ Объект?
-
-  операция transformPoint(point: DOMPointInit? = пусто): DOMPoint
-
-  операция translate(tx: Число? = пусто, ty: Число? = пусто, tz: Число? = пусто): DOMMatrix
 
   операция toString(): Текст
 }
@@ -8143,173 +6930,12 @@
 
 тип Document = интерфейс на основе Node, DocumentOrShadowRoot, FontFaceSource, GlobalEventHandlers, NonElementParentNode, ParentNode, XPathEvaluatorBase
 {
-  защищено 
-  URL: Текст
-
-  alinkColor: Текст
-
-  защищено 
-  all: HTMLAllCollection
-
-  защищено 
-  anchors: HTMLCollectionOf<HTMLAnchorElement>
-
-  защищено 
-  applets: HTMLCollection
-
-  bgColor: Текст
-
-  body: HTMLElement
-
-  защищено 
-  characterSet: Текст
-
-  защищено 
-  charset: Текст
-
-  защищено 
-  compatMode: Текст
-
-  защищено 
-  contentType: Текст
-
-  cookie: Текст
-
-  защищено 
-  currentScript: HTMLOrSVGScriptElement?
-
-  защищено 
-  defaultView: /*(!) WindowProxy & typeof globalThis */ Объект?
-
-  designMode: Текст
-
-  dir: Текст
-
-  защищено 
-  doctype: DocumentType?
-
-  защищено 
-  documentElement: HTMLElement
-
-  защищено 
-  documentURI: Текст
-
-  domain: Текст
-
-  защищено 
-  embeds: HTMLCollectionOf<HTMLEmbedElement>
-
-  fgColor: Текст
-
-  защищено 
-  forms: HTMLCollectionOf<HTMLFormElement>
-
-  защищено 
-  fullscreen: ДаНет
-
-  защищено 
-  fullscreenEnabled: ДаНет
-
-  защищено 
-  head: HTMLHeadElement
-
-  защищено 
-  hidden: ДаНет
-
-  защищено 
-  images: HTMLCollectionOf<HTMLImageElement>
-
-  защищено 
-  implementation: DOMImplementation
-
-  защищено 
-  inputEncoding: Текст
-
-  защищено 
-  lastModified: Текст
-
-  linkColor: Текст
-
-  защищено 
-  links: HTMLCollectionOf<HTMLAnchorElement | HTMLAreaElement>
-
-  операция location(): Location
-
   операция location(href: Текст | Location): /*(!) no_type */ Объект?
-
-  onfullscreenchange: (операция(this: Document, ev: Event): /*(!) any */ Объект?)?
-
-  onfullscreenerror: (операция(this: Document, ev: Event): /*(!) any */ Объект?)?
-
-  onpointerlockchange: (операция(this: Document, ev: Event): /*(!) any */ Объект?)?
-
-  onpointerlockerror: (операция(this: Document, ev: Event): /*(!) any */ Объект?)?
-
-  onreadystatechange: (операция(this: Document, ev: Event): /*(!) any */ Объект?)?
-
-  onvisibilitychange: (операция(this: Document, ev: Event): /*(!) any */ Объект?)?
 
   защищено 
   ownerDocument: пусто
 
-  защищено 
-  pictureInPictureEnabled: ДаНет
-
-  защищено 
-  plugins: HTMLCollectionOf<HTMLEmbedElement>
-
-  защищено 
-  readyState: DocumentReadyState
-
-  защищено 
-  referrer: Текст
-
-  защищено 
-  rootElement: SVGSVGElement?
-
-  защищено 
-  scripts: HTMLCollectionOf<HTMLScriptElement>
-
-  защищено 
-  scrollingElement: Element?
-
-  защищено 
-  timeline: DocumentTimeline
-
-  title: Текст
-
-  защищено 
-  visibilityState: DocumentVisibilityState
-
-  vlinkColor: Текст
-
-  операция adoptNode<T = Node>(node: T): T
-
-  операция captureEvents()
-
-  операция caretRangeFromPoint(x: Число, y: Число): Range?
-
-  операция clear()
-
-  операция close()
-
-  операция createAttribute(localName: Текст): Attr
-
-  операция createAttributeNS(namespace: Текст?, qualifiedName: Текст): Attr
-
-  операция createCDATASection(data: Текст): CDATASection
-
-  операция createComment(data: Текст): Comment
-
-  операция createDocumentFragment(): DocumentFragment
-
-  операция createElement<K = /*(!) keyof HTMLElementTagNameMap */ Объект?>(tagName: K, options: ElementCreationOptions? = пусто): /*(!) HTMLElementTagNameMap[K] */ Объект?
-
-  операция createElement<K = /*(!) keyof HTMLElementDeprecatedTagNameMap */ Объект?>(tagName: K, options: ElementCreationOptions? = пусто): /*(!) HTMLElementDeprecatedTagNameMap[K] */ Объект?
-
   операция createElement(tagName: Текст, options: ElementCreationOptions? = пусто): HTMLElement
-
-  операция createElementNS(namespaceURI: "http://www.w3.org/1999/xhtml", qualifiedName: Текст): HTMLElement
 
   операция createElementNS<K = /*(!) keyof SVGElementTagNameMap */ Объект?>(namespaceURI: "http://www.w3.org/2000/svg", qualifiedName: K): /*(!) SVGElementTagNameMap[K] */ Объект?
 
@@ -8322,8 +6948,6 @@
   операция createElementNS(namespaceURI: Текст?, qualifiedName: Текст, options: ElementCreationOptions? = пусто): Element
 
   операция createElementNS(namespace: Текст?, qualifiedName: Текст, options: Текст | ElementCreationOptions | пусто = пусто): Element
-
-  операция createEvent(eventInterface: "AnimationEvent"): AnimationEvent
 
   операция createEvent(eventInterface: "AnimationPlaybackEvent"): AnimationPlaybackEvent
 
@@ -8449,41 +7073,11 @@
 
   операция createEvent(eventInterface: Текст): Event
 
-  операция createNodeIterator(root: Node, whatToShow: Число? = пусто, filter: NodeFilter? = пусто): NodeIterator
-
-  операция createProcessingInstruction(target: Текст, data: Текст): ProcessingInstruction
-
-  операция createRange(): Range
-
-  операция createTextNode(data: Текст): Text
-
-  операция createTreeWalker(root: Node, whatToShow: Число? = пусто, filter: NodeFilter? = пусто): TreeWalker
-
-  операция execCommand(commandId: Текст, showUI: ДаНет? = пусто, value: Текст? = пусто): ДаНет
-
-  операция exitFullscreen(): Promise<Ничего>
-
-  операция exitPictureInPicture(): Promise<Ничего>
-
-  операция exitPointerLock()
-
-  операция getElementById(elementId: Текст): HTMLElement?
-
-  операция getElementsByClassName(classNames: Текст): HTMLCollectionOf<Element>
-
-  операция getElementsByName(elementName: Текст): NodeListOf<HTMLElement>
-
-  операция getElementsByTagName<K = /*(!) keyof HTMLElementTagNameMap */ Объект?>(qualifiedName: K): HTMLCollectionOf</*(!) HTMLElementTagNameMap[K] */ Объект?>
-
   операция getElementsByTagName<K = /*(!) keyof SVGElementTagNameMap */ Объект?>(qualifiedName: K): HTMLCollectionOf</*(!) SVGElementTagNameMap[K] */ Объект?>
 
   операция getElementsByTagName<K = /*(!) keyof MathMLElementTagNameMap */ Объект?>(qualifiedName: K): HTMLCollectionOf</*(!) MathMLElementTagNameMap[K] */ Объект?>
 
-  операция getElementsByTagName<K = /*(!) keyof HTMLElementDeprecatedTagNameMap */ Объект?>(qualifiedName: K): HTMLCollectionOf</*(!) HTMLElementDeprecatedTagNameMap[K] */ Объект?>
-
   операция getElementsByTagName(qualifiedName: Текст): HTMLCollectionOf<Element>
-
-  операция getElementsByTagNameNS(namespaceURI: "http://www.w3.org/1999/xhtml", localName: Текст): HTMLCollectionOf<HTMLElement>
 
   операция getElementsByTagNameNS(namespaceURI: "http://www.w3.org/2000/svg", localName: Текст): HTMLCollectionOf<SVGElement>
 
@@ -8491,37 +7085,7 @@
 
   операция getElementsByTagNameNS(namespace: Текст?, localName: Текст): HTMLCollectionOf<Element>
 
-  операция getSelection(): Selection?
-
-  операция hasFocus(): ДаНет
-
-  операция hasStorageAccess(): Promise<ДаНет>
-
-  операция importNode<T = Node>(node: T, deep: ДаНет? = пусто): T
-
-  операция open(unused1: Текст? = пусто, unused2: Текст? = пусто): Document
-
   операция open(url: Текст | URL, name: Текст, features: Текст): WindowProxy?
-
-  операция queryCommandEnabled(commandId: Текст): ДаНет
-
-  операция queryCommandIndeterm(commandId: Текст): ДаНет
-
-  операция queryCommandState(commandId: Текст): ДаНет
-
-  операция queryCommandSupported(commandId: Текст): ДаНет
-
-  операция queryCommandValue(commandId: Текст): Текст
-
-  операция releaseEvents()
-
-  операция requestStorageAccess(): Promise<Ничего>
-
-  #js.МассивПараметров
-  операция write(text: Список<Текст>)
-
-  #js.МассивПараметров
-  операция writeln(text: Список<Текст>)
 
   операция addEventListener<K = /*(!) keyof DocumentEventMap */ Объект?>(type: K, listener: операция(this: Document, ev: /*(!) DocumentEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -8853,71 +7417,9 @@
 тип Element = интерфейс на основе Node, ARIAMixin, Animatable, ChildNode, InnerHTML, NonDocumentTypeChildNode, ParentNode, Slottable
 {
   защищено 
-  attributes: NamedNodeMap
-
-  защищено 
-  classList: DOMTokenList
-
-  className: Текст
-
-  защищено 
-  clientHeight: Число
-
-  защищено 
-  clientLeft: Число
-
-  защищено 
-  clientTop: Число
-
-  защищено 
-  clientWidth: Число
-
-  id: Текст
-
-  защищено 
-  localName: Текст
-
-  защищено 
-  namespaceURI: Текст?
-
-  onfullscreenchange: (операция(this: Element, ev: Event): /*(!) any */ Объект?)?
-
-  onfullscreenerror: (операция(this: Element, ev: Event): /*(!) any */ Объект?)?
-
-  outerHTML: Текст
-
-  защищено 
   ownerDocument: Document
 
-  защищено 
-  part: DOMTokenList
-
-  защищено 
-  prefix: Текст?
-
-  защищено 
-  scrollHeight: Число
-
-  scrollLeft: Число
-
-  scrollTop: Число
-
-  защищено 
-  scrollWidth: Число
-
-  защищено 
-  shadowRoot: ShadowRoot?
-
-  slot: Текст
-
-  защищено 
-  tagName: Текст
-
-  операция attachShadow(init: ShadowRootInit): ShadowRoot
-
   операция checkVisibility(options: CheckVisibilityOptions? = пусто): ДаНет
-
-  операция closest<K = /*(!) keyof HTMLElementTagNameMap */ Объект?>(selector: K): /*(!) HTMLElementTagNameMap[K] */ Объект?
 
   операция closest<K = /*(!) keyof SVGElementTagNameMap */ Объект?>(selector: K): /*(!) SVGElementTagNameMap[K] */ Объект?
 
@@ -8925,35 +7427,11 @@
 
   операция closest<E = Element>(selectors: Текст): E?
 
-  операция computedStyleMap(): StylePropertyMapReadOnly
-
-  операция getAttribute(qualifiedName: Текст): Текст?
-
-  операция getAttributeNS(namespace: Текст?, localName: Текст): Текст?
-
-  операция getAttributeNames(): Список<Текст>
-
-  операция getAttributeNode(qualifiedName: Текст): Attr?
-
-  операция getAttributeNodeNS(namespace: Текст?, localName: Текст): Attr?
-
-  операция getBoundingClientRect(): DOMRect
-
-  операция getClientRects(): DOMRectList
-
-  операция getElementsByClassName(classNames: Текст): HTMLCollectionOf<Element>
-
-  операция getElementsByTagName<K = /*(!) keyof HTMLElementTagNameMap */ Объект?>(qualifiedName: K): HTMLCollectionOf</*(!) HTMLElementTagNameMap[K] */ Объект?>
-
   операция getElementsByTagName<K = /*(!) keyof SVGElementTagNameMap */ Объект?>(qualifiedName: K): HTMLCollectionOf</*(!) SVGElementTagNameMap[K] */ Объект?>
 
   операция getElementsByTagName<K = /*(!) keyof MathMLElementTagNameMap */ Объект?>(qualifiedName: K): HTMLCollectionOf</*(!) MathMLElementTagNameMap[K] */ Объект?>
 
-  операция getElementsByTagName<K = /*(!) keyof HTMLElementDeprecatedTagNameMap */ Объект?>(qualifiedName: K): HTMLCollectionOf</*(!) HTMLElementDeprecatedTagNameMap[K] */ Объект?>
-
   операция getElementsByTagName(qualifiedName: Текст): HTMLCollectionOf<Element>
-
-  операция getElementsByTagNameNS(namespaceURI: "http://www.w3.org/1999/xhtml", localName: Текст): HTMLCollectionOf<HTMLElement>
 
   операция getElementsByTagNameNS(namespaceURI: "http://www.w3.org/2000/svg", localName: Текст): HTMLCollectionOf<SVGElement>
 
@@ -8961,61 +7439,11 @@
 
   операция getElementsByTagNameNS(namespace: Текст?, localName: Текст): HTMLCollectionOf<Element>
 
-  операция hasAttribute(qualifiedName: Текст): ДаНет
-
-  операция hasAttributeNS(namespace: Текст?, localName: Текст): ДаНет
-
-  операция hasAttributes(): ДаНет
-
-  операция hasPointerCapture(pointerId: Число): ДаНет
-
-  операция insertAdjacentElement(where: InsertPosition, element: Element): Element?
-
-  операция insertAdjacentHTML(position: InsertPosition, text: Текст)
-
-  операция insertAdjacentText(where: InsertPosition, data: Текст)
-
-  операция matches(selectors: Текст): ДаНет
-
-  операция releasePointerCapture(pointerId: Число)
-
-  операция removeAttribute(qualifiedName: Текст)
-
-  операция removeAttributeNS(namespace: Текст?, localName: Текст)
-
-  операция removeAttributeNode(attr: Attr): Attr
-
-  операция requestFullscreen(options: FullscreenOptions? = пусто): Promise<Ничего>
-
-  операция requestPointerLock()
-
-  операция scroll(options: ScrollToOptions? = пусто)
-
   операция scroll(x: Число, y: Число)
-
-  операция scrollBy(options: ScrollToOptions? = пусто)
 
   операция scrollBy(x: Число, y: Число)
 
-  операция scrollIntoView(arg: ДаНет | ScrollIntoViewOptions | пусто = пусто)
-
-  операция scrollTo(options: ScrollToOptions? = пусто)
-
   операция scrollTo(x: Число, y: Число)
-
-  операция setAttribute(qualifiedName: Текст, value: Текст)
-
-  операция setAttributeNS(namespace: Текст?, qualifiedName: Текст, value: Текст)
-
-  операция setAttributeNode(attr: Attr): Attr?
-
-  операция setAttributeNodeNS(attr: Attr): Attr?
-
-  операция setPointerCapture(pointerId: Число)
-
-  операция toggleAttribute(qualifiedName: Текст, force: ДаНет? = пусто): ДаНет
-
-  операция webkitMatchesSelector(selectors: Текст): ДаНет
 
   операция addEventListener<K = /*(!) keyof ElementEventMap */ Объект?>(type: K, listener: операция(this: Element, ev: /*(!) ElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -9152,53 +7580,6 @@
 тип Event = интерфейс
 {
   защищено 
-  bubbles: ДаНет
-
-  cancelBubble: ДаНет
-
-  защищено 
-  cancelable: ДаНет
-
-  защищено 
-  composed: ДаНет
-
-  защищено 
-  currentTarget: EventTarget?
-
-  защищено 
-  defaultPrevented: ДаНет
-
-  защищено 
-  eventPhase: Число
-
-  защищено 
-  isTrusted: ДаНет
-
-  returnValue: ДаНет
-
-  защищено 
-  srcElement: EventTarget?
-
-  защищено 
-  target: EventTarget?
-
-  защищено 
-  timeStamp: DOMHighResTimeStamp
-
-  защищено 
-  type: Текст
-
-  операция composedPath(): Список<EventTarget>
-
-  операция initEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто)
-
-  операция preventDefault()
-
-  операция stopImmediatePropagation()
-
-  операция stopPropagation()
-
-  защищено 
   NONE: 0
 
   защищено 
@@ -9316,26 +7697,6 @@
 
 внешнее
 /*(!) var */ EventTarget: объект { prototype: EventTarget; при создании(): EventTarget }
-
-
-/**
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/External)
-*/
-
-тип External = интерфейс
-{
-  операция AddSearchProvider()
-
-  операция IsSearchProviderInstalled()
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ External: объект { prototype: External; при создании(): External }
 
 
 /**
@@ -10241,196 +8602,6 @@
 
 тип GlobalEventHandlers = интерфейс
 {
-  onabort: (операция(this: GlobalEventHandlers, ev: UIEvent): /*(!) any */ Объект?)?
-
-  onanimationcancel: (операция(this: GlobalEventHandlers, ev: AnimationEvent): /*(!) any */ Объект?)?
-
-  onanimationend: (операция(this: GlobalEventHandlers, ev: AnimationEvent): /*(!) any */ Объект?)?
-
-  onanimationiteration: (операция(this: GlobalEventHandlers, ev: AnimationEvent): /*(!) any */ Объект?)?
-
-  onanimationstart: (операция(this: GlobalEventHandlers, ev: AnimationEvent): /*(!) any */ Объект?)?
-
-  onauxclick: (операция(this: GlobalEventHandlers, ev: MouseEvent): /*(!) any */ Объект?)?
-
-  onbeforeinput: (операция(this: GlobalEventHandlers, ev: InputEvent): /*(!) any */ Объект?)?
-
-  onblur: (операция(this: GlobalEventHandlers, ev: FocusEvent): /*(!) any */ Объект?)?
-
-  oncancel: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  oncanplay: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  oncanplaythrough: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onchange: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onclick: (операция(this: GlobalEventHandlers, ev: MouseEvent): /*(!) any */ Объект?)?
-
-  onclose: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  oncontextmenu: (операция(this: GlobalEventHandlers, ev: MouseEvent): /*(!) any */ Объект?)?
-
-  oncopy: (операция(this: GlobalEventHandlers, ev: ClipboardEvent): /*(!) any */ Объект?)?
-
-  oncuechange: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  oncut: (операция(this: GlobalEventHandlers, ev: ClipboardEvent): /*(!) any */ Объект?)?
-
-  ondblclick: (операция(this: GlobalEventHandlers, ev: MouseEvent): /*(!) any */ Объект?)?
-
-  ondrag: (операция(this: GlobalEventHandlers, ev: DragEvent): /*(!) any */ Объект?)?
-
-  ondragend: (операция(this: GlobalEventHandlers, ev: DragEvent): /*(!) any */ Объект?)?
-
-  ondragenter: (операция(this: GlobalEventHandlers, ev: DragEvent): /*(!) any */ Объект?)?
-
-  ondragleave: (операция(this: GlobalEventHandlers, ev: DragEvent): /*(!) any */ Объект?)?
-
-  ondragover: (операция(this: GlobalEventHandlers, ev: DragEvent): /*(!) any */ Объект?)?
-
-  ondragstart: (операция(this: GlobalEventHandlers, ev: DragEvent): /*(!) any */ Объект?)?
-
-  ondrop: (операция(this: GlobalEventHandlers, ev: DragEvent): /*(!) any */ Объект?)?
-
-  ondurationchange: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onemptied: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onended: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onerror: OnErrorEventHandler
-
-  onfocus: (операция(this: GlobalEventHandlers, ev: FocusEvent): /*(!) any */ Объект?)?
-
-  onformdata: (операция(this: GlobalEventHandlers, ev: FormDataEvent): /*(!) any */ Объект?)?
-
-  ongotpointercapture: (операция(this: GlobalEventHandlers, ev: PointerEvent): /*(!) any */ Объект?)?
-
-  oninput: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  oninvalid: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onkeydown: (операция(this: GlobalEventHandlers, ev: KeyboardEvent): /*(!) any */ Объект?)?
-
-  onkeypress: (операция(this: GlobalEventHandlers, ev: KeyboardEvent): /*(!) any */ Объект?)?
-
-  onkeyup: (операция(this: GlobalEventHandlers, ev: KeyboardEvent): /*(!) any */ Объект?)?
-
-  onload: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onloadeddata: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onloadedmetadata: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onloadstart: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onlostpointercapture: (операция(this: GlobalEventHandlers, ev: PointerEvent): /*(!) any */ Объект?)?
-
-  onmousedown: (операция(this: GlobalEventHandlers, ev: MouseEvent): /*(!) any */ Объект?)?
-
-  onmouseenter: (операция(this: GlobalEventHandlers, ev: MouseEvent): /*(!) any */ Объект?)?
-
-  onmouseleave: (операция(this: GlobalEventHandlers, ev: MouseEvent): /*(!) any */ Объект?)?
-
-  onmousemove: (операция(this: GlobalEventHandlers, ev: MouseEvent): /*(!) any */ Объект?)?
-
-  onmouseout: (операция(this: GlobalEventHandlers, ev: MouseEvent): /*(!) any */ Объект?)?
-
-  onmouseover: (операция(this: GlobalEventHandlers, ev: MouseEvent): /*(!) any */ Объект?)?
-
-  onmouseup: (операция(this: GlobalEventHandlers, ev: MouseEvent): /*(!) any */ Объект?)?
-
-  onpaste: (операция(this: GlobalEventHandlers, ev: ClipboardEvent): /*(!) any */ Объект?)?
-
-  onpause: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onplay: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onplaying: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onpointercancel: (операция(this: GlobalEventHandlers, ev: PointerEvent): /*(!) any */ Объект?)?
-
-  onpointerdown: (операция(this: GlobalEventHandlers, ev: PointerEvent): /*(!) any */ Объект?)?
-
-  onpointerenter: (операция(this: GlobalEventHandlers, ev: PointerEvent): /*(!) any */ Объект?)?
-
-  onpointerleave: (операция(this: GlobalEventHandlers, ev: PointerEvent): /*(!) any */ Объект?)?
-
-  onpointermove: (операция(this: GlobalEventHandlers, ev: PointerEvent): /*(!) any */ Объект?)?
-
-  onpointerout: (операция(this: GlobalEventHandlers, ev: PointerEvent): /*(!) any */ Объект?)?
-
-  onpointerover: (операция(this: GlobalEventHandlers, ev: PointerEvent): /*(!) any */ Объект?)?
-
-  onpointerup: (операция(this: GlobalEventHandlers, ev: PointerEvent): /*(!) any */ Объект?)?
-
-  onprogress: (операция(this: GlobalEventHandlers, ev: ProgressEvent): /*(!) any */ Объект?)?
-
-  onratechange: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onreset: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onresize: (операция(this: GlobalEventHandlers, ev: UIEvent): /*(!) any */ Объект?)?
-
-  onscroll: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onscrollend: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onsecuritypolicyviolation: (операция(this: GlobalEventHandlers, ev: SecurityPolicyViolationEvent): /*(!) any */ Объект?)?
-
-  onseeked: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onseeking: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onselect: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onselectionchange: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onselectstart: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onslotchange: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onstalled: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onsubmit: (операция(this: GlobalEventHandlers, ev: SubmitEvent): /*(!) any */ Объект?)?
-
-  onsuspend: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  ontimeupdate: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  ontoggle: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  ontouchcancel: (операция(this: GlobalEventHandlers, ev: TouchEvent): /*(!) any */ Объект?)?
-
-  ontouchend: (операция(this: GlobalEventHandlers, ev: TouchEvent): /*(!) any */ Объект?)?
-
-  ontouchmove: (операция(this: GlobalEventHandlers, ev: TouchEvent): /*(!) any */ Объект?)?
-
-  ontouchstart: (операция(this: GlobalEventHandlers, ev: TouchEvent): /*(!) any */ Объект?)?
-
-  ontransitioncancel: (операция(this: GlobalEventHandlers, ev: TransitionEvent): /*(!) any */ Объект?)?
-
-  ontransitionend: (операция(this: GlobalEventHandlers, ev: TransitionEvent): /*(!) any */ Объект?)?
-
-  ontransitionrun: (операция(this: GlobalEventHandlers, ev: TransitionEvent): /*(!) any */ Объект?)?
-
-  ontransitionstart: (операция(this: GlobalEventHandlers, ev: TransitionEvent): /*(!) any */ Объект?)?
-
-  onvolumechange: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onwaiting: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onwebkitanimationend: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onwebkitanimationiteration: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onwebkitanimationstart: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onwebkittransitionend: (операция(this: GlobalEventHandlers, ev: Event): /*(!) any */ Объект?)?
-
-  onwheel: (операция(this: GlobalEventHandlers, ev: WheelEvent): /*(!) any */ Объект?)?
-
   операция addEventListener<K = /*(!) keyof GlobalEventHandlersEventMap */ Объект?>(type: K, listener: операция(this: GlobalEventHandlers, ev: /*(!) GlobalEventHandlersEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -10468,34 +8639,7 @@
 
 тип HTMLAnchorElement = интерфейс на основе HTMLElement, HTMLHyperlinkElementUtils
 {
-  charset: Текст
-
-  coords: Текст
-
-  download: Текст
-
-  hreflang: Текст
-
-  name: Текст
-
   ping: Текст
-
-  referrerPolicy: Текст
-
-  rel: Текст
-
-  защищено 
-  relList: DOMTokenList
-
-  rev: Текст
-
-  shape: Текст
-
-  target: Текст
-
-  text: Текст
-
-  type: Текст
 
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLAnchorElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -10519,26 +8663,7 @@
 
 тип HTMLAreaElement = интерфейс на основе HTMLElement, HTMLHyperlinkElementUtils
 {
-  alt: Текст
-
-  coords: Текст
-
-  download: Текст
-
-  noHref: ДаНет
-
   ping: Текст
-
-  referrerPolicy: Текст
-
-  rel: Текст
-
-  защищено 
-  relList: DOMTokenList
-
-  shape: Текст
-
-  target: Текст
 
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLAreaElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -10584,8 +8709,6 @@
 
 тип HTMLBRElement = интерфейс на основе HTMLElement
 {
-  clear: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLBRElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -10640,18 +8763,6 @@
 
 тип HTMLBodyElement = интерфейс на основе HTMLElement, WindowEventHandlers
 {
-  aLink: Текст
-
-  background: Текст
-
-  bgColor: Текст
-
-  link: Текст
-
-  text: Текст
-
-  vLink: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLBodyElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLBodyElement, ev: /*(!) HTMLBodyElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -10816,8 +8927,6 @@
 
 тип HTMLDListElement = интерфейс на основе HTMLElement
 {
-  compact: ДаНет
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLDListElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -10929,28 +9038,6 @@
 /*(!) var */ HTMLDialogElement: объект { prototype: HTMLDialogElement; при создании(): HTMLDialogElement }
 
 
-/** @deprecated */
-
-тип HTMLDirectoryElement = интерфейс на основе HTMLElement
-{
-  compact: ДаНет
-
-  операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLDirectoryElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция removeEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLDirectoryElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
-
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ HTMLDirectoryElement: объект { prototype: HTMLDirectoryElement; при создании(): HTMLDirectoryElement }
-
-
 /**
 * Provides special properties (beyond the regular HTMLElement interface it also has available to it by inheritance) for manipulating <div> elements.
 *
@@ -10959,8 +9046,6 @@
 
 тип HTMLDivElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLDivElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -10973,26 +9058,6 @@
 
 внешнее
 /*(!) var */ HTMLDivElement: объект { prototype: HTMLDivElement; при создании(): HTMLDivElement }
-
-
-/** @deprecated use Document */
-
-тип HTMLDocument = интерфейс на основе Document
-{
-  операция addEventListener<K = /*(!) keyof DocumentEventMap */ Объект?>(type: K, listener: операция(this: HTMLDocument, ev: /*(!) DocumentEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция removeEventListener<K = /*(!) keyof DocumentEventMap */ Объект?>(type: K, listener: операция(this: HTMLDocument, ev: /*(!) DocumentEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
-
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ HTMLDocument: объект { prototype: HTMLDocument; при создании(): HTMLDocument }
 
 
 тип HTMLElementEventMap = интерфейс на основе ElementEventMap, GlobalEventHandlersEventMap
@@ -11085,17 +9150,7 @@
 
 тип HTMLEmbedElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
-  height: Текст
-
-  name: Текст
-
-  src: Текст
-
   type: Текст
-
-  width: Текст
 
   операция getSVGDocument(): Document?
 
@@ -11161,37 +9216,6 @@
 
 внешнее
 /*(!) var */ HTMLFieldSetElement: объект { prototype: HTMLFieldSetElement; при создании(): HTMLFieldSetElement }
-
-
-/**
-* Implements the document object model (DOM) representation of the font element. The HTML Font Element <font> defines the font size, font face and color of text.
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLFontElement)
-*/
-
-тип HTMLFontElement = интерфейс на основе HTMLElement
-{
-  color: Текст
-
-  face: Текст
-
-  size: Текст
-
-  операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLFontElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция removeEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLFontElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
-
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ HTMLFontElement: объект { prototype: HTMLFontElement; при создании(): HTMLFontElement }
 
 
 /**
@@ -11275,85 +9299,10 @@
 /*(!) var */ HTMLFormElement: объект { prototype: HTMLFormElement; при создании(): HTMLFormElement }
 
 
-/**
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLFrameElement)
-*/
-
-тип HTMLFrameElement = интерфейс на основе HTMLElement
-{
-  защищено 
-  contentDocument: Document?
-
-  защищено 
-  contentWindow: WindowProxy?
-
-  frameBorder: Текст
-
-  longDesc: Текст
-
-  marginHeight: Текст
-
-  marginWidth: Текст
-
-  name: Текст
-
-  noResize: ДаНет
-
-  scrolling: Текст
-
-  src: Текст
-
-  операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLFrameElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция removeEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLFrameElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
-
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ HTMLFrameElement: объект { prototype: HTMLFrameElement; при создании(): HTMLFrameElement }
-
-
 тип HTMLFrameSetElementEventMap = интерфейс на основе HTMLElementEventMap, WindowEventHandlersEventMap
 {
 
 }
-
-
-/**
-* Provides special properties (beyond those of the regular HTMLElement interface they also inherit) for manipulating <frameset> elements.
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLFrameSetElement)
-*/
-
-тип HTMLFrameSetElement = интерфейс на основе HTMLElement, WindowEventHandlers
-{
-  cols: Текст
-
-  rows: Текст
-
-  операция addEventListener<K = /*(!) keyof HTMLFrameSetElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLFrameSetElement, ev: /*(!) HTMLFrameSetElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция removeEventListener<K = /*(!) keyof HTMLFrameSetElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLFrameSetElement, ev: /*(!) HTMLFrameSetElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
-
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ HTMLFrameSetElement: объект { prototype: HTMLFrameSetElement; при создании(): HTMLFrameSetElement }
 
 
 /**
@@ -11364,16 +9313,6 @@
 
 тип HTMLHRElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
-  color: Текст
-
-  noShade: ДаНет
-
-  size: Текст
-
-  width: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLHRElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -11418,8 +9357,6 @@
 
 тип HTMLHeadingElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLHeadingElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -11442,8 +9379,6 @@
 
 тип HTMLHtmlElement = интерфейс на основе HTMLElement
 {
-  version: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLHtmlElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -11495,44 +9430,14 @@
 
 тип HTMLIFrameElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
   allow: Текст
 
   allowFullscreen: ДаНет
 
-  защищено 
-  contentDocument: Document?
-
-  защищено 
-  contentWindow: WindowProxy?
-
-  frameBorder: Текст
-
-  height: Текст
-
   loading: Текст
-
-  longDesc: Текст
-
-  marginHeight: Текст
-
-  marginWidth: Текст
-
-  name: Текст
-
-  referrerPolicy: ReferrerPolicy
 
   защищено 
   sandbox: DOMTokenList
-
-  scrolling: Текст
-
-  src: Текст
-
-  srcdoc: Текст
-
-  width: Текст
 
   операция getSVGDocument(): Document?
 
@@ -11558,64 +9463,6 @@
 
 тип HTMLImageElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
-  alt: Текст
-
-  border: Текст
-
-  защищено 
-  complete: ДаНет
-
-  crossOrigin: Текст?
-
-  защищено 
-  currentSrc: Текст
-
-  decoding: "async" | "sync" | "auto"
-
-  height: Число
-
-  hspace: Число
-
-  isMap: ДаНет
-
-  loading: "eager" | "lazy"
-
-  longDesc: Текст
-
-  lowsrc: Текст
-
-  name: Текст
-
-  защищено 
-  naturalHeight: Число
-
-  защищено 
-  naturalWidth: Число
-
-  referrerPolicy: Текст
-
-  sizes: Текст
-
-  src: Текст
-
-  srcset: Текст
-
-  useMap: Текст
-
-  vspace: Число
-
-  width: Число
-
-  защищено 
-  x: Число
-
-  защищено 
-  y: Число
-
-  операция decode(): Promise<Ничего>
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLImageElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -11638,128 +9485,19 @@
 
 тип HTMLInputElement = интерфейс на основе HTMLElement, PopoverInvokerElement
 {
-  accept: Текст
-
-  align: Текст
-
-  alt: Текст
-
-  autocomplete: AutoFill
-
   capture: Текст
-
-  checked: ДаНет
-
-  defaultChecked: ДаНет
-
-  defaultValue: Текст
 
   dirName: Текст
 
   disabled: ДаНет
 
-  files: FileList?
-
-  защищено 
-  form: HTMLFormElement?
-
-  formAction: Текст
-
-  formEnctype: Текст
-
-  formMethod: Текст
-
-  formNoValidate: ДаНет
-
-  formTarget: Текст
-
-  height: Число
-
-  indeterminate: ДаНет
-
-  защищено 
-  labels: NodeListOf<HTMLLabelElement>?
-
-  защищено 
-  list: HTMLDataListElement?
-
-  max: Текст
-
-  maxLength: Число
-
-  min: Текст
-
   minLength: Число
-
-  multiple: ДаНет
-
-  name: Текст
-
-  pattern: Текст
-
-  placeholder: Текст
 
   readOnly: ДаНет
 
-  required: ДаНет
-
-  selectionDirection: "forward" | "backward" | "none" | пусто
-
-  selectionEnd: Число?
-
-  selectionStart: Число?
-
   size: Число
 
-  src: Текст
-
-  step: Текст
-
-  type: Текст
-
-  useMap: Текст
-
-  защищено 
-  validationMessage: Текст
-
-  защищено 
-  validity: ValidityState
-
-  value: Текст
-
-  valueAsDate: Date?
-
-  valueAsNumber: Число
-
-  защищено 
-  webkitEntries: ReadonlyArray<FileSystemEntry>
-
-  webkitdirectory: ДаНет
-
-  width: Число
-
-  защищено 
-  willValidate: ДаНет
-
-  операция checkValidity(): ДаНет
-
-  операция reportValidity(): ДаНет
-
-  операция select()
-
-  операция setCustomValidity(error: Текст)
-
-  операция setRangeText(replacement: Текст)
-
   операция setRangeText(replacement: Текст, start: Число, end: Число, selectionMode: SelectionMode? = пусто)
-
-  операция setSelectionRange(start: Число?, end: Число?, direction: "forward" | "backward" | "none" | пусто = пусто)
-
-  операция showPicker()
-
-  операция stepDown(n: Число? = пусто)
-
-  операция stepUp(n: Число? = пусто)
 
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLInputElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -11783,10 +9521,6 @@
 
 тип HTMLLIElement = интерфейс на основе HTMLElement
 {
-  type: Текст
-
-  value: Число
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLLIElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -11839,11 +9573,6 @@
 
 тип HTMLLegendElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
-  защищено 
-  form: HTMLFormElement?
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLLegendElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -11866,41 +9595,13 @@
 
 тип HTMLLinkElement = интерфейс на основе HTMLElement, LinkStyle
 {
-  as: Текст
-
-  charset: Текст
-
-  crossOrigin: Текст?
-
   disabled: ДаНет
-
-  href: Текст
-
-  hreflang: Текст
 
   imageSizes: Текст
 
   imageSrcset: Текст
 
   integrity: Текст
-
-  media: Текст
-
-  referrerPolicy: Текст
-
-  rel: Текст
-
-  защищено 
-  relList: DOMTokenList
-
-  rev: Текст
-
-  защищено 
-  sizes: DOMTokenList
-
-  target: Текст
-
-  type: Текст
 
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLLinkElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -11941,57 +9642,6 @@
 
 внешнее
 /*(!) var */ HTMLMapElement: объект { prototype: HTMLMapElement; при создании(): HTMLMapElement }
-
-
-/**
-* Provides methods to manipulate <marquee> elements.
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLMarqueeElement)
-*/
-
-тип HTMLMarqueeElement = интерфейс на основе HTMLElement
-{
-  behavior: Текст
-
-  bgColor: Текст
-
-  direction: Текст
-
-  height: Текст
-
-  hspace: Число
-
-  loop: Число
-
-  scrollAmount: Число
-
-  scrollDelay: Число
-
-  trueSpeed: ДаНет
-
-  vspace: Число
-
-  width: Текст
-
-  операция start()
-
-  операция stop()
-
-  операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLMarqueeElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция removeEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLMarqueeElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
-
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ HTMLMarqueeElement: объект { prototype: HTMLMarqueeElement; при создании(): HTMLMarqueeElement }
 
 
 тип HTMLMediaElementEventMap = интерфейс на основе HTMLElementEventMap
@@ -12145,8 +9795,6 @@
 
 тип HTMLMenuElement = интерфейс на основе HTMLElement
 {
-  compact: ДаНет
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLMenuElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -12169,15 +9817,7 @@
 
 тип HTMLMetaElement = интерфейс на основе HTMLElement
 {
-  content: Текст
-
-  httpEquiv: Текст
-
   media: Текст
-
-  name: Текст
-
-  scheme: Текст
 
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLMetaElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -12264,14 +9904,6 @@
 
 тип HTMLOListElement = интерфейс на основе HTMLElement
 {
-  compact: ДаНет
-
-  reversed: ДаНет
-
-  start: Число
-
-  type: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLOListElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -12294,64 +9926,6 @@
 
 тип HTMLObjectElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
-  archive: Текст
-
-  border: Текст
-
-  code: Текст
-
-  codeBase: Текст
-
-  codeType: Текст
-
-  защищено 
-  contentDocument: Document?
-
-  защищено 
-  contentWindow: WindowProxy?
-
-  data: Текст
-
-  declare: ДаНет
-
-  защищено 
-  form: HTMLFormElement?
-
-  height: Текст
-
-  hspace: Число
-
-  name: Текст
-
-  standby: Текст
-
-  type: Текст
-
-  useMap: Текст
-
-  защищено 
-  validationMessage: Текст
-
-  защищено 
-  validity: ValidityState
-
-  vspace: Число
-
-  width: Текст
-
-  защищено 
-  willValidate: ДаНет
-
-  операция checkValidity(): ДаНет
-
-  операция getSVGDocument(): Document?
-
-  операция reportValidity(): ДаНет
-
-  операция setCustomValidity(error: Текст)
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLObjectElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -12534,8 +10108,6 @@
 
 тип HTMLParagraphElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLParagraphElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -12548,39 +10120,6 @@
 
 внешнее
 /*(!) var */ HTMLParagraphElement: объект { prototype: HTMLParagraphElement; при создании(): HTMLParagraphElement }
-
-
-/**
-* Provides special properties (beyond those of the regular HTMLElement object interface it inherits) for manipulating <param> elements, representing a pair of a key and a value that acts as a parameter for an <object> element.
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLParamElement)
-*/
-
-тип HTMLParamElement = интерфейс на основе HTMLElement
-{
-  name: Текст
-
-  type: Текст
-
-  value: Текст
-
-  valueType: Текст
-
-  операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLParamElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция removeEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLParamElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
-
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ HTMLParamElement: объект { prototype: HTMLParamElement; при создании(): HTMLParamElement }
 
 
 /**
@@ -12613,8 +10152,6 @@
 
 тип HTMLPreElement = интерфейс на основе HTMLElement
 {
-  width: Число
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLPreElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -12695,27 +10232,11 @@
 {
   async: ДаНет
 
-  charset: Текст
-
   crossOrigin: Текст?
-
-  defer: ДаНет
-
-  event: Текст
-
-  htmlFor: Текст
 
   integrity: Текст
 
   noModule: ДаНет
-
-  referrerPolicy: Текст
-
-  src: Текст
-
-  text: Текст
-
-  type: Текст
 
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLScriptElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -12906,12 +10427,6 @@
 
 тип HTMLStyleElement = интерфейс на основе HTMLElement, LinkStyle
 {
-  disabled: ДаНет
-
-  media: Текст
-
-  type: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLStyleElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -12934,8 +10449,6 @@
 
 тип HTMLTableCaptionElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableCaptionElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -12958,37 +10471,6 @@
 
 тип HTMLTableCellElement = интерфейс на основе HTMLElement
 {
-  abbr: Текст
-
-  align: Текст
-
-  axis: Текст
-
-  bgColor: Текст
-
-  защищено 
-  cellIndex: Число
-
-  ch: Текст
-
-  chOff: Текст
-
-  colSpan: Число
-
-  headers: Текст
-
-  height: Текст
-
-  noWrap: ДаНет
-
-  rowSpan: Число
-
-  scope: Текст
-
-  vAlign: Текст
-
-  width: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableCellElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -13011,18 +10493,6 @@
 
 тип HTMLTableColElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
-  ch: Текст
-
-  chOff: Текст
-
-  span: Число
-
-  vAlign: Текст
-
-  width: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableColElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -13037,20 +10507,6 @@
 /*(!) var */ HTMLTableColElement: объект { prototype: HTMLTableColElement; при создании(): HTMLTableColElement }
 
 
-/** @deprecated prefer HTMLTableCellElement */
-
-тип HTMLTableDataCellElement = интерфейс на основе HTMLTableCellElement
-{
-  операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableDataCellElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция removeEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableDataCellElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
-
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
-}
-
-
 /**
 * Provides special properties and methods (beyond the regular HTMLElement object interface it also has available to it by inheritance) for manipulating the layout and presentation of tables in an HTML document.
 *
@@ -13059,54 +10515,6 @@
 
 тип HTMLTableElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
-  bgColor: Текст
-
-  border: Текст
-
-  caption: HTMLTableCaptionElement?
-
-  cellPadding: Текст
-
-  cellSpacing: Текст
-
-  frame: Текст
-
-  защищено 
-  rows: HTMLCollectionOf<HTMLTableRowElement>
-
-  rules: Текст
-
-  summary: Текст
-
-  защищено 
-  tBodies: HTMLCollectionOf<HTMLTableSectionElement>
-
-  tFoot: HTMLTableSectionElement?
-
-  tHead: HTMLTableSectionElement?
-
-  width: Текст
-
-  операция createCaption(): HTMLTableCaptionElement
-
-  операция createTBody(): HTMLTableSectionElement
-
-  операция createTFoot(): HTMLTableSectionElement
-
-  операция createTHead(): HTMLTableSectionElement
-
-  операция deleteCaption()
-
-  операция deleteRow(index: Число)
-
-  операция deleteTFoot()
-
-  операция deleteTHead()
-
-  операция insertRow(index: Число? = пусто): HTMLTableRowElement
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -13121,20 +10529,6 @@
 /*(!) var */ HTMLTableElement: объект { prototype: HTMLTableElement; при создании(): HTMLTableElement }
 
 
-/** @deprecated prefer HTMLTableCellElement */
-
-тип HTMLTableHeaderCellElement = интерфейс на основе HTMLTableCellElement
-{
-  операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableHeaderCellElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция removeEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableHeaderCellElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
-
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
-}
-
-
 /**
 * Provides special properties and methods (beyond the HTMLElement interface it also has available to it by inheritance) for manipulating the layout and presentation of rows in an HTML table.
 *
@@ -13143,29 +10537,6 @@
 
 тип HTMLTableRowElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
-  bgColor: Текст
-
-  защищено 
-  cells: HTMLCollectionOf<HTMLTableCellElement>
-
-  ch: Текст
-
-  chOff: Текст
-
-  защищено 
-  rowIndex: Число
-
-  защищено 
-  sectionRowIndex: Число
-
-  vAlign: Текст
-
-  операция deleteCell(index: Число)
-
-  операция insertCell(index: Число? = пусто): HTMLTableCellElement
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableRowElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -13188,21 +10559,6 @@
 
 тип HTMLTableSectionElement = интерфейс на основе HTMLElement
 {
-  align: Текст
-
-  ch: Текст
-
-  chOff: Текст
-
-  защищено 
-  rows: HTMLCollectionOf<HTMLTableRowElement>
-
-  vAlign: Текст
-
-  операция deleteRow(index: Число)
-
-  операция insertRow(index: Число? = пусто): HTMLTableRowElement
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLTableSectionElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -13439,10 +10795,6 @@
 
 тип HTMLUListElement = интерфейс на основе HTMLElement
 {
-  compact: ДаНет
-
-  type: Текст
-
   операция addEventListener<K = /*(!) keyof HTMLElementEventMap */ Объект?>(type: K, listener: операция(this: HTMLUListElement, ev: /*(!) HTMLElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -14258,43 +11610,6 @@
 тип KeyboardEvent = интерфейс на основе UIEvent
 {
   защищено 
-  altKey: ДаНет
-
-  защищено 
-  charCode: Число
-
-  защищено 
-  code: Текст
-
-  защищено 
-  ctrlKey: ДаНет
-
-  защищено 
-  isComposing: ДаНет
-
-  защищено 
-  key: Текст
-
-  защищено 
-  keyCode: Число
-
-  защищено 
-  location: Число
-
-  защищено 
-  metaKey: ДаНет
-
-  защищено 
-  repeat: ДаНет
-
-  защищено 
-  shiftKey: ДаНет
-
-  операция getModifierState(keyArg: Текст): ДаНет
-
-  операция initKeyboardEvent(typeArg: Текст, bubblesArg: ДаНет? = пусто, cancelableArg: ДаНет? = пусто, viewArg: Window? = пусто, keyArg: Текст? = пусто, locationArg: Число? = пусто, ctrlKey: ДаНет? = пусто, altKey: ДаНет? = пусто, shiftKey: ДаНет? = пусто, metaKey: ДаНет? = пусто)
-
-  защищено 
   DOM_KEY_LOCATION_STANDARD: 0x00
 
   защищено 
@@ -15010,18 +12325,6 @@
 
 тип MediaQueryList = интерфейс на основе EventTarget
 {
-  защищено 
-  matches: ДаНет
-
-  защищено 
-  media: Текст
-
-  onchange: (операция(this: MediaQueryList, ev: MediaQueryListEvent): /*(!) any */ Объект?)?
-
-  операция addListener(callback: (операция(this: MediaQueryList, ev: MediaQueryListEvent): /*(!) any */ Объект?)?)
-
-  операция removeListener(callback: (операция(this: MediaQueryList, ev: MediaQueryListEvent): /*(!) any */ Объект?)?)
-
   операция addEventListener<K = /*(!) keyof MediaQueryListEventMap */ Объект?>(type: K, listener: операция(this: MediaQueryList, ev: /*(!) MediaQueryListEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -15398,22 +12701,7 @@
 
 тип MessageEvent<T> = интерфейс на основе Event
 {
-  защищено 
-  data: T
 
-  защищено 
-  lastEventId: Текст
-
-  защищено 
-  origin: Текст
-
-  защищено 
-  ports: ReadonlyArray<MessagePort>
-
-  защищено 
-  source: MessageEventSource?
-
-  операция initMessageEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, data: /*(!) any */ Объект? = пусто, origin: Текст? = пусто, lastEventId: Текст? = пусто, source: MessageEventSource? = пусто, ports: Список<MessagePort>? = пусто)
 }
 
 
@@ -15464,61 +12752,6 @@
 
 
 /**
-* Provides contains information about a MIME type associated with a particular plugin. NavigatorPlugins.mimeTypes returns an array of this object.
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/MimeType)
-*/
-
-тип MimeType = интерфейс
-{
-  защищено 
-  description: Текст
-
-  защищено 
-  enabledPlugin: Plugin
-
-  защищено 
-  suffixes: Текст
-
-  защищено 
-  type: Текст
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ MimeType: объект { prototype: MimeType; при создании(): MimeType }
-
-
-/**
-* Returns an array of MimeType instances, each of which contains information about a supported browser plugins. This object is returned by NavigatorPlugins.mimeTypes.
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/MimeTypeArray)
-*/
-
-тип MimeTypeArray = интерфейс
-{
-  защищено 
-  length: Число
-
-  операция item(index: Число): MimeType?
-
-  операция namedItem(name: Текст): MimeType?
-
-  /*(!) [index: number]: MimeType*/
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ MimeTypeArray: объект { prototype: MimeTypeArray; при создании(): MimeTypeArray }
-
-
-/**
 * Events that occur due to the user interacting with a pointing device (such as a mouse). Common events using this interface include click, dblclick, mouseup, mousedown.
 *
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MouseEvent)
@@ -15526,114 +12759,12 @@
 
 тип MouseEvent = интерфейс на основе UIEvent
 {
-  защищено 
-  altKey: ДаНет
 
-  защищено 
-  button: Число
-
-  защищено 
-  buttons: Число
-
-  защищено 
-  clientX: Число
-
-  защищено 
-  clientY: Число
-
-  защищено 
-  ctrlKey: ДаНет
-
-  защищено 
-  metaKey: ДаНет
-
-  защищено 
-  movementX: Число
-
-  защищено 
-  movementY: Число
-
-  защищено 
-  offsetX: Число
-
-  защищено 
-  offsetY: Число
-
-  защищено 
-  pageX: Число
-
-  защищено 
-  pageY: Число
-
-  защищено 
-  relatedTarget: EventTarget?
-
-  защищено 
-  screenX: Число
-
-  защищено 
-  screenY: Число
-
-  защищено 
-  shiftKey: ДаНет
-
-  защищено 
-  x: Число
-
-  защищено 
-  y: Число
-
-  операция getModifierState(keyArg: Текст): ДаНет
-
-  операция initMouseEvent(typeArg: Текст, canBubbleArg: ДаНет, cancelableArg: ДаНет, viewArg: Window, detailArg: Число, screenXArg: Число, screenYArg: Число, clientXArg: Число, clientYArg: Число, ctrlKeyArg: ДаНет, altKeyArg: ДаНет, shiftKeyArg: ДаНет, metaKeyArg: ДаНет, buttonArg: Число, relatedTargetArg: EventTarget?)
 }
 
 
 внешнее
 /*(!) var */ MouseEvent: объект { prototype: MouseEvent; при создании(type: Текст, eventInitDict: MouseEventInit? = пусто): MouseEvent }
-
-
-/**
-* Provides event properties that are specific to modifications to the Document Object Model (DOM) hierarchy and nodes.
-* @deprecated DOM4 [DOM] provides a new mechanism using a MutationObserver interface which addresses the use cases that mutation events solve, but in a more performant manner. Thus, this specification describes mutation events for reference and completeness of legacy behavior, but deprecates the use of the MutationEvent interface.
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/MutationEvent)
-*/
-
-тип MutationEvent = интерфейс на основе Event
-{
-  защищено 
-  attrChange: Число
-
-  защищено 
-  attrName: Текст
-
-  защищено 
-  newValue: Текст
-
-  защищено 
-  prevValue: Текст
-
-  защищено 
-  relatedNode: Node?
-
-  операция initMutationEvent(typeArg: Текст, bubblesArg: ДаНет? = пусто, cancelableArg: ДаНет? = пусто, relatedNodeArg: Node? = пусто, prevValueArg: Текст? = пусто, newValueArg: Текст? = пусто, attrNameArg: Текст? = пусто, attrChangeArg: Число? = пусто)
-
-  защищено 
-  MODIFICATION: 1
-
-  защищено 
-  ADDITION: 2
-
-  защищено 
-  REMOVAL: 3
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ MutationEvent: объект { prototype: MutationEvent; при создании(): MutationEvent; защищено  MODIFICATION: 1; защищено  ADDITION: 2; защищено  REMOVAL: 3 }
 
 
 /**
@@ -15855,32 +12986,7 @@
 
 тип NavigatorID = интерфейс
 {
-  защищено 
-  appCodeName: Текст
 
-  защищено 
-  appName: Текст
-
-  защищено 
-  appVersion: Текст
-
-  защищено 
-  platform: Текст
-
-  защищено 
-  product: Текст
-
-  защищено 
-  productSub: Текст
-
-  защищено 
-  userAgent: Текст
-
-  защищено 
-  vendor: Текст
-
-  защищено 
-  vendorSub: Текст
 }
 
 
@@ -15912,16 +13018,7 @@
 
 тип NavigatorPlugins = интерфейс
 {
-  защищено 
-  mimeTypes: MimeTypeArray
 
-  защищено 
-  pdfViewerEnabled: ДаНет
-
-  защищено 
-  plugins: PluginArray
-
-  операция javaEnabled(): ДаНет
 }
 
 
@@ -16080,26 +13177,7 @@
 
 тип NodeIterator = интерфейс
 {
-  защищено 
-  filter: NodeFilter?
 
-  защищено 
-  pointerBeforeReferenceNode: ДаНет
-
-  защищено 
-  referenceNode: Node
-
-  защищено 
-  root: Node
-
-  защищено 
-  whatToShow: Число
-
-  операция detach()
-
-  операция nextNode(): Node?
-
-  операция previousNode(): Node?
 }
 
 
@@ -16552,43 +13630,7 @@
 
 тип PannerNode = интерфейс на основе AudioNode
 {
-  coneInnerAngle: Число
 
-  coneOuterAngle: Число
-
-  coneOuterGain: Число
-
-  distanceModel: DistanceModelType
-
-  maxDistance: Число
-
-  защищено 
-  orientationX: AudioParam
-
-  защищено 
-  orientationY: AudioParam
-
-  защищено 
-  orientationZ: AudioParam
-
-  panningModel: PanningModelType
-
-  защищено 
-  positionX: AudioParam
-
-  защищено 
-  positionY: AudioParam
-
-  защищено 
-  positionZ: AudioParam
-
-  refDistance: Число
-
-  rolloffFactor: Число
-
-  операция setOrientation(x: Число, y: Число, z: Число)
-
-  операция setPosition(x: Число, y: Число, z: Число)
 }
 
 
@@ -16598,46 +13640,17 @@
 
 тип ParentNode = интерфейс на основе Node
 {
-  защищено 
-  childElementCount: Число
-
-  защищено 
-  children: HTMLCollection
-
-  защищено 
-  firstElementChild: Element?
-
-  защищено 
-  lastElementChild: Element?
-
-  #js.МассивПараметров
-  операция append(nodes: Список<Node | Текст>)
-
-  #js.МассивПараметров
-  операция prepend(nodes: Список<Node | Текст>)
-
-  операция querySelector<K = /*(!) keyof HTMLElementTagNameMap */ Объект?>(selectors: K): /*(!) HTMLElementTagNameMap[K] */ Объект?
-
   операция querySelector<K = /*(!) keyof SVGElementTagNameMap */ Объект?>(selectors: K): /*(!) SVGElementTagNameMap[K] */ Объект?
 
   операция querySelector<K = /*(!) keyof MathMLElementTagNameMap */ Объект?>(selectors: K): /*(!) MathMLElementTagNameMap[K] */ Объект?
 
-  операция querySelector<K = /*(!) keyof HTMLElementDeprecatedTagNameMap */ Объект?>(selectors: K): /*(!) HTMLElementDeprecatedTagNameMap[K] */ Объект?
-
   операция querySelector<E = Element>(selectors: Текст): E?
-
-  операция querySelectorAll<K = /*(!) keyof HTMLElementTagNameMap */ Объект?>(selectors: K): NodeListOf</*(!) HTMLElementTagNameMap[K] */ Объект?>
 
   операция querySelectorAll<K = /*(!) keyof SVGElementTagNameMap */ Объект?>(selectors: K): NodeListOf</*(!) SVGElementTagNameMap[K] */ Объект?>
 
   операция querySelectorAll<K = /*(!) keyof MathMLElementTagNameMap */ Объект?>(selectors: K): NodeListOf</*(!) MathMLElementTagNameMap[K] */ Объект?>
 
-  операция querySelectorAll<K = /*(!) keyof HTMLElementDeprecatedTagNameMap */ Объект?>(selectors: K): NodeListOf</*(!) HTMLElementDeprecatedTagNameMap[K] */ Объект?>
-
   операция querySelectorAll<E = Element>(selectors: Текст): NodeListOf<E>
-
-  #js.МассивПараметров
-  операция replaceChildren(nodes: Список<Node | Текст>)
 }
 
 
@@ -16778,42 +13791,6 @@
 
 тип Performance = интерфейс на основе EventTarget
 {
-  защищено 
-  eventCounts: EventCounts
-
-  защищено 
-  navigation: PerformanceNavigation
-
-  onresourcetimingbufferfull: (операция(this: Performance, ev: Event): /*(!) any */ Объект?)?
-
-  защищено 
-  timeOrigin: DOMHighResTimeStamp
-
-  защищено 
-  timing: PerformanceTiming
-
-  операция clearMarks(markName: Текст? = пусто)
-
-  операция clearMeasures(measureName: Текст? = пусто)
-
-  операция clearResourceTimings()
-
-  операция getEntries(): PerformanceEntryList
-
-  операция getEntriesByName(name: Текст, type: Текст? = пусто): PerformanceEntryList
-
-  операция getEntriesByType(type: Текст): PerformanceEntryList
-
-  операция mark(markName: Текст, markOptions: PerformanceMarkOptions? = пусто): PerformanceMark
-
-  операция measure(measureName: Текст, startOrMeasureOptions: Текст | PerformanceMeasureOptions | пусто = пусто, endMark: Текст? = пусто): PerformanceMeasure
-
-  операция now(): DOMHighResTimeStamp
-
-  операция setResourceTimingBufferSize(maxSize: Число)
-
-  операция toJSON(): /*(!) any */ Объект?
-
   операция addEventListener<K = /*(!) keyof PerformanceEventMap */ Объект?>(type: K, listener: операция(this: Performance, ev: /*(!) PerformanceEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -16912,43 +13889,6 @@
 
 внешнее
 /*(!) var */ PerformanceMeasure: объект { prototype: PerformanceMeasure; при создании(): PerformanceMeasure }
-
-
-/**
-* The legacy PerformanceNavigation interface represents information about how the navigation to the current document was done.
-* @deprecated This interface is deprecated in the Navigation Timing Level 2 specification. Please use the PerformanceNavigationTiming interface instead.
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceNavigation)
-*/
-
-тип PerformanceNavigation = интерфейс
-{
-  защищено 
-  redirectCount: Число
-
-  защищено 
-  type: Число
-
-  операция toJSON(): /*(!) any */ Объект?
-
-  защищено 
-  TYPE_NAVIGATE: 0
-
-  защищено 
-  TYPE_RELOAD: 1
-
-  защищено 
-  TYPE_BACK_FORWARD: 2
-
-  защищено 
-  TYPE_RESERVED: 255
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ PerformanceNavigation: объект { prototype: PerformanceNavigation; при создании(): PerformanceNavigation; защищено  TYPE_NAVIGATE: 0; защищено  TYPE_RELOAD: 1; защищено  TYPE_BACK_FORWARD: 2; защищено  TYPE_RESERVED: 255 }
 
 
 /**
@@ -17133,88 +14073,6 @@
 
 
 /**
-* A legacy interface kept for backwards compatibility and contains properties that offer performance timing information for various events which occur during the loading and use of the current page. You get a PerformanceTiming object describing your page using the window.performance.timing property.
-* @deprecated This interface is deprecated in the Navigation Timing Level 2 specification. Please use the PerformanceNavigationTiming interface instead.
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/PerformanceTiming)
-*/
-
-тип PerformanceTiming = интерфейс
-{
-  защищено 
-  connectEnd: Число
-
-  защищено 
-  connectStart: Число
-
-  защищено 
-  domComplete: Число
-
-  защищено 
-  domContentLoadedEventEnd: Число
-
-  защищено 
-  domContentLoadedEventStart: Число
-
-  защищено 
-  domInteractive: Число
-
-  защищено 
-  domLoading: Число
-
-  защищено 
-  domainLookupEnd: Число
-
-  защищено 
-  domainLookupStart: Число
-
-  защищено 
-  fetchStart: Число
-
-  защищено 
-  loadEventEnd: Число
-
-  защищено 
-  loadEventStart: Число
-
-  защищено 
-  navigationStart: Число
-
-  защищено 
-  redirectEnd: Число
-
-  защищено 
-  redirectStart: Число
-
-  защищено 
-  requestStart: Число
-
-  защищено 
-  responseEnd: Число
-
-  защищено 
-  responseStart: Число
-
-  защищено 
-  secureConnectionStart: Число
-
-  защищено 
-  unloadEventEnd: Число
-
-  защищено 
-  unloadEventStart: Число
-
-  операция toJSON(): /*(!) any */ Объект?
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ PerformanceTiming: объект { prototype: PerformanceTiming; при создании(): PerformanceTiming }
-
-
-/**
 * PeriodicWave has no inputs or outputs; it is used to define custom oscillators when calling OscillatorNode.setPeriodicWave(). The PeriodicWave itself is created/returned by AudioContext.createPeriodicWave().
 *
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/PeriodicWave)
@@ -17317,69 +14175,6 @@
 
 внешнее
 /*(!) var */ PictureInPictureWindow: объект { prototype: PictureInPictureWindow; при создании(): PictureInPictureWindow }
-
-
-/**
-* Provides information about a browser plugin.
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Plugin)
-*/
-
-тип Plugin = интерфейс
-{
-  защищено 
-  description: Текст
-
-  защищено 
-  filename: Текст
-
-  защищено 
-  length: Число
-
-  защищено 
-  name: Текст
-
-  операция item(index: Число): MimeType?
-
-  операция namedItem(name: Текст): MimeType?
-
-  /*(!) [index: number]: MimeType*/
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ Plugin: объект { prototype: Plugin; при создании(): Plugin }
-
-
-/**
-* Used to store a list of Plugin objects describing the available plugins; it's returned by the window.navigator.plugins property. The PluginArray is not a JavaScript array, but has the length property and supports accessing individual items using bracket notation (plugins[2]), as well as via item(index) and namedItem("name") methods.
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/PluginArray)
-*/
-
-тип PluginArray = интерфейс
-{
-  защищено 
-  length: Число
-
-  операция item(index: Число): Plugin?
-
-  операция namedItem(name: Текст): Plugin?
-
-  операция refresh()
-
-  /*(!) [index: number]: Plugin*/
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ PluginArray: объект { prototype: PluginArray; при создании(): PluginArray }
 
 
 /**
@@ -18022,105 +14817,6 @@
 
 тип RTCPeerConnection = интерфейс на основе EventTarget
 {
-  защищено 
-  canTrickleIceCandidates: ДаНет?
-
-  защищено 
-  connectionState: RTCPeerConnectionState
-
-  защищено 
-  currentLocalDescription: RTCSessionDescription?
-
-  защищено 
-  currentRemoteDescription: RTCSessionDescription?
-
-  защищено 
-  iceConnectionState: RTCIceConnectionState
-
-  защищено 
-  iceGatheringState: RTCIceGatheringState
-
-  защищено 
-  localDescription: RTCSessionDescription?
-
-  onconnectionstatechange: (операция(this: RTCPeerConnection, ev: Event): /*(!) any */ Объект?)?
-
-  ondatachannel: (операция(this: RTCPeerConnection, ev: RTCDataChannelEvent): /*(!) any */ Объект?)?
-
-  onicecandidate: (операция(this: RTCPeerConnection, ev: RTCPeerConnectionIceEvent): /*(!) any */ Объект?)?
-
-  onicecandidateerror: (операция(this: RTCPeerConnection, ev: Event): /*(!) any */ Объект?)?
-
-  oniceconnectionstatechange: (операция(this: RTCPeerConnection, ev: Event): /*(!) any */ Объект?)?
-
-  onicegatheringstatechange: (операция(this: RTCPeerConnection, ev: Event): /*(!) any */ Объект?)?
-
-  onnegotiationneeded: (операция(this: RTCPeerConnection, ev: Event): /*(!) any */ Объект?)?
-
-  onsignalingstatechange: (операция(this: RTCPeerConnection, ev: Event): /*(!) any */ Объект?)?
-
-  ontrack: (операция(this: RTCPeerConnection, ev: RTCTrackEvent): /*(!) any */ Объект?)?
-
-  защищено 
-  pendingLocalDescription: RTCSessionDescription?
-
-  защищено 
-  pendingRemoteDescription: RTCSessionDescription?
-
-  защищено 
-  remoteDescription: RTCSessionDescription?
-
-  защищено 
-  sctp: RTCSctpTransport?
-
-  защищено 
-  signalingState: RTCSignalingState
-
-  операция addIceCandidate(candidate: RTCIceCandidateInit? = пусто): Promise<Ничего>
-
-  операция addIceCandidate(candidate: RTCIceCandidateInit, successCallback: VoidFunction, failureCallback: RTCPeerConnectionErrorCallback): Promise<Ничего>
-
-  #js.МассивПараметров
-  операция addTrack(track: MediaStreamTrack, streams: Список<MediaStream>): RTCRtpSender
-
-  операция addTransceiver(trackOrKind: MediaStreamTrack | Текст, init: RTCRtpTransceiverInit? = пусто): RTCRtpTransceiver
-
-  операция close()
-
-  операция createAnswer(options: RTCAnswerOptions? = пусто): Promise<RTCSessionDescriptionInit>
-
-  операция createAnswer(successCallback: RTCSessionDescriptionCallback, failureCallback: RTCPeerConnectionErrorCallback): Promise<Ничего>
-
-  операция createDataChannel(label: Текст, dataChannelDict: RTCDataChannelInit? = пусто): RTCDataChannel
-
-  операция createOffer(options: RTCOfferOptions? = пусто): Promise<RTCSessionDescriptionInit>
-
-  операция createOffer(successCallback: RTCSessionDescriptionCallback, failureCallback: RTCPeerConnectionErrorCallback, options: RTCOfferOptions? = пусто): Promise<Ничего>
-
-  операция getConfiguration(): RTCConfiguration
-
-  операция getReceivers(): Список<RTCRtpReceiver>
-
-  операция getSenders(): Список<RTCRtpSender>
-
-  операция getStats(selector: MediaStreamTrack? = пусто): Promise<RTCStatsReport>
-
-  операция getTransceivers(): Список<RTCRtpTransceiver>
-
-  операция removeTrack(sender: RTCRtpSender)
-
-  операция restartIce()
-
-  операция setConfiguration(configuration: RTCConfiguration? = пусто)
-
-  операция setLocalDescription(description: RTCLocalSessionDescriptionInit? = пусто): Promise<Ничего>
-
-  операция setLocalDescription(description: RTCLocalSessionDescriptionInit, successCallback: VoidFunction, failureCallback: RTCPeerConnectionErrorCallback): Promise<Ничего>
-
-  операция setRemoteDescription(description: RTCSessionDescriptionInit): Promise<Ничего>
-
-  операция setRemoteDescription(description: RTCSessionDescriptionInit, successCallback: VoidFunction, failureCallback: RTCPeerConnectionErrorCallback): Promise<Ничего>
-
   операция addEventListener<K = /*(!) keyof RTCPeerConnectionEventMap */ Объект?>(type: K, listener: операция(this: RTCPeerConnection, ev: /*(!) RTCPeerConnectionEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -19401,9 +16097,6 @@
 
 тип SVGElement = интерфейс на основе Element, ElementCSSInlineStyle, GlobalEventHandlers, HTMLOrSVGElement
 {
-  защищено 
-  className: /*(!) any */ Объект?
-
   защищено 
   ownerSVGElement: SVGSVGElement?
 
@@ -21344,8 +18037,6 @@
 
   операция deselectAll()
 
-  операция forceRedraw()
-
   операция getCurrentTime(): Число
 
   операция getElementById(elementId: Текст): Element
@@ -21358,13 +18049,7 @@
 
   операция setCurrentTime(seconds: Число)
 
-  операция suspendRedraw(maxWaitMilliseconds: Число): Число
-
   операция unpauseAnimations()
-
-  операция unsuspendRedraw(suspendHandleID: Число)
-
-  операция unsuspendRedrawAll()
 
   операция addEventListener<K = /*(!) keyof SVGSVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGSVGElement, ev: /*(!) SVGSVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -21493,12 +18178,6 @@
 {
   disabled: ДаНет
 
-  media: Текст
-
-  title: Текст
-
-  type: Текст
-
   операция addEventListener<K = /*(!) keyof SVGElementEventMap */ Объект?>(type: K, listener: операция(this: SVGStyleElement, ev: /*(!) SVGElementEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
   операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
@@ -21618,8 +18297,6 @@
   операция getStartPositionOfChar(charnum: Число): DOMPoint
 
   операция getSubStringLength(charnum: Число, nchars: Число): Число
-
-  операция selectSubString(charnum: Число, nchars: Число)
 
   защищено 
   LENGTHADJUST_UNKNOWN: 0
@@ -22029,36 +18706,6 @@
 {
   "audioprocess": AudioProcessingEvent
 }
-
-
-/**
-* Allows the generation, processing, or analyzing of audio using JavaScript.
-* @deprecated As of the August 29 2014 Web Audio API spec publication, this feature has been marked as deprecated, and was replaced by AudioWorklet (see AudioWorkletNode).
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/ScriptProcessorNode)
-*/
-
-тип ScriptProcessorNode = интерфейс на основе AudioNode
-{
-  защищено 
-  bufferSize: Число
-
-  onaudioprocess: (операция(this: ScriptProcessorNode, ev: AudioProcessingEvent): /*(!) any */ Объект?)?
-
-  операция addEventListener<K = /*(!) keyof ScriptProcessorNodeEventMap */ Объект?>(type: K, listener: операция(this: ScriptProcessorNode, ev: /*(!) ScriptProcessorNodeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция addEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | AddEventListenerOptions | пусто = пусто)
-
-  операция removeEventListener<K = /*(!) keyof ScriptProcessorNodeEventMap */ Объект?>(type: K, listener: операция(this: ScriptProcessorNode, ev: /*(!) ScriptProcessorNodeEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | EventListenerOptions | пусто = пусто)
-
-  операция removeEventListener(type: Текст, listener: EventListenerOrEventListenerObject, options: ДаНет | EventListenerOptions | пусто = пусто)
-}
-
-
-/** @deprecated */
-
-внешнее
-/*(!) var */ ScriptProcessorNode: объект { prototype: ScriptProcessorNode; при создании(): ScriptProcessorNode }
 
 
 /**
@@ -22810,22 +19457,7 @@
 
 тип StorageEvent = интерфейс на основе Event
 {
-  защищено 
-  key: Текст?
 
-  защищено 
-  newValue: Текст?
-
-  защищено 
-  oldValue: Текст?
-
-  защищено 
-  storageArea: Storage?
-
-  защищено 
-  url: Текст
-
-  операция initStorageEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, key: Текст? = пусто, oldValue: Текст? = пусто, newValue: Текст? = пусто, url: Текст | URL | пусто = пусто, storageArea: Storage? = пусто)
 }
 
 
@@ -22853,16 +19485,6 @@
 
 внешнее
 /*(!) var */ StorageManager: объект { prototype: StorageManager; при создании(): StorageManager }
-
-
-/** @deprecated */
-
-тип StyleMedia = интерфейс
-{
-  type: Текст
-
-  операция matchMedium(mediaquery: Текст): ДаНет
-}
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/StylePropertyMap) */
@@ -23590,16 +20212,7 @@
 
 тип UIEvent = интерфейс на основе Event
 {
-  защищено 
-  detail: Число
 
-  защищено 
-  view: Window?
-
-  защищено 
-  which: Число
-
-  операция initUIEvent(typeArg: Текст, bubblesArg: ДаНет? = пусто, cancelableArg: ДаНет? = пусто, viewArg: Window? = пусто, detailArg: Число? = пусто)
 }
 
 
@@ -23989,17 +20602,7 @@
 
 тип VideoPlaybackQuality = интерфейс
 {
-  защищено 
-  corruptedVideoFrames: Число
 
-  защищено 
-  creationTime: DOMHighResTimeStamp
-
-  защищено 
-  droppedVideoFrames: Число
-
-  защищено 
-  totalVideoFrames: Число
 }
 
 
@@ -27328,191 +23931,15 @@
 
 тип Window = интерфейс на основе EventTarget, AnimationFrameProvider, GlobalEventHandlers, WindowEventHandlers, WindowLocalStorage, WindowOrWorkerGlobalScope, WindowSessionStorage
 {
-  защищено 
-  clientInformation: Navigator
-
-  защищено 
-  closed: ДаНет
-
-  защищено 
-  customElements: CustomElementRegistry
-
-  защищено 
-  devicePixelRatio: Число
-
-  защищено 
-  document: Document
-
-  защищено 
-  event: Event?
-
-  защищено 
-  external: External
-
-  защищено 
-  frameElement: Element?
-
-  защищено 
-  frames: WindowProxy
-
-  защищено 
-  history: History
-
-  защищено 
-  innerHeight: Число
-
-  защищено 
-  innerWidth: Число
-
-  защищено 
-  length: Число
-
-  операция location(): Location
-
   операция location(href: Текст | Location): /*(!) no_type */ Объект?
-
-  защищено 
-  locationbar: BarProp
-
-  защищено 
-  menubar: BarProp
-
-  name: Текст
-
-  защищено 
-  navigator: Navigator
-
-  ondevicemotion: (операция(this: Window, ev: DeviceMotionEvent): /*(!) any */ Объект?)?
-
-  ondeviceorientation: (операция(this: Window, ev: DeviceOrientationEvent): /*(!) any */ Объект?)?
-
-  onorientationchange: (операция(this: Window, ev: Event): /*(!) any */ Объект?)?
-
-  opener: /*(!) any */ Объект?
-
-  защищено 
-  orientation: Число
-
-  защищено 
-  outerHeight: Число
-
-  защищено 
-  outerWidth: Число
-
-  защищено 
-  pageXOffset: Число
-
-  защищено 
-  pageYOffset: Число
-
-  защищено 
-  parent: WindowProxy
-
-  защищено 
-  personalbar: BarProp
-
-  защищено 
-  screen: Screen
-
-  защищено 
-  screenLeft: Число
-
-  защищено 
-  screenTop: Число
-
-  защищено 
-  screenX: Число
-
-  защищено 
-  screenY: Число
-
-  защищено 
-  scrollX: Число
-
-  защищено 
-  scrollY: Число
-
-  защищено 
-  scrollbars: BarProp
-
-  защищено 
-  self: /*(!) Window & typeof globalThis */ Объект?
-
-  защищено 
-  speechSynthesis: SpeechSynthesis
-
-  status: Текст
-
-  защищено 
-  statusbar: BarProp
-
-  защищено 
-  toolbar: BarProp
-
-  защищено 
-  top: WindowProxy?
-
-  защищено 
-  visualViewport: VisualViewport?
-
-  защищено 
-  window: /*(!) Window & typeof globalThis */ Объект?
-
-  операция alert(message: /*(!) any */ Объект? = пусто)
-
-  операция blur()
-
-  операция cancelIdleCallback(handle: Число)
-
-  операция captureEvents()
-
-  операция close()
-
-  операция confirm(message: Текст? = пусто): ДаНет
-
-  операция focus()
-
-  операция getComputedStyle(elt: Element, pseudoElt: Текст? = пусто): CSSStyleDeclaration
-
-  операция getSelection(): Selection?
-
-  операция matchMedia(query: Текст): MediaQueryList
-
-  операция moveBy(x: Число, y: Число)
-
-  операция moveTo(x: Число, y: Число)
-
-  операция open(url: Текст | URL | пусто = пусто, target: Текст? = пусто, features: Текст? = пусто): WindowProxy?
-
-  операция postMessage(message: /*(!) any */ Объект?, targetOrigin: Текст, transfer: Список<Transferable>? = пусто)
 
   операция postMessage(message: /*(!) any */ Объект?, options: WindowPostMessageOptions? = пусто)
 
-  операция print()
-
-  операция prompt(message: Текст? = пусто, _default: Текст? = пусто): Текст?
-
-  операция releaseEvents()
-
-  операция requestIdleCallback(callback: IdleRequestCallback, options: IdleRequestOptions? = пусто): Число
-
-  операция resizeBy(x: Число, y: Число)
-
-  операция resizeTo(width: Число, height: Число)
-
-  операция scroll(options: ScrollToOptions? = пусто)
-
   операция scroll(x: Число, y: Число)
-
-  операция scrollBy(options: ScrollToOptions? = пусто)
 
   операция scrollBy(x: Число, y: Число)
 
-  операция scrollTo(options: ScrollToOptions? = пусто)
-
   операция scrollTo(x: Число, y: Число)
-
-  операция stop()
 
   операция addEventListener<K = /*(!) keyof WindowEventMap */ Объект?>(type: K, listener: операция(this: Window, ev: /*(!) WindowEventMap[K] */ Объект?): /*(!) any */ Объект?, options: ДаНет | AddEventListenerOptions | пусто = пусто)
 
@@ -29389,10 +25816,6 @@
 }
 
 
-/** @deprecated Directly use HTMLElementTagNameMap or SVGElementTagNameMap as appropriate, instead. */
-
-тип ElementTagNameMap = /*(!) HTMLElementTagNameMap & Pick<SVGElementTagNameMap, Exclude<keyof SVGElementTagNameMap, keyof HTMLElementTagNameMap>> */ Объект?
-
 внешнее
 /*(!) var */ Audio: объект { при создании(src: Текст? = пусто): HTMLAudioElement }
 
@@ -29403,16 +25826,6 @@
 
 внешнее
 /*(!) var */ Option: объект { при создании(text: Текст? = пусто, value: Текст? = пусто, defaultSelected: ДаНет? = пусто, selected: ДаНет? = пусто): HTMLOptionElement }
-
-
-/**
-* @deprecated This is a legacy alias of `navigator`.
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/navigator)
-*/
-
-внешнее
-/*(!) var */ clientInformation: Navigator
 
 
 /**
@@ -29445,26 +25858,6 @@
 
 внешнее
 /*(!) var */ document: Document
-
-
-/**
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/event)
-*/
-
-внешнее
-/*(!) var */ event: Event?
-
-
-/**
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/external)
-*/
-
-внешнее
-/*(!) var */ external: External
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/frameElement) */
@@ -29531,12 +25924,6 @@
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/name) */
 
-/** @deprecated */
-
-внешнее
-конст name: Ничего
-
-
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/navigator) */
 
 внешнее
@@ -29563,30 +25950,10 @@
 /*(!) var */ ondeviceorientation: (операция(this: Window, ev: DeviceOrientationEvent): /*(!) any */ Объект?)?
 
 
-/**
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/orientationchange_event)
-*/
-
-внешнее
-/*(!) var */ onorientationchange: (операция(this: Window, ev: Event): /*(!) any */ Объект?)?
-
-
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/opener) */
 
 внешнее
 /*(!) var */ opener: /*(!) any */ Объект?
-
-
-/**
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/orientation)
-*/
-
-внешнее
-/*(!) var */ orientation: Число
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/outerHeight) */
@@ -29599,26 +25966,6 @@
 
 внешнее
 /*(!) var */ outerWidth: Число
-
-
-/**
-* @deprecated This is a legacy alias of `scrollX`.
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/scrollX)
-*/
-
-внешнее
-/*(!) var */ pageXOffset: Число
-
-
-/**
-* @deprecated This is a legacy alias of `scrollY`.
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/scrollY)
-*/
-
-внешнее
-/*(!) var */ pageYOffset: Число
 
 
 /**
@@ -29708,16 +26055,6 @@
 
 
 /**
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/status)
-*/
-
-внешнее
-/*(!) var */ status: Текст
-
-
-/**
 * Returns true if the status bar is visible; otherwise, returns false.
 *
 * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/statusbar)
@@ -29769,15 +26106,6 @@
 
 внешнее
 операция cancelIdleCallback(handle: Число)
-
-/**
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/captureEvents)
-*/
-
-внешнее
-операция captureEvents()
 
 /**
 * Closes the window.
@@ -29861,15 +26189,6 @@
 
 внешнее
 операция prompt(message: Текст? = пусто, _default: Текст? = пусто): Текст?
-
-/**
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/releaseEvents)
-*/
-
-внешнее
-операция releaseEvents()
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Window/requestIdleCallback) */
 
@@ -30246,18 +26565,6 @@
 
 внешнее
 /*(!) var */ onkeydown: (операция(this: Window, ev: KeyboardEvent): /*(!) any */ Объект?)?
-
-
-/**
-* Fires when the user presses an alphanumeric key.
-* @param ev The event.
-* @deprecated
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/keypress_event)
-*/
-
-внешнее
-/*(!) var */ onkeypress: (операция(this: Window, ev: KeyboardEvent): /*(!) any */ Объект?)?
 
 
 /**
@@ -30701,46 +27008,6 @@
 
 внешнее
 /*(!) var */ onwaiting: (операция(this: Window, ev: Event): /*(!) any */ Объект?)?
-
-
-/**
-* @deprecated This is a legacy alias of `onanimationend`.
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/animationend_event)
-*/
-
-внешнее
-/*(!) var */ onwebkitanimationend: (операция(this: Window, ev: Event): /*(!) any */ Объект?)?
-
-
-/**
-* @deprecated This is a legacy alias of `onanimationiteration`.
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/animationiteration_event)
-*/
-
-внешнее
-/*(!) var */ onwebkitanimationiteration: (операция(this: Window, ev: Event): /*(!) any */ Объект?)?
-
-
-/**
-* @deprecated This is a legacy alias of `onanimationstart`.
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/animationstart_event)
-*/
-
-внешнее
-/*(!) var */ onwebkitanimationstart: (операция(this: Window, ev: Event): /*(!) any */ Объект?)?
-
-
-/**
-* @deprecated This is a legacy alias of `ontransitionend`.
-*
-* [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/transitionend_event)
-*/
-
-внешнее
-/*(!) var */ onwebkittransitionend: (операция(this: Window, ev: Event): /*(!) any */ Объект?)?
 
 
 /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/wheel_event) */

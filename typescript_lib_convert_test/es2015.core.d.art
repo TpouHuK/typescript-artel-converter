@@ -154,47 +154,7 @@
 
 тип String = интерфейс
 {
-  операция codePointAt(pos: Число): Число?
 
-  операция includes(searchString: Текст, position: Число? = пусто): ДаНет
-
-  операция endsWith(searchString: Текст, endPosition: Число? = пусто): ДаНет
-
-  операция normalize(form: "NFC" | "NFD" | "NFKC" | "NFKD"): Текст
-
-  операция normalize(form: Текст? = пусто): Текст
-
-  операция repeat(count: Число): Текст
-
-  операция startsWith(searchString: Текст, position: Число? = пусто): ДаНет
-
-  операция anchor(name: Текст): Текст
-
-  операция big(): Текст
-
-  операция blink(): Текст
-
-  операция bold(): Текст
-
-  операция fixed(): Текст
-
-  операция fontcolor(color: Текст): Текст
-
-  операция fontsize(size: Число): Текст
-
-  операция fontsize(size: Текст): Текст
-
-  операция italics(): Текст
-
-  операция link(url: Текст): Текст
-
-  операция small(): Текст
-
-  операция strike(): Текст
-
-  операция sub(): Текст
-
-  операция sup(): Текст
 }
 
 

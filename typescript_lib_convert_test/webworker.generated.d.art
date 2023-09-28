@@ -2466,10 +2466,7 @@
 
 тип CustomEvent<T> = интерфейс на основе Event
 {
-  защищено 
-  detail: T
 
-  операция initCustomEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, detail: T? = пусто)
 }
 
 
@@ -2485,15 +2482,6 @@
 
 тип DOMException = интерфейс на основе Error
 {
-  защищено 
-  code: Число
-
-  защищено 
-  message: Текст
-
-  защищено 
-  name: Текст
-
   защищено 
   INDEX_SIZE_ERR: 1
 
@@ -2655,111 +2643,7 @@
 
 тип DOMMatrixReadOnly = интерфейс
 {
-  защищено 
-  a: Число
-
-  защищено 
-  b: Число
-
-  защищено 
-  c: Число
-
-  защищено 
-  d: Число
-
-  защищено 
-  e: Число
-
-  защищено 
-  f: Число
-
-  защищено 
-  is2D: ДаНет
-
-  защищено 
-  isIdentity: ДаНет
-
-  защищено 
-  m11: Число
-
-  защищено 
-  m12: Число
-
-  защищено 
-  m13: Число
-
-  защищено 
-  m14: Число
-
-  защищено 
-  m21: Число
-
-  защищено 
-  m22: Число
-
-  защищено 
-  m23: Число
-
-  защищено 
-  m24: Число
-
-  защищено 
-  m31: Число
-
-  защищено 
-  m32: Число
-
-  защищено 
-  m33: Число
-
-  защищено 
-  m34: Число
-
-  защищено 
-  m41: Число
-
-  защищено 
-  m42: Число
-
-  защищено 
-  m43: Число
-
-  защищено 
-  m44: Число
-
-  операция flipX(): DOMMatrix
-
-  операция flipY(): DOMMatrix
-
-  операция inverse(): DOMMatrix
-
-  операция multiply(other: DOMMatrixInit? = пусто): DOMMatrix
-
-  операция rotate(rotX: Число? = пусто, rotY: Число? = пусто, rotZ: Число? = пусто): DOMMatrix
-
-  операция rotateAxisAngle(x: Число? = пусто, y: Число? = пусто, z: Число? = пусто, angle: Число? = пусто): DOMMatrix
-
-  операция rotateFromVector(x: Число? = пусто, y: Число? = пусто): DOMMatrix
-
-  операция scale(scaleX: Число? = пусто, scaleY: Число? = пусто, scaleZ: Число? = пусто, originX: Число? = пусто, originY: Число? = пусто, originZ: Число? = пусто): DOMMatrix
-
-  операция scale3d(scale: Число? = пусто, originX: Число? = пусто, originY: Число? = пусто, originZ: Число? = пусто): DOMMatrix
-
-  операция scaleNonUniform(scaleX: Число? = пусто, scaleY: Число? = пусто): DOMMatrix
-
-  операция skewX(sx: Число? = пусто): DOMMatrix
-
-  операция skewY(sy: Число? = пусто): DOMMatrix
-
-  операция toFloat32Array(): Float32Array
-
-  операция toFloat64Array(): Float64Array
-
   операция toJSON(): /*(!) any */ Объект?
-
-  операция transformPoint(point: DOMPointInit? = пусто): DOMPoint
-
-  операция translate(tx: Число? = пусто, ty: Число? = пусто, tz: Число? = пусто): DOMMatrix
 }
 
 
@@ -3197,53 +3081,6 @@
 тип Event = интерфейс
 {
   защищено 
-  bubbles: ДаНет
-
-  cancelBubble: ДаНет
-
-  защищено 
-  cancelable: ДаНет
-
-  защищено 
-  composed: ДаНет
-
-  защищено 
-  currentTarget: EventTarget?
-
-  защищено 
-  defaultPrevented: ДаНет
-
-  защищено 
-  eventPhase: Число
-
-  защищено 
-  isTrusted: ДаНет
-
-  returnValue: ДаНет
-
-  защищено 
-  srcElement: EventTarget?
-
-  защищено 
-  target: EventTarget?
-
-  защищено 
-  timeStamp: DOMHighResTimeStamp
-
-  защищено 
-  type: Текст
-
-  операция composedPath(): Список<EventTarget>
-
-  операция initEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто)
-
-  операция preventDefault()
-
-  операция stopImmediatePropagation()
-
-  операция stopPropagation()
-
-  защищено 
   NONE: 0
 
   защищено 
@@ -3557,13 +3394,7 @@
 
 тип FileReaderSync = интерфейс
 {
-  операция readAsArrayBuffer(blob: Blob): ArrayBuffer
 
-  операция readAsBinaryString(blob: Blob): Текст
-
-  операция readAsDataURL(blob: Blob): Текст
-
-  операция readAsText(blob: Blob, encoding: Текст? = пусто): Текст
 }
 
 
@@ -4435,22 +4266,7 @@
 
 тип MessageEvent<T> = интерфейс на основе Event
 {
-  защищено 
-  data: T
 
-  защищено 
-  lastEventId: Текст
-
-  защищено 
-  origin: Текст
-
-  защищено 
-  ports: ReadonlyArray<MessagePort>
-
-  защищено 
-  source: MessageEventSource?
-
-  операция initMessageEvent(type: Текст, bubbles: ДаНет? = пусто, cancelable: ДаНет? = пусто, data: /*(!) any */ Объект? = пусто, origin: Текст? = пусто, lastEventId: Текст? = пусто, source: MessageEventSource? = пусто, ports: Список<MessagePort>? = пусто)
 }
 
 
@@ -4541,23 +4357,7 @@
 
 тип NavigatorID = интерфейс
 {
-  защищено 
-  appCodeName: Текст
 
-  защищено 
-  appName: Текст
-
-  защищено 
-  appVersion: Текст
-
-  защищено 
-  platform: Текст
-
-  защищено 
-  product: Текст
-
-  защищено 
-  userAgent: Текст
 }
 
 
