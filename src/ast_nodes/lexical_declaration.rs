@@ -40,7 +40,7 @@ impl Default for ArtelAccessModifier {
 impl ArtelStr for ArtelLexicalDeclarationMember {
     fn artel_str(&self, _ident_level: usize) -> String {
         [
-            &self.ident.0,
+            &self.ident.artel_str(0),
             ": ",
             self.var_type.artel_str(0).as_str(),
             &if let Some(value) = &self.value {

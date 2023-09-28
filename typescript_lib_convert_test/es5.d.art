@@ -294,7 +294,7 @@
 
 тип String = интерфейс
 {
-  операция substr(from: Число, length: Число? = пусто): Текст
+  операция substr(from`: Число, length: Число? = пусто): Текст
 
   /*(!) readonly [index: number]: string*/
 }
@@ -1029,7 +1029,7 @@
 
 тип PromiseLike<T> = интерфейс
 {
-  операция then<TResult1, TResult2>(onfulfilled: (операция(value: T): Объект? /*(!)TResult1 | PromiseLike<TResult1>*/)? = пусто, onrejected: (операция(reason: /*(!) any */ Объект?): Объект? /*(!)TResult2 | PromiseLike<TResult2>*/)? = пусто): PromiseLike<Объект? /*(!)TResult1 | TResult2*/>
+  операция then`<TResult1, TResult2>(onfulfilled: (операция(value: T): Объект? /*(!)TResult1 | PromiseLike<TResult1>*/)? = пусто, onrejected: (операция(reason: /*(!) any */ Объект?): Объект? /*(!)TResult2 | PromiseLike<TResult2>*/)? = пусто): PromiseLike<Объект? /*(!)TResult1 | TResult2*/>
 }
 
 
@@ -1039,7 +1039,7 @@
 
 тип Promise<T> = интерфейс
 {
-  операция then<TResult1, TResult2>(onfulfilled: (операция(value: T): Объект? /*(!)TResult1 | PromiseLike<TResult1>*/)? = пусто, onrejected: (операция(reason: /*(!) any */ Объект?): Объект? /*(!)TResult2 | PromiseLike<TResult2>*/)? = пусто): Promise<Объект? /*(!)TResult1 | TResult2*/>
+  операция then`<TResult1, TResult2>(onfulfilled: (операция(value: T): Объект? /*(!)TResult1 | PromiseLike<TResult1>*/)? = пусто, onrejected: (операция(reason: /*(!) any */ Объект?): Объект? /*(!)TResult2 | PromiseLike<TResult2>*/)? = пусто): Promise<Объект? /*(!)TResult1 | TResult2*/>
 
   операция catch<TResult>(onrejected: (операция(reason: /*(!) any */ Объект?): Объект? /*(!)TResult | PromiseLike<TResult>*/)? = пусто): Promise<Объект? /*(!)T | TResult*/>
 }
@@ -1195,7 +1195,7 @@
 
 тип WeakKeyTypes = интерфейс
 {
-  object: Объект
+  object`: Объект
 }
 
 
@@ -1407,9 +1407,9 @@
   #js.МассивПараметров
   операция of(items: Список<Число>): Int8Array
 
-  операция from(arrayLike: ArrayLike<Число>): Int8Array
+  операция from`(arrayLike: ArrayLike<Число>): Int8Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int8Array
+  операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int8Array
 }
 
 
@@ -1512,9 +1512,9 @@
   #js.МассивПараметров
   операция of(items: Список<Число>): Uint8Array
 
-  операция from(arrayLike: ArrayLike<Число>): Uint8Array
+  операция from`(arrayLike: ArrayLike<Число>): Uint8Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8Array
+  операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8Array
 }
 
 
@@ -1617,9 +1617,9 @@
   #js.МассивПараметров
   операция of(items: Список<Число>): Uint8ClampedArray
 
-  операция from(arrayLike: ArrayLike<Число>): Uint8ClampedArray
+  операция from`(arrayLike: ArrayLike<Число>): Uint8ClampedArray
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8ClampedArray
+  операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8ClampedArray
 }
 
 
@@ -1722,9 +1722,9 @@
   #js.МассивПараметров
   операция of(items: Список<Число>): Int16Array
 
-  операция from(arrayLike: ArrayLike<Число>): Int16Array
+  операция from`(arrayLike: ArrayLike<Число>): Int16Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int16Array
+  операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int16Array
 }
 
 
@@ -1827,9 +1827,9 @@
   #js.МассивПараметров
   операция of(items: Список<Число>): Uint16Array
 
-  операция from(arrayLike: ArrayLike<Число>): Uint16Array
+  операция from`(arrayLike: ArrayLike<Число>): Uint16Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint16Array
+  операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint16Array
 }
 
 
@@ -1932,9 +1932,9 @@
   #js.МассивПараметров
   операция of(items: Список<Число>): Int32Array
 
-  операция from(arrayLike: ArrayLike<Число>): Int32Array
+  операция from`(arrayLike: ArrayLike<Число>): Int32Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int32Array
+  операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int32Array
 }
 
 
@@ -2037,9 +2037,9 @@
   #js.МассивПараметров
   операция of(items: Список<Число>): Uint32Array
 
-  операция from(arrayLike: ArrayLike<Число>): Uint32Array
+  операция from`(arrayLike: ArrayLike<Число>): Uint32Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint32Array
+  операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint32Array
 }
 
 
@@ -2142,9 +2142,9 @@
   #js.МассивПараметров
   операция of(items: Список<Число>): Float32Array
 
-  операция from(arrayLike: ArrayLike<Число>): Float32Array
+  операция from`(arrayLike: ArrayLike<Число>): Float32Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Float32Array
+  операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Float32Array
 }
 
 
@@ -2247,9 +2247,9 @@
   #js.МассивПараметров
   операция of(items: Список<Число>): Float64Array
 
-  операция from(arrayLike: ArrayLike<Число>): Float64Array
+  операция from`(arrayLike: ArrayLike<Число>): Float64Array
 
-  операция from<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Float64Array
+  операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Float64Array
 }
 
 

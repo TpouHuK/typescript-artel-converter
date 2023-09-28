@@ -11,16 +11,27 @@ pub struct ArtelInterfaceDeclaration {
 }
 
 impl ArtelInterfaceDeclaration {
-    pub fn new(name: Identifier, generic_params: GenericParams, extends: Vec<TypeReference>, body: Vec<InterfaceMember>) -> Self { Self { name, generic_params, extends, body } }
+    pub fn new(
+        name: Identifier,
+        generic_params: GenericParams,
+        extends: Vec<TypeReference>,
+        body: Vec<InterfaceMember>,
+    ) -> Self {
+        Self {
+            name,
+            generic_params,
+            extends,
+            body,
+        }
+    }
 }
-
 
 impl ArtelStr for ArtelInterfaceDeclaration {
     fn artel_str(&self, ident_level: usize) -> String {
         let mut str = String::new();
         str.push_str(indent(ident_level));
         str.push_str("тип ");
-        str.push_str(&self.name.0);
+        str.push_str(&self.name.artel_str(0));
         str.push_str(&self.generic_params.artel_str(0));
         str.push_str(" = интерфейс");
         if !self.extends.is_empty() {

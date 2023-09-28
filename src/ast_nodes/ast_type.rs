@@ -355,7 +355,7 @@ where
 impl ArtelStr for TypeReference {
     fn artel_str(&self, _ident_level: usize) -> String {
         let mut str = String::new();
-        str.push_str(&self.type_name.0);
+        str.push_str(&self.type_name.artel_str(0));
 
         if !self.type_arguments.is_empty() {
             str.push_str("<");
@@ -386,7 +386,7 @@ impl TypeReference {
 impl ArtelStr for TypeParameter {
     fn artel_str(&self, _ident_level: usize) -> String {
         let mut str = String::new();
-        str.push_str(&self.indentifier.0);
+        str.push_str(&self.indentifier.artel_str(0));
         if let Some(constraint) = &self.constraint {
             str.push_str(" = ");
             str.push_str(&constraint.artel_str(0));
@@ -397,11 +397,7 @@ impl ArtelStr for TypeParameter {
 }
 
 impl TypeParameter {
-    pub fn new(
-        indentifier: Identifier,
-        constraint: Option<Type>,
-        default: Option<Type>,
-    ) -> Self {
+    pub fn new(indentifier: Identifier, constraint: Option<Type>, default: Option<Type>) -> Self {
         Self {
             indentifier,
             constraint,

@@ -11,7 +11,7 @@ impl ArtelStr for EnumDeclaration {
         let mut str = String::new();
         str.push_str(indent(ident_level));
         str.push_str("тип ");
-        str.push_str(&self.name.0);
+        str.push_str(&self.name.artel_str(0));
         str.push_str(" = вариант");
         str.push_str("\n");
         str.push_str(indent(ident_level));
@@ -44,7 +44,7 @@ impl ArtelStr for EnumItem {
     fn artel_str(&self, ident_level: usize) -> String {
         let mut str = String::new();
         str.push_str(indent(ident_level));
-        str.push_str(&self.name.0);
+        str.push_str(&self.name.artel_str(0));
         if let Some(value) = &self.value {
             str.push_str(" = ");
             str.push_str(&value);

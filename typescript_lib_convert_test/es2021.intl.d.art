@@ -84,7 +84,7 @@
   {
     localeMatcher: ListFormatLocaleMatcher?
 
-    type: ListFormatType?
+    type`: ListFormatType?
 
     style: ListFormatStyle?
   }
@@ -96,7 +96,7 @@
 
     style: ListFormatStyle
 
-    type: ListFormatType
+    type`: ListFormatType
   }
 
 
@@ -104,7 +104,7 @@
   {
     операция format(list: Iterable<Текст>): Текст
 
-    операция formatToParts(list: Iterable<Текст>): Список<объект { type: Объект? /*(!)"element" | "literal"*/; value: Текст }>
+    операция formatToParts(list: Iterable<Текст>): Список<объект { type`: Объект? /*(!)"element" | "literal"*/; value: Текст }>
 
     операция resolvedOptions(): ResolvedListFormatOptions
   }

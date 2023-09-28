@@ -5,7 +5,7 @@
 
   /*(!) (description?: string | number): symbol*/
 
-  операция for(key: Текст): Символ
+  операция for`(key: Текст): Символ
 
   операция keyFor(sym: Символ): Текст?
 }

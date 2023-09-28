@@ -10,7 +10,7 @@
   {
     localeMatcher: Объект? /*(!)"lookup" | "best fit" | пусто*/
 
-    type: PluralRuleType?
+    type`: PluralRuleType?
 
     minimumIntegerDigits: Число?
 
@@ -30,7 +30,7 @@
 
     pluralCategories: Список<LDMLPluralRule>
 
-    type: PluralRuleType
+    type`: PluralRuleType
 
     minimumIntegerDigits: Число
 
@@ -65,7 +65,7 @@
 
   тип NumberFormatPart = интерфейс
   {
-    type: NumberFormatPartTypes
+    type`: NumberFormatPartTypes
 
     value: Текст
   }

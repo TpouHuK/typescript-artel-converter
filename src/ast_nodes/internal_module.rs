@@ -8,7 +8,7 @@ pub struct ArtelInternalModule {
 
 impl ArtelStr for ArtelInternalModule {
     fn artel_str(&self, ident_level: usize) -> String {
-        let header = format!("/*(!) {} */\n", self.name.0);
+        let header = format!("/*(!) {} */\n", self.name.artel_str(0));
         [
             indent(ident_level),
             &header,

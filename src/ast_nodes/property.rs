@@ -17,7 +17,7 @@ impl ArtelStr for ArtelProperty {
             str.push_str("\n");
             str.push_str(indent(ident_level));
         }
-        str.push_str(&self.name.0);
+        str.push_str(&self.name.artel_str(0));
         str.push_str(": ");
         str.push_str(&self.r#type.artel_str(0));
         str
@@ -47,7 +47,7 @@ impl ArtelProperty {
             str.push_str("\n");
             str.push_str(indent(ident_level));
         }
-        str.push_str(&self.name.0);
+        str.push_str(&self.name.artel_str(0));
         str.push_str(": ");
         str.push_str(&self.r#type.artel_str(0));
 

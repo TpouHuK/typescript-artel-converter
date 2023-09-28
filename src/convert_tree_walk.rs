@@ -102,9 +102,7 @@ fn parse_internal_module(source: &str, node: &Node) -> ArtelStatement {
             .unwrap(),
     );
 
-    let body = walk_tree(source, &node
-        .child_by_field_name("body")
-        .unwrap());
+    let body = walk_tree(source, &node.child_by_field_name("body").unwrap());
     ArtelStatement::InternalModule(ArtelInternalModule::new(name, body))
 }
 
@@ -251,8 +249,13 @@ fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
             "index_signature" | "call_signature" => vec.push(InterfaceMember::Unsupported(
                 element.utf8_text(source.as_bytes()).unwrap().to_owned(),
             )),
-            "comment" => { // TODO
-                if node.utf8_text(source.as_bytes()).unwrap().contains("@deprecated") {
+            "comment" => {
+                // TODO
+                if node
+                    .utf8_text(source.as_bytes())
+                    .unwrap()
+                    .contains("@deprecated")
+                {
                     is_deprecated = true;
                 }
             }
@@ -262,13 +265,14 @@ fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
         }
     }
 
-
     let mut extends = vec![];
     for named_child in node.named_children(&mut node.walk()) {
         if named_child.kind() == "extends_type_clause" {
             let extends_type_clause = named_child;
-            for child in extends_type_clause.children_by_field_name("type", &mut extends_type_clause.walk()) {
-                let [PrimaryType::TypeReference(b)] = &parse_type(source, &child).0[..] else {panic!()};        
+            for child in
+                extends_type_clause.children_by_field_name("type", &mut extends_type_clause.walk())
+            {
+                let [PrimaryType::TypeReference(b)] = &parse_type(source, &child).0[..] else {panic!()};
                 extends.push(b.to_owned());
             }
             break;
@@ -342,11 +346,7 @@ fn parse_type_parameters(source: &str, parameters_node: &Node) -> Vec<TypeParame
             Some(parse_type(source, &constraint.named_child(0).unwrap()))
         };
 
-        vec.push(TypeParameter::new(
-            param_identfier,
-            constraint,
-            default,
-        ));
+        vec.push(TypeParameter::new(param_identfier, constraint, default));
     }
     vec
 }
@@ -362,10 +362,8 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<PrimaryType>) {
 
         "type_identifier" => {
             let name = node.utf8_text(source.as_bytes()).unwrap();
-            let r#type = PrimaryType::TypeReference(TypeReference::new(
-                Identifier::new(name),
-                Vec::new(),
-            ));
+            let r#type =
+                PrimaryType::TypeReference(TypeReference::new(Identifier::new(name), Vec::new()));
             vec.push(r#type);
         }
 
@@ -497,49 +495,49 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<PrimaryType>) {
 }
 
 fn parse_object_type(source: &str, node: &Node) -> PrimaryType {
-    let body = node
-        .named_children(&mut node.walk())
-        .filter(|n| n.kind() != "comment")
-        .map(|property_signature| {
-            // Anti-support for mapped types
-            if property_signature.kind() == "index_signature" {
-                return None;
-            }
-
-            match property_signature.kind() {
-                "method_signature" => Some(InterfaceMember::Method(
-                    parse_function_declaration(source, &property_signature),
-                )),
-                "property_signature" => {
-                    let readonly = property_signature.child(0).unwrap().kind() == "readonly";
-                    let name_str = property_signature
-                        .child_by_field_name("name")
-                        .unwrap()
-                        .utf8_text(source.as_bytes())
-                        .unwrap();
-                    let name_ident = Identifier::new(name_str);
-                    let r#type = parse_type(
-                        source,
-                        &property_signature.child_by_field_name("type").unwrap(),
-                    );
-                    Some(InterfaceMember::Property(ArtelProperty::new(
-                        readonly, name_ident, r#type,
-                    )))
+    let body =
+        node.named_children(&mut node.walk())
+            .filter(|n| n.kind() != "comment")
+            .map(|property_signature| {
+                // Anti-support for mapped types
+                if property_signature.kind() == "index_signature" {
+                    return None;
                 }
-                "construct_signature" => Some(InterfaceMember::Method(
-                    parse_construct_signature(source, &property_signature),
-                )),
-                "index_signature" | "call_signature" => Some(InterfaceMember::Unsupported(
-                    property_signature
-                        .utf8_text(source.as_bytes())
-                        .unwrap()
-                        .to_owned(),
-                )),
-                _ => unimplemented!("{}", property_signature.kind()),
-            }
-        })
-        .take_while_inclusive(|p| p.is_some())
-        .collect_vec();
+
+                match property_signature.kind() {
+                    "method_signature" => Some(InterfaceMember::Method(
+                        parse_function_declaration(source, &property_signature),
+                    )),
+                    "property_signature" => {
+                        let readonly = property_signature.child(0).unwrap().kind() == "readonly";
+                        let name_str = property_signature
+                            .child_by_field_name("name")
+                            .unwrap()
+                            .utf8_text(source.as_bytes())
+                            .unwrap();
+                        let name_ident = Identifier::new(name_str);
+                        let r#type = parse_type(
+                            source,
+                            &property_signature.child_by_field_name("type").unwrap(),
+                        );
+                        Some(InterfaceMember::Property(ArtelProperty::new(
+                            readonly, name_ident, r#type,
+                        )))
+                    }
+                    "construct_signature" => Some(InterfaceMember::Method(
+                        parse_construct_signature(source, &property_signature),
+                    )),
+                    "index_signature" | "call_signature" => Some(InterfaceMember::Unsupported(
+                        property_signature
+                            .utf8_text(source.as_bytes())
+                            .unwrap()
+                            .to_owned(),
+                    )),
+                    _ => unimplemented!("{}", property_signature.kind()),
+                }
+            })
+            .take_while_inclusive(|p| p.is_some())
+            .collect_vec();
 
     // Anti-support for mapped types
     if let Some(None) = body.last() {
@@ -742,7 +740,11 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
                 definitions.push(method);
             }
             "comment" | "decorator" => {
-                if node.utf8_text(source.as_bytes()).unwrap().contains("@deprecated") {
+                if node
+                    .utf8_text(source.as_bytes())
+                    .unwrap()
+                    .contains("@deprecated")
+                {
                     is_deprecated = true;
                 }
             }

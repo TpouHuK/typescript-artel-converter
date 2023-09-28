@@ -2,7 +2,7 @@
 {
   операция add(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 
-  операция and(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
+  операция and`(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 
   операция compareExchange(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, expectedValue: bigint, replacementValue: bigint): bigint
 
@@ -10,7 +10,7 @@
 
   операция load(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число): bigint
 
-  операция or(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
+  операция or`(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 
   операция store(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 
@@ -20,6 +20,6 @@
 
   операция notify(typedArray: BigInt64Array, index: Число, count: Число? = пусто): Число
 
-  операция xor(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
+  операция xor`(typedArray: Объект? /*(!)BigInt64Array | BigUint64Array*/, index: Число, value: bigint): bigint
 }
 

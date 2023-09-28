@@ -30,7 +30,7 @@
 
   тип DateTimeFormatPart = интерфейс
   {
-    type: DateTimeFormatPartTypes
+    type`: DateTimeFormatPartTypes
 
     value: Текст
   }

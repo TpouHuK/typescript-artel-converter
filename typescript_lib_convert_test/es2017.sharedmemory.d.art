@@ -40,7 +40,7 @@
 {
   операция add(typedArray: Объект? /*(!)Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array*/, index: Число, value: Число): Число
 
-  операция and(typedArray: Объект? /*(!)Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array*/, index: Число, value: Число): Число
+  операция and`(typedArray: Объект? /*(!)Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array*/, index: Число, value: Число): Число
 
   операция compareExchange(typedArray: Объект? /*(!)Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array*/, index: Число, expectedValue: Число, replacementValue: Число): Число
 
@@ -50,7 +50,7 @@
 
   операция load(typedArray: Объект? /*(!)Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array*/, index: Число): Число
 
-  операция or(typedArray: Объект? /*(!)Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array*/, index: Число, value: Число): Число
+  операция or`(typedArray: Объект? /*(!)Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array*/, index: Число, value: Число): Число
 
   операция store(typedArray: Объект? /*(!)Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array*/, index: Число, value: Число): Число
 
@@ -60,7 +60,7 @@
 
   операция notify(typedArray: Int32Array, index: Число, count: Число? = пусто): Число
 
-  операция xor(typedArray: Объект? /*(!)Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array*/, index: Число, value: Число): Число
+  операция xor`(typedArray: Объект? /*(!)Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array*/, index: Число, value: Число): Число
 
   защищено 
   [Symbol.toStringTag]: "Atomics"

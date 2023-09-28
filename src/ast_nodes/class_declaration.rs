@@ -75,7 +75,7 @@ impl ArtelClassDeclaration {
     fn artel_str_heritage(&self) -> String {
         let mut vec = Vec::new();
         if let Some((ident, params)) = &self.extends {
-            vec.push([&ident.0, &params.artel_str(0), ""].concat());
+            vec.push([&ident.artel_str(0), &params.artel_str(0), ""].concat());
         }
         vec.extend(self.implements.iter().map(|t| t.artel_str(0)));
 
@@ -90,7 +90,7 @@ impl ArtelClassDeclaration {
         [
             indent(ident_level),
             "тип ",
-            &self.name.0,
+            &self.name.artel_str(0),
             &self.generic_params.artel_str(0),
             if self.is_abstract {
                 " = /*(!) абстрактный */ объект"
@@ -163,12 +163,11 @@ impl ArtelStr for ArtelClassDeclaration {
     }
 }
 
-
 impl ArtelStr for PropertyAccessExpression {
     fn artel_str(&self, ident_level: usize) -> String {
         [
             indent(ident_level),
-            &self.name.0,
+            &self.name.artel_str(0),
             ": ",
             &self.r#type.artel_str(0),
             &if self.get {
@@ -262,7 +261,6 @@ impl ArtelStr for ArtelClassMember {
     }
 }
 
-
 impl ClassMemberModifiers {
     pub fn new(access_modifier: ArtelAccessModifier, modifier: ArtelModifier) -> Self {
         Self {
@@ -292,7 +290,6 @@ impl ArtelStr for ClassMemberModifiers {
     }
 }
 
-
 impl<T> From<T> for ArtelAccessModifier
 where
     T: AsRef<str>,
@@ -317,7 +314,6 @@ impl ArtelStr for ArtelAccessModifier {
         }
     }
 }
-
 
 impl ArtelStr for ArtelModifier {
     fn artel_str(&self, _ident_level: usize) -> String {

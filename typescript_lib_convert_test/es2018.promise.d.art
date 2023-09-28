@@ -4,6 +4,6 @@
 
 тип Promise<T> = интерфейс
 {
-  операция finally(onfinally: (операция())? = пусто): Promise<T>
+  операция finally`(onfinally: (операция())? = пусто): Promise<T>
 }
 

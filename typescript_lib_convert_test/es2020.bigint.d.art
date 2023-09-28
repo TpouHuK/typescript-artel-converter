@@ -168,9 +168,9 @@
   #js.МассивПараметров
   операция of(items: Список<bigint>): BigInt64Array
 
-  операция from(arrayLike: ArrayLike<bigint>): BigInt64Array
+  операция from`(arrayLike: ArrayLike<bigint>): BigInt64Array
 
-  операция from<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект? = пусто): BigInt64Array
+  операция from`<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект? = пусто): BigInt64Array
 }
 
 
@@ -282,9 +282,9 @@
   #js.МассивПараметров
   операция of(items: Список<bigint>): BigUint64Array
 
-  операция from(arrayLike: ArrayLike<bigint>): BigUint64Array
+  операция from`(arrayLike: ArrayLike<bigint>): BigUint64Array
 
-  операция from<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект? = пусто): BigUint64Array
+  операция from`<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект? = пусто): BigUint64Array
 }
 
 

@@ -5,7 +5,7 @@
   #js.МассивПараметров
   операция next(args: Объект? /*(!)объект {  } | объект { _0: TNext }*/): Promise<IteratorResult<T, TReturn>>
 
-  операция return(value: Объект? /*(!)TReturn | PromiseLike<TReturn>*/): Promise<IteratorResult<T, TReturn>>
+  операция return`(value: Объект? /*(!)TReturn | PromiseLike<TReturn>*/): Promise<IteratorResult<T, TReturn>>
 
   операция throw(e: /*(!) any */ Объект?): Promise<IteratorResult<T, TReturn>>
 

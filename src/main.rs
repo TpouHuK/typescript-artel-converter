@@ -67,11 +67,7 @@ mod tests {
     use rstest::rstest;
 
     #[rstest]
-    fn test_ts_file(
-        #[values(
-        )]
-        path: &str,
-    ) {
+    fn test_ts_file(#[values()] path: &str) {
         let path = path;
         let text = read_example(path);
         convert_ts_debug(&text);

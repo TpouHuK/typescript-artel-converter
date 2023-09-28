@@ -14,9 +14,9 @@
 
 тип ArrayConstructor = интерфейс
 {
-  операция from<T>(arrayLike: ArrayLike<T>): Список<T>
+  операция from`<T>(arrayLike: ArrayLike<T>): Список<T>
 
-  операция from<T, U>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): U, thisArg: /*(!) any */ Объект? = пусто): Список<U>
+  операция from`<T, U>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): U, thisArg: /*(!) any */ Объект? = пусто): Список<U>
 
   #js.МассивПараметров
   операция of<T>(items: Список<T>): Список<T>
@@ -115,7 +115,7 @@
 
   операция keys(o: объект {  }): Список<Текст>
 
-  операция is(value1: /*(!) any */ Объект?, value2: /*(!) any */ Объект?): ДаНет
+  операция is`(value1: /*(!) any */ Объект?, value2: /*(!) any */ Объект?): ДаНет
 
   операция setPrototypeOf(o: /*(!) any */ Объект?, proto: Объект?): /*(!) any */ Объект?
 }

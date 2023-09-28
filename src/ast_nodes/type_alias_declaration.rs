@@ -12,7 +12,7 @@ impl ArtelStr for ArtelTypeAliasDeclaration {
         [
             indent(ident_level),
             "тип ",
-            &self.alias.0,
+            &self.alias.artel_str(0),
             &self.generic_params.artel_str(0),
             " = ",
             &self.value.artel_str(0),

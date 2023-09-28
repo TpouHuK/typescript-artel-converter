@@ -3,7 +3,7 @@
 тип SymbolConstructor = интерфейс
 {
   защищено 
-  dispose: /*(!) unique symbol */ Объект
+  dispose`: /*(!) unique symbol */ Объект
 
   защищено 
   asyncDispose: /*(!) unique symbol */ Объект
@@ -24,7 +24,7 @@
 
 тип SuppressedError = интерфейс на основе Error
 {
-  error: /*(!) any */ Объект?
+  error`: /*(!) any */ Объект?
 
   suppressed: /*(!) any */ Объект?
 }
@@ -32,7 +32,7 @@
 
 тип SuppressedErrorConstructor = интерфейс на основе ErrorConstructor
 {
-  при создании(error: /*(!) any */ Объект?, suppressed: /*(!) any */ Объект?, message: Текст? = пусто): SuppressedError
+  при создании(error`: /*(!) any */ Объект?, suppressed: /*(!) any */ Объект?, message: Текст? = пусто): SuppressedError
 
   /*(!) (error: any, suppressed: any, message?: string): SuppressedError*/
 
@@ -50,7 +50,7 @@
   защищено 
   disposed: ДаНет
 
-  операция dispose()
+  операция dispose`()
 
   операция use<T = Disposable?>(value: T): T
 

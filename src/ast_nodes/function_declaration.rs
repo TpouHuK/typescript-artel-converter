@@ -23,7 +23,7 @@ impl FunctionDeclaration {
         let any_param_array = self
             .arguments
             .iter()
-            .any(|arg| arg.name.0.starts_with("..."));
+            .any(|arg| arg.name.raw().starts_with("..."));
         if any_param_array {
             [indent(ident_level), "#js.МассивПараметров\n"].concat()
         } else {
@@ -88,10 +88,15 @@ impl FunctionDeclaration {
             indent(ident_level),
             &modifier,
             // Evil hack
-            &if self.name.0 == "constructor" {
+            &if self.name.raw() == "constructor" {
                 "при создании".to_owned()
             } else {
-                ["операция ", &self.name.0, &self.generic_params.artel_str(0)].concat()
+                [
+                    "операция ",
+                    &self.name.artel_str(0),
+                    &self.generic_params.artel_str(0),
+                ]
+                .concat()
             },
             &self.arguments.artel_str(0),
             &self.artel_str_return_type(0),
@@ -107,11 +112,7 @@ impl ArtelStr for Vec<ArtelFunctionArgument> {
 }
 
 impl ArtelFunctionArgument {
-    pub fn new(
-        name: Identifier,
-        r#type: Type,
-        default_value: Option<ArtelExpression>,
-    ) -> Self {
+    pub fn new(name: Identifier, r#type: Type, default_value: Option<ArtelExpression>) -> Self {
         Self {
             name,
             r#type,
@@ -122,11 +123,11 @@ impl ArtelFunctionArgument {
 
 impl ArtelStr for ArtelFunctionArgument {
     fn artel_str(&self, _ident_level: usize) -> String {
-        let is_array_param = self.name.0.starts_with("...");
+        let is_array_param = self.name.raw().starts_with("...");
         let name = if is_array_param {
-            self.name.0.strip_prefix("...").unwrap().to_owned()
+            Identifier::new(self.name.raw().strip_prefix("...").unwrap().to_owned()).artel_str(0)
         } else {
-            self.name.0.clone()
+            self.name.artel_str(0)
         };
         [
             &name,

@@ -56,7 +56,7 @@
   private: ДаНет
 
   защищено 
-  access: объект { операция has(object: This): ДаНет; операция get(object: This): Value }
+  access: объект { операция has(object`: This): ДаНет; операция get(object`: This): Value }
 
   операция addInitializer(initializer: операция(this: This))
 
@@ -87,7 +87,7 @@
   private: ДаНет
 
   защищено 
-  access: объект { операция has(object: This): ДаНет; операция get(object: This): Value }
+  access: объект { операция has(object`: This): ДаНет; операция get(object`: This): Value }
 
   операция addInitializer(initializer: операция(this: This))
 
@@ -118,7 +118,7 @@
   private: ДаНет
 
   защищено 
-  access: объект { операция has(object: This): ДаНет; операция set(object: This, value: Value) }
+  access: объект { операция has(object`: This): ДаНет; операция set(object`: This, value: Value) }
 
   операция addInitializer(initializer: операция(this: This))
 
@@ -149,7 +149,7 @@
   private: ДаНет
 
   защищено 
-  access: объект { операция has(object: This): ДаНет; операция get(object: This): Value; операция set(object: This, value: Value) }
+  access: объект { операция has(object`: This): ДаНет; операция get(object`: This): Value; операция set(object`: This, value: Value) }
 
   операция addInitializer(initializer: операция(this: This))
 
@@ -210,7 +210,7 @@
   private: ДаНет
 
   защищено 
-  access: объект { операция has(object: This): ДаНет; операция get(object: This): Value; операция set(object: This, value: Value) }
+  access: объект { операция has(object`: This): ДаНет; операция get(object`: This): Value; операция set(object`: This, value: Value) }
 
   операция addInitializer(initializer: операция(this: This))
 
