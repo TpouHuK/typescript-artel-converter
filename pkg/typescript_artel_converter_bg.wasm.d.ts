@@ -1,9 +1,9 @@
 /* tslint:disable */
 /* eslint-disable */
 export const memory: WebAssembly.Memory;
+export function ts_node_child_by_field_name(a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number, i: number): void;
 export function convert_ts(a: number, b: number, c: number): void;
 export function ts_parser_parse(a: number, b: number, c: number, d: number, e: number): number;
-export function ts_node_child_by_field_name(a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number, i: number): void;
 export function ts_query_new(a: number, b: number, c: number, d: number, e: number): number;
 export function ts_query_delete(a: number): void;
 export function ts_query_pattern_count(a: number): number;

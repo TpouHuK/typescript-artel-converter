@@ -1,5 +1,9 @@
 {
   "name": "typescript-artel-converter",
+  "collaborators": [
+    "tpouhuk",
+    "katletos"
+  ],
   "version": "0.1.0",
   "files": [
     "typescript_artel_converter_bg.wasm",

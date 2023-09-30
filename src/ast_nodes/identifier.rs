@@ -1,6 +1,8 @@
 use super::*;
+
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Identifier(String);
+
 const KEYWORDS: &[&str] = &[
     "aliases",
     "and",
