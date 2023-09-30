@@ -8,7 +8,7 @@ const IGNORE_DEPRECATED: bool = true;
 /// This functions walks the syntax tree of TypeScript and returns converted nodes to artel.
 /// It returns sequence of statements, which is something like AST, and that can be converted into
 /// Artel API defitions directly.
-pub fn walk_tree(source: &str, node: &Node) -> ArtelProgram {
+pub fn walk_tree(source: &str, node: &Node) -> Vec<ArtelStatement> {
     let mut statements = Vec::new();
 
     let mut is_deprecated = false;
@@ -955,7 +955,7 @@ fn parse_statement_block(source: &str, node: &Node) -> Vec<ArtelStatement> {
     walk_tree(source, node)
 }
 
-pub fn create_artel_code(artel_program: ArtelProgram) -> String {
+pub fn create_artel_code(artel_program: Vec<ArtelStatement>) -> String {
     let flat_export = artel_program.artel_str(0);
     flat_export
 
