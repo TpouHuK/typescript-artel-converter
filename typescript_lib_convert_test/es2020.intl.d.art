@@ -216,7 +216,7 @@
   }
 
 
-  тип Locale = интерфейс на основе LocaleOptions
+  тип Locale = интерфейс LocaleOptions
   {
     baseName: Текст
 

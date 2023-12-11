@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct Identifier(String);
+pub struct Identifier(pub String);
 
 const KEYWORDS: &[&str] = &[
     "aliases",
@@ -56,6 +56,11 @@ const KEYWORDS: &[&str] = &[
 /// Artel identifier, NewType of string for no apparent reason.
 impl Identifier {
     pub fn new<T: Into<String>>(name: T) -> Self {
+        let mut name: String = name.into();
+        if name.starts_with("\"") && name.ends_with("\"") {
+            name.remove(0);
+            name.remove(name.len()-1);
+        };
         Identifier(name.into())
     }
 

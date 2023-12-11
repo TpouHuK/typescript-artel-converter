@@ -27,7 +27,149 @@ pub fn walk_tree(source: &str, node: &Node) -> Vec<ArtelStatement> {
             statements.push(stmt);
         }
     }
+
+    let mut i = 0;
+    loop {
+        if i >= statements.len() {
+            break;
+        }
+
+        let cur_statement = &statements[i];
+        let mut maybe_changes = None;
+
+        match cur_statement {
+            ArtelStatement::InterfaceDeclaration(interface) => {
+                let name_to_search = &interface.name.clone().0; // TODO use identifier instead of
+                for j in 0..statements.len() {
+                    let statement = &statements[j];
+                    if let Some(primary_type) =
+                        get_object_type_from_variable_definition_if_variable_name_matches(
+                            name_to_search,
+                            statement,
+                        )
+                    {
+                        let mut delete_another_interface = None;
+
+                        let mut object_body: Vec<ArtelClassMember> = Vec::new();
+                        let object_body_additional = match primary_type {
+                            PrimaryType::ObjectType(object) => object.body,
+                            PrimaryType::TypeReference(object) => {
+                                let mut vec = Vec::new();
+                                for (i, statement) in statements.iter().enumerate() {
+                                    match statement {
+                                        ArtelStatement::InterfaceDeclaration(interface) => {
+                                            let interface_name = interface.name.0.clone();
+                                            if interface_name == object.type_name.0 {
+                                                vec.extend_from_slice(&interface.body);
+                                                delete_another_interface = Some(i);
+                                                break;
+                                            }
+                                        }
+                                        _ => {},
+                                    }
+                                }
+                                vec
+                            }
+                            a => {
+                                unreachable!("nono")
+                            },
+                        };
+
+                        let modifiers = ClassMemberModifiers::new(
+                            ArtelAccessModifier::Default,
+                            ArtelModifier::None,
+                        );
+
+                        for elem in interface.body.iter().chain(object_body_additional.iter()) {
+                            match elem {
+                                InterfaceMember::Property(artel_prop) => object_body.push(
+                                    ArtelClassMember::Property((modifiers.clone(), artel_prop.to_owned())),
+                                ),
+                                InterfaceMember::Method(fun_decl) => {
+                                    object_body.push(ArtelClassMember::Method((
+                                        modifiers.clone(),
+                                        GetterSetter::None,
+                                        fun_decl.to_owned(),
+                                    )))
+                                }
+                                InterfaceMember::Unsupported(a) => {
+                                    object_body.push(ArtelClassMember::Unsupported(a.to_owned()));
+                                },
+                            }
+                        }
+
+                        let class_declaration = ArtelClassDeclaration::new(
+                            Identifier(name_to_search.to_owned()),
+                            None,
+                            interface.extends.clone(),
+                            false,
+                            interface.generic_params.clone(),
+                            object_body,
+                        );
+                        maybe_changes = Some((i, j, class_declaration, delete_another_interface));
+                        break;
+                        //dbg!(primary_type);
+                        //println!("FOund you!");
+                        //panic!(";");
+                    }
+                }
+                i += 1;
+            }
+            _ => {
+                i += 1;
+            }
+        }
+        if let Some(changes) = maybe_changes {
+
+            let (old_i, j, class_declaration, delete_another_interface) = changes;
+            statements[old_i] = ArtelStatement::ClassDeclaration(class_declaration);
+            statements.remove(j);
+            if j < i {
+                i -= 1
+            }
+
+            if let Some(mut k) = delete_another_interface {
+                if j < k {
+                    k -= 1;
+                }
+                statements.remove(k);
+                if k < i {
+                    i -= 1;
+                }
+            }
+        }
+    }
+
     statements
+}
+
+pub fn get_object_type_from_variable_definition_if_variable_name_matches(
+    name: &str,
+    statement: &ArtelStatement,
+) -> Option<PrimaryType> {
+    if let ArtelStatement::AmbientDeclaration(ArtelAmbientDeclaration {
+        is_global: false,
+        body: ambient_declaration_body,
+    }) = statement
+    {
+        if ambient_declaration_body.len() != 1 {
+            return None;
+        }
+        let statement = &ambient_declaration_body[0];
+        match statement {
+            ArtelStatement::LexicalDeclaration(ArtelLexicalDeclaration { decl_type: _, body })
+                if body.len() == 1 && body[0].ident.0 == name =>
+            {
+                //assert!(matches!(body[0].var_type.0[0], PrimaryType::ObjectType(_)));
+                assert!(body[0].value.is_none());
+                return Some(body[0].var_type.0[0].clone());
+            }
+            _ => {
+                return None;
+            }
+        }
+    }
+    return None;
 }
 
 pub fn parse_statement(source: &str, node: &Node) -> Option<ArtelStatement> {
@@ -206,7 +348,9 @@ fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
     };
 
     let type_parameters = 'type_parameters: {
-        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+        let Some(parameters_node) = node.child_by_field_name("type_parameters") else {
+            break 'type_parameters Vec::new();
+        };
         parse_type_parameters(source, &parameters_node)
     };
 
@@ -272,7 +416,9 @@ fn parse_interface(source: &str, node: &Node) -> ArtelInterfaceDeclaration {
             for child in
                 extends_type_clause.children_by_field_name("type", &mut extends_type_clause.walk())
             {
-                let [PrimaryType::TypeReference(b)] = &parse_type(source, &child).0[..] else {panic!()};
+                let [PrimaryType::TypeReference(b)] = &parse_type(source, &child).0[..] else {
+                    panic!()
+                };
                 extends.push(b.to_owned());
             }
             break;
@@ -338,11 +484,15 @@ fn parse_type_parameters(source: &str, parameters_node: &Node) -> Vec<TypeParame
         let param_identfier = Identifier::new(type_param_name_str);
 
         let constraint = 'constraint: {
-            let Some(constraint) = type_param.child_by_field_name("constraint") else { break 'constraint None };
+            let Some(constraint) = type_param.child_by_field_name("constraint") else {
+                break 'constraint None;
+            };
             Some(parse_type(source, &constraint.named_child(0).unwrap()))
         };
         let default = 'default: {
-            let Some(constraint) = type_param.child_by_field_name("value") else { break 'default None };
+            let Some(constraint) = type_param.child_by_field_name("value") else {
+                break 'default None;
+            };
             Some(parse_type(source, &constraint.named_child(0).unwrap()))
         };
 
@@ -419,7 +569,9 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<PrimaryType>) {
 
         "function_type" => {
             let type_parameters = 'type_parameters: {
-                let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+                let Some(parameters_node) = node.child_by_field_name("type_parameters") else {
+                    break 'type_parameters Vec::new();
+                };
                 parse_type_parameters(source, &parameters_node)
             };
 
@@ -427,7 +579,9 @@ fn parse_type_inner(source: &str, node: &Node, vec: &mut Vec<PrimaryType>) {
                 parse_formal_arguments(&source, &node.child_by_field_name("parameters").unwrap());
 
             let return_type = 'return_type: {
-                let Some(return_type) = node.child_by_field_name("return_type") else { break 'return_type None };
+                let Some(return_type) = node.child_by_field_name("return_type") else {
+                    break 'return_type None;
+                };
                 Some(parse_type(source, &return_type))
             };
             vec.push(PrimaryType::FunctionType(
@@ -594,7 +748,9 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
     let name_ident = Identifier::new(name.utf8_text(&source.as_bytes()).unwrap());
 
     let type_parameters = 'type_parameters: {
-        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+        let Some(parameters_node) = node.child_by_field_name("type_parameters") else {
+            break 'type_parameters Vec::new();
+        };
         parse_type_parameters(source, &parameters_node)
     };
 
@@ -615,7 +771,10 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
             for clause in next.named_children(&mut next.walk()) {
                 if clause.kind() == "extends_clause" {
                     let type_parameters = 'type_parameters: {
-                        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+                        let Some(parameters_node) = node.child_by_field_name("type_parameters")
+                        else {
+                            break 'type_parameters Vec::new();
+                        };
                         parse_type_parameters(source, &parameters_node)
                     };
                     extends_clause = Some((
@@ -632,7 +791,11 @@ fn parse_class_declaration(source: &str, node: &Node, is_abstract: bool) -> Arte
 
                 if clause.kind() == "implements_clause" {
                     for r#type in clause.named_children(&mut clause.walk()) {
-                        implements_clause.push(parse_type(source, &r#type));
+                        let [PrimaryType::TypeReference(b)] = &parse_type(source, &r#type).0[..]
+                        else {
+                            panic!()
+                        };
+                        implements_clause.push(b.to_owned());
                     }
                 }
             }
@@ -833,12 +996,16 @@ fn parse_method_definition(source: &str, node: &Node) -> ArtelClassMember {
     let parameters = node.child_by_field_name("parameters").unwrap();
     let arguments = parse_formal_arguments(source, &parameters);
     let type_parameters = 'type_parameters: {
-        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+        let Some(parameters_node) = node.child_by_field_name("type_parameters") else {
+            break 'type_parameters Vec::new();
+        };
         parse_type_parameters(source, &parameters_node)
     };
 
     let return_type = 'return_type: {
-        let Some(return_type) = node.child_by_field_name("return_type") else { break 'return_type None };
+        let Some(return_type) = node.child_by_field_name("return_type") else {
+            break 'return_type None;
+        };
         Some(parse_type(source, &return_type))
     };
 
@@ -860,7 +1027,9 @@ fn parse_construct_signature(source: &str, node: &Node) -> FunctionDeclaration {
     let name_ident = Identifier::new("constructor");
 
     let type_parameters = 'type_parameters: {
-        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+        let Some(parameters_node) = node.child_by_field_name("type_parameters") else {
+            break 'type_parameters Vec::new();
+        };
         parse_type_parameters(source, &parameters_node)
     };
 
@@ -868,7 +1037,9 @@ fn parse_construct_signature(source: &str, node: &Node) -> FunctionDeclaration {
     let arguments = parse_formal_arguments(source, &parameters);
 
     let return_type = 'return_type: {
-        let Some(return_type) = node.child_by_field_name("type") else { break 'return_type None };
+        let Some(return_type) = node.child_by_field_name("type") else {
+            break 'return_type None;
+        };
         Some(parse_type(source, &return_type))
     };
 
@@ -892,7 +1063,9 @@ fn parse_function_declaration(source: &str, node: &Node) -> FunctionDeclaration 
     };
 
     let type_parameters = 'type_parameters: {
-        let Some(parameters_node) = node.child_by_field_name("type_parameters") else { break 'type_parameters Vec::new() };
+        let Some(parameters_node) = node.child_by_field_name("type_parameters") else {
+            break 'type_parameters Vec::new();
+        };
         parse_type_parameters(source, &parameters_node)
     };
 
@@ -900,7 +1073,9 @@ fn parse_function_declaration(source: &str, node: &Node) -> FunctionDeclaration 
     let arguments = parse_formal_arguments(source, &parameters);
 
     let return_type = 'return_type: {
-        let Some(return_type) = node.child_by_field_name("return_type") else { break 'return_type None };
+        let Some(return_type) = node.child_by_field_name("return_type") else {
+            break 'return_type None;
+        };
         Some(parse_type(source, &return_type))
     };
 

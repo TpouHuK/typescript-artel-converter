@@ -10,7 +10,7 @@
 }
 
 
-тип RegExpIndicesArray = интерфейс на основе Array<объект { _0: Число, _1: Число }>
+тип RegExpIndicesArray = интерфейс Array<объект { _0: Число, _1: Число }>
 {
   groups: /*(!) {
         [key: string]: [number, number];

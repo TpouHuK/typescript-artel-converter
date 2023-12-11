@@ -2,8 +2,8 @@ use super::*;
 
 #[derive(Debug)]
 pub struct ArtelAmbientDeclaration {
-    is_global: bool,
-    body: Vec<ArtelStatement>,
+    pub is_global: bool,
+    pub body: Vec<ArtelStatement>,
 }
 
 impl ArtelAmbientDeclaration {

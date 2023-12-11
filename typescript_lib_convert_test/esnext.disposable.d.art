@@ -22,32 +22,23 @@
 }
 
 
-тип SuppressedError = интерфейс на основе Error
+тип SuppressedError = объект Error
 {
   error`: /*(!) any */ Объект?
 
   suppressed: /*(!) any */ Объект?
-}
 
-
-тип SuppressedErrorConstructor = интерфейс на основе ErrorConstructor
-{
   при создании(error`: /*(!) any */ Объект?, suppressed: /*(!) any */ Объект?, message: Текст? = пусто): SuppressedError
 
-  /*(!) (error: any, suppressed: any, message?: string): SuppressedError*/
+  // (!) (error: any, suppressed: any, message?: string): SuppressedError
 
-  защищено 
+  защищено
   prototype: SuppressedError
 }
 
-
-внешнее
-/*(!) var */ SuppressedError: SuppressedErrorConstructor
-
-
-тип DisposableStack = интерфейс
+тип DisposableStack = объект
 {
-  защищено 
+  защищено
   disposed: ДаНет
 
   операция dispose`()
@@ -62,27 +53,18 @@
 
   операция [Symbol.dispose]()
 
-  защищено 
+  защищено
   [Symbol.toStringTag]: Текст
-}
 
-
-тип DisposableStackConstructor = интерфейс
-{
   при создании(): DisposableStack
 
-  защищено 
+  защищено
   prototype: DisposableStack
 }
 
-
-внешнее
-/*(!) var */ DisposableStack: DisposableStackConstructor
-
-
-тип AsyncDisposableStack = интерфейс
+тип AsyncDisposableStack = объект
 {
-  защищено 
+  защищено
   disposed: ДаНет
 
   операция disposeAsync(): Promise<Ничего>
@@ -97,20 +79,11 @@
 
   операция [Symbol.asyncDispose](): Promise<Ничего>
 
-  защищено 
+  защищено
   [Symbol.toStringTag]: Текст
-}
 
-
-тип AsyncDisposableStackConstructor = интерфейс
-{
   при создании(): AsyncDisposableStack
 
-  защищено 
+  защищено
   prototype: AsyncDisposableStack
 }
-
-
-внешнее
-/*(!) var */ AsyncDisposableStack: AsyncDisposableStackConstructor
-

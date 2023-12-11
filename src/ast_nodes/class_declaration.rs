@@ -6,7 +6,7 @@ pub use super::*;
 pub struct ArtelClassDeclaration {
     name: Identifier,
     extends: Option<(Identifier, GenericParams)>,
-    implements: Vec<Type>,
+    implements: Vec<TypeReference>,
     is_abstract: bool,
     generic_params: GenericParams,
     body: Vec<ArtelClassMember>,
@@ -16,6 +16,7 @@ pub struct ArtelClassDeclaration {
 pub enum ArtelClassMember {
     Property((ClassMemberModifiers, ArtelProperty)),
     Method((ClassMemberModifiers, GetterSetter, FunctionDeclaration)),
+    Unsupported(String),
 }
 
 struct PropertyAccessExpression {
@@ -32,13 +33,13 @@ pub enum GetterSetter {
     Set,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub struct ClassMemberModifiers {
     access_modifier: ArtelAccessModifier,
     modifier: ArtelModifier,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub enum ArtelAccessModifier {
     Default,
     Public,
@@ -46,7 +47,7 @@ pub enum ArtelAccessModifier {
     Protected,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub enum ArtelModifier {
     None,
     Abstract,
@@ -57,7 +58,7 @@ impl ArtelClassDeclaration {
     pub fn new(
         name: Identifier,
         extends: Option<(Identifier, GenericParams)>,
-        implements: Vec<Type>,
+        implements: Vec<TypeReference>,
         is_abstract: bool,
         generic_params: GenericParams,
         body: Vec<ArtelClassMember>,
@@ -80,7 +81,7 @@ impl ArtelClassDeclaration {
         vec.extend(self.implements.iter().map(|t| t.artel_str(0)));
 
         if !vec.is_empty() {
-            " на основе ".to_owned() + &vec.join(", ")
+            " ".to_owned() + &vec.join(", ")
         } else {
             "".to_owned()
         }
@@ -256,6 +257,10 @@ impl ArtelStr for ArtelClassMember {
                     "Methods cannot be getters or setters"
                 );
                 Self::artel_str_method(modifiers, function_declaration, ident_level)
+            }
+
+            ArtelClassMember::Unsupported(str) => {
+                format!("{indent}// (!) {str}", indent=indent(ident_level))
             }
         }
     }

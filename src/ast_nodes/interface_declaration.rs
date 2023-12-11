@@ -4,10 +4,10 @@ pub use super::*;
 
 #[derive(Debug)]
 pub struct ArtelInterfaceDeclaration {
-    name: Identifier,
-    generic_params: GenericParams,
-    extends: Vec<TypeReference>,
-    body: Vec<InterfaceMember>,
+    pub name: Identifier,
+    pub generic_params: GenericParams,
+    pub extends: Vec<TypeReference>,
+    pub body: Vec<InterfaceMember>,
 }
 
 impl ArtelInterfaceDeclaration {
@@ -35,7 +35,7 @@ impl ArtelStr for ArtelInterfaceDeclaration {
         str.push_str(&self.generic_params.artel_str(0));
         str.push_str(" = интерфейс");
         if !self.extends.is_empty() {
-            str.push_str(" на основе ");
+            str.push_str(" ");
             str.push_str(&self.extends.iter().map(|t| t.artel_str(0)).join(", "));
         }
         str.push_str("\n");

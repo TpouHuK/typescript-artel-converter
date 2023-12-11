@@ -124,7 +124,7 @@
 }
 
 
-тип Object = интерфейс
+тип Object = объект
 {
   constructor: Function
 
@@ -139,18 +139,14 @@
   операция isPrototypeOf(v: Object): ДаНет
 
   операция propertyIsEnumerable(v: PropertyKey): ДаНет
-}
 
-
-тип ObjectConstructor = интерфейс
-{
   при создании(value: /*(!) any */ Объект? = пусто): Object
 
-  /*(!) (): any*/
+  // (!) (): any
 
-  /*(!) (value: any): any*/
+  // (!) (value: any): any
 
-  защищено 
+  защищено
   prototype: Object
 
   операция getPrototypeOf(o: /*(!) any */ Объект?): /*(!) any */ Объект?
@@ -186,20 +182,15 @@
   операция keys(o: Объект): Список<Текст>
 }
 
-
 /**
 * Provides functionality common to all JavaScript objects.
 */
-
-внешнее
-/*(!) var */ Object: ObjectConstructor
-
 
 /**
 * Creates a new function.
 */
 
-тип Function = интерфейс
+тип Function = объект
 {
   операция apply(this: Function, thisArg: /*(!) any */ Объект?, argArray: /*(!) any */ Объект? = пусто): /*(!) any */ Объект?
 
@@ -213,30 +204,21 @@
 
   prototype: /*(!) any */ Объект?
 
-  защищено 
+  защищено
   length: Число
 
   arguments: /*(!) any */ Объект?
 
   caller: Function
-}
 
-
-тип FunctionConstructor = интерфейс
-{
   #js.МассивПараметров
   при создании(args: Список<Текст>): Function
 
-  /*(!) (...args: string[]): Function*/
+  // (!) (...args: string[]): Function
 
-  защищено 
+  защищено
   prototype: Function
 }
-
-
-внешнее
-/*(!) var */ Function: FunctionConstructor
-
 
 /**
 * Extracts the type of the 'this' parameter of a function type, or 'unknown' if the function type has no 'this' parameter.
@@ -250,7 +232,7 @@
 
 тип OmitThisParameter<T> = /*(!) unknown extends ThisParameterType<T> ? T : T extends (...args: infer A) => infer R ? (...args: A) => R : T */ Объект?
 
-тип CallableFunction = интерфейс на основе Function
+тип CallableFunction = интерфейс Function
 {
   операция apply<T, R>(this: операция(this: T): R, thisArg: T): R
 
@@ -266,7 +248,7 @@
 }
 
 
-тип NewableFunction = интерфейс на основе Function
+тип NewableFunction = интерфейс Function
 {
   операция apply<T>(this: /*(!) new () => T */ Объект?, thisArg: T)
 
@@ -292,58 +274,40 @@
 }
 
 
-тип String = интерфейс
+тип String = объект
 {
   операция substr(from`: Число, length: Число? = пусто): Текст
 
-  /*(!) readonly [index: number]: string*/
-}
+  // (!) readonly [index: number]: string
 
-
-тип StringConstructor = интерфейс
-{
   при создании(value: /*(!) any */ Объект? = пусто): String
 
-  /*(!) (value?: any): string*/
+  // (!) (value?: any): string
 
-  защищено 
+  защищено
   prototype: String
 
   #js.МассивПараметров
   операция fromCharCode(codes: Список<Число>): Текст
 }
 
-
 /**
 * Allows manipulation and formatting of text strings and determination and location of substrings within strings.
 */
 
-внешнее
-/*(!) var */ String: StringConstructor
-
-
-тип Boolean = интерфейс
+тип Boolean = объект
 {
   операция valueOf(): ДаНет
-}
 
-
-тип BooleanConstructor = интерфейс
-{
   при создании(value: /*(!) any */ Объект? = пусто): Boolean
 
-  /*(!) <T>(value?: T): boolean*/
+  // (!) <T>(value?: T): boolean
 
-  защищено 
+  защищено
   prototype: Boolean
 }
 
-
-внешнее
-/*(!) var */ Boolean: BooleanConstructor
-
-
-тип Number = интерфейс
+тип Number = объект
 {
   операция toString(radix: Число? = пусто): Текст
 
@@ -354,42 +318,33 @@
   операция toPrecision(precision: Число? = пусто): Текст
 
   операция valueOf(): Число
-}
 
-
-тип NumberConstructor = интерфейс
-{
   при создании(value: /*(!) any */ Объект? = пусто): Number
 
-  /*(!) (value?: any): number*/
+  // (!) (value?: any): number
 
-  защищено 
+  защищено
   prototype: Number
 
-  защищено 
+  защищено
   MAX_VALUE: Число
 
-  защищено 
+  защищено
   MIN_VALUE: Число
 
-  защищено 
+  защищено
   NaN: Число
 
-  защищено 
+  защищено
   NEGATIVE_INFINITY: Число
 
-  защищено 
+  защищено
   POSITIVE_INFINITY: Число
 }
 
-
 /** An object that represents a number of any kind. All JavaScript numbers are 64-bit floating-point numbers. */
 
-внешнее
-/*(!) var */ Number: NumberConstructor
-
-
-тип TemplateStringsArray = интерфейс на основе ReadonlyArray<Текст>
+тип TemplateStringsArray = интерфейс ReadonlyArray<Текст>
 {
   защищено 
   raw: /*(!) защищено */ Список<Текст>
@@ -432,81 +387,11 @@
 }
 
 
-тип Math = интерфейс
-{
-  защищено 
-  E: Число
-
-  защищено 
-  LN10: Число
-
-  защищено 
-  LN2: Число
-
-  защищено 
-  LOG2E: Число
-
-  защищено 
-  LOG10E: Число
-
-  защищено 
-  PI: Число
-
-  защищено 
-  SQRT1_2: Число
-
-  защищено 
-  SQRT2: Число
-
-  операция abs(x: Число): Число
-
-  операция acos(x: Число): Число
-
-  операция asin(x: Число): Число
-
-  операция atan(x: Число): Число
-
-  операция atan2(y: Число, x: Число): Число
-
-  операция ceil(x: Число): Число
-
-  операция cos(x: Число): Число
-
-  операция exp(x: Число): Число
-
-  операция floor(x: Число): Число
-
-  операция log(x: Число): Число
-
-  #js.МассивПараметров
-  операция max(values: Список<Число>): Число
-
-  #js.МассивПараметров
-  операция min(values: Список<Число>): Число
-
-  операция pow(x: Число, y: Число): Число
-
-  операция random(): Число
-
-  операция round(x: Число): Число
-
-  операция sin(x: Число): Число
-
-  операция sqrt(x: Число): Число
-
-  операция tan(x: Число): Число
-}
-
-
 /** An intrinsic object that provides basic mathematics functionality and constants. */
-
-внешнее
-/*(!) var */ Math: Math
-
 
 /** Enables basic storage and retrieval of dates and times. */
 
-тип Date = интерфейс
+тип Date = объект
 {
   операция toString(): Текст
 
@@ -593,20 +478,16 @@
   операция toISOString(): Текст
 
   операция toJSON(key: /*(!) any */ Объект? = пусто): Текст
-}
 
-
-тип DateConstructor = интерфейс
-{
   при создании(): Date
 
   при создании(value: Объект? /*(!)Число | Текст*/): Date
 
   при создании(year: Число, monthIndex: Число, date: Число? = пусто, hours: Число? = пусто, minutes: Число? = пусто, seconds: Число? = пусто, ms: Число? = пусто): Date
 
-  /*(!) (): string*/
+  // (!) (): string
 
-  защищено 
+  защищено
   prototype: Date
 
   операция parse(s: Текст): Число
@@ -616,12 +497,7 @@
   операция now(): Число
 }
 
-
-внешнее
-/*(!) var */ Date: DateConstructor
-
-
-тип RegExpMatchArray = интерфейс на основе Array<Текст>
+тип RegExpMatchArray = интерфейс Array<Текст>
 {
   index: Число
 
@@ -631,7 +507,7 @@
 }
 
 
-тип RegExpExecArray = интерфейс на основе Array<Текст>
+тип RegExpExecArray = интерфейс Array<Текст>
 {
   index: Число
 
@@ -641,203 +517,105 @@
 }
 
 
-тип RegExp = интерфейс
+тип RegExp = объект
 {
   lastIndex: Число
 
   операция compile(pattern: Текст, flags: Текст? = пусто): /*(!) this */ Объект?
-}
 
-
-тип RegExpConstructor = интерфейс
-{
   при создании(pattern: Объект? /*(!)RegExp | Текст*/): RegExp
 
   при создании(pattern: Текст, flags: Текст? = пусто): RegExp
 
-  /*(!) (pattern: RegExp | string): RegExp*/
+  // (!) (pattern: RegExp | string): RegExp
 
-  /*(!) (pattern: string, flags?: string): RegExp*/
+  // (!) (pattern: string, flags?: string): RegExp
 
-  защищено 
-  "prototype": RegExp
+  защищено
+  prototype: RegExp
 
-  "$1": Текст
+  $1: Текст
 }
 
-
-внешнее
-/*(!) var */ RegExp: RegExpConstructor
-
-
-тип Error = интерфейс
+тип Error = объект
 {
   name: Текст
 
   message: Текст
 
   stack: Текст
-}
 
-
-тип ErrorConstructor = интерфейс
-{
   при создании(message: Текст? = пусто): Error
 
-  /*(!) (message?: string): Error*/
+  // (!) (message?: string): Error
 
-  защищено 
+  защищено
   prototype: Error
 }
 
-
-внешнее
-/*(!) var */ Error: ErrorConstructor
-
-
-тип EvalError = интерфейс на основе Error
-{
-
-}
-
-
-тип EvalErrorConstructor = интерфейс на основе ErrorConstructor
+тип EvalError = объект Error
 {
   при создании(message: Текст? = пусто): EvalError
 
-  /*(!) (message?: string): EvalError*/
+  // (!) (message?: string): EvalError
 
-  защищено 
+  защищено
   prototype: EvalError
 }
 
-
-внешнее
-/*(!) var */ EvalError: EvalErrorConstructor
-
-
-тип RangeError = интерфейс на основе Error
-{
-
-}
-
-
-тип RangeErrorConstructor = интерфейс на основе ErrorConstructor
+тип RangeError = объект Error
 {
   при создании(message: Текст? = пусто): RangeError
 
-  /*(!) (message?: string): RangeError*/
+  // (!) (message?: string): RangeError
 
-  защищено 
+  защищено
   prototype: RangeError
 }
 
-
-внешнее
-/*(!) var */ RangeError: RangeErrorConstructor
-
-
-тип ReferenceError = интерфейс на основе Error
-{
-
-}
-
-
-тип ReferenceErrorConstructor = интерфейс на основе ErrorConstructor
+тип ReferenceError = объект Error
 {
   при создании(message: Текст? = пусто): ReferenceError
 
-  /*(!) (message?: string): ReferenceError*/
+  // (!) (message?: string): ReferenceError
 
-  защищено 
+  защищено
   prototype: ReferenceError
 }
 
-
-внешнее
-/*(!) var */ ReferenceError: ReferenceErrorConstructor
-
-
-тип SyntaxError = интерфейс на основе Error
-{
-
-}
-
-
-тип SyntaxErrorConstructor = интерфейс на основе ErrorConstructor
+тип SyntaxError = объект Error
 {
   при создании(message: Текст? = пусто): SyntaxError
 
-  /*(!) (message?: string): SyntaxError*/
+  // (!) (message?: string): SyntaxError
 
-  защищено 
+  защищено
   prototype: SyntaxError
 }
 
-
-внешнее
-/*(!) var */ SyntaxError: SyntaxErrorConstructor
-
-
-тип TypeError = интерфейс на основе Error
-{
-
-}
-
-
-тип TypeErrorConstructor = интерфейс на основе ErrorConstructor
+тип TypeError = объект Error
 {
   при создании(message: Текст? = пусто): TypeError
 
-  /*(!) (message?: string): TypeError*/
+  // (!) (message?: string): TypeError
 
-  защищено 
+  защищено
   prototype: TypeError
 }
 
-
-внешнее
-/*(!) var */ TypeError: TypeErrorConstructor
-
-
-тип URIError = интерфейс на основе Error
-{
-
-}
-
-
-тип URIErrorConstructor = интерфейс на основе ErrorConstructor
+тип URIError = объект Error
 {
   при создании(message: Текст? = пусто): URIError
 
-  /*(!) (message?: string): URIError*/
+  // (!) (message?: string): URIError
 
-  защищено 
+  защищено
   prototype: URIError
 }
-
-
-внешнее
-/*(!) var */ URIError: URIErrorConstructor
-
-
-тип JSON = интерфейс
-{
-  операция parse(text: Текст, reviver: (операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект?)? = пусто): /*(!) any */ Объект?
-
-  операция stringify(value: /*(!) any */ Объект?, replacer: (операция(this: /*(!) any */ Объект?, key: Текст, value: /*(!) any */ Объект?): /*(!) any */ Объект?)? = пусто, space: Объект? /*(!)Текст | Число | пусто*/ = пусто): Текст
-
-  операция stringify(value: /*(!) any */ Объект?, replacer: Список<Объект? /*(!)Число | Текст*/>? = пусто, space: Объект? /*(!)Текст | Число | пусто*/ = пусто): Текст
-}
-
 
 /**
 * An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.
 */
-
-внешнее
-/*(!) var */ JSON: JSON
-
 
 /////////////////////////////
 
@@ -911,7 +689,7 @@
 }
 
 
-тип Array<T> = интерфейс
+тип Array<T> = объект
 {
   length: Число
 
@@ -978,12 +756,8 @@
 
   операция reduceRight<U>(callbackfn: операция(previousValue: U, currentValue: T, currentIndex: Число, array: Список<T>): U, initialValue: U): U
 
-  /*(!) [n: number]: T*/
-}
+  // (!) [n: number]: T
 
-
-тип ArrayConstructor = интерфейс
-{
   при создании(arrayLength: Число? = пусто): Список</*(!) any */ Объект?>
 
   при создании(arrayLength: Число): Список<T>
@@ -991,22 +765,17 @@
   #js.МассивПараметров
   при создании(items: Список<T>): Список<T>
 
-  /*(!) (arrayLength?: number): any[]*/
+  // (!) (arrayLength?: number): any[]
 
-  /*(!) <T>(arrayLength: number): T[]*/
+  // (!) <T>(arrayLength: number): T[]
 
-  /*(!) <T>(...items: T[]): T[]*/
+  // (!) <T>(...items: T[]): T[]
 
   операция isArray(arg: /*(!) any */ Объект?): /*(!) arg is */ Список</*(!) any */ Объект?>
 
-  защищено 
+  защищено
   prototype: Список</*(!) any */ Объект?>
 }
-
-
-внешнее
-/*(!) var */ Array: ArrayConstructor
-
 
 тип TypedPropertyDescriptor<T> = интерфейс
 {
@@ -1208,14 +977,20 @@
 * buffer as needed.
 */
 
-тип ArrayBuffer = интерфейс
+тип ArrayBuffer = объект
 {
-  защищено 
+  защищено
   byteLength: Число
 
   операция slice(begin: Число, end: Число? = пусто): ArrayBuffer
-}
 
+  защищено
+  prototype: ArrayBuffer
+
+  при создании(byteLength: Число): ArrayBuffer
+
+  операция isView(arg: /*(!) any */ Объект?): /*(!) arg is */ ArrayBufferView
+}
 
 /**
 * Allowed ArrayBuffer types for the buffer of an ArrayBufferView and related Typed Arrays.
@@ -1229,21 +1004,6 @@
 
 тип ArrayBufferLike = /*(!) ArrayBufferTypes[keyof ArrayBufferTypes] */ Объект?
 
-тип ArrayBufferConstructor = интерфейс
-{
-  защищено 
-  prototype: ArrayBuffer
-
-  при создании(byteLength: Число): ArrayBuffer
-
-  операция isView(arg: /*(!) any */ Объект?): /*(!) arg is */ ArrayBufferView
-}
-
-
-внешнее
-/*(!) var */ ArrayBuffer: ArrayBufferConstructor
-
-
 тип ArrayBufferView = интерфейс
 {
   buffer: ArrayBufferLike
@@ -1254,15 +1014,15 @@
 }
 
 
-тип DataView = интерфейс
+тип DataView = объект
 {
-  защищено 
+  защищено
   buffer: ArrayBuffer
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция getFloat32(byteOffset: Число, littleEndian: ДаНет? = пусто): Число
@@ -1296,39 +1056,30 @@
   операция setUint16(byteOffset: Число, value: Число, littleEndian: ДаНет? = пусто)
 
   операция setUint32(byteOffset: Число, value: Число, littleEndian: ДаНет? = пусто)
-}
 
-
-тип DataViewConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: DataView
 
   при создании(buffer: /*(!) ArrayBufferLike & { BYTES_PER_ELEMENT?: never; } */ Объект?, byteOffset: Число? = пусто, byteLength: Число? = пусто): DataView
 }
-
-
-внешнее
-/*(!) var */ DataView: DataViewConstructor
-
 
 /**
 * A typed array of 8-bit integer values. The contents are initialized to 0. If the requested
 * number of bytes could not be allocated an exception is raised.
 */
 
-тип Int8Array = интерфейс
+тип Int8Array = объект
 {
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
-  защищено 
+  защищено
   buffer: ArrayBufferLike
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
@@ -1351,7 +1102,7 @@
 
   операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  защищено 
+  защищено
   length: Число
 
   операция map(callbackfn: операция(value: Число, index: Число, array: Int8Array): Число, thisArg: /*(!) any */ Объект? = пусто): Int8Array
@@ -1386,13 +1137,9 @@
 
   операция valueOf(): Int8Array
 
-  /*(!) [index: number]: number*/
-}
+  // (!) [index: number]: number
 
-
-тип Int8ArrayConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: Int8Array
 
   при создании(length: Число): Int8Array
@@ -1401,7 +1148,7 @@
 
   при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Int8Array
 
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
   #js.МассивПараметров
@@ -1412,28 +1159,23 @@
   операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int8Array
 }
 
-
-внешнее
-/*(!) var */ Int8Array: Int8ArrayConstructor
-
-
 /**
 * A typed array of 8-bit unsigned integer values. The contents are initialized to 0. If the
 * requested number of bytes could not be allocated an exception is raised.
 */
 
-тип Uint8Array = интерфейс
+тип Uint8Array = объект
 {
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
-  защищено 
+  защищено
   buffer: ArrayBufferLike
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
@@ -1456,7 +1198,7 @@
 
   операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  защищено 
+  защищено
   length: Число
 
   операция map(callbackfn: операция(value: Число, index: Число, array: Uint8Array): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8Array
@@ -1491,13 +1233,9 @@
 
   операция valueOf(): Uint8Array
 
-  /*(!) [index: number]: number*/
-}
+  // (!) [index: number]: number
 
-
-тип Uint8ArrayConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: Uint8Array
 
   при создании(length: Число): Uint8Array
@@ -1506,7 +1244,7 @@
 
   при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Uint8Array
 
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
   #js.МассивПараметров
@@ -1517,28 +1255,23 @@
   операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8Array
 }
 
-
-внешнее
-/*(!) var */ Uint8Array: Uint8ArrayConstructor
-
-
 /**
 * A typed array of 8-bit unsigned integer (clamped) values. The contents are initialized to 0.
 * If the requested number of bytes could not be allocated an exception is raised.
 */
 
-тип Uint8ClampedArray = интерфейс
+тип Uint8ClampedArray = объект
 {
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
-  защищено 
+  защищено
   buffer: ArrayBufferLike
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
@@ -1561,7 +1294,7 @@
 
   операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  защищено 
+  защищено
   length: Число
 
   операция map(callbackfn: операция(value: Число, index: Число, array: Uint8ClampedArray): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8ClampedArray
@@ -1596,13 +1329,9 @@
 
   операция valueOf(): Uint8ClampedArray
 
-  /*(!) [index: number]: number*/
-}
+  // (!) [index: number]: number
 
-
-тип Uint8ClampedArrayConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: Uint8ClampedArray
 
   при создании(length: Число): Uint8ClampedArray
@@ -1611,7 +1340,7 @@
 
   при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Uint8ClampedArray
 
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
   #js.МассивПараметров
@@ -1622,28 +1351,23 @@
   операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint8ClampedArray
 }
 
-
-внешнее
-/*(!) var */ Uint8ClampedArray: Uint8ClampedArrayConstructor
-
-
 /**
 * A typed array of 16-bit signed integer values. The contents are initialized to 0. If the
 * requested number of bytes could not be allocated an exception is raised.
 */
 
-тип Int16Array = интерфейс
+тип Int16Array = объект
 {
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
-  защищено 
+  защищено
   buffer: ArrayBufferLike
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
@@ -1666,7 +1390,7 @@
 
   операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  защищено 
+  защищено
   length: Число
 
   операция map(callbackfn: операция(value: Число, index: Число, array: Int16Array): Число, thisArg: /*(!) any */ Объект? = пусто): Int16Array
@@ -1701,13 +1425,9 @@
 
   операция valueOf(): Int16Array
 
-  /*(!) [index: number]: number*/
-}
+  // (!) [index: number]: number
 
-
-тип Int16ArrayConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: Int16Array
 
   при создании(length: Число): Int16Array
@@ -1716,7 +1436,7 @@
 
   при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Int16Array
 
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
   #js.МассивПараметров
@@ -1727,28 +1447,23 @@
   операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int16Array
 }
 
-
-внешнее
-/*(!) var */ Int16Array: Int16ArrayConstructor
-
-
 /**
 * A typed array of 16-bit unsigned integer values. The contents are initialized to 0. If the
 * requested number of bytes could not be allocated an exception is raised.
 */
 
-тип Uint16Array = интерфейс
+тип Uint16Array = объект
 {
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
-  защищено 
+  защищено
   buffer: ArrayBufferLike
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
@@ -1771,7 +1486,7 @@
 
   операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  защищено 
+  защищено
   length: Число
 
   операция map(callbackfn: операция(value: Число, index: Число, array: Uint16Array): Число, thisArg: /*(!) any */ Объект? = пусто): Uint16Array
@@ -1806,13 +1521,9 @@
 
   операция valueOf(): Uint16Array
 
-  /*(!) [index: number]: number*/
-}
+  // (!) [index: number]: number
 
-
-тип Uint16ArrayConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: Uint16Array
 
   при создании(length: Число): Uint16Array
@@ -1821,7 +1532,7 @@
 
   при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Uint16Array
 
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
   #js.МассивПараметров
@@ -1832,28 +1543,23 @@
   операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint16Array
 }
 
-
-внешнее
-/*(!) var */ Uint16Array: Uint16ArrayConstructor
-
-
 /**
 * A typed array of 32-bit signed integer values. The contents are initialized to 0. If the
 * requested number of bytes could not be allocated an exception is raised.
 */
 
-тип Int32Array = интерфейс
+тип Int32Array = объект
 {
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
-  защищено 
+  защищено
   buffer: ArrayBufferLike
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
@@ -1876,7 +1582,7 @@
 
   операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  защищено 
+  защищено
   length: Число
 
   операция map(callbackfn: операция(value: Число, index: Число, array: Int32Array): Число, thisArg: /*(!) any */ Объект? = пусто): Int32Array
@@ -1911,13 +1617,9 @@
 
   операция valueOf(): Int32Array
 
-  /*(!) [index: number]: number*/
-}
+  // (!) [index: number]: number
 
-
-тип Int32ArrayConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: Int32Array
 
   при создании(length: Число): Int32Array
@@ -1926,7 +1628,7 @@
 
   при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Int32Array
 
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
   #js.МассивПараметров
@@ -1937,28 +1639,23 @@
   операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Int32Array
 }
 
-
-внешнее
-/*(!) var */ Int32Array: Int32ArrayConstructor
-
-
 /**
 * A typed array of 32-bit unsigned integer values. The contents are initialized to 0. If the
 * requested number of bytes could not be allocated an exception is raised.
 */
 
-тип Uint32Array = интерфейс
+тип Uint32Array = объект
 {
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
-  защищено 
+  защищено
   buffer: ArrayBufferLike
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
@@ -1981,7 +1678,7 @@
 
   операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  защищено 
+  защищено
   length: Число
 
   операция map(callbackfn: операция(value: Число, index: Число, array: Uint32Array): Число, thisArg: /*(!) any */ Объект? = пусто): Uint32Array
@@ -2016,13 +1713,9 @@
 
   операция valueOf(): Uint32Array
 
-  /*(!) [index: number]: number*/
-}
+  // (!) [index: number]: number
 
-
-тип Uint32ArrayConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: Uint32Array
 
   при создании(length: Число): Uint32Array
@@ -2031,7 +1724,7 @@
 
   при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Uint32Array
 
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
   #js.МассивПараметров
@@ -2042,28 +1735,23 @@
   операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Uint32Array
 }
 
-
-внешнее
-/*(!) var */ Uint32Array: Uint32ArrayConstructor
-
-
 /**
 * A typed array of 32-bit float values. The contents are initialized to 0. If the requested number
 * of bytes could not be allocated an exception is raised.
 */
 
-тип Float32Array = интерфейс
+тип Float32Array = объект
 {
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
-  защищено 
+  защищено
   buffer: ArrayBufferLike
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
@@ -2086,7 +1774,7 @@
 
   операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  защищено 
+  защищено
   length: Число
 
   операция map(callbackfn: операция(value: Число, index: Число, array: Float32Array): Число, thisArg: /*(!) any */ Объект? = пусто): Float32Array
@@ -2121,13 +1809,9 @@
 
   операция valueOf(): Float32Array
 
-  /*(!) [index: number]: number*/
-}
+  // (!) [index: number]: number
 
-
-тип Float32ArrayConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: Float32Array
 
   при создании(length: Число): Float32Array
@@ -2136,7 +1820,7 @@
 
   при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Float32Array
 
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
   #js.МассивПараметров
@@ -2147,28 +1831,23 @@
   операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Float32Array
 }
 
-
-внешнее
-/*(!) var */ Float32Array: Float32ArrayConstructor
-
-
 /**
 * A typed array of 64-bit float values. The contents are initialized to 0. If the requested
 * number of bytes could not be allocated an exception is raised.
 */
 
-тип Float64Array = интерфейс
+тип Float64Array = объект
 {
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
-  защищено 
+  защищено
   buffer: ArrayBufferLike
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
@@ -2191,7 +1870,7 @@
 
   операция lastIndexOf(searchElement: Число, fromIndex: Число? = пусто): Число
 
-  защищено 
+  защищено
   length: Число
 
   операция map(callbackfn: операция(value: Число, index: Число, array: Float64Array): Число, thisArg: /*(!) any */ Объект? = пусто): Float64Array
@@ -2226,13 +1905,9 @@
 
   операция valueOf(): Float64Array
 
-  /*(!) [index: number]: number*/
-}
+  // (!) [index: number]: number
 
-
-тип Float64ArrayConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: Float64Array
 
   при создании(length: Число): Float64Array
@@ -2241,7 +1916,7 @@
 
   при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): Float64Array
 
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
   #js.МассивПараметров
@@ -2251,11 +1926,6 @@
 
   операция from`<T>(arrayLike: ArrayLike<T>, mapfn: операция(v: T, k: Число): Число, thisArg: /*(!) any */ Объект? = пусто): Float64Array
 }
-
-
-внешнее
-/*(!) var */ Float64Array: Float64ArrayConstructor
-
 
 /////////////////////////////
 

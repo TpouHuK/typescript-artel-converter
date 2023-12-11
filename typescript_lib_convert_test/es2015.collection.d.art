@@ -1,4 +1,4 @@
-тип Map<K, V> = интерфейс
+тип Map<K, V> = объект
 {
   операция clear()
 
@@ -12,25 +12,16 @@
 
   операция set(key: K, value: V): /*(!) this */ Объект?
 
-  защищено 
+  защищено
   size: Число
-}
 
-
-тип MapConstructor = интерфейс
-{
   при создании(): Map</*(!) any */ Объект?, /*(!) any */ Объект?>
 
   при создании(entries: /*(!) защищено */ (Список</*(!) защищено */ объект { _0: K, _1: V }>?)? = пусто): Map<K, V>
 
-  защищено 
+  защищено
   prototype: Map</*(!) any */ Объект?, /*(!) any */ Объект?>
 }
-
-
-внешнее
-/*(!) var */ Map: MapConstructor
-
 
 тип ReadonlyMap<K, V> = интерфейс
 {
@@ -45,7 +36,7 @@
 }
 
 
-тип WeakMap<K = WeakKey, V> = интерфейс
+тип WeakMap<K = WeakKey, V> = объект
 {
   операция delete(key: K): ДаНет
 
@@ -54,23 +45,14 @@
   операция has(key: K): ДаНет
 
   операция set(key: K, value: V): /*(!) this */ Объект?
-}
 
-
-тип WeakMapConstructor = интерфейс
-{
   при создании(entries: /*(!) защищено */ (Список</*(!) защищено */ объект { _0: K, _1: V }>?)? = пусто): WeakMap<K, V>
 
-  защищено 
+  защищено
   prototype: WeakMap<WeakKey, /*(!) any */ Объект?>
 }
 
-
-внешнее
-/*(!) var */ WeakMap: WeakMapConstructor
-
-
-тип Set<T> = интерфейс
+тип Set<T> = объект
 {
   операция add(value: T): /*(!) this */ Объект?
 
@@ -82,23 +64,14 @@
 
   операция has(value: T): ДаНет
 
-  защищено 
+  защищено
   size: Число
-}
 
-
-тип SetConstructor = интерфейс
-{
   при создании(values: /*(!) защищено */ (Список<T>?)? = пусто): Set<T>
 
-  защищено 
+  защищено
   prototype: Set</*(!) any */ Объект?>
 }
-
-
-внешнее
-/*(!) var */ Set: SetConstructor
-
 
 тип ReadonlySet<T> = интерфейс
 {
@@ -111,25 +84,16 @@
 }
 
 
-тип WeakSet<T = WeakKey> = интерфейс
+тип WeakSet<T = WeakKey> = объект
 {
   операция add(value: T): /*(!) this */ Объект?
 
   операция delete(value: T): ДаНет
 
   операция has(value: T): ДаНет
-}
 
-
-тип WeakSetConstructor = интерфейс
-{
   при создании(values: /*(!) защищено */ (Список<T>?)? = пусто): WeakSet<T>
 
-  защищено 
+  защищено
   prototype: WeakSet<WeakKey>
 }
-
-
-внешнее
-/*(!) var */ WeakSet: WeakSetConstructor
-

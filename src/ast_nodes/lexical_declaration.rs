@@ -2,8 +2,8 @@ pub use super::*;
 
 #[derive(Debug)]
 pub struct ArtelLexicalDeclaration {
-    decl_type: ArtelLexicalDeclarationType,
-    body: Vec<ArtelLexicalDeclarationMember>,
+    pub decl_type: ArtelLexicalDeclarationType,
+    pub body: Vec<ArtelLexicalDeclarationMember>,
 }
 
 #[derive(Debug)]
@@ -15,9 +15,9 @@ pub enum ArtelLexicalDeclarationType {
 
 #[derive(Debug)]
 pub struct ArtelLexicalDeclarationMember {
-    ident: Identifier,
-    var_type: Type,
-    value: Option<String>,
+    pub ident: Identifier,
+    pub var_type: Type,
+    pub value: Option<String>,
 }
 
 impl ArtelLexicalDeclarationType {

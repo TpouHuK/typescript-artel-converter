@@ -34,7 +34,7 @@
 }
 
 
-тип BigInt = интерфейс
+тип BigInt = объект
 {
   операция toString(radix: Число? = пусто): Текст
 
@@ -42,16 +42,12 @@
 
   операция valueOf(): bigint
 
-  защищено 
+  защищено
   [Symbol.toStringTag]: "BigInt"
-}
 
+  // (!) (value: bigint | boolean | number | string): bigint
 
-тип BigIntConstructor = интерфейс
-{
-  /*(!) (value: bigint | boolean | number | string): bigint*/
-
-  защищено 
+  защищено
   prototype: BigInt
 
   операция asIntN(bits: Число, int: bigint): bigint
@@ -59,28 +55,23 @@
   операция asUintN(bits: Число, int: bigint): bigint
 }
 
-
-внешнее
-/*(!) var */ BigInt: BigIntConstructor
-
-
 /**
 * A typed array of 64-bit signed integer values. The contents are initialized to 0. If the
 * requested number of bytes could not be allocated, an exception is raised.
 */
 
-тип BigInt64Array = интерфейс
+тип BigInt64Array = объект
 {
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
-  защищено 
+  защищено
   buffer: ArrayBufferLike
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
@@ -109,7 +100,7 @@
 
   операция lastIndexOf(searchElement: bigint, fromIndex: Число? = пусто): Число
 
-  защищено 
+  защищено
   length: Число
 
   операция map(callbackfn: операция(value: bigint, index: Число, array: BigInt64Array): bigint, thisArg: /*(!) any */ Объект? = пусто): BigInt64Array
@@ -144,16 +135,12 @@
 
   операция [Symbol.iterator](): IterableIterator<bigint>
 
-  защищено 
+  защищено
   [Symbol.toStringTag]: "BigInt64Array"
 
-  /*(!) [index: number]: bigint*/
-}
+  // (!) [index: number]: bigint
 
-
-тип BigInt64ArrayConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: BigInt64Array
 
   при создании(length: Число? = пусто): BigInt64Array
@@ -162,7 +149,7 @@
 
   при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): BigInt64Array
 
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
   #js.МассивПараметров
@@ -173,28 +160,23 @@
   операция from`<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект? = пусто): BigInt64Array
 }
 
-
-внешнее
-/*(!) var */ BigInt64Array: BigInt64ArrayConstructor
-
-
 /**
 * A typed array of 64-bit unsigned integer values. The contents are initialized to 0. If the
 * requested number of bytes could not be allocated, an exception is raised.
 */
 
-тип BigUint64Array = интерфейс
+тип BigUint64Array = объект
 {
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
-  защищено 
+  защищено
   buffer: ArrayBufferLike
 
-  защищено 
+  защищено
   byteLength: Число
 
-  защищено 
+  защищено
   byteOffset: Число
 
   операция copyWithin(target: Число, start: Число, end: Число? = пусто): /*(!) this */ Объект?
@@ -223,7 +205,7 @@
 
   операция lastIndexOf(searchElement: bigint, fromIndex: Число? = пусто): Число
 
-  защищено 
+  защищено
   length: Число
 
   операция map(callbackfn: операция(value: bigint, index: Число, array: BigUint64Array): bigint, thisArg: /*(!) any */ Объект? = пусто): BigUint64Array
@@ -258,16 +240,12 @@
 
   операция [Symbol.iterator](): IterableIterator<bigint>
 
-  защищено 
+  защищено
   [Symbol.toStringTag]: "BigUint64Array"
 
-  /*(!) [index: number]: bigint*/
-}
+  // (!) [index: number]: bigint
 
-
-тип BigUint64ArrayConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: BigUint64Array
 
   при создании(length: Число? = пусто): BigUint64Array
@@ -276,7 +254,7 @@
 
   при создании(buffer: ArrayBufferLike, byteOffset: Число? = пусто, length: Число? = пусто): BigUint64Array
 
-  защищено 
+  защищено
   BYTES_PER_ELEMENT: Число
 
   #js.МассивПараметров
@@ -286,11 +264,6 @@
 
   операция from`<U>(arrayLike: ArrayLike<U>, mapfn: операция(v: U, k: Число): bigint, thisArg: /*(!) any */ Объект? = пусто): BigUint64Array
 }
-
-
-внешнее
-/*(!) var */ BigUint64Array: BigUint64ArrayConstructor
-
 
 тип DataView = интерфейс
 {

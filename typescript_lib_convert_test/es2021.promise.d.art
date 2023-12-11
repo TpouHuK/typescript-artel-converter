@@ -1,23 +1,14 @@
-тип AggregateError = интерфейс на основе Error
+тип AggregateError = объект Error
 {
   errors: Список</*(!) any */ Объект?>
-}
 
-
-тип AggregateErrorConstructor = интерфейс
-{
   при создании(errors: Iterable</*(!) any */ Объект?>, message: Текст? = пусто): AggregateError
 
-  /*(!) (errors: Iterable<any>, message?: string): AggregateError*/
+  // (!) (errors: Iterable<any>, message?: string): AggregateError
 
-  защищено 
+  защищено
   prototype: AggregateError
 }
-
-
-внешнее
-/*(!) var */ AggregateError: AggregateErrorConstructor
-
 
 /**
 * Represents the completion of an asynchronous operation

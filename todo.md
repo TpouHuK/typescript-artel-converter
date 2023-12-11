@@ -1,3 +1,17 @@
+<***************>
+interface <Name> extends ... { <A> }
+declare var <Name> : { <B> }
+======> 
+type <Name> = object {
+    <A>
+    <B>
+}
+<***************>
+
+
+
+
+
 # Potential bugs
 - any identation beyond 100 will crash the program
 

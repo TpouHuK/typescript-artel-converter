@@ -1,5 +1,5 @@
 //! Types in ast.
-//! AstType is the main type to represen't type, which represent union of types. Union of a single
+//! AstType is the main type to represent type, which represent union of types. Union of a single
 //! type represent just a type.
 
 use super::*;
@@ -83,7 +83,7 @@ pub enum PredefinedType {
 
 #[derive(Debug, Clone)]
 pub struct TypeReference {
-    type_name: Identifier,
+    pub type_name: Identifier,
     type_arguments: Vec<Type>,
 }
 
@@ -96,7 +96,7 @@ pub struct TypeParameter {
 
 #[derive(Debug, Clone)]
 pub struct ObjectType {
-    body: Vec<InterfaceMember>,
+    pub body: Vec<InterfaceMember>,
 }
 
 /// Stuff in the `<` `>` brackets, when not specified, like <T, A>

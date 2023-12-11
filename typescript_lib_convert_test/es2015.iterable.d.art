@@ -42,7 +42,7 @@
 }
 
 
-тип IterableIterator<T> = интерфейс на основе Iterator<T>
+тип IterableIterator<T> = интерфейс Iterator<T>
 {
   операция [Symbol.iterator](): IterableIterator<T>
 }

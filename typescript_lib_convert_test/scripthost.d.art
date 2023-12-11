@@ -4,16 +4,6 @@
 
 /////////////////////////////
 
-тип ActiveXObject = интерфейс
-{
-  при создании(s: Текст): /*(!) any */ Объект?
-}
-
-
-внешнее
-/*(!) var */ ActiveXObject: ActiveXObject
-
-
 тип ITextWriter = интерфейс
 {
   операция Write(s: Текст)
@@ -34,7 +24,7 @@
 }
 
 
-тип TextStreamWriter = интерфейс на основе TextStreamBase
+тип TextStreamWriter = интерфейс TextStreamBase
 {
   операция Write(s: Текст)
 
@@ -44,7 +34,7 @@
 }
 
 
-тип TextStreamReader = интерфейс на основе TextStreamBase
+тип TextStreamReader = интерфейс TextStreamBase
 {
   операция Read(characters: Число): Текст
 
@@ -92,7 +82,7 @@
 * Allows enumerating over a COM collection, which may not have indexed item access.
 */
 
-тип Enumerator<T> = интерфейс
+тип Enumerator<T> = объект
 {
   операция atEnd(): ДаНет
 
@@ -101,11 +91,7 @@
   операция moveFirst()
 
   операция moveNext()
-}
 
-
-тип EnumeratorConstructor = интерфейс
-{
   при создании(safearray: SafeArray<T>): Enumerator<T>
 
   при создании(collection: объект { операция Item(index: /*(!) any */ Объект?): T }): Enumerator<T>
@@ -113,16 +99,11 @@
   при создании(collection: /*(!) any */ Объект?): Enumerator<T>
 }
 
-
-внешнее
-/*(!) var */ Enumerator: EnumeratorConstructor
-
-
 /**
 * Enables reading from a COM safe array, which might have an alternate lower bound, or multiple dimensions.
 */
 
-тип VBArray<T> = интерфейс
+тип VBArray<T> = объект
 {
   операция dimensions(): Число
 
@@ -134,18 +115,9 @@
   операция ubound(dimension: Число? = пусто): Число
 
   операция toArray(): Список<T>
-}
 
-
-тип VBArrayConstructor = интерфейс
-{
   при создании(safeArray: SafeArray<T>): VBArray<T>
 }
-
-
-внешнее
-/*(!) var */ VBArray: VBArrayConstructor
-
 
 /**
 * Automation date (VT_DATE)

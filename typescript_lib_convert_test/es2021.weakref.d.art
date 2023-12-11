@@ -1,45 +1,27 @@
-тип WeakRef<T = WeakKey> = интерфейс
+тип WeakRef<T = WeakKey> = объект
 {
-  защищено 
+  защищено
   [Symbol.toStringTag]: "WeakRef"
 
   операция deref(): T?
-}
 
-
-тип WeakRefConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: WeakRef</*(!) any */ Объект?>
 
   при создании(target: T): WeakRef<T>
 }
 
-
-внешнее
-/*(!) var */ WeakRef: WeakRefConstructor
-
-
-тип FinalizationRegistry<T> = интерфейс
+тип FinalizationRegistry<T> = объект
 {
-  защищено 
+  защищено
   [Symbol.toStringTag]: "FinalizationRegistry"
 
   операция register(target: WeakKey, heldValue: T, unregisterToken: WeakKey? = пусто)
 
   операция unregister(unregisterToken: WeakKey)
-}
 
-
-тип FinalizationRegistryConstructor = интерфейс
-{
-  защищено 
+  защищено
   prototype: FinalizationRegistry</*(!) any */ Объект?>
 
   при создании(cleanupCallback: операция(heldValue: T)): FinalizationRegistry<T>
 }
-
-
-внешнее
-/*(!) var */ FinalizationRegistry: FinalizationRegistryConstructor
-
